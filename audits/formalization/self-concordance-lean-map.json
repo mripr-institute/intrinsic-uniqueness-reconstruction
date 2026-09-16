@@ -1,0 +1,159 @@
+{
+  "scope": "Exact per-component map for draft final:C6; all entries concern actual derivatives, native real functions/integrals, and a native MetricSpace.",
+  "namespace": "SigmaFinal",
+  "latex_label": "final:C6",
+  "status": "complete",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalSelfConcordance.lean",
+      "sha256": "21da60e08233211bc106d9791e579179aac98aa15c12cfd09ecb69e374f14ae1",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSelfConcordance.lean",
+      "compiler_log": "work/final-SigmaFinalSelfConcordance.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSelfConcordance.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSelfConcordanceGeometry.lean",
+      "sha256": "b79eb7c84a7d85233dbe7b94d197981b378d82e8e1c7811e41106b0387dc1073",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSelfConcordanceGeometry.lean",
+      "compiler_log": "work/final-SigmaFinalSelfConcordanceGeometry.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSelfConcordanceGeometry.olean"
+    }
+  ],
+  "components": [
+    {
+      "component": "signed equality identifies the anchored candidate",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.self_concordance_signed_identifies",
+        "SigmaFinal.self_concordance_signed_identifies_minimal",
+        "SigmaFinal.sc_signed_curvature_unique"
+      ],
+      "proof_and_scope": "The exact draft ContDiffOn R 3 wrapper and a stronger three-differentiability-level inverse. Actual second and third derivatives are used; inverse-square curvature is derived."
+    },
+    {
+      "component": "unsigned equality identifies the candidate on the entire positive ray",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.self_concordance_unsigned_identifies",
+        "SigmaFinal.self_concordance_unsigned_identifies_minimal",
+        "SigmaFinal.sc_unsigned_curvature_unique",
+        "SigmaFinal.sc_derivative_nonzero_constant_sign",
+        "SigmaFinal.sc_positive_branch_impossible"
+      ],
+      "proof_and_scope": "Darboux gives constant sign without continuity of the highest derivative. The wrong sign forces a positive inverse square root to equal 2-t and is contradicted at t=3."
+    },
+    {
+      "component": "canonical forward equality and calibrated positive curvature",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_intrinsic_C3",
+        "SigmaFinal.sc_intrinsic_calibration",
+        "SigmaFinal.sc_intrinsic_curvature",
+        "SigmaFinal.sc_intrinsic_third_derivative",
+        "SigmaFinal.sc_intrinsic_signed_equality"
+      ],
+      "proof_and_scope": "The native deficit satisfies the actual derivative formulas, C3 regularity, positivity, all three anchors and signed equality."
+    },
+    {
+      "component": "Hessian metric and its exact distance",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_hessian_speed",
+        "SigmaFinal.scPathLength_eq_hessian_length",
+        "SigmaFinal.sc_hessian_path_distance",
+        "SigmaFinal.sc_native_metric_distance",
+        "SigmaFinal.sc_native_hessian_path_distance",
+        "SigmaFinal.scLogSegment_length"
+      ],
+      "proof_and_scope": "A native MetricSpace on the positive subtype is transported by log. Its distance is proved to be the attained infimum of genuine Hessian length integrals over positive differentiable paths with integrable logarithmic velocity. An explicit exponential interpolation attains the lower bound; distance is not simply assumed to be the path infimum."
+    },
+    {
+      "component": "symmetrization in terms of distance",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_symmetrization_distance"
+      ],
+      "proof_and_scope": "Exact I(t/s)+I(s/t)=4*sinh(abs(log(t/s))/2)^2 for all positive s,t."
+    },
+    {
+      "component": "marked Hessian coefficient and affine anchors reconstruct I",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_anchored_curvature_reconstructs"
+      ],
+      "proof_and_scope": "The candidate is genuinely twice differentiable; the given metric coefficient fixes its actual curvature, and the two affine anchors determine the primitive."
+    },
+    {
+      "component": "bare distance fails to fix orientation",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_distance_inversion",
+        "SigmaFinal.sc_inversion_reverses_order"
+      ],
+      "proof_and_scope": "Inversion preserves every pairwise distance and reverses the positive-ray order."
+    },
+    {
+      "component": "self-concordance inequality does not identify I even with all three calibrations",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.scQuadratic_calibrated_inequality",
+        "SigmaFinal.scQuadratic_not_intrinsic"
+      ],
+      "proof_and_scope": "The actual quadratic (t-1)^2/2 is C3 with positive curvature, all three draft anchors, and the inequality, while differing from I."
+    },
+    {
+      "component": "I admits no finite self-concordant-barrier parameter",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.sc_gradient_hessian_ratio",
+        "SigmaFinal.sc_no_finite_barrier_parameter"
+      ],
+      "proof_and_scope": "The actual gradient/Hessian ratio is (t-1)^2. No real nu satisfies the necessary barrier inequality (I'(t))^2 <= nu I''(t) throughout the positive ray."
+    }
+  ],
+  "lean_declarations": [
+    "SigmaFinal.self_concordance_signed_identifies",
+    "SigmaFinal.self_concordance_signed_identifies_minimal",
+    "SigmaFinal.sc_signed_curvature_unique",
+    "SigmaFinal.self_concordance_unsigned_identifies",
+    "SigmaFinal.self_concordance_unsigned_identifies_minimal",
+    "SigmaFinal.sc_unsigned_curvature_unique",
+    "SigmaFinal.sc_derivative_nonzero_constant_sign",
+    "SigmaFinal.sc_positive_branch_impossible",
+    "SigmaFinal.sc_intrinsic_C3",
+    "SigmaFinal.sc_intrinsic_calibration",
+    "SigmaFinal.sc_intrinsic_curvature",
+    "SigmaFinal.sc_intrinsic_third_derivative",
+    "SigmaFinal.sc_intrinsic_signed_equality",
+    "SigmaFinal.sc_hessian_speed",
+    "SigmaFinal.scPathLength_eq_hessian_length",
+    "SigmaFinal.sc_hessian_path_distance",
+    "SigmaFinal.sc_native_metric_distance",
+    "SigmaFinal.sc_native_hessian_path_distance",
+    "SigmaFinal.scLogSegment_length",
+    "SigmaFinal.sc_symmetrization_distance",
+    "SigmaFinal.sc_anchored_curvature_reconstructs",
+    "SigmaFinal.sc_distance_inversion",
+    "SigmaFinal.sc_inversion_reverses_order",
+    "SigmaFinal.scQuadratic_calibrated_inequality",
+    "SigmaFinal.scQuadratic_not_intrinsic",
+    "SigmaFinal.sc_gradient_hessian_ratio",
+    "SigmaFinal.sc_no_finite_barrier_parameter"
+  ],
+  "unproved_components": [],
+  "representation_notes": [
+    "The differential abbreviations scCurvature and scThirdDerivative are literally deriv (deriv F) and deriv (deriv (deriv F)); they are not unconstrained fields.",
+    "The path-distance theorem explicitly names its admissible path class: positive paths differentiable on the closed unit interval with integrable logarithmic velocity. This includes every positive C1 path, and its integral is proved equal to the Hessian length.",
+    "No native mathlib self-concordant-barrier class was found. The exact necessary finite-parameter gradient/Hessian inequality is disproved directly, which proves the manuscript exclusion.",
+    "The draft proof now uses a fully calibrated quadratic inequality counterexample; the earlier cI example alone did not preserve the second-derivative anchor."
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalSelfConcordanceAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalSelfConcordanceAxiomCheck.log",
+    "report": "outputs/final-draft/self-concordance-axiom-audit.json"
+  }
+}

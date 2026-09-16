@@ -1,0 +1,176 @@
+{
+  "graph_sha256": "ed2f859918668863f3d6cf16744acb351aedcd80c840c44581a4ab34136e89d0",
+  "nodes": 105,
+  "edges": 118,
+  "intrinsic_size": 46,
+  "nontrivial_unconditional_identification_sccs": [
+    [
+      "AHAT",
+      "BERN",
+      "BOREL",
+      "BREG",
+      "CHI",
+      "COC",
+      "COMP",
+      "CURV",
+      "CW",
+      "ENTROPY",
+      "EQUIL",
+      "GAMMA",
+      "GREEN",
+      "GUMBEL",
+      "H",
+      "HAAR",
+      "I",
+      "JOINT",
+      "LAPLACE",
+      "LEG",
+      "LOG",
+      "LOGISTIC",
+      "LSER",
+      "MELLIN",
+      "METRIC",
+      "MIX",
+      "MOMENTS",
+      "ORTHO",
+      "P",
+      "POICGF",
+      "POIKL",
+      "POIREC",
+      "PROJ",
+      "REC",
+      "RIC",
+      "S",
+      "SCHWARZ",
+      "SELF",
+      "SIZEBIAS",
+      "STEIN",
+      "STIELTJES",
+      "SURV",
+      "SYMB",
+      "TODD",
+      "TOWER",
+      "TREE"
+    ],
+    [
+      "FULL_DET",
+      "HEAT",
+      "SPEC",
+      "ZETA",
+      "ZETA_INT"
+    ],
+    [
+      "KERNEL",
+      "LAGUERRE"
+    ]
+  ],
+  "quotient_exact_with_source_signatures": true,
+  "context_availability_errors": [],
+  "conditional_edges_without_required_nodes": [],
+  "conditional_fibre_additions": [
+    {
+      "inputs": [
+        "PLACEMENT"
+      ],
+      "additional_members": [
+        "SIGMA"
+      ]
+    },
+    {
+      "inputs": [
+        "OP_CONTEXT"
+      ],
+      "additional_members": [
+        "KERNEL",
+        "LAGUERRE",
+        "LOW2"
+      ]
+    },
+    {
+      "inputs": [
+        "CONV_CONTEXT"
+      ],
+      "additional_members": [
+        "SEMIGROUP"
+      ]
+    },
+    {
+      "inputs": [
+        "CONV_CONTEXT",
+        "NO_DRIFT"
+      ],
+      "additional_members": [
+        "LEVY",
+        "SEMIGROUP"
+      ]
+    },
+    {
+      "inputs": [
+        "SPD_CONTEXT"
+      ],
+      "additional_members": [
+        "SPD"
+      ]
+    },
+    {
+      "inputs": [
+        "MATRIX_ANCHORS",
+        "SPD_CONTEXT"
+      ],
+      "additional_members": [
+        "MATRIX_GEOM",
+        "SPD"
+      ]
+    },
+    {
+      "inputs": [
+        "GAUSS_CONTEXT"
+      ],
+      "additional_members": [
+        "GAUSSIAN"
+      ]
+    },
+    {
+      "inputs": [
+        "GW_CONTEXT"
+      ],
+      "additional_members": [
+        "GW"
+      ]
+    },
+    {
+      "inputs": [
+        "TOP_CONTEXT"
+      ],
+      "additional_members": [
+        "THOM"
+      ]
+    },
+    {
+      "inputs": [
+        "TILT_MARK"
+      ],
+      "additional_members": [
+        "TILT"
+      ]
+    },
+    {
+      "inputs": [
+        "INVOL"
+      ],
+      "additional_members": [
+        "DEFICIT"
+      ]
+    },
+    {
+      "inputs": [
+        "SELFDECOMP_LINK"
+      ],
+      "additional_members": [
+        "SELFDECOMP"
+      ]
+    }
+  ],
+  "missing_proof_paths_at_check_time": [],
+  "mathematical_proof": false
+}

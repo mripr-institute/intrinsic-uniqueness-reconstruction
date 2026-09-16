@@ -1,0 +1,549 @@
+{
+  "scope": "Exact probability statement/component map. A named statement is complete only when every stated mathematical component is covered; partial statements are not counted complete. All listed declarations are kernel-checked without proof escapes.",
+  "statements": [
+    {
+      "latex_label": "final:P0-uniqueness",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.operator_hausdorff_moment_unique",
+        "SigmaFinal.operator_nonnegative_mixing_measure_unique",
+        "SigmaFinal.finite_measure_characteristic_unique",
+        "SigmaFinal.finite_measure_local_mgf_unique",
+        "SigmaFinal.probability_local_cgf_unique"
+      ],
+      "proved_components": [
+        "Actual finite Borel measure uniqueness on [0,1] from all integer moments, and on [0,infinity) from integer Laplace samples.",
+        "Generic finite-Borel-measure Fourier uniqueness on the full real line.",
+        "Generic local MGF uniqueness for arbitrary finite real-line measures, proved by dominated holomorphic differentiation on a strip and the analytic identity theorem."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P1",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.gamma_pdf_intrinsic",
+        "SigmaFinal.gamma_probability_normalized",
+        "SigmaFinal.gamma_probability_no_atom",
+        "SigmaFinal.gamma_probability_negative_ray",
+        "SigmaFinal.gamma_probability_integral",
+        "SigmaFinal.gamma_probability_moments",
+        "SigmaFinal.gamma_probability_monomial_integrable",
+        "SigmaFinal.gamma_probability_laplace",
+        "SigmaFinal.operator_factorial_moments_exp_abs_integrable",
+        "SigmaFinal.operator_factorial_moments_local_mgf",
+        "SigmaFinal.operator_full_line_factorial_moment_unique",
+        "SigmaFinal.operator_full_line_mixing_characterization",
+        "SigmaFinal.gamma_probability_characteristic",
+        "SigmaFinal.gamma_complex_laplace",
+        "SigmaFinal.gamma_complex_mellin",
+        "SigmaFinal.gamma_probability_mean",
+        "SigmaFinal.gamma_probability_variance",
+        "SigmaFinal.gamma_characteristic_identifies_real_line_measure",
+        "SigmaFinal.log_characteristic_as_mellin",
+        "SigmaFinal.gamma_mellin_on_imaginary_line",
+        "SigmaFinal.imaginary_mellin_identifies_positive_probability",
+        "SigmaFinal.gamma_probability_topological_support",
+        "SigmaFinal.gamma_probability_cgf",
+        "SigmaFinal.gamma_probability_cumulants",
+        "SigmaFinal.gamma_derivative_one_euler",
+        "SigmaFinal.gamma_derivative_two_euler",
+        "SigmaFinal.gamma_probability_expected_log",
+        "SigmaFinal.gamma_probability_log_integrable"
+      ],
+      "proved_components": [
+        "Native Gamma(2,1) measure equals the intrinsic density; normalization, no atoms, no negative mass, all factorial moments with integrability, full real Laplace domain s>-1, unrestricted full-real-line factorial-moment inverse deriving support, and Laplace inverse.",
+        "Actual full complex Laplace half-plane and complex Mellin integral formulas, actual characteristic function, mean two and variance two.",
+        "Direct unrestricted real-line characteristic inverse and logarithmic Mellin inverse for positive probabilities, using actual map log/map exp and the newly proved Fourier measure uniqueness.",
+        "Topological support is exactly the closed positive ray, expressed through positive mass of every open neighborhood.",
+        "All cumulants as actual iterated derivatives at zero of the native log MGF: kappa_(n+1)=2*n!.",
+        "Actual expected logarithm equals 1 minus the native Euler-Mascheroni constant, with log integrability, derived from native log-Gamma product limits and integral differentiation. Independently reviewed."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P1-samples",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.operator_full_line_mixing_characterization",
+        "SigmaFinal.operator_integer_samples_positive_support"
+      ],
+      "proved_components": [
+        "All integer exponential observations identify the actual Gamma probability among finite positive measures on all R; integrability, normalization and positive support are conclusions."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P1-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.gamma_with_zero_atom_positive_moments",
+        "SigmaFinal.gamma_with_zero_atom_mass",
+        "SigmaFinal.gamma_with_zero_atom_distinct"
+      ],
+      "proved_components": [
+        "Explicit actual finite positive measure gammaProbability+dirac 0 retains every strictly positive-order factorial moment and is distinct, proving necessity of the zeroth moment."
+      ],
+      "unproved_components": [
+        "Signed moment-null perturbations and finite-moment positive perturbations."
+      ]
+    },
+    {
+      "latex_label": "final:P2",
+      "status": "partial",
+      "lean_declarations": [
+        "PhaseIV.poisson_normalized_recurrence",
+        "SigmaFinal.poisson_probability_recurrence",
+        "SigmaFinal.poisson_one_recurrence",
+        "SigmaFinal.poisson_exponential_integrable",
+        "SigmaFinal.poisson_probability_mgf",
+        "SigmaFinal.poisson_probability_cgf",
+        "SigmaFinal.poisson_centered_probability_cgf",
+        "SigmaFinal.poisson_probability_mean",
+        "PhaseIV.poisson_KL_slice",
+        "PhaseIV.poisson_KL_orientation",
+        "PhaseIV.poisson_mean_bregman",
+        "PhaseIV.centeredCGF_recovers_exp",
+        "SigmaFinal.poisson_local_cgf_identifies_real_line_law",
+        "SigmaFinal.marked_centered_poisson_local_cgf_identifies_law"
+      ],
+      "proved_components": [
+        "Recurrence equivalence for actual native Poisson PMFs; integrability, mean one, full actual MGF and marked centered CGF; scalar reconstruction and algebraic KL/Bregman formulas.",
+        "Complete uncentered and marked-centered CGF neighborhood inverses among actual real-line probability laws; native Poisson integer support is a conclusion."
+      ],
+      "unproved_components": [
+        "KL as actual relative-entropy integrals for Poisson/exponential/Gaussian laws; Legendre boundary supremums; variance, Fisher information and general Poisson tilts."
+      ]
+    },
+    {
+      "latex_label": "final:P2-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.shifted_poisson_mean",
+        "SigmaFinal.shifted_poisson_centered_cgf",
+        "SigmaFinal.shifted_poisson_not_original",
+        "PhaseIV.poisson_KL_orientation"
+      ],
+      "proved_components": [
+        "Actual shifted Poisson measures have the same unmarked centered CGF and are distinct for every positive integer shift."
+      ],
+      "unproved_components": [
+        "Actual relative-entropy reversal counterexamples for all three families."
+      ]
+    },
+    {
+      "latex_label": "final:P3",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.gumbel_cdf_positive",
+        "SigmaFinal.gumbel_cdf_lt_one",
+        "SigmaFinal.gumbel_cdf_monotone",
+        "SigmaFinal.gumbel_cdf_anchor",
+        "SigmaFinal.gumbel_max_law",
+        "SigmaFinal.log_two_three_dense",
+        "SigmaFinal.gumbel_two_max_laws_unique",
+        "SigmaFinal.gumbel_cdf_continuous",
+        "SigmaFinal.gumbel_cdf_tendsto_atTop",
+        "SigmaFinal.gumbel_cdf_tendsto_atBot",
+        "SigmaFinal.gumbel_cdf_derivative",
+        "SigmaFinal.gumbel_density_intrinsic",
+        "SigmaFinal.gumbel_density_reconstructs",
+        "SigmaFinal.gumbel_probability_cdf",
+        "SigmaFinal.gumbel_two_max_probability_unique",
+        "SigmaFinal.gumbel_probability_density"
+      ],
+      "proved_components": [
+        "Full inverse from monotonicity alone plus marked 2-max, 3-max and anchor equations; exact dense-log-subgroup argument, canonical formula and all integer max laws.",
+        "Native Stieltjes probability, actual CDF and density measure equality, both endpoint limits, differentiability, and exact arbitrary probability-law inverse. Independently audited against all displayed P3 statements."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P3-haar",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.positive_haar_log",
+        "SigmaFinal.positive_haar_exp",
+        "SigmaFinal.positive_haar_scale",
+        "SigmaFinal.positive_haar_infinite",
+        "SigmaFinal.positive_haar_upper_infinite",
+        "SigmaFinal.positive_haar_lower_infinite",
+        "SigmaFinal.gumbel_coordinate_haar",
+        "SigmaFinal.positive_haar_weighted_density",
+        "SigmaFinal.unit_exp_density_on_positive",
+        "SigmaFinal.gumbel_coordinate_pushforward",
+        "SigmaFinal.positive_haar_weighted_probability",
+        "SigmaFinal.positive_haar_weighted_normalized",
+        "SigmaFinal.positive_haar_density_integral",
+        "SigmaFinal.positive_haar_recovers_gamma",
+        "SigmaFinal.marked_gumbel_density_identifies",
+        "SigmaFinal.positive_haar_probability_identifies",
+        "SigmaFinal.gumbel_coordinate_pullback",
+        "SigmaFinal.positive_haar_interval",
+        "SigmaFinal.gumbel_without_anchor_counterexample",
+        "SigmaFinal.gumbel_base_two_counterexample"
+      ],
+      "proved_components": [
+        "Multiplicative Haar measure on the positive ray, its logarithmic/exponential pushforward, scaling invariance, infinite endpoint mass, and the Haar-weighted Gamma density.",
+        "Exact marked-coordinate pushforward and pullback, pointwise density recovery on the positive ray, and explicit probability counterexamples for anchor removal and the base-two-only law."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P4-data",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.intrinsic_potential_two_branch",
+        "SigmaFinal.TwoBranchPotential.roots",
+        "SigmaFinal.TwoBranchPotential.sublevel_interval",
+        "SigmaFinal.gamma_deficit_cdf_from_roots",
+        "SigmaFinal.gamma_deficit_cdf_zero_at_zero",
+        "SigmaFinal.gamma_deficit_no_atom_at_zero",
+        "SigmaFinal.gamma_deficit_cdf_negative",
+        "SigmaFinal.canonical_deficit_cdf",
+        "SigmaFinal.canonical_deficit_involution_involutive",
+        "SigmaFinal.canonical_deficit_involution_fixed_point",
+        "SigmaFinal.canonical_deficit_involution_strictAnti",
+        "SigmaFinal.canonical_deficit_involution_preserves_density",
+        "SigmaFinal.negative_lambert_W0_spec",
+        "SigmaFinal.negative_lambert_Wm1_spec",
+        "SigmaFinal.canonical_deficit_roots_lambert",
+        "SigmaFinal.gamma_deficit_cdf_lambert",
+        "SigmaFinal.canonical_deficit_involution_lambert_lower",
+        "SigmaFinal.canonical_deficit_involution_lambert_upper",
+        "SigmaFinal.deficit_lower_derivative",
+        "SigmaFinal.deficit_upper_derivative",
+        "SigmaFinal.gamma_deficit_cdf_derivative"
+      ],
+      "proved_components": [
+        "Actual canonical potential has the stated two strict branches, endpoint divergence, paired roots and exact sublevel intervals.",
+        "Actual canonical deficit CDF on nonnegative and negative levels, no atom at zero; explicit canonical root pairing is a positive strictly decreasing involution, fixes exactly one, and preserves the potential and density.",
+        "The exact Lambert W0/W\u22121 root, CDF, and both canonical involution formulas, using semantically defined unique real inverse branches on the negative argument interval.",
+        "Actual derivatives of both inverse roots, and derivative of the actual deficit CDF equal to the exact displayed density expression, on every positive level."
+      ],
+      "unproved_components": [
+        "Full smoothness of the involution and derivative at one; packaging the CDF derivative as an actual withDensity measure; square-root singular asymptotic."
+      ]
+    },
+    {
+      "latex_label": "final:P4-cumulants",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.gamma_deficit_probability_is_probability",
+        "SigmaFinal.gamma_deficit_nonnegative",
+        "SigmaFinal.gamma_deficit_mgf",
+        "SigmaFinal.gamma_deficit_exponential_integrable",
+        "SigmaFinal.gamma_deficit_mgf_integrable_iff",
+        "SigmaFinal.probability_moment_unique_of_target_exponential",
+        "SigmaFinal.gamma_deficit_moments_identify_real_line_probability",
+        "SigmaFinal.probability_moments_eq_of_algebraic_cumulants",
+        "SigmaFinal.gamma_deficit_algebraic_cumulants_identify"
+      ],
+      "proved_components": [
+        "Actual canonical deficit pushforward probability on the nonnegative ray; exact full real MGF and exponential integrability for every s<1.",
+        "Sharp actual MGF integrability domain s<1, including divergence at and above one. Full-real-line moment determinacy from the actual target moments, deriving the candidate exponential envelope.",
+        "Standard algebraic cumulant recurrence determines the moment sequence; the deficit inverse follows when the target cumulant recurrence is calibrated. The explicit target calibration is not assumed proved."
+      ],
+      "unproved_components": [
+        "Complete explicit cumulant list and CGF series, Gamma/polygamma/zeta/Euler evaluations, and the truncated transform."
+      ]
+    },
+    {
+      "latex_label": "final:P4",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.linked_deficit_law_recovers_level_measure",
+        "SigmaFinal.linked_deficit_law_recovers_width",
+        "SigmaFinal.linked_deficit_and_involution_unique",
+        "SigmaFinal.canonical_linked_deficit_identifies_I",
+        "SigmaFinal.TwoBranchPotential.pair_strictAnti",
+        "SigmaFinal.RayPotential.extension",
+        "SigmaFinal.linked_deficit_and_involution_unique_on_positive_ray",
+        "SigmaFinal.canonical_linked_density_measure",
+        "SigmaFinal.canonical_deficit_pair_identifies_on_positive_ray"
+      ],
+      "proved_components": [
+        "Actual linked pushforward probability data undo the positive density weighting and recover sublevel widths; common root pairing then determines both branches and the full potential, including the canonical Gamma target.",
+        "Literal positive-ray-only class wrapper derives measurability of the canonical extension and strict decrease of the linked root pairing; no global regularity or extra involution monotonicity premise.",
+        "Literal positive-ray inverse for the actual canonical target pair, with all target pairing properties and monotonicity derived; identifies both potential and density pointwise."
+      ],
+      "unproved_components": [
+        "The alternative using the explicit zeta/Euler cumulant target values; actual law-and-involution inverse and exact Lambert target observations are proved."
+      ]
+    },
+    {
+      "latex_label": "final:P4-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.canonical_upper_root_monotone",
+        "SigmaFinal.canonical_upper_root_measurable",
+        "SigmaFinal.upper_branch_probability_is_probability",
+        "SigmaFinal.upper_branch_potential_probability",
+        "SigmaFinal.upper_branch_Ici_one",
+        "SigmaFinal.gamma_Ici_one_lt_one",
+        "SigmaFinal.upper_branch_source_counterexample"
+      ],
+      "proved_components": [
+        "A measurable upper-branch source law has exactly the canonical deficit law under the fixed potential, but is distinct from the Gamma source law."
+      ],
+      "unproved_components": [
+        "The noncanonical-potential countermodels preserving exactly the deficit law or exactly the involution."
+      ]
+    },
+    {
+      "latex_label": "final:P5",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.gamma_survival_derivative",
+        "SigmaFinal.gamma_survival_tail_integral",
+        "SigmaFinal.gamma_hazard_ratio",
+        "SigmaFinal.gamma_self_survival_shift",
+        "SigmaFinal.gamma_survival_potential",
+        "SigmaFinal.gamma_hazard_unique_differentiable",
+        "SigmaFinal.logistic_hazard_coordinate",
+        "SigmaFinal.logistic_hazard_derivative",
+        "SigmaFinal.exponential_pair_convolution",
+        "SigmaFinal.gamma_canonical_self_decomposition",
+        "SigmaFinal.logistic_hazard_unique",
+        "SigmaFinal.independent_exponential_pair_gamma",
+        "SigmaFinal.normalized_second_order_density_unique",
+        "SigmaFinal.gamma_probability_tail",
+        "SigmaFinal.gamma_probability_interval"
+      ],
+      "proved_components": [
+        "Actual Lebesgue tail integral and all survival/hazard/shift/potential formulas; hazard inverse in the differentiable subclass; logistic forward equation; exponential convolution integral and actual independent-exponential sum law at residual scale zero.",
+        "Global logistic inverse without a prior range restriction; actual sum of two independent unit exponential probabilities is Gamma.",
+        "Complete normalized second-order ODE inverse on the positive ray, with continuous zero boundary and actual mass integral, proved by integrating factors.",
+        "Actual native Gamma measure tail and interval probabilities equal the stated survival formulas."
+      ],
+      "unproved_components": [
+        "Absolutely-continuous/a.e. hazard inverse, causal distributional Green uniqueness, and Poisson-process arrival-time construction."
+      ]
+    },
+    {
+      "latex_label": "final:P5-survival-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.mixed_gamma_survival_anchor",
+        "SigmaFinal.mixed_gamma_survival_positive",
+        "SigmaFinal.mixed_gamma_hazard",
+        "SigmaFinal.logarithmic_gamma_hazard",
+        "SigmaFinal.atom_gamma_mixture_probability",
+        "SigmaFinal.atom_gamma_mixture_nonnegative",
+        "SigmaFinal.atom_gamma_mixture_atom",
+        "SigmaFinal.atom_gamma_mixture_positive_density",
+        "SigmaFinal.atom_gamma_mixture_tail_real",
+        "SigmaFinal.atom_gamma_mixture_tail_derivative",
+        "SigmaFinal.gamma_hazard_anchor_counterexample",
+        "SigmaFinal.log_gamma_probability_density",
+        "SigmaFinal.log_gamma_tail_real",
+        "SigmaFinal.log_gamma_tail_derivative",
+        "SigmaFinal.log_gamma_actual_hazard",
+        "SigmaFinal.log_gamma_hazard_ne_composition",
+        "SigmaFinal.gamma_self_shift_iff"
+      ],
+      "proved_components": [
+        "The actual atom-at-zero Gamma mixture is a probability supported on the nonnegative ray, with its atom, positive-ray density, actual survival, and derivative established. It retains the positive-argument hazard but changes the survival anchor and differs from Gamma.",
+        "The actual logarithmic pushforward has density exp(u)*p(exp(u)), the transformed survival and its derivative, and hazard exp(2u)/(1+exp(u)); it differs from the hazard composition for u nonzero.",
+        "The full self-survival shift equivalence for the native Gamma measure, for all positive shape, rate, and shift: shape one with arbitrary positive shift, or shape two with shift equal to the reciprocal rate. Both necessity and sufficiency are proved."
+      ],
+      "unproved_components": [
+        "The continuous singular-survival counterexample with derivative zero almost everywhere in its singular factor, showing why local absolute continuity cannot be omitted."
+      ]
+    },
+    {
+      "latex_label": "final:P5-stieltjes",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Stieltjes integral formula and complete/open-interval inverse; complete monotonicity and non-Stieltjes boundary assertions."
+      ]
+    },
+    {
+      "latex_label": "final:P5-transforms",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.normalized_weight_is_probability",
+        "SigmaFinal.normalized_weight_inverse",
+        "SigmaFinal.marked_exponential_tilt_inverse",
+        "SigmaFinal.marked_exponential_tilt_identifies",
+        "SigmaFinal.positive_size_bias_inverse",
+        "SigmaFinal.positive_size_bias_reciprocal_mean",
+        "SigmaFinal.unit_exp_size_bias_gamma",
+        "SigmaFinal.gamma_positive_size_bias_inverse",
+        "SigmaFinal.gamma_size_bias_identifies_positive_exponential",
+        "SigmaFinal.atom_exp_coordinate_mean",
+        "SigmaFinal.zero_atom_size_bias_counterexample"
+      ],
+      "proved_components": [
+        "Actual normalized probability measure inverses for positive weights, marked exponential tilts, and positive size bias; reciprocal normalizer computed from observed law; exact Gamma size-bias inverse is the native exponential probability. Normalizers are actual nonnegative integrals, with positivity and finiteness explicit.",
+        "Actual normalized zero-atom exponential mixtures have the same Gamma size bias and differ from the positive exponential law."
+      ],
+      "unproved_components": [
+        "Equilibrium-law inverse and its atom counterexample; Gamma tilt range, rate formula and cumulants; unmarked-rate counterexample; translate ENNReal normalizers to displayed real positive means."
+      ]
+    },
+    {
+      "latex_label": "final:P5-equilibrium-fixed",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual equilibrium fixed-point characterization without density assumptions on the input lifetime."
+      ]
+    },
+    {
+      "latex_label": "final:P6",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual rooted-series coefficients, convergence, Borel normalization/moments and inverse germ."
+      ]
+    },
+    {
+      "latex_label": "final:P6-gw",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Native one-ancestor iid Galton-Watson total-size law and its offspring inverse."
+      ]
+    },
+    {
+      "latex_label": "final:P6-boundaries",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Coefficient-mark, branch, and critical-tail counterexamples."
+      ]
+    },
+    {
+      "latex_label": "final:P7",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.entropy_defect_nonneg",
+        "SigmaFinal.entropy_defect_eq_zero",
+        "SigmaFinal.gamma_density_divergence_zero_iff",
+        "SigmaFinal.calibrated_extended_entropy_bound",
+        "SigmaFinal.calibrated_extended_entropy_equality_iff",
+        "SigmaFinal.CalibratedGammaDensity.cross_integrable",
+        "SigmaFinal.CalibratedGammaDensity.cross_entropy",
+        "SigmaFinal.CalibratedGammaDensity.finite_entropy_formula",
+        "SigmaFinal.gamma_density_calibrated",
+        "SigmaFinal.gamma_extended_entropy_value",
+        "SigmaFinal.calibrated_gamma_maximum_entropy",
+        "SigmaFinal.calibrated_gamma_finite_entropy",
+        "SigmaFinal.gamma_density_entropy_integral"
+      ],
+      "proved_components": [
+        "Actual nonnegative Lebesgue relative-divergence integral, exact almost-everywhere equality case, and extended-real entropy bound/equality including infinite divergence, for any finite calibrated cross-entropy constant.",
+        "Actual candidate constraints imply finite cross entropy; the extended entropy definition agrees with the ordinary negative integral of f log f whenever finite.",
+        "Concrete Gamma target satisfies all calibrated constraints; actual entropy value 1+EulerGamma, extended maximum and exact equality inverse, and agreement with ordinary finite entropy. Every displayed theorem assertion is covered."
+      ],
+      "unproved_components": [
+        "The additional smooth constraint-preserving perturbation counterexample in the proof prose."
+      ]
+    },
+    {
+      "latex_label": "final:P8",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual Gamma convolution semigroup existence and uniqueness from the time-one law, including all cumulants."
+      ]
+    },
+    {
+      "latex_label": "final:P8-levy",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.exponential_rate_tail_integral",
+        "SigmaFinal.gamma_levy_complete_monotone_representation",
+        "SigmaFinal.log_complete_bernstein_integral",
+        "SigmaFinal.gamma_exponent_derivative",
+        "SigmaFinal.gamma_levy_exponent_integral",
+        "SigmaFinal.gamma_levy_exponent_integrable"
+      ],
+      "proved_components": [
+        "Actual improper-integral identities for the Levy density as an exponential mixture and log(1+lambda) as its complete-Bernstein rational integral; exact exponent derivative.",
+        "Actual Levy-Khintchine scalar integral equals 2 log(1+lambda), with integrability and Fubini proved."
+      ],
+      "unproved_components": [
+        "full complete monotonicity derivative package, subordinator Levy-Khintchine representation and all drift equivalences."
+      ]
+    },
+    {
+      "latex_label": "final:P8-samples",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_hausdorff_moment_unique"
+      ],
+      "proved_components": [
+        "Native compact Hausdorff uniqueness needed for the integer-tail reduction."
+      ],
+      "unproved_components": [
+        "Bernstein representation and endpoint masses; see final:O6 operator map."
+      ]
+    },
+    {
+      "latex_label": "final:P8-selfdecomposition",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.gamma_residual_probability",
+        "SigmaFinal.gamma_residual_laplace",
+        "SigmaFinal.gamma_residual_zero_atom",
+        "SigmaFinal.gamma_canonical_self_decomposition"
+      ],
+      "proved_components": [
+        "Actual nonnegative residual distribution, exact transform and zero atom, actual independent Gamma self-decomposition."
+      ],
+      "unproved_components": [
+        "Compound-Poisson/Levy realization, total jump intensity, infinite divisibility and full Gamma-family nonidentification examples."
+      ]
+    },
+    {
+      "latex_label": "final:P9",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.probability_characteristic_continuous",
+        "SigmaFinal.independent_affine_sum_characteristic",
+        "SigmaFinal.linked_characteristic_rigidity",
+        "SigmaFinal.linked_probability_characteristic",
+        "SigmaFinal.independent_contraction_positive_support",
+        "SigmaFinal.canonical_residual_identifies_gamma",
+        "SigmaFinal.gamma_canonical_self_decomposition",
+        "SigmaFinal.gamma_residual_scale_identified",
+        "SigmaFinal.endpoint_one_does_not_restrict",
+        "SigmaFinal.gamma_probability_characteristic",
+        "SigmaFinal.gamma_residual_characteristic",
+        "SigmaFinal.canonical_decomposition_characteristic_equation",
+        "SigmaFinal.gamma_characteristic_equation",
+        "SigmaFinal.residual_endpoint_one",
+        "SigmaFinal.residual_endpoint_one_every_law",
+        "SigmaFinal.finite_measure_characteristic_unique",
+        "SigmaFinal.linked_characteristic_identifies_real_line_probability",
+        "SigmaFinal.real_line_residual_characterization",
+        "SigmaFinal.unlinked_residual_observation_counterexample"
+      ],
+      "proved_components": [
+        "Full actual law equivalence between Gamma and the explicitly constructed independent residual decomposition for arbitrary probabilities on R, deriving support without source moments; exact characteristic-equation rigidity to the rational canonical function; residual scale recovery from atom c\u00b2; characteristic endpoint obstruction.",
+        "Actual Fourier integrals of native Gamma and explicit residual probabilities; independent-law clause implies the exact characteristic equation, and the canonical Gamma law satisfies it.",
+        "Actual residual at c=1 is dirac 0 and every probability law satisfies the corresponding independent decomposition.",
+        "Generic finite-measure Fourier uniqueness on all R proved from native compact-circle Fourier density and expanding-period decoders; complete three-way P9 equivalence and explicit unlinked-designation counterexample."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:P-formalization-scope",
+      "status": "documentation",
+      "lean_declarations": [],
+      "proved_components": [
+        "Stable named-statement map records completed components and remaining obligations without asserting complete formalization."
+      ],
+      "unproved_components": []
+    }
+  ]
+}

@@ -1,0 +1,1192 @@
+\section{Complete characteristic series and topology}
+\label{final:series}
+
+The complete characteristic series below recover the intrinsic
+decomposition of $\Sigma$. The coordinate in every formal statement
+is marked. Unless
+otherwise specified, coefficients lie in a field $K$ of characteristic
+zero.  The same identities hold in a commutative $\mathbb Q$-algebra
+when every scalar used as a denominator is a unit.  For a formal series,
+$[u^n]$ denotes coefficient extraction and $\operatorname{Res}_u$ is
+the coefficient of $u^{-1}$ in a Laurent differential.  A quotient
+such as $u/(1-e^{-u})$ means the inverse of the unit
+$(1-e^{-u})/u$; no inverse of the nonunit $u$ is being asserted.
+
+\begin{theorem}[The normalized Todd tower and all its twists]
+\label{final:F1}
+There is a unique series $Q(u)=\sum_{j\geq0}q_ju^j$ satisfying
+\[
+ q_0=1,\qquad [u^n]Q(u)^{n+1}=1\quad(n\geq1).
+\]
+It is
+\[
+ Q_T(u)=\frac{u}{1-e^{-u}}.
+\]
+Equivalently, one may impose the coefficient equations for every
+$n\geq0$, since their degree-zero equation is exactly $q_0=1$.
+For this series, for every $n\geq0$,
+\begin{equation}\label{final:todd-twists}
+ [u^n]e^{ku}Q_T(u)^{n+1}
+   =\binom{n+k}{n}
+   =\frac{(k+1)(k+2)\cdots(k+n)}{n!}.
+\end{equation}
+This is a polynomial identity in $k$ over $\mathbb Q$, including the
+empty-product convention for $n=0$, and hence holds at every $k\in K$.
+In particular it holds for all positive and negative integer twists.
+Every individual positive-degree equation is indispensable within the
+displayed tower with $q_0=1$.
+\end{theorem}
+
+\begin{proof}
+For $n\geq1$, expanding the product of $n+1$ copies of $Q$ gives
+\[
+ [u^n]Q^{n+1}=(n+1)q_n+P_n(q_1,\ldots,q_{n-1}).
+\]
+The only occurrences of $q_n$ choose degree $n$ from one factor and
+degree zero from the others.  As $n+1$ is invertible, this equation
+determines $q_n$ from the preceding coefficients.  This proves
+uniqueness, provided existence is established.
+
+Put $z=1-e^{-u}$, whose compositional inverse is $u=-\log(1-z)$.
+The formal change-of-coordinate rule for residues gives
+\begin{align*}
+ [u^n]e^{ku}Q_T^{n+1}
+ &=\operatorname{Res}_u\frac{e^{ku}}{(1-e^{-u})^{n+1}}\,du\\
+ &=\operatorname{Res}_z z^{-n-1}(1-z)^{-k-1}\,dz
+   =[z^n](1-z)^{-k-1}
+   =\binom{n+k}{n}.
+\end{align*}
+For completeness, residue substitution by a coordinate
+$u=\phi(z)=z+O(z^2)$ follows by linearity from Laurent monomials.
+If $j\ne-1$, $\phi^j\phi'$ is the derivative of
+$\phi^{j+1}/(j+1)$ and has zero residue; if $j=-1$, write
+$\phi=zv$, $v(0)=1$, to obtain
+$\phi'/\phi=z^{-1}+v'/v$, with residue one.  Only finitely many
+negative Laurent powers are involved, and nonnegative powers cannot
+contribute a residue.  The final coefficient identity follows from
+the binomial series, or by solving
+$(1-z)F'=(k+1)F$, $F(0)=1$, coefficient by coefficient.
+Taking $k=0$ proves existence and all tower equations.
+
+If the equation at a positive degree $N$ is removed, retain the
+uniquely determined coefficients below $N$, choose any $q_N$ different
+from its Todd value, and apply the same recursion at every $n>N$.
+The resulting series satisfies every retained equation and differs
+from $Q_T$.  A finite initial tower leaves every later coefficient
+unconstrained.  Finally, if $q_0$ is only required to be a unit and the
+degree-zero equation is absent, the coefficient of $q_n$ becomes
+$(n+1)q_0^n$.  Thus each chosen unit $q_0$ gives a recursively determined
+tower; normalization cannot be silently dropped.
+\end{proof}
+
+For comparison, arbitrary powers have the separate finite coefficient
+formula
+\begin{equation}\label{final:todd-arbitrary-power}
+ [u^n]Q_T(u)^k=
+ \sum_{\substack{m_1,\ldots,m_n\geq0\\\sum j m_j=n}}
+ (k)_{\underline M}\prod_{j=1}^n\frac{q_j^{m_j}}{m_j!},
+ \qquad M=\sum_{j=1}^n m_j,
+\end{equation}
+where $(k)_{\underline M}=k(k-1)\cdots(k-M+1)$ and the
+empty product is one.  Indeed, apply the formal binomial expansion
+to $Q_T=1+(Q_T-1)$ and then the multinomial theorem.  This formula
+does not replace the exponent $n+1$ and exponential twist in
+\eqref{final:todd-twists}.
+
+\begin{theorem}[Reversible characteristic-series formulas]
+\label{final:F2}
+Define the normalized series
+\[
+ Q_A(u)=\frac{u/2}{\sinh(u/2)},\qquad
+ Q_L(u)=\frac{u}{\tanh u},\qquad
+ Q_y(u)=Q_T((1+y)u)-yu.
+\]
+Their constant terms are one.  With $y$ fixed and marked and
+$1+y\ne0$, each of $Q_T,Q_A,Q_L,Q_y$, and each of their multiplicative
+inverses, determines the others in the marked formal coordinate.
+Explicit reconstruction formulas are
+\begin{gather}
+ Q_T=e^{u/2}Q_A,\qquad Q_L(u)=Q_T(2u)-u,
+ \qquad Q_T(u)=Q_L(u/2)+u/2,\label{final:TAL}\\
+ e^u=\frac{Q_T(u)}{Q_T(u)-u},\qquad
+ e^{2u}=\frac{Q_L(u)+u}{Q_L(u)-u},\label{final:exponential-recovery}\\
+ Q_T(v)=Q_y\left(\frac{v}{1+y}\right)+\frac{yv}{1+y}.
+ \label{final:chi-inverse}
+\end{gather}
+For a reconstruction from $Q_A$ alone, set
+\[
+ b=\frac{u}{Q_A(u)},\qquad
+ w=\frac{b+\sqrt{b^2+4}}{2},\qquad Q_T=wQ_A,
+\]
+where the formal square root has constant term $2$.
+The specialization $y=-1$ is exactly $Q_{-1}(u)=1+u$ and has no
+inverse of the form claimed.  Over a general $\mathbb Q$-algebra the
+hypothesis is that $1+y$ is a unit, and over $\mathbb Q[y]$ the
+inverse formula takes place after localization at $1+y$.
+\end{theorem}
+
+\begin{proof}
+Substitution of $\sinh v=(e^v-e^{-v})/2$ and
+$\tanh v=(e^{2v}-1)/(e^{2v}+1)$ proves
+\eqref{final:TAL}--\eqref{final:exponential-recovery}.  All denominators
+in the displayed ratios are units.  The square-root recursion is
+unique because its leading coefficient is $2$, so its successive
+unknown coefficients have invertible coefficient $4$.  In the present
+case $b=2\sinh(u/2)$ and this root is $2\cosh(u/2)$; thus $w=e^{u/2}$.
+Equivalently $w(0)=1$ and $w-w^{-1}=b$, whose unit solution is unique.
+The affine rescaling defining $Q_y$ gives \eqref{final:chi-inverse}
+directly, and $y=-1$ gives $1+u$.  Multiplicative inversion on units
+is an involution.  These calculations establish the stated reversals
+on the exact series; applying the square-root algorithm to an
+arbitrary even unit does not certify that its input equals $Q_A$.
+\end{proof}
+
+\begin{proposition}[Formal, analytic, and global recovery]
+\label{final:F3}
+The preceding reversals recover the formal exponential and its inverse
+formal logarithm, hence the germ of $H(1+z)=\log(1+z)-z$ at $z=0$.
+After specializing coefficients and the marked parameter $y$ to
+the reals, they also construct the displayed standard real analytic functions
+on their full real domains.  They identify an independently supplied
+global function from its germ only in a declared uniqueness category,
+for example real analytic functions on the same connected domain.
+No analogous identification of arbitrary smooth global extensions is
+valid.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{final:exponential-recovery} recovers $e^u$, and the
+series $e^u-1$ has linear coefficient one, so it has a unique
+compositional inverse, $\log(1+z)$.  The real quotient definitions
+extend through $u=0$ with value one.  Their other denominators do not
+vanish on the real line; in the $Q_A$ reconstruction the chosen root
+is $2\cosh(u/2)>0$.  Consequently the explicit formulas define the
+claimed real analytic extensions.  The analytic identity theorem on
+a connected interval proves uniqueness within that category.
+
+The nearest nonremovable complex poles are $\pm2\pi i$ for $Q_T,Q_A$
+and $\pm\pi i$ for $Q_L$.  Their Taylor discs therefore do not themselves
+cover the real line.  For the smooth counterexample, choose a nonzero
+smooth bump $\chi$ supported in a compact subinterval of $(0,1)$ away
+from $1$.  Then $I+\varepsilon\chi$ has the same germ at $1$ as $I$
+and differs globally for $\varepsilon\ne0$.  Since $I''=t^{-2}$ has a
+positive minimum on the support, a sufficiently small
+$|\varepsilon|$ preserves strict convexity.  A formal identity alone
+cannot exclude this example.
+\end{proof}
+
+\begin{theorem}[The universal Thom correction, conditional on topology]
+\label{final:F4}
+Suppose complex topological $K$-theory and rational ordinary cohomology
+are supplied with their Thom isomorphisms, compatible complex
+orientations, natural multiplicative Thom classes, the Chern character
+normalized by $\operatorname{ch}(L)=e^{c_1(L)}$, and an injective
+splitting principle.  For a complex vector bundle $V\to B$ on a finite
+CW complex, with projection $\pi$, the uniquely defined correction in
+\begin{equation}\label{final:Thom-comparison}
+ \operatorname{ch}(U_K(V))=\pi^*C(V)\,U_H(V)
+\end{equation}
+is
+\[
+ C(V)=\operatorname{Td}(V)^{-1}
+      =\prod_i Q_T(u_i)^{-1},
+\]
+where the $u_i$ are formal Chern roots.  Its complete universal line
+series determines $Q_T$ and conversely.  With compatible collapse and
+Gysin constructions supplied as well, this yields
+\begin{equation}\label{final:RR}
+ \operatorname{ch}(f_!^K a)
+   =f_*^H\bigl(\operatorname{ch}(a)\operatorname{Td}(T_f)\bigr)
+\end{equation}
+for $a\in K^0$ and a proper smooth map between manifolds with the
+specified complex $K$-orientation and virtual relative tangent bundle
+$T_f$, using compact supports when required.  On universal bases
+the characteristic-class statement is taken in completed rational
+cohomology.
+\end{theorem}
+
+\begin{proof}
+The cohomological Thom isomorphism makes multiplication by $U_H(V)$
+an isomorphism from the cohomology of the base to the appropriate
+relative group, so it gives existence and uniqueness of $C(V)$ in
+\eqref{final:Thom-comparison}.  For a line bundle put $u=c_1(L)$.
+The zero-section pullbacks of the two Thom classes are respectively
+$1-[L^*]$ and $u$.  Thus
+\[
+ uC(u)=1-e^{-u}.
+\]
+Naturality makes these identities compatible on the finite stages
+of the universal line bundle.  Their inverse limit is
+$\mathbb Q[[u]]$, in which multiplication by $u$ is injective.
+Hence $C(u)=(1-e^{-u})/u=Q_T(u)^{-1}$.  Multiplicativity of Thom
+classes and the Chern character gives the product formula after
+splitting, and injectivity of the supplied splitting map descends
+it to $B$.  For an embedding, applying the collapse map gives the
+cohomological pushforward with the correction
+$\operatorname{Td}(\nu)^{-1}$ for its complex normal bundle $\nu$.
+Since $T_f=-\nu$, this is \eqref{final:RR}; the supplied stable
+factorization and composition rules give the same formula for the
+stated proper maps.  Finally, the universal line correction is a
+unit, so inversion recovers $Q_T$.
+\end{proof}
+
+The scalar Euler-coordinate identity used here is itself elementary:
+for $x\star y=x+y+xy$ and $z(x)=x/(1+x)$,
+\[
+ z(x\star y)=z(x)+z(y)-z(x)z(y).
+\]
+Indeed $1-z(x)=1/(1+x)$ is multiplicative under $\star$.
+Interpreting $x$ as $[L]-1$ and $z$ as $1-[L^*]$ is a map into a
+supplied $K$-theory ring.  The scalar identity does not construct
+bundles, Thom isomorphisms, or the underlying spaces.  On a finite
+base $u$ may be nilpotent and a zero divisor; cancellation in that
+base would be invalid.  If $u^{N+1}=0$, adding $u^{N+1}R(u)$ to a
+characteristic series does not change its evaluation there.  A single
+finite-base Thom comparison or numerical index consequently cannot
+determine the complete universal series.  Interpretations of the
+$L$, $\widehat A$, and $\chi_y$ series retain their respective
+oriented, spin, or complex/holomorphic foundations; the algebraic
+formulas do not assert those foundations or their index theorems.
+
+\begin{proposition}[Rational characteristic data lose integral data]
+\label{final:F5}
+On $\mathbb{RP}^2$, the complexification $L$ of the tautological real
+line is nontrivial and $[L]\ne[1]$ in complex $K^0$, although
+$\operatorname{ch}(L)=1$ in rational cohomology.  Thus even with the
+base fixed, rational characteristic data and the complete scalar
+series do not reconstruct integral bundle or $K$-theory data.
+\end{proposition}
+
+\begin{proof}
+The usual cellular calculation gives
+$H^2(\mathbb{RP}^2;\mathbb Z)=\mathbb Z/2$ and no positive-degree
+rational cohomology.  To verify nontriviality directly, a nowhere-zero
+section of $L$ would pull back to an odd map
+$g:S^2\to\mathbb C\setminus\{0\}$.  Normalize it to an odd map
+$S^2\to S^1$.  Since $S^2$ is simply connected, write
+$g(x)=e^{i\theta(x)}$ for a continuous real function $\theta$.
+Then $\theta(-x)-\theta(x)$ is a continuous odd integral multiple
+of $\pi$, hence constant by connectedness.  Replacing $x$ by $-x$
+changes its sign, which is impossible for a nonzero odd multiple
+of $\pi$.  Thus $L$ is nontrivial.  Equivalently, under the usual
+classification of complex line bundles, its first Chern class is
+the nonzero element of the displayed group.
+
+If $[L]=[1]$, the Grothendieck-group relation supplies a bundle $E$
+with $L\oplus E\cong 1\oplus E$.  Taking determinant lines and
+cancelling $\det E$ would make $L$ trivial, a contradiction.
+On the other hand, every positive-degree rational Chern class
+vanishes, so $\operatorname{ch}(L)=1$.  The transition functions of
+$L$ are signs, so $L\otimes L\cong1$, as expected from the torsion
+line class.  These arguments use the stated elementary topological
+foundations and do not follow from formal scalar arithmetic alone.
+\end{proof}
+
+\section{The matrix lift and its Gaussian statistics}
+\label{final:matrix}
+
+Write $\mathcal P_n$ for the cone of real symmetric positive-definite
+$n\times n$ matrices, $E_n$ for its identity, and use the trace pairing
+$\langle U,V\rangle=\operatorname{tr}(UV)$ on symmetric matrices.
+All matrix logarithms, square roots, and powers below are the positive
+spectral ones.  The finite-dimensional real spectral theorem is
+retained throughout this section.
+
+\begin{theorem}[The unique scalar-block spectral lift]
+\label{final:M1}
+Suppose a family $F_n:\mathcal P_n\to\mathbb R$, $n\geq1$, satisfies
+\[
+ F_1([t])=I(t),\qquad F_n(QXQ^{\mathsf T})=F_n(X)
+\]
+for orthogonal $Q$, and the scalar-block recursion
+\[
+ F_{n+1}(X\oplus[t])=F_n(X)+I(t).
+\]
+Then, without any regularity assumption,
+\begin{equation}\label{final:matrix-potential}
+ F_n(X)=\Phi_n(X):=\sum_{i=1}^n I(\lambda_i(X))
+          =\operatorname{tr}X-\log\det X-n.
+\end{equation}
+This family satisfies full block additivity.  Neither orthogonal
+invariance nor scalar-block recursion can be removed while keeping
+the scalar seed, even among nonnegative candidates.
+\end{theorem}
+
+\begin{proof}
+Orthogonally diagonalize $X$ and apply scalar-block recursion until
+all blocks have size one.  This forces the sum in
+\eqref{final:matrix-potential}.  Trace, determinant, and their behavior
+on block diagonal matrices verify every axiom for $\Phi_n$.
+
+If orthogonal invariance is omitted,
+$F_n(X)=\sum_i I(X_{ii})$ retains the seed and full block additivity.
+Rotating $\operatorname{diag}(2,1)$ through angle $\pi/4$ gives diagonal
+entries $3/2,3/2$, and
+$I(2)-2I(3/2)=\log(9/8)\ne0$, so it is a different lift.
+If scalar-block recursion is omitted, for $\varepsilon>0$ put
+\[
+ G_n(X)=\Phi_n(X)+\varepsilon
+   \sum_{i<j}(\log\lambda_i(X)-\log\lambda_j(X))^2.
+\]
+This has the seed, orthogonal invariance, and nonnegativity, but on
+$[a]\oplus[b]$, $a\ne b$, its extra term is nonzero whereas both
+rank-one extra terms vanish.  If the seed is omitted, the zero family
+already retains the two structural rules.  These are omission tests
+in the stated family, rather than a claim of an absolute weakest
+possible axiomatization.
+\end{proof}
+
+\begin{theorem}[Derivatives, divergence, duality, and determinant bounds]
+\label{final:M2}
+In the indicated affine coordinates the potential $\Phi_n$ satisfies
+\begin{align}
+ \nabla\Phi_n(X)&=E_n-X^{-1},\label{final:matrix-gradient}\\
+ g_X(U,V):=D^2\Phi_n(X)[U,V]
+   &=\operatorname{tr}(X^{-1}UX^{-1}V),\label{final:matrix-hessian}\\
+ D(X,Y):=\Phi_n(X)-\Phi_n(Y)
+   -\langle\nabla\Phi_n(Y),X-Y\rangle
+   &=\operatorname{tr}(Y^{-1}X)-\log\det(Y^{-1}X)-n.
+   \label{final:matrix-divergence}
+\end{align}
+The Hessian is positive definite and $D(X,Y)\geq0$, with equality
+exactly when $X=Y$.  For every invertible real $C$, simultaneous
+congruence preserves both $D$ and $g$.  Inversion is an isometry for
+$g$ and reverses the directed divergence:
+\[
+ D(X^{-1},Y^{-1})=D(Y,X).
+\]
+Extending $\Phi_n$ by $+\infty$ outside $\mathcal P_n$ in the vector
+space of symmetric matrices, its conjugate is
+\begin{equation}\label{final:matrix-conjugate}
+ \Phi_n^*(\Theta)=
+ \begin{cases}
+  -\log\det(E_n-\Theta),&E_n-\Theta\in\mathcal P_n,\\
+  +\infty,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+The Legendre coordinate is $\Theta=E_n-X^{-1}$, with inverse
+$X=(E_n-\Theta)^{-1}$.  Moreover
+\[
+ \det X\leq e^{\operatorname{tr}X-n},\qquad
+ \det X\leq\left(\frac{\operatorname{tr}X}{n}\right)^n,
+\]
+with equality respectively at $E_n$ and at positive scalar matrices;
+$\log\det$ is strictly concave.
+\end{theorem}
+
+\begin{proof}
+Jacobi's formula gives $D\log\det X[U]=\operatorname{tr}(X^{-1}U)$.
+Differentiating $XX^{-1}=E_n$ gives
+$D(X^{-1})[U]=-X^{-1}UX^{-1}$ and proves the first two formulas.
+Their positivity is the precise identity
+\[
+ g_X(U,U)=\operatorname{tr}
+    \bigl((X^{-1/2}UX^{-1/2})^2\bigr)
+          =\|X^{-1/2}UX^{-1/2}\|_F^2.
+\]
+It is the trace of a square, and is strictly positive for $U\ne0$.
+Substitution yields \eqref{final:matrix-divergence}.  With
+$A=Y^{-1/2}XY^{-1/2}$, trace and determinant show
+$D(X,Y)=\sum_i I(\lambda_i(A))$.  Scalar nonnegativity and its equality
+case prove the assertion, since $A=E_n$ precisely when $X=Y$.
+Cyclic trace and the inverse-congruence formula prove congruence
+invariance.  Substituting inverses in $D$ gives its reversal; inserting
+the differential $-X^{-1}UX^{-1}$ in $g_{X^{-1}}$ gives $g_X$.
+
+If $B=E_n-\Theta$ is positive definite, maximizing the conjugate is
+equivalent to maximizing $-\operatorname{tr}(BX)+\log\det X+n$.
+Substitute $A=B^{1/2}XB^{1/2}$ to obtain
+$-\Phi_n(A)-\log\det B$.  Its unique maximum occurs at $A=E_n$,
+which proves the finite formula and its optimizer.  If $B$ has an
+eigenvalue $b\leq0$, take $X$ diagonal in an eigenbasis of $B$, with
+the matching eigenvalue equal to $r\to\infty$ and all others one.
+The contribution $-br+\log r$ diverges even when $b=0$.
+Substituting Fenchel equality consequently gives the Bregman duality
+$D_{\Phi_n}(X,Y)=D_{\Phi_n^*}(\Theta_Y,\Theta_X)$.
+
+Finally $\Phi_n(X)\geq0$ gives the first determinant bound.  Apply
+it to $nX/\operatorname{tr}X$ for the second and its equality case.
+The Hessian of $\log\det$ is $-g$, which proves strict concavity on
+the convex cone.
+\end{proof}
+
+The gradient in \eqref{final:matrix-gradient}, together with
+$F(E_n)=0$, identifies a differentiable $F$ on the cone: the gradient
+of $F-\Phi_n$ vanishes, so integration on each straight segment makes
+the difference constant.  Likewise the full Hessian
+\eqref{final:matrix-hessian}, together with $F(E_n)=0$ and
+$\nabla F(E_n)=0$, identifies a twice differentiable $F$, since the
+Hessian of the difference vanishes and its gradient is constant on
+segments.  These affine marks remove exactly the affine ambiguity.
+The rank-one potential or its calibrated anchored Bregman function
+recovers $I$ directly.  A metric given merely up to isometry does not
+provide these affine coordinates or marks.  Nor does congruence
+invariance alone select this metric: the forms
+\[
+ \alpha g_X(U,V)+\beta\operatorname{tr}(X^{-1}U)
+                             \operatorname{tr}(X^{-1}V),
+ \quad \alpha>0,\quad\beta>-\alpha/n,
+\]
+are also invariant positive metrics.  Positivity follows by separating
+$X^{-1/2}UX^{-1/2}$ into its scalar and traceless parts.  The selected
+Hessian, rather than bare invariance or determinant inequalities,
+removes this freedom.
+
+\begin{theorem}[Geodesics, distance, and the symmetrization boundary]
+\label{final:M3}
+For $X,Y\in\mathcal P_n$ put
+$K=\log(X^{-1/2}YX^{-1/2})$.  The unique constant-speed minimizing
+geodesic for $g$ is
+\[
+ \gamma(s)=X^{1/2}e^{sK}X^{1/2},\quad0\leq s\leq1,
+ \qquad d(X,Y)=\|K\|_F.
+\]
+If $\lambda_i$ are the eigenvalues of $X^{-1/2}YX^{-1/2}$, then
+\[
+ D(X,Y)+D(Y,X)=4\sum_i\sinh^2\left(\frac{\log\lambda_i}{2}\right).
+\]
+For $n=1$ this is $4\sinh^2(d(X,Y)/2)$.  For every $n\geq2$,
+symmetrization is not a function of distance alone.
+\end{theorem}
+
+\begin{proof}
+Congruence reduces the distance problem to a curve from $E_n$ to
+$A=X^{-1/2}YX^{-1/2}$.  Write any piecewise continuously differentiable
+such curve as $B(s)=e^{Z(s)}$ with $Z(s)$ symmetric.  The exponential
+differential, obtained by differentiating its power series, is
+\[
+ D\exp_Z[V]=\int_0^1e^{(1-r)Z}Ve^{rZ}\,dr.
+\]
+In a basis diagonalizing $Z$ with eigenvalues $z_i$, its $(i,j)$ entry
+is $V_{ij}(e^{z_i}-e^{z_j})/(z_i-z_j)$, with the continuous value
+$e^{z_i}V_{ij}$ when $z_i=z_j$.  Consequently
+\[
+ g_B(B',B')=
+ \sum_{i,j}\left(\frac{2\sinh((z_i-z_j)/2)}{z_i-z_j}\right)^2
+                        (Z'_{ij})^2\geq\|Z'\|_F^2,
+\]
+where the quotient is one at zero.  Its absolute value is at least
+one by the power series for $\sinh$.  Integrating speed gives
+\[
+ \operatorname{length}_g(B)\geq\int_0^1\|Z'(s)\|_F\,ds
+                  \geq\|\log A\|_F.
+\]
+The curve $e^{s\log A}$ attains both inequalities and has constant
+speed.  For a minimizing curve equality in the Euclidean length
+inequality forces $Z(s)=a(s)\log A$ with $a$ nondecreasing from zero
+to one.  On this curve metric speed is $a'(s)\|\log A\|_F$;
+constant speed forces $a(s)=s$.  If $A=E_n$, zero length forces the
+constant curve.  This proves uniqueness as stated.  The minimizing
+curve is a geodesic by the usual first-variation theorem; directly
+it satisfies $\gamma''=\gamma'\gamma^{-1}\gamma'$, the Euler--Lagrange
+equation obtained from the energy
+$\frac12\int\operatorname{tr}(\gamma^{-1}\gamma'
+\gamma^{-1}\gamma')\,ds$.
+
+Adding the two divergence formulas cancels logarithms and gives
+$\sum_i(\lambda_i+\lambda_i^{-1}-2)$, proving symmetrization.
+For $r>0$ compare $X=E_n$ with matrices whose log eigenvalue vectors
+are $(r,0,\ldots,0)$ and
+$(r/\sqrt2,r/\sqrt2,0,\ldots,0)$.  Both distances equal $r$, whereas
+their symmetrizations are $2\cosh r-2$ and
+$4\cosh(r/\sqrt2)-4$.  The difference has power series
+\[
+ \sum_{j\geq2}\frac{2-2^{2-j}}{(2j)!}r^{2j}>0.
+\]
+This proves the failure for every positive distance in rank at least two.
+\end{proof}
+
+\begin{theorem}[The supplied Gaussian and Wishart sampling model]
+\label{final:M4}
+Let $m\geq1$ and $n\geq1$ be specified integers and suppose
+$Z_1,\ldots,Z_m$ are independent, identically distributed
+$N(0,X)$ vectors with $X\in\mathcal P_n$ and known mean zero.  Put
+$W=\sum_{j=1}^mZ_jZ_j^{\mathsf T}$ and $C=W/m$.  The scatter $W$ has
+the Wishart law defined by this model and is a sufficient statistic
+for $X$, with
+\[
+ \log L(X)=-\frac m2\log\det X
+              -\frac12\operatorname{tr}(X^{-1}W)+\text{constant}.
+\]
+For symmetric $\Theta$,
+\[
+ \mathbb E e^{\operatorname{tr}(\Theta W)}
+   =\det(E_n-2X^{1/2}\Theta X^{1/2})^{-m/2}
+\]
+when the matrix inside the determinant is positive definite; the
+expectation is infinite otherwise.  The scatter is positive definite
+almost surely exactly when $m\geq n$.  Whenever the observed $C$ is
+positive definite, the maximum likelihood covariance is uniquely $C$
+and, with $\ell=-\log L$,
+\[
+ \ell(X)-\ell(C)=\frac m2D(C,X).
+\]
+If $C$ is singular there is no maximum likelihood estimate in the
+open cone $\mathcal P_n$.  Finally
+\[
+ \operatorname{KL}(N(0,X)\,\|\,N(0,Y))=\frac12D(X,Y),
+\]
+and the divergence for $m$ independent copies is $m$ times this value.
+\end{theorem}
+
+\begin{proof}
+Multiplying the Gaussian densities proves the likelihood formula.
+Its dependence on the samples factors through $W$, so the
+factorization criterion for dominated statistical families proves
+sufficiency.  For one sample write $Z=X^{1/2}G$ with $G\sim N(0,E_n)$.
+The tilted Gaussian integral has quadratic form
+$E_n-2X^{1/2}\Theta X^{1/2}$.  Orthogonal diagonalization reduces it
+to one-dimensional integrals, giving its inverse square-root
+determinant when all eigenvalues are positive.  A zero or negative
+eigenvalue yields an infinite one-dimensional integral, so Tonelli's
+theorem gives divergence otherwise.  Independence raises the finite
+answer to the $m$th power.
+
+The rank of $W$ is the dimension of the span of its $m$ sample vectors.
+It is at most $m$, and the first $n$ Gaussian sample vectors are linearly
+independent almost surely: the determinant-zero set has Lebesgue measure
+zero, as follows, for example, by conditioning successively on the span
+of the preceding vectors. Thus $W$ is positive definite almost surely
+for $m\geq n$, and singular for $m<n$.
+
+For positive-definite $C$, subtracting likelihood values gives
+$mD(C,X)/2$, with the asserted minimum and equality case. For singular
+$C$, diagonalize it and let the eigenvalues of $X$ along the nontrivial
+kernel of $C$ tend to zero while keeping the remaining eigenvalues fixed
+and positive. The trace term stays fixed and $\log\det X\to-\infty$,
+so $\ell(X)\to-\infty$ and no minimizer exists in the open cone.
+Finally integrating the Gaussian log
+density ratio uses $\mathbb E_X ZZ^{\mathsf T}=X$ and gives $D(X,Y)/2$;
+the log ratio adds over independent samples.
+\end{proof}
+
+The sample count, independence, Gaussian law, and known-mean convention
+are data of this theorem.  The scalar potential alone supplies none
+of those sampling choices.  Likewise the spectral or Gaussian
+construction of $\Phi_n$ identifies that constructed family; an
+independently designated family is identified only after the rules
+of Theorem~\ref{final:M1} are imposed.
+
+\section{Gaussian radial realization and independent spatial data}
+\label{final:spatial}
+
+\begin{theorem}[The isotropic four-dimensional Gaussian realization]
+\label{final:R1}
+If $Z\sim N(0,E_4)$ and $T=\|Z\|^2/2$, then $T$ has density
+$p(t)=te^{-t}$ on $t>0$.  Conversely, if $T$ has this density and
+$\Omega$ is an independent uniform point of $S^3$, then
+$Z=\sqrt{2T}\,\Omega$ has law $N(0,E_4)$.  Equivalently the radial
+law together with orthogonal invariance uniquely identifies this
+Gaussian law; the radial law alone does not.
+
+For the specified Ornstein--Uhlenbeck process in $\mathbb R^D$,
+\[
+ dZ_s=-\tfrac12Z_s\,ds+dB_s,
+\]
+the generator on radial-energy functions $F(z)=f(\|z\|^2/2)$ is
+\[
+ \left(\tfrac12\Delta-\tfrac12z\cdot\nabla\right)F
+       =t f''(t)+(D/2-t)f'(t).
+\]
+Thus its radial generator is $tf''+(2-t)f'$ exactly when $D=4$.
+In dimension four the radial energy satisfies
+\[
+ dT_s=(2-T_s)\,ds+\sqrt{2T_s}\,d\beta_s
+\]
+for a one-dimensional Brownian motion $\beta$.  These statements
+select a dimension within this specified Gaussian construction.
+\end{theorem}
+
+\begin{proof}
+Polar integration in $\mathbb R^4$, using $|S^3|=2\pi^2$, gives
+\[
+ (2\pi)^{-2}e^{-r^2/2}\,2\pi^2r^3\,dr
+       =te^{-t}\,dt,\qquad t=r^2/2.
+\]
+This proves the forward law.  Conversely, integration of any bounded
+Borel test function first over uniform $\Omega$ and then over this
+radial density reproduces the four-dimensional Gaussian integral.
+For an orthogonally invariant law, average the test function over
+the normalized Haar measure on the compact group $O(4)$.  On each
+nonzero sphere this average is its uniform spherical average, so
+its integral is fixed by the radial law.  This proves the equivalent
+uniqueness statement and the independence of radius and uniform
+angle.  Choosing instead a fixed unit vector $v$ and
+$Z=\sqrt{2T}\,v$ preserves the radial law and changes the vector law.
+
+The chain rule gives
+$\nabla F=f'(t)z$, $\Delta F=2tf''(t)+Df'(t)$, and
+$z\cdot\nabla F=2tf'(t)$, proving the generator formula.
+It\^o's formula yields
+\[
+ dT_s=(D/2-T_s)\,ds+Z_s\cdot dB_s,
+ \qquad d\langle T\rangle_s=2T_s\,ds.
+\]
+Normalize the stochastic integrand to $Z_s/\|Z_s\|$ off zero and
+choose a fixed unit vector at zero.  Its stochastic integral
+$\beta_s$ has quadratic variation $s$, hence is Brownian by the
+continuous-martingale characterization, and
+$Z_s\cdot dB_s=\sqrt{2T_s}\,d\beta_s$.  At $D=4$ this gives the
+displayed equation.  The stationary vector law is $N(0,E_D)$ by the
+explicit Gaussian solution of the OU equation; polar integration
+therefore gives the stationary energy law
+$t^{D/2-1}e^{-t}/\Gamma(D/2)$.  Its shape is two precisely at $D=4$.
+\end{proof}
+
+This construction retains the Gaussian and stochastic-calculus
+foundations just used.  A stationary density by itself does not
+choose a diffusion: for any specified positive differentiable
+coefficient $a(t)$ the formal zero-current expression
+\[
+ L_af=\frac1p(apf')'
+     =af''+\left(a'+a\frac{p'}p\right)f'
+\]
+has the same formal symmetric measure, as integration by parts on
+compactly supported tests verifies.  Domain and endpoint conditions
+remain necessary when selecting an actual closed generator.  Choosing
+$a(t)=t$ gives the radial operator in Theorem~\ref{final:R1}; it is a
+selection, not a consequence of knowing only $p$.
+
+\begin{theorem}[Nonnegative orthogonal additivity without regularity]
+\label{final:R2}
+Let $V$ be a real inner-product space of dimension at least two and
+let $r:V\to[0,\infty)$.  Then
+\[
+ r(x+y)=r(x)+r(y)\quad\text{whenever }\langle x,y\rangle=0
+\]
+holds if and only if $r(x)=c\|x\|^2$ for some $c\geq0$.  No continuity,
+measurability, homogeneity, or radiality hypothesis is required.
+Consequently a function $z:V\to[0,\infty)$ satisfies
+\[
+ z(x+y)=z(x)+z(y)+z(x)z(y)\quad(x\perp y)
+\]
+if and only if $z(x)=e^{c\|x\|^2}-1$ for some $c\geq0$.
+Nontriviality forces $c>0$, while a numerical value at one nonzero
+vector is needed to calibrate its scale.
+\end{theorem}
+
+\begin{proof}
+The equation at $(0,0)$ gives $r(0)=0$.  Define the even and odd parts
+\[
+ e(x)=\frac{r(x)+r(-x)}2,\qquad
+ o(x)=\frac{r(x)-r(-x)}2.
+\]
+They are orthogonally additive, $e\geq0$, and $|o(x)|\leq e(x)$.
+If $\|x\|=\|y\|$, set $a=(x+y)/2$, $b=(x-y)/2$.  Then $a\perp b$,
+$x=a+b$, and $y=a-b$.  Evenness gives
+$e(x)=e(a)+e(b)=e(a)+e(-b)=e(y)$.  Every nonnegative real number is
+the squared norm of a vector, so $e(x)=A(\|x\|^2)$ for a function
+$A:[0,\infty)\to[0,\infty)$.
+
+There exist two orthogonal unit vectors.  Multiplying them by
+$\sqrt a$ and $\sqrt b$ shows $A(a+b)=A(a)+A(b)$ for arbitrary
+$a,b\geq0$.  Nonnegativity makes $A$ monotone: if $b\geq a$ then
+$A(b)-A(a)=A(b-a)\geq0$.  With $c=A(1)$, additivity gives
+$A(q)=cq$ for every nonnegative rational $q$.  For any real $a\geq0$,
+choose rational sequences approaching $a$ from below and above.
+Monotonicity sandwiches $A(a)$ between their multiples by $c$, so
+$A(a)=ca$.
+
+For $x\ne0$, choose $y\perp x$ of the same norm; the case $x=0$ is
+automatic.  Then $x+y\perp x-y$, and orthogonal additivity and oddness
+give
+\[
+ o(2x)=o(x+y)+o(x-y)
+      =o(x)+o(y)+o(x)+o(-y)=2o(x).
+\]
+Iterating downward, $o(x)=2^ko(x/2^k)$, while
+$|o(x/2^k)|\leq c\|x\|^2/4^k$.  Hence
+$|o(x)|\leq c\|x\|^2/2^k$ for every $k$, forcing $o(x)=0$.
+This proves $r=e=c\|x\|^2$.  Pythagoras proves the converse.
+
+For the second statement take $r=\log(1+z)$.  Its values are
+nonnegative, and the composition equation is exactly orthogonal
+additivity of $r$.  Apply the first statement and exponentiate;
+the converse follows by multiplication of exponentials.
+\end{proof}
+
+Both substantive hypotheses have direct omission tests.  In dimension
+one, $r(x)=x^4$ is nonnegative and orthogonally additive, since every
+orthogonal pair includes zero, but is not $c\|x\|^2$.  Without
+nonnegativity in dimension at least two, a nonzero linear functional,
+or $\|x\|^2$ plus such a functional, is orthogonally additive and
+violates the conclusion.  Accordingly the condition $z>-1$ alone
+also fails: $z(x)=e^{\ell(x)}-1$ for a nonzero linear functional
+obeys the composition rule and takes negative values.
+
+\begin{proposition}[The profile-independent radial residual]
+\label{final:R3}
+In integer Euclidean dimension $D\geq1$ the radial Laplacian is
+$\Delta_D f=f''+(D-1)f'/x$ for $x>0$.  For every twice differentiable
+nonvanishing profile $f$ and $\alpha=(D-1)/2$,
+\begin{equation}\label{final:radial-residual}
+ \frac{(x^\alpha f)''}{x^\alpha f}
+    -\left(\frac{f''}{f}+\frac{D-1}{x}\frac{f'}{f}\right)
+     =\frac{(D-1)(D-3)}{4x^2}.
+\end{equation}
+Equivalently, writing $f=x^{-\alpha}u$ gives the operator identity
+\[
+ -\Delta_D f=x^{-\alpha}
+   \left(-u''+\frac{(D-1)(D-3)}{4x^2}u\right),
+\]
+which does not require $f$ to be nonvanishing.  Residual cancellation
+holds exactly for $D=1$ or $D=3$; with the independently retained
+restriction $D\geq2$ it selects $D=3$.  It has no reverse identifying
+force for the profile $f$.
+\end{proposition}
+
+\begin{proof}
+Twice applying the product rule gives
+\[
+ \frac{(x^\alpha f)''}{x^\alpha f}
+ =\frac{f''}{f}+\frac{2\alpha}{x}\frac{f'}{f}
+                           +\frac{\alpha(\alpha-1)}{x^2}.
+\]
+Since $2\alpha=D-1$ and
+$\alpha(\alpha-1)=(D-1)(D-3)/4$, subtraction proves
+\eqref{final:radial-residual}; the same product rule proves the
+operator form.  The coefficient vanishes precisely at the two stated
+integer dimensions.  It is independent of $f$, so for example
+$f(x)=e^{-x^2}$ also gives cancellation in dimension three, despite
+being a different profile from $p$ or the scalar potential.
+\end{proof}
+
+\begin{proposition}[Spatial countermodels retaining the complete intrinsic structure]
+\label{final:R4}
+All intrinsic scalar identities, their probability and operator
+realizations, their formal characteristic series, and the canonical
+four-dimensional Gaussian construction may hold while an independent
+designated spatial observable fails orthogonal additivity, or while
+its designated dimension fails to equal three.  Their conjunction therefore
+does not imply either the hypotheses of Theorem~\ref{final:R2} or a
+designated dimension conclusion from Proposition~\ref{final:R3}.
+\end{proposition}
+
+\begin{proof}
+Keep the entire intrinsic structure and every canonical auxiliary
+object fixed.  Adjoin a distinct Euclidean spatial sort $V$ with its
+own designated observable $r$.  Three choices give the required
+models.  In $V=\mathbb R^2$ take $r(x)=\|x\|^4$.  For perpendicular
+unit vectors $x,y$, $r(x+y)=4$ while $r(x)+r(y)=2$, so even positivity,
+smoothness, and radiality do not force the composition law.  In
+$V=\mathbb R^2$ take $r(x)=\|x\|^2$.  Orthogonal additivity holds,
+but the coefficient in \eqref{final:radial-residual} is $-1/(4x^2)$.
+Finally in $V=\mathbb R$ take squared norm: residual cancellation
+holds although $D\ne3$.  None of these additions changes any object
+or equation in the original intrinsic structure.  In particular,
+each coexists with the separately constructed Gaussian vector in
+$\mathbb R^4$; no identification between its vector space and the
+designated spatial sort was supplied.
+\end{proof}
+
+There is also a direct tensor distinction.  Pulling a one-dimensional
+metric $g(r)\,dr^2$ back by a spatial scalar map produces
+$g(r)\,dr\otimes dr$, of rank at most one.  The Hessian of a composite
+potential is instead
+\[
+ D^2(I\circ r)=I''(r)\,dr\otimes dr+I'(r)D^2r.
+\]
+The chain rule proves this formula.  Its second term prevents an
+identification of these two tensors or an inference of ambient
+dimension from the rank of the first.
+
+\section{Marked rational dynamics and transported integer arithmetic}
+\label{final:arithmetic}
+
+\begin{theorem}[Rational trees, Euclidean decoding, and the matrix monoid]
+\label{final:B1}
+Fix the positive rational coordinate, the root $1$, ordered edge
+labels $L,R$, and the transformations
+\[
+ L(x)=\frac{x}{1+x},\quad R(x)=1+x,\qquad
+ M_L=\begin{pmatrix}1&0\\1&1\end{pmatrix},\quad
+ M_R=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+\]
+Successively applying the letters of a word to $1$ gives a rooted
+Calkin--Wilf tree~\cite{CalkinWilf} in which every positive rational occurs exactly
+once.  The matrices $M_L,M_R$ freely generate exactly the determinant-one
+matrices with nonnegative integer entries, including the identity.
+
+For a Stern--Brocot interval~\cite{Stern1858} store the upper endpoint as the first
+column and the lower endpoint as the second, starting with columns
+$(1,0)^{\mathsf T}$ and $(0,1)^{\mathsf T}$, representing $\infty$ and
+$0$.  Its node is their mediant and a left or right step multiplies
+this matrix on the right by $M_L$ or $M_R$.  With these conventions
+the Stern--Brocot label of a word is the Calkin--Wilf label of the
+reversed word.
+
+The complete root path, its oriented subtraction runs, and the
+finite continued fraction are mutually decodable, with the canonical
+convention
+\[
+ [a_0;a_1,\ldots,a_k],\quad a_0\geq0,\quad
+ a_j\geq1\ (j\geq1),\quad a_k\geq2\ \text{if }k\geq1.
+\]
+A one-term expansion $[a_0]$ has $a_0\geq1$, so the root is $[1]$.
+The last run in the subtraction-to-root algorithm has length one less
+than its terminal Euclidean quotient; it has length zero for the root.
+\end{theorem}
+
+\begin{proof}
+For a reduced fraction $a/b<1$, the unique possible parent is
+$a/(b-a)$ and the last edge is $L$; if $a/b>1$, it is $(a-b)/b$ with
+last edge $R$.  Both numerators and denominators remain positive,
+the gcd is unchanged, and their sum strictly decreases.  The
+algorithm terminates only at $a=b$, hence at $1/1$ by coprimality.
+It therefore constructs a root path for every positive rational.
+At each step both the last edge and parent are forced, proving
+uniqueness.  Conversely the child formulas preserve positive
+coprimality, so every word has a positive reduced rational label.
+
+For matrix generation write a nonnegative determinant-one matrix as
+$M=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$.
+Except for the identity, its two rows are comparable coordinatewise.
+Indeed one pattern of incomparable rows, $a<c$ and $b>d$, would
+give $ad<bc$.  In the other pattern write $a=c+u$, $d=b+v$ with
+$u,v\geq1$.  The determinant equation becomes
+\[
+ 1=cv+ub+uv,
+\]
+forcing $u=v=1$ and $b=c=0$, which is the identity.  If the lower
+row dominates, subtract the upper row to obtain $M=M_LN$; if the
+upper dominates, subtract the lower to obtain $M=M_RN$.
+The resulting $N$ remains nonnegative integral with determinant one
+and strictly smaller entry sum.  Equal rows are impossible.  Repeated
+subtraction therefore ends at the identity and proves generation.
+The dominance choice at every nonidentity step is unique; cancellation
+then proves uniqueness of the generator word.  Conversely products
+have nonnegative integral entries and determinant one.  The word
+``nonnegative'' is essential: the generators have zero entries.
+
+If $w=s_1\cdots s_\ell$ records chronological path steps, its
+Calkin--Wilf column vector is
+$M_{s_\ell}\cdots M_{s_1}(1,1)^{\mathsf T}$.  The Stern--Brocot
+endpoint matrix is $M_{s_1}\cdots M_{s_\ell}$ and its mediant vector
+is that matrix times $(1,1)^{\mathsf T}$.  This proves reversal and
+also proves complete Stern--Brocot enumeration.  For example,
+$\operatorname{CW}(LR)=3/2$ and $\operatorname{SB}(LR)=2/3$.
+Right multiplication by $M_L$ replaces the upper endpoint column
+by its sum with the lower, and right multiplication by $M_R$ replaces
+the lower by that sum.  Determinant one ensures ordered adjacent
+endpoints and a reduced mediant throughout.
+
+Lastly, consecutive subtractions of the same smaller integer from
+the larger group into Euclidean integer division.  If $a=qb+r$ with
+$0<r<b$, exactly $q$ subtractions replace $(a,b)$ by $(r,b)$.
+If $r=0$, coprimality makes $b=1$ and the algorithm stops after
+$q-1$ subtractions at $(1,1)$; the case with $b>a$ is identical
+with the roles reversed.  Thus oriented runs determine every
+quotient, with precisely the stated terminal correction.  The
+Euclidean algorithm terminates and its remainders are unique.
+Successive identities $a/b=q+r/b$ yield the continued fraction.
+If its last digit is one, the identity
+$[\ldots,c,1]=[\ldots,c+1]$ removes it; the unique division
+quotients give the stated canonical terminal convention.  A rational
+value reconstructed from that fraction gives its unique root path
+by the already proved parent algorithm, which proves mutual decoding.
+\end{proof}
+
+\begin{proposition}[Marked Farey branches and full-domain scalar recovery]
+\label{final:B2}
+On $[0,1]$ define the Farey map and its inverse branches~\cite{IsolaFarey}
+\[
+ \psi_0(x)=\frac{x}{1+x},\qquad \psi_1(x)=\frac1{1+x}.
+\]
+Their respective ranges are $[0,1/2]$ and $[1/2,1]$, and they are
+the increasing and decreasing inverse branches of
+\[
+ F(y)=
+ \begin{cases}
+ y/(1-y),&0\leq y\leq1/2,\\
+ (1-y)/y,&1/2\leq y\leq1.
+ \end{cases}
+\]
+At the common endpoint both forward formulas equal one, and branch
+labels retain the inverse-branch information.
+
+The complete numerically labelled Calkin--Wilf tree determines $L,R$
+on positive rationals.  If the candidate maps are declared to be
+M\"obius transformations, these data determine their full rational
+formulas, in particular $L$ on $(-1,\infty)$.  In that marked
+extension category the scalar potential is recovered by
+\begin{equation}\label{final:tree-integral}
+ I(t)=\int_0^{t-1}L(s)\,ds=t-1-\log t,\qquad t>0.
+\end{equation}
+Connected real analytic continuation is another sufficient extension
+category.  A bare tree, or positive-rational action without a suitable
+extension category, has no such global converse.
+\end{proposition}
+
+\begin{proof}
+Derivatives, endpoint values, and substitution verify the ranges,
+monotonicity, and the two inverse formulas.  Notice that $\psi_1$ is
+not the Calkin--Wilf map $R$.  Every positive rational occurs in the
+tree, so its numerical children give both maps on all such inputs.
+Two M\"obius transformations agreeing at three distinct finite inputs
+where they are defined are equal: cross multiplication gives a
+polynomial of degree at most two with three roots, hence the zero
+polynomial.  Their fractional-linear maps therefore agree globally
+away from their pole.  This supplies the extension $s/(1+s)$ for
+$-1<s<0$ as well as for positive $s$, and direct integration proves
+\eqref{final:tree-integral}.  Within the real analytic category on
+$(-1,\infty)$, equality on positive rationals first gives equality
+on $(0,\infty)$ by continuity and then everywhere by the identity
+theorem.
+
+Without that category, choose a nonzero smooth bump $\chi$ supported
+in $(1/4,1/2)$ and put $\widetilde I=I+\varepsilon\chi$.
+The induced generator $\widetilde L(s)=\widetilde I'(1+s)$ agrees
+with $L(s)$ for every $s\geq0$, and hence on all positive-rational
+inputs, but the potential differs on $(0,1)$.  Small nonzero
+$\varepsilon$ even preserves strict convexity, as in
+Proposition~\ref{final:F3}.  Finally an abstract unlabelled binary
+tree contains no numerical input/output pairs at all, so it cannot
+supply the coordinate markings used in this proof.
+\end{proof}
+
+The scalar formal-group inverse itself constructs the canonical
+global rational expression: $\operatorname{inv}_\star(x)=-x/(1+x)$,
+so $L=-\operatorname{inv}_\star$ and $R(x)=1+x$ is the marked shift.
+This constructs a labelled rational model.  It does not attach those
+labels to an independently supplied abstract tree.
+
+\begin{theorem}[Exact collisions and complete labelled arithmetic transport]
+\label{final:B3}
+Fix $\mu,\gamma>0$ and a real constant $c_P$, and consider the placed
+integer code
+\[
+ e(n)=\log(1+\gamma n)-\mu n+c_P,\qquad n\geq2.
+\]
+For distinct $n>m\geq2$,
+\begin{equation}\label{final:integer-collision}
+ e(n)=e(m)\quad\Longleftrightarrow\quad
+ \mu=\frac{1}{n-m}\log\frac{1+\gamma n}{1+\gamma m}.
+\end{equation}
+The rule $e(a)\odot e(b)=e(ab)$ defines a well-defined binary
+operation on the image if and only if $e$ is injective.  Under that
+hypothesis, write $S$ for the image with an adjoined abstract unit $1_S$.
+Extending $e(1)=1_S$ makes $e:\mathbb N_{>0}\to S$ an isomorphism of labelled multiplicative
+monoids.  It transports the full prime, valuation, divisor,
+gcd/lcm, M\"obius, and Dirichlet-convolution inventory stated below.
+
+The different intrinsic code
+\[
+ e_0(n)=H(n+1),\qquad n\geq1,
+\]
+is injective for every placement and already includes the unit label.
+It does not remove any collision of the original code $e$.
+\end{theorem}
+
+\begin{proof}
+Subtracting the two values of $e$ proves
+\eqref{final:integer-collision}; thus avoiding every displayed
+pairwise parameter curve is exactly injectivity on the specified
+carrier.  If injective, $e$ is a bijection onto its image and ordinary
+multiplication transports through that bijection, proving
+well-definedness.
+
+For the reverse implication suppose $n>m$ and $e(n)=e(m)$.  Then
+\[
+ \mu(n-m)=\int_m^n\frac{\gamma}{1+\gamma u}\,du.
+\]
+For every real $k>1$, the same difference calculation and substitution
+in the integral give
+\begin{align*}
+ e(kn)-e(km)
+  &=k\int_m^n\left(\frac{\gamma}{1+k\gamma u}
+                        -\frac{\gamma}{1+\gamma u}\right)du<0.
+\end{align*}
+Here the formula for $e$ is evaluated on the positive real ray in
+this calculation.  The strict inequality follows pointwise from
+$u>0$, $\gamma>0$, and $k>1$.  Taking an integer $k\geq2$ shows that
+multiplication of the common image $e(n)=e(m)$ by $e(k)$ would
+require two distinct outputs.  Hence no operation with the prescribed
+rule exists.  This proves necessity for every collision, not only
+for a selected example.  For instance, $\gamma=1$ and
+$\mu=\log(5/4)$ give $e(3)=e(4)$ but
+$e(6)-e(8)=\log(175/144)>0$.
+
+When injectivity holds, adjoin an element $1_S$ distinct from every
+point of the original image and set $1_S\odot x=x\odot1_S=x$.
+The extended map is a bijection preserving multiplication and unit.
+The integer fundamental theorem of arithmetic consequently gives a
+unique finite factorization of each $x\in S$ into irreducibles,
+with the empty product for the unit.  All the inventory formulas
+below follow from that factorization, as verified after the table.
+Finally $H'(t)=1/t-1<0$ for $t>1$, so $H(n+1)$ is strictly decreasing
+on positive integers.  This proves the alternative's injectivity.
+For the placed profile with arbitrary additive level, write
+$\widetilde\Sigma_P(r)=\log(1+\gamma r)-\mu r+c_P$;
+its parameters here are $\mu,\gamma>0$ and $c_P\in\R$.
+The critical point is
+$r_*=1/\mu-1/\gamma$ and
+\[
+ \widetilde\Sigma_P(r_*+n/\mu)=H(n+1)
+                   +\log(\gamma/\mu)+\mu/\gamma-1+c_P.
+\]
+Indeed its intrinsic coordinate $\mu(r+1/\gamma)$ is $n+1$ there.
+This is a shifted sampling code, with a fixed additive level, rather
+than the original sampling at $r=n$.
+\end{proof}
+
+Write $x\mid y$ for divisibility in the unit-adjoined monoid, let
+$q$ range over its irreducibles, and write $\mu_S$ for the arithmetic
+M\"obius function, to distinguish it from the placement parameter.
+The complete inventory is
+\[
+\begin{array}{ll}
+ \text{Irreducibles}&q=e(p),\quad p\text{ a numerical prime};\\[2pt]
+ \text{Valuations}&v_q(x)=\max\{j\geq0:q^j\mid x\};\\[2pt]
+ \text{Factor counts}&\Omega(x)=\sum_qv_q(x),\quad
+             \omega(x)=\#\{q:v_q(x)>0\};\\[2pt]
+ \text{Greatest common divisor}&
+       v_q(\gcd(x,y))=\min(v_q(x),v_q(y));\\[2pt]
+ \text{Least common multiple}&
+       v_q(\operatorname{lcm}(x,y))=\max(v_q(x),v_q(y));\\[2pt]
+ \text{Divisor lattice}&
+       \{d:d\mid x\}\cong\prod_{q\mid x}\{0,\ldots,v_q(x)\};\\[2pt]
+ \text{Divisor count}&\tau(x)=\prod_{q\mid x}(v_q(x)+1);\\[2pt]
+ \text{M\"obius function}&
+       \mu_S(x)=0\ \text{if some }v_q(x)\geq2,
+       \quad\mu_S(x)=(-1)^{\omega(x)}\ \text{otherwise};\\[2pt]
+ \text{Dirichlet convolution}&
+       (f*g)(x)=\sum_{d\mid x}f(d)g(x/d).
+\end{array}
+\]
+All sums and products over the support of a single element are finite,
+and $\mu_S(1_S)=1$.  To verify the inventory, divisibility of
+$x=\prod_q q^{v_q(x)}$ by $d$ is precisely the componentwise condition
+$0\leq v_q(d)\leq v_q(x)$.  This proves the valuation maximum,
+gcd/lcm formulas, lattice product, and divisor count.  Irreducibility
+means exactly that the exponent vector has one coordinate equal to
+one and all others zero; it therefore identifies the numerical
+primes under $e$.  Summing $\mu_S$ over divisors leaves only the
+square-free choices, giving
+\[
+ \sum_{d\mid x}\mu_S(d)=(1-1)^{\omega(x)}
+ =\begin{cases}1,&x=1_S,\\0,&x\ne1_S.\end{cases}
+\]
+In any fixed commutative coefficient ring, finite reindexing of
+divisor pairs makes convolution associative and commutative with
+identity $\delta_{1_S}$.  The last displayed identity says
+$\mu_S*\mathbf1=\delta_{1_S}$.  Thus if
+$F(x)=\sum_{d\mid x}f(d)$, convolution with $\mu_S$ gives
+\[
+ f(x)=\sum_{d\mid x}\mu_S(d)F(x/d),
+\]
+proving M\"obius inversion.  A normalized multiplicative function
+satisfies $f(1_S)=1$ and $f(xy)=f(x)f(y)$ for coprime $x,y$.
+It is exactly specified by arbitrary values at the marked prime
+powers, followed by
+$f(x)=\prod_{q\mid x}f(q^{v_q(x)})$.  The operation does not choose
+those values.  Over a field, every nonzero function satisfying the
+unnormalized multiplicativity equation automatically has unit
+value one; the identically zero function is a separate convention.
+
+On the original image omitting one, reflexive divisibility means
+$x=y$ or $y=x\odot z$ with $z$ in that image.  Coprime gcds and the
+bottom of a full divisor lattice require the adjoined $1_S$.  It
+cannot be identified with the real number $\widetilde\Sigma_P(1)$ unless
+injectivity has also been checked after adding that index.
+Prime permutations preserve the abstract free commutative monoid,
+so numerical prime names and addition are extra labels.  With the
+integer labels supplied, the totient is also transported by
+\[
+ \varphi(e(n))=\prod_{p^a\parallel n}p^{a-1}(p-1),
+ \qquad\varphi(1_S)=1.
+\]
+The formula counts residues not divisible by any prime divisor by
+inclusion--exclusion: for each square-free divisor $d$ of $n$ there
+are $n/d$ multiples of $d$ among $1,\ldots,n$, giving
+$n\prod_{p\mid n}(1-1/p)$.  Its numerical factors show why this
+function requires the integer labels and their sizes.  No step in
+this arithmetic transport identifies a real embedding or the
+analytic scalar shape from an unlabelled monoid.
+
+\begin{theorem}[Numerical Euler products and the full multiset inverse]
+\label{final:B4}
+With the numerical positive-integer labels and their usual
+multiplication,
+\[
+ \zeta(s)=\sum_{n\geq1}n^{-s}
+          =\prod_{p\text{ prime}}(1-p^{-s})^{-1},
+ \qquad\operatorname{Re}s>1.
+\]
+If a supplied nonnegative self-adjoint operator $A$ has a complete
+simple eigenbasis with eigenvalues $0,1,2,\ldots$, then on that same
+domain $\operatorname{Tr}(1+A)^{-s}=\zeta(s)$.
+
+Conversely, let a multiset of real generators $q>1$ have positive
+integer multiplicities $m_q$.  Suppose its Euler product
+\[
+ Z(s)=\prod_q(1-q^{-s})^{-m_q}
+\]
+converges to a finite positive value for all sufficiently large real
+$s$.  The full real function on any such terminal ray uniquely
+determines the numerical multiset, including multiplicities.
+For a nonempty multiset its least generator $q_0$ and multiplicity
+$m_0$ are recovered by
+\[
+ q_0=\lim_{s\to\infty}(\log Z(s))^{-1/s},\qquad
+ m_0=\lim_{s\to\infty}q_0^s\log Z(s).
+\]
+Removing the entire factor $(1-q_0^{-s})^{-m_0}$ and repeating
+recovers every remaining generator.  The empty multiset is exactly
+$Z\equiv1$.
+\end{theorem}
+
+\begin{proof}
+Expand the geometric factors over any finite set of primes.  Unique
+factorization gives the sum over exactly the integers supported on
+those primes.  Absolute convergence of
+$\sum_{n\geq1}n^{-\operatorname{Re}s}$ permits the limit over all
+primes and proves the identity.  In the indicated eigenbasis the
+operator $(1+A)^{-s}$ is diagonal with entries $(n+1)^{-s}$ and
+singular values $(n+1)^{-\operatorname{Re}s}$.  It is trace class
+precisely for $\operatorname{Re}s>1$, with the asserted trace.
+
+For the inverse choose a sufficiently large $s_0>0$ at which the
+product converges.  Positivity of its factors gives
+\[
+ \log Z(s_0)=\sum_qm_q[-\log(1-q^{-s_0})]
+           =\sum_qm_q\sum_{k\geq1}\frac{q^{-ks_0}}k<\infty.
+\]
+Tonelli's theorem justifies the expansion.  For each finite $M>1$
+every generator $q\leq M$ contributes at least $M^{-s_0}$, counted
+with multiplicity.  There are therefore only finitely many such
+generators.  In particular the multiset is locally finite down to
+one, is countable, and if nonempty has a least $q_0>1$ of finite
+multiplicity $m_0$.
+
+For $s\geq s_0$ multiply the logarithmic series by $q_0^s$.
+Every term is
+$(m_q/k)(q_0/q^k)^s$ and is bounded by its value at $s_0$.
+Those bounds sum to $q_0^{s_0}\log Z(s_0)<\infty$.  The ratio
+$q_0/q^k$ equals one exactly when $q=q_0,k=1$, and is otherwise
+strictly less than one.  Dominated convergence consequently gives
+\[
+ q_0^s\log Z(s)\longrightarrow m_0,
+ \qquad\log Z(s)=m_0q_0^{-s}(1+o(1)).
+\]
+Taking the negative $1/s$ power gives the first limit and the second
+is already proved.  Divide $Z(s)$ by the entire recovered factor,
+or equivalently subtract
+$-m_0\log(1-q_0^{-s})$ from its logarithm.  The remaining product
+still satisfies the same convergence hypothesis.  This removes all
+powers of $q_0$ at once, including those that coincide numerically
+with another generator.  Repeating is therefore valid even in the
+presence of such coincidences.  Every specified generator has only
+finitely many predecessors by the bounded-interval argument, so
+the iteration reaches all of them.  If none remains the logarithm
+is zero; if one remains it is strictly positive.  This proves both
+uniqueness and the empty-product assertion.
+\end{proof}
+
+The inverse in Theorem~\ref{final:B4} retains the positive Euler-factor
+category and the numerical exponential coordinate $q^{-s}$.  It
+does not reconstruct an addition law from abstract factors or
+resolve any collision in Theorem~\ref{final:B3}.  Across these
+sections, every construction and converse has its mathematical
+proof and its retained foundations stated explicitly. The series,
+topology, matrix, stochastic, and arithmetic development is included
+in the complete Lean~4 formalization with no admitted proofs.

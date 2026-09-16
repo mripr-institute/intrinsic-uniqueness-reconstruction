@@ -1,0 +1,68 @@
+[
+  {
+    "path": "outputs/sigma-phase-iii.md",
+    "sha256": "5b9de27cce0c1624bdd88f6cc9b5ef4b79f7855149f52d27d760208de0bb1fc1",
+    "bytes": 102140,
+    "lines": 879
+  },
+  {
+    "path": "outputs/sigma-dependency-ledger.md",
+    "sha256": "c66f5eae151ac3b4daefe16a3093146e875ae5f85f2adea5d630b64a51e816d9",
+    "bytes": 10247,
+    "lines": 152
+  },
+  {
+    "path": "outputs/sigma-16-branch-audit.md",
+    "sha256": "b1d7865aaa833b2fa66f5857e5e5850ae8e29ebc184a820f77c19e2fc7bbba27",
+    "bytes": 33215,
+    "lines": 351
+  },
+  {
+    "path": "outputs/sigma-master.tex",
+    "sha256": "74ee331d35b3fef99bb0288c129cfeb03b18b74207e6da9c42085b54e068173b",
+    "bytes": 66138,
+    "lines": 1619
+  },
+  {
+    "path": "outputs/lean/SigmaAudit.lean",
+    "sha256": "81d50b6fb5558c79f6f4db2a9a4fc8f9453e79ab27cef89819b10fffa825614f",
+    "bytes": 3590,
+    "lines": 104
+  },
+  {
+    "path": "outputs/lean/Reconstruction.lean",
+    "sha256": "2e42a4c88c0fdfaf0d10945a98e459cd69f6a076b00aa883f222465c31570ba1",
+    "bytes": 1456,
+    "lines": 36
+  },
+  {
+    "path": "outputs/lean/README.md",
+    "sha256": "1bf5a5fbae04cc2ef38c8ac54ee0e766d5410fedd7ea9949ed1ee424496fd2d2",
+    "bytes": 4126,
+    "lines": 37
+  },
+  {
+    "path": "outputs/lean/check.sh",
+    "sha256": "35da2246cfd3ab09ff831a499392b01ee9bd9d9c3ed098513f0ef4103b87e468",
+    "bytes": 965,
+    "lines": 6
+  },
+  {
+    "path": "outputs/lean/compile.log",
+    "sha256": "810857e94b8f6bf22cb4fdcfe5fe0a408cece2edd32224d64b00ee3b7327212a",
+    "bytes": 1075,
+    "lines": 12
+  },
+  {
+    "path": "outputs/sigma-phase-iii-checks.json",
+    "sha256": "d993e42e576c11322204c47d8a91720a73f9db10c2032841052dd829b3d66ccf",
+    "bytes": 9712,
+    "lines": 398
+  },
+  {
+    "path": "work/verify_phase_iii.py",
+    "sha256": "f5045714dba263a0abd8c910a7311d159047116a98d088e1c6682ef0ecc2beff",
+    "bytes": 6025,
+    "lines": 138
+  }
+]

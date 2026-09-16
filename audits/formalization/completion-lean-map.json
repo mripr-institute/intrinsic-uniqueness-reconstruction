@@ -1,0 +1,122 @@
+{
+  "scope": "Exact statement/component map for final:C3-completion.",
+  "namespace": "SigmaFinal",
+  "latex_label": "final:C3-completion",
+  "status": "complete",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "unproved_components": [],
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalCompletion.lean",
+      "sha256": "61d7790a7e666979bbeef3c306d29fbd25ec33f09afb83ab4501055546f5760a",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalCompletion.lean",
+      "compiler_log": "work/final-SigmaFinalCompletion.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalCompletion.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalCompletionFamily.lean",
+      "sha256": "156fab7c450e879aa0c1710e24ad449e49057d58b3f73eb6dd38387466da411f",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalCompletionFamily.lean",
+      "compiler_log": "work/final-SigmaFinalCompletionFamily.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalCompletionFamily.olean"
+    }
+  ],
+  "components": [
+    {
+      "component": "exact typed-completion family iff",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.typed_completion_iff_family",
+        "SigmaFinal.completion_identified_family",
+        "SigmaFinal.completionParameter_positive"
+      ],
+      "proof_and_scope": "Under exactly differentiability on D=(-1,infinity) and actual derivative range in D, the typed completion equation is equivalent to existence of K>0 and the stated function K log(1+z)-z-(K/2) log K on D. K is explicitly 1+deriv h 0; no injectivity or second differentiability is assumed."
+    },
+    {
+      "component": "injectivity and derived second differentiability",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.completion_derived_regularity",
+        "SigmaFinal.completionEll_strictMono",
+        "SigmaFinal.completion_derivative_involutive",
+        "SigmaFinal.completion_derivative_strictAnti",
+        "SigmaFinal.completion_neg_derivative_image",
+        "SigmaFinal.completion_derivative_continuousAt",
+        "SigmaFinal.completion_second_hasDerivAt"
+      ],
+      "proof_and_scope": "The range condition makes ell strictly increasing. The equation gives an involutive, strictly decreasing derivative, hence a continuous bijection of D. Native quotient limits then derive HasDerivAt (deriv h) (-(1+deriv h z)/(1+z)) z. This is a genuine second derivative; no derivative hierarchy is posited."
+    },
+    {
+      "component": "constant product and additive constant",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.completion_product_constant",
+        "SigmaFinal.completion_derivative_formula",
+        "SigmaFinal.completion_primitive_formula",
+        "SigmaFinal.completion_constant_formula"
+      ],
+      "proof_and_scope": "The actual second derivative makes (1+z)(1+h prime(z)) constant. Native derivative uniqueness integrates the resulting slope. The completion equation at zero fixes the additive constant to -(K/2) log K."
+    },
+    {
+      "component": "full forward family and derivative range",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.completionFamily_hasDerivAt",
+        "SigmaFinal.completionFamily_derivative",
+        "SigmaFinal.completionFamily_derivative_range",
+        "SigmaFinal.completionFamily_typed_equation"
+      ],
+      "proof_and_scope": "Every literal K-family with K>0 has actual derivative K/(1+z)-1 in D and satisfies the equation on all D."
+    },
+    {
+      "component": "either anchor selects K=1",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.completionFamily_zero",
+        "SigmaFinal.completionFamily_derivative_zero",
+        "SigmaFinal.completionFamily_anchors_select_one",
+        "SigmaFinal.completion_value_anchor_identifies",
+        "SigmaFinal.completion_slope_anchor_identifies"
+      ],
+      "proof_and_scope": "The family value at zero is -(K/2) log K and its actual derivative there is K-1; each vanishes exactly when K=1. For any candidate satisfying the original hypotheses, either anchor identifies h(z)=log(1+z)-z on D."
+    }
+  ],
+  "lean_declarations": [
+    "SigmaFinal.typed_completion_iff_family",
+    "SigmaFinal.completion_identified_family",
+    "SigmaFinal.completionParameter_positive",
+    "SigmaFinal.completion_derived_regularity",
+    "SigmaFinal.completionEll_strictMono",
+    "SigmaFinal.completion_derivative_involutive",
+    "SigmaFinal.completion_derivative_strictAnti",
+    "SigmaFinal.completion_neg_derivative_image",
+    "SigmaFinal.completion_derivative_continuousAt",
+    "SigmaFinal.completion_second_hasDerivAt",
+    "SigmaFinal.completion_product_constant",
+    "SigmaFinal.completion_derivative_formula",
+    "SigmaFinal.completion_primitive_formula",
+    "SigmaFinal.completion_constant_formula",
+    "SigmaFinal.completionFamily_hasDerivAt",
+    "SigmaFinal.completionFamily_derivative",
+    "SigmaFinal.completionFamily_derivative_range",
+    "SigmaFinal.completionFamily_typed_equation",
+    "SigmaFinal.completionFamily_zero",
+    "SigmaFinal.completionFamily_derivative_zero",
+    "SigmaFinal.completionFamily_anchors_select_one",
+    "SigmaFinal.completion_value_anchor_identifies",
+    "SigmaFinal.completion_slope_anchor_identifies"
+  ],
+  "representation_notes": [
+    "Functions are extended to R for Lean, with every candidate condition and conclusion restricted to D=(-1,infinity). Since D is open, the native DifferentiableAt assumptions express exactly differentiability on D; no outside behavior is used.",
+    "TypedCompletion uses the native total derivative; its accompanying differentiability and range hypotheses certify both the derivative and typed composition.",
+    "The proof uses monotonicity, surjectivity, and actual quotient limits instead of a packaged inverse function theorem. Its candidate class is exactly the draft class."
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalCompletionAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalCompletionAxiomCheck.log",
+    "report": "outputs/final-draft/completion-axiom-audit.json"
+  }
+}

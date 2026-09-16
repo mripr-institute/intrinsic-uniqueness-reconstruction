@@ -1,0 +1,1271 @@
+{
+  "scope": "Every named statement in the final LaTeX draft; complete coverage has not yet been proved.",
+  "count": 80,
+  "obligations": [
+    {
+      "id": "final:C0",
+      "labels": [
+        "final:C0"
+      ],
+      "kind": "definition",
+      "title": "Marked intrinsic and placed objects",
+      "source": "outputs/final-draft/core.tex",
+      "line": 9,
+      "statement_tex": "\\label{final:C0}\nOn $t>0$ define\n\\[\n H(t)=\\log t-t+1,\\qquad I(t)=t-1-\\log t,\n \\qquad p(t)=te^{-t},\\qquad S=(H,I,p).\n\\]\nFor $\\mu>0$, $0<a<1$, put $P=(\\mu,a)$, $\\gamma=\\mu/a$,\n$b=-a/\\mu$, and $r_*=(1-a)/\\mu$. The placed Sigma is\n\\[\n \\sigma_P(r)=\\log\\frac{\\mu^2(1+\\gamma r)}{\\mu+\\gamma}-\\mu r,\n \\qquad r>b.\n\\]\nThe intrinsic and placed coordinates, their units, and the parameter\nmarks are part of these definitions.",
+      "statement_sha256": "9685a888796b54c98303df572480e3bdad622bb93ecb9e02e7d9cee62014014f",
+      "lean_status": "definition",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C0-placement",
+      "labels": [
+        "final:C0-placement",
+        "final:placed",
+        "final:spine"
+      ],
+      "kind": "theorem",
+      "title": "Exact placed reconstruction",
+      "source": "outputs/final-draft/core.tex",
+      "line": 26,
+      "statement_tex": "\\label{final:C0-placement}\nThe map $t=\\mu r+a$ bijects $(b,\\infty)$ with $(0,\\infty)$, and\n\\begin{align}\n \\sigma_P(r)&=H(\\mu r+a)+\\log\\frac\\mu{1+a}+a-1,\\label{final:placed}\\\\\n I&=-H,\\qquad p=e^{H-1},\\qquad H=1+\\log p.\\label{final:spine}\n\\end{align}\nThe closure satisfies $\\sigma'_P(r_*)=0$, $\\sigma''_P(r_*)=-\\mu^2$.\nThe density $p$ has mass one on $(0,\\infty)$, whereas\n\\[\n e^{\\sigma_P(r)}\\,dr=\\frac{p(t)\\,dt}{(1+a)e^{-a}}.\n\\]\nConsequently $e^{\\sigma_P}$ has mass one on $r\\ge0$ and mass\n$e^a/(1+a)$ on its whole analytic domain. Inside the placed family,\nat every point of that domain,\n\\[\n \\mu=\\sqrt{-\\sigma_P''}-\\sigma_P',\\qquad\n \\gamma=\\frac{\\sqrt{-\\sigma_P''}}{1-r\\sqrt{-\\sigma_P''}}.\n\\]\nThus $(S,P)$ and $\\sigma_P$ reconstruct one another exactly.",
+      "statement_sha256": "c78b4fd5b9a6b5664e2806b45f31d8f826a5629f6b33dfc0d84982dc39d5dcd2",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C1",
+      "labels": [
+        "final:C1"
+      ],
+      "kind": "theorem",
+      "title": "Curvature, Riccati and exact flow",
+      "source": "outputs/final-draft/core.tex",
+      "line": 64,
+      "statement_tex": "\\label{final:C1}\nFor twice differentiable $F:(0,\\infty)\\to\\R$ with\n$F(1)=F'(1)=0$, each of the following conditions identifies $F=H$:\n\\[\n F''(t)=-t^{-2},\\qquad\n F''(t)=-(F'(t)+1)^2.\n\\]\nEquivalently, the marked exact flow\n\\[\n q(t+s)=\\frac{q(t)}{1+s q(t)},\\qquad q(1)=1,\n\\]\nfor every pair $t,t+s>0$ identifies $q(t)=1/t$; with\n$F'=q-1$ and $F(1)=0$ it identifies $F=H$.\nMore generally $F''(r)=-(r-b)^{-2}$ on $r>b$ identifies\n$F(r)=\\log(r-b)+Ar+B$, and two independent affine data fix $A,B$.",
+      "statement_sha256": "14a48b915496582a7701f93c3367bf917399f6215173c0392e8d2d6ed45f673e",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C2",
+      "labels": [
+        "final:C2"
+      ],
+      "kind": "theorem",
+      "title": "Recentring transports its own regularity and anchors",
+      "source": "outputs/final-draft/core.tex",
+      "line": 94,
+      "statement_tex": "\\label{final:C2}\nLet $F$ be differentiable on $(0,\\infty)$, with $F''(1)=-1$.\nThen\n\\[\n F(av)-F(a)-aF'(a)(v-1)=F(v)\\quad(a,v>0)\n\\]\nholds if and only if $F=H$. No separate affine anchors or global\nsecond-differentiability hypothesis is needed.",
+      "statement_sha256": "887cf8f5abe339c3e3af894a2a608113d7fd0d7ed0f0040f7a7aa3270eed7d32",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C3",
+      "labels": [
+        "final:C3"
+      ],
+      "kind": "theorem",
+      "title": "Normalized group logarithm and cocycle",
+      "source": "outputs/final-draft/core.tex",
+      "line": 114,
+      "statement_tex": "\\label{final:C3}\nOn $D=(-1,\\infty)$ define $x\\star y=x+y+xy$. This is a\ncommutative group with identity zero and inverse $-x/(1+x)$.\nA function $\\ell:D\\to\\R$ satisfying\n\\[\n \\ell(x\\star y)=\\ell(x)+\\ell(y),\\qquad \\ell'(0)=1\n\\]\nis uniquely $\\ell(x)=\\log(1+x)$, where differentiability is\ninitially required only at zero. Equivalently the differentiable-at-zero\ncocycle clause\n\\[\n h(x\\star y)=h(x)+h(y)-xy,\\qquad h'(0)=0\n\\]\nidentifies $h(x)=\\log(1+x)-x=H(1+x)$.",
+      "statement_sha256": "b8a0a3f64faf77b97599b730b02e5052065d3bf85296bdfcd052a32a0b050121",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C3-completion",
+      "labels": [
+        "final:C3-completion"
+      ],
+      "kind": "theorem",
+      "title": "Typed completion equation",
+      "source": "outputs/final-draft/core.tex",
+      "line": 141,
+      "statement_tex": "\\label{final:C3-completion}\nSuppose $h$ is differentiable on $D$, $h'(D)\\subset D$ and\n$\\ell=\\mathrm{id}+h$. Then\n\\[\n \\ell(h'(z))=-\\ell(z)\\quad(z\\in D)\n\\]\nholds if and only if, for some $K>0$,\n\\[\n h(z)=K\\log(1+z)-z-\\frac K2\\log K.\n\\]\nEither anchor $h(0)=0$ or $h'(0)=0$ selects $K=1$.\nInjectivity of $\\ell$ and twice differentiability of $h$ follow from\nthe stated domain condition and equation.",
+      "statement_sha256": "f875a4cb19c8ea300aaaff523e71c5dc412ca7643cb098770531b653ac1b45e8",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C3-automorphisms",
+      "labels": [
+        "final:C3-automorphisms"
+      ],
+      "kind": "proposition",
+      "title": "Automorphisms, integer series and their calibration",
+      "source": "outputs/final-draft/core.tex",
+      "line": 171,
+      "statement_tex": "\\label{final:C3-automorphisms}\nEvery continuous, measurable, monotone or differentiable automorphism\nof the fixed group $(D,\\star)$ is\n\\[\n F_c(x)=(1+x)^c-1,\\qquad c\\in\\R\\setminus\\{0\\}.\n\\]\nThe calibration $F_c'(0)=1$ selects the identity. Without regularity,\nconjugates of arbitrary additive bijections of $\\R$ give further\nautomorphisms. Over a characteristic-zero field the formal\nautomorphisms have the same formula, with nonzero field coefficient\n$c$. The integer series is\n$[n]_\\star(x)=(1+x)^n-1$; it describes repeated group addition,\nand $[m]_\\star\\circ[n]_\\star=[mn]_\\star$.",
+      "statement_sha256": "2a96a51e641cf8a7e157707d81efd57a9e1bfaaaac7c7f1fec12451ec5ec3397",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C4",
+      "labels": [
+        "final:C4"
+      ],
+      "kind": "theorem",
+      "title": "Differentiable Bregman reconstruction",
+      "source": "outputs/final-draft/core.tex",
+      "line": 201,
+      "statement_tex": "\\label{final:C4}\nFor a differentiable $\\Phi:(0,\\infty)\\to\\R$, let\n$B_\\Phi(t,s)=\\Phi(t)-\\Phi(s)-\\Phi'(s)(t-s)$.\nSimultaneous scale invariance $B_\\Phi(ct,cs)=B_\\Phi(t,s)$ for all\n$c,t,s>0$ holds if and only if\n\\[\n \\Phi(t)=A I(t)+B(t-1)+C.\n\\]\nThus $\\Phi(1)=\\Phi'(1)=0$ and\n$\\Phi'(2)-\\Phi'(1)=1/2$ identify $\\Phi=I$ without separately\nassuming second differentiability or convexity. Alternatively,\nfor an anchored differentiable $\\Phi$ the exact symmetric slice\n\\[\n B_\\Phi(t,1)+B_\\Phi(1,t)=t+t^{-1}-2\n\\]\nidentifies $\\Phi=I$. In particular $B_I(t,s)=I(t/s)$.",
+      "statement_sha256": "2748551f2eebf685be97b31db8bc52273a1c8e283fdb55018baf2684c79ae226",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C5",
+      "labels": [
+        "final:C5"
+      ],
+      "kind": "theorem",
+      "title": "Exact Legendre target with either regularity condition",
+      "source": "outputs/final-draft/core.tex",
+      "line": 235,
+      "statement_tex": "\\label{final:C5}\nExtend $I$ by $+\\infty$ off $(0,\\infty)$. Its convex conjugate is\n\\[\n I^*(\\theta)=\\begin{cases}-\\log(1-\\theta),&\\theta<1,\\\\\n +\\infty,&\\theta\\ge1.\\end{cases}\n\\]\nIf an extended-real function $F$ has this exact full conjugate and\nis either lower semicontinuous on $(0,\\infty)$ or convex, then\n$F=I$. It is unnecessary to assume both regularity conditions.\nWithout either, the converse is false.",
+      "statement_sha256": "02bc9f4e55e07382a6314a57d7783425aa56c6fa9b95266565ca24ebf81bc25a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C6",
+      "labels": [
+        "final:C6"
+      ],
+      "kind": "theorem",
+      "title": "Self-concordance and the marked Hessian metric",
+      "source": "outputs/final-draft/core.tex",
+      "line": 269,
+      "statement_tex": "\\label{final:C6}\nLet $\\Phi\\in C^3(0,\\infty)$ with $\\Phi''>0$,\n$\\Phi(1)=\\Phi'(1)=0$ and $\\Phi''(1)=1$. The signed equality\n$\\Phi'''=-2(\\Phi'')^{3/2}$ identifies $\\Phi=I$.\nThe unsigned equality $|\\Phi'''|=2(\\Phi'')^{3/2}$ also suffices\non the entire positive ray. The corresponding Hessian metric is\n$dt^2/t^2$, with distance $|\\log(t/s)|$ and\n\\[\n I(t/s)+I(s/t)=4\\sinh^2\\!\\left(\\frac{|\\log(t/s)|}{2}\\right).\n\\]\nThe metric in the marked affine coordinate together with the affine\nanchors reconstructs $I$; its bare distance does not fix orientation.\nThe self-concordance inequality alone does not identify $I$, and\n$I$ is not a finite-parameter self-concordant barrier on this domain.",
+      "statement_sha256": "03ab939cbb0eee2ce6456e983cf7c1e7fff3f210a30e6ce0c797b61e4e667b8a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C7",
+      "labels": [
+        "final:C7"
+      ],
+      "kind": "theorem",
+      "title": "Calibrated projective and Schwarzian data",
+      "source": "outputs/final-draft/core.tex",
+      "line": 301,
+      "statement_tex": "\\label{final:C7}\nAn injective real-valued function $f$ on $(0,\\infty)$ preserving\nall cross-ratios and satisfying\n$f(1)=0$, $f(2)=-1/2$, $f(3)=-2/3$ equals $1/t-1$.\nConsequently $f=F'$ and $F(1)=0$ identify $F=H$.\nAlternatively, if $f\\in C^3$, $f'\\ne0$,\n\\[\n \\frac{f'''}{f'}-\\frac32\\left(\\frac{f''}{f'}\\right)^2=0,\n \\quad f(1)=0,\\quad f'(1)=-1,\\quad f''(1)=2,\n\\]\nthen the same conclusion holds. Projectivity or zero Schwarzian\nwithout calibration does not select this member.",
+      "statement_sha256": "2f3585f7efbffd480881233d6e585a0d1121145b42b74d83cb1e0dd4890d9a2a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:C8",
+      "labels": [
+        "final:C8"
+      ],
+      "kind": "proposition",
+      "title": "Derivative, discrete and local-data boundaries",
+      "source": "outputs/final-draft/core.tex",
+      "line": 328,
+      "statement_tex": "\\label{final:C8}\nThe placed derivatives satisfy\n\\[\n \\sigma_P^{(n)}(r)=(-1)^{n-1}(n-1)!\n       \\left(\\frac\\gamma{1+\\gamma r}\\right)^n,\n \\qquad n\\ge2.\n\\]\nAll orders beyond two add no information once curvature is known.\nA lone prescribed derivative of order $n$ identifies a function only\nmodulo a polynomial of degree at most $n-1$.\nFor $\\rho(r)=C(1+\\gamma r)e^{-\\mu r}$, $C>0$, its derivative\nof order $n\\ge1$ has the single zero\n$r_n=n/\\mu-1/\\gamma$. Within this shape family, two consecutive\nindexed zeros determine $\\mu,\\gamma$, and mass determines $C$.\nThe discrete curvature is\n\\[\n \\sigma_P(r+1)-2\\sigma_P(r)+\\sigma_P(r-1)\n =\\log\\left(1-\\frac1{(r-b)^2}\\right),\\quad r-1>b.\n\\]\nIt determines lattice values from two starting values, not an arbitrary\nreal interpolation. A complete germ identifies a global function in a\nspecified connected real-analytic class, but not in a general smooth class.",
+      "statement_sha256": "5c4f036a75bab1c5e92c0dac6c49a19c1a70c0853d7722074ae2f70d5d1acc33",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:Z4",
+      "labels": [
+        "final:Z4"
+      ],
+      "kind": "theorem",
+      "title": "Exact all-order derivative-zero sets do not identify Sigma",
+      "source": "outputs/final-draft/core.tex",
+      "line": 372,
+      "statement_tex": "\\label{final:Z4}\nFor every real $k>1$ the function\n\\[\n f_k(t)=(k-1)k^k\\frac{t}{(t+k)^{k+1}},\\qquad t>0,\n\\]\nis a positive real-analytic probability density, vanishing at both\nendpoints, and for every integer $n\\ge1$,\n\\[\n f_k^{(n)}(t)=(-1)^n(k-1)k^k(k)_n\n          \\frac{t-n}{(t+k)^{k+n+1}}.\n\\]\nHere $(k)_n=k(k+1)\\cdots(k+n-1)$. Thus every derivative has\nexactly the same single simple positive zero $n$ as $p^{(n)}$,\nbut $f_k\\ne p$. In particular $4t/(t+2)^3$ refutes the proposed\ncharacterization even among normalized real-analytic positive densities.",
+      "statement_sha256": "7bd6b7e0ddfc8c9891a8057152e1c679f8f3e55cf138c040d15ea253abeaa74d",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P0-uniqueness",
+      "labels": [
+        "final:P0-uniqueness"
+      ],
+      "kind": "proposition",
+      "title": "Uniqueness principles for the transforms used below",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 16,
+      "statement_tex": "\\label{final:P0-uniqueness}\nFinite Borel measures on $\\mathbb R$ are determined by their\ncharacteristic functions.  Finite measures on $[0,\\infty)$ are\ndetermined by their Laplace transforms on $[0,\\infty)$, and finite\nmeasures on $[0,1]$ by all their nonnegative integer moments.\nTwo probability laws with moment generating functions finite on\nan open interval about zero and equal there are equal.",
+      "statement_sha256": "a2adf3a07891e11f82ba41201fdbef597ad8df611c5779f49ceadf20cca34210",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P1",
+      "labels": [
+        "final:P1",
+        "final:eq-gamma-laplace",
+        "final:eq-gamma-characteristic",
+        "final:eq-gamma-mellin",
+        "final:eq-gamma-moments"
+      ],
+      "kind": "theorem",
+      "title": "Gamma law and complete transform characterizations",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 46,
+      "statement_tex": "\\label{final:P1}\nLet $\\mu_\\Gamma(dt)=\\mathbf 1_{(0,\\infty)}(t)p(t)\\,dt$.\nIt is the probability law $\\operatorname{Gamma}(2,1)$, with topological\nsupport $[0,\\infty)$ and no atom at zero.  Its transforms are\n\\begin{align}\n \\int e^{-zt}\\,\\mu_\\Gamma(dt)&=(1+z)^{-2},\n       &&\\operatorname{Re}z>-1,\\label{final:eq-gamma-laplace}\\\\\n \\int e^{i\\xi t}\\,\\mu_\\Gamma(dt)&=(1-i\\xi)^{-2},\n       &&\\xi\\in\\mathbb R,\\label{final:eq-gamma-characteristic}\\\\\n \\int t^{z-1}\\,\\mu_\\Gamma(dt)&=\\Gamma(z+1),\n       &&\\operatorname{Re}z>-1,\\label{final:eq-gamma-mellin}\\\\\n \\int t^n\\,\\mu_\\Gamma(dt)&=(n+1)!,\n       &&n\\in\\mathbb N_0.\\label{final:eq-gamma-moments}\n\\end{align}\nEach of the following complete observations identifies its candidate\nas $\\mu_\\Gamma$:\n\\begin{enumerate}\n\\item a finite positive Borel measure on $\\mathbb R$ with the moments\n      \\eqref{final:eq-gamma-moments}, including $n=0$;\n\\item a probability on $[0,\\infty)$ with Laplace transform\n      $(1+\\lambda)^{-2}$ for every $\\lambda\\geq0$;\n\\item a probability on $\\mathbb R$ with characteristic function\n      $(1-i\\xi)^{-2}$ for every real $\\xi$;\n\\item a probability on $(0,\\infty)$ with\n      $\\mathbb E T^{i\\xi}=\\Gamma(2+i\\xi)$ for every real $\\xi$.\n\\end{enumerate}\nIn the first and third clauses, positive support is a conclusion.\nMoreover\n\\[\n \\mathbb ET=2,\\quad \\operatorname{Var}(T)=2,\\quad\n \\mathbb E\\log T=1-\\gamma_E,\\quad\n \\kappa_n(T)=2(n-1)!\\quad(n\\geq1).\n\\]",
+      "statement_sha256": "f156d0837a1a0b4385988a1ceac55433539bb81a895e8e6596d590ba7b62d528",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P1-samples",
+      "labels": [
+        "final:P1-samples"
+      ],
+      "kind": "proposition",
+      "title": "Exponential samples also derive support",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 115,
+      "statement_tex": "\\label{final:P1-samples}\nIf a finite positive Borel measure $\\nu$ on $\\mathbb R$ satisfies\n\\[\n \\int e^{-ns}\\,\\nu(ds)=(n+1)^{-2}\\qquad(n\\in\\mathbb N_0),\n\\]\nthen $\\nu(ds)=\\mathbf 1_{(0,\\infty)}(s)s e^{-s}\\,ds$.",
+      "statement_sha256": "4a1d1b0420d82c51db9c16af68ad540690a1cbc539ecbbcb1c9758228d9adbed",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P1-boundaries",
+      "labels": [
+        "final:P1-boundaries"
+      ],
+      "kind": "proposition",
+      "title": "Boundaries of moment identification",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 134,
+      "statement_tex": "\\label{final:P1-boundaries}\nRemoving positivity, removing the zeroth moment, or retaining only\nfinitely many ordinary moments invalidates the corresponding\nunrestricted moment converse in Theorem~\\ref{final:P1}.",
+      "statement_sha256": "b21ac90d252777e2a559728189d7440271bf8ecbb591ad6e52eb71f27b46e5d8",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P2",
+      "labels": [
+        "final:P2",
+        "final:eq-poisson-cgf",
+        "final:eq-poisson-centered",
+        "final:eq-poisson-kl",
+        "final:eq-exp-kl",
+        "final:eq-gaussian-kl"
+      ],
+      "kind": "theorem",
+      "title": "Marked Poisson recurrence, cumulants and divergences",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 159,
+      "statement_tex": "\\label{final:P2}\nA probability sequence $(\\pi_n)_{n\\geq0}$ satisfies\n\\[\n (n+1)\\pi_{n+1}=\\pi_n\\qquad(n\\geq0)\n\\]\nif and only if $\\pi_n=e^{-1}/n!$.  For $N$ with this law,\n\\begin{align}\n K(u)&=\\log\\mathbb E e^{uN}=e^u-1,\\label{final:eq-poisson-cgf}\\\\\n \\Lambda(u)&=\\log\\mathbb E e^{u(N-1)}=e^u-1-u=I(e^u).\n       \\label{final:eq-poisson-centered}\n\\end{align}\nThe complete uncentered CGF near zero identifies $N$ as\n$\\operatorname{Pois}(1)$.  The complete centered expression identifies\nthe law of $N-1$ when the shift is marked as one.  As a scalar\nfunction it reconstructs $I(t)=\\Lambda(\\log t)$.\n\nWith $D$ denoting relative entropy, for $a,b>0$ one has\n\\begin{align}\n D(\\operatorname{Pois}(a)\\Vert\\operatorname{Pois}(b))\n     &=a I(b/a),\\label{final:eq-poisson-kl}\\\\\n D(\\operatorname{Exp}(a)\\Vert\\operatorname{Exp}(b))\n     &=I(b/a),\\label{final:eq-exp-kl}\\\\\n 2D(\\mathcal N(0,a)\\Vert\\mathcal N(0,b))\n     &=I(a/b),\\label{final:eq-gaussian-kl}\n\\end{align}\nwhere $a,b$ in the last line are variances.  Consequently each full\nmarked slice obtained by $(a,b)=(1,t),(1,t),(t,1)$, respectively,\nreconstructs $I$.  With $\\Psi(t)=t\\log t-t+1$,\n\\[\n D(\\operatorname{Pois}(a)\\Vert\\operatorname{Pois}(b))\n =\\Psi(a)-\\Psi(b)-\\Psi'(b)(a-b).\n\\]\nThe Legendre transform of the centered CGF is\n\\[\n \\Lambda^*(z)=\n \\begin{cases}\n (1+z)\\log(1+z)-z,&z>-1,\\\\\n 1,&z=-1,\\\\\n +\\infty,&z<-1.\n \\end{cases}\n\\]",
+      "statement_sha256": "13b4c97b991de63ba570993aad71f0e930701cfb62ffb75075f29e92a20a0a61",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P2-boundaries",
+      "labels": [
+        "final:P2-boundaries"
+      ],
+      "kind": "proposition",
+      "title": "The centering mark and KL orientation are essential",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 228,
+      "statement_tex": "\\label{final:P2-boundaries}\nAn unmarked centered CGF does not determine the original location,\neven for a law on $\\mathbb N_0$.  Reversing the displayed divergence\nslices changes their scalar potential.",
+      "statement_sha256": "db766047f0084411462e269cd52fc2bf2b0e4dfb5bf65694dee219cde79e2e8e",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P3",
+      "labels": [
+        "final:P3"
+      ],
+      "kind": "theorem",
+      "title": "Two marked max laws characterize the Gumbel CDF",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 245,
+      "statement_tex": "\\label{final:P3}\nLet $F$ be a CDF on $\\mathbb R$.  The identities\n\\[\n F(x+\\log2)^2=F(x),\\qquad F(x+\\log3)^3=F(x)\n       \\quad(x\\in\\mathbb R),\\qquad F(0)=e^{-1}\n\\]\nhold if and only if\n\\[\n F(x)=\\exp(-e^{-x}).\n\\]\nNo density, smoothness, strict monotonicity, or full-support\nhypothesis is required.  This CDF has density\n$g(x)=e^{-x-e^{-x}}=p(e^{-x})$, and it satisfies the analogous\nmax identity for every positive integer $n$.",
+      "statement_sha256": "b7c5a3c81baa871b10256595c8e7830f312bbb0de5a16b33d08f2a6e3a189962",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P3-haar",
+      "labels": [
+        "final:P3-haar"
+      ],
+      "kind": "proposition",
+      "title": "Haar weighting and Gumbel calibration boundaries",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 281,
+      "statement_tex": "\\label{final:P3-haar}\nFor the marked map $\\tau(x)=e^{-x}$, the Gumbel probability satisfies\n\\[\n \\tau_*(dF)=e^{-t}\\,dt=p(t)\\frac{dt}{t},\\qquad\n \\int_0^\\infty p(t)\\frac{dt}{t}=1.\n\\]\nThe measure $dt/t$ is multiplicative Haar measure and has infinite\nmass.  Thus the Haar-weighted probability, and its complete density\nin the marked logarithmic coordinate, each reconstruct $p$.\nRemoving the anchor in Theorem~\\ref{final:P3}, or keeping only its\nbase-two equation, destroys uniqueness.",
+      "statement_sha256": "20503f7d1ce2cb19364b3dfa76c54f691b8dec17bc0d6a7927851bbb1d2ee390",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P4-data",
+      "labels": [
+        "final:P4-data",
+        "final:eq-deficit-cdf",
+        "final:eq-deficit-density",
+        "final:eq-deficit-involution"
+      ],
+      "kind": "proposition",
+      "title": "Canonical deficit law and coordinate involution",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 312,
+      "statement_tex": "\\label{final:P4-data}\nFor $T\\sim\\mu_\\Gamma$ let $V=I(T)$.  For $v\\geq0$ let\n$a(v)\\leq1\\leq b(v)$ be the roots of $I(t)=v$; explicitly\n\\[\n a(v)=-W_0(-e^{-1-v}),\\qquad\n b(v)=-W_{-1}(-e^{-1-v}),\n\\]\nwhere $W_0$ and $W_{-1}$ are the real inverse branches of $w e^w$.\nWriting $\\overline F_\\Gamma(t)=(1+t)e^{-t}$, the canonical deficit\nCDF is zero for $v<0$ and is\n\\begin{equation}\n F_I(v)=\\overline F_\\Gamma(a(v))-\\overline F_\\Gamma(b(v)),\n                \\qquad v\\geq0.\\label{final:eq-deficit-cdf}\n\\end{equation}\nIt has no atom at zero and, for $v>0$, has density\n\\begin{equation}\n f_I(v)=e^{-1-v}\n \\left(\\frac{a(v)}{1-a(v)}+\\frac{b(v)}{b(v)-1}\\right),\n \\qquad f_I(v)\\sim\\frac{\\sqrt2}{e\\sqrt v}\\quad(v\\downarrow0).\n \\label{final:eq-deficit-density}\n\\end{equation}\nThe canonical coordinate involution is\n\\begin{equation}\n j_I(t)=\n \\begin{cases}\n -W_{-1}(-te^{-t}),&0<t<1,\\\\\n 1,&t=1,\\\\\n -W_0(-te^{-t}),&t>1.\n \\end{cases}\\label{final:eq-deficit-involution}\n\\end{equation}\nIt is a smooth strictly decreasing involution, with $j_I'(1)=-1$,\nunique fixed point one, and $I\\circ j_I=I$, $p\\circ j_I=p$.",
+      "statement_sha256": "a5ef9b6f4a038eb1483054968916a79ac254b1f194db2a0612a2896257e20c93",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P4-cumulants",
+      "labels": [
+        "final:P4-cumulants",
+        "final:eq-deficit-mgf",
+        "final:eq-deficit-cgf",
+        "final:eq-deficit-cumulants",
+        "final:eq-deficit-truncation"
+      ],
+      "kind": "proposition",
+      "title": "Deficit transform, cumulants, and determinacy",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 374,
+      "statement_tex": "\\label{final:P4-cumulants}\nThe maximal real moment-generating domain of $V$ is $s<1$, and\n\\begin{align}\n M_V(s)&=e^{-s}\\frac{\\Gamma(2-s)}{(1-s)^{2-s}},\\label{final:eq-deficit-mgf}\\\\\n K_V(s)&=\\gamma_Es+\n \\sum_{n=2}^\\infty\\frac{1}{n}\n       \\left(\\zeta(n)-\\frac{1}{n-1}\\right)s^n\\quad(|s|<1).\n       \\label{final:eq-deficit-cgf}\n\\end{align}\nConsequently\n\\begin{equation}\n \\kappa_1(V)=\\gamma_E,\\qquad\n \\kappa_n(V)=(n-1)!\n       \\left(\\zeta(n)-\\frac{1}{n-1}\\right)\\quad(n\\geq2).\n       \\label{final:eq-deficit-cumulants}\n\\end{equation}\nIn particular $\\operatorname{Var}V=\\pi^2/6-1$,\n$\\kappa_3(V)=2\\zeta(3)-1$, and $\\kappa_4(V)=\\pi^4/15-2$.\nEvery nonnegative probability law with all finite moments and these\nalgebraic cumulants equals the law of $V$; no separate exponential\nmoment assumption on that candidate is necessary.\nFor $a>0$ and $s<1$, the conditional transform is\n\\begin{equation}\n \\mathbb E[e^{sI(T)}\\mid T\\geq a]\n =\\frac{e^{-s}\\Gamma(2-s,(1-s)a)}\n       {(1+a)e^{-a}(1-s)^{2-s}},\n \\label{final:eq-deficit-truncation}\n\\end{equation}\nwhere $\\Gamma(q,x)=\\int_x^\\infty u^{q-1}e^{-u}\\,du$.",
+      "statement_sha256": "3165acce36fbdeef21dabd71d1ca40ad765e5cd434828bf7731d0b5604dd13f1",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P4",
+      "labels": [
+        "final:P4"
+      ],
+      "kind": "theorem",
+      "title": "The linked deficit law and involution identify the potential",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 439,
+      "statement_tex": "\\label{final:P4}\nLet $J:(0,\\infty)\\to[0,\\infty)$ be continuous, satisfy $J(1)=0$,\nbe strictly decreasing on $(0,1]$ and strictly increasing on\n$[1,\\infty)$, and tend to infinity at both endpoints.  Suppose\n$q_J(t)=e^{-1-J(t)}$ has integral one.  Let $F_J$ be the law of\n$J(T_J)$ under this same density $q_J$, and let $j_J$ exchange its\ntwo equal-level roots in the same $t$ coordinate and fix one.\nIf\n\\[\n F_J=F_I\\quad\\hbox{and}\\quad j_J=j_I,\n\\]\nwith the target values specified in\n\\eqref{final:eq-deficit-cdf} and \\eqref{final:eq-deficit-involution},\nthen $J=I$ and $q_J=p$.  Conversely $I$ supplies these data.\nThe full list \\eqref{final:eq-deficit-cumulants} may replace $F_J=F_I$.\nMore generally the complete pair $(F_J,j_J)$ uniquely determines\nevery potential in this candidate class.",
+      "statement_sha256": "a88b1cd964942b8792463b840bab96151ce6b799798a9a87425db047bb9ea16b",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P4-boundaries",
+      "labels": [
+        "final:P4-boundaries"
+      ],
+      "kind": "proposition",
+      "title": "Neither linked observation alone suffices",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 483,
+      "statement_tex": "\\label{final:P4-boundaries}\nWithin the normalized candidate class of Theorem~\\ref{final:P4},\nthere are noncanonical potentials with exactly $F_I$, and others\nwith exactly $j_I$.  Thus both canonical target observations and\ntheir common density--potential linkage carry identifying information.\nThe law of $I(T)$ alone does not identify an arbitrary source law\nfor $T$, even when the potential $I$ itself is fixed.",
+      "statement_sha256": "701f88dc6ed831d9ad11583bd6ffdb6b50f07ea8fc5614c4e691b1680e0b5e5e",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P5",
+      "labels": [
+        "final:P5",
+        "final:eq-survival"
+      ],
+      "kind": "theorem",
+      "title": "Survival, hazard, logistic equation, and causal Green kernel",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 532,
+      "statement_tex": "\\label{final:P5}\nThe Gamma survival and hazard are\n\\begin{equation}\n \\overline F_\\Gamma(x)=(1+x)e^{-x}\n =\\frac{p(1+x)}{p(1)}=e^{-I(1+x)},\\qquad\n h_\\Gamma(x)=\\frac{x}{1+x}\\quad(x\\geq0).\n \\label{final:eq-survival}\n\\end{equation}\nEach of the following identifying clauses recovers $p$:\n\\begin{enumerate}\n\\item an absolutely continuous probability on $[0,\\infty)$ with\n      positive survival at finite arguments, survival value one at\n      zero, and actual hazard $x/(1+x)$ almost everywhere;\n\\item that same survival framework, with its marked hazard\n      $v(u)=h(e^u)$ differentiable on $\\mathbb R$ and satisfying\n      $v'=v(1-v)$, $v(0)=1/2$;\n\\item a $C^2$ function $f$ on $(0,\\infty)$ extending continuously\n      to zero, with $f''+2f'+f=0$, $f(0)=0$, and\n      $\\int_0^\\infty f(t)\\,dt=1$;\n\\item a distribution $g$ on $\\mathbb R$ supported in $[0,\\infty)$\n      with $(D+1)^2g=\\delta_0$.\n\\end{enumerate}\nIn the last clause the result is\n$g(t)=\\mathbf 1_{[0,\\infty)}(t)t e^{-t}$.\nIf $k(t)=\\mathbf 1_{[0,\\infty)}(t)e^{-t}$, then $g=k*k$.\nThus $\\mu_\\Gamma$ is also the law of a sum of two independent\nunit-rate exponential variables and the second arrival time of a\nunit-rate Poisson process.",
+      "statement_sha256": "3aca75b818c78bf66023bd246b8920af9ea58505a4cd1fc28f8124df155e296c",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P5-survival-boundaries",
+      "labels": [
+        "final:P5-survival-boundaries",
+        "final:eq-gamma-self-shift"
+      ],
+      "kind": "proposition",
+      "title": "Precise survival boundaries and Gamma shift uniqueness",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 598,
+      "statement_tex": "\\label{final:P5-survival-boundaries}\nLocal absolute continuity and the survival anchor in\nTheorem~\\ref{final:P5} cannot be dropped from its almost-everywhere\nhazard formulation.  For the logarithmic random variable $Y=\\log T$,\nthe hazard with respect to its own coordinate is\n\\[\n h_Y(u)=e^u h_\\Gamma(e^u)=\\frac{e^{2u}}{1+e^u},\n\\]\nwhich differs from the composition $v(u)$ in that theorem.\nFor a Gamma density of shape $\\alpha>0$ and rate $\\beta>0$, the\nself-survival shift identity\n\\begin{equation}\n \\overline F_{\\alpha,\\beta}(x)\n =\\frac{f_{\\alpha,\\beta}(x+c)}{f_{\\alpha,\\beta}(c)}\n                  \\quad(x\\geq0),\\qquad c>0,\n \\label{final:eq-gamma-self-shift}\n\\end{equation}\nholds exactly when $\\alpha=1$ with arbitrary $c$, or when\n$\\alpha=2$ and $c=1/\\beta$.",
+      "statement_sha256": "d6c2c39260680d369f0f9812faacefc46f01e75836299e72641c1944d36dda98",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P5-stieltjes",
+      "labels": [
+        "final:P5-stieltjes",
+        "final:eq-gamma-stieltjes"
+      ],
+      "kind": "proposition",
+      "title": "Probability Stieltjes transform and its inverse",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 656,
+      "statement_tex": "\\label{final:P5-stieltjes}\nFor $z>0$,\n\\begin{equation}\n G_\\Gamma(z)=\\int_0^\\infty\\frac{p(t)}{t+z}\\,dt\n =1-z e^z E_1(z),\\qquad\n E_1(z)=\\int_z^\\infty\\frac{e^{-u}}u\\,du.\n \\label{final:eq-gamma-stieltjes}\n\\end{equation}\nThe complete transform, or its values on any nonempty open interval\nin $(0,\\infty)$, identifies a candidate finite positive measure on\n$[0,\\infty)$ as $\\mu_\\Gamma$.\nThe Laplace transform $(1+\\lambda)^{-2}$ is completely monotone\nbut is not a nonzero Stieltjes function.  Neither $p$ nor\n$\\overline F_\\Gamma$ is completely monotone.",
+      "statement_sha256": "0f245e07dd58dc1a060f411495407945ac7037470a09044fb45d15b08168d082",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P5-transforms",
+      "labels": [
+        "final:P5-transforms"
+      ],
+      "kind": "proposition",
+      "title": "Reverse size bias, equilibrium, and marked tilting",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 706,
+      "statement_tex": "\\label{final:P5-transforms}\nLet $\\mu$ be a probability on $[0,\\infty)$ with finite positive\nmean $m$.\n\\begin{enumerate}\n\\item Its size-biased probability is $\\beta(dt)=t\\mu(dt)/m$.\n      If $\\mu(\\{0\\})=0$, then\n      \\[\n      c=\\int_{(0,\\infty)}t^{-1}\\,\\beta(dt)=1/m,\n      \\qquad \\mu(dt)=\\frac{\\beta(dt)}{ct}.\n      \\]\n      Conversely any probability $\\beta$ on $(0,\\infty)$ with\n      $0<c<\\infty$ in this formula has that unique positive inverse.\n      In particular the positive size-bias inverse of\n      $\\mu_\\Gamma$ is $\\operatorname{Exp}(1)$.\n\\item Its equilibrium law has canonical decreasing right-continuous\n      density $q_E(t)=\\mathbb P(X>t)/m$ for $t\\geq0$.\n      If $\\mathbb P(X>0)=1$, its inverse is\n      \\[\n      m=1/q_E(0+),\\qquad\\mathbb P(X>t)=m q_E(t).\n      \\]\n      In particular the full equilibrium density\n      $(1+t)e^{-t}/2$ identifies $\\mu_\\Gamma$, without assuming a\n      density for the candidate original lifetime.\n\\item For a probability $\\mu$ on $\\mathbb R$, a marked real tilt\n      $\\theta$ with $0<M(\\theta)=\\int e^{\\theta t}\\mu(dt)<\\infty$\n      gives $\\mu_\\theta(dt)=e^{\\theta t}\\mu(dt)/M(\\theta)$ and has\n      the inverse\n      \\[\n      \\mu(dt)=\\frac{e^{-\\theta t}\\mu_\\theta(dt)}\n                    {\\int e^{-\\theta y}\\mu_\\theta(dy)}.\n      \\]\n      For $\\mu_\\Gamma$, the admissible real tilts are $\\theta<1$,\n      and\n      \\[\n      p_\\theta(t)=(1-\\theta)^2t e^{-(1-\\theta)t},\\quad\n      \\kappa_n(T_\\theta)=\\frac{2(n-1)!}{(1-\\theta)^n}.\n      \\]\n      Its mean is $2/(1-\\theta)$ and variance\n      $2/(1-\\theta)^2$.\n\\end{enumerate}\nAllowing an atom at zero destroys the first two inverses.  Forgetting\nthe tilt mark leaves a rate ambiguity in the third.",
+      "statement_sha256": "472d979696a77092f9e5241bd45a5e63e87ac57178064b5731a1de525ae8a6b4",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P5-equilibrium-fixed",
+      "labels": [
+        "final:P5-equilibrium-fixed"
+      ],
+      "kind": "corollary",
+      "title": "Equilibrium fixed points",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 783,
+      "statement_tex": "\\label{final:P5-equilibrium-fixed}\nA positive lifetime with finite mean $m$ equals its equilibrium law\nif and only if it is exponential with rate $1/m$.",
+      "statement_sha256": "fe299a2132574a48bdc6b5ecaf0e38d3c558f0b794e19953c50cfed4eb79d08f",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P6",
+      "labels": [
+        "final:P6",
+        "final:eq-rooted-coefficients",
+        "final:eq-borel",
+        "final:eq-borel-forest"
+      ],
+      "kind": "theorem",
+      "title": "Rooted coefficients, Borel probabilities, and the inverse germ",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 797,
+      "statement_tex": "\\label{final:P6}\nThere is a unique formal power series $R(z)\\in z\\mathbb R[[z]]$\nwith $R=ze^R$, and for $n\\geq k\\geq1$,\n\\begin{equation}\n [z^n]R(z)^k=\\frac{k}{n}\\frac{n^{n-k}}{(n-k)!}.\n \\label{final:eq-rooted-coefficients}\n\\end{equation}\nIn particular\n\\[\n R(z)=\\sum_{n\\geq1}\\frac{n^{n-1}}{n!}z^n,\n \\qquad \\operatorname{radius}(R)=e^{-1},\n\\]\nand its compositional inverse germ is $z=t e^{-t}=p(t)$.\nThe marked Borel PGF and its probabilities are\n\\begin{equation}\n B(s)=R(s/e),\\qquad\n b_n=\\frac{e^{-n}n^{n-1}}{n!}\\quad(n\\geq1),\\qquad\n B(s)=s e^{B(s)-1},\\quad B(1)=1.\n \\label{final:eq-borel}\n\\end{equation}\nIts inverse germ is $s=t e^{1-t}=e p(t)$, with the factor $e$\npart of the marking.  For $k$ independent Borel variables their\nsum has probabilities\n\\begin{equation}\n [s^n]B(s)^k=\n \\frac{k}{n}e^{-n}\\frac{n^{n-k}}{(n-k)!}\\qquad(n\\geq k).\n \\label{final:eq-borel-forest}\n\\end{equation}\nThe complete rooted EGF or complete Borel PGF thus determines the\ninverse analytic germ.  If a candidate global density is real\nanalytic on the connected interval $(0,\\infty)$ and agrees with\nthat inverse germ near zero, it equals $p$ everywhere.  Alternatively\n$t e^{-t}$ specifies a canonical global extension of the germ.",
+      "statement_sha256": "b700daf9b7d2a25327c5d55bbab2fe65764ed05baafabe57306fd902929393c0",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P6-gw",
+      "labels": [
+        "final:P6-gw"
+      ],
+      "kind": "theorem",
+      "title": "Borel total size identifies a one-ancestor iid GW law",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 871,
+      "statement_tex": "\\label{final:P6-gw}\nIn a Galton--Watson tree started from one ancestor, with independent\nidentically distributed offspring counts and the usual rooted-tree\nconstruction fixed, the total size has law \\eqref{final:eq-borel}\nif and only if the offspring law is $\\operatorname{Pois}(1)$.\nThis determines the full tree law within that construction.",
+      "statement_sha256": "919fbd2868343b6305f4a5220f1bcb42400f01e32302c4e963dd2aa32dd5c650",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P6-boundaries",
+      "labels": [
+        "final:P6-boundaries"
+      ],
+      "kind": "proposition",
+      "title": "Tree and continuation boundaries",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 905,
+      "statement_tex": "\\label{final:P6-boundaries}\nA complete Borel size law does not identify an arbitrary random\nrooted tree.  A complete inverse germ does not identify an arbitrary\nsmooth positive probability density on $(0,\\infty)$, even with the\ncanonical maximum, strict two-branch shape, and endpoint limits.\nCriticality or a leading Borel tail asymptotic alone does not\nidentify the complete Borel law.",
+      "statement_sha256": "1154ce9318fb0a44b1325e8a80633cf7a667772662bb8230026469fb153a57a1",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P7",
+      "labels": [
+        "final:P7"
+      ],
+      "kind": "theorem",
+      "title": "The calibrated maximum-entropy characterization",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 941,
+      "statement_tex": "\\label{final:P7}\nAmong Lebesgue probability densities $f$ on $(0,\\infty)$ satisfying\n\\[\n \\int t f(t)\\,dt=2,\\qquad\n \\int f(t)\\log t\\,dt=1-\\gamma_E,\n \\qquad \\int f(t)|\\log t|\\,dt<\\infty,\n\\]\nthe unique maximizer of differential entropy is $p$, up to equality\nalmost everywhere, and its entropy is $1+\\gamma_E$.\nHere the extended convention allows entropy $-\\infty$ and defines\nit by the relative-entropy formula below; for finite entropy this\nagrees with $-\\int f\\log f$.",
+      "statement_sha256": "abb759e5e344ac58d31e6b5c8bd1aeed27a4b66fb9de5eed715e553122828f55",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P8",
+      "labels": [
+        "final:P8",
+        "final:eq-gamma-semigroup"
+      ],
+      "kind": "theorem",
+      "title": "Unique probability convolution completion",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 976,
+      "statement_tex": "\\label{final:P8}\nIn the category of probabilities on $[0,\\infty)$, there is a unique\nfamily $(\\mu_r)_{r\\geq0}$ with $\\mu_0=\\delta_0$,\n$\\mu_{r+s}=\\mu_r*\\mu_s$, and $\\mu_1=\\mu_\\Gamma$.\nIt is\n\\begin{equation}\n \\mu_r=\\operatorname{Gamma}(2r,1)\\ (r>0),\\qquad\n L_{\\mu_r}(\\lambda)=(1+\\lambda)^{-2r}\\quad(\\lambda\\geq0).\n \\label{final:eq-gamma-semigroup}\n\\end{equation}\nWeak continuity in $r$ is a conclusion, not an additional premise.\nThe associated stationary independent-increment process is uniquely\nspecified in finite-dimensional law once that process category and\nthe starting value zero are supplied.",
+      "statement_sha256": "aff82b3e2d430ea05b34c1e4d58e1ec5f7c6002051e187c5ed153d8ce465e81a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P8-levy",
+      "labels": [
+        "final:P8-levy",
+        "final:eq-gamma-levy",
+        "final:eq-complete-bernstein"
+      ],
+      "kind": "proposition",
+      "title": "Gamma Levy measure, drift, and complete Bernstein structure",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 1020,
+      "statement_tex": "\\label{final:P8-levy}\nThe Gamma convolution semigroup has exponent and Levy measure\n\\begin{equation}\n \\psi(\\lambda)=2\\log(1+\\lambda)\n =\\int_0^\\infty(1-e^{-\\lambda x})\\frac{2e^{-x}}x\\,dx,\n \\qquad \\nu(dx)=\\frac{2e^{-x}}x\\,dx.\n \\label{final:eq-gamma-levy}\n\\end{equation}\nAmong probability subordinators with this exact Levy measure, the\nfollowing are equivalent and each identifies that semigroup:\nzero drift; $\\psi(\\lambda)/\\lambda\\to0$; time-one support infimum\nzero; and time-one mean two.  The Levy measure alone leaves arbitrary\nnonnegative drift.  Moreover\n\\begin{equation}\n \\frac{2e^{-x}}x=2\\int_1^\\infty e^{-sx}\\,ds,\n \\qquad\n \\log(1+\\lambda)=\\int_1^\\infty\n                 \\frac{\\lambda}{s(s+\\lambda)}\\,ds.\n \\label{final:eq-complete-bernstein}\n\\end{equation}\nThus $\\psi$ is a complete Bernstein function and\n$\\psi'(\\lambda)=2/(1+\\lambda)$ is Stieltjes.",
+      "statement_sha256": "25479c1b849b1629d945d2562e7c8a2fb88a51ad649e3ba4568a5327dcf7f5f1",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P8-samples",
+      "labels": [
+        "final:P8-samples"
+      ],
+      "kind": "corollary",
+      "title": "Complete integer tails identify the Gamma exponent",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 1073,
+      "statement_tex": "\\label{final:P8-samples}\nLet $f$ be a Bernstein function.  If, for some integer $N\\geq1$,\n\\[\n f(n)=2\\log(1+n)\\qquad\\hbox{for every integer }n\\geq N,\n\\]\nthen $f(\\lambda)=2\\log(1+\\lambda)$ for every $\\lambda>0$.",
+      "statement_sha256": "7095468e7b304aec3e93604acfb073d1c40b02c55c164002e0174ad1aaaca266",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P8-selfdecomposition",
+      "labels": [
+        "final:P8-selfdecomposition",
+        "final:eq-residual-levy",
+        "final:eq-residual-transform"
+      ],
+      "kind": "proposition",
+      "title": "Explicit Gamma self-decomposition",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 1089,
+      "statement_tex": "\\label{final:P8-selfdecomposition}\nFor $0<c<1$ there exists a nonnegative compound-Poisson residual\n$Y_c$, independent of a Gamma copy $T'$, such that\n$T\\stackrel{d}{=}cT'+Y_c$.  Its Levy measure, total jump intensity,\nLaplace transform, and zero atom are respectively\n\\begin{align}\n \\nu_c(dx)&=\\frac{2(e^{-x}-e^{-x/c})}{x}\\,dx,\n &\\nu_c((0,\\infty))&=-2\\log c,\\label{final:eq-residual-levy}\\\\\n R_c(\\lambda)&=\\left(\\frac{1+c\\lambda}{1+\\lambda}\\right)^2,\n &\\mathbb P(Y_c=0)&=c^2.\\label{final:eq-residual-transform}\n\\end{align}\nIn particular the Gamma law is infinitely divisible and\nself-decomposable.  Those two general properties alone do not\nidentify its shape or rate.",
+      "statement_sha256": "c4ce1fe93aafffa8de4d4dc9ef63ed548d1985045a8f9ca1b1b8ec44ad9baddf",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:P9",
+      "labels": [
+        "final:P9"
+      ],
+      "kind": "theorem",
+      "title": "One linked residual determines a law on the entire real line",
+      "source": "outputs/final-draft/probability.tex",
+      "line": 1132,
+      "statement_tex": "\\label{final:P9}\nFix $0\\leq c<1$.  Let $Y_c$ have the probability law whose Laplace\ntransform is \\eqref{final:eq-residual-transform}, equivalently the\nlaw of a sum of two independent variables with law\n$c\\delta_0+(1-c)\\operatorname{Exp}(1)$.\nFor an arbitrary Borel probability $\\mu$ on $\\mathbb R$, the\nfollowing are equivalent:\n\\begin{enumerate}\n\\item $\\mu=\\mu_\\Gamma$;\n\\item there are independent variables $X'$ and $Y_c$, with\n      $X'\\sim\\mu$, such that $cX'+Y_c\\sim\\mu$;\n\\item the characteristic function of $\\mu$ satisfies\n      \\[\n      \\varphi(\\xi)=\\varphi(c\\xi)\n          \\left(\\frac{1-ic\\xi}{1-i\\xi}\\right)^2\n                         \\qquad(\\xi\\in\\mathbb R).\n      \\]\n\\end{enumerate}\nNo support, density, or moment assumption on $\\mu$ is needed.\nThe residual itself determines $c$ within this family through\n$\\mathbb P(Y_c=0)=c^2$, so its scale may be recovered from the\ncomplete residual observation.  The source-law linkage is essential;\nthe contraction endpoint $c=1$ does not identify $\\mu$.",
+      "statement_sha256": "800027a7b04de62e60891b13cc685575bc5139bd1d92181d67df97bc3ea6cb4a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O1",
+      "labels": [
+        "final:O1",
+        "final:O1-identity"
+      ],
+      "kind": "theorem",
+      "title": "O1: the full-line weak Stein characterization",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 13,
+      "statement_tex": "\\label{final:O1}\nLet $P$ be a positive Borel probability measure on $\\mathbb R$.  Then\n\\begin{equation}\\label{final:O1-identity}\n \\int_{\\mathbb R}\\bigl[t f'(t)+(2-t)f(t)\\bigr]P(dt)=0\n \\qquad\\bigl(f\\in C_c^\\infty(\\mathbb R)\\bigr)\n\\end{equation}\nif and only if\n\\[\n P(dt)=\\mathbf 1_{(0,\\infty)}(t)te^{-t}\\,dt.\n\\]\nIn particular, absolute continuity, positive support, absence of an atom\nat zero, and all finite moments are conclusions, not hypotheses.",
+      "statement_sha256": "4829d9f8fe2b2ee990d11e0ee8d84a439bedc63572dc30bb2bd0a7fa5997fd2f",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O1-kernel",
+      "labels": [
+        "final:O1-kernel",
+        "final:O1-kernel-family"
+      ],
+      "kind": "proposition",
+      "title": "The integrable centered Stein kernel",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 52,
+      "statement_tex": "\\label{final:O1-kernel}\nFix the probability density $p$, and let $\\tau$ be real measurable with\n$\\tau p\\in L^1_{\\mathrm{loc}}(0,\\infty)$.  The equation\n\\[\n (\\tau p)'=(2-t)p\n\\]\nin distributions is equivalent to\n\\begin{equation}\\label{final:O1-kernel-family}\n \\tau(t)=t+C\\frac{e^t}{t}\\quad\\hbox{almost everywhere},\n \\qquad C\\in\\mathbb R.\n\\end{equation}\nThe locally absolutely continuous representative of $\\tau p$ has both\nendpoint limits equal to $C$.  Each of the following separately selects\n$\\tau=t$ almost everywhere: zero flux at either endpoint;\n$\\tau\\in L^1(p\\,dt)$; a finite Lebesgue expectation of $\\tau$; or\nthe finite identity $\\int\\tau p=\\operatorname{Var}_p(t)=2$.\nNonnegativity alone permits exactly $C\\geq0$.",
+      "statement_sha256": "36d9c43cc02abd27495f05b26517231968351b22dd58216132fbc5535914f46b",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O2",
+      "labels": [
+        "final:O2",
+        "final:O2-probes"
+      ],
+      "kind": "theorem",
+      "title": "O2: two marked probes and the Pearson realization",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 95,
+      "statement_tex": "\\label{final:O2}\nIn the conservative local second-order class\n\\[\n Bf=-a(t)f''-b(t)f',\\qquad t>0,\n\\]\nthe two differential-expression identities\n\\begin{equation}\\label{final:O2-probes}\n B(2-t)=2-t,\\qquad\n B(t^2/2-3t+3)=t^2-6t+6\n\\end{equation}\nhold if and only if $a(t)=t$ and $b(t)=2-t$.\nThe conclusion is pointwise or almost everywhere according to the\nmeaning of the coefficient identities.  If a positive, locally\nabsolutely continuous probability density $w$ is also required to obey\nthe zero-current Pearson equation $(aw)'=bw$, then $w=p$.\nThus these data determine the differential expression and its normalized\nHilbert weight in this specified coordinate class.",
+      "statement_sha256": "82fc3c3a94ba04c8cfb865bbddbd2c12c408dadb1536c93a7af1c5c7c6fceeb2",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O2-boundaries",
+      "labels": [
+        "final:O2-boundaries"
+      ],
+      "kind": "proposition",
+      "title": "The exact limits of the probe and stationary data",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 130,
+      "statement_tex": "\\label{final:O2-boundaries}\nThe pair \\eqref{final:O2-probes} is irredundant within the indicated\ncoefficient class, even if the coefficients are smooth and $a>0$.\nIt does not identify an arbitrary self-adjoint operator outside that\nlocal class.  The invariant density $p$ alone does not identify a\nreversible dynamics or its time scale.",
+      "statement_sha256": "5058eddf679623357c4eeb69ef28cc899a54f114ef7573275cb57f9609fe25a9",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O3",
+      "labels": [
+        "final:O3",
+        "final:O3-domain",
+        "final:O3-flux"
+      ],
+      "kind": "theorem",
+      "title": "O3: essential self-adjointness and the full domain",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 177,
+      "statement_tex": "\\label{final:O3}\nThe operator $A_0$ is densely defined, nonnegative and symmetric.\nBoth singular endpoints are limit point, its deficiency indices are\n$(0,0)$, and its unique self-adjoint extension is\n$A=\\overline{A_0}=A_0^*$.  Its exact domain is\n\\begin{equation}\\label{final:O3-domain}\n D(A)=\\left\\{f\\in\\mathcal H:\n f,qf'\\in AC_{\\mathrm{loc}}(0,\\infty),\\quad\n -p^{-1}(qf')'\\in\\mathcal H\\right\\}.\n\\end{equation}\nHere the regularity refers to the indicated representatives of the\n$L^2$ classes.  For every $f\\in D(A)$,\n\\begin{equation}\\label{final:O3-flux}\n \\lim_{t\\downarrow0}q(t)f'(t)=\n \\lim_{t\\to\\infty}q(t)f'(t)=0.\n\\end{equation}\nThese limits are consequences of the domain, not additional boundary\nconditions.  In particular no finite boundary value $f(0)$ is required.",
+      "statement_sha256": "c4a63a10cf1fc7cca3d1a9eff31a1da2300fcd866beb53092c56076b236cc5f0",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O3-form",
+      "labels": [
+        "final:O3-form",
+        "final:O3-form-domain"
+      ],
+      "kind": "proposition",
+      "title": "The closed form and the conservative semigroup",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 267,
+      "statement_tex": "\\label{final:O3-form}\nThe closed form of $A$ is\n\\[\n \\mathcal E(f,g)=\\int_0^\\infty qf'\\overline{g'}\\,dt,\n\\]\nwith the exact domain\n\\begin{equation}\\label{final:O3-form-domain}\n D(A^{1/2})=\n \\left\\{f\\in\\mathcal H:f\\in AC_{\\mathrm{loc}}(0,\\infty),\\quad\n \\int_0^\\infty q|f'|^2\\,dt<\\infty\\right\\}.\n\\end{equation}\nThere are no additional endpoint traces.  The semigroup $e^{-sA}$,\n$s\\geq0$, is positivity preserving, preserves the constant function\n$1$, and preserves the probability $p\\,dt$.",
+      "statement_sha256": "834332965e52e4993ef78ab7596d593d3a06a60cb44bc35ed778d8880868eefd",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O3-spectrum",
+      "labels": [
+        "final:O3-spectrum",
+        "final:O3-laguerre",
+        "final:O3-spectral-domain"
+      ],
+      "kind": "theorem",
+      "title": "The Laguerre basis and the exact integer spectrum",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 319,
+      "statement_tex": "\\label{final:O3-spectrum}\nDefine the polynomials with their marked normalization by\n\\begin{equation}\\label{final:O3-laguerre}\n L_n^{(1)}(t)=\\frac{e^t}{n!t}\\frac{d^n}{dt^n}\n       (e^{-t}t^{n+1})\n =\\sum_{k=0}^n(-1)^k\\binom{n+1}{k+1}\\frac{t^k}{k!},\n \\qquad n\\in\\mathbb N_0.\n\\end{equation}\nThen $e_n=L_n^{(1)}/\\sqrt{n+1}$ is a complete orthonormal basis of\n$\\mathcal H$, each $e_n\\in D(A)$, and $Ae_n=ne_n$.\nIn particular the spectrum is exactly $\\mathbb N_0$, each eigenvalue\nis simple, and the resolvent is compact.  If $f=\\sum c_ne_n$, then\n\\begin{align}\n D(A)&=\\left\\{f:\\sum_{n=0}^\\infty n^2|c_n|^2<\\infty\\right\\},\n &Af&=\\sum_{n=0}^\\infty nc_ne_n,\\label{final:O3-spectral-domain}\\\\\n D(A^{1/2})&=\\left\\{f:\\sum_{n=0}^\\infty n|c_n|^2<\\infty\\right\\},\n &\\mathcal E(f,f)&=\\sum_{n=0}^\\infty n|c_n|^2.\n \\nonumber\n\\end{align}",
+      "statement_sha256": "d5c93cdbf5c9fe980c235b7a1479d7745a1ec9f6dcd41469897d8208028c4ff0",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O7",
+      "labels": [
+        "final:O7"
+      ],
+      "kind": "theorem",
+      "title": "O7: complete marked Laguerre orthogonality identifies the law",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 381,
+      "statement_tex": "\\label{final:O7}\nLet $P$ be a positive Borel probability measure on $\\mathbb R$ for\nwhich every polynomial is integrable.  With the specific polynomials\n\\eqref{final:O3-laguerre},\n\\[\n \\int_{\\mathbb R}L_n^{(1)}(t)\\,P(dt)=0\\quad(n\\geq1)\n\\]\nholds if and only if $P(dt)=\\mathbf1_{(0,\\infty)}p(t)\\,dt$.\nThe positive support is again a conclusion.",
+      "statement_sha256": "bb8b037aaa77997103ebc7fdadf2718f8e598bd2e5a7f4f66c16f67c7c1ee41a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4",
+      "labels": [
+        "final:O4",
+        "final:O4-zeta",
+        "final:O4-heat-trace"
+      ],
+      "kind": "theorem",
+      "title": "O4: exact trace domains and reconstruction of the unitary class",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 418,
+      "statement_tex": "\\label{final:O4}\nFor the operator $A$ above, the ordinary traces are\n\\begin{align}\n Z_A(s)&=\\operatorname{Tr}(\\mathrm{Id}+A)^{-s}=\\zeta(s),\n &&\\operatorname{Re}s>1,\\label{final:O4-zeta}\\\\\n \\Theta_A(\\tau)&=\\operatorname{Tr}e^{-\\tau A}\n       =\\frac1{1-e^{-\\tau}},\n &&\\operatorname{Re}\\tau>0.\\label{final:O4-heat-trace}\n\\end{align}\nThese are precisely their trace-class domains.  The powers use the\nreal logarithms of the positive eigenvalues $n+1$; the zero eigenspace\nis included through this shift.\n\nLet $B\\geq0$ be self-adjoint with compact resolvent.  Each of the\nfollowing complete data sets determines its eigenvalue multiset,\nincluding multiplicities, and hence its unitary equivalence class:\nall finite heat traces $\\operatorname{Tr}e^{-\\tau B}$, $\\tau>0$;\nall shifted zeta traces on a real half-line $s>s_0$ on which they are\nfinite; or all integer shifted traces\n$\\operatorname{Tr}(\\mathrm{Id}+B)^{-k}$, $k\\geq2$, with\n$\\operatorname{Tr}(\\mathrm{Id}+B)^{-2}<\\infty$.\nThe coordinate law of an unspecified realization is not part of this\nunitary-class conclusion.",
+      "statement_sha256": "744d919f5bc980c38247479e85d86eb7384bf52a96c290ae7127f4235bfa340f",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4-convergence-boundary",
+      "labels": [
+        "final:O4-convergence-boundary"
+      ],
+      "kind": "proposition",
+      "title": "Compact resolvent does not supply finite trace data",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 494,
+      "statement_tex": "\\label{final:O4-convergence-boundary}\nThere is a nonnegative diagonal self-adjoint operator with compact\nresolvent for which neither a heat trace nor a positive shifted zeta\ntrace is finite at any positive parameter.",
+      "statement_sha256": "aa28fe4fb28ef6fe4c54cb70af524d9844e0e811d525d7df6055b6990e021cb6",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4-heat-kernel",
+      "labels": [
+        "final:O4-heat-kernel",
+        "final:O4-kernel-series",
+        "final:O4-hille-hardy"
+      ],
+      "kind": "theorem",
+      "title": "The complete heat kernel relative to the invariant measure",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 513,
+      "statement_tex": "\\label{final:O4-heat-kernel}\nFor $\\tau>0$, set $r=e^{-\\tau}$.  The kernel of $e^{-\\tau A}$ relative\nto $p(y)\\,dy$ is\n\\begin{align}\n K_\\tau(x,y)\n &=\\sum_{n=0}^\\infty\\frac{r^n}{n+1}\n       L_n^{(1)}(x)L_n^{(1)}(y)\\label{final:O4-kernel-series}\\\\\n &=\\frac{\\exp[-r(x+y)/(1-r)]}{(1-r)\\sqrt{rxy}}\n       I_1\\!\\left(\\frac{2\\sqrt{rxy}}{1-r}\\right),\n       \\qquad x,y>0.\\label{final:O4-hille-hardy}\n\\end{align}\nHere $I_1$ is the modified Bessel function, specified by\n$I_1(z)=\\sum_{m\\geq0}(z/2)^{2m+1}/(m!(m+1)!)$.\nThe series converges locally uniformly in $x,y>0$ and in\n$L^2(p(x)p(y)\\,dx\\,dy)$.\nThe kernel is positive and symmetric,\n$\\int K_\\tau(x,y)p(y)\\,dy=1$, and it tends to $1$ as\n$\\tau\\to\\infty$.  The Lebesgue transition density is\n$K_\\tau(x,y)p(y)$.",
+      "statement_sha256": "9325d424510afd207ba7bae08eebd9e3524f9a9036953cc11ac91d3055a678bb",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4-resolvents",
+      "labels": [
+        "final:O4-resolvents",
+        "final:O4-resolvent-difference"
+      ],
+      "kind": "proposition",
+      "title": "Resolvents, their kernels, and the operator inverse",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 581,
+      "statement_tex": "\\label{final:O4-resolvents}\nFor $\\alpha>0$, the kernels relative to $p(y)\\,dy$ of\n$(A+\\alpha\\mathrm{Id})^{-1}$ and $(A+\\alpha\\mathrm{Id})^{-2}$ are\nrespectively\n\\begin{align*}\n R_\\alpha(x,y)&=\\int_0^\\infty e^{-\\alpha\\tau}K_\\tau(x,y)\\,d\\tau,\\\\\n S_\\alpha(x,y)&=\\int_0^\\infty \\tau e^{-\\alpha\\tau}K_\\tau(x,y)\\,d\\tau.\n\\end{align*}\nThese identities hold as $L^2$ kernels, and the nonnegative integrals\nare finite almost everywhere.  The first resolvent is Hilbert--Schmidt\nbut is not trace class.  The second is trace class and\n\\[\n \\operatorname{Tr}(A+\\alpha\\mathrm{Id})^{-2}=\\zeta(2,\\alpha),\n\\]\nwhere $\\zeta(s,\\alpha)=\\sum_{n=0}^\\infty(n+\\alpha)^{-s}$ for\n$\\operatorname{Re}s>1$.  For $\\alpha,\\beta>0$,\n\\begin{equation}\\label{final:O4-resolvent-difference}\n \\operatorname{Tr}\\bigl[(A+\\alpha\\mathrm{Id})^{-1}\n       -(A+\\beta\\mathrm{Id})^{-1}\\bigr]\n       =\\psi(\\beta)-\\psi(\\alpha),\n\\end{equation}\nwith $\\psi=\\Gamma'/\\Gamma$.\nA complete resolvent operator, with its Hilbert realization and shift\nretained, determines $A$ and its domain.  A full marked heat operator\nat any fixed positive time also determines $A$.",
+      "statement_sha256": "ea7a3017fded1b0f147f325261e8baa095f2f0b32d0af37ad2312ef9f992ed6e",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4-determinants",
+      "labels": [
+        "final:O4-determinants",
+        "final:O4-zeta-determinant",
+        "final:O4-fredholm",
+        "final:O4-det2"
+      ],
+      "kind": "proposition",
+      "title": "Zeta and Fredholm determinants with their conventions",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 648,
+      "statement_tex": "\\label{final:O4-determinants}\nFor $\\alpha>0$, define the zeta determinant using the meromorphic\ncontinuation of the Hurwitz zeta function.  Then\n\\begin{equation}\\label{final:O4-zeta-determinant}\n \\det{}_{\\zeta}(A+\\alpha\\mathrm{Id})\n =\\exp[-\\partial_s\\zeta(0,\\alpha)]\n =\\frac{\\sqrt{2\\pi}}{\\Gamma(\\alpha)}.\n\\end{equation}\nIn particular\n$\\det{}_{\\zeta}(\\mathrm{Id}+A)=\\det{}'_{\\zeta}(A)=\\sqrt{2\\pi}$,\nwhere the prime omits the zero mode.\nFor every $z\\in\\mathbb C$ one has the entire-function identities\n\\begin{align}\n \\det\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-2}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k^2)\n   =\\frac{\\sinh(\\pi\\sqrt z)}{\\pi\\sqrt z},\n   \\label{final:O4-fredholm}\\\\\n \\det{}_2\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-1}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k)e^{-z/k}\n   =\\frac{e^{-\\gamma_E z}}{\\Gamma(1+z)}.\n   \\label{final:O4-det2}\n\\end{align}\nThe first determinant is the ordinary trace-class Fredholm determinant;\nthe second is the Hilbert--Schmidt regularized determinant.\nThe square-root quotient denotes its entire power series, with\nvalue $1$ at zero.  Its value is independent of the square-root choice.\nThe full zero multiset of either displayed determinant identifies\nthe eigenvalue multiset of $A$ in the corresponding nonnegative,\nshifted determinant category.",
+      "statement_sha256": "da89566a17ada98b8dc0c1d086ca4d84706b76afd642f774a389200702b0bd7a",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O4-finite-countermodels",
+      "labels": [
+        "final:O4-finite-countermodels"
+      ],
+      "kind": "theorem",
+      "title": "Finite familiar spectral invariants do not determine the spectrum",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 706,
+      "statement_tex": "\\label{final:O4-finite-countermodels}\nFix any finite list of values of the continued shifted zeta function\nat nonzero real regular points, optionally its finite part at $s=1$\nand its zeta determinant.  There is a nonconstant local family of\nnonnegative self-adjoint diagonal operators, differing from $A$ in\nonly finitely many positive eigenvalues, that retains all these\nspecified invariants.  Their zeta functions also retain every pole\nand principal part, and the value at zero.  Thus this finite list,\nincluding a single zeta determinant as a special case, does not\nidentify the complete spectrum.",
+      "statement_sha256": "62b41c7d7ef49fecab9bb6e225a84e877cce56f0719db26cb8da19a5e2605d74",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O5",
+      "labels": [
+        "final:O5",
+        "final:O5-J",
+        "final:O5-unknown",
+        "final:O5-integer-samples"
+      ],
+      "kind": "theorem",
+      "title": "O5: existence and uniqueness of the linked mixing measure",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 771,
+      "statement_tex": "\\label{final:O5}\nLet $B\\geq0$ be a self-adjoint operator on a Hilbert space.  The fixed\nfunction $J(\\lambda)=(1+\\lambda)^{-2}$ always has the strong-operator\nmixing representation\n\\begin{equation}\\label{final:O5-J}\n \\int_0^\\infty e^{-sB}\\,s e^{-s}\\,ds\n       =(\\mathrm{Id}+B)^{-2}.\n\\end{equation}\nIf $B$ has a nonzero eigenvector for every $n\\in\\mathbb N_0$, then\nthe unknown finite complex Borel measure $\\nu$ on $[0,\\infty)$ in\n\\begin{equation}\\label{final:O5-unknown}\n \\int_{[0,\\infty)}e^{-sB}\\,\\nu(ds)=(\\mathrm{Id}+B)^{-2}\n\\end{equation}\nis uniquely $\\nu(ds)=s e^{-s}\\,ds$.\nFinite total variation is understood for a complex measure.  A single\neigenvector at every integer suffices; multiplicities and additional\nspectrum do not affect the conclusion.\n\nThere is also a full-line formulation without initially defining\nnegative-time operators.  If $\\nu$ is a finite positive Borel measure\non $\\mathbb R$ and its finite scalar integer integrals satisfy\n\\begin{equation}\\label{final:O5-integer-samples}\n \\int_{\\mathbb R}e^{-ns}\\,\\nu(ds)=(n+1)^{-2}\n \\qquad(n\\in\\mathbb N_0),\n\\end{equation}\nthen $\\nu(ds)=\\mathbf1_{(0,\\infty)}s e^{-s}\\,ds$.\nIn this formulation mass, positive support and absence of an atom\nat zero are conclusions of the supplied samples.",
+      "statement_sha256": "19c599742f0e2a3f45734d56e19f6035442123e979ebb4587774bf440750a2b1",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O6",
+      "labels": [
+        "final:O6",
+        "final:O6-bernstein-representation"
+      ],
+      "kind": "theorem",
+      "title": "O6: a Bernstein function is determined by every integer tail",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 839,
+      "statement_tex": "\\label{final:O6}\nLet $f,g$ be Bernstein functions, in their usual representation\ncategory\n\\begin{equation}\\label{final:O6-bernstein-representation}\n f(\\lambda)=k_f+d_f\\lambda+\n   \\int_{(0,\\infty)}(1-e^{-\\lambda s})\\,\\Pi_f(ds),\n \\qquad \\lambda\\geq0,\n\\end{equation}\nwhere $k_f,d_f\\geq0$, $\\Pi_f$ is positive, and\n$\\int(1\\wedge s)\\Pi_f(ds)<\\infty$, and likewise for $g$.\nFor any fixed $N\\in\\mathbb N_0$, equality $f(n)=g(n)$ for every\ninteger $n\\geq N$ implies $f=g$ on $[0,\\infty)$, including equality\nof killing, drift and Levy measure.\nIn particular the samples\n\\[\n f(n)=2\\log(1+n)\\qquad(n\\geq N)\n\\]\nidentify the complete exponent $f(\\lambda)=2\\log(1+\\lambda)$,\nwith $k_f=d_f=0$ and $\\Pi_f(ds)=2e^{-s}ds/s$.\nKnowledge of $f(A)$ on the marked integer eigenspaces supplies these\nsamples.  This inverse does not extend to arbitrary smooth functions.",
+      "statement_sha256": "b4f346c79fd3cb82549a44ee8ddf6b5ed951c4f3f8513c8b37071a12d1cc95d8",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O6-functional-calculus",
+      "labels": [
+        "final:O6-functional-calculus"
+      ],
+      "kind": "proposition",
+      "title": "Two different functional-calculus inverse questions",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 912,
+      "statement_tex": "\\label{final:O6-functional-calculus}\nFor a fixed strictly increasing Bernstein function $f$, the full\nself-adjoint operator $f(B)$ determines a nonnegative self-adjoint\n$B$.  For the canonical $A$, the complete operator\n$2\\log(\\mathrm{Id}+A)$ is equivalently determined by\n$J(A)=(\\mathrm{Id}+A)^{-2}$.\nThese statements retain the known scalar function $f$ or $J$.",
+      "statement_sha256": "6a96966898abf765fa453f59d7ea616197cd8e1fbd1d40f64878a842033cb205",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O5-isospectral-boundary",
+      "labels": [
+        "final:O5-isospectral-boundary"
+      ],
+      "kind": "theorem",
+      "title": "The Gamma shapes two and three retain all spectral and mixing data",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 936,
+      "statement_tex": "\\label{final:O5-isospectral-boundary}\nFor $\\alpha\\in\\{2,3\\}$ set\n\\[\n p_\\alpha(t)=\\frac{t^{\\alpha-1}e^{-t}}{\\Gamma(\\alpha)},\n \\qquad \\mathcal H_\\alpha=L^2((0,\\infty),p_\\alpha(t)\\,dt),\n\\]\nand let $A_\\alpha$ be the closure of\n\\[\n -tf''-(\\alpha-t)f',\\qquad D=C_c^\\infty(0,\\infty).\n\\]\nBoth endpoints are limit point in both cases.  The operators have\nthe same simple complete spectrum $\\mathbb N_0$ and are intertwined\nby a unitary carrying $1$ to $1$.  Therefore all their heat traces,\nshifted zeta functions, resolvent trace functions and spectral\ndeterminants agree, with the same conventions and domains.\nBoth satisfy \\eqref{final:O5-unknown} with the same unique mixing\nmeasure $\\nu_2(ds)=se^{-s}\\,ds$.  Their invariant multiplication-\ncoordinate laws nevertheless differ: they are $p_2\\,dt$ and\n$p_3\\,dt$, with means $2$ and $3$ respectively.",
+      "statement_sha256": "12fea71fcb09690679837010ec98eb661ec56699e7d821b88a5936a1841c0ae6",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:O5-canonical-versus-identification",
+      "labels": [
+        "final:O5-canonical-versus-identification"
+      ],
+      "kind": "corollary",
+      "title": "Canonical mixing construction is not unmarked coordinate recovery",
+      "source": "outputs/final-draft/operators.tex",
+      "line": 1004,
+      "statement_tex": "\\label{final:O5-canonical-versus-identification}\nThe fixed exponent-two recipe $J$ constructs the Gamma$(2,1)$ mixing\nmeasure for every nonnegative self-adjoint operator.  Integer\neigenvalues make that mixing measure uniquely recoverable from the\nrestricted operator identity.  They do not identify the stationary\ncoordinate law of an arbitrary realization, even when the constant\nvector is retained.  To identify that candidate law one must retain\neither its explicit equality to the unknown mixing measure in\n\\eqref{final:O5-unknown}, the local Pearson realization of\nTheorem~\\ref{final:O2}, or equivalent coordinate information.",
+      "statement_sha256": "ce27033f80ff6fcfb95c1f16004e798ccc462b10237728a0e000654ef2e50214",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:F1",
+      "labels": [
+        "final:F1",
+        "final:todd-twists"
+      ],
+      "kind": "theorem",
+      "title": "F1: the normalized Todd tower and all its twists",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 13,
+      "statement_tex": "\\label{final:F1}\nThere is a unique series $Q(u)=\\sum_{j\\geq0}q_ju^j$ satisfying\n\\[\n q_0=1,\\qquad [u^n]Q(u)^{n+1}=1\\quad(n\\geq1).\n\\]\nIt is\n\\[\n Q_T(u)=\\frac{u}{1-e^{-u}}.\n\\]\nEquivalently, one may impose the coefficient equations for every\n$n\\geq0$, since their degree-zero equation is exactly $q_0=1$.\nFor this series, for every $n\\geq0$,\n\\begin{equation}\\label{final:todd-twists}\n [u^n]e^{ku}Q_T(u)^{n+1}\n   =\\binom{n+k}{n}\n   =\\frac{(k+1)(k+2)\\cdots(k+n)}{n!}.\n\\end{equation}\nThis is a polynomial identity in $k$ over $\\mathbb Q$, including the\nempty-product convention for $n=0$, and hence holds at every $k\\in K$.\nIn particular it holds for all positive and negative integer twists.\nEvery individual positive-degree equation is indispensable within the\ndisplayed tower with $q_0=1$.",
+      "statement_sha256": "58a2f42b38066be09d143dad7c4491e8e6232a6a036f8d293fb7da96d69c8b88",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:F2",
+      "labels": [
+        "final:F2",
+        "final:TAL",
+        "final:exponential-recovery",
+        "final:chi-inverse"
+      ],
+      "kind": "theorem",
+      "title": "F2: reversible characteristic-series formulas",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 94,
+      "statement_tex": "\\label{final:F2}\nDefine the normalized series\n\\[\n Q_A(u)=\\frac{u/2}{\\sinh(u/2)},\\qquad\n Q_L(u)=\\frac{u}{\\tanh u},\\qquad\n Q_y(u)=Q_T((1+y)u)-yu.\n\\]\nTheir constant terms are one.  With $y$ fixed and marked and\n$1+y\\ne0$, each of $Q_T,Q_A,Q_L,Q_y$, and each of their multiplicative\ninverses, determines the others in the marked formal coordinate.\nExplicit reconstruction formulas are\n\\begin{gather}\n Q_T=e^{u/2}Q_A,\\qquad Q_L(u)=Q_T(2u)-u,\n \\qquad Q_T(u)=Q_L(u/2)+u/2,\\label{final:TAL}\\\\\n e^u=\\frac{Q_T(u)}{Q_T(u)-u},\\qquad\n e^{2u}=\\frac{Q_L(u)+u}{Q_L(u)-u},\\label{final:exponential-recovery}\\\\\n Q_T(v)=Q_y\\left(\\frac{v}{1+y}\\right)+\\frac{yv}{1+y}.\n \\label{final:chi-inverse}\n\\end{gather}\nFor a reconstruction from $Q_A$ alone, set\n\\[\n b=\\frac{u}{Q_A(u)},\\qquad\n w=\\frac{b+\\sqrt{b^2+4}}{2},\\qquad Q_T=wQ_A,\n\\]\nwhere the formal square root has constant term $2$.\nThe specialization $y=-1$ is exactly $Q_{-1}(u)=1+u$ and has no\ninverse of the form claimed.  Over a general $\\mathbb Q$-algebra the\nhypothesis is that $1+y$ is a unit, and over $\\mathbb Q[y]$ the\ninverse formula takes place after localization at $1+y$.",
+      "statement_sha256": "da699bf8beb49d3457626565c1b692d6a16ca5ae8b783986c752eafb567bc225",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:F3",
+      "labels": [
+        "final:F3"
+      ],
+      "kind": "proposition",
+      "title": "F3: formal, analytic, and global recovery",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 142,
+      "statement_tex": "\\label{final:F3}\nThe preceding reversals recover the formal exponential and its inverse\nformal logarithm, hence the germ of $H(1+z)=\\log(1+z)-z$ at $z=0$.\nAfter specializing coefficients and the marked parameter $y$ to\nthe reals, they also construct the displayed standard real analytic functions\non their full real domains.  They identify an independently supplied\nglobal function from its germ only in a declared uniqueness category,\nfor example real analytic functions on the same connected domain.\nNo analogous identification of arbitrary smooth global extensions is\nvalid.",
+      "statement_sha256": "df7a2ba277024198c9864ef7b31001db80b07260ab0fb9091cc6a29736353659",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:F4",
+      "labels": [
+        "final:F4",
+        "final:Thom-comparison",
+        "final:RR"
+      ],
+      "kind": "theorem",
+      "title": "F4: the universal Thom correction, conditional on topology",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 176,
+      "statement_tex": "\\label{final:F4}\nSuppose complex topological $K$-theory and rational ordinary cohomology\nare supplied with their Thom isomorphisms, compatible complex\norientations, natural multiplicative Thom classes, the Chern character\nnormalized by $\\operatorname{ch}(L)=e^{c_1(L)}$, and an injective\nsplitting principle.  For a complex vector bundle $V\\to B$ on a finite\nCW complex, with projection $\\pi$, the uniquely defined correction in\n\\begin{equation}\\label{final:Thom-comparison}\n \\operatorname{ch}(U_K(V))=\\pi^*C(V)\\,U_H(V)\n\\end{equation}\nis\n\\[\n C(V)=\\operatorname{Td}(V)^{-1}\n      =\\prod_i Q_T(u_i)^{-1},\n\\]\nwhere the $u_i$ are formal Chern roots.  Its complete universal line\nseries determines $Q_T$ and conversely.  With compatible collapse and\nGysin constructions supplied as well, this yields\n\\begin{equation}\\label{final:RR}\n \\operatorname{ch}(f_!^K a)\n   =f_*^H\\bigl(\\operatorname{ch}(a)\\operatorname{Td}(T_f)\\bigr)\n\\end{equation}\nfor $a\\in K^0$ and a proper smooth map between manifolds with the\nspecified complex $K$-orientation and virtual relative tangent bundle\n$T_f$, using compact supports when required.  On universal bases\nthe characteristic-class statement is taken in completed rational\ncohomology.",
+      "statement_sha256": "c8e87efa160af5a58257e8775b8aff6d262958c3c290be3ad4bca1587aaf57fa",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:F5",
+      "labels": [
+        "final:F5"
+      ],
+      "kind": "proposition",
+      "title": "F5: rational characteristic data lose integral data",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 249,
+      "statement_tex": "\\label{final:F5}\nOn $\\mathbb{RP}^2$, the complexification $L$ of the tautological real\nline is nontrivial and $[L]\\ne[1]$ in complex $K^0$, although\n$\\operatorname{ch}(L)=1$ in rational cohomology.  Thus even with the\nbase fixed, rational characteristic data and the complete scalar\nseries do not reconstruct integral bundle or $K$-theory data.",
+      "statement_sha256": "1a643f3ef4ea976f8bf01f8f8f8da4ef30450c9b8ce8e54fe2a2e2cbab5f66f3",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:M1",
+      "labels": [
+        "final:M1",
+        "final:matrix-potential"
+      ],
+      "kind": "theorem",
+      "title": "M1: the unique scalar-block spectral lift",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 293,
+      "statement_tex": "\\label{final:M1}\nSuppose a family $F_n:\\mathcal P_n\\to\\mathbb R$, $n\\geq1$, satisfies\n\\[\n F_1([t])=I(t),\\qquad F_n(QXQ^{\\mathsf T})=F_n(X)\n\\]\nfor orthogonal $Q$, and the scalar-block recursion\n\\[\n F_{n+1}(X\\oplus[t])=F_n(X)+I(t).\n\\]\nThen, without any regularity assumption,\n\\begin{equation}\\label{final:matrix-potential}\n F_n(X)=\\Phi_n(X):=\\sum_{i=1}^n I(\\lambda_i(X))\n          =\\operatorname{tr}X-\\log\\det X-n.\n\\end{equation}\nThis family satisfies full block additivity.  Neither orthogonal\ninvariance nor scalar-block recursion can be removed while keeping\nthe scalar seed, even among nonnegative candidates.",
+      "statement_sha256": "e2c05af13fa6782581a5d71a1a79b47463c208f9c0babbe9cd31dc916b969cb2",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:M2",
+      "labels": [
+        "final:M2",
+        "final:matrix-gradient",
+        "final:matrix-hessian",
+        "final:matrix-divergence",
+        "final:matrix-conjugate"
+      ],
+      "kind": "theorem",
+      "title": "M2: derivatives, divergence, duality, and determinant bounds",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 337,
+      "statement_tex": "\\label{final:M2}\nIn the indicated affine coordinates the potential $\\Phi_n$ satisfies\n\\begin{align}\n \\nabla\\Phi_n(X)&=E_n-X^{-1},\\label{final:matrix-gradient}\\\\\n g_X(U,V):=D^2\\Phi_n(X)[U,V]\n   &=\\operatorname{tr}(X^{-1}UX^{-1}V),\\label{final:matrix-hessian}\\\\\n D(X,Y):=\\Phi_n(X)-\\Phi_n(Y)\n   -\\langle\\nabla\\Phi_n(Y),X-Y\\rangle\n   &=\\operatorname{tr}(Y^{-1}X)-\\log\\det(Y^{-1}X)-n.\n   \\label{final:matrix-divergence}\n\\end{align}\nThe Hessian is positive definite and $D(X,Y)\\geq0$, with equality\nexactly when $X=Y$.  For every invertible real $C$, simultaneous\ncongruence preserves both $D$ and $g$.  Inversion is an isometry for\n$g$ and reverses the directed divergence:\n\\[\n D(X^{-1},Y^{-1})=D(Y,X).\n\\]\nExtending $\\Phi_n$ by $+\\infty$ outside $\\mathcal P_n$ in the vector\nspace of symmetric matrices, its conjugate is\n\\begin{equation}\\label{final:matrix-conjugate}\n \\Phi_n^*(\\Theta)=\n \\begin{cases}\n  -\\log\\det(E_n-\\Theta),&E_n-\\Theta\\in\\mathcal P_n,\\\\\n  +\\infty,&\\text{otherwise}.\n \\end{cases}\n\\end{equation}\nThe Legendre coordinate is $\\Theta=E_n-X^{-1}$, with inverse\n$X=(E_n-\\Theta)^{-1}$.  Moreover\n\\[\n \\det X\\leq e^{\\operatorname{tr}X-n},\\qquad\n \\det X\\leq\\left(\\frac{\\operatorname{tr}X}{n}\\right)^n,\n\\]\nwith equality respectively at $E_n$ and at positive scalar matrices;\n$\\log\\det$ is strictly concave.",
+      "statement_sha256": "1af4123eaa00d2c566257d112d1ff347d37c1a91f74cb3e71933fee9d9f74f22",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:M3",
+      "labels": [
+        "final:M3"
+      ],
+      "kind": "theorem",
+      "title": "M3: geodesics, distance, and the symmetrization boundary",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 433,
+      "statement_tex": "\\label{final:M3}\nFor $X,Y\\in\\mathcal P_n$ put\n$K=\\log(X^{-1/2}YX^{-1/2})$.  The unique constant-speed minimizing\ngeodesic for $g$ is\n\\[\n \\gamma(s)=X^{1/2}e^{sK}X^{1/2},\\quad0\\leq s\\leq1,\n \\qquad d(X,Y)=\\|K\\|_F.\n\\]\nIf $\\lambda_i$ are the eigenvalues of $X^{-1/2}YX^{-1/2}$, then\n\\[\n D(X,Y)+D(Y,X)=4\\sum_i\\sinh^2\\left(\\frac{\\log\\lambda_i}{2}\\right).\n\\]\nFor $n=1$ this is $4\\sinh^2(d(X,Y)/2)$.  For every $n\\geq2$,\nsymmetrization is not a function of distance alone.",
+      "statement_sha256": "f9944a2dc00f61c6b7077e7e2b5b0eb851af10ecbb50cebdeacec08687f1cf84",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:M4",
+      "labels": [
+        "final:M4"
+      ],
+      "kind": "theorem",
+      "title": "M4: the supplied Gaussian and Wishart sampling model",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 497,
+      "statement_tex": "\\label{final:M4}\nLet $m\\geq1$ and $n\\geq1$ be specified integers and suppose\n$Z_1,\\ldots,Z_m$ are independent, identically distributed\n$N(0,X)$ vectors with $X\\in\\mathcal P_n$ and known mean zero.  Put\n$W=\\sum_{j=1}^mZ_jZ_j^{\\mathsf T}$ and $C=W/m$.  The scatter $W$ has\nthe Wishart law defined by this model and is a sufficient statistic\nfor $X$, with\n\\[\n \\log L(X)=-\\frac m2\\log\\det X\n              -\\frac12\\operatorname{tr}(X^{-1}W)+\\text{constant}.\n\\]\nFor symmetric $\\Theta$,\n\\[\n \\mathbb E e^{\\operatorname{tr}(\\Theta W)}\n   =\\det(E_n-2X^{1/2}\\Theta X^{1/2})^{-m/2}\n\\]\nwhen the matrix inside the determinant is positive definite; the\nexpectation is infinite otherwise.  The scatter is positive definite\nalmost surely exactly when $m\\geq n$.  Whenever the observed $C$ is\npositive definite, the maximum likelihood covariance is uniquely $C$\nand, with $\\ell=-\\log L$,\n\\[\n \\ell(X)-\\ell(C)=\\frac m2D(C,X).\n\\]\nIf $C$ is singular there is no maximum likelihood estimate in the\nopen cone $\\mathcal P_n$.  Finally\n\\[\n \\operatorname{KL}(N(0,X)\\,\\|\\,N(0,Y))=\\frac12D(X,Y),\n\\]\nand the divergence for $m$ independent copies is $m$ times this value.",
+      "statement_sha256": "365b781b58376016af601eda5bb1cb343c2c1569124b6bcdda7bdf7923604ee3",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:R1",
+      "labels": [
+        "final:R1"
+      ],
+      "kind": "theorem",
+      "title": "R1: the isotropic four-dimensional Gaussian realization",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 570,
+      "statement_tex": "\\label{final:R1}\nIf $Z\\sim N(0,E_4)$ and $T=\\|Z\\|^2/2$, then $T$ has density\n$p(t)=te^{-t}$ on $t>0$.  Conversely, if $T$ has this density and\n$\\Omega$ is an independent uniform point of $S^3$, then\n$Z=\\sqrt{2T}\\,\\Omega$ has law $N(0,E_4)$.  Equivalently the radial\nlaw together with orthogonal invariance uniquely identifies this\nGaussian law; the radial law alone does not.\n\nFor the specified Ornstein--Uhlenbeck process in $\\mathbb R^D$,\n\\[\n dZ_s=-\\tfrac12Z_s\\,ds+dB_s,\n\\]\nthe generator on radial-energy functions $F(z)=f(\\|z\\|^2/2)$ is\n\\[\n \\left(\\tfrac12\\Delta-\\tfrac12z\\cdot\\nabla\\right)F\n       =t f''(t)+(D/2-t)f'(t).\n\\]\nThus its radial generator is $tf''+(2-t)f'$ exactly when $D=4$.\nIn dimension four the radial energy satisfies\n\\[\n dT_s=(2-T_s)\\,ds+\\sqrt{2T_s}\\,d\\beta_s\n\\]\nfor a one-dimensional Brownian motion $\\beta$.  These statements\nselect a dimension within this specified Gaussian construction.",
+      "statement_sha256": "0418fa2ae2c5ce7c4d987e28691ff20035c1b024a113114714d21730d93f57c9",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:R2",
+      "labels": [
+        "final:R2"
+      ],
+      "kind": "theorem",
+      "title": "R2: nonnegative orthogonal additivity without regularity",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 647,
+      "statement_tex": "\\label{final:R2}\nLet $V$ be a real inner-product space of dimension at least two and\nlet $r:V\\to[0,\\infty)$.  Then\n\\[\n r(x+y)=r(x)+r(y)\\quad\\text{whenever }\\langle x,y\\rangle=0\n\\]\nholds if and only if $r(x)=c\\|x\\|^2$ for some $c\\geq0$.  No continuity,\nmeasurability, homogeneity, or radiality hypothesis is required.\nConsequently a function $z:V\\to[0,\\infty)$ satisfies\n\\[\n z(x+y)=z(x)+z(y)+z(x)z(y)\\quad(x\\perp y)\n\\]\nif and only if $z(x)=e^{c\\|x\\|^2}-1$ for some $c\\geq0$.\nNontriviality forces $c>0$, while a numerical value at one nonzero\nvector is needed to calibrate its scale.",
+      "statement_sha256": "97353be777d161815250bd63178e4ef8cbfb9c90bf3348fca1ca3af726972cf9",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:R3",
+      "labels": [
+        "final:R3",
+        "final:radial-residual"
+      ],
+      "kind": "proposition",
+      "title": "R3: the profile-independent radial residual",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 714,
+      "statement_tex": "\\label{final:R3}\nIn integer Euclidean dimension $D\\geq1$ the radial Laplacian is\n$\\Delta_D f=f''+(D-1)f'/x$ for $x>0$.  For every twice differentiable\nnonvanishing profile $f$ and $\\alpha=(D-1)/2$,\n\\begin{equation}\\label{final:radial-residual}\n \\frac{(x^\\alpha f)''}{x^\\alpha f}\n    -\\left(\\frac{f''}{f}+\\frac{D-1}{x}\\frac{f'}{f}\\right)\n     =\\frac{(D-1)(D-3)}{4x^2}.\n\\end{equation}\nEquivalently, writing $f=x^{-\\alpha}u$ gives the operator identity\n\\[\n -\\Delta_D f=x^{-\\alpha}\n   \\left(-u''+\\frac{(D-1)(D-3)}{4x^2}u\\right),\n\\]\nwhich does not require $f$ to be nonvanishing.  Residual cancellation\nholds exactly for $D=1$ or $D=3$; with the independently retained\nrestriction $D\\geq2$ it selects $D=3$.  It has no reverse identifying\nforce for the profile $f$.",
+      "statement_sha256": "a2504ae9d0e0fc1994b6ab05304836d8902e7bfa9345e83d8f6887795ee3a9b0",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:R4",
+      "labels": [
+        "final:R4"
+      ],
+      "kind": "proposition",
+      "title": "R4: whole-network spatial countermodels",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 751,
+      "statement_tex": "\\label{final:R4}\nAll intrinsic scalar identities, their probability and operator\nrealizations, their formal characteristic series, and the canonical\nfour-dimensional Gaussian construction may hold while an independent\ndesignated spatial observable fails orthogonal additivity, or while\nits designated dimension fails three.  Their conjunction therefore\ndoes not imply either the hypotheses of Theorem~\\ref{final:R2} or a\ndesignated dimension conclusion from Proposition~\\ref{final:R3}.",
+      "statement_sha256": "b49ed18bd1036b856861b8205969aba52181771152259b8df23bd5912b742313",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:B1",
+      "labels": [
+        "final:B1"
+      ],
+      "kind": "theorem",
+      "title": "B1: rational trees, Euclidean decoding, and the matrix monoid",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 793,
+      "statement_tex": "\\label{final:B1}\nFix the positive rational coordinate, the root $1$, ordered edge\nlabels $L,R$, and the transformations\n\\[\n L(x)=\\frac{x}{1+x},\\quad R(x)=1+x,\\qquad\n M_L=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\quad\n M_R=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}.\n\\]\nSuccessively applying the letters of a word to $1$ gives a rooted\nCalkin--Wilf tree in which every positive rational occurs exactly\nonce.  The matrices $M_L,M_R$ freely generate exactly the determinant-one\nmatrices with nonnegative integer entries, including the identity.\n\nFor a Stern--Brocot interval store the upper endpoint as the first\ncolumn and the lower endpoint as the second, starting with columns\n$(1,0)^{\\mathsf T}$ and $(0,1)^{\\mathsf T}$, representing $\\infty$ and\n$0$.  Its node is their mediant and a left or right step multiplies\nthis matrix on the right by $M_L$ or $M_R$.  With these conventions\nthe Stern--Brocot label of a word is the Calkin--Wilf label of the\nreversed word.\n\nThe complete root path, its oriented subtraction runs, and the\nfinite continued fraction are mutually decodable, with the canonical\nconvention\n\\[\n [a_0;a_1,\\ldots,a_k],\\quad a_0\\geq0,\\quad\n a_j\\geq1\\ (j\\geq1),\\quad a_k\\geq2\\ \\text{if }k\\geq1.\n\\]\nA one-term expansion $[a_0]$ has $a_0\\geq1$, so the root is $[1]$.\nThe last run in the subtraction-to-root algorithm has length one less\nthan its terminal Euclidean quotient; it has length zero for the root.",
+      "statement_sha256": "f6940038e97f3bb7891def4085d60147ffc1c5a948f3a81fa86d9e4446ed5887",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:B2",
+      "labels": [
+        "final:B2",
+        "final:tree-integral"
+      ],
+      "kind": "proposition",
+      "title": "B2: marked Farey branches and full-domain scalar recovery",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 886,
+      "statement_tex": "\\label{final:B2}\nOn $[0,1]$ define\n\\[\n \\psi_0(x)=\\frac{x}{1+x},\\qquad \\psi_1(x)=\\frac1{1+x}.\n\\]\nTheir respective ranges are $[0,1/2]$ and $[1/2,1]$, and they are\nthe increasing and decreasing inverse branches of\n\\[\n F(y)=\n \\begin{cases}\n y/(1-y),&0\\leq y\\leq1/2,\\\\\n (1-y)/y,&1/2\\leq y\\leq1.\n \\end{cases}\n\\]\nAt the common endpoint both forward formulas equal one, and branch\nlabels retain the inverse-branch information.\n\nThe complete numerically labelled Calkin--Wilf tree determines $L,R$\non positive rationals.  If the candidate maps are declared to be\nMoebius transformations, these data determine their full rational\nformulas, in particular $L$ on $(-1,\\infty)$.  In that marked\nextension category the scalar potential is recovered by\n\\begin{equation}\\label{final:tree-integral}\n I(t)=\\int_0^{t-1}L(s)\\,ds=t-1-\\log t,\\qquad t>0.\n\\end{equation}\nConnected real analytic continuation is another sufficient extension\ncategory.  A bare tree, or positive-rational action without a suitable\nextension category, has no such global converse.",
+      "statement_sha256": "6815f9f13bbde0db13ef2952b53e7a4071788deca344ac10825094b1ce1d17d3",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:B3",
+      "labels": [
+        "final:B3",
+        "final:integer-collision"
+      ],
+      "kind": "theorem",
+      "title": "B3: exact collisions and complete labelled arithmetic transport",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 950,
+      "statement_tex": "\\label{final:B3}\nFix $\\mu,\\gamma>0$ and a real constant $c_P$, and consider the placed\ninteger code\n\\[\n e(n)=\\log(1+\\gamma n)-\\mu n+c_P,\\qquad n\\geq2.\n\\]\nFor distinct $n>m\\geq2$,\n\\begin{equation}\\label{final:integer-collision}\n e(n)=e(m)\\quad\\Longleftrightarrow\\quad\n \\mu=\\frac{1}{n-m}\\log\\frac{1+\\gamma n}{1+\\gamma m}.\n\\end{equation}\nThe rule $e(a)\\odot e(b)=e(ab)$ defines a well-defined binary\noperation on the image if and only if $e$ is injective.  Under that\nhypothesis, adjoining an abstract unit $1_S$ and extending $e(1)=1_S$\nmakes $e:\\mathbb N_{>0}\\to S$ an isomorphism of labelled multiplicative\nmonoids.  It transports the full prime, valuation, divisor,\ngcd/lcm, Moebius, and Dirichlet-convolution inventory stated below.\n\nThe different intrinsic code\n\\[\n e_0(n)=H(n+1),\\qquad n\\geq1,\n\\]\nis injective for every placement and already includes the unit label.\nIt does not remove any collision of the original code $e$.",
+      "statement_sha256": "39dbe26379a8c6c2689f62a3befc051b72e33f2416612ec3b96c2d9ebffb74e1",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:B4",
+      "labels": [
+        "final:B4"
+      ],
+      "kind": "theorem",
+      "title": "B4: numerical Euler products and the full multiset inverse",
+      "source": "outputs/final-draft/series-realizations.tex",
+      "line": 1101,
+      "statement_tex": "\\label{final:B4}\nWith the numerical positive-integer labels and their usual\nmultiplication,\n\\[\n \\zeta(s)=\\sum_{n\\geq1}n^{-s}\n          =\\prod_{p\\text{ prime}}(1-p^{-s})^{-1},\n \\qquad\\operatorname{Re}s>1.\n\\]\nIf a supplied nonnegative self-adjoint operator $A$ has a complete\nsimple eigenbasis with eigenvalues $0,1,2,\\ldots$, then on that same\ndomain $\\operatorname{Tr}(1+A)^{-s}=\\zeta(s)$.\n\nConversely, let a multiset of real generators $q>1$ have positive\ninteger multiplicities $m_q$.  Suppose its Euler product\n\\[\n Z(s)=\\prod_q(1-q^{-s})^{-m_q}\n\\]\nconverges to a finite positive value for all sufficiently large real\n$s$.  The full real function on any such terminal ray uniquely\ndetermines the numerical multiset, including multiplicities.\nFor a nonempty multiset its least generator $q_0$ and multiplicity\n$m_0$ are recovered by\n\\[\n q_0=\\lim_{s\\to\\infty}(\\log Z(s))^{-1/s},\\qquad\n m_0=\\lim_{s\\to\\infty}q_0^s\\log Z(s).\n\\]\nRemoving the entire factor $(1-q_0^{-s})^{-m_0}$ and repeating\nrecovers every remaining generator.  The empty multiset is exactly\n$Z\\equiv1$.",
+      "statement_sha256": "48781d70c51ef97218dbf03277151d43c2809b6c8abf846380db2c7adb07e371",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:identification",
+      "labels": [
+        "final:identification"
+      ],
+      "kind": "definition",
+      "title": "Identification and a retained context",
+      "source": "outputs/final-draft/closure.tex",
+      "line": 4,
+      "statement_tex": "\\label{final:identification}\nAn identifying presentation consists of a candidate class, its marked\nobservation map, the specified observed value, and a proved inverse on\nthat class. A reconstruction recovers the object whose observation was\ntaken. A canonical construction in a context $C$ is a specified map\n$F_C$ producing an object from $S$; it identifies an arbitrary supplied\nobject only if that object satisfies the construction's identifying\nconditions. Contexts include the coordinate, ambient category and any\ndesignated argument. These are distinct quantifiers.",
+      "statement_sha256": "fdf79838a6c174f5cad890d087c52324f687c02a1c9286d342fc87d8a03e2f3b",
+      "lean_status": "definition",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:global-A",
+      "labels": [
+        "final:global-A",
+        "final:global-B"
+      ],
+      "kind": "theorem",
+      "title": "Intrinsic uniqueness and reconstruction closure",
+      "source": "outputs/final-draft/closure.tex",
+      "line": 63,
+      "statement_tex": "\\label{final:global-A}\n\\label{final:global-B}\nThere is one calibrated intrinsic analytic object $S$ on the marked\npositive coordinate satisfying any complete clause in $E_S$.\nEvery presentation in $E_S$ is reconstructed by $S$ and reconstructs\n$S$ uniquely in its stated candidate class. Thus every two presentations\n$A,B\\in E_S$ are mutually reconstructible through $S$.",
+      "statement_sha256": "b5a19f8f3189b4a5020546c5d889cf92d4a4f669dcb6da8f54802376e7c4c332",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:global-E",
+      "labels": [
+        "final:global-E"
+      ],
+      "kind": "theorem",
+      "title": "Canonical realization fibres",
+      "source": "outputs/final-draft/closure.tex",
+      "line": 86,
+      "statement_tex": "\\label{final:global-E}\nFor each of the following supplied contexts, $S$ canonically determines\nthe stated object uniquely under the indicated identifying conditions:\n\\begin{enumerate}\n\\item the probability-convolution completion with marked time one:\n      $\\mu_r=\\operatorname{Gamma}(2r,1)$;\n\\item the normalized local conservative Sturm--Liouville context:\n      the unique marked Laguerre self-adjoint closure;\n\\item the finite-dimensional spectral/scalar-block matrix context:\n      $\\Phi_n(X)=\\operatorname{tr}X-\\log\\det X-n$;\n\\item supplied isotropic $\\R^4$ with $t=\\|z\\|^2/2$:\n      the standard Gaussian radial realization;\n\\item the one-ancestor iid Galton--Watson context:\n      the critical Poisson(1) offspring/tree law;\n\\item the supplied universal complex Thom/Chern-character context:\n      the correction $\\operatorname{Td}^{-1}$.\n\\end{enumerate}\nThe complete time-one, coordinate, rank-one, radial, total-progeny or\nuniversal-line data, respectively, recover the intrinsic object under\nthe corresponding identifying conditions. These are equivalences in a\nfixed context, not identifications after forgetting that context.",
+      "statement_sha256": "362b9a6822931587ec115e1011135931462430d2bed127355ba8e6858230cdfe",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:global-C",
+      "labels": [
+        "final:global-C",
+        "final:global-D"
+      ],
+      "kind": "theorem",
+      "title": "Relative minimal root and its deletion witnesses",
+      "source": "outputs/final-draft/closure.tex",
+      "line": 120,
+      "statement_tex": "\\label{final:global-C}\n\\label{final:global-D}\nFix real analytic foundations and the following target convention:\nthe output is the intrinsic shape, a placed function on a marked $r$\ncoordinate if requested, and any requested externally selected\nrealization packets. A packet includes its own type and its selected\nobject, so that deleting it does not leave an ill-typed datum such as\na bundle without its base. Canonical recipes are fixed, and different\nexternal packets have no unstated identifying bridge between them.\n\nThe sufficient decomposition is one intrinsic certificate, the optional\nplacement $(\\mu,a)$, and the requested external selection packets.\nIts intrinsic triple stores one function's information, with no free\nshape parameter after calibration. The two free placed-family scalar\ncoordinates are exactly $\\mu>0$ and $0<a<1$.\n\nFor a deletion test, remove all alternative complete certificates of the\nsame intrinsic shape; in particular do not retain a linked realization\nwhose scalar restriction already identifies $I$. Relax the intrinsic\ncandidate to anchored real-analytic strictly convex $J$ with\n$\\int_0^\\infty e^{-1-J}=1$. In this declared deletion universe the\nroot is blockwise irredundant whenever the target distinguishes the\nalternatives described in the proof. No assertion of shortest encoding\nacross arbitrary languages is made.",
+      "statement_sha256": "461d02efd1d1eb42725647f99363781335b8293259f4a7eb251449ba5be93c7c",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    },
+    {
+      "id": "final:global-F",
+      "labels": [
+        "final:global-F"
+      ],
+      "kind": "corollary",
+      "title": "Boundary of scalar reconstruction",
+      "source": "outputs/final-draft/closure.tex",
+      "line": 192,
+      "statement_tex": "\\label{final:global-F}\nThe complete scalar component alone does not identify a placed\ncoordinate choice, an arbitrary stationary/vector/process/tree/matrix\nrealization, actual spaces or bundles and integral characteristic\nclasses, numerical arithmetic labels on a bare carrier, a designated\nspatial observable, spatial dimension, or the radial cancellation rule.\nUnder supplied global nonnegative orthogonal additivity in dimension\nat least two the spatial observable is $c\\|x\\|^2$. Under the supplied\nradial operator and residual cancellation one obtains $D\\in\\{1,3\\}$,\nand $D\\ge2$ selects three. These are boundaries relative to the current\npremises, not assertions excluding every future observational bridge.",
+      "statement_sha256": "509a1ffd02f2fb2995d152720e64c966e1fa80e727ca8ffc0837a11c7d3674ee",
+      "lean_status": "pending exact statement match",
+      "lean_theorems": [],
+      "gaps": []
+    }
+  ]
+}

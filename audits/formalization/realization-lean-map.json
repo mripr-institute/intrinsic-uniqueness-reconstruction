@@ -1,0 +1,820 @@
+{
+  "artifact": "final-draft-realization-lean-map",
+  "namespace": "SigmaFinal",
+  "draft": "outputs/final-draft/series-realizations.tex",
+  "entry_point": "outputs/lean/SigmaFinalRealizations.lean",
+  "compiler": "Lean 4.14.0",
+  "proof_policy": "No sorry, admit, unsafe declarations, custom axioms, or assumed conclusions; standard Lean foundations and stated native mathlib theorems only.",
+  "overall_complete": false,
+  "coverage_note": "Statement status describes the exact checked components. No partial collection is advertised as proving all 17 draft statements.",
+  "build_order": [
+    "SigmaFinalRealSeries",
+    "SigmaFinalRealArithmetic",
+    "SigmaFinalRealSpatial",
+    "SigmaFinalRealOrthogonal",
+    "SigmaFinalRealMatrix",
+    "SigmaFinalRealTodd",
+    "SigmaFinalRealToddTower",
+    "SigmaFinalRealToddPolynomial",
+    "SigmaFinalRealToddAlgebra",
+    "SigmaFinalRealCharacteristic",
+    "SigmaFinalRealCharacteristicRoot",
+    "SigmaFinalRealCharacteristicChi",
+    "SigmaFinalRealCharacteristicUnits",
+    "SigmaFinalRealCharacteristicTower",
+    "SigmaFinalRealCharacteristicBaseChange",
+    "SigmaFinalRealCharacteristicLocalization",
+    "SigmaFinalRealCharacteristicTowerAlgebra",
+    "SigmaFinalRealizations",
+    "SigmaFinalRealAxioms"
+  ],
+  "additional_mathlib_cache": [
+    "Mathlib.LinearAlgebra.Matrix.PosDef",
+    "Mathlib.LinearAlgebra.Matrix.Spectrum",
+    "Mathlib.Analysis.InnerProductSpace.Spectrum",
+    "Mathlib.RingTheory.PowerSeries.WellKnown",
+    "Mathlib.Algebra.Polynomial.Roots",
+    "Mathlib.RingTheory.Localization.Away.Basic"
+  ],
+  "files": [
+    {
+      "path": "outputs/lean/SigmaFinalRealArithmetic.lean",
+      "sha256": "c4628e0687ea5b950e0275ba1af69c90ef6d76b4a55ea3263b37c80c2ccda389",
+      "theorem_count": 26,
+      "theorems": [
+        "SigmaFinal.cwLeft_positive",
+        "SigmaFinal.cwLeft_lt_one",
+        "SigmaFinal.cwRight_gt_one",
+        "SigmaFinal.cwLeft_injectiveOn",
+        "SigmaFinal.cwValue_positive",
+        "SigmaFinal.cwValue_injective",
+        "SigmaFinal.cw_parent_below",
+        "SigmaFinal.cw_parent_above",
+        "SigmaFinal.cw_reduced_fraction_exists",
+        "SigmaFinal.cw_positive_rational_exists",
+        "SigmaFinal.cw_positive_rational_exists_unique",
+        "SigmaFinal.farey_left_inverse",
+        "SigmaFinal.farey_right_inverse",
+        "SigmaFinal.farey_left_range",
+        "SigmaFinal.farey_right_range",
+        "SigmaFinal.placed_collision_iff",
+        "SigmaFinal.collisionScaleDifference_deriv",
+        "SigmaFinal.collisionScaleDifference_strictAnti",
+        "SigmaFinal.every_placed_collision_breaks_multiplication",
+        "SigmaFinal.intrinsic_alternative_strictAnti",
+        "SigmaFinal.intrinsic_alternative_injective",
+        "SigmaFinal.transportedProduct_encode",
+        "SigmaFinal.transportedProduct_assoc",
+        "SigmaFinal.transportedProduct_comm",
+        "SigmaFinal.transportedUnit_mul",
+        "SigmaFinal.transported_divisibility"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealAxioms.lean",
+      "sha256": "e903df5087783ee9f131384bc970a2a5b9919f3793a9e80b526db3691e93a18a",
+      "theorem_count": 0,
+      "theorems": []
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristic.lean",
+      "sha256": "6f5eec60fd4b0932a4d20952e1db5b7c04d44d3e812f7af2816d60d3a1278c3f",
+      "theorem_count": 19,
+      "theorems": [
+        "SigmaFinal.formal_shift_mul_X",
+        "SigmaFinal.formal_exponential_mul",
+        "SigmaFinal.formal_exponential_rescale",
+        "SigmaFinal.formal_exponential_inverse_product",
+        "SigmaFinal.formal_exponential_coeff_one",
+        "SigmaFinal.formal_exponential_sub_one_ne_zero",
+        "SigmaFinal.rescaled_todd_quotient",
+        "SigmaFinal.ahat_denominator_constant",
+        "SigmaFinal.ahat_denominator_mul_X",
+        "SigmaFinal.formal_ahat_constant",
+        "SigmaFinal.formal_ahat_quotient",
+        "SigmaFinal.l_denominator_constant",
+        "SigmaFinal.l_denominator_mul_X",
+        "SigmaFinal.formal_L_constant",
+        "SigmaFinal.formal_L_quotient",
+        "SigmaFinal.formal_ahat_to_todd",
+        "SigmaFinal.formal_todd_to_ahat",
+        "SigmaFinal.formal_todd_to_L",
+        "SigmaFinal.formal_L_to_todd"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicBaseChange.lean",
+      "sha256": "d5918b324c6e8ff4b4a034f76c89d71c9c53c53cdb13caec3ed5b8e49d454b05",
+      "theorem_count": 25,
+      "theorems": [
+        "SigmaFinal.rational_series_map_rescale",
+        "SigmaFinal.rational_series_map_constant",
+        "SigmaFinal.formal_ahat_over_constant",
+        "SigmaFinal.formal_L_over_constant",
+        "SigmaFinal.formal_ahat_over_quotient",
+        "SigmaFinal.formal_L_over_quotient",
+        "SigmaFinal.formal_ahat_over_to_todd",
+        "SigmaFinal.formal_todd_over_to_L",
+        "SigmaFinal.formal_L_over_to_todd",
+        "SigmaFinal.formal_ahat_over_square_root_constant",
+        "SigmaFinal.formal_ahat_over_square_root_equation",
+        "SigmaFinal.normalized_square_root_unique_over_Q_algebra",
+        "SigmaFinal.formal_ahat_over_square_root_exists_unique",
+        "SigmaFinal.formal_ahat_over_square_root_recovers_todd",
+        "SigmaFinal.formal_chi_over_constant",
+        "SigmaFinal.formal_exponential_over_rescale",
+        "SigmaFinal.rescaled_todd_over_quotient",
+        "SigmaFinal.formal_chi_over_quotient_product",
+        "SigmaFinal.formal_chi_over_recovers_todd",
+        "SigmaFinal.formal_chi_over_minus_one",
+        "SigmaFinal.formal_todd_over_exponential_denominator",
+        "SigmaFinal.formal_L_over_exponential_denominator",
+        "SigmaFinal.formal_todd_over_recovers_exponential",
+        "SigmaFinal.formal_L_over_recovers_exponential",
+        "SigmaFinal.standard_characteristic_units_inverse_reconstruction"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicChi.lean",
+      "sha256": "f87ddb037f470d723b1d888af1172bdeaf3982d2b1e90d788174d073e5e39636",
+      "theorem_count": 11,
+      "theorems": [
+        "SigmaFinal.formal_chi_constant",
+        "SigmaFinal.chi_denominator_constant",
+        "SigmaFinal.chi_denominator_mul_X",
+        "SigmaFinal.formal_chi_quotient_product",
+        "SigmaFinal.formal_chi_standard_quotient",
+        "SigmaFinal.characteristic_chi_Todd_inverse",
+        "SigmaFinal.characteristic_Todd_chi_inverse",
+        "SigmaFinal.formal_chi_recovers_todd",
+        "SigmaFinal.characteristic_chi_minus_one",
+        "SigmaFinal.formal_chi_minus_one_standard",
+        "SigmaFinal.characteristic_chi_minus_one_noninjective"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicLocalization.lean",
+      "sha256": "d5f000fd8a24c8f4821e32e0c2b73857c31c7fceb11d5f9c29df235a5f25c7f7",
+      "theorem_count": 2,
+      "theorems": [
+        "SigmaFinal.localized_characteristic_parameter_unit",
+        "SigmaFinal.formal_chi_polynomial_localization_reconstruction"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicRoot.lean",
+      "sha256": "2794726db44e7ccc13c1278673742b3ede45c7d1402fe35a4611093adf28b1ac",
+      "theorem_count": 11,
+      "theorems": [
+        "SigmaFinal.formal_ahat_inverse_denominator",
+        "SigmaFinal.formal_ahat_b",
+        "SigmaFinal.formal_ahat_square_root_constant",
+        "SigmaFinal.formal_ahat_square_root_equation",
+        "SigmaFinal.normalized_formal_square_root_unique",
+        "SigmaFinal.formal_ahat_square_root_exists_unique",
+        "SigmaFinal.formal_ahat_square_root_reconstruction",
+        "SigmaFinal.formal_ahat_square_root_recovers_todd",
+        "SigmaFinal.formal_ahat_recovers_todd_from_any_normalized_root",
+        "SigmaFinal.formal_L_exponential_recovery_product",
+        "SigmaFinal.formal_L_recovers_exponential"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicTower.lean",
+      "sha256": "ec4c21fac0ca63a4406cbbfb50e87992cf4e99c0058a5189c515658802ddea32",
+      "theorem_count": 9,
+      "theorems": [
+        "SigmaFinal.field_tower_coefficient_zero",
+        "SigmaFinal.field_tower_solution_constant",
+        "SigmaFinal.field_tower_solution_observation",
+        "SigmaFinal.normalized_field_tower_observations_injective",
+        "SigmaFinal.complete_field_tower_exists_unique",
+        "SigmaFinal.unnormalized_todd_constant",
+        "SigmaFinal.unnormalized_todd_observation",
+        "SigmaFinal.unnormalized_todd_family_exists_unique",
+        "SigmaFinal.unnormalized_todd_parameter_injective"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicTowerAlgebra.lean",
+      "sha256": "9787054d3490ef5d3aeacefcc0d97fa9b340ad9b03c4de28090e4869206220a6",
+      "theorem_count": 10,
+      "theorems": [
+        "SigmaFinal.algebra_tower_coefficient_zero",
+        "SigmaFinal.algebra_tower_solution_constant",
+        "SigmaFinal.rational_successor_inverse",
+        "SigmaFinal.algebra_tower_solution_observation",
+        "SigmaFinal.normalized_algebra_tower_observations_injective",
+        "SigmaFinal.complete_algebra_tower_exists_unique",
+        "SigmaFinal.unnormalized_todd_over_constant",
+        "SigmaFinal.unnormalized_todd_over_observation",
+        "SigmaFinal.unnormalized_todd_family_over_Q_algebra_exists_unique",
+        "SigmaFinal.unnormalized_todd_over_parameter_injective"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealCharacteristicUnits.lean",
+      "sha256": "2e8f61bf713f28a71b43bf3e3c1afdd8dd7b79dfa633513ffd8a1e01be1f7dd3",
+      "theorem_count": 6,
+      "theorems": [
+        "SigmaFinal.unit_chi_left_inverse",
+        "SigmaFinal.unit_chi_right_inverse",
+        "SigmaFinal.characteristic_chi_recovery_of_unit",
+        "SigmaFinal.characteristic_chi_recovery_unit_condition",
+        "SigmaFinal.normalized_series_inverse_involution",
+        "SigmaFinal.standard_characteristic_inverse_reconstruction"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealMatrix.lean",
+      "sha256": "ab6d47b27cdf3d424140b77ea60459c68b6e6ae6e42e116daeac37204fe1b85e",
+      "theorem_count": 23,
+      "theorems": [
+        "SigmaFinal.matrix_trace_eq_eigenvalue_sum",
+        "SigmaFinal.matrixPotential_spectral",
+        "SigmaFinal.matrixPotential_nonnegative",
+        "SigmaFinal.matrixPotential_eq_zero_iff",
+        "SigmaFinal.spd_determinant_exponential_bound",
+        "SigmaFinal.spd_determinant_exponential_equality",
+        "SigmaFinal.spd_scalar_block_lift_unique",
+        "SigmaFinal.spd_positive_rank_lift_unique",
+        "SigmaFinal.matrix_bregman_formula",
+        "SigmaFinal.matrix_precision_reversal",
+        "SigmaFinal.precisionMetric_symmetric",
+        "SigmaFinal.symmetric_trace_square",
+        "SigmaFinal.symmetric_trace_square_nonnegative",
+        "SigmaFinal.positive_definite_congruence",
+        "SigmaFinal.sqrt_positive_definite_isUnit",
+        "SigmaFinal.matrixDivergence_relative_potential",
+        "SigmaFinal.matrixDivergence_nonnegative",
+        "SigmaFinal.matrixDivergence_self",
+        "SigmaFinal.matrixDivergence_eq_zero_iff",
+        "SigmaFinal.precisionMetric_nonnegative",
+        "SigmaFinal.matrixPotential_similarity",
+        "SigmaFinal.matrix_relative_congruence",
+        "SigmaFinal.matrixDivergence_congruence"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealOrthogonal.lean",
+      "sha256": "969ba9c4106f6c0a4af54f99eabb1d5b0d81f77c4c1f7264b149b59cb1599edd",
+      "theorem_count": 15,
+      "theorems": [
+        "SigmaFinal.perpendicular_equal_norm_from_pair",
+        "SigmaFinal.even_nonnegative_orthogonal_quadratic",
+        "SigmaFinal.quadratically_bounded_doubling_zero",
+        "SigmaFinal.nonnegative_orthogonal_quadratic_of_pair",
+        "SigmaFinal.nonnegative_orthogonal_quadratic_finiteDimensional",
+        "SigmaFinal.nonnegative_orthogonal_quadratic",
+        "SigmaFinal.nonnegative_orthogonal_quadratic_iff",
+        "SigmaFinal.quartic_not_orthogonal_additive_of_pair",
+        "SigmaFinal.line_quartic_orthogonal_additive",
+        "SigmaFinal.line_quartic_not_quadratic",
+        "SigmaFinal.nonnegative_orthogonal_star_finiteDimensional",
+        "SigmaFinal.nonnegative_orthogonal_star",
+        "SigmaFinal.nonnegative_orthogonal_star_iff",
+        "SigmaFinal.quadratic_scale_calibration",
+        "SigmaFinal.quadratic_nontrivial_scale_positive"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealSeries.lean",
+      "sha256": "f155320f515f857e2288b40c0c4c7e059ad55a631fd4e4c4454a1c866e53f5c1",
+      "theorem_count": 15,
+      "theorems": [
+        "SigmaFinal.towerCoefficient_zero",
+        "SigmaFinal.towerSolution_constant",
+        "SigmaFinal.towerSolution_observation",
+        "SigmaFinal.complete_tower_exists_unique",
+        "SigmaFinal.todd_tower_exists_unique",
+        "SigmaFinal.degree_zero_tower_is_normalization",
+        "SigmaFinal.omitted_todd_degree",
+        "SigmaFinal.formal_L_Todd_inverse",
+        "SigmaFinal.formal_Todd_L_inverse",
+        "SigmaFinal.formal_chi_Todd_inverse",
+        "SigmaFinal.formal_Todd_chi_inverse",
+        "SigmaFinal.formal_chi_minus_one",
+        "SigmaFinal.formal_chi_reconstruction_iff",
+        "SigmaFinal.universal_line_correction_unique",
+        "SigmaFinal.universal_unit_inverse_reconstruction"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealSpatial.lean",
+      "sha256": "95400162feecb40cff375165fa40d5092a5de8927c857b4ff506cdced9cbb93d",
+      "theorem_count": 21,
+      "theorems": [
+        "SigmaFinal.radialWeight_eq_rpow",
+        "SigmaFinal.radialWeight_pos",
+        "SigmaFinal.radialWeight_deriv",
+        "SigmaFinal.weighted_profile_deriv",
+        "SigmaFinal.weighted_profile_second_deriv",
+        "SigmaFinal.radial_residual",
+        "SigmaFinal.radial_laplacian_conjugation",
+        "SigmaFinal.radial_residual_cancellation",
+        "SigmaFinal.radial_residual_dimension_three",
+        "SigmaFinal.radial_OU_dimension",
+        "SigmaFinal.constant_profile_radial_residual_three",
+        "SigmaFinal.constant_profile_differs_from_H_on_positive_ray",
+        "SigmaFinal.nonnegative_additive_ray_linear",
+        "SigmaFinal.linear_profile_orthogonally_additive",
+        "SigmaFinal.linear_profile_negative_at_neg_unit",
+        "SigmaFinal.linear_profile_not_quadratic",
+        "SigmaFinal.orthogonal_zero",
+        "SigmaFinal.even_orthogonal_equal_norm",
+        "SigmaFinal.odd_orthogonal_double",
+        "SigmaFinal.norm_square_orthogonal_additive",
+        "SigmaFinal.orthogonal_star_log"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealTodd.lean",
+      "sha256": "8465d928b20f04c3ff200784379e40a341a1bfffcda5d3f35eccfa75c93d070c",
+      "theorem_count": 11,
+      "theorems": [
+        "SigmaFinal.formal_exponential_constant",
+        "SigmaFinal.formal_exponential_derivative",
+        "SigmaFinal.todd_denominator_constant",
+        "SigmaFinal.todd_denominator_mul_X",
+        "SigmaFinal.todd_denominator_mul_todd",
+        "SigmaFinal.formal_todd_constant",
+        "SigmaFinal.formal_todd_quotient_identity",
+        "SigmaFinal.formal_todd_riccati",
+        "SigmaFinal.formal_twisted_todd_differential",
+        "SigmaFinal.formal_twisted_todd_coeff_succ",
+        "SigmaFinal.formal_twisted_todd_coeff"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealToddAlgebra.lean",
+      "sha256": "e7e046631fa3fe7c3bc5bb83b9a7c8cd9450bbace370a0bd5d3c049a2f7c02b5",
+      "theorem_count": 10,
+      "theorems": [
+        "SigmaFinal.formal_exponential_over_map",
+        "SigmaFinal.formal_todd_over_constant",
+        "SigmaFinal.formal_todd_over_denominator",
+        "SigmaFinal.formal_todd_over_quotient_identity",
+        "SigmaFinal.todd_twist_polynomial_eval_algebra",
+        "SigmaFinal.formal_twisted_todd_coeff_over_Q_algebra",
+        "SigmaFinal.formal_todd_tower_over_Q_algebra",
+        "SigmaFinal.power_difference_over_Q_algebra",
+        "SigmaFinal.todd_tower_unique_over_Q_algebra",
+        "SigmaFinal.todd_tower_iff_exponential_quotient_over_Q_algebra"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealToddPolynomial.lean",
+      "sha256": "8627962ba3b2a8c6b2c87d156dda13b937736900e94ed9ff9182b6cbb96fa763",
+      "theorem_count": 3,
+      "theorems": [
+        "SigmaFinal.todd_twist_polynomial_eval",
+        "SigmaFinal.todd_binomial_polynomial_eval",
+        "SigmaFinal.todd_twist_polynomial_identity"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealToddTower.lean",
+      "sha256": "4db0067d08da2f41b4099d18d4ebd538a14b407a3d296274fa1eb1a74556bce1",
+      "theorem_count": 12,
+      "theorems": [
+        "SigmaFinal.formal_exponential_zero",
+        "SigmaFinal.formal_todd_exponential_recovery_product",
+        "SigmaFinal.formal_todd_recovers_exponential",
+        "SigmaFinal.formal_todd_tower",
+        "SigmaFinal.characteristic_zero_power_difference",
+        "SigmaFinal.formal_todd_tower_unique",
+        "SigmaFinal.normalized_todd_tower_iff_exponential_quotient",
+        "SigmaFinal.all_degree_todd_tower_iff_exponential_quotient",
+        "SigmaFinal.exponential_quotient_todd_exists_unique",
+        "SigmaFinal.recursive_todd_equals_exponential_quotient",
+        "SigmaFinal.formal_todd_omitted_degree",
+        "SigmaFinal.formal_twisted_todd_coeff_nat"
+      ]
+    },
+    {
+      "path": "outputs/lean/SigmaFinalRealizations.lean",
+      "sha256": "c366817f9f025a80a253459300e87873cae06d473d05754e280f3177c415eb4e",
+      "theorem_count": 0,
+      "theorems": []
+    }
+  ],
+  "statements": [
+    {
+      "statement_id": "final:F1",
+      "status": "main_statement_proved",
+      "checked_scope": "Actual normalized exponential quotient, complete normalized Todd tower and its uniqueness over every characteristic-zero field; exact identification of the previously constructed rational recursive tower with that quotient; degree-zero normalization and each positive-degree omission counterexample over every characteristic-zero field. Every scalar twist has the rising-factorial formula, natural twists have the Nat.choose formula, and the twist equality is proved as an actual polynomial identity over Q. The genuine quotient unit, all twists, and normalized uniqueness also hold over every commutative Q-algebra, including algebras with zero divisors. The proof's arbitrary-unit unnormalized family is now constructed by actual recursion and is unique for each marked constant unit over every commutative Q-algebra; distinct unit parameters give distinct series. Arbitrary prescribed normalized positive-degree tower observations also have a unique solution.",
+      "lean_theorems": [
+        "SigmaFinal.complete_tower_exists_unique",
+        "SigmaFinal.degree_zero_tower_is_normalization",
+        "SigmaFinal.todd_denominator_constant",
+        "SigmaFinal.formal_todd_constant",
+        "SigmaFinal.formal_todd_quotient_identity",
+        "SigmaFinal.formal_todd_riccati",
+        "SigmaFinal.formal_twisted_todd_differential",
+        "SigmaFinal.formal_twisted_todd_coeff_succ",
+        "SigmaFinal.formal_twisted_todd_coeff",
+        "SigmaFinal.formal_todd_tower",
+        "SigmaFinal.formal_todd_tower_unique",
+        "SigmaFinal.normalized_todd_tower_iff_exponential_quotient",
+        "SigmaFinal.all_degree_todd_tower_iff_exponential_quotient",
+        "SigmaFinal.exponential_quotient_todd_exists_unique",
+        "SigmaFinal.recursive_todd_equals_exponential_quotient",
+        "SigmaFinal.formal_todd_omitted_degree",
+        "SigmaFinal.formal_twisted_todd_coeff_nat",
+        "SigmaFinal.todd_twist_polynomial_identity",
+        "SigmaFinal.formal_todd_over_constant",
+        "SigmaFinal.formal_todd_over_denominator",
+        "SigmaFinal.formal_todd_over_quotient_identity",
+        "SigmaFinal.formal_twisted_todd_coeff_over_Q_algebra",
+        "SigmaFinal.formal_todd_tower_over_Q_algebra",
+        "SigmaFinal.todd_tower_unique_over_Q_algebra",
+        "SigmaFinal.todd_tower_iff_exponential_quotient_over_Q_algebra",
+        "SigmaFinal.field_tower_coefficient_zero",
+        "SigmaFinal.field_tower_solution_constant",
+        "SigmaFinal.field_tower_solution_observation",
+        "SigmaFinal.normalized_field_tower_observations_injective",
+        "SigmaFinal.complete_field_tower_exists_unique",
+        "SigmaFinal.unnormalized_todd_constant",
+        "SigmaFinal.unnormalized_todd_observation",
+        "SigmaFinal.unnormalized_todd_family_exists_unique",
+        "SigmaFinal.unnormalized_todd_parameter_injective",
+        "SigmaFinal.algebra_tower_coefficient_zero",
+        "SigmaFinal.algebra_tower_solution_constant",
+        "SigmaFinal.rational_successor_inverse",
+        "SigmaFinal.algebra_tower_solution_observation",
+        "SigmaFinal.normalized_algebra_tower_observations_injective",
+        "SigmaFinal.complete_algebra_tower_exists_unique",
+        "SigmaFinal.unnormalized_todd_over_constant",
+        "SigmaFinal.unnormalized_todd_over_observation",
+        "SigmaFinal.unnormalized_todd_family_over_Q_algebra_exists_unique",
+        "SigmaFinal.unnormalized_todd_over_parameter_injective"
+      ],
+      "remaining_components": [
+        "The separate arbitrary-power multi-index coefficient formula in final:todd-arbitrary-power is not yet formalized."
+      ],
+      "proof_method": "Native PowerSeries formal differentiation of the actual quotient gives X*Tprime=(1+X)*T-T^2. Its twisted-power derivative identity yields the exact diagonal coefficient recurrence, proving all twists without assuming any tower observation. This is an alternative proof of the displayed theorem; no generic Laurent residue-substitution theorem is asserted."
+    },
+    {
+      "statement_id": "final:F2",
+      "status": "proved",
+      "checked_scope": "Actual normalized formal Todd, Ahat, L, and chi_y series, defined by the native formal exponential and unit denominators, with their stated quotient identities and all displayed reconstruction formulas. Both exponential recoveries are proved. The Ahat-only square root exists uniquely with constant term 2 and reconstructs the actual Todd quotient. The chi affine rescaling has both inverse directions for fixed y != -1 over every characteristic-zero field, degenerates to 1+X at y=-1, and has an explicit normalized noninjectivity counterexample there. All stated standard formulas and unit inversion are also proved over arbitrary commutative Q-algebras, including zero divisors, with the exact IsUnit(1+y) condition. The parameter-polynomial case is instantiated in native Localization.Away(1+Polynomial.X), giving the actual Q[y,(1+y)^-1] inverse domain.",
+      "lean_theorems": [
+        "SigmaFinal.formal_L_Todd_inverse",
+        "SigmaFinal.formal_Todd_L_inverse",
+        "SigmaFinal.formal_chi_Todd_inverse",
+        "SigmaFinal.formal_Todd_chi_inverse",
+        "SigmaFinal.formal_chi_minus_one",
+        "SigmaFinal.formal_chi_reconstruction_iff",
+        "SigmaFinal.universal_unit_inverse_reconstruction",
+        "PhaseIV.canonical_todd_to_L",
+        "PhaseIV.canonical_L_recovers_exp",
+        "PhaseIV.canonical_ahat_to_todd",
+        "PhaseIV.canonical_ahat_recovers_exp",
+        "PhaseIV.toddLEquiv",
+        "PhaseIV.toddAhatEquiv",
+        "PhaseIV.toddChiEquiv",
+        "PhaseIV.positiveQuadraticRoot_spec",
+        "PhaseIV.formal_unit_quadratic_branch_unique",
+        "SigmaFinal.formal_todd_exponential_recovery_product",
+        "SigmaFinal.formal_todd_recovers_exponential",
+        "SigmaFinal.formal_shift_mul_X",
+        "SigmaFinal.formal_exponential_mul",
+        "SigmaFinal.formal_exponential_rescale",
+        "SigmaFinal.formal_exponential_inverse_product",
+        "SigmaFinal.formal_exponential_coeff_one",
+        "SigmaFinal.formal_exponential_sub_one_ne_zero",
+        "SigmaFinal.rescaled_todd_quotient",
+        "SigmaFinal.ahat_denominator_constant",
+        "SigmaFinal.ahat_denominator_mul_X",
+        "SigmaFinal.formal_ahat_constant",
+        "SigmaFinal.formal_ahat_quotient",
+        "SigmaFinal.l_denominator_constant",
+        "SigmaFinal.l_denominator_mul_X",
+        "SigmaFinal.formal_L_constant",
+        "SigmaFinal.formal_L_quotient",
+        "SigmaFinal.formal_ahat_to_todd",
+        "SigmaFinal.formal_todd_to_ahat",
+        "SigmaFinal.formal_todd_to_L",
+        "SigmaFinal.formal_L_to_todd",
+        "SigmaFinal.formal_ahat_inverse_denominator",
+        "SigmaFinal.formal_ahat_b",
+        "SigmaFinal.formal_ahat_square_root_constant",
+        "SigmaFinal.formal_ahat_square_root_equation",
+        "SigmaFinal.normalized_formal_square_root_unique",
+        "SigmaFinal.formal_ahat_square_root_exists_unique",
+        "SigmaFinal.formal_ahat_square_root_reconstruction",
+        "SigmaFinal.formal_ahat_square_root_recovers_todd",
+        "SigmaFinal.formal_ahat_recovers_todd_from_any_normalized_root",
+        "SigmaFinal.formal_L_exponential_recovery_product",
+        "SigmaFinal.formal_L_recovers_exponential",
+        "SigmaFinal.formal_chi_constant",
+        "SigmaFinal.chi_denominator_constant",
+        "SigmaFinal.chi_denominator_mul_X",
+        "SigmaFinal.formal_chi_quotient_product",
+        "SigmaFinal.formal_chi_standard_quotient",
+        "SigmaFinal.characteristic_chi_Todd_inverse",
+        "SigmaFinal.characteristic_Todd_chi_inverse",
+        "SigmaFinal.formal_chi_recovers_todd",
+        "SigmaFinal.characteristic_chi_minus_one",
+        "SigmaFinal.formal_chi_minus_one_standard",
+        "SigmaFinal.characteristic_chi_minus_one_noninjective",
+        "SigmaFinal.unit_chi_left_inverse",
+        "SigmaFinal.unit_chi_right_inverse",
+        "SigmaFinal.characteristic_chi_recovery_of_unit",
+        "SigmaFinal.characteristic_chi_recovery_unit_condition",
+        "SigmaFinal.normalized_series_inverse_involution",
+        "SigmaFinal.standard_characteristic_inverse_reconstruction",
+        "SigmaFinal.rational_series_map_rescale",
+        "SigmaFinal.rational_series_map_constant",
+        "SigmaFinal.formal_ahat_over_constant",
+        "SigmaFinal.formal_L_over_constant",
+        "SigmaFinal.formal_ahat_over_quotient",
+        "SigmaFinal.formal_L_over_quotient",
+        "SigmaFinal.formal_ahat_over_to_todd",
+        "SigmaFinal.formal_todd_over_to_L",
+        "SigmaFinal.formal_L_over_to_todd",
+        "SigmaFinal.formal_ahat_over_square_root_constant",
+        "SigmaFinal.formal_ahat_over_square_root_equation",
+        "SigmaFinal.normalized_square_root_unique_over_Q_algebra",
+        "SigmaFinal.formal_ahat_over_square_root_exists_unique",
+        "SigmaFinal.formal_ahat_over_square_root_recovers_todd",
+        "SigmaFinal.formal_chi_over_constant",
+        "SigmaFinal.formal_exponential_over_rescale",
+        "SigmaFinal.rescaled_todd_over_quotient",
+        "SigmaFinal.formal_chi_over_quotient_product",
+        "SigmaFinal.formal_chi_over_recovers_todd",
+        "SigmaFinal.formal_chi_over_minus_one",
+        "SigmaFinal.formal_todd_over_exponential_denominator",
+        "SigmaFinal.formal_L_over_exponential_denominator",
+        "SigmaFinal.formal_todd_over_recovers_exponential",
+        "SigmaFinal.formal_L_over_recovers_exponential",
+        "SigmaFinal.standard_characteristic_units_inverse_reconstruction",
+        "SigmaFinal.localized_characteristic_parameter_unit",
+        "SigmaFinal.formal_chi_polynomial_localization_reconstruction"
+      ],
+      "remaining_components": [],
+      "proof_method": "Field definitions divide only formal units obtained by shifting the zero-constant exponential numerators; X is never inverted. Quotient identities imply the actual standard-series maps. The Ahat square-root branch is constructed as E(1/2)+E(-1/2) and its uniqueness follows from invertibility of the constant-4 sum of two roots. General Q-algebra standard units are genuine base changes of the proved rational quotients. Chi inversion is proved coefficientwise for arbitrary scalar units and then specialized to the actual series and the native localization."
+    },
+    {
+      "statement_id": "final:F3",
+      "status": "partial",
+      "checked_scope": "Baseline explicit normalized formal logarithm and its ODE uniqueness, plus exact real formula reconstructions from F2.",
+      "lean_theorems": [
+        "PhaseIV.formalLog_ode",
+        "PhaseIV.normalized_formal_log_ode_reconstruction"
+      ],
+      "remaining_components": [
+        "Germ/analytic-continuation uniqueness and global real analytic representatives.",
+        "Complex nearest-pole and Taylor-disc assertions.",
+        "Smooth compactly supported global-extension counterexample, including retained strict convexity."
+      ]
+    },
+    {
+      "statement_id": "final:F4",
+      "status": "partial",
+      "checked_scope": "Injective multiplication by the marked formal variable proves universal line cancellation; inversion of complete formal units is injective.",
+      "lean_theorems": [
+        "SigmaFinal.universal_line_correction_unique",
+        "SigmaFinal.universal_unit_inverse_reconstruction"
+      ],
+      "remaining_components": [
+        "Native complex K-theory and rational cohomology, Thom isomorphisms/classes, Chern character, zero-section Euler restrictions.",
+        "Universal-line inverse-limit identification and actual Todd correction, multiplicativity and injective splitting.",
+        "Collapse/Gysin constructions and Riemann--Roch comparison.",
+        "Finite-base nilpotence loss of universal coefficients, in native cohomology."
+      ]
+    },
+    {
+      "statement_id": "final:F5",
+      "status": "unformalized",
+      "checked_scope": "No native topology theorem has been supplied for this statement.",
+      "lean_theorems": [],
+      "remaining_components": [
+        "RP2 cellular integral and rational cohomology.",
+        "Complexified tautological line, nontriviality/odd-map obstruction, determinant obstruction to stable triviality, and rational Chern character equal to one."
+      ]
+    },
+    {
+      "statement_id": "final:M1",
+      "status": "partial",
+      "checked_scope": "Actual finite real SPD matrices: spectral identity and unique positive-rank family from the rank-one seed, orthogonal invariance, and scalar-block recursion restricted to diagonals. Zero rank is constructed internally, not assumed.",
+      "lean_theorems": [
+        "SigmaFinal.matrixPotential_spectral",
+        "SigmaFinal.spd_positive_rank_lift_unique",
+        "SigmaFinal.spd_scalar_block_lift_unique"
+      ],
+      "remaining_components": [
+        "Show the canonical matrixPotential family satisfies the full original arbitrary-block recursion and orthogonal-invariance axioms as a bundled family.",
+        "Formalize the independent nonnegative omitted-rule matrix counterexamples."
+      ]
+    },
+    {
+      "statement_id": "final:M2",
+      "status": "partial",
+      "checked_scope": "Actual real SPD matrices: potential nonnegativity and exact zero set; exponential determinant bound/equality; algebraic Bregman formula with specified covector I-Y^-1; divergence nonnegativity, exact zero set, congruence invariance, precision reversal; symmetry and nonnegativity of the Hessian-form candidate.",
+      "lean_theorems": [
+        "SigmaFinal.matrixPotential_nonnegative",
+        "SigmaFinal.matrixPotential_eq_zero_iff",
+        "SigmaFinal.spd_determinant_exponential_bound",
+        "SigmaFinal.spd_determinant_exponential_equality",
+        "SigmaFinal.matrix_bregman_formula",
+        "SigmaFinal.matrixDivergence_nonnegative",
+        "SigmaFinal.matrixDivergence_eq_zero_iff",
+        "SigmaFinal.matrixDivergence_congruence",
+        "SigmaFinal.matrix_precision_reversal",
+        "SigmaFinal.precisionMetric_symmetric",
+        "SigmaFinal.precisionMetric_nonnegative",
+        "SigmaFinal.symmetric_trace_square"
+      ],
+      "remaining_components": [
+        "Prove Frechet/Jacobi differentiation of the actual matrixPotential, its gradient, and its Hessian. The named matrixBregman is currently an algebraic formula using the stated covector, not yet certified as the differential Bregman divergence.",
+        "Strict positivity of the Hessian form on nonzero symmetric tangents, its congruence/inversion isometries, and the affine reconstruction converses.",
+        "Full extended-real matrix conjugate and Bregman duality.",
+        "Arithmetic-mean determinant bound with its scalar-matrix equality case and logdet concavity.",
+        "The family of alternative invariant metrics and its parameter-positive-definiteness criterion."
+      ]
+    },
+    {
+      "statement_id": "final:M3",
+      "status": "unformalized",
+      "checked_scope": "No geodesic/length or matrix hyperbolic-symmetrization theorem is yet formalized.",
+      "lean_theorems": [],
+      "remaining_components": [
+        "Actual exponential differential and metric speed bound.",
+        "Global unique constant-speed minimizing geodesic and distance.",
+        "Relative eigenvalue symmetrization formula and equal-distance counterexample in every rank at least two."
+      ]
+    },
+    {
+      "statement_id": "final:M4",
+      "status": "unformalized",
+      "checked_scope": "No native multivariate Gaussian/Wishart statistics theorem is yet formalized.",
+      "lean_theorems": [],
+      "remaining_components": [
+        "Gaussian iid joint density and sufficient scatter statistic with supplied m and known mean zero.",
+        "Wishart Laplace/MGF determinant formula including its exact finiteness domain.",
+        "Scatter rank/positive-definiteness threshold and singular-observation nonattainment.",
+        "Likelihood excess and Gaussian KL identity with their sample-count factors and orientations."
+      ]
+    },
+    {
+      "statement_id": "final:R1",
+      "status": "partial",
+      "checked_scope": "Exact coefficient-level dimension selection for the specified radial OU drift D/2-t.",
+      "lean_theorems": [
+        "SigmaFinal.radial_OU_dimension"
+      ],
+      "remaining_components": [
+        "R4 Gaussian polar pushforward and inverse with independent uniform S3 angle; isotropy uniqueness and angular counterexample.",
+        "Actual multivariate chain-rule computation of the radial OU generator.",
+        "OU process, Ito radial SDE, Brownian normalization, and invariant gamma law.",
+        "Native stochastic/domain foundations and stationary-density nonselection of diffusion coefficient."
+      ]
+    },
+    {
+      "statement_id": "final:R2",
+      "status": "main_statement_and_omission_tests_proved",
+      "checked_scope": "Complete exact no-regularity classification on every real inner-product space with cardinal rank at least two, including infinite-dimensional spaces; quadratic iff, exponential-star iff, scale calibration; dimension-one quartic and higher-dimensional quartic failures. The explicit linear functional x\u21a6inner(x,u), for a supplied unit u, is orthogonally additive, takes value -1 at -u, and has no scalar norm-square representation; this closes the nonnegativity omission test.",
+      "lean_theorems": [
+        "SigmaFinal.nonnegative_orthogonal_quadratic",
+        "SigmaFinal.nonnegative_orthogonal_quadratic_iff",
+        "SigmaFinal.nonnegative_orthogonal_star",
+        "SigmaFinal.nonnegative_orthogonal_star_iff",
+        "SigmaFinal.nonnegative_additive_ray_linear",
+        "SigmaFinal.perpendicular_equal_norm_from_pair",
+        "SigmaFinal.quadratically_bounded_doubling_zero",
+        "SigmaFinal.quadratic_scale_calibration",
+        "SigmaFinal.quadratic_nontrivial_scale_positive",
+        "SigmaFinal.line_quartic_orthogonal_additive",
+        "SigmaFinal.line_quartic_not_quadratic",
+        "SigmaFinal.quartic_not_orthogonal_additive_of_pair",
+        "SigmaFinal.linear_profile_orthogonally_additive",
+        "SigmaFinal.linear_profile_negative_at_neg_unit",
+        "SigmaFinal.linear_profile_not_quadratic"
+      ],
+      "remaining_components": []
+    },
+    {
+      "statement_id": "final:R3",
+      "status": "displayed_operator_theorem_proved",
+      "checked_scope": "Actual first and second derivatives on the positive ray, with exp(a log x) proved equal to x^a; profile-independent residual, radial Laplacian conjugation without a nonvanishing-profile assumption, and exact D=1 or 3 / D>=2 selection. The constant profile 1 has the same dimension-three residual cancellation and differs from H already at the positive point 1.",
+      "lean_theorems": [
+        "SigmaFinal.radialWeight_eq_rpow",
+        "SigmaFinal.weighted_profile_deriv",
+        "SigmaFinal.weighted_profile_second_deriv",
+        "SigmaFinal.radial_residual",
+        "SigmaFinal.radial_laplacian_conjugation",
+        "SigmaFinal.radial_residual_cancellation",
+        "SigmaFinal.radial_residual_dimension_three",
+        "SigmaFinal.constant_profile_radial_residual_three",
+        "SigmaFinal.constant_profile_differs_from_H_on_positive_ray"
+      ],
+      "remaining_components": [
+        "The geometric derivation of the radial-Laplacian formula from the full Euclidean Laplacian is not encoded here; the displayed radial differential expression is the selected operator."
+      ]
+    },
+    {
+      "statement_id": "final:R4",
+      "status": "partial",
+      "checked_scope": "Dimension-one versus >=2 cancellation follows from the exact residual theorem; squared norm is orthogonally additive; the quartic fails in every supplied orthonormal two-plane.",
+      "lean_theorems": [
+        "SigmaFinal.norm_square_orthogonal_additive",
+        "SigmaFinal.quartic_not_orthogonal_additive_of_pair",
+        "SigmaFinal.line_quartic_orthogonal_additive",
+        "SigmaFinal.radial_residual_cancellation"
+      ],
+      "remaining_components": [
+        "Package extensions retaining every designated scalar/probability/operator/formal-network field with independent spatial sorts.",
+        "Concrete R2 squared-norm residual value and the scalar-metric pullback versus composite-Hessian tensor formulas."
+      ]
+    },
+    {
+      "statement_id": "final:B1",
+      "status": "partial",
+      "checked_scope": "Complete positive-rational Calkin--Wilf enumeration, including unique word for every positive rational and exact decreasing-parent formulas. Lean lists record outermost letter first, the reverse chronological convention is stated in the definition.",
+      "lean_theorems": [
+        "SigmaFinal.cwValue_positive",
+        "SigmaFinal.cwValue_injective",
+        "SigmaFinal.cw_parent_below",
+        "SigmaFinal.cw_parent_above",
+        "SigmaFinal.cw_reduced_fraction_exists",
+        "SigmaFinal.cw_positive_rational_exists",
+        "SigmaFinal.cw_positive_rational_exists_unique"
+      ],
+      "remaining_components": [
+        "The nonnegative unimodular matrix monoid generation and freeness.",
+        "Stern--Brocot endpoint matrices and chronological word reversal.",
+        "Euclidean run/continued-fraction correspondence and terminal-digit correction."
+      ]
+    },
+    {
+      "statement_id": "final:B2",
+      "status": "partial",
+      "checked_scope": "Both marked Farey inverse branch formulas and exact bounds for their ranges.",
+      "lean_theorems": [
+        "SigmaFinal.farey_left_inverse",
+        "SigmaFinal.farey_right_inverse",
+        "SigmaFinal.farey_left_range",
+        "SigmaFinal.farey_right_range"
+      ],
+      "remaining_components": [
+        "Surjectivity onto each branch interval and monotonicity, with complete endpoint conventions.",
+        "Three-point Moebius reconstruction and full-domain extension.",
+        "Integral recovery of I and analytic/smooth extension boundary/counterexample."
+      ]
+    },
+    {
+      "statement_id": "final:B3",
+      "status": "partial",
+      "checked_scope": "Exact placed-code collision criterion; every collision separates all real dilations k>1, proved using an actual strictly negative derivative; injectivity of H(n+2) on natural indices (equivalent to H(n+1) for n>=1); actual transported monoid multiplication, unit, associativity/commutativity and divisibility via a range equivalence.",
+      "lean_theorems": [
+        "SigmaFinal.placed_collision_iff",
+        "SigmaFinal.every_placed_collision_breaks_multiplication",
+        "SigmaFinal.intrinsic_alternative_strictAnti",
+        "SigmaFinal.intrinsic_alternative_injective",
+        "SigmaFinal.transportedProduct_encode",
+        "SigmaFinal.transportedProduct_assoc",
+        "SigmaFinal.transportedProduct_comm",
+        "SigmaFinal.transportedUnit_mul",
+        "SigmaFinal.transported_divisibility"
+      ],
+      "remaining_components": [
+        "Bundle the precise n>=2 carrier, unit adjunction, and necessary-and-sufficient existence of its representative-defined multiplication.",
+        "Prime/irreducible, valuations, Omega/omega, gcd/lcm, divisor lattice/count, Moebius inversion, Dirichlet convolution, normalized multiplicative functions, and labelled totient inventory.",
+        "Original-versus-shifted placed sampling identity and numerical collision example.",
+        "Unlabelled prime-permutation / addition nonreconstruction countermodels."
+      ]
+    },
+    {
+      "statement_id": "final:B4",
+      "status": "unformalized",
+      "checked_scope": "No Euler-product or full generator-multiset inversion theorem is yet formalized.",
+      "lean_theorems": [],
+      "remaining_components": [
+        "Convergent prime Euler product from unique factorization and the trace-class spectral cross-link.",
+        "Positivity/local finiteness/countability of general numerical generator multisets.",
+        "Dominated-convergence leading-generator/multiplicity limits.",
+        "Full-factor removal induction, recovery of every generator, and empty-product case."
+      ]
+    }
+  ],
+  "kernel_axiom_report": "work/final-SigmaFinalRealAxioms.log",
+  "kernel_audit": {
+    "status": "passed",
+    "theorems_checked": 229,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "report": "work/final-SigmaFinalRealAxioms.log",
+    "unexpected_axioms": []
+  },
+  "build_status": "All nineteen sources compiled successfully with the pinned Lean 4.14 runner; the 229-theorem local axiom audit passed. A clean aggregate rebuild remains the parent build responsibility.",
+  "additional_library_build": {
+    "module": "Mathlib.RingTheory.Localization.Away.Basic",
+    "method": "Existing mathlib source compiled locally; all imported dependencies were already cached.",
+    "log": "work/final-mathlib-AwayBasic.log"
+  },
+  "series_scope_audit": "outputs/final-draft/realization-formal-series-audit.md"
+}

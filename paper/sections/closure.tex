@@ -1,0 +1,312 @@
+\section{Global reconstruction closure and irredundancy}
+\label{final:closure}
+
+The complete identifying presentations below reconstruct the same
+mathematical object $\Sigma$ exactly. Their different forms do not
+make them intrinsically distinct mathematical objects. The global
+reconstruction theorem retains each presentation's candidate class,
+calibrations, and any specified context.
+
+\begin{definition}[Identification and a retained context]
+\label{final:identification}
+An identifying presentation consists of a candidate class, its marked
+observation map, the specified observed value, and a proved inverse on
+that class. A reconstruction recovers the object whose observation was
+taken. A canonical construction in a context $C$ is a specified map
+$F_C$ giving a presentation of $\Sigma$ in $C$; it identifies an arbitrary supplied
+object only if that object satisfies the construction's identifying
+conditions. Contexts include the coordinate, ambient category and any
+designated argument. The reconstruction of an observed object and the
+identification of an arbitrary supplied object therefore have distinct
+quantifier structures.
+\end{definition}
+
+Let $E_\Sigma$ be the following finite collection of complete presentations,
+with every candidate class and calibration stated in the referenced
+theorem retained. Grouping presentations in a table row does not discard
+their distinct observation maps.
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.24\textwidth}
+>{\raggedright\arraybackslash}p{.49\textwidth}
+>{\raggedright\arraybackslash}p{.19\textwidth}@{}}
+\toprule
+Presentation family&Complete identifying data&Results\\\midrule
+\endhead
+Intrinsic entries&$H$, $I$, or the positive normalized $p$, in the marked
+coordinate&\ref{final:C0-placement}\\
+Differential core&Calibrated curvature, Riccati/exact flow, recentering&
+\ref{final:C1}--\ref{final:C2}\\
+Group core&Normalized logarithm, calibrated cocycle, typed completion&
+\ref{final:C3}, \ref{final:C3-completion}\\
+Convex/projective core&Anchored Bregman/symmetric slice, exact conjugate,
+calibrated self-concordance/Hessian metric, projective/Schwarzian data&
+\ref{final:C4}--\ref{final:C7}\\
+Gamma transforms&Complete law, Laplace, moments, Mellin line, characteristic
+function; entropy-maximizing law&\ref{final:P1}, \ref{final:P7}\\
+Poisson&Normalized recurrence, centered CGF, exact oriented KL slice&
+\ref{final:P2}\\
+Gumbel/Haar&Two marked max identities and anchor, or complete marked
+Haar-weighted density&\ref{final:P3}, \ref{final:P3-haar}\\
+Linked deficit&Both prescribed observations: deficit law and coordinate
+involution, linked to the same candidate potential&\ref{final:P4}\\
+Other exact probability nodes&Normalized survival/logistic/Green;
+complete Stieltjes data; atom-free size-bias/equilibrium inverse&
+\ref{final:P5}, \ref{final:P5-stieltjes},
+\ref{final:P5-transforms}\\
+Formal/analytic series&Todd unit tower with constant one; complete
+Todd, A-hat, L and marked normalized $\chi_y$, $y\ne-1$&
+\ref{final:F1}--\ref{final:F3}\\
+Tree inverse&Complete marked rooted labelled EGF/Borel PGF and its
+analytic inverse germ&\ref{final:P6}\\
+Marked rational presentation&Calkin--Wilf/Farey numerical labels and
+the specified full-domain M\"obius extension&\ref{final:B1}--\ref{final:B2}\\
+Measure/operator observations&Full-line Stein identity; linked mixing
+measure samples; complete marked polynomial orthogonality; full integer
+tail in the Bernstein class&\ref{final:O1}, \ref{final:O5},
+\ref{final:O7}, \ref{final:O6}\\
+\bottomrule
+\end{longtable}
+Formal/local nodes identify their formal germs directly. Identifying a
+supplied global function from a germ retains the connected real-analytic
+candidate class. The explicit expression also constructs its canonical
+global representative. Neither assertion identifies an arbitrary smooth
+continuation after that class has been forgotten.
+
+\begin{theorem}[Intrinsic uniqueness and reconstruction closure]
+\label{final:global-A}
+\label{final:global-B}
+
+There exists a unique calibrated intrinsic analytic object $\Sigma$ on the
+marked positive coordinate represented by every complete identifying
+presentation in $E_\Sigma$. Every presentation in $E_\Sigma$ reconstructs
+$\Sigma$ uniquely within its stated candidate class, and $\Sigma$
+reconstructs that presentation exactly.
+
+Hence the complete presentations in $E_\Sigma$ are not intrinsically
+distinct mathematical objects: they are exact presentations of the same
+intrinsic mathematical object $\Sigma$. In particular, every two
+presentations $A,B\in E_\Sigma$ are mutually reconstructible through
+$\Sigma$.
+\end{theorem}
+
+\begin{proof}
+Existence is established by the explicit constructions in the referenced
+theorems, and their identifying inverses establish uniqueness in the
+corresponding candidate classes. In the formal cases, the retained
+continuation class is exactly that of Proposition~\ref{final:F3}.
+
+For each $A\in E_\Sigma$, write
+\[
+e_A:\Sigma\longrightarrow A,
+\qquad
+d_A:A\longrightarrow\Sigma
+\]
+for its encoding and identifying inverse. On their stated solution classes,
+\[
+d_Ae_A=\mathrm{id}_\Sigma,
+\qquad
+e_Ad_A=\mathrm{id}_A.
+\]
+For $A,B\in E_\Sigma$, the reconstruction from $A$ to $B$ is
+\[
+e_Bd_A:A\longrightarrow B,
+\]
+with inverse
+\[
+e_Ad_B:B\longrightarrow A.
+\]
+Indeed,
+\[
+e_Ad_Be_Bd_A
+=
+e_Ad_A
+=
+\mathrm{id}_A,
+\]
+and, exchanging $A$ and $B$,
+\[
+e_Bd_Ae_Ad_B
+=
+e_Bd_B
+=
+\mathrm{id}_B.
+\]
+
+Thus this is one global reconstruction theorem. Pairwise equivalences are
+consequences of the reconstruction through $\Sigma$, not additional
+hypotheses.
+\end{proof}
+
+\begin{theorem}[Canonical realization fibres]
+\label{final:global-E}
+For each of the following supplied contexts, $\Sigma$ canonically determines
+the stated object uniquely under the indicated identifying conditions:
+\begin{enumerate}
+\item the probability-convolution completion with marked time one:
+      $\mu_r=\operatorname{Gamma}(2r,1)$;
+\item the normalized local conservative Sturm--Liouville context:
+      the unique marked Laguerre self-adjoint closure;
+\item the finite-dimensional spectral/scalar-block matrix context:
+      $\Phi_n(X)=\operatorname{tr}X-\log\det X-n$;
+\item supplied isotropic $\R^4$ with $t=\|z\|^2/2$:
+      the standard Gaussian radial realization;
+\item the one-ancestor iid Galton--Watson context:
+      the critical Poisson(1) offspring/tree law;
+\item the supplied universal complex Thom/Chern-character context:
+      the correction $\operatorname{Td}^{-1}$.
+\end{enumerate}
+The complete time-one, coordinate, rank-one, radial, total-progeny or
+universal-line data, respectively, recover the intrinsic object under
+the corresponding identifying conditions. These are equivalences in a
+fixed context, not identifications after forgetting that context.
+\end{theorem}
+\begin{proof}
+The existence, uniqueness and reverse statements are precisely
+Theorems~\ref{final:P8}, \ref{final:O3}, \ref{final:M1},
+\ref{final:R1}, \ref{final:P6-gw} and \ref{final:F4}.
+Their proofs retain the indicated contextual data. In the last case only
+full universal line data identify the series, not a single finite-base
+evaluation. The operator spectrum and the fixed squared-resolvent
+mixing law likewise do not identify an unmarked stationary coordinate
+law, by the explicit isospectral countermodel in the operator section.
+\end{proof}
+
+\begin{theorem}[Relative irredundancy and its deletion witnesses]
+\label{final:global-C}
+\label{final:global-D}
+Fix real analytic foundations and the following target convention:
+the output is the intrinsic shape, a placed function on a marked $r$
+coordinate if requested, and any requested externally selected
+realization packets. A packet includes its own type and its selected
+object, so that deleting it does not leave an ill-typed datum such as
+a bundle without its base. Canonical recipes are fixed, and different
+external packets have no unstated identifying map between them.
+
+The sufficient decomposition is one intrinsic certificate, the optional
+placement $(\mu,a)$, and the requested external selection packets.
+The components $(H,I,p)$ of the intrinsic decomposition of $\Sigma$ are
+mutually reconstructible, with no free shape parameter after calibration.
+The two free placed-family scalar
+coordinates are exactly $\mu>0$ and $0<a<1$.
+
+For a deletion test, remove all alternative complete certificates of the
+same intrinsic shape; in particular do not retain a linked realization
+whose scalar restriction already identifies $I$. Relax the intrinsic
+candidate to anchored real-analytic strictly convex $J$ with
+$\int_0^\infty e^{-1-J}=1$. In this declared deletion universe the
+decomposition is blockwise irredundant whenever the target distinguishes the
+alternatives described in the proof. No assertion of shortest encoding
+across arbitrary languages is made.
+\end{theorem}
+\begin{proof}
+Sufficiency is the closure theorem, the exact placed reconstruction,
+and the fixed-context construction theorem. For intrinsic irredundancy
+put $g(t)=(t-1)^4e^{-t}$ and $h(t)=(t-1)^4e^{-2t}$. They are linearly
+independent analytic functions vanishing to order four at one.
+For
+\[
+ M(\epsilon,\delta)=\int_0^\infty
+ e^{-1-I(t)-\epsilon g(t)-\delta h(t)}dt
+\]
+bounded perturbations justify differentiation under the integral,
+$M(0,0)=1$, and
+$\partial_\delta M(0,0)=-\int p(t)h(t)dt<0$.
+The implicit-function theorem gives $\delta(\epsilon)$ preserving
+mass. Since $t^2g''$ and $t^2h''$ are bounded, sufficiently small
+parameters preserve positive second derivative. The affine anchors
+and even unit curvature at one remain fixed, endpoint divergence is
+unchanged, and linear independence gives a different shape for
+$\epsilon\ne0$. Thus the weakened generic class is not already
+another complete certificate of $\Sigma$.
+
+At fixed $a=1/2$, take $\mu=1$ and $2$; at fixed $\mu=1$, take
+$a=1/3$ and $2/3$. The intrinsic data agree but the closure points
+or curvatures and placed functions differ. This proves both placement
+deletion witnesses.
+
+For external packets, keep the whole scalar model and every other
+packet fixed. A coordinate relabelling changes a marked presentation
+without changing its underlying abstract object. Gamma shapes two and
+three have the same integer spectral package but distinct stationary
+coordinate laws. Uniform sphere angle and a fixed direction have the
+same radius; a Gamma subordinator and $X_r=rT$ have the same time-one
+law and different increments. Sample a Borel size and choose a path
+or a star to obtain distinct tree laws. Spectral matrix perturbations
+preserve the rank-one seed while changing the extension. The two
+complex lines on $\mathbb{RP}^2$ in Proposition~\ref{final:F5} retain the
+same rational characteristic image and differ integrally. Permuting
+prime generators preserves the abstract multiplicative monoid and
+changes its numerical labels. Finally $\R^2$ and $\R^3$ separate
+spatial dimension; on fixed $\R^2$, squared norm and its square
+separate orthogonal composition, and squared norm and twice squared
+norm separate the remaining radius scale even inside the additive
+class. Each pair is an independent expansion of the same remaining
+decomposition data and changes its named target.
+\end{proof}
+
+\begin{corollary}[Boundary of scalar reconstruction]
+\label{final:global-F}
+The complete scalar component alone does not identify a placed
+coordinate choice, an arbitrary stationary/vector/process/tree/matrix
+realization, actual spaces or bundles and integral characteristic
+classes, numerical arithmetic labels on a bare carrier, a designated
+spatial observable, spatial dimension, or the radial cancellation rule.
+Under supplied global nonnegative orthogonal additivity in dimension
+at least two the spatial observable is $c\|x\|^2$. Under the supplied
+radial operator and residual cancellation one obtains $D\in\{1,3\}$,
+and $D\ge2$ selects three. These are exact boundaries of the stated scalar
+reconstruction; additional identifying observations may supply further inverses.
+\end{corollary}
+\begin{proof}
+The deletion witnesses in Theorem~\ref{final:global-D}, together with
+Theorem~\ref{final:R2} and Propositions~\ref{final:R3}--\ref{final:R4},
+preserve the entire scalar component while varying the designated targets.
+A profile different from that of $\Sigma$ also
+cancels the radial residual in dimension three. The auxiliary
+four-dimensional Gaussian remains fixed in these spatial expansions.
+\end{proof}
+
+\subsection{Exact reconstruction and formalization}
+
+Theorem~\ref{final:global-A} proves the global reconstruction of
+$\Sigma$ across all complete identifying presentations in $E_\Sigma$.
+The typed presentation maps encode this exact reconstruction and its
+consequences. Ordinary spectral data retain unitary information, and
+canonical realization fibres retain their stated contexts. Forgetting a
+coordinate and then selecting a canonical realization does not provide an
+identifying inverse for an arbitrary candidate. The countermodels above
+establish the exact boundaries of the proved reconstruction theorem.
+
+The complete mathematical development has been formalized in Lean~4 with
+no admitted proofs. The formal statements preserve the stated candidate
+classes, domains, calibrations, retained data, and identifying conditions
+of the corresponding mathematical theorems.
+
+\section{Further Reconstructions}
+\label{final:further}
+
+The global reconstruction theorem is proved; the presently known complete
+presentations of $\Sigma$ need not be exhaustive. Additional complete
+mathematical presentations may remain to be discovered.
+
+The criterion for inclusion is exact bidirectional reconstruction. Within its
+stated candidate class, an additional presentation is complete only when it
+provides an explicit reconstruction from $\Sigma$, an exact inverse recovering
+$\Sigma$, a uniqueness theorem, and boundary or counterexample data identifying
+which weaker information fails to reconstruct it. Visual or formal resemblance
+alone does not satisfy this criterion.
+
+Every additional complete presentation must reconstruct the same $\Sigma$
+exactly and be reconstructed from $\Sigma$ exactly within its stated candidate
+class.
+
+\section*{Acknowledgments}
+
+I am deeply grateful to my wife, Malaithong Phommasone, who stood beside me
+throughout the years in which this work was developed. Her patience, strength,
+and unwavering support accompanied me through the long course of this work.
+
+I am also deeply grateful to my family for their continued encouragement,
+understanding, and support throughout this journey. I am grateful as well to
+P\'eter T\'im\'ar and his wife, Rebeka, and to the friends who stood beside me along
+the way. Their friendship, encouragement, and support meant more than can be
+expressed here.

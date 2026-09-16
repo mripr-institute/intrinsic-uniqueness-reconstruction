@@ -1,0 +1,39 @@
+# Phase IV blind audit: core and scalar series
+
+This statement-only audit was written before opening `outputs/sigma-phase-iii.md`. Its input is the parent agent's statement inventory. No Phase III proof is relied on below. Suggested theorem IDs are local audit IDs pending integration.
+
+## Core closure
+
+**CS01 (curvature, normalization, and Riccati).** On the connected interval `(0,infinity)`, a `C²` function with `f''(t)=-1/t²` is `log(t)+at+b`. Thus `f(1)=f'(1)=0` gives exactly `H(t)=log(t)-t+1`. The equivalent Riccati system is `f''=-(f'+1)²`, `f'(1)=0`, `f(1)=0`; the derivative solution is `f'+1=1/t` on its maximal connected domain containing 1. Merely specifying a second derivative does not fix the two affine constants. An exponential representative is `p=C t exp(at)` until both calibrations are supplied. Positivity is needed to take its real logarithm.
+
+**CS02 (recentring and star law).** `H(st)=H(s)+H(t)-(s-1)(t-1)`. Put `h(x)=H(1+x)` on `x>-1`; `x star y=x+y+xy` is a group and `log(1+x)` is its continuous group logarithm normalized by derivative 1 at 0. Its inverse is `-x/(1+x)`. The cocycle identity is `h(x star y)-h(x)-h(y)=-xy`. Every continuous solution of this cocycle is `a log(1+x)-x`; `h'(0)=0` fixes `a=1`. Without regularity replace `a log` by an arbitrary additive function of `log(1+x)`; normalization of the value at 0 alone does not ensure uniqueness. Star is normalized multiplication, not addition in the raw coordinate.
+
+**CS03 (anchored convex and dual statements).** For `I=-H`, `I''=1/t²`, and `D_I(x,y)=I(x/y)`. An anchored Bregman identity `f(t)-f(1)-s(t-1)=I(t)`, for a finite support slope `s` at 1, determines `f=I+affine` directly; no prior global differentiability, lower semicontinuity, or convexity is needed once this identity holds for all positive `t`. A classical Bregman expression must nevertheless have a derivative at its anchor. Extend `I` by `+infinity` off the positive ray: `I*(s)=-log(1-s)` for `s<1`, and `+infinity` for `s>=1`. The converse from the conjugate requires the closed proper convex representative; in general conjugacy determines `f**`, not `f`. An upward modification invisible to the supporting affine functions can preserve the conjugate. Relative lower semicontinuity/convexity on an open domain is not automatically closedness of an arbitrary extension at a finite boundary.
+
+**CS04 (self-concordance and automorphisms).** `|I'''|=2(I'')^(3/2)`, so `I` is standard self-concordant. It is not a finite-parameter self-concordant barrier on the positive ray: `(I')²/I''=(t-1)²` is unbounded. The affine-equivalent potential `-log(t)` is a parameter-1 barrier. Metric isometries of `dt²/t²` are `t -> a t` and `t -> a/t` (`a>0`); oriented ones are dilations. Marking 1 leaves identity/inversion. Joint automorphisms of the directed Bregman divergence `I(x/y)` are dilations; inversion changes the divergence. Exact scalar-value automorphisms of `I` are a different notion and must not be conflated with metric isometries. Curvature as a raw scalar function also differs from its pullback as a metric tensor.
+
+**CS05 (reconstruction and continuation).** Differential data reconstruct only after specifying domain, number of integration constants, and calibration. Germs determine analytic functions on a connected common domain by the identity theorem; smooth germs or all jets do not, because flat perturbations exist. The Taylor series of `log(t)` at 1 has radius 1, although the real function continues throughout the positive ray. Global claims require connectedness and control of singularities or prescribed continuation paths.
+
+## Universal scalar series
+
+All statements here use a commutative rational algebra, formal variable `u`, and normalized units `Q in 1+u A[[u]]`. “Unit” alone does not imply constant term 1. Dividing by integers or 2, and specifying square-root constant terms, are material hypotheses.
+
+**CS06 (Todd coefficient characterization).** The conditions `[u^n]Q(u)^(n+1)=1` for every `n>=1` recursively determine the coefficient `q_n`, because its coefficient in the left side is `n+1` and all other terms involve only `q_1,...,q_(n-1)`. The unique normalized solution is `QT=u/(1-exp(-u))`. Without `q_0=1`, the conditions leave a family parameterized by an invertible `q_0`. Existence follows by formal residue substitution `z=1-exp(-u)`, since `[u^n]QT^(n+1)=Res z^(-n-1)/(1-z) dz=1`.
+
+**CS07 (all twists, and arbitrary powers).** The complete twist identity is
+
+`[u^n] exp(k u) QT(u)^(n+1) = binomial(n+k,n)`
+
+for all `n>=0`, as a polynomial in `k` over the rationals, hence also for negative integers and rational-algebra specializations. The same substitution gives `(1-z)^(-k-1)`. For arbitrary powers the coefficient is `B_n^(k)(k)/n!` in generalized Bernoulli notation; for positive integers `k>n`, it is `c(k,k-n)(k-n-1)!/(k-1)!` using unsigned Stirling numbers of the first kind. These are different coefficient questions and their quantifiers should not be conflated.
+
+**CS08 (Todd/A-hat/L and inverse maps).** Exact identities of normalized scalar series are `QT=exp(u/2) QA`, `QL=QT(2u)-u`, and `QT=QL(u/2)+u/2`. If `b=u/QA` and `w=(b+sqrt(b²+4))/2` with square-root constant term 2, then `QT=w QA`. Here `b=2 sinh(u/2)` and `w=exp(u/2)`. The inverse needs the scalar coordinate, normalization, and selected root. These formulas recover exact universal scalar series, not missing bundle classes after evaluation. An arbitrary even unit fed into the algebraic formula yields a normalized series with odd part `u/2`, but need not yield the Todd series.
+
+**CS09 (marked chi-y).** `Q_y(u)=QT((1+y)u)-yu` is reversible when `1+y` is invertible, by `QT(v)=Q_y(v/(1+y))+yv/(1+y)`. Over a field this is the condition `y != -1`; over a general ring that inequality is insufficient. At `y=-1`, the series is exactly `1+u` and the specialization discards all higher scalar coefficients. An unspecified `y` cannot be treated as a marked reversible transform.
+
+**CS10 (Thom correction).** Given complex K/cohomological Thom classes, a natural multiplicative Chern character with `ch(L)=exp(u)`, and a splitting principle, the universal line restriction gives `u C(u)=1-exp(-u)`. Cancellation in the universal power-series ring yields the unique `C=QT^(-1)`, and splitting gives the inverse Todd class for arbitrary bundles. Cancellation need not work after evaluation on a particular space, where `u` is often a zero divisor. This proof is conditional on the orientation/Thom/splitting foundations, not a construction of them.
+
+**CS11 (rationalization loses topology).** The nontrivial complex line on `RP²` has nonzero order-2 first Chern class but rational Chern character equal to that of the trivial line. Thus scalar-series equivalence and rational characteristic equality cannot recover integral bundle isomorphism classes or torsion. This finite-CW countermodel already refutes an unqualified reconstruction claim.
+
+## Formalization triage
+
+CS01/02/03/04 are practical real-calculus/algebra targets, provided the intended metric/divergence automorphism category is fixed. A full classification of arbitrary metric isometries is longer than verifying their explicit formulas. CS06 triangular uniqueness is a practical induction over coefficients; formal residue substitution or Lagrange inversion is substantially larger infrastructure. CS07 can be proved from a formal change-of-variable theorem or a separately established generating-function identity. CS08/09 are elementary formal algebra after formal exponentials and square-root uniqueness are available. CS10 requires importing the stated topological foundations or exporting it explicitly as a conditional theorem. CS11 requires cohomology/bundle classification foundations; do not replace it by a merely named axiom and advertise an unconditional machine-checked topological result.

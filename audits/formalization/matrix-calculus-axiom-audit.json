@@ -1,0 +1,130 @@
+{
+  "checked_theorems": 14,
+  "module_theorems": 13,
+  "independent_statement_wrappers": 1,
+  "compiler_exit_status": 0,
+  "all_dependencies_standard": true,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "custom_axioms": [],
+  "check_source": "work/SigmaFinalMatrixCalculusAuditCheck.lean",
+  "compiler_log": "work/final-SigmaFinalMatrixCalculusAuditCheck.log",
+  "source_sha256": "30c6664f86b8caec62fc7ab842575e12ea73536b3210d5c82a01934c86926202",
+  "declarations": [
+    {
+      "declaration": "SigmaFinal.matrix_det_differentiable",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_det_identity_direction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_det_direction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_det_fderiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixPotential_differentiableAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixPotential_fderiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_inverse_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixGradient_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixGradient_fderiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_hessian_metric",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrix_actual_bregman",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixPotential_fderiv_of_det_ne_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinal.matrixPotential_second_fderiv",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "SigmaFinalIndependentAudit.manuscript_matrix_hessian",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

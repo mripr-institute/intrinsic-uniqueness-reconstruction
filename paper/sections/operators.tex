@@ -1,0 +1,1056 @@
+\section{Stein characterization and the marked Laguerre realization}
+\label{final:operators}
+
+Throughout this section, $p(t)=te^{-t}$ is the density in the intrinsic
+decomposition of $\Sigma$, in the specified real coordinate $t>0$.
+The complete identifying data below reconstruct $\Sigma$ with their
+coordinate and operator context retained. The candidate classes for a
+coordinate probability, an abstract self-adjoint operator, and a
+semigroup mixing measure have their respective identifying equations.
+All Hilbert spaces are complex.  We use $\mathrm{Id}$ for the identity
+operator, and reserve $I$ for the scalar potential.  The arguments give
+analytic proofs with explicit domains and candidate classes; numerical
+audits are not used to establish these universal statements.
+
+\begin{theorem}[The full-line weak Stein characterization]
+\label{final:O1}
+Let $P$ be a positive Borel probability measure on $\mathbb R$.  Then
+\begin{equation}\label{final:O1-identity}
+ \int_{\mathbb R}\bigl[t f'(t)+(2-t)f(t)\bigr]P(dt)=0
+ \qquad\bigl(f\in C_c^\infty(\mathbb R)\bigr)
+\end{equation}
+if and only if
+\[
+ P(dt)=\mathbf 1_{(0,\infty)}(t)te^{-t}\,dt.
+\]
+In particular, absolute continuity, positive support, absence of an atom
+at zero, and all finite moments are conclusions, not hypotheses.
+\end{theorem}
+
+\begin{proof}
+The integrands in \eqref{final:O1-identity} have compact support, so no
+moment assumption is needed to state the identity.  In distributions it
+says $(tP)'=(2-t)P$.  On either open half-line put $Q=tP$.  There
+\[
+ Q'=(2/t-1)Q,\qquad
+ \bigl(e^t t^{-2}Q\bigr)'=0.
+\]
+A distribution with zero derivative on a connected interval is a constant
+distribution.  Thus the restrictions of $P$ have densities
+$C_+te^{-t}$ on the positive half-line and $C_-|t|e^{-t}$ on the negative
+half-line, with $C_+,C_-\geq0$.  Finiteness of $P$ forces $C_-=0$.
+The only remaining possible part is $m\delta_0$, $m\geq0$.
+The positive-half-line flux $t^2e^{-t}$ tends to zero at the origin;
+its distributional derivative therefore has no atom there.  Substitution
+of $m\delta_0$ into the equation gives $0=2m\delta_0$, so $m=0$.
+Finally $\int_0^\infty te^{-t}\,dt=1$ gives $C_+=1$.
+Conversely, integration by parts, using
+$(t^2e^{-t})'=(2-t)te^{-t}$ and the zero endpoint flux, proves the
+displayed identity.  Tests supported only in $(0,\infty)$ could not
+exclude mass on $(-\infty,0]$; the full-line test class is essential
+to this support conclusion.
+\end{proof}
+
+\begin{proposition}[The integrable centered Stein kernel]
+\label{final:O1-kernel}
+Fix the probability density $p$, and let $\tau$ be real measurable with
+$\tau p\in L^1_{\mathrm{loc}}(0,\infty)$.  The equation
+\[
+ (\tau p)'=(2-t)p
+\]
+in distributions is equivalent to
+\begin{equation}\label{final:O1-kernel-family}
+ \tau(t)=t+C\frac{e^t}{t}\quad\hbox{almost everywhere},
+ \qquad C\in\mathbb R.
+\end{equation}
+The locally absolutely continuous representative of $\tau p$ has both
+endpoint limits equal to $C$.  Each of the following separately selects
+$\tau=t$ almost everywhere: zero flux at either endpoint;
+$\tau\in L^1(p\,dt)$; a finite expectation of $\tau$ under $p\,dt$; or
+the finite identity $\int\tau p=\operatorname{Var}_p(t)=2$.
+Nonnegativity alone permits exactly $C\geq0$.
+\end{proposition}
+
+\begin{proof}
+Write $q=tp=t^2e^{-t}$.  Since $q'=(2-t)p$, the distribution
+$\tau p-q$ has derivative zero and is constant.  This proves
+\eqref{final:O1-kernel-family} and the assertions about its absolutely
+continuous representative.  For $C\ne0$, $q+C$ tends to $C$ at infinity,
+so $\int_0^\infty|\tau|p=\int_0^\infty|q+C|=\infty$; its tail also
+has the constant sign of $C$, so $\int \tau\,p\,dt$ cannot be finite as
+a Lebesgue integral.  For $C=0$, integration by parts gives
+$\int tp=2$, $\int t^2p=6$, and hence variance $2$.
+As $q>0$ and $q$ tends to zero at both endpoints, $q+C\geq0$
+almost everywhere exactly when $C\geq0$.
+
+Every value of $C$ satisfies the compact-test identity
+\[
+ \int\tau f'p\,dt=\int(t-2)fp\,dt
+ \qquad(f\in C_c^\infty(0,\infty)),
+\]
+because the added term is $C\int f'=0$.  Including $f(t)=t$, with
+both integrals required finite, instead gives $\int\tau p=6-4=2$.
+This inverse problem fixes $P$ and varies $\tau$; it is different from
+Theorem~\ref{final:O1}, which fixes the coefficient $t$ and varies $P$.
+\end{proof}
+
+\begin{theorem}[Two marked probes and the Pearson realization]
+\label{final:O2}
+In the conservative local second-order class
+\[
+ Bf=-a(t)f''-b(t)f',\qquad t>0,
+\]
+the two differential-expression identities
+\begin{equation}\label{final:O2-probes}
+ B(2-t)=2-t,\qquad
+ B(t^2/2-3t+3)=t^2-6t+6
+\end{equation}
+hold if and only if $a(t)=t$ and $b(t)=2-t$.
+The conclusion is pointwise or almost everywhere according to the
+meaning of the coefficient identities.  If a positive, locally
+absolutely continuous probability density $w$ is also required to obey
+the zero-current Pearson equation $(aw)'=bw$, then $w=p$.
+Thus these data determine the differential expression and its normalized
+Hilbert weight in this specified coordinate class.
+\end{theorem}
+
+\begin{proof}
+The first probe gives $b=2-t$.  The second then gives
+\[
+ -a-(2-t)(t-3)=t^2-6t+6,
+\]
+and consequently $a=t$.  Substitution proves the converse.
+The Pearson equation reduces to
+$tw'=(1-t)w$, so $(e^t w/t)'=0$ locally and $w=Cte^{-t}$.
+Probability normalization gives $C=1$.
+The probes are polynomials; they are identities of the expression,
+or identities on an explicitly enlarged domain containing those
+polynomials.  They are not assertions that polynomials belong to
+$C_c^\infty(0,\infty)$.
+\end{proof}
+
+\begin{proposition}[The exact limits of the probe and stationary data]
+\label{final:O2-boundaries}
+The pair \eqref{final:O2-probes} is irredundant within the indicated
+coefficient class, even if the coefficients are smooth and $a>0$.
+It does not identify an arbitrary self-adjoint operator outside that
+local class.  The invariant density $p$ alone does not identify a
+reversible dynamics or its time scale.
+\end{proposition}
+
+\begin{proof}
+With only the linear probe, set $b=2-t$ and choose any positive smooth
+$a$.  With only the quadratic probe, take a nonzero
+$k\in C_c^\infty(0,\infty)$ and set
+\[
+ b=2-t+\varepsilon k(t),\qquad
+ a=t-\varepsilon k(t)(t-3).
+\]
+For sufficiently small $|\varepsilon|$, positivity holds on the compact
+support of $k$ and elsewhere $a=t$; the quadratic identity holds
+identically while the linear one changes.
+For the larger self-adjoint category, use the operator and eigenbasis
+constructed below.  Let $U$ fix $e_0,e_1,e_2$ and every $e_n$, $n\geq5$,
+and make a nontrivial rotation, with angle in $(0,\pi/2)$, on
+$\operatorname{span}\{e_3,e_4\}$.  Then $UAU^{-1}\ne A$, since the
+two rotated eigenvalues are distinct, but it preserves the constant
+vector and both probes.  This example has self-adjointness; positivity
+preservation of the rotated semigroup is not imposed.
+Finally $cA$, $c>0$, gives distinct conservative reversible semigroups
+with the same invariant $p\,dt$, as follows from the construction below.
+The centered integrable Stein selection fixes $c=1$; invariance alone
+does not.
+\end{proof}
+
+\subsection{The actual self-adjoint domain and complete spectral resolution}
+
+Set
+\[
+ \mathcal H=L^2((0,\infty),p(t)\,dt),\qquad q(t)=tp(t)=t^2e^{-t},
+ \qquad \langle f,g\rangle=\int_0^\infty f\overline g\,p\,dt.
+\]
+In particular $\langle\cdot,\cdot\rangle$ is linear in its first
+argument.  The minimal differential operator considered here is
+\begin{equation}\label{final:O3-minimal}
+ A_0f=-p^{-1}(qf')'=-tf''-(2-t)f',\qquad
+ D(A_0)=C_c^\infty(0,\infty).
+\end{equation}
+
+\begin{theorem}[Essential self-adjointness and the full domain]
+\label{final:O3}
+The operator $A_0$ is densely defined, nonnegative and symmetric.
+Both singular endpoints are limit point, its deficiency indices are
+$(0,0)$, and its unique self-adjoint extension is
+$A=\overline{A_0}=A_0^*$.  Its exact domain is
+\begin{equation}\label{final:O3-domain}
+ D(A)=\left\{f\in\mathcal H:
+ f,qf'\in AC_{\mathrm{loc}}(0,\infty),\quad
+ -p^{-1}(qf')'\in\mathcal H\right\}.
+\end{equation}
+Here the regularity refers to the indicated representatives of the
+$L^2$ classes.  For every $f\in D(A)$,
+\begin{equation}\label{final:O3-flux}
+ \lim_{t\downarrow0}q(t)f'(t)=
+ \lim_{t\to\infty}q(t)f'(t)=0.
+\end{equation}
+These limits are consequences of the domain, not additional boundary
+conditions.  In particular no finite boundary value $f(0)$ is required.
+\end{theorem}
+
+\begin{proof}
+Smooth compactly supported functions are dense in this weighted $L^2$
+space, because the weight is positive and smooth on each compact
+interior interval.  Integration by parts gives
+\[
+ \langle A_0f,g\rangle=\int_0^\infty qf'\overline{g'}\,dt,
+\]
+which proves symmetry and nonnegativity.
+The definition of the adjoint says that $f\in D(A_0^*)$ precisely when
+there is an $h\in\mathcal H$ with $-(qf')'=ph$ in distributions.
+The right side is locally integrable.  Taking a primitive, dividing
+by the positive smooth function $q$, and taking a second primitive
+shows that $qf'$ and $f$ have locally absolutely continuous
+representatives.  Conversely those representatives permit integration
+by parts against each compact test.  Thus the adjoint is exactly the
+maximal operator in \eqref{final:O3-domain}.
+
+To determine the endpoints, two independent zero-energy solutions are
+\[
+ u_1(t)=1,\qquad u_2(t)=\int_1^t\frac{e^s}{s^2}\,ds.
+\]
+Expanding $e^s/s^2=s^{-2}+s^{-1}+O(1)$ near zero and using
+l'H\^opital's rule at infinity gives
+\[
+ u_2(t)=-t^{-1}+\log t+O(1)\quad(t\downarrow0),\qquad
+ u_2(t)\sim e^t/t^2\quad(t\to\infty).
+\]
+Consequently $|u_2|^2p\sim t^{-1}$ at zero and
+$|u_2|^2p\sim e^t/t^3$ at infinity.  Neither is integrable.
+The constant solution is square integrable near each endpoint.
+The Weyl endpoint alternative therefore makes both endpoints limit
+point: an endpoint is limit circle precisely when all solutions at
+one, equivalently every, spectral parameter are square integrable
+there.  The deficiency-index theorem gives one deficiency at each
+limit-circle endpoint and zero at each limit-point endpoint.
+Its hypotheses hold here because $p,q>0$, $p,q^{-1}$ are locally
+integrable, and the potential is zero; see
+Gesztesy--Littlejohn--Nichols~\cite[Theorems 3.6 and 3.8]{GLN}.
+Their minimal domain is the closure of compactly
+supported maximal-domain elements.  It has the same closure as
+$C_c^\infty$ here: on compact interior intervals those elements are
+in $H^2$, and smooth approximation converges in the graph norm.
+This verifies the application to the actual domain
+\eqref{final:O3-minimal}, including the critical logarithmic divergence
+at the origin.  It gives $\overline{A_0}=A_0^*$ and deficiency indices
+$(0,0)$.  Nonnegativity passes to this closure.
+
+For the flux statement put $h=Af$.  Cauchy--Schwarz and
+$\int p=1$ give $\int|h|p\leq\|h\|_{\mathcal H}$.
+Thus $(qf')'=-ph$ is globally integrable and $qf'$ has finite limits
+at both endpoints.  A nonzero limit $\ell$ at zero would yield
+$f(t)\sim-\ell/t$, by integrating $f'=(\ell+o(1))/q$;
+a nonzero limit at infinity would give
+$f(t)\sim\ell e^t/t^2$.  The same weighted-square divergences exclude
+both.  This proves \eqref{final:O3-flux}; in fact
+\[
+ q(t)f'(t)=-\int_0^t hp\,ds=\int_t^\infty hp\,ds,
+ \qquad \int_0^\infty hp\,dt=0.
+\]
+To see why finiteness of $f(0)$ cannot be added, multiply
+$\log\log(1/t)$ by a smooth cutoff supported sufficiently near zero
+and equal to one there.  This function is in $\mathcal H$, and near
+zero its image under the differential expression is
+$O((t\log(1/t))^{-1})$.  Its weighted square integral is finite,
+since $\int_0^\varepsilon dt/(t\log^2(1/t))<\infty$.
+It therefore belongs to \eqref{final:O3-domain} and has no finite
+value at zero.
+\end{proof}
+
+\begin{proposition}[The closed form and the conservative semigroup]
+\label{final:O3-form}
+The closed form of $A$ is
+\[
+ \mathcal E(f,g)=\int_0^\infty qf'\overline{g'}\,dt,
+\]
+with the exact domain
+\begin{equation}\label{final:O3-form-domain}
+ D(A^{1/2})=
+ \left\{f\in\mathcal H:f\in AC_{\mathrm{loc}}(0,\infty),\quad
+ \int_0^\infty q|f'|^2\,dt<\infty\right\}.
+\end{equation}
+There are no additional endpoint traces.  The semigroup $e^{-sA}$,
+$s\geq0$, is positivity preserving, preserves the constant function
+$1$, and preserves the probability $p\,dt$.
+\end{proposition}
+
+\begin{proof}
+Denote the displayed form domain by $V$.  A Cauchy sequence in
+$\|f\|_V^2=\|f\|_{\mathcal H}^2+\int q|f'|^2$ is Cauchy in
+ordinary $H^1$ on every compact interior interval, where both weights
+are bounded above and below by positive constants.  Its local weak
+derivative equals the weighted derivative limit, proving completeness.
+Truncate real and imaginary parts of $f\in V$ at height $N$.
+The weak chain rule and dominated convergence show convergence in
+$V$ as $N\to\infty$.  For bounded $f$, choose cutoffs which rise on
+$[\varepsilon,2\varepsilon]$, fall on $[R,2R]$, and have derivatives
+bounded respectively by $C/\varepsilon$ and $C/R$.  Their energy is
+bounded by
+\[
+ C\varepsilon+\frac{C}{R^2}\int_R^{2R}t^2e^{-t}\,dt\longrightarrow0.
+\]
+The two derivative errors in $\chi f-f$ are
+$(\chi-1)f'$ and $\chi'f$; the first tends to zero by dominated
+convergence, the second by this estimate and boundedness of $f$.
+The $\mathcal H$ norm also tends to zero.  On the resulting compact
+interior support, mollification converges in $H^1$ and hence in $V$.
+Thus $C_c^\infty$ is a form core, and the displayed form is the
+closure of the minimal form.  Its represented self-adjoint operator
+extends $A_0$ and must equal $A$ by Theorem~\ref{final:O3}.
+
+The weak chain rule shows that real normal contractions preserve $V$
+and decrease its energy.  Equivalently, the variational resolvent is
+positivity preserving and maps $[0,1]$ into $[0,1]$, as follows by
+testing its equation with the negative part and with $(u-1)^+$.
+The exponential resolvent limit gives the same Markov property for
+$e^{-sA}$.  Finally $1\in D(A)$ and $A1=0$, so $e^{-sA}1=1$.
+Self-adjointness gives
+$\int e^{-sA}f\,p\,dt=\langle e^{-sA}f,1\rangle
+=\langle f,e^{-sA}1\rangle=\int fp\,dt$.
+\end{proof}
+
+\begin{theorem}[The Laguerre basis and the exact integer spectrum]
+\label{final:O3-spectrum}
+Define the polynomials with their marked normalization by
+\begin{equation}\label{final:O3-laguerre}
+ L_n^{(1)}(t)=\frac{e^t}{n!t}\frac{d^n}{dt^n}
+       (e^{-t}t^{n+1})
+ =\sum_{k=0}^n(-1)^k\binom{n+1}{k+1}\frac{t^k}{k!},
+ \qquad n\in\mathbb N_0.
+\end{equation}
+Then $e_n=L_n^{(1)}/\sqrt{n+1}$ is a complete orthonormal basis of
+$\mathcal H$, each $e_n\in D(A)$, and $Ae_n=ne_n$.
+In particular the spectrum is exactly $\mathbb N_0$, each eigenvalue
+is simple, and the resolvent is compact.  If $f=\sum c_ne_n$, then
+\begin{align}
+ D(A)&=\left\{f:\sum_{n=0}^\infty n^2|c_n|^2<\infty\right\},
+ &Af&=\sum_{n=0}^\infty nc_ne_n,\label{final:O3-spectral-domain}\\
+ D(A^{1/2})&=\left\{f:\sum_{n=0}^\infty n|c_n|^2<\infty\right\},
+ &\mathcal E(f,f)&=\sum_{n=0}^\infty n|c_n|^2.
+ \nonumber
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Leibniz's formula gives the finite sum in
+\eqref{final:O3-laguerre}.  Its coefficients $a_k$ satisfy
+$(k+1)(k+2)a_{k+1}+(n-k)a_k=0$, so
+\[
+ t(L_n^{(1)})''+(2-t)(L_n^{(1)})'+nL_n^{(1)}=0.
+\]
+Every polynomial belongs to the maximal domain: the polynomial and
+its polynomial image are in $\mathcal H$, and all local regularity
+conditions hold.  These are therefore genuine eigenfunctions of $A$.
+For $m<n$, integrating the Rodrigues formula $n$ times by parts gives
+$\int pL_n^{(1)}t^m\,dt=0$.  The boundary terms vanish at infinity
+by exponential decay and at zero because derivatives of
+$e^{-t}t^{n+1}$ of order at most $n-1$ vanish to order at least two.
+For $m=n$ the integral is $(-1)^n\Gamma(n+2)$.
+The leading coefficient $(-1)^n/n!$ then gives
+\[
+ \int_0^\infty L_n^{(1)}L_m^{(1)}p\,dt=(n+1)\delta_{nm}.
+\]
+
+For completeness, let $g\in\mathcal H$ be orthogonal to every
+polynomial and define
+$F(z)=\int_0^\infty g(t)p(t)e^{zt}\,dt$.
+Cauchy--Schwarz gives locally uniform domination of this integral
+and of all its differentiated integrands on $\operatorname{Re}z<1/2$.
+Thus $F$ is holomorphic there, and $F^{(n)}(0)=0$ for all $n$.
+The identity theorem gives $F=0$ on that half-plane.
+The finite complex measure $gp\,dt$, pushed forward by $y=e^{-t}$
+and regarded as a measure on $[0,1]$, consequently has every moment
+zero, since $F(-k)=0$ for $k\in\mathbb N_0$.
+Uniform polynomial approximation on $[0,1]$ shows that it integrates
+every continuous function to zero; measure uniqueness gives $g=0$.
+This proves completeness.
+The unitary coefficient map now takes $A$ to multiplication by $n$
+on $\ell^2(\mathbb N_0)$, with exactly the displayed domain.
+The form domain follows by taking square roots.  The diagonal
+entries $(n+\alpha)^{-1}$ of any resolvent, $\alpha>0$, tend to zero,
+proving compactness and the asserted spectrum.
+\end{proof}
+
+\begin{theorem}[Complete marked Laguerre orthogonality identifies the law]
+\label{final:O7}
+Let $P$ be a positive Borel probability measure on $\mathbb R$ for
+which every polynomial is integrable.  With the specific polynomials
+\eqref{final:O3-laguerre},
+\[
+ \int_{\mathbb R}L_n^{(1)}(t)\,P(dt)=0\quad(n\geq1)
+\]
+holds if and only if $P(dt)=\mathbf1_{(0,\infty)}p(t)\,dt$.
+The positive support is again a conclusion.
+\end{theorem}
+
+\begin{proof}
+Mass fixes moment zero.  The nonzero leading coefficient
+$(-1)^n/n!$ means that the $n$th displayed equation determines moment
+$n$ from all smaller moments.  The preceding Rodrigues calculation
+proves these equations for $p\,dt$, whose moments are $(n+1)!$.
+Induction therefore gives $\int t^nP(dt)=(n+1)!$ for all $n\geq0$.
+For $0<c<1$, monotone convergence in the nonnegative even-power
+series gives
+\[
+ \int\cosh(ct)\,P(dt)
+ =\sum_{n=0}^\infty(2n+1)c^{2n}
+ =\frac{1+c^2}{(1-c^2)^2}<\infty.
+\]
+As $e^{c|t|}\leq2\cosh(ct)$, the bilateral moment-generating
+function is holomorphic on $|\operatorname{Re}z|<1$.
+Its Taylor series near zero, determined by the moments, is
+$\sum_{n\geq0}(n+1)z^n=(1-z)^{-2}$.
+The identity theorem gives equality to the Gamma moment-generating
+function throughout the strip, including the imaginary axis.
+Uniqueness of characteristic functions identifies $P$ on all of
+$\mathbb R$.  The converse was already proved by Rodrigues's formula.
+\end{proof}
+
+\subsection{Complete spectral data, kernel formulas, and their inverse category}
+
+\begin{theorem}[Exact trace domains and reconstruction of the unitary class]
+\label{final:O4}
+For the operator $A$ above, the ordinary traces are
+\begin{align}
+ Z_A(s)&=\operatorname{Tr}(\mathrm{Id}+A)^{-s}=\zeta(s),
+ &&\operatorname{Re}s>1,\label{final:O4-zeta}\\
+ \Theta_A(\tau)&=\operatorname{Tr}e^{-\tau A}
+       =\frac1{1-e^{-\tau}},
+ &&\operatorname{Re}\tau>0.\label{final:O4-heat-trace}
+\end{align}
+These are precisely their trace-class domains.  The powers use the
+real logarithms of the positive eigenvalues $n+1$; the zero eigenspace
+is included through this shift.
+
+Let $B\geq0$ be self-adjoint with compact resolvent.  Each of the
+following complete data sets determines its eigenvalue multiset,
+including multiplicities, and hence its unitary equivalence class:
+all finite heat traces $\operatorname{Tr}e^{-\tau B}$, $\tau>0$;
+all shifted zeta traces on a real half-line $s>s_0$ on which they are
+finite; or all integer shifted traces
+$\operatorname{Tr}(\mathrm{Id}+B)^{-k}$, $k\geq2$, with
+$\operatorname{Tr}(\mathrm{Id}+B)^{-2}<\infty$.
+The coordinate law of an unspecified realization is not part of this
+unitary-class conclusion.
+\end{theorem}
+
+\begin{proof}
+The basis of Theorem~\ref{final:O3-spectrum} gives diagonal entries
+$(n+1)^{-s}$ and $e^{-\tau n}$.  Their singular values are respectively
+$(n+1)^{-\operatorname{Re}s}$ and $e^{-n\operatorname{Re}\tau}$.
+Their sums converge exactly on the stated half-planes and there give
+the Dirichlet and geometric series in
+\eqref{final:O4-zeta}--\eqref{final:O4-heat-trace}.
+Analytic or meromorphic continuations outside these domains do not
+become ordinary operator traces.
+
+For the inverse, compact resolvent gives an orthonormal eigenbasis,
+finite multiplicities, and eigenvalues tending to infinity if there
+are infinitely many.  For any nonempty remaining multiset let its
+least eigenvalue be $\lambda_0$, of multiplicity $m_0$.
+If $T(\tau)$ is its remaining heat trace, then
+\[
+ \lambda_0=-\lim_{\tau\to\infty}\frac{\log T(\tau)}{\tau},
+ \qquad m_0=\lim_{\tau\to\infty}e^{\tau\lambda_0}T(\tau).
+\]
+Indeed, after this rescaling the least-eigenvalue terms equal $m_0$,
+and the other terms tend to zero.  Finiteness at a fixed positive
+time supplies a summable dominating sequence for all larger times.
+Subtract $m_0e^{-\tau\lambda_0}$ and iterate.  The identically zero
+remainder detects the end of a finite spectrum, including the empty
+Hilbert space.
+For zeta data write $r_j=1+\lambda_j$.  The analogous formulas are
+\[
+ r_0=\lim_{s\to\infty}Z(s)^{-1/s},\qquad
+ m_0=\lim_{s\to\infty}r_0^sZ(s).
+\]
+Finiteness at one exponent again dominates the rescaled tails.
+Subtracting $m_0r_0^{-s}$ and repeating recovers every eigenvalue.
+
+For integer data set $x_j=(1+\lambda_j)^{-1}$ and form the finite
+positive measure
+\[
+ \eta_B=\sum_j x_j^2\delta_{x_j}\quad\hbox{on }[0,1],
+ \qquad \int x^n\eta_B(dx)=Z_B(n+2),\quad n\geq0.
+\]
+Two such measures with the same moments agree on polynomials and
+then on all continuous functions by uniform polynomial approximation.
+They are therefore equal.  Every nonzero atom at $x$ has mass
+$m x^2$, recovering the integer multiplicity $m$ and eigenvalue
+$x^{-1}-1$.  There is no atom at zero from any finite eigenvalue.
+This is the compact Hausdorff moment argument; it uses no interpolation
+from the integer values.  Finally an eigenvalue-preserving bijection
+of orthonormal eigenbases is an intertwining unitary, with the
+weighted coefficient domains carried to one another.
+\end{proof}
+
+\begin{proposition}[Compact resolvent does not supply finite trace data]
+\label{final:O4-convergence-boundary}
+There is a nonnegative diagonal self-adjoint operator with compact
+resolvent for which neither a heat trace nor a positive shifted zeta
+trace is finite at any positive parameter.
+\end{proposition}
+
+\begin{proof}
+On $\ell^2(\mathbb N)$ take eigenvalues
+$\lambda_j=\log\log(j+e^e)$, with domain
+$\{c:\sum\lambda_j^2|c_j|^2<\infty\}$.
+They tend to infinity, so $(\mathrm{Id}+B)^{-1}$ is compact.
+For every $\tau>0$, $(\log(j+e^e))^{-\tau}$ eventually exceeds
+$1/j$, and for every $s>0$,
+$(1+\log\log(j+e^e))^{-s}$ eventually exceeds $1/j$.
+Both trace series diverge.  Thus the convergence hypotheses in
+Theorem~\ref{final:O4} cannot be inferred from compactness alone.
+\end{proof}
+
+\begin{theorem}[The complete heat kernel relative to the invariant measure]
+\label{final:O4-heat-kernel}
+For $\tau>0$, set $r=e^{-\tau}$.  The kernel of $e^{-\tau A}$ relative
+to $p(y)\,dy$ is
+\begin{align}
+ K_\tau(x,y)
+ &=\sum_{n=0}^\infty\frac{r^n}{n+1}
+       L_n^{(1)}(x)L_n^{(1)}(y)\label{final:O4-kernel-series}\\
+ &=\frac{\exp[-r(x+y)/(1-r)]}{(1-r)\sqrt{rxy}}
+       I_1\!\left(\frac{2\sqrt{rxy}}{1-r}\right),
+       \qquad x,y>0.\label{final:O4-hille-hardy}
+\end{align}
+Here $I_1$ is the modified Bessel function, specified by
+$I_1(z)=\sum_{m\geq0}(z/2)^{2m+1}/(m!(m+1)!)$.
+The series converges locally uniformly in $x,y>0$ and in
+$L^2(p(x)p(y)\,dx\,dy)$.
+The kernel is positive and symmetric,
+$\int K_\tau(x,y)p(y)\,dy=1$, and it tends to $1$ as
+$\tau\to\infty$.  The Lebesgue transition density is
+$K_\tau(x,y)p(y)$.
+\end{theorem}
+
+\begin{proof}
+Here is a direct verification of the normalization and the closed
+formula, which is the parameter-one Hille--Hardy
+identity~\cite[\href{https://dlmf.nist.gov/18.18.E27}{Eq.~18.18.27}]{DLMF}.
+The finite coefficients in \eqref{final:O3-laguerre} give the
+generating function
+\[
+ G_z(y)=\sum_{n\geq0}L_n^{(1)}(y)z^n
+       =(1-z)^{-2}\exp[-yz/(1-z)],\qquad |z|<1.
+\]
+Let $\widetilde K$ be the right side of
+\eqref{final:O4-hille-hardy}.  Expanding $I_1$ gives the nonnegative
+series
+\[
+ \widetilde K(x,y)=e^{-r(x+y)/(1-r)}
+   \sum_{m=0}^\infty
+   \frac{(rxy)^m}{m!(m+1)!(1-r)^{2m+2}}.
+\]
+For real $z$ sufficiently near zero, put
+$c=(1-rz)/((1-r)(1-z))>0$.
+Termwise gamma integration, justified by positivity, gives
+\begin{align*}
+ \int_0^\infty\widetilde K(x,y)G_z(y)p(y)\,dy
+ &=\frac{e^{-rx/(1-r)}}{(1-z)^2(1-r)^2c^2}
+       \exp\!\left(\frac{rx}{(1-r)^2c}\right)\\
+ &=(1-rz)^{-2}\exp[-rxz/(1-rz)]=G_{rz}(x).
+\end{align*}
+In particular $z=0$ gives row mass one.  The kernel is symmetric and
+positive, so Jensen's inequality and row mass one make its integral
+operator a contraction on $\mathcal H$.  For $z$ in a sufficiently
+small complex neighborhood of zero, the same exponentially dominated
+integral is holomorphic.  Differentiating at zero proves that its
+operator maps $L_n^{(1)}$ to $r^nL_n^{(1)}$.  Completeness of the
+basis identifies it with $e^{-\tau A}$.
+The spectral series is its $L^2$ kernel, since
+$\sum r^{2n}<\infty$.  Cauchy's coefficient estimate for $G_z$,
+on any circle $|z|=R$ with $\sqrt r<R<1$, bounds its summands
+uniformly on compact sets by a convergent geometric sequence.
+Thus this series is continuous and locally uniformly convergent.
+Its $L^2$ equality with the continuous closed formula implies their
+pointwise equality on $(0,\infty)^2$.  Finally the $m=0$ Bessel term
+and the convergent series give $K_\tau(x,y)\to1$ as $r\downarrow0$.
+The definition of an integral kernel relative to $p(y)\,dy$ proves
+the assertion about the Lebesgue density.
+\end{proof}
+
+\begin{proposition}[Resolvents, their kernels, and the operator inverse]
+\label{final:O4-resolvents}
+For $\alpha>0$, the kernels relative to $p(y)\,dy$ of
+$(A+\alpha\mathrm{Id})^{-1}$ and $(A+\alpha\mathrm{Id})^{-2}$ are
+respectively
+\begin{align*}
+ R_\alpha(x,y)&=\int_0^\infty e^{-\alpha\tau}K_\tau(x,y)\,d\tau,\\
+ S_\alpha(x,y)&=\int_0^\infty \tau e^{-\alpha\tau}K_\tau(x,y)\,d\tau.
+\end{align*}
+These identities hold as $L^2$ kernels, and the nonnegative integrals
+are finite almost everywhere.  The first resolvent is Hilbert--Schmidt
+but is not trace class.  The second is trace class and
+\[
+ \operatorname{Tr}(A+\alpha\mathrm{Id})^{-2}=\zeta(2,\alpha),
+\]
+where $\zeta(s,\alpha)=\sum_{n=0}^\infty(n+\alpha)^{-s}$ for
+$\operatorname{Re}s>1$.  For $\alpha,\beta>0$,
+\begin{equation}\label{final:O4-resolvent-difference}
+ \operatorname{Tr}\bigl[(A+\alpha\mathrm{Id})^{-1}
+       -(A+\beta\mathrm{Id})^{-1}\bigr]
+       =\psi(\beta)-\psi(\alpha),
+\end{equation}
+with $\psi=\Gamma'/\Gamma$.
+A complete resolvent operator, with its Hilbert realization and shift
+retained, determines $A$ and its domain.  A full marked heat operator
+at any fixed positive time also determines $A$.
+\end{proposition}
+
+\begin{proof}
+On each eigenvector the Laplace integrals are
+$\int_0^\infty e^{-(n+\alpha)\tau}\,d\tau=(n+\alpha)^{-1}$ and
+$\int_0^\infty\tau e^{-(n+\alpha)\tau}\,d\tau=(n+\alpha)^{-2}$.
+The corresponding strong operator integrals converge, and their
+kernel integrals converge in $L^2$ because
+\[
+ \|K_\tau\|_{L^2(p\otimes p)}
+       =(1-e^{-2\tau})^{-1/2},
+\]
+which is $O(\tau^{-1/2})$ near zero and bounded at infinity.
+The exponential weights are therefore integrable in this norm.
+Positivity and Tonelli identify these $L^2$ limits with the
+nonnegative pointwise integrals almost everywhere.
+The singular-value series for the resolvents are
+$\sum(n+\alpha)^{-1}=\infty$ and
+$\sum(n+\alpha)^{-2}<\infty$, proving the ideal statements.
+The difference series is absolutely summable and equals
+\[
+ \sum_{n=0}^\infty
+   \left(\frac1{n+\alpha}-\frac1{n+\beta}\right)
+ =\psi(\beta)-\psi(\alpha),
+\]
+as follows by subtracting the convergent digamma expansions
+$\psi(a)=-\gamma_E+\sum_{n\geq0}((n+1)^{-1}-(n+a)^{-1})$.
+This also fixes the sign in \eqref{final:O4-resolvent-difference}.
+
+For $R=(A+\alpha\mathrm{Id})^{-1}$ one has
+$D(A)=\operatorname{Ran}R$ and
+$A(Rh)=h-\alpha Rh$ for every $h\in\mathcal H$.
+Thus the complete operator recovers the generator, whereas a scalar
+resolvent trace discards its eigenvectors and coordinate realization.
+For $T=e^{-\tau A}$ the Borel functional calculus similarly gives
+$A=-\tau^{-1}\log T$, with its spectral domain; zero is not an
+eigenvalue of $T$, and its possible accumulation there is handled by
+this unbounded functional calculus.  Consequently a full kernel with
+its reference measure retained recovers the corresponding operator.
+\end{proof}
+
+\begin{proposition}[Zeta and Fredholm determinants with their conventions]
+\label{final:O4-determinants}
+For $\alpha>0$, define the zeta determinant using the meromorphic
+continuation of the Hurwitz zeta function.  Then
+\begin{equation}\label{final:O4-zeta-determinant}
+ \det{}_{\zeta}(A+\alpha\mathrm{Id})
+ =\exp[-\partial_s\zeta(0,\alpha)]
+ =\frac{\sqrt{2\pi}}{\Gamma(\alpha)}.
+\end{equation}
+In particular
+$\det{}_{\zeta}(\mathrm{Id}+A)=\det{}'_{\zeta}(A)=\sqrt{2\pi}$,
+where the prime omits the zero mode.
+For every $z\in\mathbb C$ one has the entire-function identities
+\begin{align}
+ \det\bigl(\mathrm{Id}+z(\mathrm{Id}+A)^{-2}\bigr)
+ &=\prod_{k=1}^\infty(1+z/k^2)
+   =\frac{\sinh(\pi\sqrt z)}{\pi\sqrt z},
+   \label{final:O4-fredholm}\\
+ \det{}_2\bigl(\mathrm{Id}+z(\mathrm{Id}+A)^{-1}\bigr)
+ &=\prod_{k=1}^\infty(1+z/k)e^{-z/k}
+   =\frac{e^{-\gamma_E z}}{\Gamma(1+z)}.
+   \label{final:O4-det2}
+\end{align}
+The first determinant is the ordinary trace-class Fredholm determinant;
+the second is the Hilbert--Schmidt regularized determinant.
+The square-root quotient denotes its entire power series, with
+value $1$ at zero.  Its value is independent of the square-root choice.
+The full zero multiset of either displayed determinant identifies
+the eigenvalue multiset of $A$ in the corresponding nonnegative,
+shifted determinant category.
+\end{proposition}
+
+\begin{proof}
+The spectral series for $A+\alpha\mathrm{Id}$ is the Hurwitz zeta
+series on $\operatorname{Re}s>1$.  Its continuation is regular at
+zero and obeys
+$\partial_s\zeta(0,\alpha)=\log\Gamma(\alpha)-\tfrac12\log(2\pi)$;
+see \cite[\href{https://dlmf.nist.gov/25.11.E18}{Eq.~25.11.18}]{DLMF}.
+This gives \eqref{final:O4-zeta-determinant}.  The positive eigenvalues
+of $A$ and all eigenvalues of $\mathrm{Id}+A$ are both $1,2,\ldots$,
+which proves the two special determinant values with the stated
+zero-mode convention.
+The eigenvalues of $(\mathrm{Id}+A)^{-2}$ are $k^{-2}$, a summable
+sequence; those of $(\mathrm{Id}+A)^{-1}$ are $k^{-1}$, whose squares
+are summable.  The determinant definitions therefore give the two
+products, locally uniformly in $z$.  The identities
+\cite[\href{https://dlmf.nist.gov/4.36.E1}{Eqs.~4.36.1 and
+5.8.2}]{DLMF} evaluate them as shown.
+Evenness of $\sinh w/w$ proves the branch statement.
+For a nonnegative operator $B$ with the respective Schatten-class
+shifted inverse, a nonzero eigenvalue $\kappa$ of that inverse
+produces a zero at $-1/\kappa$ with its multiplicity.
+The maps $\lambda\mapsto(1+\lambda)^{-2}$ and
+$\lambda\mapsto(1+\lambda)^{-1}$ are injective on $[0,\infty)$.
+The shift, exponent, and regularization convention therefore give
+the claimed inverse from the entire zero multiset.
+\end{proof}
+
+\begin{theorem}[Finite familiar spectral invariants do not determine the spectrum]
+\label{final:O4-finite-countermodels}
+Fix any finite list of values of the continued shifted zeta function
+at nonzero real regular points, optionally its finite part at $s=1$
+and its zeta determinant.  There is a nonconstant local family of
+nonnegative self-adjoint diagonal operators, differing from $A$ in
+only finitely many positive eigenvalues, that retains all these
+specified invariants.  Their zeta functions also retain every pole
+and principal part, and the value at zero.  Thus this finite list,
+including a single zeta determinant as a special case, does not
+identify the complete spectrum.
+\end{theorem}
+
+\begin{proof}
+Vary $N$ distinct shifted eigenvalues $r_j=1+\lambda_j>1$ and fix
+the others.  The correction
+\[
+ \Delta Z(s)=\sum_{j=1}^N(r_j^{-s}-r_{j,0}^{-s})
+\]
+is entire, leaves every principal part unchanged, and has
+$\Delta Z(0)=0$.  Preserving a value at a nonzero real $s_i$ imposes
+the equation $\sum r_j^{-s_i}=\sum r_{j,0}^{-s_i}$.
+Preserving the finite part at one imposes this same equation with
+$s_i=1$.  Preserving the determinant imposes
+$\sum\log r_j=\sum\log r_{j,0}$.
+After duplicate equations are removed, let their number be $m$.
+The gradient rows are nonzero multiples of $r_j^{-s_i-1}$,
+and, if present, the additional row $r_j^{-1}$.
+Their exponents are distinct.
+
+These rows have rank $m$ at distinct positive $r_j$ whenever $N\geq m$.
+Indeed, put $u_j=\log r_j$.  A nonzero linear combination of $m$
+exponentials with distinct real exponents has at most $m-1$ distinct
+real zeros.  Inductively, divide by its smallest exponential and
+differentiate; Rolle's theorem would otherwise give at least $m-1$
+zeros for a nonzero combination of $m-1$ exponentials.  The
+single-exponential case starts the induction.  Thus a nonzero row
+combination cannot vanish at $m$ distinct $u_j$.
+Choose $N>m$.  The implicit-function theorem gives a local level
+manifold of dimension $N-m>0$ through the original shifted
+eigenvalues.  In small disjoint neighborhoods they remain greater
+than one and distinct; changes in this manifold cannot merely
+permute the spectrum.  The fixed infinite tail preserves compact
+resolvent and every trace convergence domain.
+
+For an explicit simultaneous example replace $2,3,4$ by $a,b,c$,
+where
+\[
+ a=2+\varepsilon,\qquad b+c=7-\varepsilon,
+ \qquad bc=\frac{24}{2+\varepsilon}.
+\]
+For sufficiently small nonzero $\varepsilon$, the quadratic roots
+$b,c$ are real, distinct, greater than one, and close to $3,4$.
+The sum remains $9$ and the product remains $24$.
+Consequently $Z(0)$, $Z(-1)$, $Z'(0)$, the residue at one and the
+zeta determinant are unchanged, while the full spectrum changes.
+All eigenvalues outside this triple, including the zero eigenvalue,
+remain fixed.  A determinant alone already permits the two-value
+perturbation $2\mapsto2c$, $3\mapsto3/c$ for $c$ near $1$.
+These countermodels concern the specified familiar invariants;
+they make no claim about an arbitrarily encoded finite datum.
+\end{proof}
+
+\subsection{The fixed mixing recipe and its exact unknown-measure inverse}
+
+\begin{theorem}[Existence and uniqueness of the linked mixing measure]
+\label{final:O5}
+Let $B\geq0$ be a self-adjoint operator on a Hilbert space.  The fixed
+function $J(\lambda)=(1+\lambda)^{-2}$ always has the strong-operator
+mixing representation
+\begin{equation}\label{final:O5-J}
+ \int_0^\infty e^{-sB}\,s e^{-s}\,ds
+       =(\mathrm{Id}+B)^{-2}.
+\end{equation}
+If $B$ has a nonzero eigenvector for every $n\in\mathbb N_0$, then
+the unknown finite complex Borel measure $\nu$ on $[0,\infty)$ in
+\begin{equation}\label{final:O5-unknown}
+ \int_{[0,\infty)}e^{-sB}\,\nu(ds)=(\mathrm{Id}+B)^{-2}
+\end{equation}
+is uniquely $\nu(ds)=s e^{-s}\,ds$.
+Finite total variation is understood for a complex measure.  A single
+eigenvector at every integer suffices; multiplicities and additional
+spectrum do not affect the conclusion.
+
+There is also a full-line formulation without initially defining
+negative-time operators.  If $\nu$ is a finite positive Borel measure
+on $\mathbb R$ and its finite scalar integer integrals satisfy
+\begin{equation}\label{final:O5-integer-samples}
+ \int_{\mathbb R}e^{-ns}\,\nu(ds)=(n+1)^{-2}
+ \qquad(n\in\mathbb N_0),
+\end{equation}
+then $\nu(ds)=\mathbf1_{(0,\infty)}s e^{-s}\,ds$.
+In this formulation mass, positive support and absence of an atom
+at zero are conclusions of the supplied samples.
+\end{theorem}
+
+\begin{proof}
+The scalar gamma integral gives, for every $\lambda\geq0$,
+\[
+ \int_0^\infty se^{-(1+\lambda)s}\,ds=(1+\lambda)^{-2}.
+\]
+The semigroup is a contraction, so each vector-valued integral is
+absolutely integrable.  Integration against the spectral measure,
+justified by bounded domination, proves
+\eqref{final:O5-J} for every nonnegative self-adjoint $B$.
+
+For uniqueness, apply \eqref{final:O5-unknown} to a nonzero
+$n$-eigenvector.  This gives all scalar equations
+\eqref{final:O5-integer-samples} on $[0,\infty)$.
+Under $y=e^{-s}$, their left sides are the moments of the finite
+complex pushforward measure on $(0,1]$, extended by zero to $[0,1]$.
+The finite positive measure with density $-\log y$ on $(0,1)$ has
+these same moments, since
+\[
+ \int_0^1y^n(-\log y)\,dy=(n+1)^{-2}.
+\]
+Uniform polynomial approximation on $[0,1]$ identifies the two
+finite measures.  Undoing the measurable bijection $s=-\log y$
+gives $\nu(ds)=se^{-s}\,ds$.  In particular the zeroth equation
+recovers its mass; its lack of an atom at $s=0$ follows as well.
+
+For a positive measure initially on all of $\mathbb R$, mass on
+$(-\infty,-\varepsilon]$ would imply
+\[
+ (n+1)^{-2}\geq e^{n\varepsilon}
+       \nu(( -\infty,-\varepsilon])
+\]
+for every $n$, which is impossible for positive mass.  Taking the
+union over $\varepsilon=1/k$ proves support in $[0,\infty)$.
+The preceding compact moment proof then applies.  No integral of
+unbounded negative-time operators was assumed in this support step.
+\end{proof}
+
+\begin{theorem}[A Bernstein function is determined by every integer tail]
+\label{final:O6}
+Let $f,g$ be Bernstein functions, in their usual representation
+category
+\begin{equation}\label{final:O6-bernstein-representation}
+ f(\lambda)=k_f+d_f\lambda+
+   \int_{(0,\infty)}(1-e^{-\lambda s})\,\Pi_f(ds),
+ \qquad \lambda\geq0,
+\end{equation}
+where $k_f,d_f\geq0$, $\Pi_f$ is positive, and
+$\int(1\wedge s)\Pi_f(ds)<\infty$, and likewise for $g$.
+For any fixed $N\in\mathbb N_0$, equality $f(n)=g(n)$ for every
+integer $n\geq N$ implies $f=g$ on $[0,\infty)$, including equality
+of killing, drift and L\'evy measure.
+In particular the samples
+\[
+ f(n)=2\log(1+n)\qquad(n\geq N)
+\]
+identify the complete exponent $f(\lambda)=2\log(1+\lambda)$,
+with $k_f=d_f=0$ and $\Pi_f(ds)=2e^{-s}ds/s$.
+Knowledge of $f(A)$ on the marked integer eigenspaces supplies these
+samples.  This inverse does not extend to arbitrary smooth functions.
+\end{theorem}
+
+The integer-tail uniqueness principle for Bernstein functions also appears
+in Aguech and Jedidi, Corollary~4~\cite{AguechJedidi}.  The proof below is
+independent and additionally records the recovery of the
+L\'evy--Khintchine data in the present notation.
+
+\begin{proof}
+The finite positive measure
+\[
+ \rho_f=d_f\delta_1+
+    (s\mapsto e^{-s})_\#[(1-e^{-s})\Pi_f(ds)]
+ \quad\hbox{on }[0,1]
+\]
+has no atom at zero.  Its finiteness follows from
+$1-e^{-s}\leq1\wedge s$.  Direct subtraction of
+\eqref{final:O6-bernstein-representation} gives
+\[
+ f(n+1)-f(n)=\int_0^1y^n\rho_f(dy),\qquad n\geq0.
+\]
+Equality of the integer tails therefore identifies all moments of
+$y^N\rho_f$ and $y^N\rho_g$.  Compact moment uniqueness gives
+$y^N\rho_f=y^N\rho_g$.  Since the weight is strictly positive on
+$(0,1]$, division on $[1/j,1]$ and passage to their increasing union
+give equality there.  The absence of atoms at zero gives
+$\rho_f=\rho_g$ on $[0,1]$.
+The atom at one recovers the drift $d_f=d_g$.  The restriction to
+$(0,1)$, the inverse coordinate $s=-\log y$, and division by the
+strictly positive weight $1-e^{-s}$ recover
+$\Pi_f=\Pi_g$.  With these fixed, a single common value at $N$
+recovers $k_f=k_g$; this also works when $N>0$.
+
+For the displayed target measure, the L\'evy integrability condition
+holds at both endpoints.  Its exponent is zero at $\lambda=0$ and
+has derivative
+\[
+ \frac{d}{d\lambda}\int_0^\infty
+       (1-e^{-\lambda s})\frac{2e^{-s}}s\,ds
+ =2\int_0^\infty e^{-(1+\lambda)s}\,ds
+ =\frac2{1+\lambda}.
+\]
+Thus it equals $2\log(1+\lambda)$, proving the target assertion.
+Functional calculus gives
+$f(A)e_n=f(n)e_n$ and
+\[
+ D(f(A))=\left\{\sum c_ne_n:\sum|f(n)|^2|c_n|^2<\infty\right\}.
+\]
+Consequently equality on the marked integer eigenspaces has exactly
+the required scalar meaning.  For arbitrary smooth functions the
+nonzero perturbation $\varepsilon\sin^2(\pi\lambda)$ is invisible
+at every nonnegative integer; adding it to the nonnegative target
+also preserves nonnegativity.  It therefore gives a distinct scalar
+function with the same functional calculus on $A$, outside the
+Bernstein inverse category just proved.
+\end{proof}
+
+\begin{proposition}[Two different functional-calculus inverse questions]
+\label{final:O6-functional-calculus}
+For a fixed strictly increasing Bernstein function $f$, the full
+self-adjoint operator $f(B)$ determines a nonnegative self-adjoint
+$B$.  For the canonical $A$, the complete operator
+$2\log(\mathrm{Id}+A)$ is equivalently determined by
+$J(A)=(\mathrm{Id}+A)^{-2}$.
+These statements retain the known scalar function $f$ or $J$.
+\end{proposition}
+
+\begin{proof}
+Strict monotonicity and continuity give a Borel inverse on the range
+of $f$.  The Borel functional calculus gives
+$B=f^{-1}(f(B))$, with its exact spectral domain.  If an endpoint of
+the range is a spectral limit, the spectral projection at that
+unattained endpoint is zero, so the unbounded inverse is still
+well-defined.  In the indicated special case, $J(A)$ has eigenvalues
+$(1+n)^{-2}>0$, and
+$-\log J(A)=2\log(\mathrm{Id}+A)$ on its functional-calculus domain.
+Inverting a known function of an unknown operator is thus different
+from Theorem~\ref{final:O6}, which identifies an unknown function
+from its values on a known integer spectrum.
+\end{proof}
+
+\begin{theorem}[The Gamma shapes two and three retain all spectral and mixing data]
+\label{final:O5-isospectral-boundary}
+For $\alpha\in\{2,3\}$ set
+\[
+ p_\alpha(t)=\frac{t^{\alpha-1}e^{-t}}{\Gamma(\alpha)},
+ \qquad \mathcal H_\alpha=L^2((0,\infty),p_\alpha(t)\,dt),
+\]
+and let $A_\alpha$ be the closure of
+\[
+ -tf''-(\alpha-t)f',\qquad D=C_c^\infty(0,\infty).
+\]
+Both endpoints are limit point in both cases.  The operators have
+the same simple complete spectrum $\mathbb N_0$ and are intertwined
+by a unitary carrying $1$ to $1$.  Therefore all their heat traces,
+shifted zeta functions, resolvent trace functions and spectral
+determinants agree, with the same conventions and domains.
+Both satisfy \eqref{final:O5-unknown} with the same unique mixing
+measure $\nu_2(ds)=se^{-s}\,ds$.  Their invariant coordinate laws
+nevertheless differ: they are $p_2\,dt$ and
+$p_3\,dt$, with means $2$ and $3$ respectively.
+\end{theorem}
+
+\begin{proof}
+The divergence-form coefficients are $q_\alpha=tp_\alpha$.
+Apart from an irrelevant nonzero constant, the second zero-energy
+solution is $\int_1^t e^s s^{-\alpha}\,ds$.
+At zero it is asymptotic to
+$-t^{1-\alpha}/(\alpha-1)$; its weighted square is asymptotic to a
+positive multiple of $t^{1-\alpha}$, nonintegrable for both
+$\alpha=2$ and $3$.  At infinity the solution is asymptotic to
+$e^t/t^\alpha$, whose weighted square is a positive multiple of
+$e^t/t^{\alpha+1}$, also nonintegrable.
+The constant solution is square integrable at both ends.
+The maximal-domain and endpoint arguments of Theorem~\ref{final:O3}
+therefore apply to each, giving their unique self-adjoint closures.
+The form argument also applies, since the lower-cutoff energy is
+$O(\varepsilon^{\alpha-1})$, proving conservativity and invariance
+of $p_\alpha\,dt$.
+
+The Rodrigues polynomials
+\[
+ L_n^{(\alpha-1)}(t)=
+   \frac{t^{1-\alpha}e^t}{n!}
+      \frac{d^n}{dt^n}(e^{-t}t^{n+\alpha-1})
+\]
+satisfy $A_\alpha L_n^{(\alpha-1)}=nL_n^{(\alpha-1)}$ because their
+coefficients obey
+$(k+1)(k+\alpha)a_{k+1}+(n-k)a_k=0$.
+Integration by parts gives squared norm
+$\Gamma(n+\alpha)/(n!\Gamma(\alpha))$ in $\mathcal H_\alpha$.
+The weighted Laplace-transform proof of completeness applies without
+change: $p_\alpha$ has the same exponential tail and all polynomial
+moments.  Hence
+\[
+ e_{n,\alpha}=
+ \sqrt{\frac{n!\Gamma(\alpha)}{\Gamma(n+\alpha)}}
+       L_n^{(\alpha-1)}
+\]
+is a complete orthonormal eigenbasis, with $e_{0,\alpha}=1$.
+The unitary $Ue_{n,2}=e_{n,3}$ intertwines the two operators and
+fixes the distinguished constant vectors.  Every listed scalar
+spectral invariant therefore agrees.  Theorem~\ref{final:O5}
+gives the common mixing identity and its mixing-measure uniqueness.
+Finally gamma integration gives
+$\int t p_\alpha(t)\,dt=\alpha$, proving that the coordinate
+probabilities differ despite all those agreements.
+\end{proof}
+
+\begin{corollary}[Canonical mixing construction is not unmarked coordinate recovery]
+\label{final:O5-canonical-versus-identification}
+The fixed exponent-two recipe $J$ constructs the Gamma$(2,1)$ mixing
+measure for every nonnegative self-adjoint operator.  Integer
+eigenvalues make that mixing measure uniquely recoverable from the
+restricted operator identity.  They do not identify the stationary
+coordinate law of an arbitrary realization, even when the constant
+vector is retained.  To identify that candidate law one must retain
+either its explicit equality to the unknown mixing measure in
+\eqref{final:O5-unknown}, the local Pearson realization of
+Theorem~\ref{final:O2}, or equivalent coordinate information.
+\end{corollary}
+
+\begin{proof}
+Existence and mixing uniqueness are Theorem~\ref{final:O5}; the two
+realizations in Theorem~\ref{final:O5-isospectral-boundary} are a
+counterexample to the unmarked coordinate inverse, even under the
+conjunction of all the stated spectral and mixing data.
+For contrast, a fully marked package
+$(\mathcal H,A,1,M_t)$ retains the multiplication operator
+$M_tf(t)=tf(t)$ on $\{f:tf\in\mathcal H\}$, and recovers its
+coordinate probability by
+\[
+ P(E)=\langle\mathbf1_E(M_t)1,1\rangle
+\]
+for every Borel $E$.  A unitary intertwining this multiplication
+operator as well as fixing $1$ would preserve that probability,
+so the preceding unitary cannot do so.
+Furthermore, the different retained recipe
+$J_a(\lambda)=(1+\lambda)^{-a}$, $a>0$, has mixing measure
+$s^{a-1}e^{-s}\,ds/\Gamma(a)$ by the same gamma integral.
+Spectral data do not choose this exponent.
+
+In particular let $F$ forget a stationary coordinate realization
+and retain its spectrum, and let $G_J$ construct the canonical
+Gamma$(2,1)$ realization using the fixed recipe.  Then
+\[
+ G_J(F(p_3,A_3))=(p_2,A_2)\ne(p_3,A_3).
+\]
+Thus this construction is not a left inverse to forgetting on the
+class of stationary coordinate realizations.  An identification
+graph can use the linked unknown-measure theorem or retain the
+fixed coordinate template in its nodes; a cycle through an
+unmarked spectrum and canonical selection alone does not prove
+identification of its original candidate.
+\end{proof}

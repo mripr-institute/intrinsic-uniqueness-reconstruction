@@ -1,0 +1,502 @@
+{
+  "scope": "Exact operator-chapter statement/component map; a partial entry does not certify its unproved components.",
+  "namespace": "SigmaFinal",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "all_operator_theorems_formalized": false,
+  "library_inspection": {
+    "native_available": [
+      "LinearPMap domains, graphs, inverse and unbounded adjoint API",
+      "ContinuousLinearMap",
+      "Finite Borel measures and Bochner integration",
+      "Weierstrass approximation and finite-measure extensionality",
+      "Gamma probability and integral formulas",
+      "Complex p-series, geometric series, native Riemann zeta"
+    ],
+    "not_found_in_pinned_library": [
+      "Specific Laguerre orthogonal polynomial development",
+      "Weyl limit-point/limit-circle and deficiency-index theory",
+      "Full Sturm-Liouville essential-self-adjointness framework",
+      "Infinite-dimensional trace-class/Schatten/Fredholm determinant implementation sufficient for the draft",
+      "General factorial-moment determinacy theorem on R"
+    ],
+    "proved_locally_despite_no_turnkey_library_theorem": [
+      "Full real-line factorial-moment determinacy, using exponential tilting and integer Laplace uniqueness (SigmaFinalOpMomentInverse).",
+      "Full-line compact smooth weak Stein characterization without support or moment hypotheses, via proved polynomial cutoff moment bootstrap and actual moment uniqueness.",
+      "Locally integrable weak Stein-kernel classification using a proved compact primitive and native test-integral fundamental lemma; exact regularity, endpoint and integrability selection."
+    ]
+  },
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalOperators.lean",
+      "sha256": "c6046f5c249c598dc4d3850fbb5ca35f46ab734cd4e332e4f83306ff31b9452f",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOperators.lean",
+      "compiler_log": "work/final-SigmaFinalOperators.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOperators.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpMoments.lean",
+      "sha256": "cb181a6ca63dc5793bab02c40aa0842af514bc321f2ba43f27e3daebaa5db826",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpMoments.lean",
+      "compiler_log": "work/final-SigmaFinalOpMoments.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpMoments.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpSpectral.lean",
+      "sha256": "c7aeaac1d3b8193707594658d7cb3bc87cdd558ad05697fad46620423d00f3ad",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpSpectral.lean",
+      "compiler_log": "work/final-SigmaFinalOpSpectral.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpSpectral.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpResolvent.lean",
+      "sha256": "4cdb72c76472c8431df9d739c2abbdce1dc6311b991dfcbd2f68d169c7603b46",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpResolvent.lean",
+      "compiler_log": "work/final-SigmaFinalOpResolvent.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpResolvent.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpMixing.lean",
+      "sha256": "298d3dd46fa2f77019624e88f088fe0e547597e2fb544a24d83ddaa0fa7c0106",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpMixing.lean",
+      "compiler_log": "work/final-SigmaFinalOpMixing.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpMixing.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpLaguerre.lean",
+      "sha256": "fd70d3208cb2bca474cbf8c104170a9bbca951ea39b8441147eca55be5450c9c",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpLaguerre.lean",
+      "compiler_log": "work/final-SigmaFinalOpLaguerre.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpLaguerre.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpMomentGrowth.lean",
+      "sha256": "142392b176dfe20850c7b2b4ab19c67412b71da49ef08a87c7f4855e71b03134",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpMomentGrowth.lean",
+      "compiler_log": "work/final-SigmaFinalOpMomentGrowth.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpMomentGrowth.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpMomentTilt.lean",
+      "sha256": "614cb8a703ddd9ce925118059033cdea62e9bf9a4e67c3e53463bcc8fe973b6f",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpMomentTilt.lean",
+      "compiler_log": "work/final-SigmaFinalOpMomentTilt.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpMomentTilt.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalOpMomentInverse.lean",
+      "sha256": "71bf5d99dd63a77b9804d1da89c14e79e7221d7c8335125c43c8f601c5a1bdff",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalOpMomentInverse.lean",
+      "compiler_log": "work/final-SigmaFinalOpMomentInverse.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalOpMomentInverse.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalStein.lean",
+      "sha256": "acb32fe1b9981ccc94f2abf2d53a8363ec1ff7041e534e014f9fd291a763e228",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalStein.lean",
+      "compiler_log": "work/final-SigmaFinalStein.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalStein.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinPrimitive.lean",
+      "sha256": "dc089eb38cbb8548bc0e38e34b454ab06862e4a1e6a9f64d6ea55991b4622d5c",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinPrimitive.lean",
+      "compiler_log": "work/final-SigmaFinalSteinPrimitive.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinPrimitive.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinWeakZero.lean",
+      "sha256": "295bee04d88c75fbf163055609368b5128f886087e317ab880a0ef9008aebad9",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinWeakZero.lean",
+      "compiler_log": "work/final-SigmaFinalSteinWeakZero.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinWeakZero.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelForward.lean",
+      "sha256": "5721b91e14dd867d4354d18a652c2e13a45762b978a2b79f51b8377e75034737",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelForward.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelForward.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelForward.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelInverse.lean",
+      "sha256": "012aef40077a9433d6d626036aa47ee27b66a35e24002b8be526ba11a897287b",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelInverse.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelInverse.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelInverse.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelSelection.lean",
+      "sha256": "17f41cb026f9b81b689c1fc9e1d10c6219526d4a9f491ff0c5738707e40cb553",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelSelection.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelSelection.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelSelection.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinCutoff.lean",
+      "sha256": "e3100773efd3ea73f52866d5adefe596c1d9610d039bab923f9ba7074665bf1f",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinCutoff.lean",
+      "compiler_log": "work/final-SigmaFinalSteinCutoff.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinCutoff.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinMomentBounds.lean",
+      "sha256": "c04e72876e68b18e6e7563bee0dd22855547b2b91938489a6b2271c0d36ada5a",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinMomentBounds.lean",
+      "compiler_log": "work/final-SigmaFinalSteinMomentBounds.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinMomentBounds.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinMomentLimits.lean",
+      "sha256": "9d0e6211aca719e7eacf49f8a597f8a572e6185c3820470009225adcc7227d67",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinMomentLimits.lean",
+      "compiler_log": "work/final-SigmaFinalSteinMomentLimits.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinMomentLimits.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinConsequences.lean",
+      "sha256": "654db535627b75a146cfb5f122c0fd21f761cc3b515e8aadfc18bb5337a4db24",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinConsequences.lean",
+      "compiler_log": "work/final-SigmaFinalSteinConsequences.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinConsequences.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    }
+  ],
+  "statements": [
+    {
+      "latex_label": "final:O1",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_characterization",
+        "SigmaFinal.gamma_probability_weak_stein",
+        "SigmaFinal.stein_test_integrable",
+        "SigmaFinal.weak_stein_density",
+        "SigmaFinal.weak_stein_absolutely_continuous",
+        "SigmaFinal.weak_stein_positive_support",
+        "SigmaFinal.weak_stein_no_atoms",
+        "SigmaFinal.weak_stein_moments_integrable",
+        "SigmaFinal.weak_stein_factorial_moments"
+      ],
+      "proved_components": [
+        "For an arbitrary native Borel probability measure on all of R, the native ContDiff-infinity compact-support weak Stein test identity holds iff the actual measure equals gammaProbability. No support, density, moments, or exponential integrability are assumed.",
+        "Derives exact withDensity by the positive-ray indicator times t exp(-t), absolute continuity, mass zero on (-infinity,0], no atoms anywhere, integrability of every monomial and the exact (n+1)! moments."
+      ],
+      "unproved_components": [],
+      "exact_component_map": "outputs/final-draft/stein-lean-map.json",
+      "axiom_audit": "outputs/final-draft/stein-axiom-audit.json"
+    },
+    {
+      "latex_label": "final:O1-kernel",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_kernel_iff_family",
+        "SigmaFinal.weak_stein_kernel_identifies_family",
+        "SigmaFinal.weak_stein_kernel_of_family_ae",
+        "SigmaFinal.stein_kernel_family_locally_integrable",
+        "SigmaFinal.weak_stein_kernel_smooth_flux_representative",
+        "SigmaFinal.weak_stein_kernel_continuous_representative_unique",
+        "SigmaFinal.stein_flux_representative_absolute_continuity",
+        "SigmaFinal.stein_kernel_flux_representative_integral",
+        "SigmaFinal.stein_kernel_flux_endpoints",
+        "SigmaFinal.stein_kernel_zero_flux_atTop_iff",
+        "SigmaFinal.stein_kernel_zero_flux_at_zero_iff",
+        "SigmaFinal.zero_endpoint_weak_stein_kernel_unique",
+        "SigmaFinal.stein_kernel_flux_integrable_iff",
+        "SigmaFinal.stein_kernel_family_weighted_integrable_iff",
+        "SigmaFinal.integrable_weak_stein_kernel_unique",
+        "SigmaFinal.gamma_integrable_weak_stein_kernel_unique",
+        "SigmaFinal.weak_stein_kernel_integrable_iff_canonical",
+        "SigmaFinal.finite_expectation_weak_stein_kernel_unique",
+        "SigmaFinal.centered_integral_weak_stein_kernel_unique",
+        "SigmaFinal.steinFlux_integral",
+        "SigmaFinal.stein_kernel_flux_nonnegative_iff",
+        "SigmaFinal.stein_kernel_family_nonnegative_iff",
+        "SigmaFinal.stein_kernel_family_weak"
+      ],
+      "proved_components": [
+        "Under only native local integrability of tau*p on the positive ray, the actual compact smooth test weak derivative identity is equivalent to tau=t+C exp(t)/t almost everywhere on that ray.",
+        "Derives the actual smooth flux representative q+C, its actual derivative and interval FTC, uniqueness among continuous representatives on the positive ray, and local absolute continuity on every compact interval.",
+        "Both endpoints of the derived flux representative have limit C. Either zero endpoint, even stated using an arbitrary continuous representative of the same flux, forces tau=t almost everywhere.",
+        "The flux family is integrable on the positive ray iff C=0. For an actual weak Stein kernel, native Integrable tau gammaProbability is equivalent to tau=t almost everywhere on the positive ray.",
+        "For measurable tau, genuine finite Lebesgue expectation selects tau=t.",
+        "The actual identity integral(tau*p)=2 selects tau=t; the canonical flux integral equals 2. Existing gamma_probability_mean and gamma_probability_variance prove the actual mean 2 and centered second moment 2.",
+        "The family is nonnegative almost everywhere on the positive ray exactly for C>=0; every real C satisfies the actual compact-test weak equation."
+      ],
+      "unproved_components": [],
+      "exact_component_map": "outputs/final-draft/stein-lean-map.json",
+      "axiom_audit": "outputs/final-draft/stein-axiom-audit.json"
+    },
+    {
+      "latex_label": "final:O2",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.opExpression_linear",
+        "SigmaFinal.opExpression_quadratic",
+        "SigmaFinal.operator_two_probe_iff",
+        "SigmaFinal.operator_canonical_probes",
+        "SigmaFinal.operator_two_probe_ae_iff"
+      ],
+      "proved_components": [
+        "Complete pointwise and almost-everywhere iff for the actual first and second derivatives of the two marked polynomial functions; the AE theorem uses an actual measure and can be specialized to restricted Lebesgue measure."
+      ],
+      "unproved_components": [
+        "Normalized Pearson uniqueness for the stated locally absolutely continuous unknown density and the resulting Hilbert weight."
+      ]
+    },
+    {
+      "latex_label": "final:O2-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_linear_probe_arbitrary_diffusion",
+        "SigmaFinal.operator_quadratic_probe_counterfamily",
+        "SigmaFinal.operator_counterfamily_changes_linear",
+        "SigmaFinal.operator_quadratic_positive_counterexample"
+      ],
+      "proved_components": [
+        "The exact coefficient counterfamily preserves the quadratic probe and changes the linear probe; arbitrary diffusion preserves the linear probe; an explicit global rational diffusion is positive on the positive ray and preserves the quadratic identity."
+      ],
+      "unproved_components": [
+        "Smoothness/compact-support estimates for the displayed epsilon family; the nonlocal self-adjoint unitary-rotation countermodel; conservative reversible dynamics cA with common invariant density."
+      ]
+    },
+    {
+      "latex_label": "final:O3",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Specific weighted L2 minimal and maximal operators; maximal adjoint domain; endpoint asymptotics and Weyl limit-point classification; deficiency indices; essential self-adjointness; automatic endpoint flux and the divergent-domain-function example."
+      ]
+    },
+    {
+      "latex_label": "final:O3-form",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Exact closed form domain, weighted Sobolev completeness, cutoff/mollification core, representation by A, Markov property and invariant probability."
+      ]
+    },
+    {
+      "latex_label": "final:O3-spectrum",
+      "status": "unproved",
+      "lean_declarations": [
+        "SigmaFinal.opLaguerre",
+        "SigmaFinal.opLaguerreCoefficient",
+        "SigmaFinal.opLaguerre_leading_coefficient",
+        "SigmaFinal.opLaguerre_leading_coefficient_ne_zero"
+      ],
+      "proved_components": [
+        "The actual marked finite-sum Laguerre functions and their nonzero highest coefficients are defined and checked."
+      ],
+      "unproved_components": [
+        "Rodrigues identity; all-mode differential eigenvalue equation; weighted orthonormality/completeness; native self-adjoint realization; exact simple integer spectrum and weighted coefficient domains; compact resolvent."
+      ]
+    },
+    {
+      "latex_label": "final:O7",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.operator_gamma_laguerre_orthogonality",
+        "SigmaFinal.operator_laguerre_orthogonality_recovers_moments",
+        "SigmaFinal.opLaguerre_integral",
+        "SigmaFinal.opLaguerre_coefficient_factorial",
+        "SigmaFinal.opLaguerre_factorial_sum_zero",
+        "SigmaFinal.opLaguerre_first_three",
+        "SigmaFinal.operator_laguerre_orthogonality_iff_moments",
+        "SigmaFinal.operator_factorial_moments_exp_abs_integrable",
+        "SigmaFinal.operator_factorial_moments_local_mgf",
+        "SigmaFinal.operator_factorial_moments_weighted_local_mgf",
+        "SigmaFinal.operator_factorial_moments_isProbability",
+        "SigmaFinal.operator_tilt_scale_factorial_moments",
+        "SigmaFinal.operator_tilt_moments_extend",
+        "SigmaFinal.operator_factorial_moments_integer_samples",
+        "SigmaFinal.operator_full_line_factorial_moment_unique",
+        "SigmaFinal.operator_laguerre_orthogonality_unique",
+        "SigmaFinal.operator_laguerre_orthogonality_iff_gamma",
+        "SigmaFinal.operator_marked_laguerre_characterization",
+        "SigmaFinal.operator_marked_laguerre_positive_support"
+      ],
+      "proved_components": [
+        "Exact full-real-line iff between all marked Laguerre orthogonality equations and equality to the native Gamma probability, with the draft polynomial-integrability assumption. Strict positive support is derived. The polynomials are the literal finite coefficient sums in the draft. Full factorial-moment determinacy is proved through absolute-moment bounds, justified polynomially weighted exponential series, actual normalized tilted/dilated measures, and half-step continuation to all integer Laplace samples. No support or desired measure equality is assumed. The canonical Gamma density is linked to the intrinsic t*exp(-t) density by SigmaFinal.gamma_pdf_intrinsic and gamma_probability_integral."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:O4",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_heat_eigenvalue_hasSum",
+        "SigmaFinal.operator_heat_eigenvalue_summable_iff",
+        "SigmaFinal.operator_complex_heat_eigenvalue_hasSum",
+        "SigmaFinal.operator_complex_heat_eigenvalue_summable_iff",
+        "SigmaFinal.operator_complex_zeta_eigenvalue_summable_iff",
+        "SigmaFinal.operator_zeta_eigenvalue_hasSum",
+        "SigmaFinal.operator_hausdorff_moment_unique"
+      ],
+      "proved_components": [
+        "Exact real and complex scalar heat eigenvalue-series convergence domains and sums. Exact complex shifted zeta eigenvalue-series convergence domain and sum equal to native riemannZeta. Native finite Borel measures on [0,1] are uniquely determined by all monomial integrals."
+      ],
+      "unproved_components": [
+        "Trace-class domains and traces of the specific unbounded Laguerre realization; general compact-resolvent multiset recovery and unitary equivalence; construction/extraction of the weighted spectral Hausdorff measure, including multiplicities. Scalar eigenvalue sums are not defined to be operator traces."
+      ]
+    },
+    {
+      "latex_label": "final:O4-convergence-boundary",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "The native diagonal compact-resolvent operator with double-log eigenvalues and the two divergent trace series."
+      ]
+    },
+    {
+      "latex_label": "final:O4-heat-kernel",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Native Laguerre heat operator and kernel; Hille-Hardy Bessel identity; local uniform and L2 convergence, row normalization and stationary-measure versus Lebesgue kernel distinction."
+      ]
+    },
+    {
+      "latex_label": "final:O4-resolvents",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_shifted_real_eigenvalue_summable_iff",
+        "SigmaFinal.operator_first_resolvent_eigenvalues_not_summable",
+        "SigmaFinal.operator_squared_resolvent_eigenvalues_summable",
+        "SigmaFinal.operator_resolvent_domain",
+        "SigmaFinal.operator_resolvent_action",
+        "SigmaFinal.operator_resolvent_injective",
+        "SigmaFinal.operator_full_resolvent_unique"
+      ],
+      "proved_components": [
+        "Exact scalar shifted-resolvent summability thresholds. For a native LinearPMap and a bounded ContinuousLinearMap obeying the actual two resolvent inverse equations, the domain is its range, the operator action is recovered, and a common complete resolvent determines the entire partially defined operator."
+      ],
+      "unproved_components": [
+        "Heat-kernel Laplace integrals as L2 kernels; Hilbert-Schmidt versus trace-class conclusions and Hurwitz/digamma operator traces; full unbounded heat functional-calculus logarithmic inverse."
+      ]
+    },
+    {
+      "latex_label": "final:O4-determinants",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Native zeta/Fredholm/Hilbert-Schmidt regularized determinants and their full formulas, domains, and inverse zero-multiset statements."
+      ]
+    },
+    {
+      "latex_label": "final:O4-finite-countermodels",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Native self-adjoint finite-rank spectral perturbation families; entire zeta corrections; full-rank exponential interpolation argument and implicit-function construction preserving the listed invariants."
+      ]
+    },
+    {
+      "latex_label": "final:O5",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_gamma_mixing_integral",
+        "SigmaFinal.operator_gamma_mixing_integer_integral",
+        "SigmaFinal.operator_hausdorff_moment_unique",
+        "SigmaFinal.operator_nonnegative_mixing_measure_unique",
+        "SigmaFinal.operator_integer_samples_integrable",
+        "SigmaFinal.operator_integer_samples_positive_support",
+        "SigmaFinal.operator_integer_samples_ae_pos",
+        "SigmaFinal.operator_full_line_integer_laplace_unique",
+        "SigmaFinal.operator_gamma_probability_integer_samples",
+        "SigmaFinal.operator_full_line_mixing_characterization",
+        "SigmaFinal.operator_full_line_mixing_iff"
+      ],
+      "proved_components": [
+        "Complete full-line finite-positive-measure scalar characterization: the given integer exponential integrals imply equality to the native Gamma measure. Integrability, strict positive support and absence of a zero atom are derived. Native finite measures on [0,infinity) are uniquely determined by their integer Laplace integrals. The scalar Gamma mixing integral holds for every nonnegative real spectral value."
+      ],
+      "unproved_components": [
+        "Strong-operator Gamma mixing existence for arbitrary nonnegative self-adjoint operators; extracting scalar samples from integer eigenvectors of that operator identity; finite signed/complex total-variation measure extension."
+      ]
+    },
+    {
+      "latex_label": "final:O6",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.operator_hausdorff_moment_unique"
+      ],
+      "proved_components": [
+        "The underlying full compact Hausdorff moment uniqueness theorem is proved for actual finite positive Borel measures."
+      ],
+      "unproved_components": [
+        "Actual Bernstein/Levy representation, weighted integer-tail moment extraction, cancellation of the vanishing endpoint weight, drift/Levy/killing recovery, target exponent, native f(A) domains and smooth-function counterexample."
+      ]
+    },
+    {
+      "latex_label": "final:O6-functional-calculus",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Known strictly increasing Bernstein-function inverse on the native unbounded Borel functional calculus; logarithmic recovery from J(A)."
+      ]
+    },
+    {
+      "latex_label": "final:O5-isospectral-boundary",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Both Gamma(2) and Gamma(3) native weighted Hilbert realizations; their limit-point domains; complete Laguerre bases and intertwining unitary; joint spectral/mixing identity with different multiplication-coordinate probabilities."
+      ]
+    },
+    {
+      "latex_label": "final:O5-canonical-versus-identification",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Full native marked-coordinate package and Borel spectral-measure reconstruction; Gamma(3) countermodel to the canonical-selection left inverse; all-shape Gamma recipe comparison."
+      ]
+    }
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalOpAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalOpAxiomCheck.log",
+    "report": "outputs/final-draft/operator-axiom-audit.json"
+  },
+  "additional_axiom_audits": [
+    {
+      "report": "outputs/final-draft/stein-axiom-audit.json",
+      "checked_theorems": 63
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "status": "frozen",
+  "scope": "Phase IV only; mathematical statuses are on theorem edges",
+  "graph_nodes": 105,
+  "graph_edges": 118,
+  "intrinsic_component_nodes": 46,
+  "quotient_nodes": 60,
+  "quotient_edges": 73,
+  "lean_exported_theorems": 69,
+  "new_lean_theorems": 53,
+  "symbolic_numerical_diagnostics": 59,
+  "input_files_unchanged": 11,
+  "artifacts": [
+    {
+      "path": "outputs/lean/PhaseIV-build.json",
+      "sha256": "97535739012dcdb2cc3df7aafe40ecdc778ac29d4c9cede94e3712f4b72f424d",
+      "bytes": 11991
+    },
+    {
+      "path": "outputs/lean/PhaseIV-compile.log",
+      "sha256": "23c3236625df852e2199461ccabf3aa19fd5caebff35f0e0c7f7cf16551de20a",
+      "bytes": 8292
+    },
+    {
+      "path": "outputs/lean/PhaseIV.lean",
+      "sha256": "976e21a61b8a5d05c4671826f07d65ace3f319356bb32ddf8f457326eb3eff3f",
+      "bytes": 18188
+    },
+    {
+      "path": "outputs/lean/PhaseIVAxioms.lean",
+      "sha256": "bb08dca9aa0bea0a9db4a02139d0f91eb90450423c7fe5a58139adf80b10f7ce",
+      "bytes": 3192
+    },
+    {
+      "path": "outputs/lean/PhaseIVCheck.py",
+      "sha256": "61c3a66def1876e9921573ec293836c30084807405f1e855e934bac27a750c5e",
+      "bytes": 4239
+    },
+    {
+      "path": "outputs/lean/PhaseIVSeries.lean",
+      "sha256": "041f76d21fdf7bb97dceecbcb564c36392cd99e836b3b838a775f32b9e40ab4c",
+      "bytes": 5436
+    },
+    {
+      "path": "outputs/lean/README-PhaseIV.md",
+      "sha256": "74059cc48d64164a981bc4dc0ab94abd554f2a1c6ab03b4d45e4dde6738aa069",
+      "bytes": 1813
+    },
+    {
+      "path": "outputs/lean/check-phase-iv.sh",
+      "sha256": "fd2644ffc13121796bb405c6f07ca18ac7187a2250aaa629971820028c6ceae5",
+      "bytes": 70
+    },
+    {
+      "path": "outputs/lean/lean-toolchain",
+      "sha256": "6faf6530819a0bc6d6092a2d9b974ea8e8adfec955d0e51e02e1f82734264d14",
+      "bytes": 25
+    },
+    {
+      "path": "outputs/phase-iv-audit/final-synthesis.md",
+      "sha256": "ebf4e0d1548ad93190c3e81f08acbbb6c215a843ba143246ea705ba49ff668d1",
+      "bytes": 15133
+    },
+    {
+      "path": "outputs/phase-iv-audit/global-graph-checks.json",
+      "sha256": "716ccba78138259e7b773b37cfe94471265c4a0670ba0274d1f89ff6d5b00d29",
+      "bytes": 2784
+    },
+    {
+      "path": "outputs/phase-iv-audit/global-minimality.md",
+      "sha256": "c8b2c086cd3321c961dcd12809d77148a635ec47f460e77f8bad443d93b263b5",
+      "bytes": 29615
+    },
+    {
+      "path": "outputs/sigma-phase-iv-checks.json",
+      "sha256": "3dd49cb19ea030d8e1f0350931f51f5b07e6bf7184d6e543934ea6b3f6d29073",
+      "bytes": 10403
+    },
+    {
+      "path": "outputs/sigma-phase-iv-graph.json",
+      "sha256": "ed2f859918668863f3d6cf16744acb351aedcd80c840c44581a4ab34136e89d0",
+      "bytes": 192133
+    },
+    {
+      "path": "outputs/sigma-phase-iv-independent-audit.md",
+      "sha256": "ff4c3ae6db1dcfa81f9ca8041e1108e7944d8376a00f828d7277237f9a87ad86",
+      "bytes": 17534
+    },
+    {
+      "path": "outputs/sigma-phase-iv-minimal-primitives.md",
+      "sha256": "a070c537b1fcfd1d2441a8c9cb0ee72edde483a50bd96f7e5442e86c6d38eb10",
+      "bytes": 16889
+    },
+    {
+      "path": "outputs/sigma-phase-iv-proof-record.md",
+      "sha256": "aee5caba3901c1d12f118e642e78b17c87f1a3d981ddadb2c0bd485ec3dc7c39",
+      "bytes": 158096
+    },
+    {
+      "path": "outputs/sigma-phase-iv-reconstruction-theorem.md",
+      "sha256": "0c2ca3722103e16835340480988d21a81f9025ad76147baae13cfd9af7e730ae",
+      "bytes": 30900
+    },
+    {
+      "path": "outputs/sigma-phase-iv-verification.md",
+      "sha256": "f2f20ccf14ba03a4688159606bc0142628faa07aaeef36cd6bd7a058b064d6cb",
+      "bytes": 15021
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "scope": "Exact statement/component map for final:C7.",
+  "namespace": "SigmaFinal",
+  "latex_label": "final:C7",
+  "status": "complete",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "unproved_components": [],
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalProjective.lean",
+      "sha256": "e2d10562d4969db2ca7b707599068425c5d1d69790a3b76099b25066827815af",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalProjective.lean",
+      "compiler_log": "work/final-SigmaFinalProjective.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalProjective.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalProjectiveForward.lean",
+      "sha256": "d9992f45f4a403e1d923856cc7ec6ad54f1dc23f0eae74c0922ca28f9a18701c",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalProjectiveForward.lean",
+      "compiler_log": "work/final-SigmaFinalProjectiveForward.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalProjectiveForward.olean"
+    }
+  ],
+  "components": [
+    {
+      "component": "calibrated cross-ratio inverse",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.calibrated_cross_ratio_identifies",
+        "SigmaFinal.projective_three_point_slice_identifies"
+      ],
+      "proof_and_scope": "The exact full positive-ray theorem assumes only native InjOn, preservation of every ordered pairwise-distinct positive quadruple, and the three values. A stronger proof needs just the slice through 1,2,3. No continuity, differentiability or analyticity is assumed."
+    },
+    {
+      "component": "canonical projective forward data",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.projectiveModel_injective",
+        "SigmaFinal.projectiveModel_preserves_cross_ratios",
+        "SigmaFinal.projectiveModel_three_marks"
+      ],
+      "proof_and_scope": "The literal model 1/t-1 is injective, preserves the stated rational cross-ratio and has all three marked values."
+    },
+    {
+      "component": "calibrated zero-Schwarzian inverse",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.calibrated_schwarzian_identifies",
+        "SigmaFinal.calibrated_schwarzian_identifies_minimal",
+        "SigmaFinal.projectiveAux_eq_log_abs",
+        "SigmaFinal.projectiveAux_hasDerivAt",
+        "SigmaFinal.projectiveAuxSlope_hasDerivAt",
+        "SigmaFinal.projectiveAux_second_hasDerivAt"
+      ],
+      "proof_and_scope": "The exact ContDiffOn R 3 wrapper and a stronger three-differentiability-level theorem use only a nonvanishing actual first derivative, the actual Schwarzian equation and the three jet marks. The genuine auxiliary -log|f'|/2-t+1 satisfies the already-proved Riccati equation. Its derivative identifies f''/f', a differentiated product t^2 f' becomes constant, and the final anchored primitive is recovered. No global injectivity or analyticity is added."
+    },
+    {
+      "component": "canonical Schwarzian forward data",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.projectiveModel_C3",
+        "SigmaFinal.projectiveModel_first_derivative",
+        "SigmaFinal.projectiveModel_second_derivative",
+        "SigmaFinal.projectiveModel_third_derivative",
+        "SigmaFinal.projectiveModel_schwarzian_zero",
+        "SigmaFinal.projectiveModel_schwarzian_marks"
+      ],
+      "proof_and_scope": "The first three actual derivatives are computed by native HasDerivAt and eventual equality, giving C3 regularity, nonzero first derivative, the exact zero Schwarzian and all three jet marks."
+    },
+    {
+      "component": "anchored primitive identifies H",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.projective_anchored_primitive_identifies"
+      ],
+      "proof_and_scope": "A genuine derivative relation F'=f and F(1)=0 recover H from either identified coordinate f. The derivative premise includes its existence, matching the mathematical use of F'."
+    },
+    {
+      "component": "projectivity and zero Schwarzian without calibration do not identify the model",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.projectiveAffineCounter_injective",
+        "SigmaFinal.projectiveAffineCounter_preserves_cross_ratios",
+        "SigmaFinal.projectiveAffineCounter_schwarzian_data",
+        "SigmaFinal.projectiveAffineCounter_not_model"
+      ],
+      "proof_and_scope": "The explicit affine function 1-t is injective and projective, has nonzero actual derivative and zero actual Schwarzian, but differs from 1/t-1. It even retains f(1)=0 and f'(1)=-1, displaying the need for the remaining Schwarzian calibration."
+    }
+  ],
+  "lean_declarations": [
+    "SigmaFinal.calibrated_cross_ratio_identifies",
+    "SigmaFinal.projective_three_point_slice_identifies",
+    "SigmaFinal.projectiveModel_injective",
+    "SigmaFinal.projectiveModel_preserves_cross_ratios",
+    "SigmaFinal.projectiveModel_three_marks",
+    "SigmaFinal.calibrated_schwarzian_identifies",
+    "SigmaFinal.calibrated_schwarzian_identifies_minimal",
+    "SigmaFinal.projectiveAux_eq_log_abs",
+    "SigmaFinal.projectiveAux_hasDerivAt",
+    "SigmaFinal.projectiveAuxSlope_hasDerivAt",
+    "SigmaFinal.projectiveAux_second_hasDerivAt",
+    "SigmaFinal.projectiveModel_C3",
+    "SigmaFinal.projectiveModel_first_derivative",
+    "SigmaFinal.projectiveModel_second_derivative",
+    "SigmaFinal.projectiveModel_third_derivative",
+    "SigmaFinal.projectiveModel_schwarzian_zero",
+    "SigmaFinal.projectiveModel_schwarzian_marks",
+    "SigmaFinal.projective_anchored_primitive_identifies",
+    "SigmaFinal.projectiveAffineCounter_injective",
+    "SigmaFinal.projectiveAffineCounter_preserves_cross_ratios",
+    "SigmaFinal.projectiveAffineCounter_schwarzian_data",
+    "SigmaFinal.projectiveAffineCounter_not_model"
+  ],
+  "representation_notes": [
+    "projectiveCrossRatio is the literal manuscript rational expression, and PreservesPositiveCrossRatios quantifies over ordered pairwise-distinct quadruples in the positive ray. Source and image denominators are justified by distinctness and native injectivity.",
+    "projectiveSchwarzian is literally built from deriv f, deriv (deriv f), and deriv (deriv (deriv f)). The auxiliary derivative formulas are established by native HasDerivAt, not supplied as an unconstrained hierarchy.",
+    "The internal Real.log of f' equals log|f'| by projectiveAux_eq_log_abs. Thus nonvanishing f', with either sign, is the exact required logarithmic-domain condition.",
+    "Functions are extended to R for Lean, but all candidate hypotheses and identifying conclusions are restricted to the open positive ray. No behavior outside that ray is used."
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalProjectiveAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalProjectiveAxiomCheck.log",
+    "report": "outputs/final-draft/projective-axiom-audit.json"
+  }
+}

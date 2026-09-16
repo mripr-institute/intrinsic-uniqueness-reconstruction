@@ -1,0 +1,1205 @@
+\section{Probability laws and identifying transforms}
+\label{final:probability}
+
+Throughout this section we use the intrinsic decomposition of $\Sigma$
+in its marked positive coordinate:
+\[
+ H(t)=\log t-t+1,\qquad I(t)=t-1-\log t,\qquad
+ p(t)=t e^{-t}.
+\]
+The symbol $\overline F$ denotes a survival function.
+All Gamma parameters are shape and
+\emph{rate}, in that order.  Equality of probability laws identifies
+densities almost everywhere; a pointwise density assertion uses their
+specified continuous representatives.  Placement parameters do not
+occur in these intrinsic statements.
+
+\begin{proposition}[Uniqueness principles for the transforms used below]
+\label{final:P0-uniqueness}
+Finite Borel measures on $\mathbb R$ are determined by their
+characteristic functions.  Finite measures on $[0,\infty)$ are
+determined by their Laplace transforms on $[0,\infty)$, and finite
+measures on $[0,1]$ by all their nonnegative integer moments.
+Two probability laws with moment generating functions finite on
+an open interval about zero and equal there are equal.
+\end{proposition}
+\begin{proof}
+For the compact-interval assertion, equality on monomials gives
+equality on polynomials, then on continuous functions by uniform
+polynomial approximation, and finally on Borel sets by uniqueness
+of finite regular measures.  Pushing a measure on $[0,\infty)$ forward
+by $x\mapsto e^{-x}$ reduces Laplace uniqueness to this assertion:
+integer Laplace values give all moments of the pushforward on $[0,1]$.
+
+For characteristic functions, subtract the two finite measures.
+Convolution with a centered Gaussian of variance $\varepsilon>0$
+has density whose Fourier transform is the vanishing characteristic
+function times $e^{-\varepsilon\xi^2/2}$.  Fourier inversion, justified
+by the integrable Gaussian factor and Fubini's theorem, makes this
+convolution zero.  Gaussian approximate identities converge against
+every continuous function of compact support, so the original signed
+measure is zero.  Finally an exponential moment gives a holomorphic
+bilateral transform on a vertical strip about the imaginary axis.
+The identity theorem extends equality near zero to that strip;
+characteristic-function uniqueness applies on the imaginary axis.
+\end{proof}
+
+\begin{theorem}[Gamma law and complete transform characterizations]
+\label{final:P1}
+Let $\mu_\Gamma(dt)=\mathbf 1_{(0,\infty)}(t)p(t)\,dt$.
+It is the probability law $\operatorname{Gamma}(2,1)$, with topological
+support $[0,\infty)$ and no atom at zero.  Its transforms are
+\begin{align}
+ \int e^{-zt}\,\mu_\Gamma(dt)&=(1+z)^{-2},
+       &&\operatorname{Re}z>-1,\label{final:eq-gamma-laplace}\\
+ \int e^{i\xi t}\,\mu_\Gamma(dt)&=(1-i\xi)^{-2},
+       &&\xi\in\mathbb R,\label{final:eq-gamma-characteristic}\\
+ \int t^{z-1}\,\mu_\Gamma(dt)&=\Gamma(z+1),
+       &&\operatorname{Re}z>-1,\label{final:eq-gamma-mellin}\\
+ \int t^n\,\mu_\Gamma(dt)&=(n+1)!,
+       &&n\in\mathbb N_0.\label{final:eq-gamma-moments}
+\end{align}
+Each of the following complete observations identifies its candidate
+as $\mu_\Gamma$:
+\begin{enumerate}
+\item a finite positive Borel measure on $\mathbb R$ with the moments
+      \eqref{final:eq-gamma-moments}, including $n=0$;
+\item a probability on $[0,\infty)$ with Laplace transform
+      $(1+\lambda)^{-2}$ for every $\lambda\geq0$;
+\item a probability on $\mathbb R$ with characteristic function
+      $(1-i\xi)^{-2}$ for every real $\xi$;
+\item a probability on $(0,\infty)$ with
+      $\mathbb E T^{i\xi}=\Gamma(2+i\xi)$ for every real $\xi$.
+\end{enumerate}
+In the first and third clauses, positive support is a conclusion.
+Moreover
+\[
+ \mathbb ET=2,\quad \operatorname{Var}(T)=2,\quad
+ \mathbb E\log T=1-\gamma_E,\quad
+ \kappa_n(T)=2(n-1)!\quad(n\geq1).
+\]
+\end{theorem}
+\begin{proof}
+Euler's integral and integration by parts give
+$\int_0^\infty t^a e^{-bt}\,dt=\Gamma(a+1)b^{-a-1}$
+for $a>-1$, $b>0$, with its holomorphic extension on the stated
+half-planes.  Taking $a=1$ proves normalization and the first two
+transforms; taking $a=z$ proves the Mellin formula and the moments.
+Differentiating the Gamma integral at $a=1$ is justified by an
+integrable logarithmic majorant near zero and exponential decay at
+infinity.  It gives $\mathbb E\log T=\Gamma'(2)=1-\gamma_E$.
+The identity $\log\mathbb E e^{uT}=-2\log(1-u)$ yields the cumulants.
+
+For the first converse the zeroth moment gives mass one.  For
+$0<c<1$, positivity and monotone convergence give
+\[
+ \int\cosh(ct)\,\mu(dt)
+ =\sum_{n=0}^\infty(2n+1)c^{2n}
+ =\frac{1+c^2}{(1-c^2)^2}<\infty.
+\]
+Since $e^{c|t|}\leq2\cosh(ct)$, the candidate has a two-sided
+exponential moment.  Dominated power-series expansion for $|u|<1$
+therefore gives
+\[
+ \int e^{ut}\,\mu(dt)
+ =\sum_{n=0}^\infty\frac{u^n(n+1)!}{n!}
+ =(1-u)^{-2}.
+\]
+Proposition~\ref{final:P0-uniqueness} identifies the measure on the
+whole real line.  Its support follows from the strictly positive
+density on $(0,\infty)$ and zero density on $(-\infty,0]$.
+The second and third converses are the same uniqueness proposition.
+In the fourth, the supplied function is the characteristic function
+of $\log T$; identify that law and push it forward by the exponential.
+\end{proof}
+
+\begin{proposition}[Exponential samples also derive support]
+\label{final:P1-samples}
+If a finite positive Borel measure $\nu$ on $\mathbb R$ satisfies
+\[
+ \int e^{-ns}\,\nu(ds)=(n+1)^{-2}\qquad(n\in\mathbb N_0),
+\]
+then $\nu(ds)=\mathbf 1_{(0,\infty)}(s)s e^{-s}\,ds$.
+\end{proposition}
+\begin{proof}
+The sample at zero gives mass one.  If
+$\nu(( -\infty,-\varepsilon])=m>0$, then the $n$th sample is
+at least $m e^{n\varepsilon}$, a contradiction as $n\to\infty$.
+Taking a countable union excludes the entire negative ray.
+Push forward by $y=e^{-s}$ to $[0,1]$.  Its moments are
+$(n+1)^{-2}$, which are those of $(-\log y)\,dy$ on $(0,1)$.
+Compact moment uniqueness and the inverse change of variables give
+the stated law, including absence of an atom at zero.
+\end{proof}
+
+\begin{proposition}[Boundaries of moment identification]
+\label{final:P1-boundaries}
+Removing positivity, removing the zeroth moment, or retaining only
+finitely many ordinary moments invalidates the corresponding
+unrestricted moment converse in Theorem~\ref{final:P1}.
+\end{proposition}
+\begin{proof}
+Without the zeroth equation, every $\mu_\Gamma+a\delta_0$, $a>0$,
+has the specified moments of positive orders.  To remove positivity,
+take a nonzero real even smooth Fourier bump supported in
+$[-2,-1]\cup[1,2]$ and let $h$ be its inverse Fourier transform.
+The real Schwartz function $h$ has every polynomial moment zero,
+because those moments are constant multiples of derivatives of its
+Fourier transform at zero.  Thus the distinct finite signed measures
+$\mu_\Gamma+\varepsilon h(t)\,dt$ have all the same moments.
+
+For any fixed $m$, choose $m+2$ nonzero smooth bumps with disjoint
+compact supports in $(1,2)$.  The $m+1$ linear equations making a
+linear combination $h$ orthogonal to $1,t,\ldots,t^m$ have a nonzero
+solution.  Disjoint supports ensure $h\neq0$.  On this compact set
+$p$ has a positive minimum, so $p+\varepsilon h$ is a positive
+probability density for all sufficiently small $|\varepsilon|$.
+It is distinct from $p$ and retains every requested moment.
+\end{proof}
+
+\begin{theorem}[Marked Poisson recurrence, cumulants and divergences]
+\label{final:P2}
+A probability sequence $(\pi_n)_{n\geq0}$ satisfies
+\[
+ (n+1)\pi_{n+1}=\pi_n\qquad(n\geq0)
+\]
+if and only if $\pi_n=e^{-1}/n!$.  For $N$ with this law,
+\begin{align}
+ K(u)&=\log\mathbb E e^{uN}=e^u-1,\label{final:eq-poisson-cgf}\\
+ \Lambda(u)&=\log\mathbb E e^{u(N-1)}=e^u-1-u=I(e^u).
+       \label{final:eq-poisson-centered}
+\end{align}
+The complete uncentered CGF near zero identifies $N$ as
+$\operatorname{Pois}(1)$.  The complete centered expression identifies
+the law of $N-1$ when the shift is marked as one.  As a scalar
+function it reconstructs $I(t)=\Lambda(\log t)$.
+
+With $D$ denoting relative entropy, for $a,b>0$ one has
+\begin{align}
+ D(\operatorname{Pois}(a)\Vert\operatorname{Pois}(b))
+     &=a I(b/a),\label{final:eq-poisson-kl}\\
+ D(\operatorname{Exp}(a)\Vert\operatorname{Exp}(b))
+     &=I(b/a),\label{final:eq-exp-kl}\\
+ 2D(\mathcal N(0,a)\Vert\mathcal N(0,b))
+     &=I(a/b),\label{final:eq-gaussian-kl}
+\end{align}
+where $a,b$ in the last line are variances.  Consequently each full
+marked slice obtained by $(a,b)=(1,t),(1,t),(t,1)$, respectively,
+reconstructs $I$.  With $\Psi(t)=t\log t-t+1$,
+\[
+ D(\operatorname{Pois}(a)\Vert\operatorname{Pois}(b))
+ =\Psi(a)-\Psi(b)-\Psi'(b)(a-b).
+\]
+The Legendre transform of the centered CGF is
+\[
+ \Lambda^*(z)=
+ \begin{cases}
+ (1+z)\log(1+z)-z,&z>-1,\\
+ 1,&z=-1,\\
+ +\infty,&z<-1.
+ \end{cases}
+\]
+\end{theorem}
+\begin{proof}
+The recurrence gives $\pi_n=\pi_0/n!$ by induction; summing fixes
+$\pi_0=e^{-1}$.  Conversely these coefficients satisfy the recurrence.
+Summing the exponential series gives
+$\mathbb E e^{uN}=e^{-1}\exp(e^u)$ and both CGFs.  Their converses
+follow from Proposition~\ref{final:P0-uniqueness} applied to the actual
+variable whose CGF is supplied.
+
+For Poisson laws the log likelihood ratio at $n$ is
+$b-a+n\log(a/b)$; its expectation is
+$b-a+a\log(a/b)$.  For exponential laws the log ratio is
+$\log(a/b)+(b-a)t$, whose expectation under rate $a$ is
+$\log(a/b)+(b-a)/a$.  For centered Gaussians the log ratio is
+$\frac12\log(b/a)+\frac12t^2(1/b-1/a)$, whose expectation uses
+$\mathbb E t^2=a$.  Substitution proves the three formulas and the
+Bregman identity.
+
+For $z>-1$, maximizing $uz-\Lambda(u)$ gives $e^u=1+z$ and
+the displayed value.  At $z=-1$ the objective is $1-e^u$ with
+supremum one as $u\to-\infty$.  For $z<-1$ it tends to infinity
+in that limit.  Exponential tilting by $uN$ gives
+$\operatorname{Pois}(e^u)$, whose mean, variance, and Fisher
+information in the $u$ coordinate are all $e^u$, as follows by
+differentiating $K$ and by the score $N-e^u$.
+\end{proof}
+
+\begin{proposition}[The centering mark and KL orientation are essential]
+\label{final:P2-boundaries}
+An unmarked centered CGF does not determine the original location,
+even for a law on $\mathbb N_0$.  Reversing the displayed divergence
+slices changes their scalar potential.
+\end{proposition}
+\begin{proof}
+Let $Y\sim\operatorname{Pois}(1)$ and $N_k=Y+k$ for an integer
+$k\geq1$.  Then $N_k-\mathbb EN_k=Y-1$, with centered CGF
+$e^u-1-u$, although $N_k$ is not $\operatorname{Pois}(1)$.
+The reversed Poisson slice is $t\log t-t+1$; the reversed exponential
+slice is $\log t+t^{-1}-1=I(1/t)$, and twice the reversed Gaussian
+slice has this same value.  These follow directly from
+\eqref{final:eq-poisson-kl}--\eqref{final:eq-gaussian-kl} and differ
+from $I(t)$ in general.
+\end{proof}
+
+\begin{theorem}[Two marked max laws characterize the Gumbel CDF]
+\label{final:P3}
+Let $F$ be a CDF on $\mathbb R$.  The identities
+\[
+ F(x+\log2)^2=F(x),\qquad F(x+\log3)^3=F(x)
+       \quad(x\in\mathbb R),\qquad F(0)=e^{-1}
+\]
+hold if and only if
+\[
+ F(x)=\exp(-e^{-x}).
+\]
+No density, smoothness, strict monotonicity, or full-support
+hypothesis is required.  This CDF has density
+$g(x)=e^{-x-e^{-x}}=p(e^{-x})$, and it satisfies the analogous
+max identity for every positive integer $n$.
+\end{theorem}
+\begin{proof}
+Iteration in both directions gives
+$F(k\log2)=\exp(-2^{-k})$ for every integer $k$.
+Monotone bounds by adjacent such values yield $0<F(x)<1$ at every
+finite $x$.  Hence $G=-\log F$ is finite, positive, and nonincreasing.
+The two equations imply
+\[
+ G(m\log2+n\log3)=e^{-(m\log2+n\log3)}
+          \qquad(m,n\in\mathbb Z).
+\]
+The subgroup generated by $\log2$ and $\log3$ is dense in
+$\mathbb R$: otherwise their ratio would be rational, contradicting
+unique factorization in the equality $2^r=3^s$ for positive integers
+$r,s$.  Approximating an arbitrary $x$ from both sides by subgroup
+points and using monotonicity proves $G(x)=e^{-x}$.
+Substitution proves the converse, the density formula, and the
+max identities.  For independent observations the CDF of their
+maximum is $F^n$, so these are precisely the stated shifted max laws.
+\end{proof}
+
+\begin{proposition}[Haar weighting and Gumbel calibration boundaries]
+\label{final:P3-haar}
+For the marked map $\tau(x)=e^{-x}$, the Gumbel probability satisfies
+\[
+ \tau_*(dF)=e^{-t}\,dt=p(t)\frac{dt}{t},\qquad
+ \int_0^\infty p(t)\frac{dt}{t}=1.
+\]
+The measure $dt/t$ is multiplicative Haar measure and has infinite
+mass.  Thus the Haar-weighted probability, and its complete density
+in the marked logarithmic coordinate, each reconstruct $p$.
+Removing the anchor in Theorem~\ref{final:P3}, or keeping only its
+base-two equation, destroys uniqueness.
+\end{proposition}
+\begin{proof}
+The positive change-of-variables Jacobian is $|dx/dt|=1/t$.
+Since $g(-\log t)=p(t)$, it gives the pushforward formula;
+conversely $p(t)=g(-\log t)$ recovers the density.
+Invariance of $dt/t$ under $t\mapsto at$ is immediate by
+substitution, and its mass diverges at both endpoints.
+
+Without the anchor, $F_c(x)=\exp(-c e^{-x})$, $c>0$, satisfies
+both max equations.  For only the base-two equation, put
+$a=\log2$ and $h(x)=1+\varepsilon\sin(2\pi x/a)$.
+For nonzero $\varepsilon$ sufficiently small, $h>0$ and $h'<h$.
+Then $\exp(-e^{-x}h(x))$ is a strictly increasing CDF with the
+correct endpoint limits and anchor; periodicity gives the base-two
+equation.  It is not the Gumbel CDF.  The original Gamma probability
+$p(t)\,dt$ and the Haar-weighted probability $p(t)\,dt/t$ are
+different measures.
+\end{proof}
+
+\begin{proposition}[Canonical deficit law and coordinate involution]
+\label{final:P4-data}
+For $T\sim\mu_\Gamma$ let $V=I(T)$.  For $v\geq0$ let
+$a(v)\leq1\leq b(v)$ be the roots of $I(t)=v$; explicitly
+\[
+ a(v)=-W_0(-e^{-1-v}),\qquad
+ b(v)=-W_{-1}(-e^{-1-v}),
+\]
+where $W_0$ and $W_{-1}$ are the real inverse branches of $w e^w$.
+Writing $\overline F_\Gamma(t)=(1+t)e^{-t}$, the canonical deficit
+CDF is zero for $v<0$ and is
+\begin{equation}
+ F_I(v)=\overline F_\Gamma(a(v))-\overline F_\Gamma(b(v)),
+                \qquad v\geq0.\label{final:eq-deficit-cdf}
+\end{equation}
+It has no atom at zero and, for $v>0$, has density
+\begin{equation}
+ f_I(v)=e^{-1-v}
+ \left(\frac{a(v)}{1-a(v)}+\frac{b(v)}{b(v)-1}\right),
+ \qquad f_I(v)\sim\frac{\sqrt2}{e\sqrt v}\quad(v\downarrow0).
+ \label{final:eq-deficit-density}
+\end{equation}
+The canonical coordinate involution is
+\begin{equation}
+ j_I(t)=
+ \begin{cases}
+ -W_{-1}(-te^{-t}),&0<t<1,\\
+ 1,&t=1,\\
+ -W_0(-te^{-t}),&t>1.
+ \end{cases}\label{final:eq-deficit-involution}
+\end{equation}
+It is a smooth strictly decreasing involution, with $j_I'(1)=-1$,
+unique fixed point one, and $I\circ j_I=I$, $p\circ j_I=p$.
+\end{proposition}
+\begin{proof}
+The derivative $I'(t)=(t-1)/t$ and the infinite endpoint limits
+give precisely two roots at every positive level.  Rearranging
+$I(t)=v$ gives $(-t)e^{-t}=-e^{-1-v}$ and proves the Lambert
+formulas.  The sublevel set is $[a(v),b(v)]$, proving the CDF by
+integration.  Implicit differentiation gives
+$a'=a/(a-1)$ and $b'=b/(b-1)$, while
+$p(a)=p(b)=e^{-1-v}$; differentiating the CDF gives its density.
+The Taylor expansion $I(1+h)=h^2/2+O(h^3)$ gives
+$a(v)=1-\sqrt{2v}+O(v)$ and
+$b(v)=1+\sqrt{2v}+O(v)$, yielding the stated asymptotic.
+The zero level is the singleton $\{1\}$, which has Gamma mass zero.
+
+Equal-level pairing immediately gives the involution identities.
+To verify smoothness at the joining point, write
+$I(t)=(t-1)^2 r(t)$ near one, where $r$ is smooth, positive, and
+$r(1)=1/2$.  The function
+\[
+ q_I(t)=\operatorname{sgn}(t-1)\sqrt{2I(t)}
+\]
+therefore extends smoothly with derivative one at one.  Away from
+one its derivative is strictly positive by the sign of $I'$.
+The endpoint limits make it a smooth increasing bijection onto
+$\mathbb R$, and
+$j_I=q_I^{-1}\circ(-\operatorname{id})\circ q_I$.
+This proves all the remaining assertions, including $j_I'(1)=-1$.
+\end{proof}
+
+\begin{proposition}[Deficit transform, cumulants, and determinacy]
+\label{final:P4-cumulants}
+The maximal real moment-generating domain of $V$ is $s<1$, and
+\begin{align}
+ M_V(s)&=e^{-s}\frac{\Gamma(2-s)}{(1-s)^{2-s}},\label{final:eq-deficit-mgf}\\
+ K_V(s)&=\gamma_Es+
+ \sum_{n=2}^\infty\frac{1}{n}
+       \left(\zeta(n)-\frac{1}{n-1}\right)s^n\quad(|s|<1).
+       \label{final:eq-deficit-cgf}
+\end{align}
+Consequently
+\begin{equation}
+ \kappa_1(V)=\gamma_E,\qquad
+ \kappa_n(V)=(n-1)!
+       \left(\zeta(n)-\frac{1}{n-1}\right)\quad(n\geq2).
+       \label{final:eq-deficit-cumulants}
+\end{equation}
+In particular $\operatorname{Var}V=\pi^2/6-1$,
+$\kappa_3(V)=2\zeta(3)-1$, and $\kappa_4(V)=\pi^4/15-2$.
+Every nonnegative probability law with all finite moments and these
+algebraic cumulants equals the law of $V$; no separate exponential
+moment assumption on that candidate is necessary.
+For $a>0$ and $s<1$, the conditional transform is
+\begin{equation}
+ \mathbb E[e^{sI(T)}\mid T\geq a]
+ =\frac{e^{-s}\Gamma(2-s,(1-s)a)}
+       {(1+a)e^{-a}(1-s)^{2-s}},
+ \label{final:eq-deficit-truncation}
+\end{equation}
+where $\Gamma(q,x)=\int_x^\infty u^{q-1}e^{-u}\,du$.
+\end{proposition}
+\begin{proof}
+The identity $p=e^{-1-I}$ gives
+\[
+ M_V(s)=e^{-s}\int_0^\infty t^{1-s}e^{-(1-s)t}\,dt.
+\]
+For $s<1$ the Gamma substitution gives
+\eqref{final:eq-deficit-mgf}.  At $s=1$ its integrand is the
+positive constant $e^{-1}$, and for $s>1$ the tail diverges.
+Euler's Gamma product, expanded absolutely for $|s|<1$, gives
+\[
+ \log\Gamma(1-s)=\gamma_Es+
+ \sum_{k=1}^\infty\{-\log(1-s/k)-s/k\}
+ =\gamma_Es+\sum_{n=2}^\infty\zeta(n)s^n/n.
+\]
+Using $\Gamma(2-s)=(1-s)\Gamma(1-s)$ and the logarithm series
+in $\log M_V$ proves \eqref{final:eq-deficit-cgf}, and differentiation
+gives the cumulants.  The classical evaluations
+$\zeta(2)=\pi^2/6$, $\zeta(4)=\pi^4/90$ give the displayed values.
+
+Algebraic cumulants and moments determine each other recursively:
+\[
+ m_0=1,\qquad
+ m_{n+1}=\sum_{j=0}^n\binom nj\kappa_{j+1}m_{n-j}.
+\]
+This is coefficient comparison in the formal identity $M'=K'M$.
+Thus a candidate has the same moments as $V$.  For any $0<s<1$,
+monotone convergence of its nonnegative exponential series gives
+$\mathbb E e^{sX}=\sum m_ns^n/n!=M_V(s)<\infty$.
+Nonnegativity also gives finiteness for negative $s$; uniqueness
+from Proposition~\ref{final:P0-uniqueness} finishes the converse.
+Restricting the same integral to $[a,\infty)$ and dividing by
+$\mathbb P(T\geq a)=(1+a)e^{-a}$ proves the conditional formula.
+\end{proof}
+
+\begin{theorem}[The linked deficit law and involution identify the potential]
+\label{final:P4}
+Let $J:(0,\infty)\to[0,\infty)$ be continuous, satisfy $J(1)=0$,
+be strictly decreasing on $(0,1]$ and strictly increasing on
+$[1,\infty)$, and tend to infinity at both endpoints.  Suppose
+$q_J(t)=e^{-1-J(t)}$ has integral one.  Let $F_J$ be the law of
+$J(T_J)$ under this same density $q_J$, and let $j_J$ exchange its
+two equal-level roots in the same $t$ coordinate and fix one.
+If
+\[
+ F_J=F_I\quad\hbox{and}\quad j_J=j_I,
+\]
+with the target values specified in
+\eqref{final:eq-deficit-cdf} and \eqref{final:eq-deficit-involution},
+then $J=I$ and $q_J=p$.  Conversely $I$ supplies these data.
+The full list \eqref{final:eq-deficit-cumulants} may replace $F_J=F_I$.
+More generally the complete pair $(F_J,j_J)$ uniquely determines
+every potential in this candidate class.
+\end{theorem}
+\begin{proof}
+Let $a_J(v)\leq1\leq b_J(v)$ be the inverse branches, including
+$a_J(0)=b_J(0)=1$, and put $w_J(v)=b_J(v)-a_J(v)$.
+The pushforward of Lebesgue measure under $J$ has locally finite
+Stieltjes distribution $w_J$: the sublevel interval has exactly
+that length.  Weighting by $e^{-1-J}$ therefore gives, as measures,
+\[
+ dF_J(v)=e^{-1-v}\,dw_J(v),\qquad
+ w_J(v)=e\int_{[0,v]}e^s\,dF_J(s).
+\]
+Both widths vanish at zero, so there is no undetermined integration
+constant.  The map $D_J(t)=t-j_J(t)$ is a continuous strictly
+increasing bijection from $[1,\infty)$ to $[0,\infty)$:
+$j_J$ is decreasing, fixes one, and tends to zero as $t\to\infty$.
+Consequently
+\[
+ b_J(v)=D_J^{-1}(w_J(v)),\qquad a_J(v)=j_J(b_J(v)).
+\]
+The observed pair recovers both inverse branches and hence $J$
+pointwise.  This proof uses Stieltjes measures and does not require
+a derivative of $J$ or a density of $F_J$.
+The cumulant alternative follows from
+Proposition~\ref{final:P4-cumulants}, since $J(T_J)\geq0$.
+\end{proof}
+
+\begin{proposition}[Neither linked observation alone suffices]
+\label{final:P4-boundaries}
+Within the normalized candidate class of Theorem~\ref{final:P4},
+there are noncanonical potentials with exactly $F_I$, and others
+with exactly $j_I$.  Thus both canonical target observations and
+their common density--potential linkage carry identifying information.
+The law of $I(T)$ alone does not identify an arbitrary source law
+for $T$, even when the potential $I$ itself is fixed.
+\end{proposition}
+\begin{proof}
+Start with the canonical inverse branches $a,b$.  Choose a nonzero
+smooth function $h$ supported on a compact level interval inside
+$(0,\infty)$ and set $a_\varepsilon=a+\varepsilon h$,
+$b_\varepsilon=b+\varepsilon h$.  On that compact interval the
+strictly negative derivative of $a$ and strictly positive derivative
+of $b$ are bounded away from zero, and the branches are separated
+from zero and one.  Small $|\varepsilon|$ therefore preserves the
+branch ranges and monotonicities.  Their inverses define an
+admissible $J_\varepsilon\neq I$.  The width is unchanged; the
+Stieltjes formula in Theorem~\ref{final:P4} preserves both the entire
+deficit law and its total probability mass.  Joint uniqueness shows
+that its involution differs.
+
+Conversely choose nonzero nonnegative smooth level bumps $f,g$ with
+disjoint compact supports in $(0,\infty)$, and set
+$h_{\varepsilon,\delta}(v)=v+\varepsilon f(v)+\delta g(v)$.
+Small coefficients make $h$ a strictly increasing bijection fixing
+zero, with $h'(0)=1$.  The potential $h\circ I$ has exactly $j_I$.
+Its mass functional
+\[
+ N(\varepsilon,\delta)=
+ \int_0^\infty e^{-1-h_{\varepsilon,\delta}(I(t))}\,dt
+\]
+is smooth near zero, since the perturbations have compact level
+support, and
+$\partial_\delta N(0,0)=-\int p(t)g(I(t))\,dt<0$.
+The implicit function theorem gives $\delta(\varepsilon)$ with
+$N(\varepsilon,\delta(\varepsilon))=1$.  For nonzero small
+$\varepsilon$, disjoint supports ensure that this potential differs
+from $I$, and joint uniqueness makes its deficit law different.
+
+Finally draw $V$ with law $F_I$ and set $T_+=b(V)$.  Then
+$I(T_+)=V$ exactly, but $T_+\geq1$ almost surely, so its law is not
+$\mu_\Gamma$.  This explicitly exhibits the lost allocation between
+the two branches if the source law is not linked to $e^{-1-I}dt$.
+Merely possessing some linked pair, without prescribing its two
+canonical values, plainly holds for all the potentials just built.
+\end{proof}
+
+\begin{theorem}[Survival, hazard, logistic equation, and causal Green kernel]
+\label{final:P5}
+The Gamma survival and hazard are
+\begin{equation}
+ \overline F_\Gamma(x)=(1+x)e^{-x}
+ =\frac{p(1+x)}{p(1)}=e^{-I(1+x)},\qquad
+ h_\Gamma(x)=\frac{x}{1+x}\quad(x\geq0).
+ \label{final:eq-survival}
+\end{equation}
+Each of the following identifying clauses recovers $p$:
+\begin{enumerate}
+\item an absolutely continuous probability on $[0,\infty)$ with
+      positive survival at finite arguments, survival value one at
+      zero, and actual hazard $x/(1+x)$ almost everywhere;
+\item that same survival framework, with its marked hazard
+      $v(u)=h(e^u)$ differentiable on $\mathbb R$ and satisfying
+      $v'=v(1-v)$, $v(0)=1/2$;
+\item a $C^2$ function $f$ on $(0,\infty)$ extending continuously
+      to zero, with $f''+2f'+f=0$, $f(0)=0$, and
+      $\int_0^\infty f(t)\,dt=1$;
+\item a distribution $g$ on $\mathbb R$ supported in $[0,\infty)$
+      with $(D+1)^2g=\delta_0$.
+\end{enumerate}
+In the last clause the result is
+$g(t)=\mathbf 1_{[0,\infty)}(t)t e^{-t}$.
+If $k(t)=\mathbf 1_{[0,\infty)}(t)e^{-t}$, then $g=k*k$.
+Thus $\mu_\Gamma$ is also the law of a sum of two independent
+unit-rate exponential variables and the second arrival time of a
+unit-rate Poisson process.
+\end{theorem}
+\begin{proof}
+Integration by parts gives the survival formula, and its negative
+derivative divided by the survival gives the hazard.  For the first
+converse, local absolute continuity and positivity imply
+\[
+ (\log\overline F)'=-\frac{x}{1+x}\quad\hbox{almost everywhere}.
+\]
+Integration from zero gives
+$\log\overline F(x)=-x+\log(1+x)$; differentiating recovers the
+density $p$ almost everywhere.  The function
+$v(u)=(1+e^{-u})^{-1}$ solves the second clause.  Uniqueness for the
+scalar differential equation, whose right-hand side is locally
+Lipschitz, gives this solution on all of $\mathbb R$; the substitution
+$x=e^u$ returns the first clause.
+
+For the third clause, $(e^tf)''=0$, so
+$f(t)=(A+Bt)e^{-t}$.  The endpoint gives $A=0$ and integration
+gives $B=1$.  For the distributional clause, multiplication by
+$e^t$ conjugates $(D+1)^2$ to $D^2$, while
+$e^t\delta_0=\delta_0$.  The function $t_+=\max(t,0)$ has
+distributional second derivative $\delta_0$.  The difference
+$e^tg-t_+$ has second derivative zero, hence is an affine
+distribution; its support in $[0,\infty)$ forces both affine
+coefficients to vanish.  This proves existence and uniqueness.
+Direct convolution gives
+\[
+ (k*k)(t)=\mathbf 1_{[0,\infty)}(t)
+       \int_0^t e^{-s}e^{-(t-s)}\,ds
+       =\mathbf 1_{[0,\infty)}(t)t e^{-t}.
+\]
+The convolution is the independent-sum density.  For a unit-rate
+Poisson process the event that its second arrival exceeds $x$ is
+the event of at most one arrival by $x$, with probability
+$e^{-x}(1+x)$.  This gives the final construction.
+\end{proof}
+
+\begin{proposition}[Precise survival boundaries and Gamma shift uniqueness]
+\label{final:P5-survival-boundaries}
+Local absolute continuity and the survival anchor in
+Theorem~\ref{final:P5} cannot be dropped from its almost-everywhere
+hazard formulation.  For the logarithmic random variable $Y=\log T$,
+the hazard with respect to its own coordinate is
+\[
+ h_Y(u)=e^u h_\Gamma(e^u)=\frac{e^{2u}}{1+e^u},
+\]
+which differs from the composition $v(u)$ in that theorem.
+For a Gamma density of shape $\alpha>0$ and rate $\beta>0$, the
+self-survival shift identity
+\begin{equation}
+ \overline F_{\alpha,\beta}(x)
+ =\frac{f_{\alpha,\beta}(x+c)}{f_{\alpha,\beta}(c)}
+                  \quad(x\geq0),\qquad c>0,
+ \label{final:eq-gamma-self-shift}
+\end{equation}
+holds exactly when $\alpha=1$ with arbitrary $c$, or when
+$\alpha=2$ and $c=1/\beta$.
+\end{proposition}
+\begin{proof}
+The mixtures $r\delta_0+(1-r)\mu_\Gamma$, $0<r<1$, retain the
+hazard at positive arguments and change the survival anchor.
+For the regularity boundary, let $C$ be a nonconstant continuous
+nondecreasing singular function on $[0,\infty)$, zero on $[0,1]$,
+constant on $[2,\infty)$, and with derivative zero almost everywhere.
+For instance, translate a Cantor distribution function to $[1,2]$.
+Then
+\[
+ \overline F(x)=(1+x)e^{-x}e^{-C(x)}
+\]
+is a continuous decreasing survival with value one at zero and
+limit zero, and satisfies the same logarithmic derivative equation
+almost everywhere.  Its singular component makes it different
+from $\overline F_\Gamma$.  This example concerns a bare derivative
+equation without absolute continuity.  For $Y=\log T$, the density
+is $e^u p(e^u)$ and the survival is
+$\overline F_\Gamma(e^u)$, which gives the asserted Jacobian factor.
+
+For \eqref{final:eq-gamma-self-shift}, the density is
+$f_{\alpha,\beta}(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/
+\Gamma(\alpha)$.  If $0<\alpha<1$, the right derivative of the
+survival at zero is $-\infty$, while the shifted ratio has finite
+derivative, so equality is impossible.  If $\alpha=1$, the ratio
+and survival are both $e^{-\beta x}$ for every $c$.
+For $\alpha>1$, the survival derivative at zero is zero; equality
+forces $(\alpha-1)/c-\beta=0$.  For that $c$, the logarithmic
+derivative of the ratio is $-\beta x/(x+c)$, so its derivative is
+$-(\beta/c)x(1+o(1))$ near zero.  The survival derivative is
+$-\beta^\alpha x^{\alpha-1}(1+o(1))/\Gamma(\alpha)$.
+Their equality forces $\alpha-1=1$, then $c=1/\beta$.
+The Gamma shape-two survival is $(1+\beta x)e^{-\beta x}$,
+which verifies the surviving case.  In particular this shift
+property without a specified comparison class is not an
+unrestricted characterization of $p$.
+\end{proof}
+
+\begin{proposition}[Probability Stieltjes transform and its inverse]
+\label{final:P5-stieltjes}
+For $z>0$,
+\begin{equation}
+ G_\Gamma(z)=\int_0^\infty\frac{p(t)}{t+z}\,dt
+ =1-z e^z E_1(z),\qquad
+ E_1(z)=\int_z^\infty\frac{e^{-u}}u\,du.
+ \label{final:eq-gamma-stieltjes}
+\end{equation}
+The complete transform, or its values on any nonempty open interval
+in $(0,\infty)$, identifies a candidate finite positive measure on
+$[0,\infty)$ as $\mu_\Gamma$.
+The Laplace transform $(1+\lambda)^{-2}$ is completely monotone
+but is not a nonzero Stieltjes function.  Neither $p$ nor
+$\overline F_\Gamma$ is completely monotone.
+\end{proposition}
+\begin{proof}
+Split $t/(t+z)=1-z/(t+z)$ and substitute $u=t+z$ in the second
+integral; this proves \eqref{final:eq-gamma-stieltjes}.
+For a finite measure $\mu$, Tonelli's theorem gives
+\[
+ G_\mu(z)=\int_0^\infty e^{-zv}L_\mu(v)\,dv,
+ \qquad L_\mu(v)=\int e^{-vt}\,\mu(dt).
+\]
+The Stieltjes transform is holomorphic for $\operatorname{Re}z>0$,
+by local dominated differentiation.  Equality on an open positive
+interval thus extends to all positive $z$.  For two such measures
+let $h=L_\mu-L_\nu$, a bounded continuous function.  The finite signed
+measure $e^{-v}h(v)\,dv$ has zero Laplace transform by the displayed
+identity evaluated at $z+1$.  Proposition~\ref{final:P0-uniqueness}
+makes it zero; continuity gives $h=0$, and a second application of
+Laplace uniqueness gives $\mu=\nu$.
+
+Complete monotonicity of $(1+\lambda)^{-2}$ follows by differentiating
+its positive Laplace integral.  A Stieltjes representation is
+\[
+ f(\lambda)=a/\lambda+b+
+ \int_{[0,\infty)}\frac{\rho(dt)}{\lambda+t},
+ \qquad a,b\geq0,\quad
+ \int\frac{\rho(dt)}{1+t}<\infty.
+\]
+If this function is nonzero, either $a>0$, $b>0$, or $\rho$ has
+positive mass on some bounded interval.  In every case
+$\liminf_{\lambda\to\infty}\lambda f(\lambda)>0$.
+For $(1+\lambda)^{-2}$ that limit is zero, a contradiction.
+Finally $p'(t)=(1-t)e^{-t}>0$ for $0<t<1$, while
+$\overline F_\Gamma''(t)=(t-1)e^{-t}<0$ there.  These signs violate
+the respective complete-monotonicity inequalities.
+\end{proof}
+
+\begin{proposition}[Reverse size bias, equilibrium, and marked tilting]
+\label{final:P5-transforms}
+Let $\mu$ be a probability on $[0,\infty)$ with finite positive
+mean $m$.
+\begin{enumerate}
+\item Its size-biased probability is $\beta(dt)=t\mu(dt)/m$.
+      If $\mu(\{0\})=0$, then
+      \[
+      c=\int_{(0,\infty)}t^{-1}\,\beta(dt)=1/m,
+      \qquad \mu(dt)=\frac{\beta(dt)}{ct}.
+      \]
+      Conversely any probability $\beta$ on $(0,\infty)$ with
+      $0<c<\infty$ in this formula has that unique positive inverse.
+      In particular the positive size-bias inverse of
+      $\mu_\Gamma$ is $\operatorname{Exp}(1)$.
+\item Its equilibrium law has canonical decreasing right-continuous
+      density $q_E(t)=\mathbb P(X>t)/m$ for $t\geq0$.
+      If $\mathbb P(X>0)=1$, its inverse is
+      \[
+      m=1/q_E(0+),\qquad\mathbb P(X>t)=m q_E(t).
+      \]
+      In particular the full equilibrium density
+      $(1+t)e^{-t}/2$ identifies $\mu_\Gamma$, without assuming a
+      density for the candidate original lifetime.
+\item For a probability $\mu$ on $\mathbb R$, a marked real tilt
+      $\theta$ with $0<M(\theta)=\int e^{\theta t}\mu(dt)<\infty$
+      gives $\mu_\theta(dt)=e^{\theta t}\mu(dt)/M(\theta)$ and has
+      the inverse
+      \[
+      \mu(dt)=\frac{e^{-\theta t}\mu_\theta(dt)}
+                    {\int e^{-\theta y}\mu_\theta(dy)}.
+      \]
+      For $\mu_\Gamma$, the admissible real tilts are $\theta<1$,
+      and
+      \[
+      p_\theta(t)=(1-\theta)^2t e^{-(1-\theta)t},\quad
+      \kappa_n(T_\theta)=\frac{2(n-1)!}{(1-\theta)^n}.
+      \]
+      Its mean is $2/(1-\theta)$ and variance
+      $2/(1-\theta)^2$.
+\end{enumerate}
+Allowing an atom at zero destroys the first two inverses.  Forgetting
+the tilt mark leaves a rate ambiguity in the third.
+\end{proposition}
+\begin{proof}
+In the first clause, integrating $1/t$ against the definition gives
+$c=\mu((0,\infty))/m=1/m$.  The inverse has total mass one and
+mean $1/c$ by direct integration, and size-biasing it returns
+$\beta$.  For $\beta(dt)=p(t)dt$, one has $c=1$, and division by
+$t$ gives $e^{-t}dt$.
+
+The tail integral identity $\int_0^\infty\mathbb P(X>t)dt=m$
+normalizes the equilibrium density.  Positivity of the original
+lifetime gives its right limit at zero as $1/m$; the displayed
+inverse therefore recovers the entire survival, including all
+positive atoms.  Two right-continuous monotone representatives
+that agree almost everywhere agree everywhere, since a strict
+difference at one point would persist on a short interval to its
+right.  Thus equality of equilibrium laws suffices.  For the target
+density $q_E(0+)=1/2$, the recovered survival is
+$(1+t)e^{-t}$, whose negative derivative is $p(t)$.
+
+Multiplication of the tilt formula by $e^{-\theta t}$ and
+normalization proves the third inverse.  The Gamma transform gives
+$M(\theta)=(1-\theta)^{-2}$ for $\theta<1$ and divergence otherwise.
+Its tilted log MGF is
+$-2\log(1-u/(1-\theta))$, proving the cumulants.
+
+Every $r\delta_0+(1-r)\operatorname{Exp}(1)$, $0\leq r<1$, has
+the same size bias $\mu_\Gamma$.  Similarly
+$r\delta_0+(1-r)\mu_\Gamma$ has the same equilibrium law for all
+$r<1$, because its tail and mean are both multiplied by $1-r$.
+For the tilt boundary, a Gamma law of any rate $b>0$, tilted by
+$\theta=b-r$, has the fixed output rate $r>0$.  Hence the output
+without its input tilt mark does not recover $b$.
+\end{proof}
+
+\begin{corollary}[Equilibrium fixed points]
+\label{final:P5-equilibrium-fixed}
+A positive lifetime with finite mean $m$ equals its equilibrium law
+if and only if it is exponential with rate $1/m$.
+\end{corollary}
+\begin{proof}
+Equality to the equilibrium law makes the original distribution
+absolutely continuous with density $\overline F/m$.
+Consequently $\overline F'=-\overline F/m$ almost everywhere and
+$\overline F(0)=1$.  Integration gives $\overline F(t)=e^{-t/m}$.
+This exponential law satisfies the same equation and mean by direct
+integration.
+\end{proof}
+
+\begin{theorem}[Rooted coefficients, Borel probabilities, and the inverse germ]
+\label{final:P6}
+There is a unique formal power series $R(z)\in z\mathbb R[[z]]$
+with $R=ze^R$, and for $n\geq k\geq1$,
+\begin{equation}
+ [z^n]R(z)^k=\frac{k}{n}\frac{n^{n-k}}{(n-k)!}.
+ \label{final:eq-rooted-coefficients}
+\end{equation}
+In particular
+\[
+ R(z)=\sum_{n\geq1}\frac{n^{n-1}}{n!}z^n,
+ \qquad \operatorname{radius}(R)=e^{-1},
+\]
+and its compositional inverse germ is $z=t e^{-t}=p(t)$.
+The marked Borel PGF and its probabilities are
+\begin{equation}
+ B(s)=R(s/e),\qquad
+ b_n=\frac{e^{-n}n^{n-1}}{n!}\quad(n\geq1),\qquad
+ B(s)=s e^{B(s)-1},\quad B(1)=1.
+ \label{final:eq-borel}
+\end{equation}
+Its inverse germ is $s=t e^{1-t}=e p(t)$, with the factor $e$
+part of the marking.  For $k$ independent Borel variables their
+sum has probabilities
+\begin{equation}
+ [s^n]B(s)^k=
+ \frac{k}{n}e^{-n}\frac{n^{n-k}}{(n-k)!}\qquad(n\geq k).
+ \label{final:eq-borel-forest}
+\end{equation}
+The complete rooted EGF or complete Borel PGF thus determines the
+inverse analytic germ.  If a candidate global density is real
+analytic on the connected interval $(0,\infty)$ and agrees with
+that inverse germ near zero, it equals $p$ everywhere.  Alternatively
+$t e^{-t}$ specifies a canonical global extension of the germ.
+\end{theorem}
+\begin{proof}
+Successive coefficient comparison in $R=ze^R$ determines each
+coefficient from preceding ones and gives a unique formal solution
+with linear coefficient one.  The inverse function theorem applied
+to $t e^{-t}$ at zero gives a convergent solution germ, so its
+coefficients are those of the formal solution.  For completeness,
+the residue change of variables $z=u e^{-u}$ gives
+\begin{align*}
+ [z^n]R(z)^k
+ &=\operatorname*{Res}_{u=0}
+       u^{k-n-1}e^{nu}(1-u)\,du\\
+ &=[u^{n-k}]e^{nu}-[u^{n-k-1}]e^{nu}
+ =\frac{k}{n}\frac{n^{n-k}}{(n-k)!}.
+\end{align*}
+When $n=k$, the second coefficient is zero and the same formula
+gives one.  The coefficient ratio for $k=1$ tends to $e$,
+since it is $(1+1/n)^{n-1}$, so the radius is $e^{-1}$.
+The inverse identity and Borel scaling follow by substitution.
+
+For $0\leq s<1$, the positive-coefficient solution is the inverse
+on $[0,1)$ of the strictly increasing map
+$t\mapsto t e^{1-t}$ on $[0,1)$.  Indeed the local inverses agree,
+and continuation along this interval is possible because its
+derivative is $e^{1-t}(1-t)>0$.  Hence $B(s)\uparrow1$ as
+$s\uparrow1$.  Monotone convergence of the nonnegative series
+proves $\sum b_n=1$.  Products of PGFs for independent sums and
+\eqref{final:eq-rooted-coefficients} give
+\eqref{final:eq-borel-forest}.
+
+For labelled rooted trees, removing the root leaves an unordered
+set of rooted trees on disjoint sets of labels.  The exponential
+formula gives precisely $R=ze^R$; hence their number on $n$ labels
+is $n^{n-1}$.  An ordered $k$-tuple of such components has EGF
+$R^k$; an unordered set of $k$ components has EGF $R^k/k!$.
+These conventions are part of the respective count statements.
+Finally equality of the inverse germs and the real-analytic
+identity theorem prove the global converse in its stated class.
+\end{proof}
+
+\begin{theorem}[Borel total size identifies a one-ancestor iid GW law]
+\label{final:P6-gw}
+In a Galton--Watson tree started from one ancestor, with independent
+identically distributed offspring counts and the usual rooted-tree
+construction fixed, the total size has law \eqref{final:eq-borel}
+if and only if the offspring law is $\operatorname{Pois}(1)$.
+This determines the full tree law within that construction.
+\end{theorem}
+\begin{proof}
+Construct a countable independent family of offspring counts indexed
+by all finite words in positive integers, and retain a word as a
+vertex exactly when its ancestors and the indicated child indices
+are present.  For Poisson offspring the offspring PGF is
+$\Phi(w)=e^{w-1}$.  The extinction probability is the increasing
+limit of its iterates starting at zero, and therefore the least
+fixed point of $\Phi$ in $[0,1]$.  For $0<w<1$ one has
+$\log w<w-1$, so $\Phi(w)>w$; also $\Phi(0)>0$.
+Its only such fixed point is one.  Extinction is therefore almost
+sure, and the tree, having finite offspring counts, has finite
+total size almost surely.
+
+For any offspring PGF $\Phi$ in this iid construction, conditioning
+on the root offspring and using independence of its descendant
+trees gives $B(s)=s\Phi(B(s))$ for the total-size PGF when the total
+size is almost surely finite.  For the forward Poisson construction
+this is $B=se^{B-1}$, whose formal coefficients are the Borel
+probabilities in Theorem~\ref{final:P6}.  Conversely, if the observed
+total-size law is Borel, then its PGF satisfies both equations.
+The function $B$ maps $(0,1)$ onto $(0,1)$, so division by $s$ gives
+$\Phi(w)=e^{w-1}$ for every $0<w<1$.  Analytic coefficient uniqueness
+identifies every offspring probability as $e^{-1}/n!$.
+The independent product construction then fixes the tree law.
+\end{proof}
+
+\begin{proposition}[Tree and continuation boundaries]
+\label{final:P6-boundaries}
+A complete Borel size law does not identify an arbitrary random
+rooted tree.  A complete inverse germ does not identify an arbitrary
+smooth positive probability density on $(0,\infty)$, even with the
+canonical maximum, strict two-branch shape, and endpoint limits.
+Criticality or a leading Borel tail asymptotic alone does not
+identify the complete Borel law.
+\end{proposition}
+\begin{proof}
+Sample $N$ with probabilities $b_n$ and return either a rooted path
+with $N$ vertices or a rooted star with $N$ vertices.  These laws
+have the same size, but on $N=3$ their root degrees differ, and
+$b_3>0$.  A Poisson GW tree also has positive probability of root
+degree two, which a path never has.  Likewise the PGF product in
+\eqref{final:eq-borel-forest} constructs independent components;
+the sizes of an independently designated forest need not be
+independent merely because component marginals have been specified.
+
+Choose nonzero $h\in C_c^\infty((2,3))$ with $\int h=0$.
+For small nonzero $\varepsilon$, set $p_\varepsilon=p+\varepsilon h$.
+On the compact support both $p$ and $-p'$ have positive minima,
+so positivity and strict decrease survive for small $|\varepsilon|$.
+Outside the support it equals $p$.  The integral remains one, the
+complete germ at zero is unchanged, and the maximum at one and
+all endpoint limits remain canonical.  Nevertheless the density
+is different globally.
+
+The critical offspring law assigning probabilities $1/2,1/2$ to
+zero and two children has mean one and is not Poisson; its trees
+have only odd total sizes.  Finally Stirling's formula gives
+$b_n\sim(2\pi)^{-1/2}n^{-3/2}$.  Altering $b_1,b_2$ by opposite
+sufficiently small amounts preserves positivity, total mass, and
+this exact tail asymptotic, while changing the probability law.
+\end{proof}
+
+\begin{theorem}[The calibrated maximum-entropy characterization]
+\label{final:P7}
+Among Lebesgue probability densities $f$ on $(0,\infty)$ satisfying
+\[
+ \int t f(t)\,dt=2,\qquad
+ \int f(t)\log t\,dt=1-\gamma_E,
+ \qquad \int f(t)|\log t|\,dt<\infty,
+\]
+the unique maximizer of differential entropy is $p$, up to equality
+almost everywhere, and its entropy is $1+\gamma_E$.
+Here the extended convention allows entropy $-\infty$ and defines
+it by the relative-entropy formula below; for finite entropy this
+agrees with $-\int f\log f$.
+\end{theorem}
+\begin{proof}
+The target constraints follow from Theorem~\ref{final:P1}.
+Since $\log p=\log t-t$, every candidate has the finite cross entropy
+$\int f\log p=-1-\gamma_E$.  Put $z=f/p$ and define
+\[
+ D(f\Vert p)=\int_0^\infty p(t)
+          \{z(t)\log z(t)-z(t)+1\}\,dt\in[0,\infty].
+\]
+The integrand is nonnegative and vanishes exactly when $z=1$.
+Because both densities have mass one, this is the usual relative
+entropy, and
+$\mathsf h(f)=1+\gamma_E-D(f\Vert p)\leq1+\gamma_E$.
+For $p$ the divergence is zero; equality for a candidate forces
+$f=p$ almost everywhere.  This proves both maximality and its exact
+converse.  The two constraints alone do not identify $p$: use four
+disjoint compactly supported smooth bumps, solve the three linear
+orthogonality equations against $1,t,\log t$, and add a sufficiently
+small nonzero resulting perturbation to $p$.  Positivity and all
+three equations survive, while the strict entropy inequality holds.
+\end{proof}
+
+\begin{theorem}[Unique probability convolution completion]
+\label{final:P8}
+In the category of probabilities on $[0,\infty)$, there is a unique
+family $(\mu_r)_{r\geq0}$ with $\mu_0=\delta_0$,
+$\mu_{r+s}=\mu_r*\mu_s$, and $\mu_1=\mu_\Gamma$.
+It is
+\begin{equation}
+ \mu_r=\operatorname{Gamma}(2r,1)\ (r>0),\qquad
+ L_{\mu_r}(\lambda)=(1+\lambda)^{-2r}\quad(\lambda\geq0).
+ \label{final:eq-gamma-semigroup}
+\end{equation}
+Weak continuity in $r$ is a conclusion, not an additional premise.
+The associated process with stationary independent increments is uniquely
+specified in finite-dimensional law once that process category and
+the starting value zero are supplied.
+\end{theorem}
+\begin{proof}
+Euler's Gamma integral gives the displayed transforms, and their
+products prove the convolution equations by Laplace uniqueness.
+For uniqueness let $(\eta_r)$ be another family.  At fixed
+$\lambda\geq0$, its Laplace transform is strictly positive and at
+most one, so $g(r)=-\log L_{\eta_r}(\lambda)$ is a nonnegative
+additive function of $r\geq0$.  It is monotone, since
+$g(s)-g(r)=g(s-r)\geq0$ when $s\geq r$.  Rational additivity and
+squeezing by rational times yield
+$g(r)=r g(1)=2r\log(1+\lambda)$ for every real $r\geq0$.
+Another application of Laplace uniqueness gives \eqref{final:eq-gamma-semigroup}.
+The continuity theorem for probability Laplace transforms now
+gives weak continuity, since these transforms vary continuously
+and their pointwise limits are the displayed probability transforms.
+
+For increasing times, take independent increments with the laws
+indexed by the successive time differences and form their partial
+sums.  Convolution ensures consistency under inserting or deleting
+times; the probability extension theorem constructs the process
+law, and these prescribed products determine every finite-dimensional
+distribution.  In the usual subordinator path convention one takes
+its right-continuous increasing version.  The time-one marginal
+alone does not specify an independently supplied process: the
+process $X_r=rT$ with $T\sim\mu_\Gamma$ has that marginal and
+dependent increments, since two unit increments are the same
+nonconstant variable $T$.
+\end{proof}
+
+\begin{proposition}[Gamma L\'evy measure, drift, and complete Bernstein structure]
+\label{final:P8-levy}
+The Gamma convolution semigroup has exponent and L\'evy measure
+\begin{equation}
+ \psi(\lambda)=2\log(1+\lambda)
+ =\int_0^\infty(1-e^{-\lambda x})\frac{2e^{-x}}x\,dx,
+ \qquad \nu(dx)=\frac{2e^{-x}}x\,dx.
+ \label{final:eq-gamma-levy}
+\end{equation}
+Among probability subordinators with this exact L\'evy measure, the
+following are equivalent and each identifies that semigroup:
+zero drift; $\psi(\lambda)/\lambda\to0$; time-one support infimum
+zero; and time-one mean two.  The L\'evy measure alone leaves arbitrary
+nonnegative drift.  Moreover
+\begin{equation}
+ \frac{2e^{-x}}x=2\int_1^\infty e^{-sx}\,ds,
+ \qquad
+ \log(1+\lambda)=\int_1^\infty
+                 \frac{\lambda}{s(s+\lambda)}\,ds.
+ \label{final:eq-complete-bernstein}
+\end{equation}
+Thus $\psi$ is a complete Bernstein function and
+$\psi'(\lambda)=2/(1+\lambda)$ is Stieltjes.
+\end{proposition}
+\begin{proof}
+The integrability condition
+$\int(1\wedge x)\nu(dx)<\infty$ follows from boundedness of
+$2e^{-x}$ near zero and its exponential tail after division by $x$.
+Differentiating the integral in \eqref{final:eq-gamma-levy} with
+respect to $\lambda$ gives $2/(1+\lambda)$ by dominated convergence
+on compact nonnegative $\lambda$ intervals.  Its value at zero is
+zero, so integration proves the exponent formula.
+
+ The L\'evy--Khintchine representation for a subordinator is given in
+ \cite[Theorem~3.2, p.~22]{SSV}.  With this measure it is
+ $k+d\lambda+2\log(1+\lambda)$, with killing $k\geq0$
+and drift $d\geq0$.  Probability mass one excludes killing and
+leaves $d\lambda+2\log(1+\lambda)$.  Its time-one law is
+$d+T$, by multiplication of Laplace transforms and uniqueness;
+its support infimum is $d$, its mean is $d+2$, and the asymptotic
+ratio of the exponent to $\lambda$ is $d$.  This proves all the
+equivalences and the drift counterexample.  In particular the
+complete time-one law in Theorem~\ref{final:P8} already forces
+zero drift.
+
+The first identity in \eqref{final:eq-complete-bernstein} is the
+elementary exponential integral; the second follows by integrating
+$1/s-1/(s+\lambda)$ from one to infinity.  Differentiation of the
+first on compact positive $x$ intervals shows that the L\'evy density
+is completely monotone.  By definition this makes its Bernstein
+exponent complete.  The derivative is the Stieltjes transform of
+$2\delta_1$, proving the last assertion.
+\end{proof}
+
+\begin{corollary}[Complete integer tails identify the Gamma exponent]
+\label{final:P8-samples}
+Let $f$ be a Bernstein function.  If, for some integer $N\geq1$,
+\[
+ f(n)=2\log(1+n)\qquad\hbox{for every integer }n\geq N,
+\]
+then $f(\lambda)=2\log(1+\lambda)$ for every $\lambda>0$.
+\end{corollary}
+\begin{proof}
+The target is Bernstein by Proposition~\ref{final:P8-levy}.
+Apply the complete integer-tail uniqueness theorem
+\ref{final:O6} to $f$ and this target.  That theorem derives its
+finite compact moment measure from the L\'evy--Khintchine
+representation and does not assume a separately given value at zero.
+\end{proof}
+
+\begin{proposition}[Explicit Gamma self-decomposition]
+\label{final:P8-selfdecomposition}
+For $0<c<1$ there exists a nonnegative compound-Poisson residual
+$Y_c$, independent of a Gamma copy $T'$, such that
+$T\stackrel{d}{=}cT'+Y_c$.  Its L\'evy measure, total jump intensity,
+Laplace transform, and mass at zero are respectively
+\begin{align}
+ \nu_c(dx)&=\frac{2(e^{-x}-e^{-x/c})}{x}\,dx,
+ &\nu_c((0,\infty))&=-2\log c,\label{final:eq-residual-levy}\\
+ R_c(\lambda)&=\left(\frac{1+c\lambda}{1+\lambda}\right)^2,
+ &\mathbb P(Y_c=0)&=c^2.\label{final:eq-residual-transform}
+\end{align}
+In particular the Gamma law is infinitely divisible and
+self-decomposable.  Those two general properties alone do not
+identify its shape or rate.
+\end{proposition}
+\begin{proof}
+The density in \eqref{final:eq-residual-levy} is nonnegative.
+Since
+$e^{-x}-e^{-x/c}=\int_1^{1/c}x e^{-sx}\,ds$, Tonelli gives its
+total mass as $2\int_1^{1/c}ds/s=-2\log c$.
+A Poisson number of independent positive jumps with normalized law
+$\nu_c/(-2\log c)$ therefore constructs $Y_c$.  Its log Laplace
+transform is $-\int(1-e^{-\lambda x})\nu_c(dx)$.
+Subtracting the two integrals in \eqref{final:eq-gamma-levy}, with
+the change of variables for the second, gives
+\[
+ \int(1-e^{-\lambda x})\nu_c(dx)
+ =2\log(1+\lambda)-2\log(1+c\lambda).
+\]
+Exponentiation proves \eqref{final:eq-residual-transform}; the
+mass at zero is the no-jump probability $e^{2\log c}=c^2$.
+On a product space take an independent $T'$ with law $\mu_\Gamma$.
+The product of the Laplace transforms of $cT'$ and $Y_c$ is
+$(1+\lambda)^{-2}$, proving the decomposition by uniqueness.
+Infinite divisibility also follows from the $n$-fold convolution
+of the time-$1/n$ law in Theorem~\ref{final:P8}.
+The identical construction with density
+$\alpha e^{-\beta x}/x$, for arbitrary $\alpha,\beta>0$,
+proves both properties for every Gamma shape and rate, providing
+distinct laws with those same broad properties.
+\end{proof}
+
+\begin{theorem}[One linked residual determines a law on the entire real line]
+\label{final:P9}
+Fix $0\leq c<1$.  Let $Y_c$ have the probability law whose Laplace
+transform is \eqref{final:eq-residual-transform}, equivalently the
+law of a sum of two independent variables with law
+$c\delta_0+(1-c)\operatorname{Exp}(1)$.
+For an arbitrary Borel probability $\mu$ on $\mathbb R$, the
+following are equivalent:
+\begin{enumerate}
+\item $\mu=\mu_\Gamma$;
+\item there are independent variables $X'$ and $Y_c$, with
+      $X'\sim\mu$, such that $cX'+Y_c\sim\mu$;
+\item the characteristic function of $\mu$ satisfies
+      \[
+      \varphi(\xi)=\varphi(c\xi)
+          \left(\frac{1-ic\xi}{1-i\xi}\right)^2
+                         \qquad(\xi\in\mathbb R).
+      \]
+\end{enumerate}
+No support, density, or moment assumption on $\mu$ is needed.
+The residual itself determines $c$ within this family through
+$\mathbb P(Y_c=0)=c^2$, so its scale may be recovered from the
+complete residual observation.  The source-law linkage is essential;
+the contraction endpoint $c=1$ does not identify $\mu$.
+\end{theorem}
+\begin{proof}
+A variable with law $c\delta_0+(1-c)\operatorname{Exp}(1)$ has
+Laplace transform
+$c+(1-c)/(1+\lambda)=(1+c\lambda)/(1+\lambda)$.
+The sum construction proves existence of the residual and its
+transform, including $c=0$.  Both summands are nonnegative and
+have an atom of mass $c$ at zero, so the sum has an atom of mass $c^2$ at zero.
+Its characteristic function is
+$((1-ic\xi)/(1-i\xi))^2$, by the same calculation.
+
+Independence gives the factorization in the third clause from the
+second.  Conversely that factorization and a product-space
+construction, followed by characteristic-function uniqueness, give
+the second clause.  Iterating the factorization for any integer
+$n\geq1$ telescopes:
+\[
+ \varphi(\xi)=\varphi(c^n\xi)
+       \left(\frac{1-ic^n\xi}{1-i\xi}\right)^2.
+\]
+The denominators are nonzero for real $\xi$.  Since $c^n\xi\to0$
+and every probability characteristic function is continuous at
+zero with value one, letting $n\to\infty$ gives
+$\varphi(\xi)=(1-i\xi)^{-2}$.  Theorem~\ref{final:P1} and
+characteristic-function uniqueness now identify $\mu$ on all of
+$\mathbb R$.  For the converse, the Gamma characteristic function
+satisfies the factorization by direct cancellation, and independent
+variables with the required laws can be constructed on a product
+space.  This also covers $c=0$, where $Y_0$ is already Gamma.
+
+Forgetting linkage permits the very same observed $Y_c$ alongside
+an unrelated designated $X$ with either Gamma shape two or Gamma
+shape three, so it identifies neither such designation.  At $c=1$
+the residual is $\delta_0$ and the factorization reduces to
+$\varphi(\xi)=\varphi(\xi)$ for every law.  Thus contraction and
+the equation linking the original law to this precise residual
+are substantive identifying premises.  Independence may be
+replaced by the exact factorization as stated, but that
+factorization does not follow for an arbitrary supplied coupling.
+\end{proof}
+
+\begin{remark}[Formalization]
+\label{final:P-formalization-scope}
+The probability development, including its measure-theoretic and
+analytic statements and counterexamples, is part of the complete
+Lean~4 formalization with no admitted proofs. The Bernstein
+integer-tail inverse used above is Theorem~\ref{final:O6}.
+\end{remark}

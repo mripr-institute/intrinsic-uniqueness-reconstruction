@@ -1,0 +1,376 @@
+{
+  "scope": "Diagnostics only. All-order and uniqueness claims use written or Lean proofs.",
+  "checks": [
+    {
+      "name": "countermodel normalization k=2",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "all-order induction algebra",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=1",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=1",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=2",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=2",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=3",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=3",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=4",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=4",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=5",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=5",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=6",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=6",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=7",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=7",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=8",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=8",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=9",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=9",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=10",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=10",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=11",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=11",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel derivative n=12",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel marked zero n=12",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "countermodel mass k=1.5",
+      "kind": "60-digit numerical diagnostic",
+      "relative_error": "1.060459348e-32"
+    },
+    {
+      "name": "countermodel mass k=2.0",
+      "kind": "60-digit numerical diagnostic",
+      "relative_error": "0.0"
+    },
+    {
+      "name": "countermodel mass k=5.0",
+      "kind": "60-digit numerical diagnostic",
+      "relative_error": "0.0"
+    },
+    {
+      "name": "P9 residual mixture identity",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "P9 finite characteristic telescoping n=1",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "P9 finite characteristic telescoping n=2",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "P9 finite characteristic telescoping n=5",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "placed probability on r>=0",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "full analytic-domain placed mass is not unit",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "placed integer collision 3=4",
+      "kind": "finite symbolic diagnostic",
+      "result": "identity"
+    },
+    {
+      "name": "collision multiplication obstruction 6!=8",
+      "kind": "exact rational diagnostic",
+      "ratio": "175/144"
+    },
+    {
+      "name": "CS07.twist.n0",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n1",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n2",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n3",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n4",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n5",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS07.twist.n6",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS08.TA.through7",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS08.TL.through7",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.exact_mass",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n1",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n2",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n3",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n4",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n5",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n6",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n7",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n8",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n9",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n10",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n11",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    },
+    {
+      "name": "CS14.f2.derivative.n12",
+      "kind": "independent finite symbolic diagnostic",
+      "result": "identity",
+      "source": "phase-iv-audit/core-series-checks.json"
+    }
+  ],
+  "count": 59,
+  "source_custody": [
+    {
+      "path": "outputs/sigma-phase-iii.md",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/sigma-dependency-ledger.md",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/sigma-16-branch-audit.md",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/sigma-master.tex",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/lean/SigmaAudit.lean",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/lean/Reconstruction.lean",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/lean/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/lean/check.sh",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/lean/compile.log",
+      "unchanged": true
+    },
+    {
+      "path": "outputs/sigma-phase-iii-checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "work/verify_phase_iii.py",
+      "unchanged": true
+    }
+  ],
+  "phase_iii_diagnostic_record": "sigma-phase-iii-checks.json",
+  "phase_iii_record_loaded": true,
+  "independent_core_record": "phase-iv-audit/core-series-checks.json",
+  "proof_sources": [
+    "phase-iv-audit/zero-set-counterexample.md",
+    "sigma-phase-iv-proof-record.md"
+  ]
+}

@@ -1,0 +1,427 @@
+\section{The intrinsic object and placement}
+\label{final:root}
+
+The mathematical object $\Sigma$ is given first in a placed coordinate.
+Its placement is recovered exactly, and removing it exposes the
+intrinsic decomposition used throughout the paper.
+
+\begin{definition}[The placed presentation of $\Sigma$]
+\label{final:C0}
+For $\mu>0$, $0<a<1$, put $P=(\mu,a)$, $\gamma=\mu/a$,
+$b=-a/\mu$, and $r_*=(1-a)/\mu$. The placed presentation is
+\[
+ \Sigma_P(r)=\log\!\left(\frac{\mu^2(1+\gamma r)}{\mu+\gamma}\right)-\mu r,
+ \qquad r>b.
+\]
+The intrinsic and placed coordinates, their units, and the parameter
+marks are part of these definitions.
+\end{definition}
+
+\begin{theorem}[Exact placed reconstruction]
+\label{final:C0-placement}
+The map $t=\mu r+a$ bijects $(b,\infty)$ with $(0,\infty)$ and gives
+\[
+ \Sigma_P(r)=\log t-t+\log\frac\mu{1+a}+a.
+\]
+Inside the placed family, at every point of that domain, placement
+is recovered by
+\[
+ \mu=\sqrt{-\Sigma_P''}-\Sigma_P',\qquad
+ \gamma=\frac{\sqrt{-\Sigma_P''}}{1-r\sqrt{-\Sigma_P''}},
+ \qquad a=\frac\mu\gamma.
+\]
+Removing this recovered placement and the value at $r_*$ exposes
+the placement-free intrinsic form
+\[
+ H(t):=\Sigma_P\!\left(\frac{t-a}{\mu}\right)-\Sigma_P(r_*)
+      =\log t-t+1,\qquad t>0.
+\]
+Thus
+\begin{equation}
+ \Sigma_P(r)=H(\mu r+a)+\log\frac\mu{1+a}+a-1.\label{final:placed}
+\end{equation}
+Its convex negative $I(t)=t-1-\log t$ and normalized density
+$p(t)=te^{-t}$ complete the intrinsic decomposition $(H,I,p)$ of
+$\Sigma$, with the exact identities
+\begin{align}
+ I&=-H,\qquad p=e^{H-1},\qquad H=1+\log p.\label{final:spine}
+\end{align}
+The closure satisfies $\Sigma_P'(r_*)=0$, $\Sigma_P''(r_*)=-\mu^2$.
+The density $p$ has mass one on $(0,\infty)$, whereas
+\[
+ e^{\Sigma_P(r)}\dd r=\frac{p(t)\dd t}{(1+a)e^{-a}}.
+\]
+Consequently $e^{\Sigma_P}$ has mass one on $r\ge0$ and mass
+$e^a/(1+a)$ on its whole analytic domain.
+The presentation $\Sigma_P$ reconstructs both its intrinsic decomposition
+$(H,I,p)$ and its placement $P$ exactly; conversely, $(H,I,p)$ together
+with $P$ reconstructs $\Sigma_P$ exactly.
+\end{theorem}
+\begin{proof}
+The affine map has positive slope and the stated inverse
+$r=(t-a)/\mu$. Substituting $\gamma=\mu/a$ gives
+$\mu^2(1+\gamma r)/(\mu+\gamma)=\mu t/(1+a)$, proving
+\eqref{final:placed}, with $t=1$ at $r_*$. The logarithm/exponential identities give
+\eqref{final:spine}. Integration by parts yields
+$\int_a^\infty te^{-t}dt=(1+a)e^{-a}$, including $a=0$.
+The change of variables proves both normalization assertions.
+Set $q=\gamma/(1+\gamma r)>0$. Differentiation gives
+$\Sigma_P'=q-\mu$ and $\Sigma_P''=-q^2$. Solving these equations
+gives the recovery formulas, whose denominator is
+$(1+\gamma r)^{-1}>0$. At $r_*$ one has $q=\mu$.
+\end{proof}
+
+\section{Calibrated analytic reconstruction}
+\label{final:core}
+
+\begin{theorem}[Curvature, Riccati and exact flow]
+\label{final:C1}
+For twice differentiable $F:(0,\infty)\to\R$ with
+$F(1)=F'(1)=0$, each of the following conditions identifies $F=H$:
+\[
+ F''(t)=-t^{-2},\qquad
+ F''(t)=-(F'(t)+1)^2.
+\]
+Equivalently, the marked exact flow
+\[
+ q(t+s)=\frac{q(t)}{1+s q(t)},\qquad q(1)=1,
+\]
+for every pair $t,t+s>0$ identifies $q(t)=1/t$; with
+$F'=q-1$ and $F(1)=0$ it identifies $F=H$.
+More generally $F''(r)=-(r-b)^{-2}$ on $r>b$ identifies
+$F(r)=\log(r-b)+Ar+B$, and two independent affine data fix $A,B$.
+\end{theorem}
+\begin{proof}
+Subtract the known logarithmic primitive and use the mean value
+theorem twice. For the Riccati equation put $q=F'+1$ and
+$W(t)=(tq(t)-1)e^{F(t)+t}$. Direct differentiation using
+$q'=-q^2$ gives $W'=0$. The slope anchor gives $W(1)=0$,
+so positivity of the exponential gives $tq(t)=1$ everywhere.
+Integrating with the value anchor recovers $F$.
+For exact flow set $t=1$, $s=v-1$ directly.
+All forward assertions follow by differentiating $H$.
+Affine perturbations show why the two integration constants are not
+fixed by curvature alone.
+\end{proof}
+
+\begin{theorem}[Recentring transports its own regularity and anchors]
+\label{final:C2}
+Let $F$ be differentiable on $(0,\infty)$, with $F''(1)=-1$.
+Then
+\[
+ F(av)-F(a)-aF'(a)(v-1)=F(v)\quad(a,v>0)
+\]
+holds if and only if $F=H$. No separate affine anchors or global
+second-differentiability hypothesis is needed.
+\end{theorem}
+\begin{proof}
+Taking $v=1$ gives $F(1)=0$. Differentiate with respect to $v$ at
+one to obtain $F'(1)=0$. At arbitrary $v$ differentiation gives
+$a(F'(av)-F'(a))=F'(v)$. The difference quotient at $v=1$ then
+gives existence of $F''(a)$ and $a^2F''(a)=F''(1)=-1$.
+Theorem~\ref{final:C1} applies. Substitution verifies the converse.
+If the scale is not calibrated, every constant multiple of $H$
+satisfies the recentering equation.
+\end{proof}
+
+\begin{theorem}[Normalized group logarithm and cocycle]
+\label{final:C3}
+On $D=(-1,\infty)$ define $x\star y=x+y+xy$. This is a
+commutative group with identity zero and inverse $-x/(1+x)$.
+A function $\ell:D\to\R$ satisfying
+\[
+ \ell(x\star y)=\ell(x)+\ell(y),\qquad \ell'(0)=1
+\]
+is uniquely $\ell(x)=\log(1+x)$, where differentiability is
+initially required only at zero. Equivalently the differentiable-at-zero
+cocycle clause
+\[
+ h(x\star y)=h(x)+h(y)-xy,\qquad h'(0)=0
+\]
+identifies $h(x)=\log(1+x)-x=H(1+x)$.
+\end{theorem}
+\begin{proof}
+The identity $1+x\star y=(1+x)(1+y)$ proves closure, associativity,
+commutativity and the inverse formula. A homomorphism has $\ell(0)=0$.
+For fixed $x$, write $x\star y=x+(1+x)y$, divide its homomorphism
+identity by $(1+x)y$, and let $y\to0$. It gives
+$\ell'(x)=1/(1+x)$ everywhere. The anchor and the mean value theorem
+give the unique primitive. Adding the identity function to the cocycle
+turns it into exactly this homomorphism equation. Substitution proves
+the forward statements and the cocycle compatibility identity.
+\end{proof}
+
+\begin{theorem}[Typed completion equation]
+\label{final:C3-completion}
+Suppose $h$ is differentiable on $D$, $h'(D)\subset D$ and
+$\ell=\mathrm{id}+h$. Then
+\[
+ \ell(h'(z))=-\ell(z)\quad(z\in D)
+\]
+holds if and only if, for some $K>0$,
+\[
+ h(z)=K\log(1+z)-z-\frac K2\log K.
+\]
+Either anchor $h(0)=0$ or $h'(0)=0$ selects $K=1$.
+Injectivity of $\ell$ and twice differentiability of $h$ follow from
+the stated domain condition and equation.
+\end{theorem}
+\begin{proof}
+Put $q=h'$. The domain condition gives $\ell'=1+q>0$, so
+$\ell$ is strictly increasing and its inverse on its range is
+continuous. The equation $q=\ell^{-1}\circ(-\ell)$ makes $q$
+continuous. The inverse derivative theorem now makes $q$ continuously
+differentiable. Applying the completion equation twice and using
+injectivity gives $q(q(z))=z$. Differentiation of the first equation
+then gives $(1+z)q'(z)=-(1+q(z))$. Hence
+$(1+z)(1+q(z))=K>0$, and integration gives
+$h=K\log(1+z)-z+C$. Substitution gives $2C=-K\log K$.
+Every displayed function has the requisite derivative range and
+satisfies the equation. Its two anchor values are
+$-(K/2)\log K$ and $K-1$, each zero exactly when $K=1$.
+\end{proof}
+
+\begin{proposition}[Automorphisms, integer series and their calibration]
+\label{final:C3-automorphisms}
+Every continuous, measurable, monotone or differentiable automorphism
+of the fixed group $(D,\star)$ is
+\[
+ F_c(x)=(1+x)^c-1,\qquad c\in\R\setminus\{0\}.
+\]
+The calibration $F_c'(0)=1$ selects the identity. Without regularity,
+conjugates of arbitrary additive bijections of $\R$ give further
+automorphisms. Over a characteristic-zero field the formal
+automorphisms have the same formula, with nonzero field coefficient
+$c$. The integer series is
+$[n]_\star(x)=(1+x)^n-1$; it describes repeated group addition,
+and $[m]_\star\circ[n]_\star=[mn]_\star$.
+\end{proposition}
+\begin{proof}
+Conjugate the automorphism by $\log(1+x)$ and $e^u-1$. It becomes
+an additive bijection. Each stated regularity condition makes an
+additive real function linear: integer and rational linearity follows
+algebraically, and continuity follows from measurability or local
+boundedness in the other cases. Rational approximation then gives
+$u\mapsto cu$, $c\ne0$. A non-linear additive bijection constructed
+from a rational basis gives the unrestricted countermodel.
+In the formal case, conjugation by the normalized formal logarithm
+gives an additive series. Comparing the mixed monomial $u^{n-1}v$
+in its additivity identity annihilates every coefficient of degree
+$n>1$, since $n$ is invertible. The integer formula follows by the
+multiplicative coordinate $1+x$.
+\end{proof}
+
+\begin{theorem}[Differentiable Bregman reconstruction]
+\label{final:C4}
+For a differentiable $\Phi:(0,\infty)\to\R$, let
+$B_\Phi(t,s)=\Phi(t)-\Phi(s)-\Phi'(s)(t-s)$.
+Simultaneous scale invariance $B_\Phi(ct,cs)=B_\Phi(t,s)$ for all
+$c,t,s>0$ holds if and only if
+\[
+ \Phi(t)=A I(t)+B(t-1)+C.
+\]
+Thus $\Phi(1)=\Phi'(1)=0$ and
+$\Phi'(2)-\Phi'(1)=1/2$ identify $\Phi=I$ without separately
+assuming second differentiability or convexity. Alternatively,
+for an anchored differentiable $\Phi$ the exact symmetric slice
+\[
+ B_\Phi(t,1)+B_\Phi(1,t)=t+t^{-1}-2
+\]
+identifies $\Phi=I$. In particular $B_I(t,s)=I(t/s)$.
+\end{theorem}
+\begin{proof}
+Differentiate scale invariance only in its first argument, taking
+$s=1$. For $g=\Phi'-\Phi'(1)$ one obtains
+$c(g(ct)-g(c))=g(t)$. Swapping $c,t$ and subtracting gives
+$g(c)(1-1/t)=g(t)(1-1/c)$. Fixing $c\ne1$ yields
+$g(t)=A(1-1/t)$; integration gives the asserted affine family.
+The three calibrations fix its constants. For the symmetric slice,
+direct cancellation gives
+$(t-1)(\Phi'(t)-\Phi'(1))=t+t^{-1}-2$.
+For $t\ne1$ divide by $t-1$ to recover $\Phi'=1-1/t$;
+the prescribed derivative at one supplies the remaining point.
+Integrate using $\Phi(1)=0$. Direct substitution verifies the forward
+identities. Varying $A,B,C$ separately proves the necessity of the
+three scalar calibrations within the scale-invariant family.
+\end{proof}
+
+\begin{theorem}[Exact Legendre target with either regularity condition]
+\label{final:C5}
+Extend $I$ by $+\infty$ off $(0,\infty)$. Its convex conjugate is
+\[
+ I^*(\theta)=\begin{cases}-\log(1-\theta),&\theta<1,\\
+ +\infty,&\theta\ge1.\end{cases}
+\]
+If an extended-real function $F$ has this exact full conjugate and
+is either lower semicontinuous on $(0,\infty)$ or convex, then
+$F=I$. It is unnecessary to assume both regularity conditions.
+Without either, the converse is false.
+\end{theorem}
+\begin{proof}
+For $\theta<1$, the maximizer of $\theta t-I(t)$ is
+$t=(1-\theta)^{-1}$, giving the displayed value. The supremum
+diverges for $\theta\ge1$. Fenchel's inequality for a candidate
+with this conjugate gives $F\ge I^{**}=I$, where the last equality
+also follows directly from the just computed maximizers. In particular
+$F=+\infty$ off the positive ray. For $t_0>0$, choose
+$\theta_0=1-1/t_0$. The function
+$(1-\theta_0)t-1-\log t$ is coercive at both endpoints and has
+unique minimizer $t_0$. A maximizing sequence in the definition of
+$F^*(\theta_0)$ must therefore converge to $t_0$, with its $F$-values
+converging to $I(t_0)$. Lower semicontinuity gives the opposite
+inequality $F(t_0)\le I(t_0)$. If $F$ is instead convex, these
+sequences show its effective domain is dense in the positive ray;
+convexity and bracketing by two effective-domain points make it finite
+everywhere there. A finite convex function on an open interval is
+continuous, so the same argument applies. Finally raise $I(2)$ by
+one and leave every other value unchanged. Nearby points approximate
+each supremum, so the conjugate is unchanged while the function is
+neither convex nor lower semicontinuous at two.
+\end{proof}
+
+\begin{theorem}[Self-concordance and the marked Hessian metric]
+\label{final:C6}
+Let $\Phi\in C^3(0,\infty)$ with $\Phi''>0$,
+$\Phi(1)=\Phi'(1)=0$ and $\Phi''(1)=1$. The signed equality
+$\Phi'''=-2(\Phi'')^{3/2}$ identifies $\Phi=I$.
+The unsigned equality $|\Phi'''|=2(\Phi'')^{3/2}$ also suffices
+on the entire positive ray. The corresponding Hessian metric is
+$dt^2/t^2$, with distance $|\log(t/s)|$ and
+\[
+ I(t/s)+I(s/t)=4\sinh^2\!\left(\frac{|\log(t/s)|}{2}\right).
+\]
+The metric in the marked affine coordinate together with the affine
+anchors reconstructs $I$; its bare distance does not fix orientation.
+The self-concordance inequality alone does not identify $I$, and
+$I$ is not a finite-parameter self-concordant barrier on this domain.
+\end{theorem}
+\begin{proof}
+For the signed equality, $((\Phi'')^{-1/2})'=1$, so calibration gives
+$\Phi''=t^{-2}$ and the anchors give $I$. In the unsigned case the
+continuous nonzero third derivative has constant sign. The other sign
+would give $(\Phi'')^{-1/2}=2-t$, impossible on all $t>0$.
+The coordinate $u=\log t$ makes the metric Euclidean, proving the
+distance formula; expanding $2\cosh u-2$ proves the symmetrization.
+Inversion $t\mapsto1/t$ preserves the distance but reverses the
+directed ratio. The quadratic $\Phi(t)=(t-1)^2/2$ satisfies all three
+anchors, has positive second derivative, and satisfies the usual
+self-concordance inequality since its third derivative is zero,
+yet differs from $I$. Moreover,
+$(I')^2/I''=(t-1)^2$ is unbounded, refuting a finite barrier parameter.
+The affine-equivalent function $-\log t$ does have barrier parameter one.
+\end{proof}
+
+\begin{theorem}[Calibrated projective and Schwarzian data]
+\label{final:C7}
+An injective real-valued function $f$ on $(0,\infty)$ preserving
+all cross-ratios and satisfying
+$f(1)=0$, $f(2)=-1/2$, $f(3)=-2/3$ equals $1/t-1$.
+Consequently $f=F'$ and $F(1)=0$ identify $F=H$.
+Alternatively, if $f\in C^3$, $f'\ne0$,
+\[
+ \frac{f'''}{f'}-\frac32\left(\frac{f''}{f'}\right)^2=0,
+ \quad f(1)=0,\quad f'(1)=-1,\quad f''(1)=2,
+\]
+then the same conclusion holds. Projectivity or zero Schwarzian
+without calibration does not select this member.
+\end{theorem}
+\begin{proof}
+With cross-ratio convention
+$(x_1-x_3)(x_2-x_4)/((x_1-x_4)(x_2-x_3))$, fix the first three
+arguments at $1,2,3$. The cross-ratio is injective fractional-linear
+in the fourth argument. Comparing $f$ with $1/t-1$ identifies every
+other point; the marks identify the three excluded ones. For the
+Schwarzian version put $w=f''/f'$. Its equation is $w'=w^2/2$ with
+$w(1)=-2$, whence $w=-2/t$ by ODE uniqueness. Integrate twice
+with the two remaining marks to obtain $f'= -t^{-2}$ and
+$f=t^{-1}-1$. Integrating the anchored primitive yields $H$.
+Without the marks other fractional-linear functions remain.
+\end{proof}
+
+\begin{proposition}[Derivative, discrete and local-data boundaries]
+\label{final:C8}
+The placed derivatives satisfy
+\[
+ \Sigma_P^{(n)}(r)=(-1)^{n-1}(n-1)!
+       \left(\frac\gamma{1+\gamma r}\right)^n,
+ \qquad n\ge2.
+\]
+All orders beyond two add no information once curvature is known.
+A lone prescribed derivative of order $n$ identifies a function only
+modulo a polynomial of degree at most $n-1$.
+For $\rho(r)=C(1+\gamma r)e^{-\mu r}$, $C>0$, its derivative
+of order $n\ge1$ has the single zero
+$r_n=n/\mu-1/\gamma$. Within this shape family, two consecutive
+indexed zeros determine $\mu,\gamma$, and mass determines $C$.
+The discrete curvature is
+\[
+ \Sigma_P(r+1)-2\Sigma_P(r)+\Sigma_P(r-1)
+ =\log\left(1-\frac1{(r-b)^2}\right),\quad r-1>b.
+\]
+It determines lattice values from two starting values, not an arbitrary
+real interpolation. A complete germ identifies a global function in a
+specified connected real-analytic class, but not in a general smooth class.
+\end{proposition}
+\begin{proof}
+Differentiate the logarithm inductively. Repeated integration proves
+the polynomial freedom and Theorem~\ref{final:C1} proves the
+second-derivative sufficiency. Leibniz's rule gives
+\[
+ \rho^{(n)}=C(-\mu)^{n-1}e^{-\mu r}
+       \bigl[n\gamma-\mu(1+\gamma r)\bigr],
+\]
+proving the exact zero. Differences of consecutive zeros recover
+$1/\mu$ and then the intercept $-1/\gamma$. Products of the three
+logarithmic arguments give the discrete formula; recurrence gives
+the lattice-value statement. A nonzero multiple of $\sin(2\pi r)$
+preserves all integer samples and changes interpolation. A sufficiently
+small compactly supported smooth bump away from an observed point
+preserves its entire jet. Two disjoint bumps with cancelling integrals
+preserve normalization of a positive density, and can be supported away
+from the germ, the mode and endpoints. Analytic continuation instead
+uses the identity theorem on the common connected domain.
+\end{proof}
+
+\begin{theorem}[Exact all-order derivative-zero sets do not identify $\Sigma$]
+\label{final:Z4}
+For every real $k>1$ the function
+\[
+ f_k(t)=(k-1)k^k\frac{t}{(t+k)^{k+1}},\qquad t>0,
+\]
+is a positive real-analytic probability density, vanishing at both
+endpoints, and for every integer $n\ge1$,
+\[
+ f_k^{(n)}(t)=(-1)^n(k-1)k^k(k)_n
+          \frac{t-n}{(t+k)^{k+n+1}}.
+\]
+Here $(k)_n=k(k+1)\cdots(k+n-1)$. Thus every derivative has
+exactly the same single simple positive zero $n$ as $p^{(n)}$,
+but $f_k\ne p$. In particular $4t/(t+2)^3$ shows that these
+derivative-zero data do not characterize $p$, even among normalized
+real-analytic positive densities.
+\end{theorem}
+\begin{proof}
+Substitution $t=ks$ and subtraction of two elementary power integrals
+give
+\[
+ \int_0^\infty \frac{t\,dt}{(t+k)^{k+1}}
+ =k^{1-k}\int_0^\infty\frac{s\,ds}{(1+s)^{k+1}}
+ =\frac{k^{-k}}{k-1}.
+\]
+This proves normalization; positivity and real analyticity follow
+on the positive ray. The formula is true at order zero if $(k)_0=1$.
+Its induction step is the exact identity
+\[
+ \frac{d}{dt}\frac{t-n}{(t+k)^{k+n+1}}
+ =-(k+n)\frac{t-(n+1)}{(t+k)^{k+n+2}}.
+\]
+Every factor except $t-n$ is nonzero on $t>0$, proving exactness
+and simplicity of the zero set, including the derivative sign pattern.
+The algebraic tail separates $f_k$ from $te^{-t}$.
+The counterexample is not entire and is not globally log-concave:
+$(\log f_k)''=-t^{-2}+(k+1)/(t+k)^2>0$ when
+$t>1+\sqrt{k+1}$. These additional conditions are not premises of
+the refuted characterization. Under $t=\mu r+a$, change variables
+and normalize on the selected half-line; multiplication by a positive
+constant leaves every placed derivative zero $(n-a)/\mu$ unchanged.
+\end{proof}

@@ -1,0 +1,5426 @@
+{
+  "version": "Phase IV frozen typed identification architecture",
+  "conventions": {
+    "status_symbols": {
+      "iff": "⇔",
+      "implies": "⇒",
+      "conditional_iff": "+H; ⇔",
+      "conditional_implies": "+H; ⇒",
+      "counterexample": "×",
+      "unknown": "?"
+    },
+    "intrinsic_scc_rule": "Only unconditional identification iff edges; retain every candidate signature. Canonical selection, transport and conditional edges do not supply intrinsic inverses.",
+    "iff_semantics": "Two verified round trips on the declared candidate class; categorical comparisons retain the context.",
+    "conditional_edge_semantics": "Source and every required_nodes entry are simultaneous inputs; the inverse retains the context.",
+    "germ_policy": "Formal nodes give germs. Arbitrary global candidate identification retains connected real analyticity; the canonical global representative is explicitly constructed.",
+    "root_minimality": "One intrinsic certificate, optional placement, requested external selection packets; no absolute encoding minimum."
+  },
+  "theorem_register": {
+    "IV-A": "sigma-phase-iv-reconstruction-theorem.md#2-the-complete-intrinsic-component",
+    "IV-B": "sigma-phase-iv-reconstruction-theorem.md#2-the-complete-intrinsic-component",
+    "IV-C": "sigma-phase-iv-reconstruction-theorem.md#3-placement-and-the-reduced-root",
+    "IV-D": "sigma-phase-iv-minimal-primitives.md",
+    "IV-E": "sigma-phase-iv-reconstruction-theorem.md#4-canonical-realization-theorem",
+    "IV-F": "sigma-phase-iv-reconstruction-theorem.md#5-exact-boundary-theorems-and-closure-of-the-open-question",
+    "C0": "sigma-phase-iv-proof-record.md",
+    "C1": "phase-iv-audit/core-series.md",
+    "C2": "phase-iv-audit/core-series.md",
+    "C3": "phase-iv-audit/core-series.md",
+    "C4": "phase-iv-audit/core-series.md",
+    "C5": "phase-iv-audit/core-series.md",
+    "C6": "phase-iv-audit/core-series.md",
+    "C7": "phase-iv-audit/core-series.md",
+    "C8": "phase-iv-audit/core-series.md",
+    "P1": "phase-iv-audit/probability.md",
+    "P2": "phase-iv-audit/probability.md",
+    "P3": "phase-iv-audit/probability.md",
+    "P4": "phase-iv-audit/probability.md",
+    "P5": "phase-iv-audit/probability.md",
+    "P6": "phase-iv-audit/probability.md",
+    "P7": "sigma-phase-iv-proof-record.md",
+    "P8": "sigma-phase-iv-proof-record.md",
+    "P9": "sigma-phase-iv-proof-record.md",
+    "O1": "phase-iv-audit/operator.md",
+    "O2": "phase-iv-audit/operator.md",
+    "O3": "phase-iv-audit/operator.md",
+    "O4": "phase-iv-audit/operator.md",
+    "O5": "phase-iv-audit/operator.md",
+    "O6": "phase-iv-audit/operator.md",
+    "O7": "sigma-phase-iv-proof-record.md",
+    "F1": "phase-iv-audit/core-series.md",
+    "F2": "phase-iv-audit/core-series.md",
+    "M1": "phase-iv-audit/realizations.md",
+    "M2": "phase-iv-audit/realizations.md",
+    "M3": "sigma-phase-iv-proof-record.md",
+    "R1": "phase-iv-audit/realizations.md",
+    "R2": "phase-iv-audit/realizations.md",
+    "B1": "phase-iv-audit/realizations.md",
+    "B2": "phase-iv-audit/core-series.md",
+    "Z4": "phase-iv-audit/zero-set-counterexample.md"
+  },
+  "intrinsic_component": [
+    "AHAT",
+    "BERN",
+    "BOREL",
+    "BREG",
+    "CHI",
+    "COC",
+    "COMP",
+    "CURV",
+    "CW",
+    "ENTROPY",
+    "EQUIL",
+    "GAMMA",
+    "GREEN",
+    "GUMBEL",
+    "H",
+    "HAAR",
+    "I",
+    "JOINT",
+    "LAPLACE",
+    "LEG",
+    "LOG",
+    "LOGISTIC",
+    "LSER",
+    "MELLIN",
+    "METRIC",
+    "MIX",
+    "MOMENTS",
+    "ORTHO",
+    "P",
+    "POICGF",
+    "POIKL",
+    "POIREC",
+    "PROJ",
+    "REC",
+    "RIC",
+    "S",
+    "SCHWARZ",
+    "SELF",
+    "SIZEBIAS",
+    "STEIN",
+    "STIELTJES",
+    "SURV",
+    "SYMB",
+    "TODD",
+    "TOWER",
+    "TREE"
+  ],
+  "conditional_fibres": [
+    {
+      "context": "PLACEMENT",
+      "template": "SIGMA",
+      "related_nodes": [],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "OP_CONTEXT",
+      "template": "LAGUERRE",
+      "related_nodes": [
+        "LOW2",
+        "KERNEL"
+      ],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "CONV_CONTEXT",
+      "template": "SEMIGROUP",
+      "related_nodes": [],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "SPD_CONTEXT",
+      "template": "SPD",
+      "related_nodes": [
+        "MATRIX_GEOM",
+        "WISHART"
+      ],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "GAUSS_CONTEXT",
+      "template": "GAUSSIAN",
+      "related_nodes": [],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "GW_CONTEXT",
+      "template": "GW",
+      "related_nodes": [],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    },
+    {
+      "context": "TOP_CONTEXT",
+      "template": "THOM",
+      "related_nodes": [
+        "GYSIN"
+      ],
+      "statement": "(S,C) ⇔ canonical template in fixed C. Related nodes retain C; each reconstruction status is exactly its displayed edge status. Consequences such as WISHART/GYSIN are not identifying aliases."
+    }
+  ],
+  "full": {
+    "nodes": [
+      {
+        "id": "S",
+        "label": "S=(H,I,p)",
+        "category": "analytic",
+        "complete_datum": "One calibrated intrinsic object; marked positive coordinate",
+        "domain": "t>0",
+        "theorem_id": "IV-A",
+        "intrinsic_member": true,
+        "formal_status": "partial: intrinsic identities and derivative/Bregman uniqueness",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "H",
+        "label": "Intrinsic H",
+        "category": "analytic",
+        "complete_datum": "H=log(t)-t+1",
+        "domain": "t>0",
+        "theorem_id": "C0",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: intrinsic identities",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "I",
+        "label": "Intrinsic I",
+        "category": "analytic",
+        "complete_datum": "I=t-1-log(t), I=-H",
+        "domain": "t>0",
+        "theorem_id": "C0",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: intrinsic identities",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "P",
+        "label": "Intrinsic density p",
+        "category": "probabilistic",
+        "complete_datum": "p=t exp(-t); continuous representative of its normalized law",
+        "domain": "t>0",
+        "theorem_id": "C0",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: density algebra and positivity only",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "CURV",
+        "label": "Anchored curvature",
+        "category": "analytic",
+        "complete_datum": "H twice differentiable, H″=-1/t², H(1)=H′(1)=0",
+        "domain": "t>0",
+        "theorem_id": "C1",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: first-derivative reconstruction only",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "RIC",
+        "label": "Anchored Riccati or exact flow",
+        "category": "analytic",
+        "complete_datum": "q=H′+1, q′=-q², q(1)=1, H(1)=0; whole-domain solution",
+        "domain": "t>0",
+        "theorem_id": "C1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "REC",
+        "label": "Tangent recentering",
+        "category": "analytic",
+        "complete_datum": "H differentiable; recentering for every a,v>0; H″(1)=-1",
+        "domain": "a,v>0",
+        "theorem_id": "C2",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LOG",
+        "label": "Normalized group logarithm",
+        "category": "algebraic/analytic",
+        "complete_datum": "ell(x star y)=ell(x)+ell(y), HasDerivAt ell 1 0",
+        "domain": "x,y>-1",
+        "theorem_id": "C3",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: normalized real logarithm uniqueness and forward group identity",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "COC",
+        "label": "Calibrated cocycle",
+        "category": "algebraic/analytic",
+        "complete_datum": "h(x star y)=h(x)+h(y)-xy, h differentiable at0, h′(0)=0",
+        "domain": "x,y>-1",
+        "theorem_id": "C3",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: forward cocycle identity",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "COMP",
+        "label": "Typed completion equation",
+        "category": "analytic",
+        "complete_datum": "h differentiable on D; h′(D) subset D; ell=id+h; ell(h′)=-ell; h(0)=0 or h′(0)=0",
+        "domain": "D=(-1,infinity)",
+        "theorem_id": "C3",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "BREG",
+        "label": "Scale-invariant anchored Bregman",
+        "category": "analytic",
+        "complete_datum": "Actual Bregman of differentiable Phi, simultaneous scale invariance, Phi(1)=Phi′(1)=0 and Phi′(2)-Phi′(1)=1/2",
+        "domain": "t,s,c>0",
+        "theorem_id": "C4",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: canonical identity only",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SYMB",
+        "label": "Anchored symmetric Bregman slice",
+        "category": "analytic",
+        "complete_datum": "Phi(1)=Phi′(1)=0, actual symmetric Bregman slice=t+1/t-2",
+        "domain": "t>0",
+        "theorem_id": "C4",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: full differentiable anchored converse",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LEG",
+        "label": "Exact full conjugate",
+        "category": "convex analytic",
+        "complete_datum": "F*= -log(1-theta) for theta<1, infinity otherwise; F either lsc or convex",
+        "domain": "extended real function on R",
+        "theorem_id": "C5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SELF",
+        "label": "Calibrated self-concordance equality",
+        "category": "analytic",
+        "complete_datum": "Phi in C3, Phi″>0, signed Phi‴=-2(Phi″)^1.5, Phi″(1)=1, Phi(1)=Phi′(1)=0",
+        "domain": "t>0",
+        "theorem_id": "C6",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "METRIC",
+        "label": "Marked Hessian metric",
+        "category": "geometric/analytic",
+        "complete_datum": "Metric dt²/t² as actual Hessian of Phi with Phi(1)=Phi′(1)=0 in marked affine coordinate",
+        "domain": "t>0, marked affine coordinate",
+        "theorem_id": "C6",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "PROJ",
+        "label": "Calibrated projective derivative",
+        "category": "projective",
+        "complete_datum": "Injective all-cross-ratio-preserving H′, values at1,2,3 equal0,-1/2,-2/3; H(1)=0",
+        "domain": "t>0",
+        "theorem_id": "C7",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SCHWARZ",
+        "label": "Calibrated zero Schwarzian",
+        "category": "projective/analytic",
+        "complete_datum": "f=H′ in C3, f′ nonzero, Sf=0; jets f(1)=0,f′(1)=-1,f″(1)=2,H(1)=0",
+        "domain": "t>0",
+        "theorem_id": "C7",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "GAMMA",
+        "label": "Complete Gamma law",
+        "category": "probabilistic",
+        "complete_datum": "Gamma(2,1) law in marked coordinate",
+        "domain": "Borel probability on (0,infinity)",
+        "theorem_id": "P1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LAPLACE",
+        "label": "Complete Laplace data",
+        "category": "probabilistic",
+        "complete_datum": "Laplace(s)=(1+s)^-2 all s>=0",
+        "domain": "probability on [0,infinity)",
+        "theorem_id": "P1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "MOMENTS",
+        "label": "Complete moments on R",
+        "category": "probabilistic",
+        "complete_datum": "Finite positive Borel M; all moments (n+1)! including n=0",
+        "domain": "candidate on R",
+        "theorem_id": "P1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "MELLIN",
+        "label": "Complete Mellin line",
+        "category": "probabilistic",
+        "complete_datum": "E T^(i xi)=Gamma(2+i xi), all real xi",
+        "domain": "positive probability; s=1+i xi",
+        "theorem_id": "P1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "POIREC",
+        "label": "Normalized Poisson recurrence",
+        "category": "probabilistic",
+        "complete_datum": "pi on N0, (n+1)pi[n+1]=pi[n], total mass1",
+        "domain": "N0 with index mark",
+        "theorem_id": "P2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: full recurrence normalization; MGF HasSum",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "POICGF",
+        "label": "Centered Poisson CGF",
+        "category": "analytic/probabilistic",
+        "complete_datum": "Lambda(u)=exp(u)-1-u near0; reconstruct centered law; shift+1 explicit if uncentered law targeted",
+        "domain": "real neighborhood of0, centered convention",
+        "theorem_id": "P2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: scalar derivative, exponential and Bregman identities",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "POIKL",
+        "label": "Oriented Poisson KL slice",
+        "category": "probabilistic/analytic",
+        "complete_datum": "KL(Poi(1)||Poi(t)) as complete marked function",
+        "domain": "t>0, orientation retained",
+        "theorem_id": "P2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: scalar KL algebra, not probability integration",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "GUMBEL",
+        "label": "Two normalized max laws",
+        "category": "probabilistic",
+        "complete_datum": "CDF F(x+log2)^2=F(x), F(x+log3)^3=F(x),F(0)=exp(-1)",
+        "domain": "x in marked R",
+        "theorem_id": "P3",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "HAAR",
+        "label": "Marked Haar-weighted kernel",
+        "category": "analytic/group",
+        "complete_datum": "p(t)dt/t, scale fixed by integral1; x=-log t pushes to exact Gumbel",
+        "domain": "multiplicative t>0, additive x in R",
+        "theorem_id": "P3",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "JOINT",
+        "label": "Linked deficit and involution",
+        "category": "analytic/probabilistic",
+        "complete_datum": "Candidate J has two strict continuous branches, J(1)=0, endpoint infinity, q_J=exp(-1-J) of mass1; its deficit law equals the prescribed law of I(T) under p, AND its coordinate involution equals the prescribed I-level involution",
+        "domain": "t>0, levels v>=0; both observations concern the same J",
+        "theorem_id": "P4",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SURV",
+        "label": "Normalized hazard/survival",
+        "category": "probabilistic",
+        "complete_datum": "Locally absolutely continuous positive survival, S(0)=1, hazard x/(1+x), or full S=(1+x)exp(-x)",
+        "domain": "x>=0",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LOGISTIC",
+        "label": "Marked logistic initial value",
+        "category": "analytic",
+        "complete_datum": "v′=v(1-v),v(0)=1/2; x=exp(u) hazard conversion",
+        "domain": "u in R",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "GREEN",
+        "label": "Causal repeated-root Green",
+        "category": "analytic/operator",
+        "complete_datum": "(D+1)^2p=0,p(0)=0,mass1; equivalent causal Green equation with delta source",
+        "domain": "t>0; causal support [0,infinity)",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "STIELTJES",
+        "label": "Complete probability Stieltjes transform",
+        "category": "probabilistic",
+        "complete_datum": "G(z)=1-z exp(z) E1(z) for every z>0",
+        "domain": "positive half-line probability",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SIZEBIAS",
+        "label": "Exact marked size-bias data",
+        "category": "probabilistic",
+        "complete_datum": "Positive original law without atom0, finite mean, size-biased law Gamma2; normalization inverse",
+        "domain": "positive original variable",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "EQUIL",
+        "label": "Exact equilibrium law",
+        "category": "probabilistic",
+        "complete_datum": "Positive original lifetime finite mean, no atom0, equilibrium density (1+t)exp(-t)/2 as canonical monotone representative",
+        "domain": "t>=0",
+        "theorem_id": "P5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "TOWER",
+        "label": "Normalized Todd k=0 tower",
+        "category": "formal algebra",
+        "complete_datum": "Q in Q[[u]], Q(0)=1 explicitly, [u^n]Q^(n+1)=1 for every n>=1",
+        "domain": "formal u; canonical analytic continuation for global identification",
+        "theorem_id": "F1",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: actual PowerSeries triangular uniqueness, not Todd existence",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "TODD",
+        "label": "Complete Todd series",
+        "category": "formal/analytic",
+        "complete_datum": "Q_T=u/(1-exp(-u)), Q_T(0)=1",
+        "domain": "formal u / real u; analytic continuation retained",
+        "theorem_id": "F2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: real representative and reversible maps; no Taylor bridge",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "AHAT",
+        "label": "Complete A-hat series",
+        "category": "formal/analytic",
+        "complete_datum": "Q_A=(u/2)/sinh(u/2), Q_A(0)=1",
+        "domain": "formal u / real u; analytic continuation retained",
+        "theorem_id": "F2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: real positive quadratic-root reconstruction and reversible maps",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "LSER",
+        "label": "Complete L series",
+        "category": "formal/analytic",
+        "complete_datum": "Q_L=u/tanh(u), Q_L(0)=1",
+        "domain": "formal u / real u; analytic continuation retained",
+        "theorem_id": "F2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: real exponential reconstruction and inverse maps",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "CHI",
+        "label": "Complete normalized chi_y",
+        "category": "formal/analytic",
+        "complete_datum": "Fixed marked real y != -1; Q_y=Q_T((1+y)u)-yu, Q_y(0)=1",
+        "domain": "formal/real u; analytic continuation retained",
+        "theorem_id": "F2",
+        "intrinsic_member": true,
+        "formal_status": "partial Lean: reversible real-function maps; y=-1 degeneracy",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "TREE",
+        "label": "Rooted labelled tree germ",
+        "category": "combinatorial/analytic",
+        "complete_datum": "Complete EGF n^(n-1)/n!, T(0)=0; inverse germ x=T exp(-T)",
+        "domain": "germ at0; connected real analytic candidate for global p",
+        "theorem_id": "P6",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "BOREL",
+        "label": "Complete Borel PGF",
+        "category": "probabilistic/combinatorial",
+        "complete_datum": "B(s)=T(s/e), coefficients exp(-n)n^(n-1)/n!, marked PGF scale",
+        "domain": "|s|<1 and boundary B(1)=1; analytic inverse",
+        "theorem_id": "P6",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "formal/local with explicit analytic continuation class"
+      },
+      {
+        "id": "CW",
+        "label": "Complete marked rational/projective presentation",
+        "category": "arithmetic/projective",
+        "complete_datum": "Root1; reduced label a/b has left child a/(a+b) and right child (a+b)/b; retain numeric labels, left/right or equivalent Farey endpoint marks, Möbius membership and full real extension",
+        "domain": "L on (-1,infinity), R on R; rational tree positive",
+        "theorem_id": "R1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "STEIN",
+        "label": "Full-line normalized weak Stein",
+        "category": "probabilistic/operator",
+        "complete_datum": "Probability P on R, all f in Cc∞(R): integral(tf′+(2-t)f)dP=0",
+        "domain": "all R tests; support derived",
+        "theorem_id": "O1",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "MIX",
+        "label": "Linked unknown mixing law",
+        "category": "operator/probabilistic",
+        "complete_datum": "Finite positive nu on R, integral exp(-ns)dnu=(n+1)^-2 every n>=0; nu itself is candidate",
+        "domain": "candidate R; positive support derived",
+        "theorem_id": "O5",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "BERN",
+        "label": "Complete integer tail in Bernstein class",
+        "category": "analytic/probabilistic",
+        "complete_datum": "Bernstein f with every f(n)=2log(1+n) for n>=N, fixed N>=1",
+        "domain": "lambda>=0",
+        "theorem_id": "O6",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ORTHO",
+        "label": "Complete marked Laguerre orthogonality",
+        "category": "operator/probabilistic",
+        "complete_datum": "Positive measure mass1; integrability of all polynomials; integral L_n^(1)=0 for all n>=1",
+        "domain": "candidate R, fixed polynomial coordinates",
+        "theorem_id": "O7",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ENTROPY",
+        "label": "Exact entropy-maximizing law",
+        "category": "probabilistic/convex",
+        "complete_datum": "Unique maximum entropy probability on t>0 with E T=2,E log T=1-gamma_E; finite constraints and entropy convention",
+        "domain": "positive coordinate, exact constraints",
+        "theorem_id": "P7",
+        "intrinsic_member": true,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "PLACEMENT",
+        "label": "P=(mu,a)",
+        "category": "retained input class A",
+        "complete_datum": "mu>0,0<a<1",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "OP_CONTEXT",
+        "label": "Local normalized operator context",
+        "category": "retained input class C",
+        "complete_datum": "marked positive coordinate, conservative local differential expression, normalized Pearson realization",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "CONV_CONTEXT",
+        "label": "Probability convolution context",
+        "category": "retained input class C",
+        "complete_datum": "additive nonnegative time, probability convolution on [0,infinity), time-one linkage",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SPD_CONTEXT",
+        "label": "Spectral matrix context",
+        "category": "retained input class C",
+        "complete_datum": "real SPD cones, orthogonal invariance and scalar-block recursion; specified rank if an instance",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "GAUSS_CONTEXT",
+        "label": "Isotropic radial context",
+        "category": "retained input class C",
+        "complete_datum": "supplied R4, standard inner product, t=norm²/2, rotation-invariant vector law",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "GW_CONTEXT",
+        "label": "One-ancestor iid GW context",
+        "category": "retained input class C",
+        "complete_datum": "offspring and descendant independence; specified rooted-tree convention",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "TOP_CONTEXT",
+        "label": "Native topology and chosen argument",
+        "category": "retained input class C",
+        "complete_datum": "base, complex bundle, chosen admissible map/embedding, K/cohomology and compatible Thom/splitting/Gysin foundations",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "ARITH_LABELS",
+        "label": "Integer transport labels",
+        "category": "retained input class E",
+        "complete_datum": "specified N labels, code and factor labels; original code must be injective",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SPATIAL_CONTEXT",
+        "label": "Designated spatial context",
+        "category": "retained input class D",
+        "complete_datum": "supplied real inner-product space and designated nonnegative observable",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "ORTH_ADD",
+        "label": "Orthogonal additivity predicate",
+        "category": "retained input class C",
+        "complete_datum": "r(x+y)=r(x)+r(y) for every orthogonal pair; dimension at least2",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "RADIAL_CONTEXT",
+        "label": "Specified radial operator",
+        "category": "retained input class C",
+        "complete_datum": "dimension D positive integer and conjugation x^((D-1)/2) on x>0",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "CANCEL",
+        "label": "Residual cancellation predicate",
+        "category": "retained input class C",
+        "complete_datum": "radial residual identically zero on x>0",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "D_GE2",
+        "label": "Dimension lower bound",
+        "category": "retained input class C",
+        "complete_datum": "D>=2",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "J_RECIPE",
+        "label": "Fixed squared-resolvent recipe",
+        "category": "retained input class B",
+        "complete_datum": "J(lambda)=(1+lambda)^-2, exponent2 and time-coordinate scale",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "NO_DRIFT",
+        "label": "Zero-drift identifier",
+        "category": "retained input class C",
+        "complete_datum": "drift0; equivalently given Levy measure plus mean2/support-inf0/exponent sublinear",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "TILT_MARK",
+        "label": "Marked individual tilt",
+        "category": "retained input class B",
+        "complete_datum": "specified theta<1 and positive inverse exponential weighting",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "MATRIX_ANCHORS",
+        "label": "Affine matrix-potential anchors",
+        "category": "retained input class B",
+        "complete_datum": "Phi(Id)=0 and gradient Phi(Id)=0 in the supplied affine symmetric-matrix coordinate",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SAMPLING_CONTEXT",
+        "label": "Specified Gaussian sample experiment",
+        "category": "retained input class D",
+        "complete_datum": "m>=1 and m iid centered Gaussian observations with covariance parameter X; sufficient statistic W; W SPD when interior optimum requested",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SELFDECOMP_LINK",
+        "label": "Linked original law for one self-decomposition",
+        "category": "retained input class C",
+        "complete_datum": "select one entry with 0<c<1 from the residual family; candidate Borel probability X on R with independent copy X′ and independent residual Y_c; X equals in law cX′+Y_c. An individual residual law recovers c from its zero atom c².",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SIGMA",
+        "label": "Placed Sigma",
+        "category": "analytic",
+        "complete_datum": "sigma_P on its marked r coordinate",
+        "domain": "r>-a/mu; probability on r>=0",
+        "theorem_id": "IV-C",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "PLACEMENT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "LAGUERRE",
+        "label": "Canonical marked Laguerre realization",
+        "category": "operator",
+        "complete_datum": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate",
+        "domain": "unique limit-point self-adjoint closure",
+        "theorem_id": "O3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "SEMIGROUP",
+        "label": "Canonical Gamma convolution completion",
+        "category": "probabilistic",
+        "complete_datum": "mu_r=Gamma(2r,1),mu_0=delta0",
+        "domain": "r>=0, x>=0",
+        "theorem_id": "P8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "CONV_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "SPD",
+        "label": "Canonical SPD spectral potential",
+        "category": "matrix",
+        "complete_datum": "Phi_n=trX-logdetX-n",
+        "domain": "real SPD_n, n>=1",
+        "theorem_id": "M1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "GAUSSIAN",
+        "label": "Canonical isotropic Gaussian radial realization",
+        "category": "probabilistic/geometric",
+        "complete_datum": "standard Gaussian R4; norm²/2 law p",
+        "domain": "supplied R4",
+        "theorem_id": "M3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "GAUSS_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "GW",
+        "label": "Canonical Poisson GW tree law",
+        "category": "probabilistic/combinatorial",
+        "complete_datum": "critical Poisson1 iid-GW in specified convention",
+        "domain": "one ancestor",
+        "theorem_id": "P6",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "GW_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "THOM",
+        "label": "Universal Thom correction",
+        "category": "topological",
+        "complete_datum": "universal line correction C=1/Q_T, total Td^-1",
+        "domain": "universal series; supplied topological arguments",
+        "theorem_id": "B2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TOP_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "LOW2",
+        "label": "Two marked eigenfunction probes",
+        "category": "operator",
+        "complete_datum": "B(2-t)=2-t and B(t²/2-3t+3)=2(t²/2-3t+3)",
+        "domain": "positive coordinate",
+        "theorem_id": "O2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed marked operator data"
+      },
+      {
+        "id": "SPEC",
+        "label": "Complete spectrum / unitary class",
+        "category": "operator",
+        "complete_datum": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "domain": "nonnegative self-adjoint pure point",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "HEAT",
+        "label": "Full ordinary heat trace",
+        "category": "operator",
+        "complete_datum": "1/(1-exp(-tau)), exact trace-class domain Re tau>0",
+        "domain": "Re tau>0",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZETA",
+        "label": "Full shifted spectral zeta",
+        "category": "operator",
+        "complete_datum": "Tr(1+A)^-s=zeta(s), ordinary domain Re s>1",
+        "domain": "Re s>1; continuation is separate",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZETA_INT",
+        "label": "All integer zeta values >=2",
+        "category": "operator",
+        "complete_datum": "complete values Tr(1+A)^-k,k>=2",
+        "domain": "HS shifted resolvent class",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "FULL_DET",
+        "label": "Full Fredholm determinant functions",
+        "category": "operator",
+        "complete_datum": "sinh(pi sqrt(z))/(pi sqrt(z)); det2=exp(-gamma_E z)/Gamma(1+z)",
+        "domain": "entire functions; regularizations marked",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "FINITE_SPEC",
+        "label": "Finite spectral values / one determinant",
+        "category": "operator",
+        "complete_datum": "specified finite real zeta values, finite parts and determinant values",
+        "domain": "specified finite data only",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "KERNEL",
+        "label": "Full marked heat / resolvent kernels",
+        "category": "operator",
+        "complete_datum": "Hille-Hardy kernel relative p(y)dy; full resolvent operator",
+        "domain": "tau>0,x,y>0; alpha>0",
+        "theorem_id": "O3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed marked operator data"
+      },
+      {
+        "id": "CANON_MIX",
+        "label": "Canonical J mixing construction",
+        "category": "operator/probabilistic",
+        "complete_datum": "Gamma2 mixing kernel selected by fixed J",
+        "domain": "s>=0",
+        "theorem_id": "O5",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LEVY",
+        "label": "Gamma Levy measure alone",
+        "category": "probabilistic",
+        "complete_datum": "2exp(-x)dx/x",
+        "domain": "x>0; probability semigroup category does not fix drift",
+        "theorem_id": "P8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SELFDECOMP",
+        "label": "Exact indexed self-decomposition residual family",
+        "category": "probabilistic",
+        "complete_datum": "entire c-indexed residual family with transform ((1+c lambda)/(1+lambda))² and Levy density difference; does not name an arbitrary original law without SELFDECOMP_LINK. For the inverse one entry suffices.",
+        "domain": "indexed 0<c<1; a family-valued construction needs no selected c input",
+        "theorem_id": "P9",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "TILT",
+        "label": "Gamma exponential tilts",
+        "category": "probabilistic",
+        "complete_datum": "p_theta=(1-theta)²t exp(-(1-theta)t)",
+        "domain": "theta<1, t>0",
+        "theorem_id": "P5",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TILT_MARK"
+        ],
+        "scope": "individual marked tilted law"
+      },
+      {
+        "id": "DEFICIT",
+        "label": "Complete deficit marginal",
+        "category": "probabilistic",
+        "complete_datum": "law of I(T), complete moments/cumulants/MGF",
+        "domain": "v>=0; MGF real s<1",
+        "theorem_id": "P4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "INVOL",
+        "label": "Level involution alone",
+        "category": "analytic",
+        "complete_datum": "prescribed I-level involution: -W_-1(-t exp(-t)) below1 and -W_0(-t exp(-t)) above1",
+        "domain": "t>0, fixed point1",
+        "theorem_id": "P4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "DERIV",
+        "label": "Unanchored intrinsic derivative hierarchy",
+        "category": "analytic",
+        "complete_datum": "F^(n)(t)=(-1)^(n-1)(n-1)!/t^n for all n>=2; no affine anchors",
+        "domain": "intrinsic t>0; placed version additionally retains P",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZEROS",
+        "label": "Exact intrinsic derivative-zero sets",
+        "category": "analytic",
+        "complete_datum": "Z_n={n} exactly for every integer n>=1; placed variants additionally retain P",
+        "domain": "t>0; smooth positive probability candidates",
+        "theorem_id": "Z4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "JET",
+        "label": "Intrinsic closure Hessian / finite jet",
+        "category": "analytic",
+        "complete_datum": "specified finite derivatives of H at t=1; placed variants additionally retain P",
+        "domain": "t=1, arbitrary smooth candidates on t>0",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SCALE",
+        "label": "Placed scale covariance",
+        "category": "analytic",
+        "complete_datum": "mu scaling relation with arbitrary profile G",
+        "domain": "mu>0",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "DISCRETE",
+        "label": "Intrinsic discrete curvature / integer samples",
+        "category": "arithmetic/analytic",
+        "complete_datum": "H(n) for n>=1, or its second differences for n>=2 plus two sample anchors; placed variants additionally retain P",
+        "domain": "positive integer intrinsic lattice; real interpolation unspecified",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "AUTOS",
+        "label": "Star automorphisms and integer n-series",
+        "category": "algebraic",
+        "complete_datum": "F_c=(1+x)^c-1,c!=0; [n]=(1+x)^n-1; regularity as stated",
+        "domain": "x>-1; formal characteristic0 version",
+        "theorem_id": "C3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "MATRIX_GEOM",
+        "label": "SPD differential and Bregman geometry",
+        "category": "matrix/geometric",
+        "complete_datum": "gradient,Hessian,conjugate,precision duality,geodesics,distance",
+        "domain": "SPD_n; trace of matrix square",
+        "theorem_id": "M2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT"
+        ],
+        "scope": "context-indexed matrix differential data"
+      },
+      {
+        "id": "WISHART",
+        "label": "Gaussian likelihood/Wishart statistics",
+        "category": "probabilistic/matrix",
+        "complete_datum": "m iid centered Gaussian observations; W=sum zz^T",
+        "domain": "m positive integer; W SPD needed for interior optimum",
+        "theorem_id": "M2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT",
+          "SAMPLING_CONTEXT"
+        ],
+        "scope": "supplied sample experiment"
+      },
+      {
+        "id": "GYSIN",
+        "label": "Thom-to-Gysin comparison",
+        "category": "topological",
+        "complete_datum": "Riemann-Roch correction under native collapse/orientation hypotheses",
+        "domain": "supplied maps and bundles",
+        "theorem_id": "B2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TOP_CONTEXT"
+        ],
+        "scope": "supplied topological argument and map"
+      },
+      {
+        "id": "ARITH",
+        "label": "Transported multiplicative arithmetic",
+        "category": "arithmetic",
+        "complete_datum": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution",
+        "domain": "injective labelled N code; unit adjoined where needed",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "CODE0",
+        "label": "Canonical intrinsic integer code",
+        "category": "arithmetic/analytic",
+        "complete_datum": "e0(n)=H(n+1), n>=1, strictly decreasing and injective",
+        "domain": "labelled N>=1",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "EULER_PRODUCT",
+        "label": "Labelled Euler product",
+        "category": "arithmetic/analytic",
+        "complete_datum": "product over primes (1-p^-s)^-1=zeta(s)",
+        "domain": "Re s>1, convergence/generator multiset category",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "RADIUS",
+        "label": "Orthogonally additive radius",
+        "category": "spatial",
+        "complete_datum": "r(x)=c norm(x)^2,c>=0; star form exp(c norm²)-1",
+        "domain": "real inner-product dim>=2",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPATIAL_CONTEXT"
+        ],
+        "scope": "designated spatial observable"
+      },
+      {
+        "id": "RESIDUAL",
+        "label": "Radial residual formula",
+        "category": "spatial/operator",
+        "complete_datum": "(D-1)(D-3)/(4x²), independent of profile",
+        "domain": "x>0, nonzero C2 profile",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "D13",
+        "label": "Dimensions 1 or3",
+        "category": "spatial",
+        "complete_datum": "D in {1,3}",
+        "domain": "positive integer dimension",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "D3",
+        "label": "Dimension3",
+        "category": "spatial",
+        "complete_datum": "D=3",
+        "domain": "positive integer dimension",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "SMOOTH_EXTENSION",
+        "label": "Arbitrary smooth global extension",
+        "category": "analytic",
+        "complete_datum": "same germ, positive normalized candidates may differ away from germ",
+        "domain": "connected positive ray, C∞ only",
+        "theorem_id": "C8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "GERM_ONLY",
+        "label": "Germ after forgetting global candidate class",
+        "category": "formal/analytic",
+        "complete_datum": "same complete intrinsic inverse germ, with no real-analytic restriction on an arbitrarily supplied global continuation",
+        "domain": "local germ only",
+        "theorem_id": "C8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "formal/local; global candidate class forgotten"
+      },
+      {
+        "id": "UNMARKED_TREE",
+        "label": "Bare abstract binary tree",
+        "category": "combinatorial",
+        "complete_datum": "rooted left/right tree without numeric coordinates",
+        "domain": "abstract tree",
+        "theorem_id": "R1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e001",
+        "source": "S",
+        "target": "H",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C0",
+        "formal_status": "partial Lean: intrinsic identities",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e002",
+        "source": "S",
+        "target": "I",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C0",
+        "formal_status": "partial Lean: intrinsic identities",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e003",
+        "source": "S",
+        "target": "P",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C0",
+        "formal_status": "partial Lean: density algebra and positivity only",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e004",
+        "source": "S",
+        "target": "CURV",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "partial Lean: first-derivative reconstruction only",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e005",
+        "source": "S",
+        "target": "RIC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e006",
+        "source": "S",
+        "target": "REC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e007",
+        "source": "S",
+        "target": "LOG",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C3",
+        "formal_status": "partial Lean: normalized real logarithm uniqueness and forward group identity",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e008",
+        "source": "S",
+        "target": "COC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C3",
+        "formal_status": "partial Lean: forward cocycle identity",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e009",
+        "source": "S",
+        "target": "COMP",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e010",
+        "source": "S",
+        "target": "BREG",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C4",
+        "formal_status": "partial Lean: canonical identity only",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e011",
+        "source": "S",
+        "target": "SYMB",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C4",
+        "formal_status": "partial Lean: full differentiable anchored converse",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e012",
+        "source": "S",
+        "target": "LEG",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e013",
+        "source": "S",
+        "target": "SELF",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e014",
+        "source": "S",
+        "target": "METRIC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e015",
+        "source": "S",
+        "target": "PROJ",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C7",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e016",
+        "source": "S",
+        "target": "SCHWARZ",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "C7",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e017",
+        "source": "S",
+        "target": "GAMMA",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e018",
+        "source": "S",
+        "target": "LAPLACE",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e019",
+        "source": "S",
+        "target": "MOMENTS",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e020",
+        "source": "S",
+        "target": "MELLIN",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e021",
+        "source": "S",
+        "target": "POIREC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P2",
+        "formal_status": "partial Lean: full recurrence normalization; MGF HasSum",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e022",
+        "source": "S",
+        "target": "POICGF",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P2",
+        "formal_status": "partial Lean: scalar derivative, exponential and Bregman identities",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e023",
+        "source": "S",
+        "target": "POIKL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P2",
+        "formal_status": "partial Lean: scalar KL algebra, not probability integration",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e024",
+        "source": "S",
+        "target": "GUMBEL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e025",
+        "source": "S",
+        "target": "HAAR",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e026",
+        "source": "S",
+        "target": "JOINT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e027",
+        "source": "S",
+        "target": "SURV",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e028",
+        "source": "S",
+        "target": "LOGISTIC",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e029",
+        "source": "S",
+        "target": "GREEN",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e030",
+        "source": "S",
+        "target": "STIELTJES",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e031",
+        "source": "S",
+        "target": "SIZEBIAS",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e032",
+        "source": "S",
+        "target": "EQUIL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e033",
+        "source": "S",
+        "target": "TOWER",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "F1",
+        "formal_status": "partial Lean: actual PowerSeries triangular uniqueness, not Todd existence",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e034",
+        "source": "S",
+        "target": "TODD",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "F2",
+        "formal_status": "partial Lean: real representative and reversible maps; no Taylor bridge",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e035",
+        "source": "S",
+        "target": "AHAT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "F2",
+        "formal_status": "partial Lean: real positive quadratic-root reconstruction and reversible maps",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e036",
+        "source": "S",
+        "target": "LSER",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "F2",
+        "formal_status": "partial Lean: real exponential reconstruction and inverse maps",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e037",
+        "source": "S",
+        "target": "CHI",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "F2",
+        "formal_status": "partial Lean: reversible real-function maps; y=-1 degeneracy",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e038",
+        "source": "S",
+        "target": "TREE",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e039",
+        "source": "S",
+        "target": "BOREL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e040",
+        "source": "S",
+        "target": "CW",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "R1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e041",
+        "source": "S",
+        "target": "STEIN",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e042",
+        "source": "S",
+        "target": "MIX",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e043",
+        "source": "S",
+        "target": "BERN",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e044",
+        "source": "S",
+        "target": "ORTHO",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O7",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e045",
+        "source": "S",
+        "target": "ENTROPY",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "retain complete datum, coordinate, calibration and candidate class stated on node"
+        ],
+        "required_nodes": [],
+        "theorem_id": "P7",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e046",
+        "source": "S",
+        "target": "SIGMA",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "PLACEMENT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "PLACEMENT"
+        ],
+        "theorem_id": "IV-C",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e047",
+        "source": "PLACEMENT",
+        "target": "SIGMA",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "IV-C",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e048",
+        "source": "S",
+        "target": "LAGUERRE",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "OP_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "OP_CONTEXT"
+        ],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e049",
+        "source": "OP_CONTEXT",
+        "target": "LAGUERRE",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e050",
+        "source": "S",
+        "target": "SEMIGROUP",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "CONV_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "CONV_CONTEXT"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e051",
+        "source": "CONV_CONTEXT",
+        "target": "SEMIGROUP",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e052",
+        "source": "S",
+        "target": "SPD",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "SPD_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "SPD_CONTEXT"
+        ],
+        "theorem_id": "M1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e053",
+        "source": "SPD_CONTEXT",
+        "target": "SPD",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "M1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e054",
+        "source": "S",
+        "target": "GAUSSIAN",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "GAUSS_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "GAUSS_CONTEXT"
+        ],
+        "theorem_id": "M3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e055",
+        "source": "GAUSS_CONTEXT",
+        "target": "GAUSSIAN",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "M3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e056",
+        "source": "S",
+        "target": "GW",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "GW_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "GW_CONTEXT"
+        ],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e057",
+        "source": "GW_CONTEXT",
+        "target": "GW",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e058",
+        "source": "S",
+        "target": "THOM",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "TOP_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "TOP_CONTEXT"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context."
+      },
+      {
+        "id": "e059",
+        "source": "TOP_CONTEXT",
+        "target": "THOM",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "S"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e060",
+        "source": "LAGUERRE",
+        "target": "LOW2",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e061",
+        "source": "LOW2",
+        "target": "LAGUERRE",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "OP_CONTEXT",
+          "normalized Pearson realization"
+        ],
+        "required_nodes": [
+          "OP_CONTEXT"
+        ],
+        "theorem_id": "O2",
+        "formal_status": "partial Lean: actual differential probes identify coefficients only",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e062",
+        "source": "LAGUERRE",
+        "target": "SPEC",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": ""
+      },
+      {
+        "id": "e063",
+        "source": "SPEC",
+        "target": "HEAT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": ""
+      },
+      {
+        "id": "e064",
+        "source": "SPEC",
+        "target": "ZETA",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": ""
+      },
+      {
+        "id": "e065",
+        "source": "SPEC",
+        "target": "ZETA_INT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": ""
+      },
+      {
+        "id": "e066",
+        "source": "SPEC",
+        "target": "FULL_DET",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": ""
+      },
+      {
+        "id": "e067",
+        "source": "SPEC",
+        "target": "FINITE_SPEC",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": ""
+      },
+      {
+        "id": "e068",
+        "source": "FINITE_SPEC",
+        "target": "SPEC",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Finite eigenvalue perturbations preserve the specified finite invariants."
+      },
+      {
+        "id": "e069",
+        "source": "SPEC",
+        "target": "LAGUERRE",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Gamma2 and Gamma3 stationary coordinate realizations have the same entire spectral package."
+      },
+      {
+        "id": "e070",
+        "source": "LAGUERRE",
+        "target": "KERNEL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "full marked coordinate kernel/operator, not scalar trace"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": ""
+      },
+      {
+        "id": "e071",
+        "source": "SPEC",
+        "target": "CANON_MIX",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "fixed exponent2 J recipe"
+        ],
+        "required_nodes": [
+          "J_RECIPE"
+        ],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e072",
+        "source": "CANON_MIX",
+        "target": "MIX",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "Output law satisfies the linked-mixing characterization; this is not an inverse on source stationary realizations."
+      },
+      {
+        "id": "e073",
+        "source": "S",
+        "target": "CANON_MIX",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "J_RECIPE"
+        ],
+        "required_nodes": [
+          "J_RECIPE"
+        ],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e074",
+        "source": "SEMIGROUP",
+        "target": "LEVY",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": ""
+      },
+      {
+        "id": "e075",
+        "source": "LEVY",
+        "target": "SEMIGROUP",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "CONV_CONTEXT",
+          "zero killing by probability, and NO_DRIFT"
+        ],
+        "required_nodes": [
+          "CONV_CONTEXT",
+          "NO_DRIFT"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e076",
+        "source": "LEVY",
+        "target": "P",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Add any positive drift; same Levy measure, shifted time-one law."
+      },
+      {
+        "id": "e077",
+        "source": "S",
+        "target": "SELFDECOMP",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e078",
+        "source": "SELFDECOMP",
+        "target": "S",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "SELFDECOMP_LINK: the candidate original law is linked to one residual entry; its c is recoverable from its atom at0"
+        ],
+        "required_nodes": [
+          "SELFDECOMP_LINK"
+        ],
+        "theorem_id": "P9",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Iterate characteristic functions phi(xi)=phi(c xi)((1-i c xi)/(1-i xi))²; continuity at0 identifies Gamma2 even for a candidate on R. Without linkage an unrelated law is unrestricted. The c=0 endpoint also identifies; c=1 does not."
+      },
+      {
+        "id": "e079",
+        "source": "S",
+        "target": "TILT",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "marked tilt theta<1; use positive inverse weighting"
+        ],
+        "required_nodes": [
+          "TILT_MARK"
+        ],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e080",
+        "source": "S",
+        "target": "DEFICIT",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e081",
+        "source": "S",
+        "target": "INVOL",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e082",
+        "source": "S",
+        "target": "DERIV",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e083",
+        "source": "S",
+        "target": "ZEROS",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "Z4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e084",
+        "source": "S",
+        "target": "JET",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e085",
+        "source": "S",
+        "target": "SCALE",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e086",
+        "source": "S",
+        "target": "DISCRETE",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e087",
+        "source": "S",
+        "target": "AUTOS",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e088",
+        "source": "DEFICIT",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Shift both inverse branches together, preserving linked density and normalization."
+      },
+      {
+        "id": "e089",
+        "source": "INVOL",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Normalize a nontrivial reparameterization of I levels."
+      },
+      {
+        "id": "e090",
+        "source": "DEFICIT",
+        "target": "JOINT",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "INVOL and same density-potential linkage and two-branch candidate class"
+        ],
+        "required_nodes": [
+          "INVOL"
+        ],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e091",
+        "source": "ZEROS",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "Z4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "f_k=(k-1)k^k t/(t+k)^(k+1), k>1, has exactly Z_n={n} for every n."
+      },
+      {
+        "id": "e092",
+        "source": "JET",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively."
+      },
+      {
+        "id": "e093",
+        "source": "SCALE",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively."
+      },
+      {
+        "id": "e094",
+        "source": "DISCRETE",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively."
+      },
+      {
+        "id": "e095",
+        "source": "DERIV",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively."
+      },
+      {
+        "id": "e096",
+        "source": "SPD",
+        "target": "MATRIX_GEOM",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": ""
+      },
+      {
+        "id": "e097",
+        "source": "MATRIX_GEOM",
+        "target": "SPD",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "actual Hessian/Bregman data in affine matrix coordinate plus affine anchors and scalar calibration"
+        ],
+        "required_nodes": [
+          "SPD_CONTEXT",
+          "MATRIX_ANCHORS"
+        ],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e098",
+        "source": "SPD",
+        "target": "WISHART",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "m iid centered Gaussian observations; sufficient statistic W; W SPD for interior optimum"
+        ],
+        "required_nodes": [
+          "SAMPLING_CONTEXT"
+        ],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e099",
+        "source": "THOM",
+        "target": "GYSIN",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "native collapse/Gysin/orientation hypotheses"
+        ],
+        "required_nodes": [
+          "TOP_CONTEXT"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": ""
+      },
+      {
+        "id": "e100",
+        "source": "S",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "integer labels and injective code"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": ""
+      },
+      {
+        "id": "e101",
+        "source": "S",
+        "target": "CODE0",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "N labels are the stated background domain of this new code, not recovered from an unlabelled subset."
+      },
+      {
+        "id": "e102",
+        "source": "CODE0",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "retain labelled N multiplication"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": ""
+      },
+      {
+        "id": "e103",
+        "source": "ARITH",
+        "target": "EULER_PRODUCT",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "numerical integer labels and Re s>1"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": ""
+      },
+      {
+        "id": "e104",
+        "source": "EULER_PRODUCT",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "locally finite generator multiset with convergent Euler product; numeric labels retained"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Recovers generator multiset/multiplicative monoid, not addition or real embedding."
+      },
+      {
+        "id": "e105",
+        "source": "SPATIAL_CONTEXT",
+        "target": "RADIUS",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "dimension>=2 and global nonnegative orthogonal additivity"
+        ],
+        "required_nodes": [
+          "ORTH_ADD"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e106",
+        "source": "RADIAL_CONTEXT",
+        "target": "RESIDUAL",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identity",
+        "note": ""
+      },
+      {
+        "id": "e107",
+        "source": "RESIDUAL",
+        "target": "D13",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "residual cancellation"
+        ],
+        "required_nodes": [
+          "CANCEL"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e108",
+        "source": "D13",
+        "target": "D3",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "D>=2"
+        ],
+        "required_nodes": [
+          "D_GE2"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": ""
+      },
+      {
+        "id": "e109",
+        "source": "S",
+        "target": "SPATIAL_CONTEXT",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e110",
+        "source": "S",
+        "target": "ORTH_ADD",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e111",
+        "source": "S",
+        "target": "CANCEL",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e112",
+        "source": "S",
+        "target": "D3",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e113",
+        "source": "S",
+        "target": "TOP_CONTEXT",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e114",
+        "source": "S",
+        "target": "ARITH_LABELS",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target."
+      },
+      {
+        "id": "e115",
+        "source": "D3",
+        "target": "S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Residual cancellation at D3 holds for every nonzero C2 radial profile."
+      },
+      {
+        "id": "e116",
+        "source": "TREE",
+        "target": "GERM_ONLY",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": "Forgets the analytic-global candidate restriction; retains only the local germ."
+      },
+      {
+        "id": "e117",
+        "source": "GERM_ONLY",
+        "target": "SMOOTH_EXTENSION",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "The germ alone does not identify an arbitrary smooth global continuation: a small zero-integral bump away from the germ preserves normalization and local data."
+      },
+      {
+        "id": "e118",
+        "source": "UNMARKED_TREE",
+        "target": "CW",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Conjugate/relabel rational generators; abstract tree does not supply numerical coordinates."
+      }
+    ]
+  },
+  "quotient": {
+    "nodes": [
+      {
+        "id": "E_S",
+        "label": "Complete intrinsic identification component",
+        "members": [
+          "AHAT",
+          "BERN",
+          "BOREL",
+          "BREG",
+          "CHI",
+          "COC",
+          "COMP",
+          "CURV",
+          "CW",
+          "ENTROPY",
+          "EQUIL",
+          "GAMMA",
+          "GREEN",
+          "GUMBEL",
+          "H",
+          "HAAR",
+          "I",
+          "JOINT",
+          "LAPLACE",
+          "LEG",
+          "LOG",
+          "LOGISTIC",
+          "LSER",
+          "MELLIN",
+          "METRIC",
+          "MIX",
+          "MOMENTS",
+          "ORTHO",
+          "P",
+          "POICGF",
+          "POIKL",
+          "POIREC",
+          "PROJ",
+          "REC",
+          "RIC",
+          "S",
+          "SCHWARZ",
+          "SELF",
+          "SIZEBIAS",
+          "STEIN",
+          "STIELTJES",
+          "SURV",
+          "SYMB",
+          "TODD",
+          "TOWER",
+          "TREE"
+        ]
+      },
+      {
+        "id": "PLACEMENT",
+        "label": "P=(mu,a)",
+        "category": "retained input class A",
+        "complete_datum": "mu>0,0<a<1",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "OP_CONTEXT",
+        "label": "Local normalized operator context",
+        "category": "retained input class C",
+        "complete_datum": "marked positive coordinate, conservative local differential expression, normalized Pearson realization",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "CONV_CONTEXT",
+        "label": "Probability convolution context",
+        "category": "retained input class C",
+        "complete_datum": "additive nonnegative time, probability convolution on [0,infinity), time-one linkage",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SPD_CONTEXT",
+        "label": "Spectral matrix context",
+        "category": "retained input class C",
+        "complete_datum": "real SPD cones, orthogonal invariance and scalar-block recursion; specified rank if an instance",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "GAUSS_CONTEXT",
+        "label": "Isotropic radial context",
+        "category": "retained input class C",
+        "complete_datum": "supplied R4, standard inner product, t=norm²/2, rotation-invariant vector law",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "GW_CONTEXT",
+        "label": "One-ancestor iid GW context",
+        "category": "retained input class C",
+        "complete_datum": "offspring and descendant independence; specified rooted-tree convention",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "TOP_CONTEXT",
+        "label": "Native topology and chosen argument",
+        "category": "retained input class C",
+        "complete_datum": "base, complex bundle, chosen admissible map/embedding, K/cohomology and compatible Thom/splitting/Gysin foundations",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "ARITH_LABELS",
+        "label": "Integer transport labels",
+        "category": "retained input class E",
+        "complete_datum": "specified N labels, code and factor labels; original code must be injective",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SPATIAL_CONTEXT",
+        "label": "Designated spatial context",
+        "category": "retained input class D",
+        "complete_datum": "supplied real inner-product space and designated nonnegative observable",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "ORTH_ADD",
+        "label": "Orthogonal additivity predicate",
+        "category": "retained input class C",
+        "complete_datum": "r(x+y)=r(x)+r(y) for every orthogonal pair; dimension at least2",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "RADIAL_CONTEXT",
+        "label": "Specified radial operator",
+        "category": "retained input class C",
+        "complete_datum": "dimension D positive integer and conjugation x^((D-1)/2) on x>0",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "CANCEL",
+        "label": "Residual cancellation predicate",
+        "category": "retained input class C",
+        "complete_datum": "radial residual identically zero on x>0",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "D_GE2",
+        "label": "Dimension lower bound",
+        "category": "retained input class C",
+        "complete_datum": "D>=2",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "J_RECIPE",
+        "label": "Fixed squared-resolvent recipe",
+        "category": "retained input class B",
+        "complete_datum": "J(lambda)=(1+lambda)^-2, exponent2 and time-coordinate scale",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "NO_DRIFT",
+        "label": "Zero-drift identifier",
+        "category": "retained input class C",
+        "complete_datum": "drift0; equivalently given Levy measure plus mean2/support-inf0/exponent sublinear",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "TILT_MARK",
+        "label": "Marked individual tilt",
+        "category": "retained input class B",
+        "complete_datum": "specified theta<1 and positive inverse exponential weighting",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "MATRIX_ANCHORS",
+        "label": "Affine matrix-potential anchors",
+        "category": "retained input class B",
+        "complete_datum": "Phi(Id)=0 and gradient Phi(Id)=0 in the supplied affine symmetric-matrix coordinate",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SAMPLING_CONTEXT",
+        "label": "Specified Gaussian sample experiment",
+        "category": "retained input class D",
+        "complete_datum": "m>=1 and m iid centered Gaussian observations with covariance parameter X; sufficient statistic W; W SPD when interior optimum requested",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SELFDECOMP_LINK",
+        "label": "Linked original law for one self-decomposition",
+        "category": "retained input class C",
+        "complete_datum": "select one entry with 0<c<1 from the residual family; candidate Borel probability X on R with independent copy X′ and independent residual Y_c; X equals in law cX′+Y_c. An individual residual law recovers c from its zero atom c².",
+        "domain": "typed by its target",
+        "theorem_id": "IV-D",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "retained input or predicate"
+      },
+      {
+        "id": "SIGMA",
+        "label": "Placed Sigma",
+        "category": "analytic",
+        "complete_datum": "sigma_P on its marked r coordinate",
+        "domain": "r>-a/mu; probability on r>=0",
+        "theorem_id": "IV-C",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "PLACEMENT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "LAGUERRE",
+        "label": "Canonical marked Laguerre realization",
+        "category": "operator",
+        "complete_datum": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate",
+        "domain": "unique limit-point self-adjoint closure",
+        "theorem_id": "O3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "SEMIGROUP",
+        "label": "Canonical Gamma convolution completion",
+        "category": "probabilistic",
+        "complete_datum": "mu_r=Gamma(2r,1),mu_0=delta0",
+        "domain": "r>=0, x>=0",
+        "theorem_id": "P8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "CONV_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "SPD",
+        "label": "Canonical SPD spectral potential",
+        "category": "matrix",
+        "complete_datum": "Phi_n=trX-logdetX-n",
+        "domain": "real SPD_n, n>=1",
+        "theorem_id": "M1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "GAUSSIAN",
+        "label": "Canonical isotropic Gaussian radial realization",
+        "category": "probabilistic/geometric",
+        "complete_datum": "standard Gaussian R4; norm²/2 law p",
+        "domain": "supplied R4",
+        "theorem_id": "M3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "GAUSS_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "GW",
+        "label": "Canonical Poisson GW tree law",
+        "category": "probabilistic/combinatorial",
+        "complete_datum": "critical Poisson1 iid-GW in specified convention",
+        "domain": "one ancestor",
+        "theorem_id": "P6",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "GW_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "THOM",
+        "label": "Universal Thom correction",
+        "category": "topological",
+        "complete_datum": "universal line correction C=1/Q_T, total Td^-1",
+        "domain": "universal series; supplied topological arguments",
+        "theorem_id": "B2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TOP_CONTEXT"
+        ],
+        "scope": "context-indexed canonical template"
+      },
+      {
+        "id": "LOW2",
+        "label": "Two marked eigenfunction probes",
+        "category": "operator",
+        "complete_datum": "B(2-t)=2-t and B(t²/2-3t+3)=2(t²/2-3t+3)",
+        "domain": "positive coordinate",
+        "theorem_id": "O2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed marked operator data"
+      },
+      {
+        "id": "SPEC",
+        "label": "Complete spectrum / unitary class",
+        "category": "operator",
+        "complete_datum": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "domain": "nonnegative self-adjoint pure point",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "HEAT",
+        "label": "Full ordinary heat trace",
+        "category": "operator",
+        "complete_datum": "1/(1-exp(-tau)), exact trace-class domain Re tau>0",
+        "domain": "Re tau>0",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZETA",
+        "label": "Full shifted spectral zeta",
+        "category": "operator",
+        "complete_datum": "Tr(1+A)^-s=zeta(s), ordinary domain Re s>1",
+        "domain": "Re s>1; continuation is separate",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZETA_INT",
+        "label": "All integer zeta values >=2",
+        "category": "operator",
+        "complete_datum": "complete values Tr(1+A)^-k,k>=2",
+        "domain": "HS shifted resolvent class",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "FULL_DET",
+        "label": "Full Fredholm determinant functions",
+        "category": "operator",
+        "complete_datum": "sinh(pi sqrt(z))/(pi sqrt(z)); det2=exp(-gamma_E z)/Gamma(1+z)",
+        "domain": "entire functions; regularizations marked",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "FINITE_SPEC",
+        "label": "Finite spectral values / one determinant",
+        "category": "operator",
+        "complete_datum": "specified finite real zeta values, finite parts and determinant values",
+        "domain": "specified finite data only",
+        "theorem_id": "O4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "KERNEL",
+        "label": "Full marked heat / resolvent kernels",
+        "category": "operator",
+        "complete_datum": "Hille-Hardy kernel relative p(y)dy; full resolvent operator",
+        "domain": "tau>0,x,y>0; alpha>0",
+        "theorem_id": "O3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "OP_CONTEXT"
+        ],
+        "scope": "context-indexed marked operator data"
+      },
+      {
+        "id": "CANON_MIX",
+        "label": "Canonical J mixing construction",
+        "category": "operator/probabilistic",
+        "complete_datum": "Gamma2 mixing kernel selected by fixed J",
+        "domain": "s>=0",
+        "theorem_id": "O5",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "LEVY",
+        "label": "Gamma Levy measure alone",
+        "category": "probabilistic",
+        "complete_datum": "2exp(-x)dx/x",
+        "domain": "x>0; probability semigroup category does not fix drift",
+        "theorem_id": "P8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SELFDECOMP",
+        "label": "Exact indexed self-decomposition residual family",
+        "category": "probabilistic",
+        "complete_datum": "entire c-indexed residual family with transform ((1+c lambda)/(1+lambda))² and Levy density difference; does not name an arbitrary original law without SELFDECOMP_LINK. For the inverse one entry suffices.",
+        "domain": "indexed 0<c<1; a family-valued construction needs no selected c input",
+        "theorem_id": "P9",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "TILT",
+        "label": "Gamma exponential tilts",
+        "category": "probabilistic",
+        "complete_datum": "p_theta=(1-theta)²t exp(-(1-theta)t)",
+        "domain": "theta<1, t>0",
+        "theorem_id": "P5",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TILT_MARK"
+        ],
+        "scope": "individual marked tilted law"
+      },
+      {
+        "id": "DEFICIT",
+        "label": "Complete deficit marginal",
+        "category": "probabilistic",
+        "complete_datum": "law of I(T), complete moments/cumulants/MGF",
+        "domain": "v>=0; MGF real s<1",
+        "theorem_id": "P4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "INVOL",
+        "label": "Level involution alone",
+        "category": "analytic",
+        "complete_datum": "prescribed I-level involution: -W_-1(-t exp(-t)) below1 and -W_0(-t exp(-t)) above1",
+        "domain": "t>0, fixed point1",
+        "theorem_id": "P4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "DERIV",
+        "label": "Unanchored intrinsic derivative hierarchy",
+        "category": "analytic",
+        "complete_datum": "F^(n)(t)=(-1)^(n-1)(n-1)!/t^n for all n>=2; no affine anchors",
+        "domain": "intrinsic t>0; placed version additionally retains P",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "ZEROS",
+        "label": "Exact intrinsic derivative-zero sets",
+        "category": "analytic",
+        "complete_datum": "Z_n={n} exactly for every integer n>=1; placed variants additionally retain P",
+        "domain": "t>0; smooth positive probability candidates",
+        "theorem_id": "Z4",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "JET",
+        "label": "Intrinsic closure Hessian / finite jet",
+        "category": "analytic",
+        "complete_datum": "specified finite derivatives of H at t=1; placed variants additionally retain P",
+        "domain": "t=1, arbitrary smooth candidates on t>0",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "SCALE",
+        "label": "Placed scale covariance",
+        "category": "analytic",
+        "complete_datum": "mu scaling relation with arbitrary profile G",
+        "domain": "mu>0",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "DISCRETE",
+        "label": "Intrinsic discrete curvature / integer samples",
+        "category": "arithmetic/analytic",
+        "complete_datum": "H(n) for n>=1, or its second differences for n>=2 plus two sample anchors; placed variants additionally retain P",
+        "domain": "positive integer intrinsic lattice; real interpolation unspecified",
+        "theorem_id": "C1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "AUTOS",
+        "label": "Star automorphisms and integer n-series",
+        "category": "algebraic",
+        "complete_datum": "F_c=(1+x)^c-1,c!=0; [n]=(1+x)^n-1; regularity as stated",
+        "domain": "x>-1; formal characteristic0 version",
+        "theorem_id": "C3",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "MATRIX_GEOM",
+        "label": "SPD differential and Bregman geometry",
+        "category": "matrix/geometric",
+        "complete_datum": "gradient,Hessian,conjugate,precision duality,geodesics,distance",
+        "domain": "SPD_n; trace of matrix square",
+        "theorem_id": "M2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT"
+        ],
+        "scope": "context-indexed matrix differential data"
+      },
+      {
+        "id": "WISHART",
+        "label": "Gaussian likelihood/Wishart statistics",
+        "category": "probabilistic/matrix",
+        "complete_datum": "m iid centered Gaussian observations; W=sum zz^T",
+        "domain": "m positive integer; W SPD needed for interior optimum",
+        "theorem_id": "M2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPD_CONTEXT",
+          "SAMPLING_CONTEXT"
+        ],
+        "scope": "supplied sample experiment"
+      },
+      {
+        "id": "GYSIN",
+        "label": "Thom-to-Gysin comparison",
+        "category": "topological",
+        "complete_datum": "Riemann-Roch correction under native collapse/orientation hypotheses",
+        "domain": "supplied maps and bundles",
+        "theorem_id": "B2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "TOP_CONTEXT"
+        ],
+        "scope": "supplied topological argument and map"
+      },
+      {
+        "id": "ARITH",
+        "label": "Transported multiplicative arithmetic",
+        "category": "arithmetic",
+        "complete_datum": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution",
+        "domain": "injective labelled N code; unit adjoined where needed",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "CODE0",
+        "label": "Canonical intrinsic integer code",
+        "category": "arithmetic/analytic",
+        "complete_datum": "e0(n)=H(n+1), n>=1, strictly decreasing and injective",
+        "domain": "labelled N>=1",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "EULER_PRODUCT",
+        "label": "Labelled Euler product",
+        "category": "arithmetic/analytic",
+        "complete_datum": "product over primes (1-p^-s)^-1=zeta(s)",
+        "domain": "Re s>1, convergence/generator multiset category",
+        "theorem_id": "R2",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "RADIUS",
+        "label": "Orthogonally additive radius",
+        "category": "spatial",
+        "complete_datum": "r(x)=c norm(x)^2,c>=0; star form exp(c norm²)-1",
+        "domain": "real inner-product dim>=2",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "SPATIAL_CONTEXT"
+        ],
+        "scope": "designated spatial observable"
+      },
+      {
+        "id": "RESIDUAL",
+        "label": "Radial residual formula",
+        "category": "spatial/operator",
+        "complete_datum": "(D-1)(D-3)/(4x²), independent of profile",
+        "domain": "x>0, nonzero C2 profile",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "D13",
+        "label": "Dimensions 1 or3",
+        "category": "spatial",
+        "complete_datum": "D in {1,3}",
+        "domain": "positive integer dimension",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "D3",
+        "label": "Dimension3",
+        "category": "spatial",
+        "complete_datum": "D=3",
+        "domain": "positive integer dimension",
+        "theorem_id": "B1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [
+          "RADIAL_CONTEXT"
+        ],
+        "scope": "the same supplied radial operator and dimension"
+      },
+      {
+        "id": "SMOOTH_EXTENSION",
+        "label": "Arbitrary smooth global extension",
+        "category": "analytic",
+        "complete_datum": "same germ, positive normalized candidates may differ away from germ",
+        "domain": "connected positive ray, C∞ only",
+        "theorem_id": "C8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      },
+      {
+        "id": "GERM_ONLY",
+        "label": "Germ after forgetting global candidate class",
+        "category": "formal/analytic",
+        "complete_datum": "same complete intrinsic inverse germ, with no real-analytic restriction on an arbitrarily supplied global continuation",
+        "domain": "local germ only",
+        "theorem_id": "C8",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "formal/local; global candidate class forgotten"
+      },
+      {
+        "id": "UNMARKED_TREE",
+        "label": "Bare abstract binary tree",
+        "category": "combinatorial",
+        "complete_datum": "rooted left/right tree without numeric coordinates",
+        "domain": "abstract tree",
+        "theorem_id": "R1",
+        "intrinsic_member": false,
+        "formal_status": "written proof; not Lean formalized",
+        "retained_context": [],
+        "scope": "global"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e046",
+        "source": "E_S",
+        "target": "SIGMA",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "PLACEMENT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "PLACEMENT"
+        ],
+        "theorem_id": "IV-C",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "SIGMA",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "sigma_P on its marked r coordinate"
+      },
+      {
+        "id": "e047",
+        "source": "PLACEMENT",
+        "target": "SIGMA",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "IV-C",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "PLACEMENT",
+        "original_target": "SIGMA",
+        "source_signature": "mu>0,0<a<1",
+        "target_signature": "sigma_P on its marked r coordinate"
+      },
+      {
+        "id": "e048",
+        "source": "E_S",
+        "target": "LAGUERRE",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "OP_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "OP_CONTEXT"
+        ],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "LAGUERRE",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate"
+      },
+      {
+        "id": "e049",
+        "source": "OP_CONTEXT",
+        "target": "LAGUERRE",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "OP_CONTEXT",
+        "original_target": "LAGUERRE",
+        "source_signature": "marked positive coordinate, conservative local differential expression, normalized Pearson realization",
+        "target_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate"
+      },
+      {
+        "id": "e050",
+        "source": "E_S",
+        "target": "SEMIGROUP",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "CONV_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "CONV_CONTEXT"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "SEMIGROUP",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "mu_r=Gamma(2r,1),mu_0=delta0"
+      },
+      {
+        "id": "e051",
+        "source": "CONV_CONTEXT",
+        "target": "SEMIGROUP",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "CONV_CONTEXT",
+        "original_target": "SEMIGROUP",
+        "source_signature": "additive nonnegative time, probability convolution on [0,infinity), time-one linkage",
+        "target_signature": "mu_r=Gamma(2r,1),mu_0=delta0"
+      },
+      {
+        "id": "e052",
+        "source": "E_S",
+        "target": "SPD",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "SPD_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "SPD_CONTEXT"
+        ],
+        "theorem_id": "M1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "SPD",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "Phi_n=trX-logdetX-n"
+      },
+      {
+        "id": "e053",
+        "source": "SPD_CONTEXT",
+        "target": "SPD",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "M1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "SPD_CONTEXT",
+        "original_target": "SPD",
+        "source_signature": "real SPD cones, orthogonal invariance and scalar-block recursion; specified rank if an instance",
+        "target_signature": "Phi_n=trX-logdetX-n"
+      },
+      {
+        "id": "e054",
+        "source": "E_S",
+        "target": "GAUSSIAN",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "GAUSS_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "GAUSS_CONTEXT"
+        ],
+        "theorem_id": "M3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "GAUSSIAN",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "standard Gaussian R4; norm²/2 law p"
+      },
+      {
+        "id": "e055",
+        "source": "GAUSS_CONTEXT",
+        "target": "GAUSSIAN",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "M3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "GAUSS_CONTEXT",
+        "original_target": "GAUSSIAN",
+        "source_signature": "supplied R4, standard inner product, t=norm²/2, rotation-invariant vector law",
+        "target_signature": "standard Gaussian R4; norm²/2 law p"
+      },
+      {
+        "id": "e056",
+        "source": "E_S",
+        "target": "GW",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "GW_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "GW_CONTEXT"
+        ],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "GW",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "critical Poisson1 iid-GW in specified convention"
+      },
+      {
+        "id": "e057",
+        "source": "GW_CONTEXT",
+        "target": "GW",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "P6",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "GW_CONTEXT",
+        "original_target": "GW",
+        "source_signature": "offspring and descendant independence; specified rooted-tree convention",
+        "target_signature": "critical Poisson1 iid-GW in specified convention"
+      },
+      {
+        "id": "e058",
+        "source": "E_S",
+        "target": "THOM",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "TOP_CONTEXT",
+          "identifying conditions of the template retained"
+        ],
+        "required_nodes": [
+          "TOP_CONTEXT"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Inverse recovers S while retaining supplied context; no arbitrary-object claim after forgetting context.",
+        "original_source": "S",
+        "original_target": "THOM",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "universal line correction C=1/Q_T, total Td^-1"
+      },
+      {
+        "id": "e059",
+        "source": "TOP_CONTEXT",
+        "target": "THOM",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "S supplied"
+        ],
+        "required_nodes": [
+          "E_S"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "TOP_CONTEXT",
+        "original_target": "THOM",
+        "source_signature": "base, complex bundle, chosen admissible map/embedding, K/cohomology and compatible Thom/splitting/Gysin foundations",
+        "target_signature": "universal line correction C=1/Q_T, total Td^-1"
+      },
+      {
+        "id": "e060",
+        "source": "LAGUERRE",
+        "target": "LOW2",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "",
+        "original_source": "LAGUERRE",
+        "original_target": "LOW2",
+        "source_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate",
+        "target_signature": "B(2-t)=2-t and B(t²/2-3t+3)=2(t²/2-3t+3)"
+      },
+      {
+        "id": "e061",
+        "source": "LOW2",
+        "target": "LAGUERRE",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "OP_CONTEXT",
+          "normalized Pearson realization"
+        ],
+        "required_nodes": [
+          "OP_CONTEXT"
+        ],
+        "theorem_id": "O2",
+        "formal_status": "partial Lean: actual differential probes identify coefficients only",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "LOW2",
+        "original_target": "LAGUERRE",
+        "source_signature": "B(2-t)=2-t and B(t²/2-3t+3)=2(t²/2-3t+3)",
+        "target_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate"
+      },
+      {
+        "id": "e062",
+        "source": "LAGUERRE",
+        "target": "SPEC",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": "",
+        "original_source": "LAGUERRE",
+        "original_target": "SPEC",
+        "source_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate",
+        "target_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate"
+      },
+      {
+        "id": "e063",
+        "source": "SPEC",
+        "target": "HEAT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "HEAT",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "1/(1-exp(-tau)), exact trace-class domain Re tau>0"
+      },
+      {
+        "id": "e064",
+        "source": "SPEC",
+        "target": "ZETA",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "ZETA",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "Tr(1+A)^-s=zeta(s), ordinary domain Re s>1"
+      },
+      {
+        "id": "e065",
+        "source": "SPEC",
+        "target": "ZETA_INT",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "ZETA_INT",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "complete values Tr(1+A)^-k,k>=2"
+      },
+      {
+        "id": "e066",
+        "source": "SPEC",
+        "target": "FULL_DET",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "nonnegative self-adjoint compact-resolvent class; actual finite traces or marked determinant class as stated"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "spectral identification",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "FULL_DET",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "sinh(pi sqrt(z))/(pi sqrt(z)); det2=exp(-gamma_E z)/Gamma(1+z)"
+      },
+      {
+        "id": "e067",
+        "source": "SPEC",
+        "target": "FINITE_SPEC",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "FINITE_SPEC",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "specified finite real zeta values, finite parts and determinant values"
+      },
+      {
+        "id": "e068",
+        "source": "FINITE_SPEC",
+        "target": "SPEC",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Finite eigenvalue perturbations preserve the specified finite invariants.",
+        "original_source": "FINITE_SPEC",
+        "original_target": "SPEC",
+        "source_signature": "specified finite real zeta values, finite parts and determinant values",
+        "target_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate"
+      },
+      {
+        "id": "e069",
+        "source": "SPEC",
+        "target": "LAGUERRE",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Gamma2 and Gamma3 stationary coordinate realizations have the same entire spectral package.",
+        "original_source": "SPEC",
+        "original_target": "LAGUERRE",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate"
+      },
+      {
+        "id": "e070",
+        "source": "LAGUERRE",
+        "target": "KERNEL",
+        "status": "iff",
+        "symbol": "⇔",
+        "assumptions": [
+          "full marked coordinate kernel/operator, not scalar trace"
+        ],
+        "required_nodes": [],
+        "theorem_id": "O3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "",
+        "original_source": "LAGUERRE",
+        "original_target": "KERNEL",
+        "source_signature": "L2(pdt),A=-[tD²+(2-t)D],constant1,multiplication coordinate",
+        "target_signature": "Hille-Hardy kernel relative p(y)dy; full resolvent operator"
+      },
+      {
+        "id": "e071",
+        "source": "SPEC",
+        "target": "CANON_MIX",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "fixed exponent2 J recipe"
+        ],
+        "required_nodes": [
+          "J_RECIPE"
+        ],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "SPEC",
+        "original_target": "CANON_MIX",
+        "source_signature": "simple eigenvalues N0, with zero multiplicity; unmarked coordinate",
+        "target_signature": "Gamma2 mixing kernel selected by fixed J"
+      },
+      {
+        "id": "e072",
+        "source": "CANON_MIX",
+        "target": "E_S",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "Output law satisfies the linked-mixing characterization; this is not an inverse on source stationary realizations.",
+        "original_source": "CANON_MIX",
+        "original_target": "MIX",
+        "source_signature": "Gamma2 mixing kernel selected by fixed J",
+        "target_signature": "Finite positive nu on R, integral exp(-ns)dnu=(n+1)^-2 every n>=0; nu itself is candidate"
+      },
+      {
+        "id": "e073",
+        "source": "E_S",
+        "target": "CANON_MIX",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "J_RECIPE"
+        ],
+        "required_nodes": [
+          "J_RECIPE"
+        ],
+        "theorem_id": "O5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "S",
+        "original_target": "CANON_MIX",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "Gamma2 mixing kernel selected by fixed J"
+      },
+      {
+        "id": "e074",
+        "source": "SEMIGROUP",
+        "target": "LEVY",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": "",
+        "original_source": "SEMIGROUP",
+        "original_target": "LEVY",
+        "source_signature": "mu_r=Gamma(2r,1),mu_0=delta0",
+        "target_signature": "2exp(-x)dx/x"
+      },
+      {
+        "id": "e075",
+        "source": "LEVY",
+        "target": "SEMIGROUP",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "CONV_CONTEXT",
+          "zero killing by probability, and NO_DRIFT"
+        ],
+        "required_nodes": [
+          "CONV_CONTEXT",
+          "NO_DRIFT"
+        ],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "LEVY",
+        "original_target": "SEMIGROUP",
+        "source_signature": "2exp(-x)dx/x",
+        "target_signature": "mu_r=Gamma(2r,1),mu_0=delta0"
+      },
+      {
+        "id": "e076",
+        "source": "LEVY",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Add any positive drift; same Levy measure, shifted time-one law.",
+        "original_source": "LEVY",
+        "original_target": "P",
+        "source_signature": "2exp(-x)dx/x",
+        "target_signature": "p=t exp(-t); continuous representative of its normalized law"
+      },
+      {
+        "id": "e077",
+        "source": "E_S",
+        "target": "SELFDECOMP",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "S",
+        "original_target": "SELFDECOMP",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "entire c-indexed residual family with transform ((1+c lambda)/(1+lambda))² and Levy density difference; does not name an arbitrary original law without SELFDECOMP_LINK. For the inverse one entry suffices."
+      },
+      {
+        "id": "e078",
+        "source": "SELFDECOMP",
+        "target": "E_S",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "SELFDECOMP_LINK: the candidate original law is linked to one residual entry; its c is recoverable from its atom at0"
+        ],
+        "required_nodes": [
+          "SELFDECOMP_LINK"
+        ],
+        "theorem_id": "P9",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Iterate characteristic functions phi(xi)=phi(c xi)((1-i c xi)/(1-i xi))²; continuity at0 identifies Gamma2 even for a candidate on R. Without linkage an unrelated law is unrestricted. The c=0 endpoint also identifies; c=1 does not.",
+        "original_source": "SELFDECOMP",
+        "original_target": "S",
+        "source_signature": "entire c-indexed residual family with transform ((1+c lambda)/(1+lambda))² and Levy density difference; does not name an arbitrary original law without SELFDECOMP_LINK. For the inverse one entry suffices.",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e079",
+        "source": "E_S",
+        "target": "TILT",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "marked tilt theta<1; use positive inverse weighting"
+        ],
+        "required_nodes": [
+          "TILT_MARK"
+        ],
+        "theorem_id": "P5",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "S",
+        "original_target": "TILT",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "p_theta=(1-theta)²t exp(-(1-theta)t)"
+      },
+      {
+        "id": "e080",
+        "source": "E_S",
+        "target": "DEFICIT",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "DEFICIT",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "law of I(T), complete moments/cumulants/MGF"
+      },
+      {
+        "id": "e081",
+        "source": "E_S",
+        "target": "INVOL",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "INVOL",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "prescribed I-level involution: -W_-1(-t exp(-t)) below1 and -W_0(-t exp(-t)) above1"
+      },
+      {
+        "id": "e082",
+        "source": "E_S",
+        "target": "DERIV",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "DERIV",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "F^(n)(t)=(-1)^(n-1)(n-1)!/t^n for all n>=2; no affine anchors"
+      },
+      {
+        "id": "e083",
+        "source": "E_S",
+        "target": "ZEROS",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "Z4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "ZEROS",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "Z_n={n} exactly for every integer n>=1; placed variants additionally retain P"
+      },
+      {
+        "id": "e084",
+        "source": "E_S",
+        "target": "JET",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "JET",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "specified finite derivatives of H at t=1; placed variants additionally retain P"
+      },
+      {
+        "id": "e085",
+        "source": "E_S",
+        "target": "SCALE",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "SCALE",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "mu scaling relation with arbitrary profile G"
+      },
+      {
+        "id": "e086",
+        "source": "E_S",
+        "target": "DISCRETE",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "DISCRETE",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "H(n) for n>=1, or its second differences for n>=2 plus two sample anchors; placed variants additionally retain P"
+      },
+      {
+        "id": "e087",
+        "source": "E_S",
+        "target": "AUTOS",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C3",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "S",
+        "original_target": "AUTOS",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "F_c=(1+x)^c-1,c!=0; [n]=(1+x)^n-1; regularity as stated"
+      },
+      {
+        "id": "e088",
+        "source": "DEFICIT",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Shift both inverse branches together, preserving linked density and normalization.",
+        "original_source": "DEFICIT",
+        "original_target": "S",
+        "source_signature": "law of I(T), complete moments/cumulants/MGF",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e089",
+        "source": "INVOL",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Normalize a nontrivial reparameterization of I levels.",
+        "original_source": "INVOL",
+        "original_target": "S",
+        "source_signature": "prescribed I-level involution: -W_-1(-t exp(-t)) below1 and -W_0(-t exp(-t)) above1",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e090",
+        "source": "DEFICIT",
+        "target": "E_S",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "INVOL and same density-potential linkage and two-branch candidate class"
+        ],
+        "required_nodes": [
+          "INVOL"
+        ],
+        "theorem_id": "P4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "DEFICIT",
+        "original_target": "JOINT",
+        "source_signature": "law of I(T), complete moments/cumulants/MGF",
+        "target_signature": "Candidate J has two strict continuous branches, J(1)=0, endpoint infinity, q_J=exp(-1-J) of mass1; its deficit law equals the prescribed law of I(T) under p, AND its coordinate involution equals the prescribed I-level involution"
+      },
+      {
+        "id": "e091",
+        "source": "ZEROS",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "Z4",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "f_k=(k-1)k^k t/(t+k)^(k+1), k>1, has exactly Z_n={n} for every n.",
+        "original_source": "ZEROS",
+        "original_target": "S",
+        "source_signature": "Z_n={n} exactly for every integer n>=1; placed variants additionally retain P",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e092",
+        "source": "JET",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively.",
+        "original_source": "JET",
+        "original_target": "S",
+        "source_signature": "specified finite derivatives of H at t=1; placed variants additionally retain P",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e093",
+        "source": "SCALE",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively.",
+        "original_source": "SCALE",
+        "original_target": "S",
+        "source_signature": "mu scaling relation with arbitrary profile G",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e094",
+        "source": "DISCRETE",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively.",
+        "original_source": "DISCRETE",
+        "original_target": "S",
+        "source_signature": "H(n) for n>=1, or its second differences for n>=2 plus two sample anchors; placed variants additionally retain P",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e095",
+        "source": "DERIV",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Missing global shape/affine data: bump, arbitrary scale profile, periodic perturbation, or affine freedom respectively.",
+        "original_source": "DERIV",
+        "original_target": "S",
+        "source_signature": "F^(n)(t)=(-1)^(n-1)(n-1)!/t^n for all n>=2; no affine anchors",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e096",
+        "source": "SPD",
+        "target": "MATRIX_GEOM",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "consequence",
+        "note": "",
+        "original_source": "SPD",
+        "original_target": "MATRIX_GEOM",
+        "source_signature": "Phi_n=trX-logdetX-n",
+        "target_signature": "gradient,Hessian,conjugate,precision duality,geodesics,distance"
+      },
+      {
+        "id": "e097",
+        "source": "MATRIX_GEOM",
+        "target": "SPD",
+        "status": "conditional_iff",
+        "symbol": "+H; ⇔",
+        "assumptions": [
+          "actual Hessian/Bregman data in affine matrix coordinate plus affine anchors and scalar calibration"
+        ],
+        "required_nodes": [
+          "SPD_CONTEXT",
+          "MATRIX_ANCHORS"
+        ],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "MATRIX_GEOM",
+        "original_target": "SPD",
+        "source_signature": "gradient,Hessian,conjugate,precision duality,geodesics,distance",
+        "target_signature": "Phi_n=trX-logdetX-n"
+      },
+      {
+        "id": "e098",
+        "source": "SPD",
+        "target": "WISHART",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "m iid centered Gaussian observations; sufficient statistic W; W SPD for interior optimum"
+        ],
+        "required_nodes": [
+          "SAMPLING_CONTEXT"
+        ],
+        "theorem_id": "M2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "SPD",
+        "original_target": "WISHART",
+        "source_signature": "Phi_n=trX-logdetX-n",
+        "target_signature": "m iid centered Gaussian observations; W=sum zz^T"
+      },
+      {
+        "id": "e099",
+        "source": "THOM",
+        "target": "GYSIN",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "native collapse/Gysin/orientation hypotheses"
+        ],
+        "required_nodes": [
+          "TOP_CONTEXT"
+        ],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "",
+        "original_source": "THOM",
+        "original_target": "GYSIN",
+        "source_signature": "universal line correction C=1/Q_T, total Td^-1",
+        "target_signature": "Riemann-Roch correction under native collapse/orientation hypotheses"
+      },
+      {
+        "id": "e100",
+        "source": "E_S",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "integer labels and injective code"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": "",
+        "original_source": "S",
+        "original_target": "ARITH",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution"
+      },
+      {
+        "id": "e101",
+        "source": "E_S",
+        "target": "CODE0",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "canonical construction",
+        "note": "N labels are the stated background domain of this new code, not recovered from an unlabelled subset.",
+        "original_source": "S",
+        "original_target": "CODE0",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "e0(n)=H(n+1), n>=1, strictly decreasing and injective"
+      },
+      {
+        "id": "e102",
+        "source": "CODE0",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "retain labelled N multiplication"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": "",
+        "original_source": "CODE0",
+        "original_target": "ARITH",
+        "source_signature": "e0(n)=H(n+1), n>=1, strictly decreasing and injective",
+        "target_signature": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution"
+      },
+      {
+        "id": "e103",
+        "source": "ARITH",
+        "target": "EULER_PRODUCT",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "numerical integer labels and Re s>1"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "transport",
+        "note": "",
+        "original_source": "ARITH",
+        "original_target": "EULER_PRODUCT",
+        "source_signature": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution",
+        "target_signature": "product over primes (1-p^-s)^-1=zeta(s)"
+      },
+      {
+        "id": "e104",
+        "source": "EULER_PRODUCT",
+        "target": "ARITH",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "locally finite generator multiset with convergent Euler product; numeric labels retained"
+        ],
+        "required_nodes": [
+          "ARITH_LABELS"
+        ],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "Recovers generator multiset/multiplicative monoid, not addition or real embedding.",
+        "original_source": "EULER_PRODUCT",
+        "original_target": "ARITH",
+        "source_signature": "product over primes (1-p^-s)^-1=zeta(s)",
+        "target_signature": "primes,divisibility,valuations,length,gcd/lcm,divisor lattice,Mobius,Dirichlet convolution"
+      },
+      {
+        "id": "e105",
+        "source": "SPATIAL_CONTEXT",
+        "target": "RADIUS",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "dimension>=2 and global nonnegative orthogonal additivity"
+        ],
+        "required_nodes": [
+          "ORTH_ADD"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "SPATIAL_CONTEXT",
+        "original_target": "RADIUS",
+        "source_signature": "supplied real inner-product space and designated nonnegative observable",
+        "target_signature": "r(x)=c norm(x)^2,c>=0; star form exp(c norm²)-1"
+      },
+      {
+        "id": "e106",
+        "source": "RADIAL_CONTEXT",
+        "target": "RESIDUAL",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identity",
+        "note": "",
+        "original_source": "RADIAL_CONTEXT",
+        "original_target": "RESIDUAL",
+        "source_signature": "dimension D positive integer and conjugation x^((D-1)/2) on x>0",
+        "target_signature": "(D-1)(D-3)/(4x²), independent of profile"
+      },
+      {
+        "id": "e107",
+        "source": "RESIDUAL",
+        "target": "D13",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "residual cancellation"
+        ],
+        "required_nodes": [
+          "CANCEL"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "RESIDUAL",
+        "original_target": "D13",
+        "source_signature": "(D-1)(D-3)/(4x²), independent of profile",
+        "target_signature": "D in {1,3}"
+      },
+      {
+        "id": "e108",
+        "source": "D13",
+        "target": "D3",
+        "status": "conditional_implies",
+        "symbol": "+H; ⇒",
+        "assumptions": [
+          "D>=2"
+        ],
+        "required_nodes": [
+          "D_GE2"
+        ],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "conditional identification",
+        "note": "",
+        "original_source": "D13",
+        "original_target": "D3",
+        "source_signature": "D in {1,3}",
+        "target_signature": "D=3"
+      },
+      {
+        "id": "e109",
+        "source": "E_S",
+        "target": "SPATIAL_CONTEXT",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "SPATIAL_CONTEXT",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "supplied real inner-product space and designated nonnegative observable"
+      },
+      {
+        "id": "e110",
+        "source": "E_S",
+        "target": "ORTH_ADD",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "ORTH_ADD",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "r(x+y)=r(x)+r(y) for every orthogonal pair; dimension at least2"
+      },
+      {
+        "id": "e111",
+        "source": "E_S",
+        "target": "CANCEL",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "CANCEL",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "radial residual identically zero on x>0"
+      },
+      {
+        "id": "e112",
+        "source": "E_S",
+        "target": "D3",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "D3",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "D=3"
+      },
+      {
+        "id": "e113",
+        "source": "E_S",
+        "target": "TOP_CONTEXT",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "TOP_CONTEXT",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "base, complex bundle, chosen admissible map/embedding, K/cohomology and compatible Thom/splitting/Gysin foundations"
+      },
+      {
+        "id": "e114",
+        "source": "E_S",
+        "target": "ARITH_LABELS",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R2",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "boundary counterexample",
+        "note": "Independent expansions of the same complete intrinsic model; no current bridge identifies this supplied external target.",
+        "original_source": "S",
+        "original_target": "ARITH_LABELS",
+        "source_signature": "One calibrated intrinsic object; marked positive coordinate",
+        "target_signature": "specified N labels, code and factor labels; original code must be injective"
+      },
+      {
+        "id": "e115",
+        "source": "D3",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "B1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Residual cancellation at D3 holds for every nonzero C2 radial profile.",
+        "original_source": "D3",
+        "original_target": "S",
+        "source_signature": "D=3",
+        "target_signature": "One calibrated intrinsic object; marked positive coordinate"
+      },
+      {
+        "id": "e116",
+        "source": "E_S",
+        "target": "GERM_ONLY",
+        "status": "implies",
+        "symbol": "⇒",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "forgetful consequence",
+        "note": "Forgets the analytic-global candidate restriction; retains only the local germ.",
+        "original_source": "TREE",
+        "original_target": "GERM_ONLY",
+        "source_signature": "Complete EGF n^(n-1)/n!, T(0)=0; inverse germ x=T exp(-T)",
+        "target_signature": "same complete intrinsic inverse germ, with no real-analytic restriction on an arbitrarily supplied global continuation"
+      },
+      {
+        "id": "e117",
+        "source": "GERM_ONLY",
+        "target": "SMOOTH_EXTENSION",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "C8",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "The germ alone does not identify an arbitrary smooth global continuation: a small zero-integral bump away from the germ preserves normalization and local data.",
+        "original_source": "GERM_ONLY",
+        "original_target": "SMOOTH_EXTENSION",
+        "source_signature": "same complete intrinsic inverse germ, with no real-analytic restriction on an arbitrarily supplied global continuation",
+        "target_signature": "same germ, positive normalized candidates may differ away from germ"
+      },
+      {
+        "id": "e118",
+        "source": "UNMARKED_TREE",
+        "target": "E_S",
+        "status": "counterexample",
+        "symbol": "×",
+        "assumptions": [],
+        "required_nodes": [],
+        "theorem_id": "R1",
+        "formal_status": "written proof; not Lean formalized",
+        "kind": "identification",
+        "note": "Conjugate/relabel rational generators; abstract tree does not supply numerical coordinates.",
+        "original_source": "UNMARKED_TREE",
+        "original_target": "CW",
+        "source_signature": "rooted left/right tree without numeric coordinates",
+        "target_signature": "Root1; reduced label a/b has left child a/(a+b) and right child (a+b)/b; retain numeric labels, left/right or equivalent Farey endpoint marks, Möbius membership and full real extension"
+      }
+    ]
+  },
+  "unknown_edges": [],
+  "bookkeeping_checks": {
+    "unique_nodes": true,
+    "all_references_resolve": true,
+    "intrinsic_component_recomputed": true,
+    "mathematical_proof": false,
+    "source": "work/build_phase_iv_graph.py"
+  }
+}

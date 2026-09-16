@@ -1,0 +1,17 @@
+Exact C5 statement and domain audit
+
+The full `final:C5` statement is proved in the five `SigmaFinalFenchelConverse*` modules, together with the existing finite optimizer results in `SigmaFinalFenchel.lean`. The new statement map records six complete components.
+
+The ambient convention is explicit: a candidate is an arbitrary function from the whole real line to native `EReal`, and its conjugate is the native complete-lattice supremum over the whole real line of the finite affine value minus the candidate value. The canonical primal function is finite only on the positive ray and is top elsewhere; the canonical dual target is finite only for theta below one. These definitions match the first sentence and displayed target in the draft.
+
+The inverse concludes global function equality. Its assumptions do not prescribe the candidate's effective domain, exclude bottom values, or assume finiteness on the positive ray. All of these facts follow from the conjugate. In particular, even at zero, the candidate value must be top: explicit negative dual slopes force arbitrarily large primal lower bounds. Thus lower semicontinuity only on the positive ray suffices, exactly as stated. A reading that restricted the conjugate's primal supremum to positive coordinates would not determine off-ray values; the formalization uses the full supremum required by the draft's word “full.”
+
+Lower semicontinuity is the native `LowerSemicontinuousOn` notion. A stronger checked pointwise lemma uses only native lower semicontinuity at the particular positive point being recovered. The proof obtains finite approximate optimizers from the actual supremum and derives their localization from the exact scalar objective gap. It does not assume the existence or convergence of a maximizing sequence.
+
+Extended-real convexity is represented by native `Convex` over the real epigraph, a subset of the real plane. This is the standard definition of convexity for extended-real functions; it introduces no custom algebraic structure or substitute convexity axiom. The proof first supplies finite contacts on both sides of each positive point. Native epigraph convexity then interpolates upper heights, while continuity of the known model bounds those heights. This directly proves the convex inverse. Separate checked lemmas also derive finiteness and native real-valued `ConvexOn` of the candidate's `toReal` representative.
+
+The exact countermodel raises the value at two by one and leaves every other value unchanged, including every off-ray top value. Its conjugate equality is proved for every real dual coordinate: the single affected objective value is the limit of unaffected values on a punctured neighborhood. Its failure of lower semicontinuity is proved at two, and its failure of epigraph convexity follows from the independently established convex inverse and its unequal value at two.
+
+No ambiguity in the off-ray convention remains in the formal statement. For maximum typographic explicitness, the draft could write `F : R -> R union {-infinity,+infinity}` and specify the full-real-line supremum beside the word “conjugate”; this is an optional clarification of the convention already used, not an additional mathematical hypothesis.
+
+All five sources compile with the pinned Lean 4.14 runner. The theorem map records source hashes and compiler logs. The axiom audit checks all 31 new theorem declarations and is stored in `fenchel-converse-axiom-audit.json`. No frozen report or prior stable Lean module was modified.

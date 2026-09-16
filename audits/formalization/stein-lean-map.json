@@ -1,0 +1,218 @@
+{
+  "scope": "Exact final:O1 and final:O1-kernel coverage",
+  "namespace": "SigmaFinal",
+  "status": "complete",
+  "all_requested_components_formalized": true,
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalStein.lean",
+      "sha256": "acb32fe1b9981ccc94f2abf2d53a8363ec1ff7041e534e014f9fd291a763e228",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalStein.lean",
+      "compiler_log": "work/final-SigmaFinalStein.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalStein.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinPrimitive.lean",
+      "sha256": "dc089eb38cbb8548bc0e38e34b454ab06862e4a1e6a9f64d6ea55991b4622d5c",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinPrimitive.lean",
+      "compiler_log": "work/final-SigmaFinalSteinPrimitive.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinPrimitive.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinWeakZero.lean",
+      "sha256": "295bee04d88c75fbf163055609368b5128f886087e317ab880a0ef9008aebad9",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinWeakZero.lean",
+      "compiler_log": "work/final-SigmaFinalSteinWeakZero.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinWeakZero.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelForward.lean",
+      "sha256": "5721b91e14dd867d4354d18a652c2e13a45762b978a2b79f51b8377e75034737",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelForward.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelForward.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelForward.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelInverse.lean",
+      "sha256": "012aef40077a9433d6d626036aa47ee27b66a35e24002b8be526ba11a897287b",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelInverse.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelInverse.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelInverse.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinKernelSelection.lean",
+      "sha256": "17f41cb026f9b81b689c1fc9e1d10c6219526d4a9f491ff0c5738707e40cb553",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinKernelSelection.lean",
+      "compiler_log": "work/final-SigmaFinalSteinKernelSelection.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinKernelSelection.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinCutoff.lean",
+      "sha256": "e3100773efd3ea73f52866d5adefe596c1d9610d039bab923f9ba7074665bf1f",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinCutoff.lean",
+      "compiler_log": "work/final-SigmaFinalSteinCutoff.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinCutoff.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinMomentBounds.lean",
+      "sha256": "c04e72876e68b18e6e7563bee0dd22855547b2b91938489a6b2271c0d36ada5a",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinMomentBounds.lean",
+      "compiler_log": "work/final-SigmaFinalSteinMomentBounds.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinMomentBounds.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinMomentLimits.lean",
+      "sha256": "9d0e6211aca719e7eacf49f8a597f8a572e6185c3820470009225adcc7227d67",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinMomentLimits.lean",
+      "compiler_log": "work/final-SigmaFinalSteinMomentLimits.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinMomentLimits.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    },
+    {
+      "source": "outputs/lean/SigmaFinalSteinConsequences.lean",
+      "sha256": "654db535627b75a146cfb5f122c0fd21f761cc3b515e8aadfc18bb5337a4db24",
+      "compiler": "Lean 4.14.0, pinned local mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalSteinConsequences.lean",
+      "compiler_log": "work/final-SigmaFinalSteinConsequences.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalSteinConsequences.olean",
+      "validation_note": "Compiled identical work source before promotion; SHA256 recorded for aggregate verification."
+    }
+  ],
+  "components": [
+    {
+      "component": "final:O1",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_characterization",
+        "SigmaFinal.gamma_probability_weak_stein",
+        "SigmaFinal.stein_test_integrable"
+      ],
+      "exact_coverage": "For an arbitrary native Borel probability measure on all of R, the native ContDiff-infinity compact-support weak Stein test identity holds iff the actual measure equals gammaProbability. No support, density, moments, or exponential integrability are assumed.",
+      "unproved_components": []
+    },
+    {
+      "component": "final:O1-density-support-moments",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_density",
+        "SigmaFinal.weak_stein_absolutely_continuous",
+        "SigmaFinal.weak_stein_positive_support",
+        "SigmaFinal.weak_stein_no_atoms",
+        "SigmaFinal.weak_stein_moments_integrable",
+        "SigmaFinal.weak_stein_factorial_moments"
+      ],
+      "exact_coverage": "Derives exact withDensity by the positive-ray indicator times t exp(-t), absolute continuity, mass zero on (-infinity,0], no atoms anywhere, integrability of every monomial and the exact (n+1)! moments.",
+      "unproved_components": []
+    },
+    {
+      "component": "final:O1-kernel-family",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_kernel_iff_family",
+        "SigmaFinal.weak_stein_kernel_identifies_family",
+        "SigmaFinal.weak_stein_kernel_of_family_ae",
+        "SigmaFinal.stein_kernel_family_locally_integrable"
+      ],
+      "exact_coverage": "Under only native local integrability of tau*p on the positive ray, the actual compact smooth test weak derivative identity is equivalent to tau=t+C exp(t)/t almost everywhere on that ray.",
+      "unproved_components": [],
+      "representation_note": "WeakDerivativePositive is a transparent definition of the literal distributional pairing equation; it is not an axiom or an assumed density derivative. Native AEEqOfIntegralContDiff and a proved compact primitive give the zero-weak-derivative constant lemma."
+    },
+    {
+      "component": "final:O1-kernel-representative",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.weak_stein_kernel_smooth_flux_representative",
+        "SigmaFinal.weak_stein_kernel_continuous_representative_unique",
+        "SigmaFinal.stein_flux_representative_absolute_continuity",
+        "SigmaFinal.stein_kernel_flux_representative_integral"
+      ],
+      "exact_coverage": "Derives the actual smooth flux representative q+C, its actual derivative and interval FTC, uniqueness among continuous representatives on the positive ray, and local absolute continuity on every compact interval.",
+      "unproved_components": [],
+      "representation_note": "The pinned library has no named function AbsolutelyContinuousOn predicate. The theorem proves the full epsilon-delta finite-interval property directly, even allowing overlapping intervals, which is stronger than the standard disjoint-interval definition."
+    },
+    {
+      "component": "final:O1-kernel-endpoints",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.stein_kernel_flux_endpoints",
+        "SigmaFinal.stein_kernel_zero_flux_atTop_iff",
+        "SigmaFinal.stein_kernel_zero_flux_at_zero_iff",
+        "SigmaFinal.zero_endpoint_weak_stein_kernel_unique"
+      ],
+      "exact_coverage": "Both endpoints of the derived flux representative have limit C. Either zero endpoint, even stated using an arbitrary continuous representative of the same flux, forces tau=t almost everywhere.",
+      "unproved_components": []
+    },
+    {
+      "component": "final:O1-kernel-integrability",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.stein_kernel_flux_integrable_iff",
+        "SigmaFinal.stein_kernel_family_weighted_integrable_iff",
+        "SigmaFinal.integrable_weak_stein_kernel_unique",
+        "SigmaFinal.gamma_integrable_weak_stein_kernel_unique",
+        "SigmaFinal.weak_stein_kernel_integrable_iff_canonical"
+      ],
+      "exact_coverage": "The flux family is integrable on the positive ray iff C=0. For an actual weak Stein kernel, native Integrable tau gammaProbability is equivalent to tau=t almost everywhere on the positive ray.",
+      "unproved_components": []
+    },
+    {
+      "component": "final:O1-kernel-finite-expectation",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.finite_expectation_weak_stein_kernel_unique"
+      ],
+      "exact_coverage": "For measurable tau, genuine finite Lebesgue expectation selects tau=t.",
+      "unproved_components": [],
+      "representation_note": "Finiteness is represented by native HasFiniteIntegral plus measurability, equivalent to real-valued Lebesgue integrability. Merely being a real-valued totalized integral is not treated as finiteness."
+    },
+    {
+      "component": "final:O1-kernel-centered-integral",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.centered_integral_weak_stein_kernel_unique",
+        "SigmaFinal.steinFlux_integral"
+      ],
+      "exact_coverage": "The actual identity integral(tau*p)=2 selects tau=t; the canonical flux integral equals 2. Existing gamma_probability_mean and gamma_probability_variance prove the actual mean 2 and centered second moment 2.",
+      "unproved_components": []
+    },
+    {
+      "component": "final:O1-kernel-nonnegative",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.stein_kernel_flux_nonnegative_iff",
+        "SigmaFinal.stein_kernel_family_nonnegative_iff",
+        "SigmaFinal.stein_kernel_family_weak"
+      ],
+      "exact_coverage": "The family is nonnegative almost everywhere on the positive ray exactly for C>=0; every real C satisfies the actual compact-test weak equation.",
+      "unproved_components": []
+    }
+  ],
+  "proof_route": {
+    "O1": "Squared polynomial bump cutoffs give a quadratic energy bound. Finite mass bootstraps every even moment; domination yields all monomials. Native dominated convergence passes the Stein tests to the recurrence, obtaining factorial moments. Previously proved full-real-line factorial-moment uniqueness identifies the actual measure. Forward direction is actual compact-support integration by parts.",
+    "O1-kernel": "A compact smooth positive-ray function with zero full integral has a proved compact smooth primitive. Subtracting a normalized bump reduces all tests to derivatives; native fundamental-lemma AE equality shows locally integrable zero weak derivative means constant. Apply to tau*p-q. No differentiable density or representative is assumed."
+  },
+  "axiom_audit": {
+    "source": "work/SigmaFinalSteinAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalSteinAxiomCheck.log",
+    "report": "outputs/final-draft/stein-axiom-audit.json"
+  }
+}

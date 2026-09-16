@@ -1,0 +1,178 @@
+{
+  "scope": "Exact statement/component map for final:C5, including full-domain extended-real conventions.",
+  "namespace": "SigmaFinal",
+  "latex_label": "final:C5",
+  "status": "complete",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "unproved_components": [],
+  "modules": [
+    {
+      "source": "outputs/lean/SigmaFinalFenchelConverse.lean",
+      "sha256": "2c10c4685f3ffaaab6ef926ad6f4a157a873a6b8c953f0cf115c51a937405c66",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalFenchelConverse.lean",
+      "compiler_log": "work/final-SigmaFinalFenchelConverse.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalFenchelConverse.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalFenchelConverseLocal.lean",
+      "sha256": "93aedc27faf62ce9395e22f139b38dcef8921805ed043a6cbeb25a2f213da5f5",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalFenchelConverseLocal.lean",
+      "compiler_log": "work/final-SigmaFinalFenchelConverseLocal.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalFenchelConverseLocal.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalFenchelConverseLSC.lean",
+      "sha256": "df688ea6298762fcef4ecb7fe0b5e04d4617033368cb3a06d1894189783a7174",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalFenchelConverseLSC.lean",
+      "compiler_log": "work/final-SigmaFinalFenchelConverseLSC.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalFenchelConverseLSC.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalFenchelConverseConvex.lean",
+      "sha256": "7e50c00a7d16f6ce2a1f984aadb154f459a90e67ad8062a1f87809e92b3cdf99",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalFenchelConverseConvex.lean",
+      "compiler_log": "work/final-SigmaFinalFenchelConverseConvex.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalFenchelConverseConvex.olean"
+    },
+    {
+      "source": "outputs/lean/SigmaFinalFenchelConverseCounter.lean",
+      "sha256": "3fcf67f33462fbec6c11acefb059c9448f12fa08ce0def38e7c3fa449a0f3f96",
+      "compiler": "Lean 4.14.0, pinned mathlib",
+      "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalFenchelConverseCounter.lean",
+      "compiler_log": "work/final-SigmaFinalFenchelConverseCounter.log",
+      "olean": "work/sigma-final-lean-stage/SigmaFinalFenchelConverseCounter.olean"
+    }
+  ],
+  "baseline_dependency": "outputs/lean/SigmaFinalFenchel.lean",
+  "components": [
+    {
+      "component": "exact full extended-real conjugate",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.extended_intrinsic_conjugate_finite",
+        "SigmaFinal.extended_intrinsic_conjugate_infinite",
+        "SigmaFinal.extended_intrinsic_full_conjugate",
+        "SigmaFinal.intrinsic_conjugate_greatest",
+        "SigmaFinal.fenchel_equality_iff"
+      ],
+      "proof_and_scope": "The literal EReal supremum over all real primal coordinates equals -log(1-theta) for theta<1 and top for theta>=1. The existing native real optimizer theorem proves the unique positive optimizer 1/(1-theta); the new infinite branch proves unboundedness within the actual EReal supremum."
+    },
+    {
+      "component": "candidate properness, lower bound, and forced off-ray infinity",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.fenchel_candidate_pointwise_bound",
+        "SigmaFinal.fenchel_candidate_ne_bot",
+        "SigmaFinal.fenchel_candidate_real_bound",
+        "SigmaFinal.fenchel_candidate_off_positive",
+        "SigmaFinal.fenchel_candidate_lower_bound"
+      ],
+      "proof_and_scope": "The exact conjugate forces every candidate value above bottom, forces F(t)=top at every t<=0, and proves extendedIntrinsic<=F globally by explicit supporting slopes. These are derived consequences, not candidate assumptions."
+    },
+    {
+      "component": "finite approximate optimizers and localization",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.fenchel_candidate_approximate_optimizer",
+        "SigmaFinal.fenchel_intrinsic_left_strict",
+        "SigmaFinal.fenchel_intrinsic_right_strict",
+        "SigmaFinal.fenchel_intrinsic_gap_localizes",
+        "SigmaFinal.fenchel_candidate_local_contact"
+      ],
+      "proof_and_scope": "The actual supremum gives finite approximate optimizers. Native derivatives prove the two monotone branches of I and a uniform positive objective gap outside each neighborhood of 1. Scaling the genuine deficit identity localizes the contacts at every t0>0, with arbitrarily small position and value error."
+    },
+    {
+      "component": "lower-semicontinuity-alone inverse",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.fenchel_lower_semicontinuous_at_identifies",
+        "SigmaFinal.fenchel_lower_semicontinuous_identifies",
+        "SigmaFinal.extended_intrinsic_continuousOn",
+        "SigmaFinal.extended_intrinsic_lower_semicontinuousOn"
+      ],
+      "proof_and_scope": "Native LowerSemicontinuousWithinAt at one positive point already recovers that value. Native LowerSemicontinuousOn on the positive ray therefore yields equality as functions on all R, using the independently forced off-ray top values. No convexity or lower semicontinuity off the positive ray is added."
+    },
+    {
+      "component": "convexity-alone inverse and exact either-condition theorem",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.fenchel_convex_candidate_finite",
+        "SigmaFinal.fenchel_convex_candidate_real_convex",
+        "SigmaFinal.extended_convex_bracket_bound",
+        "SigmaFinal.fenchel_convex_identifies",
+        "SigmaFinal.fenchel_convex_candidate_lower_semicontinuous",
+        "SigmaFinal.exact_legendre_target_identifies"
+      ],
+      "proof_and_scope": "Extended convexity is literally native Convex R of the real epigraph {(t,r):F(t)<=coe r}. Nearby finite contacts bracket each positive t0. Continuity of the known model controls their heights, and native epigraph convexity bounds F(t0) by those heights. This proves the converse directly, without candidate continuity, properness, support, finiteness, or a biconjugation conclusion as a premise. Separate checked lemmas also derive candidate finiteness and native real ConvexOn of its toReal representative."
+    },
+    {
+      "component": "exact raised-point no-regularity countermodel",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.raised_intrinsic_dominates",
+        "SigmaFinal.raised_intrinsic_not_equal",
+        "SigmaFinal.raised_intrinsic_objective_two_le",
+        "SigmaFinal.raised_intrinsic_full_conjugate",
+        "SigmaFinal.raised_intrinsic_not_lower_semicontinuous_at_two",
+        "SigmaFinal.raised_intrinsic_not_lower_semicontinuous",
+        "SigmaFinal.raised_intrinsic_not_convex",
+        "SigmaFinal.legendre_target_without_regularity_countermodel"
+      ],
+      "proof_and_scope": "The literal function raises only I(2) by one. Its actual full EReal conjugate is unchanged, since the affected objective value is recovered by a genuine limit from punctured neighborhoods of 2. It differs from the model, fails native lower semicontinuity at 2, and has a nonconvex native real epigraph."
+    }
+  ],
+  "lean_declarations": [
+    "SigmaFinal.extended_intrinsic_conjugate_finite",
+    "SigmaFinal.extended_intrinsic_conjugate_infinite",
+    "SigmaFinal.extended_intrinsic_full_conjugate",
+    "SigmaFinal.intrinsic_conjugate_greatest",
+    "SigmaFinal.fenchel_equality_iff",
+    "SigmaFinal.fenchel_candidate_pointwise_bound",
+    "SigmaFinal.fenchel_candidate_ne_bot",
+    "SigmaFinal.fenchel_candidate_real_bound",
+    "SigmaFinal.fenchel_candidate_off_positive",
+    "SigmaFinal.fenchel_candidate_lower_bound",
+    "SigmaFinal.fenchel_candidate_approximate_optimizer",
+    "SigmaFinal.fenchel_intrinsic_left_strict",
+    "SigmaFinal.fenchel_intrinsic_right_strict",
+    "SigmaFinal.fenchel_intrinsic_gap_localizes",
+    "SigmaFinal.fenchel_candidate_local_contact",
+    "SigmaFinal.fenchel_lower_semicontinuous_at_identifies",
+    "SigmaFinal.fenchel_lower_semicontinuous_identifies",
+    "SigmaFinal.extended_intrinsic_continuousOn",
+    "SigmaFinal.extended_intrinsic_lower_semicontinuousOn",
+    "SigmaFinal.fenchel_convex_candidate_finite",
+    "SigmaFinal.fenchel_convex_candidate_real_convex",
+    "SigmaFinal.extended_convex_bracket_bound",
+    "SigmaFinal.fenchel_convex_identifies",
+    "SigmaFinal.fenchel_convex_candidate_lower_semicontinuous",
+    "SigmaFinal.exact_legendre_target_identifies",
+    "SigmaFinal.raised_intrinsic_dominates",
+    "SigmaFinal.raised_intrinsic_not_equal",
+    "SigmaFinal.raised_intrinsic_objective_two_le",
+    "SigmaFinal.raised_intrinsic_full_conjugate",
+    "SigmaFinal.raised_intrinsic_not_lower_semicontinuous_at_two",
+    "SigmaFinal.raised_intrinsic_not_lower_semicontinuous",
+    "SigmaFinal.raised_intrinsic_not_convex",
+    "SigmaFinal.legendre_target_without_regularity_countermodel"
+  ],
+  "representation_notes": [
+    "F is an arbitrary function R -> EReal. fullFenchelConjugate is the actual complete-lattice iSup over every real primal coordinate of coe(theta*t)-F(t). It is not a supremum silently restricted to the positive ray.",
+    "extendedIntrinsic is coe(I(t)) when t>0 and top otherwise. All identifying conclusions are equality of functions on all R; the off-ray values are proved from the conjugate.",
+    "The native LowerSemicontinuousOn hypothesis is imposed only on Ioi 0, exactly as in the draft. No regularity at zero or on the negative ray is required.",
+    "ExtendedConvex is the standard real-epigraph definition, using native Convex R on R x R. This avoids introducing a nonstandard scalar action on EReal; the checked proof manipulates that epigraph directly.",
+    "The convex proof uses finite contacts and bracketing directly rather than the draft proof path through the generic continuity theorem for finite convex functions. The mathematical candidate class and conclusion are unchanged.",
+    "Canonical objective monotonicity and every limit are proved with native calculus/topology. No numerical gap estimate or assumed maximizing-sequence convergence is used."
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalFenchelConverseAxiomCheck.lean",
+    "compiler_log": "work/final-SigmaFinalFenchelConverseAxiomCheck.log",
+    "report": "outputs/final-draft/fenchel-converse-axiom-audit.json"
+  },
+  "statement_audit": "outputs/final-draft/fenchel-converse-statement-audit.md"
+}

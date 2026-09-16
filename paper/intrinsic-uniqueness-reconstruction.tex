@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\hypersetup{
+  pdftitle={Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations},
+  pdfauthor={Alex Albert},
+  pdfsubject={Mathematics}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\E}{\mathbb E}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\crr}{\operatorname{cr}}
+
+\title{
+Intrinsic Uniqueness and Reconstruction\\
+Across Mathematical Presentations
+}
+
+\author{
+\href{https://orcid.org/0009-0005-6981-2087}{Alex Albert}\\
+Mathematical Research Institute of Physical Reality (MRIPR)\\
+P\'ecs, Hungary
+}
+
+\date{15 September 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The complete mathematical presentations established in this work are not
+intrinsically distinct objects. They are exact presentations of the same
+mathematical object $\Sigma$.
+
+In a placed coordinate, $\Sigma$ is represented by
+\[
+\Sigma_P(r)
+=
+\log\!\left(
+\frac{\mu^2(1+\gamma r)}{\mu+\gamma}
+\right)
+-\mu r,
+\]
+with placement recoverable exactly from local differential data. Removing
+placement exposes the intrinsic decomposition
+\[
+H(t)=\log t-t+1,
+\qquad
+I(t)=t-1-\log t,
+\qquad
+p(t)=te^{-t}.
+\]
+
+The central result is a global reconstruction theorem. Every complete
+identifying presentation established here reconstructs $\Sigma$ uniquely
+within its stated candidate class, and $\Sigma$ reconstructs that
+presentation exactly. Consequently, the apparent separateness of these
+complete presentations is representational rather than mathematical.
+
+The reconstruction is proved across differential, group, convex,
+probabilistic, operator-spectral, formal-series, topological,
+matrix-geometric, spatial, and arithmetic presentations. Exact inverse
+maps and uniqueness theorems are accompanied by explicit countermodels
+showing where incomplete data cease to identify $\Sigma$. A relative
+irredundancy theorem separates intrinsic structure, placement, and
+externally retained context.
+
+The complete development has been formalized in Lean~4 with no admitted
+proofs.
+\end{abstract}
+
+\input{sections/core.tex}
+\input{sections/probability.tex}
+\input{sections/operators.tex}
+\input{sections/series-realizations.tex}
+\input{sections/closure.tex}
+
+\begin{thebibliography}{9}
+
+\bibitem{SSV}
+R.~L.~Schilling, R.~Song, and Z.~Vondra\v{c}ek,
+\emph{Bernstein Functions: Theory and Applications},
+2nd revised and extended ed., De Gruyter Studies in Mathematics~37,
+De Gruyter, Berlin/Boston, 2012.
+\href{https://doi.org/10.1515/9783110269338}
+     {doi:10.1515/9783110269338}.
+
+\bibitem{AguechJedidi}
+R.~Aguech and W.~Jedidi,
+\emph{New characterizations of completely monotone functions and Bernstein
+functions, a converse to Hausdorff's moment characterization theorem},
+Arab. J. Math. Sci. \textbf{25} (2019), no.~1, 57--82.
+\href{https://doi.org/10.1016/j.ajmsc.2018.03.001}
+     {doi:10.1016/j.ajmsc.2018.03.001}.
+
+\bibitem{CalkinWilf}
+N.~Calkin and H.~S.~Wilf,
+\emph{Recounting the Rationals},
+Amer. Math. Monthly \textbf{107} (2000), no.~4, 360--363.
+\href{https://doi.org/10.1080/00029890.2000.12005205}
+     {doi:10.1080/00029890.2000.12005205}.
+
+\bibitem{Stern1858}
+M.~Stern,
+\emph{Ueber eine zahlentheoretische Funktion},
+J. Reine Angew. Math. \textbf{55} (1858), 193--220.
+\href{https://doi.org/10.1515/crll.1858.55.193}
+     {doi:10.1515/crll.1858.55.193}.
+
+\bibitem{IsolaFarey}
+S.~Isola,
+\emph{On the spectrum of Farey and Gauss maps},
+Nonlinearity \textbf{15} (2002), no.~5, 1521--1539.
+\href{https://doi.org/10.1088/0951-7715/15/5/310}
+     {doi:10.1088/0951-7715/15/5/310};
+\href{https://arxiv.org/abs/math/0308017}{arXiv:math/0308017}.
+
+\bibitem{GLN}
+F.~Gesztesy, L.~L.~Littlejohn, and R.~Nichols,
+\emph{On self-adjoint boundary conditions for singular Sturm--Liouville
+operators bounded from below},
+J. Differential Equations \textbf{269} (2020), no.~9, 6448--6491.
+\href{https://doi.org/10.1016/j.jde.2020.05.005}
+     {doi:10.1016/j.jde.2020.05.005};
+\href{https://arxiv.org/abs/1910.13117}{arXiv:1910.13117}.
+
+\bibitem{DLMF}
+NIST Digital Library of Mathematical Functions,
+Release 1.2.7 of 2026-06-15,
+F.~W.~J.~Olver, A.~B.~Olde Daalhuis, D.~W.~Lozier,
+B.~I.~Schneider, R.~F.~Boisvert, C.~W.~Clark,
+B.~R.~Miller, B.~V.~Saunders, H.~S.~Cohl,
+and M.~A.~McClain, eds.,
+\url{https://dlmf.nist.gov/}.
+
+\end{thebibliography}
+
+\end{document}

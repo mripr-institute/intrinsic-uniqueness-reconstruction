@@ -1,0 +1,105 @@
+{
+  "scope": "Finite exact symbolic diagnostics, not universal uniqueness proofs",
+  "todd_coefficients_0_through_7": [
+    "1",
+    "1/2",
+    "1/12",
+    "0",
+    "-1/720",
+    "0",
+    "1/30240",
+    "0"
+  ],
+  "count": 22,
+  "all_passed": true,
+  "checks": [
+    {
+      "id": "CS07.twist.n0",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n1",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n2",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n3",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n4",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n5",
+      "passed": true
+    },
+    {
+      "id": "CS07.twist.n6",
+      "passed": true
+    },
+    {
+      "id": "CS08.TA.through7",
+      "passed": true
+    },
+    {
+      "id": "CS08.TL.through7",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.exact_mass",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n1",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n2",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n3",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n4",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n5",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n6",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n7",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n8",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n9",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n10",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n11",
+      "passed": true
+    },
+    {
+      "id": "CS14.f2.derivative.n12",
+      "passed": true
+    }
+  ]
+}

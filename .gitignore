@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Lean generated files
+lean/.lake/
+lean/*.olean
+lean/*.ilean
+
+# LaTeX generated files
+paper/publication-build/
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

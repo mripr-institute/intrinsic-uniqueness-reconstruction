@@ -1,0 +1,425 @@
+{
+  "scope": "Exact core and placement statement/component map; no partial statement is counted complete.",
+  "statements": [
+    {
+      "latex_label": "final:C0-placement",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.placed_coordinate_bijective",
+        "SigmaFinal.placed_original_identity",
+        "SigmaFinal.placed_closure",
+        "SigmaFinal.placed_parameter_recovery",
+        "SigmaFinal.intrinsic_log_density",
+        "SigmaFinal.placed_density_identity",
+        "SigmaFinal.placed_nonnegative_ray_mass_one",
+        "SigmaFinal.placed_full_domain_mass",
+        "SigmaFinal.placed_parameters_unique",
+        "SigmaFinal.PlacedParameters.coordinate_bijective",
+        "SigmaFinal.PlacedParameters.original_identity",
+        "SigmaFinal.PlacedParameters.parameter_recovery",
+        "SigmaFinal.PlacedParameters.density_identity",
+        "SigmaFinal.PlacedParameters.positive_ray_mass_one",
+        "SigmaFinal.PlacedParameters.full_domain_mass",
+        "SigmaFinal.affine_map_volume",
+        "SigmaFinal.affine_map_domain_volume",
+        "SigmaFinal.placed_density_affine_pushforward",
+        "SigmaFinal.placed_density_affine_pullback",
+        "SigmaFinal.placed_density_nonnegative_pushforward",
+        "SigmaFinal.placed_density_full_mass",
+        "SigmaFinal.placed_density_nonnegative_mass",
+        "SigmaFinal.placed_original_density_measure",
+        "SigmaFinal.placed_recover_intrinsic",
+        "SigmaFinal.placed_recover_offset",
+        "SigmaFinal.PlacedParameters.positivePresentation_injective",
+        "SigmaFinal.PlacedParameters.admissiblePresentation_injective",
+        "SigmaFinal.PlacedParameters.presentationEquiv_forward",
+        "SigmaFinal.PlacedParameters.presentationEquiv_roundtrip",
+        "PhaseIV.H_eq_neg_potential",
+        "PhaseIV.density_eq_exp_H",
+        "SigmaFinal.intrinsic_density_integral_one",
+        "SigmaFinal.placed_closed_nonnegative_ray_mass_one"
+      ],
+      "proved_components": [
+        "Affine domain bijection, original placed formula, intrinsic logarithm/exponential identities, closure, exact parameter uniqueness and recovery, both stated normalization integrals.",
+        "Actual measure-level affine pushforward on the full analytic domain equals exp(a)/(1+a) times the Gamma probability, with exact inverse pushforward. Nonnegative placed coordinates correspond to Gamma restriction at a; the full-domain mass and nonnegative-ray mass are proved for these measures.",
+        "The original placed formula defines the same density measure. Subtracting the value at the closure point recovers H, and mu/gamma recovers a. An actual equivalence between admissible parameters (mu>0, 0<a<1) and their placed positive-ray presentations has both round trips."
+      ],
+      "unproved_components": [],
+      "verification_report": "outputs/lean/SigmaFinal-placement-build.json"
+    },
+    {
+      "latex_label": "final:C1",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.H_hasDerivAt",
+        "SigmaFinal.curvature_reconstruction",
+        "SigmaFinal.riccati_reconstruction",
+        "SigmaFinal.exact_flow_identifies",
+        "SigmaFinal.exact_flow_of_reciprocal",
+        "SigmaFinal.unanchored_curvature_family",
+        "SigmaFinal.shifted_curvature_affine_family",
+        "SigmaFinal.affine_summand_two_data_unique",
+        "SigmaFinal.shiftedLogAffine_deriv",
+        "SigmaFinal.shiftedLogAffine_curvature",
+        "SigmaFinal.one_affine_datum_insufficient",
+        "SigmaFinal.intrinsic_equality_derivative",
+        "SigmaFinal.intrinsic_equality_curvature",
+        "SigmaFinal.calibrated_curvature_iff",
+        "SigmaFinal.calibrated_riccati_iff"
+      ],
+      "proved_components": [
+        "Complete calibrated curvature and Riccati equivalences, exact reciprocal flow in both directions, unanchored shifted-interval affine family, forward affine derivatives and uniqueness from two affine data."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:C2",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.H_recentring",
+        "SigmaFinal.recentering_derivative_identity",
+        "SigmaFinal.recentering_transports_curvature",
+        "SigmaFinal.recentering_reconstruction",
+        "SigmaFinal.recentering_iff",
+        "SigmaFinal.scaled_H_recentring",
+        "SigmaFinal.recentering_scale_calibration_necessary"
+      ],
+      "proved_components": [
+        "Forward identity, transport of second derivative from one, derivation of both anchors, and minimal-regularity converse."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:C3",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaAudit.star_assoc",
+        "SigmaAudit.star_comm",
+        "SigmaAudit.star_zero",
+        "SigmaAudit.star_closed",
+        "SigmaAudit.invStar_closed",
+        "SigmaAudit.star_inverse",
+        "SigmaAudit.log_star",
+        "SigmaAudit.displacement_cocycle",
+        "SigmaFinal.group_log_derivative_from_identity",
+        "SigmaFinal.normalized_group_log_unique_at_identity",
+        "SigmaFinal.normalized_cocycle_unique_at_identity"
+      ],
+      "proved_components": [
+        "Real group law, domain, inverse, logarithm/cocycle identities and uniqueness with a derivative only at the identity."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:C3-completion",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.typed_completion_iff_family",
+        "SigmaFinal.completion_identified_family",
+        "SigmaFinal.completionParameter_positive",
+        "SigmaFinal.completion_derived_regularity",
+        "SigmaFinal.completionEll_strictMono",
+        "SigmaFinal.completion_derivative_involutive",
+        "SigmaFinal.completion_derivative_strictAnti",
+        "SigmaFinal.completion_neg_derivative_image",
+        "SigmaFinal.completion_derivative_continuousAt",
+        "SigmaFinal.completion_second_hasDerivAt",
+        "SigmaFinal.completion_product_constant",
+        "SigmaFinal.completion_derivative_formula",
+        "SigmaFinal.completion_primitive_formula",
+        "SigmaFinal.completion_constant_formula",
+        "SigmaFinal.completionFamily_hasDerivAt",
+        "SigmaFinal.completionFamily_derivative",
+        "SigmaFinal.completionFamily_derivative_range",
+        "SigmaFinal.completionFamily_typed_equation",
+        "SigmaFinal.completionFamily_zero",
+        "SigmaFinal.completionFamily_derivative_zero",
+        "SigmaFinal.completionFamily_anchors_select_one",
+        "SigmaFinal.completion_value_anchor_identifies",
+        "SigmaFinal.completion_slope_anchor_identifies"
+      ],
+      "proved_components": [
+        "exact typed-completion family iff",
+        "injectivity and derived second differentiability",
+        "constant product and additive constant",
+        "full forward family and derivative range",
+        "either anchor selects K=1"
+      ],
+      "unproved_components": [],
+      "component_map": "outputs/final-draft/completion-lean-map.json"
+    },
+    {
+      "latex_label": "final:C3-automorphisms",
+      "status": "partial",
+      "lean_declarations": [
+        "PhaseIV.normalized_formal_log_ode_reconstruction",
+        "SigmaFinal.group_log_slope_unique",
+        "SigmaFinal.group_endomorphism_classification",
+        "SigmaFinal.group_automorphism_slope_nonzero",
+        "SigmaFinal.groupPower_composition",
+        "SigmaFinal.groupPower_inverse",
+        "SigmaFinal.groupPower_hom"
+      ],
+      "proved_components": [
+        "Baseline normalized formal logarithm uniqueness (a component only).",
+        "Real differentiable-at-identity endomorphism classification, slope nonvanishing for injective maps, explicit composition, inverse and group identity."
+      ],
+      "unproved_components": [
+        "Formal-series automorphism classification, integer n-series, exact power-coordinate equivalence, and remaining regularity/calibration clauses."
+      ]
+    },
+    {
+      "latex_label": "final:C4",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.bregman_scale_derivative",
+        "SigmaFinal.bregman_scale_identifies_derivative",
+        "SigmaFinal.bregman_scale_classification",
+        "SigmaFinal.affinePotential_bregman",
+        "SigmaFinal.affinePotential_scale",
+        "SigmaFinal.calibrated_scale_bregman_unique",
+        "SigmaFinal.anchored_symmetric_bregman_unique",
+        "SigmaFinal.bregman_scale_iff_affine_family",
+        "SigmaFinal.affinePotential_parameters_unique",
+        "SigmaFinal.affinePotential_calibration",
+        "SigmaFinal.bregman_three_calibrations_independent"
+      ],
+      "proved_components": [
+        "Full differentiable scale-invariant affine-family classification and forward family, normalized and symmetric converses, exact ratio divergence."
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:C5",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.extended_intrinsic_conjugate_finite",
+        "SigmaFinal.extended_intrinsic_conjugate_infinite",
+        "SigmaFinal.extended_intrinsic_full_conjugate",
+        "SigmaFinal.intrinsic_conjugate_greatest",
+        "SigmaFinal.fenchel_equality_iff",
+        "SigmaFinal.fenchel_candidate_pointwise_bound",
+        "SigmaFinal.fenchel_candidate_ne_bot",
+        "SigmaFinal.fenchel_candidate_real_bound",
+        "SigmaFinal.fenchel_candidate_off_positive",
+        "SigmaFinal.fenchel_candidate_lower_bound",
+        "SigmaFinal.fenchel_candidate_approximate_optimizer",
+        "SigmaFinal.fenchel_intrinsic_left_strict",
+        "SigmaFinal.fenchel_intrinsic_right_strict",
+        "SigmaFinal.fenchel_intrinsic_gap_localizes",
+        "SigmaFinal.fenchel_candidate_local_contact",
+        "SigmaFinal.fenchel_lower_semicontinuous_at_identifies",
+        "SigmaFinal.fenchel_lower_semicontinuous_identifies",
+        "SigmaFinal.extended_intrinsic_continuousOn",
+        "SigmaFinal.extended_intrinsic_lower_semicontinuousOn",
+        "SigmaFinal.fenchel_convex_candidate_finite",
+        "SigmaFinal.fenchel_convex_candidate_real_convex",
+        "SigmaFinal.extended_convex_bracket_bound",
+        "SigmaFinal.fenchel_convex_identifies",
+        "SigmaFinal.fenchel_convex_candidate_lower_semicontinuous",
+        "SigmaFinal.exact_legendre_target_identifies",
+        "SigmaFinal.raised_intrinsic_dominates",
+        "SigmaFinal.raised_intrinsic_not_equal",
+        "SigmaFinal.raised_intrinsic_objective_two_le",
+        "SigmaFinal.raised_intrinsic_full_conjugate",
+        "SigmaFinal.raised_intrinsic_not_lower_semicontinuous_at_two",
+        "SigmaFinal.raised_intrinsic_not_lower_semicontinuous",
+        "SigmaFinal.raised_intrinsic_not_convex",
+        "SigmaFinal.legendre_target_without_regularity_countermodel"
+      ],
+      "proved_components": [
+        "exact full extended-real conjugate",
+        "candidate properness, lower bound, and forced off-ray infinity",
+        "finite approximate optimizers and localization",
+        "lower-semicontinuity-alone inverse",
+        "convexity-alone inverse and exact either-condition theorem",
+        "exact raised-point no-regularity countermodel"
+      ],
+      "unproved_components": [],
+      "component_map": "outputs/final-draft/fenchel-converse-lean-map.json"
+    },
+    {
+      "latex_label": "final:C6",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.self_concordance_signed_identifies",
+        "SigmaFinal.self_concordance_signed_identifies_minimal",
+        "SigmaFinal.sc_signed_curvature_unique",
+        "SigmaFinal.self_concordance_unsigned_identifies",
+        "SigmaFinal.self_concordance_unsigned_identifies_minimal",
+        "SigmaFinal.sc_unsigned_curvature_unique",
+        "SigmaFinal.sc_derivative_nonzero_constant_sign",
+        "SigmaFinal.sc_positive_branch_impossible",
+        "SigmaFinal.sc_intrinsic_C3",
+        "SigmaFinal.sc_intrinsic_calibration",
+        "SigmaFinal.sc_intrinsic_curvature",
+        "SigmaFinal.sc_intrinsic_third_derivative",
+        "SigmaFinal.sc_intrinsic_signed_equality",
+        "SigmaFinal.sc_hessian_speed",
+        "SigmaFinal.scPathLength_eq_hessian_length",
+        "SigmaFinal.sc_hessian_path_distance",
+        "SigmaFinal.sc_native_metric_distance",
+        "SigmaFinal.sc_native_hessian_path_distance",
+        "SigmaFinal.scLogSegment_length",
+        "SigmaFinal.sc_symmetrization_distance",
+        "SigmaFinal.sc_anchored_curvature_reconstructs",
+        "SigmaFinal.sc_distance_inversion",
+        "SigmaFinal.sc_inversion_reverses_order",
+        "SigmaFinal.scQuadratic_calibrated_inequality",
+        "SigmaFinal.scQuadratic_not_intrinsic",
+        "SigmaFinal.sc_gradient_hessian_ratio",
+        "SigmaFinal.sc_no_finite_barrier_parameter"
+      ],
+      "proved_components": [
+        "signed equality identifies the anchored candidate",
+        "unsigned equality identifies the candidate on the entire positive ray",
+        "canonical forward equality and calibrated positive curvature",
+        "Hessian metric and its exact distance",
+        "symmetrization in terms of distance",
+        "marked Hessian coefficient and affine anchors reconstruct I",
+        "bare distance fails to fix orientation",
+        "self-concordance inequality does not identify I even with all three calibrations",
+        "I admits no finite self-concordant-barrier parameter"
+      ],
+      "unproved_components": [],
+      "component_map": "outputs/final-draft/self-concordance-lean-map.json"
+    },
+    {
+      "latex_label": "final:C7",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.calibrated_cross_ratio_identifies",
+        "SigmaFinal.projective_three_point_slice_identifies",
+        "SigmaFinal.projectiveModel_injective",
+        "SigmaFinal.projectiveModel_preserves_cross_ratios",
+        "SigmaFinal.projectiveModel_three_marks",
+        "SigmaFinal.calibrated_schwarzian_identifies",
+        "SigmaFinal.calibrated_schwarzian_identifies_minimal",
+        "SigmaFinal.projectiveAux_eq_log_abs",
+        "SigmaFinal.projectiveAux_hasDerivAt",
+        "SigmaFinal.projectiveAuxSlope_hasDerivAt",
+        "SigmaFinal.projectiveAux_second_hasDerivAt",
+        "SigmaFinal.projectiveModel_C3",
+        "SigmaFinal.projectiveModel_first_derivative",
+        "SigmaFinal.projectiveModel_second_derivative",
+        "SigmaFinal.projectiveModel_third_derivative",
+        "SigmaFinal.projectiveModel_schwarzian_zero",
+        "SigmaFinal.projectiveModel_schwarzian_marks",
+        "SigmaFinal.projective_anchored_primitive_identifies",
+        "SigmaFinal.projectiveAffineCounter_injective",
+        "SigmaFinal.projectiveAffineCounter_preserves_cross_ratios",
+        "SigmaFinal.projectiveAffineCounter_schwarzian_data",
+        "SigmaFinal.projectiveAffineCounter_not_model"
+      ],
+      "proved_components": [
+        "calibrated cross-ratio inverse",
+        "canonical projective forward data",
+        "calibrated zero-Schwarzian inverse",
+        "canonical Schwarzian forward data",
+        "anchored primitive identifies H",
+        "projectivity and zero Schwarzian without calibration do not identify the model"
+      ],
+      "unproved_components": [],
+      "component_map": "outputs/final-draft/projective-lean-map.json"
+    },
+    {
+      "latex_label": "final:C8",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.gamma_iteratedDeriv",
+        "SigmaFinal.gamma_exact_zeros",
+        "SigmaFinal.placed_density_iteratedDeriv",
+        "SigmaFinal.placed_density_exact_derivative_zero",
+        "SigmaFinal.placed_log_iteratedDeriv",
+        "SigmaFinal.placedLogDerivative_step",
+        "SigmaFinal.two_indexed_derivative_zeros_identify",
+        "SigmaFinal.second_difference_sequence_unique"
+      ],
+      "proved_components": [
+        "All-order actual derivatives and exact zero sets for intrinsic and placed exponential Sigma densities.",
+        "Actual logarithmic derivative hierarchy at every order >=2, recovery from two indexed zeros, exact second-difference sequence uniqueness."
+      ],
+      "unproved_components": [
+        "Placed Sigma logarithmic derivative hierarchy, discrete-curvature assertions, and remaining germ/global boundary claims."
+      ]
+    },
+    {
+      "latex_label": "final:Z4",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.zeroCounterdensity_iteratedDeriv",
+        "SigmaFinal.zeroCounterdensity_exact_zeros",
+        "SigmaFinal.zeroCounterdensity_integrable",
+        "SigmaFinal.zeroCounterdensity_mass_one",
+        "SigmaFinal.zeroCounterdensity_analytic",
+        "SigmaFinal.gamma_zeros_eq_counterdensity_zeros",
+        "SigmaFinal.zeroCounterdensity_not_gamma"
+      ],
+      "proved_components": [
+        "The rational k=2 counterexample: real analyticity, positivity, normalized probability integral, all-order exact derivative zeros, and explicit inequality to the Gamma density on the positive ray. This proves the negative answer in the smooth and real-analytic probability classes."
+      ],
+      "unproved_components": [
+        "The entire stated real-parameter k>1 family, simple-zero/sign refinements, and explicit tail/log-concavity comparison have not all been exported."
+      ]
+    },
+    {
+      "latex_label": "final:global-A",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.differential_core_identifies",
+        "SigmaFinal.differential_core_iff",
+        "SigmaFinal.differential_core_pairwise_uniqueness",
+        "SigmaFinal.presentationEquivalence_roundtrip"
+      ],
+      "proved_components": [
+        "The exact three-clause differential equivalence component and generic composition of already-proved inverses. This is not the full E_S theorem."
+      ],
+      "unproved_components": [
+        "The full closure/minimality theorem cannot be certified before every referenced node and countermodel has its exact formal proof."
+      ]
+    },
+    {
+      "latex_label": "final:global-E",
+      "status": "unproved",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "The full closure/minimality theorem cannot be certified before every referenced node and countermodel has its exact formal proof."
+      ]
+    },
+    {
+      "latex_label": "final:global-C",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.placed_parameters_unique",
+        "SigmaFinal.placement_scale_is_independent",
+        "SigmaFinal.placement_offset_is_independent",
+        "SigmaFinal.no_context_decoder_from_intrinsic",
+        "SigmaFinal.deletion_witness_prevents_reconstruction"
+      ],
+      "proved_components": [
+        "Actual placement uniqueness and both placement-coordinate deletion countermodels, plus generic non-identification and deletion-witness lemmas in explicitly supplied product universes."
+      ],
+      "unproved_components": [
+        "The full closure/minimality theorem cannot be certified before every referenced node and countermodel has its exact formal proof."
+      ]
+    },
+    {
+      "latex_label": "final:global-F",
+      "status": "partial",
+      "lean_declarations": [
+        "SigmaFinal.placed_parameters_unique",
+        "SigmaFinal.placement_scale_is_independent",
+        "SigmaFinal.placement_offset_is_independent",
+        "SigmaFinal.no_context_decoder_from_intrinsic",
+        "SigmaFinal.deletion_witness_prevents_reconstruction"
+      ],
+      "proved_components": [
+        "Actual placement uniqueness and both placement-coordinate deletion countermodels, plus generic non-identification and deletion-witness lemmas in explicitly supplied product universes."
+      ],
+      "unproved_components": [
+        "The full closure/minimality theorem cannot be certified before every referenced node and countermodel has its exact formal proof."
+      ]
+    }
+  ]
+}

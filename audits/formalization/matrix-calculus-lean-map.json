@@ -1,0 +1,102 @@
+{
+  "scope": "Independent exact component map for native matrix calculus in final:M2; supplements realization-lean-map.json.",
+  "namespace": "SigmaFinal",
+  "latex_label": "final:M2",
+  "status": "partial",
+  "custom_axioms": false,
+  "proof_escape_terms": false,
+  "module": {
+    "source": "outputs/lean/SigmaFinalMatrixCalculus.lean",
+    "sha256": "0da3ca88bb138b0821d74eb74637399ed23ae7fa50c5e7db273acb86fc235815",
+    "compiler": "Lean 4.14.0, pinned mathlib",
+    "compile_command": "python3 work/final_lean.py outputs/lean/SigmaFinalMatrixCalculus.lean",
+    "compiler_log": "work/final-SigmaFinalMatrixCalculus.log",
+    "olean": "work/sigma-final-lean-stage/SigmaFinalMatrixCalculus.olean"
+  },
+  "components": [
+    {
+      "component": "native determinant Frechet derivative / Jacobi formula",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.matrix_det_differentiable",
+        "SigmaFinal.matrix_det_identity_direction",
+        "SigmaFinal.matrix_det_direction",
+        "SigmaFinal.matrix_det_fderiv"
+      ],
+      "proof_and_scope": "Global differentiability is proved from the native determinant Leibniz formula. The exact polynomial expansion at the identity computes its derivative; factorization through an invertible X and uniqueness of genuine derivative identify the native fderiv. IsUnit(det X) is exactly invertibility."
+    },
+    {
+      "component": "potential differential and trace-pairing gradient",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.matrixPotential_differentiableAt",
+        "SigmaFinal.matrixPotential_fderiv",
+        "SigmaFinal.matrixPotential_fderiv_of_det_ne_zero"
+      ],
+      "proof_and_scope": "For actual SPD X, the native Frechet differential of trace X-log(det X)-n is U |-> trace((1-X inverse)U). In the manuscript symmetric affine coordinates this is the gradient 1-X inverse under the trace pairing. A stronger det-nonzero lemma supplies the local ambient extension needed by the second derivative."
+    },
+    {
+      "component": "native inverse and gradient-map differentials",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.matrix_inverse_hasFDerivAt",
+        "SigmaFinal.matrixGradient_hasFDerivAt",
+        "SigmaFinal.matrixGradient_fderiv"
+      ],
+      "proof_and_scope": "Native Ring.inverse differentiation is transported to the actual nonsingular matrix inverse. The actual derivative of the specified trace-coordinate gradient map is U |-> X inverse U X inverse; no derivative of a candidate is assumed."
+    },
+    {
+      "component": "actual second derivative / evaluated Hessian",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.matrixPotential_second_fderiv",
+        "SigmaFinal.matrix_hessian_metric"
+      ],
+      "proof_and_scope": "The derivative of Y |-> (fderiv matrixPotential Y)(U), evaluated at X in direction V, is trace(X inverse V X inverse U). A genuine HasFDerivAt proof transfers through eventual equality on the open det-nonzero neighborhood. Cyclic trace gives the exact manuscript order trace(X inverse U X inverse V), independently compiled for symmetric tangents in SigmaFinalIndependentAudit.manuscript_matrix_hessian."
+    },
+    {
+      "component": "actual differential Bregman identity",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaFinal.matrix_actual_bregman"
+      ],
+      "proof_and_scope": "The Bregman expression uses the native fderiv of matrixPotential itself. Substitution into the separately proved algebraic identity gives trace(Y inverse X)-log(det(Y inverse X))-n for actual SPD X,Y."
+    }
+  ],
+  "lean_declarations": [
+    "SigmaFinal.matrix_det_differentiable",
+    "SigmaFinal.matrix_det_identity_direction",
+    "SigmaFinal.matrix_det_direction",
+    "SigmaFinal.matrix_det_fderiv",
+    "SigmaFinal.matrixPotential_differentiableAt",
+    "SigmaFinal.matrixPotential_fderiv",
+    "SigmaFinal.matrixPotential_fderiv_of_det_ne_zero",
+    "SigmaFinal.matrix_inverse_hasFDerivAt",
+    "SigmaFinal.matrixGradient_hasFDerivAt",
+    "SigmaFinal.matrixGradient_fderiv",
+    "SigmaFinal.matrixPotential_second_fderiv",
+    "SigmaFinal.matrix_hessian_metric",
+    "SigmaFinal.matrix_actual_bregman"
+  ],
+  "remaining_components": [
+    "Strict positive definiteness of the Hessian on nonzero symmetric tangents; the baseline only proves nonnegativity.",
+    "Congruence invariance of the Hessian metric and inversion isometry. Divergence congruence and inversion reversal are already in SigmaFinalRealMatrix.",
+    "Full extended-real matrix Fenchel conjugate, optimizer/domain, Legendre inverse, and dual Bregman identity.",
+    "The arithmetic-mean determinant bound, its scalar-matrix equality case, and strict concavity of logdet.",
+    "The accompanying affine-coordinate gradient/Hessian reconstruction converses and alternative invariant metric parameter criterion."
+  ],
+  "representation_notes": [
+    "All calculus uses native finite real Matrix, native determinant/inverse, HasFDerivAt/fderiv, and the Frobenius normed-ring/algebra topology. The same local instances are activated in the independently compiled audit.",
+    "The potential is extended to all matrices via Real.log(det X), which agrees with the draft on SPD matrices. The local det-nonzero extension supports ambient differentiation without requiring the SPD cone to be open in the full matrix space.",
+    "The displayed gradient is certified through its trace-pairing differential, rather than a separately bundled native Riesz-gradient operator. At SPD X the matrix 1-X inverse is symmetric, so its trace pairing with symmetric tangents is the manuscript affine pairing.",
+    "The Hessian is encoded as the actual Frechet derivative of the first derivative evaluated at a fixed U. Its proof establishes derivative existence by HasFDerivAt; it is not merely a formula obtained by naming a gradient. The independent audit verifies symmetry/order of U,V in the manuscript.",
+    "No positivity is claimed on nonsymmetric tangents; the manuscript metric lives on symmetric tangents. The derivative formulas being valid on the larger ambient matrix space do not change that domain.",
+    "M3 geodesics and M4 Gaussian/Wishart realizations are outside this module and remain unaffected."
+  ],
+  "axiom_audit": {
+    "source": "work/SigmaFinalMatrixCalculusAuditCheck.lean",
+    "compiler_log": "work/final-SigmaFinalMatrixCalculusAuditCheck.log",
+    "report": "outputs/final-draft/matrix-calculus-axiom-audit.json"
+  },
+  "independent_audit": "outputs/final-draft/matrix-calculus-formal-independent-audit.md"
+}
