@@ -353,12 +353,33 @@
     },
     {
       "latex_label": "final:P5-stieltjes",
-      "status": "unproved",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "Stieltjes integral formula and complete/open-interval inverse; complete monotonicity and non-Stieltjes boundary assertions."
-      ]
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.gamma_stieltjes_integral_formula",
+        "Sigma.expIntegralOne_shift",
+        "Sigma.probability_stieltjes_unique_on_open_set",
+        "Sigma.probability_stieltjes_unique_on_interval",
+        "Sigma.probability_stieltjes_unique",
+        "Sigma.gamma_stieltjes_identifies",
+        "Sigma.stieltjes_reciprocal_derivative",
+        "Sigma.stieltjes_local_eq_reciprocal_moments",
+        "Sigma.stieltjes_reciprocal_moments_unique",
+        "Sigma.gamma_laplace_smooth",
+        "Sigma.gamma_laplace_derivative_tower",
+        "Sigma.gamma_laplace_completely_monotone",
+        "Sigma.stieltjes_scaled_mono_ge_one",
+        "Sigma.gamma_laplace_not_stieltjes",
+        "Sigma.intrinsic_density_not_completely_monotone",
+        "Sigma.gamma_survival_not_completely_monotone"
+      ],
+      "proved_components": [
+        "The explicit Gamma Stieltjes integral and exponential-integral substitution.",
+        "Uniqueness for arbitrary finite positive measures supported on the nonnegative ray, from complete transform data or equality on any nonempty positive open set, including open intervals.",
+        "Open-set equality recovers every positive reciprocal moment. The existing Hausdorff uniqueness theorem identifies the weighted compact-coordinate measures; exact coordinate and positive-weight inverses recover the original measures.",
+        "Smoothness and all alternating derivative inequalities of the Gamma Laplace transform; failure of a general Stieltjes representation, allowing an infinite representing measure with integrable reciprocal weight; density and survival failures of complete monotonicity."
+      ],
+      "unproved_components": [],
+      "validation_note": "New proof sections checked locally with Lean 4.14.0 and the existing pinned mathlib cache. No renamed-module aggregate rebuild was run; see stieltjes-proof-record.md for the exact validation scope."
     },
     {
       "latex_label": "final:P5-transforms",
