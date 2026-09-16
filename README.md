@@ -54,4 +54,4 @@ Supporting section sources are retained under `paper/sections/`.
 
 ## Audits
 
-`audits/` contains the mathematical reconstruction record and formalization audits used during verification. These records are organized by mathematical role rather than internal development phase.
+`audits/` contains the mathematical reconstruction record and formalization audits used during verification. 
