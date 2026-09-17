@@ -40,6 +40,6 @@ repository's complete import graph. The complete umbrella and axiom audit were
 not run. The new audit entries in `SigmaAxioms.lean` are ready for the next
 authorized aggregate verification.
 
-Next probability target: Corollary 3.17, equilibrium fixed points without an
-input-density assumption. Other whole-paper obligations remain in the component
-maps; their older entries are not a newly verified current total.
+Subsequently completed in this batch: Proposition 3.16 and Corollary 3.17; see
+`probability-transforms-proof-record.md`. Other whole-paper obligations remain in
+the component maps; their older entries are not a newly verified current total.

@@ -383,36 +383,65 @@
     },
     {
       "latex_label": "final:P5-transforms",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
-        "SigmaFinal.normalized_weight_is_probability",
-        "SigmaFinal.normalized_weight_inverse",
-        "SigmaFinal.marked_exponential_tilt_inverse",
-        "SigmaFinal.marked_exponential_tilt_identifies",
-        "SigmaFinal.positive_size_bias_inverse",
-        "SigmaFinal.positive_size_bias_reciprocal_mean",
-        "SigmaFinal.unit_exp_size_bias_gamma",
-        "SigmaFinal.gamma_positive_size_bias_inverse",
-        "SigmaFinal.gamma_size_bias_identifies_positive_exponential",
-        "SigmaFinal.atom_exp_coordinate_mean",
-        "SigmaFinal.zero_atom_size_bias_counterexample"
+        "Sigma.normalized_weight_is_probability",
+        "Sigma.normalized_weight_inverse",
+        "Sigma.marked_exponential_tilt_inverse",
+        "Sigma.marked_exponential_tilt_identifies",
+        "Sigma.positive_size_bias_inverse",
+        "Sigma.positive_size_bias_reciprocal_mean",
+        "Sigma.unit_exp_size_bias_gamma",
+        "Sigma.gamma_positive_size_bias_inverse",
+        "Sigma.gamma_size_bias_identifies_positive_exponential",
+        "Sigma.atom_exp_coordinate_mean",
+        "Sigma.zero_atom_size_bias_counterexample",
+        "Sigma.normalized_real_weight",
+        "Sigma.positive_size_bias_reciprocal_mean_real",
+        "Sigma.positive_size_bias_inverse_exists",
+        "Sigma.positive_size_bias_inverse_real",
+        "Sigma.marked_exponential_tilt_inverse_real",
+        "Sigma.equilibrium_measure_probability",
+        "Sigma.equilibrium_equal_survival_ratios",
+        "Sigma.equilibrium_positive_inverse",
+        "Sigma.gamma_equilibrium_density",
+        "Sigma.gamma_equilibrium_identifies",
+        "Sigma.equilibrium_atom_zero_counterexample",
+        "Sigma.gamma_rate_tilt_admissible_iff",
+        "Sigma.gamma_rate_tilt_normalizer",
+        "Sigma.gamma_rate_marked_tilt",
+        "Sigma.gamma_tilt_cumulants",
+        "Sigma.gamma_tilt_mean_variance",
+        "Sigma.gamma_unmarked_tilt_counterexample"
       ],
       "proved_components": [
         "Actual normalized probability measure inverses for positive weights, marked exponential tilts, and positive size bias; reciprocal normalizer computed from observed law; exact Gamma size-bias inverse is the native exponential probability. Normalizers are actual nonnegative integrals, with positivity and finiteness explicit.",
-        "Actual normalized zero-atom exponential mixtures have the same Gamma size bias and differ from the positive exponential law."
+        "Actual normalized zero-atom exponential mixtures have the same Gamma size bias and differ from the positive exponential law.",
+        "Real-valued normalizer and reciprocal-mean formulas; existence of the positive inverse for an arbitrary positive observed law with finite positive reciprocal mean; the displayed real-integral marked-tilt inverse.",
+        "Actual equilibrium measure normalized by tail integration; pointwise recovery of right-continuous survival ratios from equality of output measures; recovery of the positive original law and its mean; identification from the displayed Gamma equilibrium density without an input-density assumption.",
+        "Normalized distinct atom-at-zero lifetime mixtures have the same equilibrium law, with their actual rescaled means and positivity proved.",
+        "Exact Gamma tilt admissibility, including divergence at and beyond the endpoint; native Gamma rate change; actual log-MGF derivative cumulants of all positive orders, all moments, mean and variance; distinct input rates with the same output when tilt marks are omitted."
       ],
-      "unproved_components": [
-        "Equilibrium-law inverse and its atom counterexample; Gamma tilt range, rate formula and cumulants; unmarked-rate counterexample; translate ENNReal normalizers to displayed real positive means."
-      ]
+      "unproved_components": [],
+      "validation_note": "New declarations and exact required helper proofs checked locally with Lean 4.14.0 and the existing pinned mathlib cache; only standard kernel axioms. No renamed-module aggregate rebuild was run. See probability-transforms-proof-record.md."
     },
     {
       "latex_label": "final:P5-equilibrium-fixed",
-      "status": "unproved",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "Actual equilibrium fixed-point characterization without density assumptions on the input lifetime."
-      ]
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.equilibrium_fixed_integral_equation",
+        "Sigma.equilibrium_fixed_survival_continuous",
+        "Sigma.equilibrium_fixed_survival_derivative",
+        "Sigma.equilibrium_fixed_survival",
+        "Sigma.equilibrium_fixed_iff_exponential",
+        "Sigma.equilibrium_fixed_points"
+      ],
+      "proved_components": [
+        "Actual probability-measure fixed-point equivalence with the native exponential law of reciprocal-mean rate, without a candidate-density assumption.",
+        "Fixed-point equality first gives the survival integral equation and continuity; a right-derivative integrating-factor proof forces exponential survival. The converse uses the established Gamma shape-one survival theorem."
+      ],
+      "unproved_components": [],
+      "validation_note": "Exact new declarations and required existing helper proofs checked locally with Lean 4.14.0 and the pinned mathlib cache, without rebuilding the renamed import graph."
     },
     {
       "latex_label": "final:P6",

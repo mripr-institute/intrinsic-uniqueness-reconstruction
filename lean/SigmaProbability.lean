@@ -6,11 +6,14 @@ import SigmaProbHaar
 import SigmaProbDeficitBoundaries
 import SigmaProbSurvivalBoundaries
 import SigmaProbGammaShift
+import SigmaProbEquilibrium
 import SigmaProbStieltjes
 import SigmaProbWeights
+import SigmaProbWeightsReal
 import SigmaProbFourier
 import SigmaProbEntropy
 import SigmaProbGammaTransforms
+import SigmaProbGammaTilts
 import SigmaProbBoundaries
 import SigmaProbODE
 import SigmaProbDeficitTransform
