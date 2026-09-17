@@ -130,3 +130,5 @@ import SigmaZeroFamily
 import SigmaZeroAnalytic
 import SigmaFormalGroupNSeries
 import SigmaFareyClosure
+import SigmaClosure
+import SigmaClosurePerturbation

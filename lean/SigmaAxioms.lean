@@ -1,5 +1,28 @@
 import Sigma
 
+#print axioms Sigma.Closure.intrinsic_loss_reconstruction
+#print axioms Sigma.Closure.intrinsic_density_reconstruction
+#print axioms Sigma.Closure.intrinsic_density_inverse
+#print axioms Sigma.Closure.presentation_transport_composes
+#print axioms Sigma.Closure.presentation_intrinsic_unique
+#print axioms Sigma.Closure.canonical_realization_fibre
+#print axioms Sigma.Closure.placementEquivalence
+#print axioms Sigma.Closure.no_placement_decoder_without_scale
+#print axioms Sigma.Closure.no_placement_decoder_without_offset
+#print axioms Sigma.Closure.plane_composition_deletion
+#print axioms Sigma.Closure.no_spatial_observable_decoder
+#print axioms Sigma.Closure.no_spatial_dimension_decoder
+#print axioms Sigma.Closure.spatial_observable_reconstruction
+#print axioms Sigma.Closure.spatial_radial_cancellation
+#print axioms Sigma.Closure.spatial_radial_dimension_three
+#print axioms Sigma.Closure.radial_cancellation_does_not_identify_profile
+#print axioms Sigma.Closure.perturbations_independent
+#print axioms Sigma.Closure.perturbed_intrinsic_analytic
+#print axioms Sigma.Closure.perturbed_intrinsic_second_deriv
+#print axioms Sigma.Closure.perturbed_intrinsic_anchors
+#print axioms Sigma.Closure.perturbed_intrinsic_identical_iff
+#print axioms Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero
+
 #print axioms SigmaBase.star
 #print axioms SigmaBase.invStar
 #print axioms SigmaBase.potential

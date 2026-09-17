@@ -169,9 +169,17 @@ theorem nonnegative_orthogonal_quadratic
     (hf : OrthogonallyAdditive f) (hpos : ∀ x, 0 ≤ f x) :
     ∃ c ≥ 0, ∀ x : V, f x = c * ‖x‖ ^ 2 := by
   obtain ⟨w, hw⟩ := exists_linearIndependent_of_le_rank (n := 2) hdim
-  have ho := gramSchmidt_orthonormal hw
+  let v : Fin 2 → V := @gramSchmidtNormed ℝ V _ _ _ (Fin 2)
+    (inferInstance : LinearOrder (Fin 2))
+    (inferInstance : LocallyFiniteOrderBot (Fin 2))
+    (inferInstance : WellFoundedLT (Fin 2)) w
+  have ho : Orthonormal ℝ v :=
+    @gramSchmidt_orthonormal ℝ V _ _ _ (Fin 2)
+      (inferInstance : LinearOrder (Fin 2))
+      (inferInstance : LocallyFiniteOrderBot (Fin 2))
+      (inferInstance : WellFoundedLT (Fin 2)) w hw
   exact nonnegative_orthogonal_quadratic_of_pair f hf hpos
-    (gramSchmidtNormed ℝ w 0) (gramSchmidtNormed ℝ w 1)
+    (v 0) (v 1)
     (ho.1 0) (ho.1 1) (ho.2 (by decide : (0 : Fin 2) ≠ 1))
 
 theorem nonnegative_orthogonal_quadratic_iff
