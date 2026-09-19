@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 37,
-    "partial": 31,
+    "complete": 38,
+    "partial": 30,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -2701,7 +2701,27 @@
         "Sigma.rank_one_matrix_geodesic_minimizing",
         "Sigma.rank_one_matrix_geodesic_constant_speed",
         "Sigma.rank_one_piecewise_distance_matrix_log_norm",
-        "Sigma.rank_one_matrix_geodesic_unique_piecewise_minimizer"
+        "Sigma.rank_one_matrix_geodesic_unique_piecewise_minimizer",
+        "Sigma.precisionMetric_cauchy_schwarz",
+        "Sigma.matrix_logdet_velocity_bound",
+        "Sigma.matrix_diagonal_log_velocity_bound",
+        "Sigma.matrix_spd_path_velocity_symmetric",
+        "Sigma.matrix_segment_speed_integrable",
+        "Sigma.MatrixPiecewiseAdmissiblePath",
+        "Sigma.matrix_piecewise_rank_one_iff",
+        "Sigma.matrix_piecewise_diagonal_log_length_bound",
+        "Sigma.matrix_piecewise_logdet_length_bound",
+        "Sigma.matrixPiecewiseHessianDistance",
+        "Sigma.matrix_piecewise_distance_rank_one",
+        "Sigma.matrixHessianPathLength_nonnegative",
+        "Sigma.matrixDiagonalExpPath",
+        "Sigma.matrix_diagonal_exp_path_admissible",
+        "Sigma.matrix_diagonal_exp_path_length",
+        "Sigma.matrix_single_log_distance",
+        "Sigma.matrix_isotropic_log_distance",
+        "Sigma.matrix_diagonal_exp_symmetrization",
+        "Sigma.matrix_equal_distance_divergence_counterexample",
+        "Sigma.matrix_symmetrized_divergence_not_distance_function"
       ],
       "proved_components": [
         "Relative spectral symmetrization of the actual SPD matrix divergence using eigenvalues of X inverse-square-root times Y times X inverse-square-root",
@@ -2715,20 +2735,21 @@
         "Native rank-one matrix divergence symmetrization equals four times sinh squared of half the piecewise-C1 variational distance",
         "Unique rank-one constant-speed minimizing C1 and piecewise-C1 paths, with a.e. constant speed allowed in the piecewise category and coincident endpoints included",
         "Exact equality of the unique rank-one interpolation with the canonical spectral square-root/exponential/logarithm curve, its piecewise-C1 admissibility, constant speed and minimizing length",
-        "Rank-one piecewise-C1 variational distance equals the Frobenius norm of the actual relative matrix logarithm, and every a.e. constant-speed minimizer equals that spectral curve on the full closed interval"
+        "Rank-one piecewise-C1 variational distance equals the Frobenius norm of the actual relative matrix logarithm, and every a.e. constant-speed minimizer equals that spectral curve on the full closed interval",
+        "Native all-rank piecewise-C1 Hessian path-length infimum, metric Cauchy-Schwarz, and log-coordinate/log-determinant lower bounds for every admissible SPD path",
+        "Exact distances from identity to single-log-coordinate and isotropic diagonal exponential endpoints, proved by all-path lower bounds and attaining paths",
+        "Actual equal-distance unequal-symmetrization SPD witnesses in every rank at least two, hence no scalar function of the path distance recovers symmetrized divergence"
       ],
       "unproved_components": [
         "Metric-geodesic interpretation, higher-rank global length minimality among admissible SPD paths and actual metric distance formula",
-        "Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y",
-        "Equal-distance unequal-symmetrization witnesses in every rank at least two"
+        "Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y"
       ],
       "gaps": [
         "Metric-geodesic interpretation, higher-rank global length minimality among admissible SPD paths and actual metric distance formula",
-        "Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y",
-        "Equal-distance unequal-symmetrization witnesses in every rank at least two"
+        "Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded native spectral/path-component AUDIT PASS. The relative matrix has the exact paper orientation and actual positive eigenvalues. The spectral logarithm's native exponential identity is proved; paths use genuine SPD square roots and NormedSpace.exp under explicit Frobenius norm instances. Speed uses actual native derivatives and length is an interval integral. Initial rank-one review found that the C1 admissible class omitted corners and one-sided endpoints. SigmaMatrixPiecewiseRankOne resolves this: finite strict partitions, continuous original SPD paths, continuous segment velocities and derivative identities only on segment interiors; endpoint/corner values are removed only almost everywhere in the actual speed integral. Segment FTC, telescoping and the attaining exponential path prove the full piecewise-C1 infimum formula, not a distance defined by the answer. RankOneUnique proves genuine C1 uniqueness, and PiecewiseRankOneUnique extends it to the full piecewise-C1 class by clipping arbitrary subintervals, handling zero-length pieces and requiring constant speed only almost everywhere. No division by distance occurs, so coincident endpoints are included. SigmaMatrixRankOneGeodesic now identifies that interpolation exactly with the native spectral square-root/exponential/logarithm curve for every real parameter. Its native piecewise-C1 admissibility, constant speed, global minimizing length, logarithm-norm distance and uniqueness on the full closed interval follow with no distinct-endpoint premise. Thus the entire rank-one variational/path identification and symmetrization clauses are covered. The higher-rank native ODE does not by its name establish its metric-geodesic interpretation or global minimizing/uniqueness claims. Equal-distance counterexamples remain unproved."
+      "notes": "Bounded native spectral/path-component AUDIT PASS. The relative matrix has the exact paper orientation and actual positive eigenvalues. The spectral logarithm's native exponential identity is proved; paths use genuine SPD square roots and NormedSpace.exp under explicit Frobenius norm instances. Speed uses actual native derivatives and length is an interval integral. Initial rank-one review found that the C1 admissible class omitted corners and one-sided endpoints. SigmaMatrixPiecewiseRankOne resolves this: finite strict partitions, continuous original SPD paths, continuous segment velocities and derivative identities only on segment interiors; endpoint/corner values are removed only almost everywhere in the actual speed integral. Segment FTC, telescoping and the attaining exponential path prove the full piecewise-C1 infimum formula, not a distance defined by the answer. RankOneUnique proves genuine C1 uniqueness, and PiecewiseRankOneUnique extends it to the full piecewise-C1 class by clipping arbitrary subintervals, handling zero-length pieces and requiring constant speed only almost everywhere. No division by distance occurs, so coincident endpoints are included. SigmaMatrixRankOneGeodesic now identifies that interpolation exactly with the native spectral square-root/exponential/logarithm curve for every real parameter. Its native piecewise-C1 admissibility, constant speed, global minimizing length, logarithm-norm distance and uniqueness on the full closed interval follow with no distinct-endpoint premise. Thus the entire rank-one variational/path identification and symmetrization clauses are covered. The higher-rank native ODE does not by its name establish its metric-geodesic interpretation or global minimizing/uniqueness claims. The higher-rank deletion boundary is now proved independently of the missing general distance formula. Native metric Cauchy-Schwarz and derived tangent symmetry give lower bounds for every piecewise-C1 path, with integrability derived and corners ignored only almost everywhere. The actual path-length infima to diag(exp(sqrt(rank)),1,...) and exp(1) times identity both equal sqrt(rank), using explicit attaining paths. Strict sinh superlinearity proves different actual symmetrized divergences in every rank>=2; the theorem explicitly excludes ranks zero and one. This is an alternative exact witness to the named boundary rather than a claim that the paper proof's particular two-coordinate example or its power-series comparison was separately formalized. General higher-rank minimality/distance and uniqueness remain open."
     },
     {
       "id": "final:M4",
@@ -3018,7 +3039,7 @@
       "line": 953,
       "statement_tex": "\\label{final:B3}\nFix $\\mu,\\gamma>0$ and a real constant $c_P$, and consider the placed\ninteger code\n\\[\n e(n)=\\log(1+\\gamma n)-\\mu n+c_P,\\qquad n\\geq2.\n\\]\nFor distinct $n>m\\geq2$,\n\\begin{equation}\\label{final:integer-collision}\n e(n)=e(m)\\quad\\Longleftrightarrow\\quad\n \\mu=\\frac{1}{n-m}\\log\\frac{1+\\gamma n}{1+\\gamma m}.\n\\end{equation}\nThe rule $e(a)\\odot e(b)=e(ab)$ defines a well-defined binary\noperation on the image if and only if $e$ is injective.  Under that\nhypothesis, write $S$ for the image with an adjoined abstract unit $1_S$.\nExtending $e(1)=1_S$ makes $e:\\mathbb N_{>0}\\to S$ an isomorphism of labelled multiplicative\nmonoids.  It transports the full prime, valuation, divisor,\ngcd/lcm, M\\\"obius, and Dirichlet-convolution inventory stated below.\n\nThe different intrinsic code\n\\[\n e_0(n)=H(n+1),\\qquad n\\geq1,\n\\]\nis injective for every placement and already includes the unit label.\nIt does not remove any collision of the original code $e$.\n",
       "statement_sha256": "ad6d94553318c679dd9194bf09e9234c7902fc442cba60f283009ed2a8c579b6",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.placed_collision_iff",
         "Sigma.every_placed_collision_breaks_multiplication",
@@ -3078,7 +3099,59 @@
         "Sigma.factor_box_order",
         "Sigma.labelledDivisorBoxEquiv",
         "Sigma.labelled_divisor_box_coordinate",
-        "Sigma.labelled_divisor_box_order"
+        "Sigma.labelled_divisor_box_order",
+        "Sigma.labelledTotient",
+        "Sigma.labelled_totient_one",
+        "Sigma.labelled_totient_formula",
+        "Sigma.labelled_totient_residue_count",
+        "Sigma.labelled_totient_positive_residue_count",
+        "Sigma.prime_swap_changes_totient",
+        "Sigma.original_image_reflexive_divisibility",
+        "Sigma.labelled_coprime_gcd_is_unit",
+        "Sigma.labelledImageChangeEquiv",
+        "Sigma.labelled_image_change_preserves_labels",
+        "Sigma.linear_integer_code_injective",
+        "Sigma.square_integer_code_injective",
+        "Sigma.analyticCodeCounterexampleEquiv",
+        "Sigma.analytic_code_counterexample_shapes",
+        "Sigma.placed_unit_parameters_injective",
+        "Sigma.placedLevelCounterexampleEquiv",
+        "Sigma.placed_level_counterexample_values",
+        "Sigma.labelledArithmeticEquiv",
+        "Sigma.labelled_quotient_mul",
+        "Sigma.labelled_quotient_index",
+        "Sigma.labelled_convolution_sum",
+        "Sigma.labelled_convolution_assoc",
+        "Sigma.labelled_convolution_comm",
+        "Sigma.labelled_convolution_one_left",
+        "Sigma.labelled_convolution_one_right",
+        "Sigma.labelled_moebius_one",
+        "Sigma.labelled_moebius_formula",
+        "Sigma.labelled_moebius_convolution",
+        "Sigma.labelled_sum_moebius",
+        "Sigma.labelled_moebius_inversion",
+        "Sigma.labelled_moebius_inversion_iff",
+        "Sigma.unit_collision_parameter_bound",
+        "Sigma.unit_collision_code_strictAnti",
+        "Sigma.unit_collision_original_injective",
+        "Sigma.unit_collision_at_one",
+        "Sigma.placed_unit_collision_witness",
+        "Sigma.LabelledCoprime",
+        "Sigma.IsLabelledMultiplicative",
+        "Sigma.labelled_arithmetic_multiplicative_iff",
+        "Sigma.labelledPrimePowerExtension",
+        "Sigma.labelled_prime_power_extension_multiplicative",
+        "Sigma.labelled_prime_power_extension_prescribed",
+        "Sigma.labelled_multiplicative_unique",
+        "Sigma.labelled_prime_power_values_exists_unique",
+        "Sigma.labelled_coprime_iff_gcd_one",
+        "Sigma.labelled_valuation_native_factorization",
+        "Sigma.labelled_multiplicative_product",
+        "Sigma.labelled_prime_power_extension_injective",
+        "Sigma.labelled_nonzero_multiplicative_normalized",
+        "Sigma.labelled_unnormalized_multiplicative_dichotomy",
+        "Sigma.labelled_unnormalized_multiplicative_iff",
+        "Sigma.labelled_zero_not_normalized"
       ],
       "proved_components": [
         "Exact collision criterion",
@@ -3096,20 +3169,20 @@
         "Native irreducibles are exactly the marked numerical primes, with the adjoined unit excluded",
         "Total and distinct factor counts are finite and have the exact valuation-sum and positive-support cardinality formulas",
         "Actual finite enumeration of all native divisors and the exact product of valuation-plus-one divisor-count formula",
-        "The actual divisor lattice is bijective to the finite Cartesian product of exponent intervals, with coordinate equal to each valuation and native divisibility iff componentwise order, including the empty support of the unit"
+        "The actual divisor lattice is bijective to the finite Cartesian product of exponent intervals, with coordinate equal to each valuation and native divisibility iff componentwise order, including the empty support of the unit",
+        "Labelled totient has the exact prime-power factorization formula, unit value and coprime-residue counts both below n and on 1 through n; the prime-swap automorphism changes its value",
+        "Original nonunital reflexive divisibility is exactly equality or multiplication by another original element, and the coprime labels two and three have the separately adjoined unit as gcd",
+        "Actual label-preserving monoid equivalences between distinct injective analytic linear and square encodings, and between different additive levels in the same injective placed log-affine family, witness real-embedding and analytic-shape nonidentification",
+        "Actual finite-divisor Dirichlet convolution over arbitrary commutative coefficient rings, with derived quotient identity, associativity, commutativity and delta identity",
+        "Actual valuation-based Mobius formula, unit value, divisor-sum delta identity and Mobius inversion in both directions",
+        "Within the original positive-parameter placed family, an explicitly injective code on n>=2 whose numerical index-one value collides with the value at two",
+        "Every arbitrary prescription at marked prime powers of positive exponent extends uniquely to a normalized multiplicative function, with exact finite product over actual valuation support and intrinsic gcd-one coprimality",
+        "Over every field the unnormalized coprime-multiplicativity equation holds exactly for the zero function or a normalized multiplicative function; zero is not normalized"
       ],
-      "unproved_components": [
-        "Mobius/Dirichlet inventory and multiplicative-function parametrization",
-        "Labelled totient transport",
-        "Original nonunital-image reflexive divisibility and missing-unit boundaries, and real-embedding/analytic-shape nonreconstruction"
-      ],
-      "gaps": [
-        "Mobius/Dirichlet inventory and multiplicative-function parametrization",
-        "Labelled totient transport",
-        "Original nonunital-image reflexive divisibility and missing-unit boundaries, and real-embedding/analytic-shape nonreconstruction"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded carrier/transport/sampling and initial inventory AUDIT PASS. IntegerCodeIndex enforces n>=2, necessity uses every possible collision and multiplier two, and WithOne supplies a distinct abstract unit. labelledImageEquiv constructs the inventory's E from exactly the paper's injectivity premise; its generic monoid equivalence is therefore not an added mathematical hypothesis. labelled_image_encode preserves original labels. The factorization maps are actual inverses, and valuation maxima, divisibility, gcd/lcm and divisor submultiset order are proved rather than assumed as structures. ArithmeticDivisors now proves actual irreducibility, finite factor counts, finite divisor enumeration with membership iff native divisibility, and its exact valuation-product cardinality for every element including the unit. ArithmeticDivisorBox now supplies the full finite Cartesian exponent box: Fin(v+1) at each finite-support prime, an explicit inverse summing replicated primes, exact valuation coordinates, and native divisibility iff componentwise order. Both inverse identities are proved, and the empty-support unit case is included. The arbitrary prime permutation and explicit nonadditive two/three swap establish the numerical-label/addition boundary, but not the distinct analytic-shape or real-embedding boundary. Shifted sampling does not redefine original sampling or remove its collisions. The remaining inventory and deletion obligations are retained explicitly."
+      "notes": "Bounded carrier/transport/sampling and initial inventory AUDIT PASS. IntegerCodeIndex enforces n>=2, necessity uses every possible collision and multiplier two, and WithOne supplies a distinct abstract unit. labelledImageEquiv constructs the inventory's E from exactly the paper's injectivity premise; its generic monoid equivalence is therefore not an added mathematical hypothesis. labelled_image_encode preserves original labels. The factorization maps are actual inverses, and valuation maxima, divisibility, gcd/lcm and divisor submultiset order are proved rather than assumed as structures. ArithmeticDivisors now proves actual irreducibility, finite factor counts, finite divisor enumeration with membership iff native divisibility, and its exact valuation-product cardinality for every element including the unit. ArithmeticDivisorBox now supplies the full finite Cartesian exponent box: Fin(v+1) at each finite-support prime, an explicit inverse summing replicated primes, exact valuation coordinates, and native divisibility iff componentwise order. Both inverse identities are proved, and the empty-support unit case is included. The arbitrary prime permutation and explicit nonadditive two/three swap establish the numerical-label/addition boundary. ArithmeticBoundaries now proves the totient's actual factorization and residue-count formulas, including the unit and representatives 1 through n; prime permutation changes totient. Its genuine label-preserving equivalences of injective linear/square codes and differently shifted placed codes establish distinct analytic-shape and real-embedding witnesses. Original-image divisibility and unit-required gcd are also proved. An explicit placed-family collision at the newly added index one is still needed: abstract WithOne separation alone does not demonstrate that failure of extended numerical injectivity can occur while the original code remains injective. Shifted sampling does not redefine original sampling or remove its collisions. The remaining inventory and deletion obligations are retained explicitly. ArithmeticConvolution independently passes the actual finite-divisor and arbitrary-CommRing audit, including the unit and both inversion directions; its zero extension merely supplies Mathlib's arithmetic-function representation and preserves every positive label. ArithmeticUnitBoundary resolves the previously recorded numeric-unit defect: mu=log(3/2)>1/3>0, gamma=1, c=0 gives a strictly decreasing code on [2,infinity), but exactly equal values at one and two. Only multiplicative-function parametrization remains open. Final whole-B3 AUDIT PASS after rereading the named statement and full inventory. ArithmeticMultiplicative resolves the last recorded residual over every commutative coefficient ring (indeed CommMonoidWithZero): arbitrary prime-power values, existence, uniqueness, exact finite factor product, genuine gcd-one coprimality, and the field-valued zero/nonzero distinction. Positive exponents avoid prescribing conflicting values at the common unit, whose empty-product value is derived. The original carrier remains n>=2 with a separately adjoined unit; the alternative H(n+1) on positive indices is exactly the existing H(n+2) theorem on natural indices by reindexing. Collision positivity assumptions follow from the paper's positive parameters, and no extra mathematical premise remains. Historical residual notes above describe resolved audit findings, not current gaps."
     },
     {
       "id": "final:B4",

@@ -156,6 +156,14 @@ import SigmaMatrixRankOneGeodesic
 import SigmaToddArbitraryPower
 import SigmaToddArbitraryPowerAlgebra
 import SigmaFormalAutomorphisms
+import SigmaArithmeticBoundaries
+import SigmaArithmeticUnitBoundary
+import SigmaArithmeticConvolution
+import SigmaArithmeticMultiplicative
+import SigmaMatrixMetricBounds
+import SigmaMatrixPathBounds
+import SigmaMatrixDiagonalDistances
+import SigmaMatrixDistanceBoundary
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation

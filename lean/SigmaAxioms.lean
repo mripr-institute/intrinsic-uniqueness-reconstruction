@@ -1,5 +1,35 @@
 import Sigma
 
+#print axioms Sigma.labelled_prime_power_values_exists_unique
+#print axioms Sigma.labelled_multiplicative_product
+#print axioms Sigma.labelled_coprime_iff_gcd_one
+#print axioms Sigma.labelled_unnormalized_multiplicative_iff
+#print axioms Sigma.labelled_zero_not_normalized
+
+#print axioms Sigma.labelled_totient_formula
+#print axioms Sigma.labelled_totient_residue_count
+#print axioms Sigma.labelled_totient_positive_residue_count
+#print axioms Sigma.prime_swap_changes_totient
+#print axioms Sigma.original_image_reflexive_divisibility
+#print axioms Sigma.analyticCodeCounterexampleEquiv
+#print axioms Sigma.analytic_code_counterexample_shapes
+#print axioms Sigma.placedLevelCounterexampleEquiv
+#print axioms Sigma.placed_level_counterexample_values
+#print axioms Sigma.placed_unit_collision_witness
+#print axioms Sigma.labelled_convolution_sum
+#print axioms Sigma.labelled_convolution_assoc
+#print axioms Sigma.labelled_convolution_comm
+#print axioms Sigma.labelled_convolution_one_left
+#print axioms Sigma.labelled_moebius_formula
+#print axioms Sigma.labelled_sum_moebius
+#print axioms Sigma.labelled_moebius_inversion_iff
+#print axioms Sigma.matrix_piecewise_diagonal_log_length_bound
+#print axioms Sigma.matrix_piecewise_logdet_length_bound
+#print axioms Sigma.matrix_single_log_distance
+#print axioms Sigma.matrix_isotropic_log_distance
+#print axioms Sigma.matrix_equal_distance_divergence_counterexample
+#print axioms Sigma.matrix_symmetrized_divergence_not_distance_function
+
 #print axioms Sigma.formal_star_endomorphism_iff
 #print axioms Sigma.formal_star_automorphism_classification
 #print axioms Sigma.formal_star_power_composition
