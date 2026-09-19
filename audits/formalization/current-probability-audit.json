@@ -530,17 +530,25 @@
         "Sigma.gamma_residual_nonnegative",
         "Sigma.gamma_residual_laplace",
         "Sigma.gamma_residual_zero_atom",
-        "Sigma.gamma_canonical_self_decomposition"
+        "Sigma.gamma_canonical_self_decomposition",
+        "Sigma.gammaResidualLevyDensity",
+        "Sigma.gamma_residual_levy_density_factor",
+        "Sigma.gamma_residual_levy_density_nonnegative",
+        "Sigma.gamma_residual_levy_integrable",
+        "Sigma.gamma_residual_levy_integral",
+        "Sigma.gammaResidualLevyMeasure",
+        "Sigma.gamma_residual_levy_measure_mass",
+        "Sigma.gamma_residual_levy_measure_finite"
       ],
       "proved_components": [
-        "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate)."
+        "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate).",
+        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c)."
       ],
       "unproved_components": [
-        "Residual realization as a compound-Poisson law with exactly the displayed Levy density.",
-        "Exact total jump intensity -2 log c.",
+        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
         "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
       ],
-      "notes": ""
+      "notes": "New residual-density/mass batch: AUDIT PASS for the exact components credited. Read the actual definitions and proofs in SigmaProbLevyIntegral.lean: the exponential factorization reduces to the already proved genuine Levy-kernel integral; nonnegativity prevents ENNReal.ofReal from masking a signed density; the parameter range includes every paper value 0<c<1 and additionally the zero-measure endpoint c=1. Naming gammaResidualLevyMeasure does not by itself establish it as the Levy measure of gammaResidualProbability; that linkage remains unproved. Compilation PASS was reported by the proving agent; no full verifier was rerun in this independent source review."
     },
     {
       "latex_label": "final:P9",

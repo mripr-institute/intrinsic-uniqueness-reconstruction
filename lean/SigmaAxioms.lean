@@ -1,5 +1,30 @@
 import Sigma
 
+#print axioms Sigma.affine_exponential_first_derivative
+#print axioms Sigma.affine_exponential_derivative_step
+#print axioms Sigma.affine_exponential_iteratedDeriv
+#print axioms Sigma.affine_exponential_exact_zero
+#print axioms Sigma.affine_exponential_mass
+#print axioms Sigma.affine_exponential_mass_identifies_amplitude
+#print axioms Sigma.affine_exponential_indexed_zeros_identify
+#print axioms Sigma.gamma_residual_levy_density_factor
+#print axioms Sigma.gamma_residual_levy_density_nonnegative
+#print axioms Sigma.gamma_residual_levy_integrable
+#print axioms Sigma.gamma_residual_levy_integral
+#print axioms Sigma.gamma_residual_levy_measure_mass
+#print axioms Sigma.gamma_residual_levy_measure_finite
+#print axioms Sigma.matrixPotential_orthogonal_congruence
+#print axioms Sigma.matrix_off_diagonal_penalty_nonnegative
+#print axioms Sigma.matrix_off_diagonal_penalty_blocks
+#print axioms Sigma.matrix_basis_lift_nonnegative
+#print axioms Sigma.matrix_basis_lift_seed
+#print axioms Sigma.matrix_basis_lift_blocks
+#print axioms Sigma.matrix_rank_shift_nonnegative
+#print axioms Sigma.matrix_rank_shift_seed
+#print axioms Sigma.matrix_rank_shift_invariant
+#print axioms Sigma.matrix_rank_shift_recursion_failure
+#print axioms Sigma.matrix_basis_lift_invariance_failure
+
 #print axioms Sigma.log_second_difference
 #print axioms Sigma.placed_discrete_curvature
 #print axioms Sigma.second_difference_integer_sequence_unique

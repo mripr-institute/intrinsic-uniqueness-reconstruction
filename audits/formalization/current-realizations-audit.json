@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 3, "partial": 12, "missing": 2},
+  "totals": {"definition": 0, "complete": 4, "partial": 11, "missing": 2},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -46,11 +46,11 @@
     },
     {
       "latex_label": "final:M1",
-      "status": "partial",
-      "lean_declarations": ["Sigma.spd_positive_rank_lift_unique", "Sigma.matrixPotential_spectral", "Sigma.matrixPotential_nonnegative", "Sigma.matrixPotential_similarity", "Sigma.matrixPotential_block_additivity"],
-      "proved_components": ["Uniqueness for actual positive-rank SPD matrix families without regularity", "Spectral sum equals trace minus log determinant minus rank", "Nonnegativity", "Full arbitrary-block additivity", "Similarity invariance, which supplies orthogonal conjugacy as a specialization"],
-      "unproved_components": ["Actual nonnegative matrix-family counterexample retaining the seed and recursion when orthogonal invariance is deleted", "Actual nonnegative matrix-family counterexample retaining the seed and invariance when scalar-block recursion is deleted"],
-      "notes": "The positive-rank uniqueness theorem needs recursion only on diagonal blocks, which is weaker than the paper's assumptions and therefore sound. The older map's missing full block-additivity clause is now proved."
+      "status": "complete",
+      "lean_declarations": ["Sigma.spd_positive_rank_lift_unique", "Sigma.matrixPotential_spectral", "Sigma.matrixPotential_nonnegative", "Sigma.matrixPotential_similarity", "Sigma.matrixPotential_block_additivity", "Sigma.matrixPotential_orthogonal_congruence", "Sigma.matrix_basis_lift_nonnegative", "Sigma.matrix_basis_lift_seed", "Sigma.matrix_basis_lift_blocks", "Sigma.matrix_basis_lift_invariance_failure", "Sigma.matrix_rank_shift_nonnegative", "Sigma.matrix_rank_shift_seed", "Sigma.matrix_rank_shift_invariant", "Sigma.matrix_rank_shift_recursion_failure", "Sigma.positive_definite_congruence"],
+      "proved_components": ["Uniqueness for actual positive-rank SPD matrix families without regularity", "Spectral sum equals trace minus log determinant minus rank", "Nonnegativity", "Full arbitrary-block additivity", "Actual orthogonal congruence invariance", "Nonnegative scalar-seeded full-block-additive family which fails orthogonal invariance at explicit SPD and rational orthogonal matrices", "Nonnegative scalar-seeded orthogonally invariant family which fails scalar-block recursion at identity scalar blocks"],
+      "unproved_components": [],
+      "notes": "Bounded M1 AUDIT PASS after independent inspection of the new families. The positive-rank uniqueness theorem needs recursion only on diagonal blocks, a weaker assumption than the paper. The new basis-dependent family adds the sum of squared off-diagonal entries to the canonical potential, and the rank-shift family adds zero in rank one and one otherwise. These are alternative genuine witnesses to the named necessity claims; the paper proof's particular diagonal-potential and logarithmic-eigenvalue-variance examples remain distinct proof-level claims. An independent Lean stdin check verified that X.PosDef and Q transpose times Q equals identity imply the rotated matrix is SPD using positive_definite_congruence, so the invariance witness stays inside the required cone. Identity scalar blocks in the recursion witness are SPD. No regularity or extra positivity assumptions were introduced."
     },
     {
       "latex_label": "final:M2",

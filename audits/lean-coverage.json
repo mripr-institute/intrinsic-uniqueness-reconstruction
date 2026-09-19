@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 30,
-    "partial": 35,
+    "complete": 31,
+    "partial": 34,
     "missing": 13
   },
   "pending_exact_statement_matches": 0,
@@ -524,6 +524,13 @@
         "Sigma.gamma_exact_zeros",
         "Sigma.placed_density_iteratedDeriv",
         "Sigma.placed_density_exact_derivative_zero",
+        "Sigma.affineExponentialDensity",
+        "Sigma.affineExponentialDerivative",
+        "Sigma.affine_exponential_iteratedDeriv",
+        "Sigma.affine_exponential_exact_zero",
+        "Sigma.affine_exponential_mass",
+        "Sigma.affine_exponential_mass_identifies_amplitude",
+        "Sigma.affine_exponential_indexed_zeros_identify",
         "Sigma.two_indexed_derivative_zeros_identify",
         "Sigma.second_difference_sequence_unique",
         "Sigma.log_second_difference",
@@ -535,18 +542,17 @@
       ],
       "proved_components": [
         "Actual placed logarithmic derivatives at all orders at least two; exponential placed-density derivatives and zero sets; two-index parameter identification; one-sided sequence uniqueness; analytic continuation from the density inverse germ.",
+        "The independent-amplitude family C*(1+gamma*r)*exp(-mu*r) has the stated actual derivative at every positive integer order and its unique real zero n/mu-1/gamma for positive parameters. Two consecutive indexed zeros identify mu and gamma. Its positive-ray integral is C*(1/mu+gamma/mu^2), and equality of masses identifies C without assuming it was normalized in advance.",
         "Exact placed discrete-curvature formula on the complete stated domain r-1>-a/mu with mu>0; no extra offset restriction. Generic integer sequences are uniquely determined by two consecutive values and equal second differences on all integers.",
         "Half-lattice uniqueness from any consecutive anchor pair at or above its lower endpoint, requiring recurrence only where all three indices are admissible. For every real function a witness preserves every integer sample, differs by a smooth function, and differs at the positive point 1/4, inside every admissible placed domain since -a/mu<0.",
         "General analytic germ uniqueness is already supplied by imported Mathlib AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, with analytic candidates on a preconnected common domain and equality near a domain point."
       ],
       "unproved_components": [
         "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "General C(1+gamma*r)exp(-mu*r) derivative/zero statement and mass identification of free C, beyond the currently normalized placed density.",
         "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
       ],
       "gaps": [
         "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "General C(1+gamma*r)exp(-mu*r) derivative/zero statement and mass identification of free C, beyond the currently normalized placed density.",
         "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
@@ -1453,23 +1459,30 @@
         "Sigma.gamma_residual_nonnegative",
         "Sigma.gamma_residual_laplace",
         "Sigma.gamma_residual_zero_atom",
-        "Sigma.gamma_canonical_self_decomposition"
+        "Sigma.gamma_canonical_self_decomposition",
+        "Sigma.gammaResidualLevyDensity",
+        "Sigma.gamma_residual_levy_density_factor",
+        "Sigma.gamma_residual_levy_density_nonnegative",
+        "Sigma.gamma_residual_levy_integrable",
+        "Sigma.gamma_residual_levy_integral",
+        "Sigma.gammaResidualLevyMeasure",
+        "Sigma.gamma_residual_levy_measure_mass",
+        "Sigma.gamma_residual_levy_measure_finite"
       ],
       "proved_components": [
-        "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate)."
+        "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate).",
+        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c)."
       ],
       "unproved_components": [
-        "Residual realization as a compound-Poisson law with exactly the displayed Levy density.",
-        "Exact total jump intensity -2 log c.",
+        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
         "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
       ],
       "gaps": [
-        "Residual realization as a compound-Poisson law with exactly the displayed Levy density.",
-        "Exact total jump intensity -2 log c.",
+        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
         "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": ""
+      "notes": "New residual-density/mass batch: AUDIT PASS for the exact components credited. Read the actual definitions and proofs in SigmaProbLevyIntegral.lean: the exponential factorization reduces to the already proved genuine Levy-kernel integral; nonnegativity prevents ENNReal.ofReal from masking a signed density; the parameter range includes every paper value 0<c<1 and additionally the zero-measure endpoint c=1. Naming gammaResidualLevyMeasure does not by itself establish it as the Levy measure of gammaResidualProbability; that linkage remains unproved. Compilation PASS was reported by the proving agent; no full verifier was rerun in this independent source review."
     },
     {
       "id": "final:P9",
@@ -2345,31 +2358,37 @@
       "line": 295,
       "statement_tex": "\\label{final:M1}\nSuppose a family $F_n:\\mathcal P_n\\to\\mathbb R$, $n\\geq1$, satisfies\n\\[\n F_1([t])=I(t),\\qquad F_n(QXQ^{\\mathsf T})=F_n(X)\n\\]\nfor orthogonal $Q$, and the scalar-block recursion\n\\[\n F_{n+1}(X\\oplus[t])=F_n(X)+I(t).\n\\]\nThen, without any regularity assumption,\n\\begin{equation}\\label{final:matrix-potential}\n F_n(X)=\\Phi_n(X):=\\sum_{i=1}^n I(\\lambda_i(X))\n          =\\operatorname{tr}X-\\log\\det X-n.\n\\end{equation}\nThis family satisfies full block additivity.  Neither orthogonal\ninvariance nor scalar-block recursion can be removed while keeping\nthe scalar seed, even among nonnegative candidates.\n",
       "statement_sha256": "d5eab8c661d23fa1ec56fd4bd3a918bb6dddf2a2e2ac2e7c733447ed8df348ed",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.spd_positive_rank_lift_unique",
         "Sigma.matrixPotential_spectral",
         "Sigma.matrixPotential_nonnegative",
         "Sigma.matrixPotential_similarity",
-        "Sigma.matrixPotential_block_additivity"
+        "Sigma.matrixPotential_block_additivity",
+        "Sigma.matrixPotential_orthogonal_congruence",
+        "Sigma.matrix_basis_lift_nonnegative",
+        "Sigma.matrix_basis_lift_seed",
+        "Sigma.matrix_basis_lift_blocks",
+        "Sigma.matrix_basis_lift_invariance_failure",
+        "Sigma.matrix_rank_shift_nonnegative",
+        "Sigma.matrix_rank_shift_seed",
+        "Sigma.matrix_rank_shift_invariant",
+        "Sigma.matrix_rank_shift_recursion_failure",
+        "Sigma.positive_definite_congruence"
       ],
       "proved_components": [
         "Uniqueness for actual positive-rank SPD matrix families without regularity",
         "Spectral sum equals trace minus log determinant minus rank",
         "Nonnegativity",
         "Full arbitrary-block additivity",
-        "Similarity invariance, which supplies orthogonal conjugacy as a specialization"
+        "Actual orthogonal congruence invariance",
+        "Nonnegative scalar-seeded full-block-additive family which fails orthogonal invariance at explicit SPD and rational orthogonal matrices",
+        "Nonnegative scalar-seeded orthogonally invariant family which fails scalar-block recursion at identity scalar blocks"
       ],
-      "unproved_components": [
-        "Actual nonnegative matrix-family counterexample retaining the seed and recursion when orthogonal invariance is deleted",
-        "Actual nonnegative matrix-family counterexample retaining the seed and invariance when scalar-block recursion is deleted"
-      ],
-      "gaps": [
-        "Actual nonnegative matrix-family counterexample retaining the seed and recursion when orthogonal invariance is deleted",
-        "Actual nonnegative matrix-family counterexample retaining the seed and invariance when scalar-block recursion is deleted"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The positive-rank uniqueness theorem needs recursion only on diagonal blocks, which is weaker than the paper's assumptions and therefore sound. The older map's missing full block-additivity clause is now proved."
+      "notes": "Bounded M1 AUDIT PASS after independent inspection of the new families. The positive-rank uniqueness theorem needs recursion only on diagonal blocks, a weaker assumption than the paper. The new basis-dependent family adds the sum of squared off-diagonal entries to the canonical potential, and the rank-shift family adds zero in rank one and one otherwise. These are alternative genuine witnesses to the named necessity claims; the paper proof's particular diagonal-potential and logarithmic-eigenvalue-variance examples remain distinct proof-level claims. An independent Lean stdin check verified that X.PosDef and Q transpose times Q equals identity imply the rotated matrix is SPD using positive_definite_congruence, so the invariance witness stays inside the required cone. Identity scalar blocks in the recursion witness are SPD. No regularity or extra positivity assumptions were introduced."
     },
     {
       "id": "final:M2",

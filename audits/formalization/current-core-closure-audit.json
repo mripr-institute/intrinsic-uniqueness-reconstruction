@@ -254,6 +254,13 @@
         "Sigma.gamma_exact_zeros",
         "Sigma.placed_density_iteratedDeriv",
         "Sigma.placed_density_exact_derivative_zero",
+        "Sigma.affineExponentialDensity",
+        "Sigma.affineExponentialDerivative",
+        "Sigma.affine_exponential_iteratedDeriv",
+        "Sigma.affine_exponential_exact_zero",
+        "Sigma.affine_exponential_mass",
+        "Sigma.affine_exponential_mass_identifies_amplitude",
+        "Sigma.affine_exponential_indexed_zeros_identify",
         "Sigma.two_indexed_derivative_zeros_identify",
         "Sigma.second_difference_sequence_unique",
         "Sigma.log_second_difference",
@@ -265,13 +272,13 @@
       ],
       "proved_components": [
         "Actual placed logarithmic derivatives at all orders at least two; exponential placed-density derivatives and zero sets; two-index parameter identification; one-sided sequence uniqueness; analytic continuation from the density inverse germ.",
+        "The independent-amplitude family C*(1+gamma*r)*exp(-mu*r) has the stated actual derivative at every positive integer order and its unique real zero n/mu-1/gamma for positive parameters. Two consecutive indexed zeros identify mu and gamma. Its positive-ray integral is C*(1/mu+gamma/mu^2), and equality of masses identifies C without assuming it was normalized in advance.",
         "Exact placed discrete-curvature formula on the complete stated domain r-1>-a/mu with mu>0; no extra offset restriction. Generic integer sequences are uniquely determined by two consecutive values and equal second differences on all integers.",
         "Half-lattice uniqueness from any consecutive anchor pair at or above its lower endpoint, requiring recurrence only where all three indices are admissible. For every real function a witness preserves every integer sample, differs by a smooth function, and differs at the positive point 1/4, inside every admissible placed domain since -a/mu<0.",
         "General analytic germ uniqueness is already supplied by imported Mathlib AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, with analytic candidates on a preconnected common domain and equality near a domain point."
       ],
       "unproved_components": [
         "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "General C(1+gamma*r)exp(-mu*r) derivative/zero statement and mass identification of free C, beyond the currently normalized placed density.",
         "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
       ],
       "notes": "Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."

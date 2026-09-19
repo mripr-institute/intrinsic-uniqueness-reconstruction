@@ -2,7 +2,7 @@ import SigmaMatrixCalculus
 
 namespace Sigma
 noncomputable section
-open scoped BigOperators Matrix
+open scoped BigOperators Matrix ComplexOrder
 variable {n : Type*} [Fintype n] [DecidableEq n]
 
 omit [DecidableEq n] in
@@ -95,6 +95,110 @@ theorem matrixPotential_block_additivity {m : Type*} [Fintype m] [DecidableEq m]
   rw [ht, Matrix.det_fromBlocks_zero₂₁, Real.log_mul (ne_of_gt hX.det_pos) (ne_of_gt hY.det_pos)]
   simp only [Fintype.card_sum, Nat.cast_add]
   ring
+
+theorem matrixPotential_orthogonal_congruence (X Q : Matrix n n ℝ)
+    (hQ : Qᵀ*Q = 1) : matrixPotential (Q*X*Qᵀ) = matrixPotential X := by
+  have ht : Matrix.trace (Q*X*Qᵀ) = Matrix.trace X := by
+    rw [Matrix.trace_mul_cycle, hQ, Matrix.one_mul]
+  have hdet := congrArg Matrix.det hQ
+  rw [Matrix.det_mul, Matrix.det_transpose, Matrix.det_one] at hdet
+  have hd : (Q*X*Qᵀ).det = X.det := by
+    rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_transpose]
+    calc
+      _ = X.det*(Q.det*Q.det) := by ring
+      _ = X.det := by rw [hdet, mul_one]
+  simp only [matrixPotential, ht, hd]
+
+/-- A nonnegative, block-additive perturbation which detects the chosen basis. -/
+def matrixOffDiagonalPenalty (X : Matrix n n ℝ) : ℝ :=
+  ∑ i, ∑ j, if i=j then 0 else (X i j)^2
+
+theorem matrix_off_diagonal_penalty_nonnegative (X : Matrix n n ℝ) :
+    0 ≤ matrixOffDiagonalPenalty X := by
+  apply Finset.sum_nonneg
+  intro i _
+  apply Finset.sum_nonneg
+  intro j _
+  split_ifs <;> positivity
+
+theorem matrix_off_diagonal_penalty_blocks {m : Type*} [Fintype m] [DecidableEq m]
+    (X : Matrix n n ℝ) (Y : Matrix m m ℝ) :
+    matrixOffDiagonalPenalty (Matrix.fromBlocks X 0 0 Y) =
+      matrixOffDiagonalPenalty X + matrixOffDiagonalPenalty Y := by
+  simp [matrixOffDiagonalPenalty, Fintype.sum_sum_type, Matrix.fromBlocks]
+
+def matrixBasisDependentLift (X : Matrix n n ℝ) : ℝ :=
+  matrixPotential X + matrixOffDiagonalPenalty X
+
+theorem matrix_basis_lift_nonnegative (X : Matrix n n ℝ) (hX : X.PosDef) :
+    0 ≤ matrixBasisDependentLift X :=
+  add_nonneg (matrixPotential_nonnegative X hX) (matrix_off_diagonal_penalty_nonnegative X)
+
+theorem matrix_basis_lift_seed (t : ℝ) :
+    matrixBasisDependentLift (Matrix.diagonal (fun _ : Fin 1 => t)) = SigmaBase.potential t := by
+  simp [matrixBasisDependentLift, matrixOffDiagonalPenalty, matrixPotential,
+    Matrix.trace, Matrix.diag, Matrix.det_diagonal, SigmaBase.potential]
+  ring
+
+theorem matrix_basis_lift_blocks {m : Type*} [Fintype m] [DecidableEq m]
+    (X : Matrix n n ℝ) (Y : Matrix m m ℝ) (hX : X.PosDef) (hY : Y.PosDef) :
+    matrixBasisDependentLift (Matrix.fromBlocks X 0 0 Y) =
+      matrixBasisDependentLift X + matrixBasisDependentLift Y := by
+  rw [matrixBasisDependentLift, matrixPotential_block_additivity X Y hX hY,
+    matrix_off_diagonal_penalty_blocks]
+  unfold matrixBasisDependentLift
+  ring
+
+/-- Dropping scalar recursion leaves a rank-dependent nonnegative freedom. -/
+def matrixRankShiftLift (X : Matrix n n ℝ) : ℝ :=
+  matrixPotential X + if Fintype.card n = 1 then 0 else 1
+
+theorem matrix_rank_shift_nonnegative (X : Matrix n n ℝ) (hX : X.PosDef) :
+    0 ≤ matrixRankShiftLift X := by
+  unfold matrixRankShiftLift
+  split_ifs <;> linarith [matrixPotential_nonnegative X hX]
+
+theorem matrix_rank_shift_seed (t : ℝ) :
+    matrixRankShiftLift (Matrix.diagonal (fun _ : Fin 1 => t)) = SigmaBase.potential t := by
+  simp [matrixRankShiftLift, matrixPotential, Matrix.trace, Matrix.diag,
+    Matrix.det_diagonal, SigmaBase.potential]
+  ring
+
+theorem matrix_rank_shift_invariant (X Q : Matrix n n ℝ) (hQ : Qᵀ*Q = 1) :
+    matrixRankShiftLift (Q*X*Qᵀ) = matrixRankShiftLift X := by
+  simp only [matrixRankShiftLift, matrixPotential_orthogonal_congruence X Q hQ]
+
+theorem matrix_rank_shift_recursion_failure :
+    matrixRankShiftLift (Matrix.fromBlocks (1 : Matrix (Fin 1) (Fin 1) ℝ) 0 0
+      (1 : Matrix (Fin 1) (Fin 1) ℝ)) ≠
+      matrixRankShiftLift (1 : Matrix (Fin 1) (Fin 1) ℝ) + SigmaBase.potential 1 := by
+  have he : Matrix.fromBlocks (1 : Matrix (Fin 1) (Fin 1) ℝ) 0 0
+      (1 : Matrix (Fin 1) (Fin 1) ℝ) = 1 := by
+    ext i j
+    cases i <;> cases j <;> simp [Matrix.one_apply]
+  rw [he]
+  norm_num [matrixRankShiftLift, matrixPotential, Matrix.trace_one, SigmaBase.potential]
+
+theorem matrix_basis_lift_invariance_failure :
+    ∃ X Q : Matrix (Fin 2) (Fin 2) ℝ, X.PosDef ∧ Qᵀ*Q = 1 ∧
+      matrixBasisDependentLift (Q*X*Qᵀ) ≠ matrixBasisDependentLift X := by
+  let X : Matrix (Fin 2) (Fin 2) ℝ := Matrix.diagonal ![2,1]
+  let Q : Matrix (Fin 2) (Fin 2) ℝ := fun i j =>
+    if i=0 then (if j=0 then 3/5 else -4/5) else (if j=0 then 4/5 else 3/5)
+  have hX : X.PosDef := Matrix.PosDef.diagonal (by intro i; fin_cases i <;> norm_num)
+  have hQ : Qᵀ*Q = 1 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [Q, Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_two]
+  refine ⟨X, Q, hX, hQ, ?_⟩
+  have h0 : matrixOffDiagonalPenalty X = 0 := by
+    norm_num [matrixOffDiagonalPenalty, X, Fin.sum_univ_two]
+  have h1 : matrixOffDiagonalPenalty (Q*X*Qᵀ) = 288/625 := by
+    norm_num [matrixOffDiagonalPenalty, Q, X, Matrix.mul_apply,
+      Matrix.transpose_apply, Matrix.diagonal_apply, Fin.sum_univ_two]
+  rw [matrixBasisDependentLift, matrixBasisDependentLift,
+    matrixPotential_orthogonal_congruence X Q hQ, h0, h1]
+  norm_num
 
 end
 end Sigma

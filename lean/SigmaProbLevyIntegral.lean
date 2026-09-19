@@ -92,5 +92,61 @@ theorem gamma_levy_exponent_integrable (l : ℝ) (hl : 0 ≤ l) :
   filter_upwards [ae_restrict_mem measurableSet_Ioi] with x hx
   exact levy_kernel_parameter_integral l x hl hx
 
+/-- The finite jump-density appearing in the Gamma residual, before normalization. -/
+def gammaResidualLevyDensity (c x : ℝ) : ℝ :=
+  2*(Real.exp (-x)-Real.exp (-x/c))/x
+
+theorem gamma_residual_levy_density_factor {c : ℝ} (hc : 0 < c) (x : ℝ) :
+    gammaResidualLevyDensity c x =
+      (1-Real.exp (-((1/c-1)*x)))*gammaLevyDensity x := by
+  have he : -x/c = -x + -((1/c-1)*x) := by field_simp; ring
+  rw [gammaResidualLevyDensity, he, Real.exp_add, gammaLevyDensity]
+  ring
+
+theorem gamma_residual_levy_density_nonnegative {c x : ℝ}
+    (hc0 : 0 < c) (hc1 : c ≤ 1) (hx : 0 < x) :
+    0 ≤ gammaResidualLevyDensity c x := by
+  unfold gammaResidualLevyDensity
+  apply div_nonneg (mul_nonneg (by norm_num) (sub_nonneg.mpr ?_)) hx.le
+  apply Real.exp_le_exp.mpr
+  apply (div_le_iff₀ hc0).mpr
+  nlinarith
+
+theorem gamma_residual_levy_integrable {c : ℝ} (hc0 : 0 < c) (hc1 : c ≤ 1) :
+    IntegrableOn (gammaResidualLevyDensity c) (Ioi 0) := by
+  have hl : 0 ≤ 1/c-1 := by
+    have : (1 : ℝ) ≤ 1/c := (le_div_iff₀ hc0).mpr (by simpa using hc1)
+    linarith
+  exact (gamma_levy_exponent_integrable (1/c-1) hl).congr
+    (Filter.Eventually.of_forall (fun x => (gamma_residual_levy_density_factor hc0 x).symm))
+
+theorem gamma_residual_levy_integral {c : ℝ} (hc0 : 0 < c) (hc1 : c ≤ 1) :
+    (∫ x : ℝ in Ioi 0, gammaResidualLevyDensity c x) = -2*Real.log c := by
+  have hl : 0 ≤ 1/c-1 := by
+    have : (1 : ℝ) ≤ 1/c := (le_div_iff₀ hc0).mpr (by simpa using hc1)
+    linarith
+  have he : gammaResidualLevyDensity c =
+      fun x => (1-Real.exp (-((1/c-1)*x)))*gammaLevyDensity x :=
+    funext (gamma_residual_levy_density_factor hc0)
+  rw [he, gamma_levy_exponent_integral (1/c-1) hl, gammaLaplaceExponent]
+  rw [show 1+(1/c-1)=1/c by ring, one_div, Real.log_inv]
+  ring
+
+def gammaResidualLevyMeasure (c : ℝ) : Measure ℝ :=
+  (volume.restrict (Ioi 0)).withDensity (fun x => ENNReal.ofReal (gammaResidualLevyDensity c x))
+
+theorem gamma_residual_levy_measure_mass {c : ℝ} (hc0 : 0 < c) (hc1 : c ≤ 1) :
+    gammaResidualLevyMeasure c Set.univ = ENNReal.ofReal (-2*Real.log c) := by
+  rw [gammaResidualLevyMeasure, withDensity_apply _ MeasurableSet.univ,
+    Measure.restrict_univ]
+  rw [← ofReal_integral_eq_lintegral_ofReal (gamma_residual_levy_integrable hc0 hc1)]
+  · rw [gamma_residual_levy_integral hc0 hc1]
+  · filter_upwards [ae_restrict_mem measurableSet_Ioi] with x hx
+    exact gamma_residual_levy_density_nonnegative hc0 hc1 hx
+
+theorem gamma_residual_levy_measure_finite {c : ℝ} (hc0 : 0 < c) (hc1 : c ≤ 1) :
+    IsFiniteMeasure (gammaResidualLevyMeasure c) :=
+  ⟨by rw [gamma_residual_levy_measure_mass hc0 hc1]; exact ENNReal.ofReal_lt_top⟩
+
 end
 end Sigma
