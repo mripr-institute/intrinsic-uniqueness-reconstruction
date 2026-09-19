@@ -200,5 +200,116 @@ theorem matrix_basis_lift_invariance_failure :
     matrixPotential_orthogonal_congruence X Q hQ, h0, h1]
   norm_num
 
+omit [DecidableEq n] in
+theorem positive_definite_positive_smul (X : Matrix n n ℝ) (hX : X.PosDef)
+    {c : ℝ} (hc : 0 < c) : (c • X).PosDef := by
+  refine ⟨?_, ?_⟩
+  · change (c • X)ᴴ = c • X
+    rw [Matrix.conjTranspose_smul, star_trivial, hX.isHermitian.eq]
+  · intro x hx
+    rw [Matrix.smul_mulVec_assoc, Matrix.dotProduct_smul]
+    exact mul_pos hc (hX.2 x hx)
+
+theorem positive_definite_trace_positive [Nonempty n] (X : Matrix n n ℝ) (hX : X.PosDef) :
+    0 < Matrix.trace X := by
+  rw [matrix_trace_eq_eigenvalue_sum X hX.isHermitian]
+  exact Finset.sum_pos (fun i _ => hX.eigenvalues_pos i) Finset.univ_nonempty
+
+theorem spd_determinant_arithmetic_mean_bound [Nonempty n]
+    (X : Matrix n n ℝ) (hX : X.PosDef) :
+    X.det ≤ (Matrix.trace X / Fintype.card n)^Fintype.card n := by
+  let a : ℝ := Matrix.trace X / Fintype.card n
+  have hn : (0 : ℝ) < Fintype.card n := Nat.cast_pos.mpr Fintype.card_pos
+  have ha : 0 < a := div_pos (positive_definite_trace_positive X hX) hn
+  have hY := positive_definite_positive_smul X hX (inv_pos.mpr ha)
+  have ht : Matrix.trace (a⁻¹ • X) = Fintype.card n := by
+    rw [Matrix.trace_smul]
+    change a⁻¹ * Matrix.trace X = Fintype.card n
+    dsimp [a]
+    field_simp [(positive_definite_trace_positive X hX).ne']
+  have hd := spd_determinant_exponential_bound (a⁻¹ • X) hY
+  rw [ht, sub_self, Real.exp_zero, Matrix.det_smul, inv_pow] at hd
+  have hh := mul_le_mul_of_nonneg_left hd (pow_pos ha (Fintype.card n)).le
+  simpa [mul_assoc, (pow_ne_zero (Fintype.card n) ha.ne')] using hh
+
+theorem spd_determinant_arithmetic_mean_equality [Nonempty n]
+    (X : Matrix n n ℝ) (hX : X.PosDef) :
+    X.det = (Matrix.trace X / Fintype.card n)^Fintype.card n ↔
+      X = (Matrix.trace X / Fintype.card n) • (1 : Matrix n n ℝ) := by
+  let a : ℝ := Matrix.trace X / Fintype.card n
+  have hn : (0 : ℝ) < Fintype.card n := Nat.cast_pos.mpr Fintype.card_pos
+  have ha : 0 < a := div_pos (positive_definite_trace_positive X hX) hn
+  have hY := positive_definite_positive_smul X hX (inv_pos.mpr ha)
+  have ht : Matrix.trace (a⁻¹ • X) = Fintype.card n := by
+    rw [Matrix.trace_smul]
+    change a⁻¹ * Matrix.trace X = Fintype.card n
+    dsimp [a]
+    field_simp [(positive_definite_trace_positive X hX).ne']
+  have he := spd_determinant_exponential_equality (a⁻¹ • X) hY
+  rw [ht, sub_self, Real.exp_zero, Matrix.det_smul, inv_pow] at he
+  change X.det = a^Fintype.card n ↔ X = a • (1 : Matrix n n ℝ)
+  constructor
+  · intro hd
+    have hy : a⁻¹ • X = 1 := he.mp (by rw [hd]; exact inv_mul_cancel₀ (pow_ne_zero _ ha.ne'))
+    have hh := congrArg (fun Y : Matrix n n ℝ => a • Y) hy
+    simpa [smul_smul, ha.ne'] using hh
+  · intro hx
+    rw [hx, Matrix.det_smul, Matrix.det_one, mul_one]
+
+omit [DecidableEq n] in
+theorem positive_definite_convex : Convex ℝ {X : Matrix n n ℝ | X.PosDef} := by
+  intro X hX Y hY a b ha hb hab
+  by_cases ha0 : a=0
+  · have hb1 : b=1 := by linarith
+    simpa [ha0, hb1] using hY
+  by_cases hb0 : b=0
+  · have ha1 : a=1 := by linarith
+    simpa [hb0, ha1] using hX
+  exact (positive_definite_positive_smul X hX (lt_of_le_of_ne ha (Ne.symm ha0))).add
+    (positive_definite_positive_smul Y hY (lt_of_le_of_ne hb (Ne.symm hb0)))
+
+theorem matrix_logdet_strictConcave :
+    StrictConcaveOn ℝ {X : Matrix n n ℝ | X.PosDef} (fun X => Real.log X.det) := by
+  refine ⟨positive_definite_convex, ?_⟩
+  intro X hX Y hY hXY a b ha hb hab
+  let Z := a • X+b • Y
+  have hZ : Z.PosDef := (positive_definite_positive_smul X hX ha).add
+    (positive_definite_positive_smul Y hY hb)
+  have hXZ : X ≠ Z := by
+    intro he
+    have hh : b • (X-Y) = 0 := by
+      calc
+        b • (X-Y) = (a+b) • X-(a • X+b • Y) := by module
+        _ = X-(a • X+b • Y) := by rw [hab, one_smul]
+        _ = 0 := sub_eq_zero.mpr he
+    exact hXY (sub_eq_zero.mp ((smul_eq_zero.mp hh).resolve_left hb.ne'))
+  have hpos : 0 < matrixDivergence X Z :=
+    lt_of_le_of_ne (matrixDivergence_nonnegative X Z hX hZ)
+      (fun hz => hXZ ((matrixDivergence_eq_zero_iff X Z hX hZ).mp hz.symm))
+  have hnonneg := matrixDivergence_nonnegative Y Z hY hZ
+  have hid : a*matrixDivergence X Z+b*matrixDivergence Y Z =
+      Real.log Z.det-a*Real.log X.det-b*Real.log Y.det := by
+    rw [← matrix_bregman_formula X Z hX hZ, ← matrix_bregman_formula Y Z hY hZ]
+    have ht : a*Matrix.trace ((1-Z⁻¹)*(X-Z))+b*Matrix.trace ((1-Z⁻¹)*(Y-Z))=0 := by
+      change a • Matrix.trace ((1-Z⁻¹)*(X-Z))+b • Matrix.trace ((1-Z⁻¹)*(Y-Z))=0
+      rw [← Matrix.trace_smul, ← Matrix.trace_smul, ← Matrix.trace_add]
+      have he : a • ((1-Z⁻¹)*(X-Z))+b • ((1-Z⁻¹)*(Y-Z))=0 := by
+        rw [← Matrix.mul_smul, ← Matrix.mul_smul, ← Matrix.mul_add]
+        have hv : a • (X-Z)+b • (Y-Z)=0 := by
+          calc
+            _ = (a • X+b • Y)-(a+b) • Z := by module
+            _ = 0 := by rw [hab, one_smul]; exact sub_self Z
+        rw [hv, Matrix.mul_zero]
+      rw [he, Matrix.trace_zero]
+    have htrace : Matrix.trace Z=a*Matrix.trace X+b*Matrix.trace Y := by
+      simp [Z, Matrix.trace_add, Matrix.trace_smul]
+    unfold matrixBregman matrixPotential
+    rw [htrace]
+    linear_combination -ht - (a*Matrix.trace X+b*Matrix.trace Y-Real.log Z.det)*hab
+  have hh := add_pos_of_pos_of_nonneg (mul_pos ha hpos) (mul_nonneg hb.le hnonneg)
+  rw [hid] at hh
+  change a*Real.log X.det+b*Real.log Y.det < Real.log Z.det
+  linarith
+
 end
 end Sigma

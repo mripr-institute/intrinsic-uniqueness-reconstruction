@@ -19,6 +19,7 @@ import SigmaFenchelConverseCounter
 import SigmaRealMatrix
 import SigmaMatrixCalculus
 import SigmaMatrixGeometry
+import SigmaMatrixFenchel
 import SigmaProbCharacteristic
 import SigmaProbGamma
 import SigmaOpLaguerre

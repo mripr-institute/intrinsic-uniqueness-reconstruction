@@ -1,5 +1,19 @@
 import Sigma
 
+#print axioms Sigma.spd_determinant_arithmetic_mean_bound
+#print axioms Sigma.spd_determinant_arithmetic_mean_equality
+#print axioms Sigma.matrix_logdet_strictConcave
+#print axioms Sigma.matrix_fenchel_gap_identity
+#print axioms Sigma.matrix_fenchel_upper_bound
+#print axioms Sigma.matrix_fenchel_equality_iff
+#print axioms Sigma.matrix_fenchel_conjugate_finite
+#print axioms Sigma.matrix_legendre_coordinate_inverse
+#print axioms Sigma.matrix_legendre_inverse_coordinate
+#print axioms Sigma.hermitian_nonpositive_eigenvalue
+#print axioms Sigma.matrix_fenchel_unbounded
+#print axioms Sigma.matrix_fenchel_conjugate_infinite
+#print axioms Sigma.matrix_fenchel_conjugate_formula
+
 #print axioms Sigma.equal_iteratedDeriv_polynomial_difference
 #print axioms Sigma.polynomial_difference_equal_iteratedDeriv
 #print axioms Sigma.equal_iteratedDeriv_iff_polynomial_difference

@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 32,
-    "partial": 33,
+    "complete": 33,
+    "partial": 32,
     "missing": 13
   },
   "pending_exact_statement_matches": 0,
@@ -110,11 +110,14 @@
     },
     {
       "latex_label": "final:matrix-conjugate",
-      "status": "missing",
-      "lean_declarations": [],
-      "unproved_components": [
-        "Exact extended-real conjugate and finite/infinite domain"
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.matrix_fenchel_conjugate_formula",
+        "Sigma.matrix_fenchel_conjugate_finite",
+        "Sigma.matrix_fenchel_conjugate_infinite",
+        "Sigma.matrix_fenchel_equality_iff"
       ],
+      "unproved_components": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json"
     },
     {
@@ -2407,7 +2410,7 @@
       "line": 339,
       "statement_tex": "\\label{final:M2}\nIn the indicated affine coordinates the potential $\\Phi_n$ satisfies\n\\begin{align}\n \\nabla\\Phi_n(X)&=E_n-X^{-1},\\label{final:matrix-gradient}\\\\\n g_X(U,V):=D^2\\Phi_n(X)[U,V]\n   &=\\operatorname{tr}(X^{-1}UX^{-1}V),\\label{final:matrix-hessian}\\\\\n D(X,Y):=\\Phi_n(X)-\\Phi_n(Y)\n   -\\langle\\nabla\\Phi_n(Y),X-Y\\rangle\n   &=\\operatorname{tr}(Y^{-1}X)-\\log\\det(Y^{-1}X)-n.\n   \\label{final:matrix-divergence}\n\\end{align}\nThe Hessian is positive definite and $D(X,Y)\\geq0$, with equality\nexactly when $X=Y$.  For every invertible real $C$, simultaneous\ncongruence preserves both $D$ and $g$.  Inversion is an isometry for\n$g$ and reverses the directed divergence:\n\\[\n D(X^{-1},Y^{-1})=D(Y,X).\n\\]\nExtending $\\Phi_n$ by $+\\infty$ outside $\\mathcal P_n$ in the vector\nspace of symmetric matrices, its conjugate is\n\\begin{equation}\\label{final:matrix-conjugate}\n \\Phi_n^*(\\Theta)=\n \\begin{cases}\n  -\\log\\det(E_n-\\Theta),&E_n-\\Theta\\in\\mathcal P_n,\\\\\n  +\\infty,&\\text{otherwise}.\n \\end{cases}\n\\end{equation}\nThe Legendre coordinate is $\\Theta=E_n-X^{-1}$, with inverse\n$X=(E_n-\\Theta)^{-1}$.  Moreover\n\\[\n \\det X\\leq e^{\\operatorname{tr}X-n},\\qquad\n \\det X\\leq\\left(\\frac{\\operatorname{tr}X}{n}\\right)^n,\n\\]\nwith equality respectively at $E_n$ and at positive scalar matrices;\n$\\log\\det$ is strictly concave.\n",
       "statement_sha256": "a2342c964e10b83b8a1a6379a5ab957849801b78f371dceddae7a1e83ff5ebca",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.matrixPotential_fderiv",
         "Sigma.matrixPotential_second_fderiv",
@@ -2421,7 +2424,19 @@
         "Sigma.hessianMetric_congruence",
         "Sigma.hessianMetric_inversion",
         "Sigma.spd_determinant_exponential_bound",
-        "Sigma.spd_determinant_exponential_equality"
+        "Sigma.spd_determinant_exponential_equality",
+        "Sigma.spd_determinant_arithmetic_mean_bound",
+        "Sigma.spd_determinant_arithmetic_mean_equality",
+        "Sigma.positive_definite_trace_positive",
+        "Sigma.positive_definite_convex",
+        "Sigma.matrix_logdet_strictConcave",
+        "Sigma.matrix_fenchel_conjugate_formula",
+        "Sigma.matrix_fenchel_conjugate_finite",
+        "Sigma.matrix_fenchel_conjugate_infinite",
+        "Sigma.matrix_fenchel_unbounded",
+        "Sigma.matrix_fenchel_equality_iff",
+        "Sigma.matrix_legendre_coordinate_inverse",
+        "Sigma.matrix_legendre_inverse_coordinate"
       ],
       "proved_components": [
         "Actual Frechet differential and second derivative of the matrix potential",
@@ -2430,22 +2445,17 @@
         "Divergence nonnegativity and equality exactly at identical matrices",
         "Congruence invariance of divergence and metric",
         "Inversion isometry and directed-divergence reversal",
-        "Exponential determinant bound and identity equality case"
+        "Exponential determinant bound and identity equality case",
+        "Arithmetic-mean determinant bound and exact scalar-matrix equality case in every positive rank",
+        "Strict concavity of log determinant on the actual convex SPD cone",
+        "Literal extended-real supremum conjugate with exact finite domain and infinite boundary for symmetric dual matrices",
+        "Unique finite-domain optimizer and both Legendre coordinate inverse identities",
+        "Actual SPD spectral witnesses making the dual objective arbitrarily large whenever a dual-complement eigenvalue is nonpositive, including zero"
       ],
-      "unproved_components": [
-        "Extended-real matrix Fenchel conjugate with exact finite domain and infinite boundary",
-        "Legendre coordinate inverse and optimizer",
-        "Arithmetic-mean determinant bound and scalar-matrix equality case",
-        "Strict concavity of log determinant"
-      ],
-      "gaps": [
-        "Extended-real matrix Fenchel conjugate with exact finite domain and infinite boundary",
-        "Legendre coordinate inverse and optimizer",
-        "Arithmetic-mean determinant bound and scalar-matrix equality case",
-        "Strict concavity of log determinant"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Adjacent substantive claims also remain: dual Bregman equality, marked gradient/Hessian reconstruction converses, alternative invariant metrics and the alpha/beta positivity criterion. Matrix calculus/strict metric positivity/isometries are already proved and must not be reproved due to stale audit metadata."
+      "notes": "Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. Adjacent substantive proof/prose claims remain separately unmapped: dual Bregman equality, marked gradient/Hessian reconstruction converses, and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
     },
     {
       "id": "final:M3",

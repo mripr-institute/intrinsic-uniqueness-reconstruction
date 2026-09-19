@@ -33,6 +33,7 @@ lean_lib SigmaFormalization where
     `SigmaFormalSeries,
     `SigmaMatrixCalculus,
     `SigmaMatrixGeometry,
+    `SigmaMatrixFenchel,
     `SigmaOpLaguerre,
     `SigmaOpMixing,
     `SigmaOpMomentGrowth,

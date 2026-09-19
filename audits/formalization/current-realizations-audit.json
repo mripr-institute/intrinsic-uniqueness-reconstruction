@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 4, "partial": 11, "missing": 2},
+  "totals": {"definition": 0, "complete": 5, "partial": 10, "missing": 2},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -54,11 +54,11 @@
     },
     {
       "latex_label": "final:M2",
-      "status": "partial",
-      "lean_declarations": ["Sigma.matrixPotential_fderiv", "Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric", "Sigma.matrix_actual_bregman", "Sigma.matrixDivergence_nonnegative", "Sigma.matrixDivergence_eq_zero_iff", "Sigma.matrixDivergence_congruence", "Sigma.matrix_precision_reversal", "Sigma.precisionMetric_positive", "Sigma.hessianMetric_congruence", "Sigma.hessianMetric_inversion", "Sigma.spd_determinant_exponential_bound", "Sigma.spd_determinant_exponential_equality"],
-      "proved_components": ["Actual Frechet differential and second derivative of the matrix potential", "Actual differential Bregman formula", "Strict positivity on nonzero symmetric tangent matrices", "Divergence nonnegativity and equality exactly at identical matrices", "Congruence invariance of divergence and metric", "Inversion isometry and directed-divergence reversal", "Exponential determinant bound and identity equality case"],
-      "unproved_components": ["Extended-real matrix Fenchel conjugate with exact finite domain and infinite boundary", "Legendre coordinate inverse and optimizer", "Arithmetic-mean determinant bound and scalar-matrix equality case", "Strict concavity of log determinant"],
-      "notes": "Adjacent substantive claims also remain: dual Bregman equality, marked gradient/Hessian reconstruction converses, alternative invariant metrics and the alpha/beta positivity criterion. Matrix calculus/strict metric positivity/isometries are already proved and must not be reproved due to stale audit metadata."
+      "status": "complete",
+      "lean_declarations": ["Sigma.matrixPotential_fderiv", "Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric", "Sigma.matrix_actual_bregman", "Sigma.matrixDivergence_nonnegative", "Sigma.matrixDivergence_eq_zero_iff", "Sigma.matrixDivergence_congruence", "Sigma.matrix_precision_reversal", "Sigma.precisionMetric_positive", "Sigma.hessianMetric_congruence", "Sigma.hessianMetric_inversion", "Sigma.spd_determinant_exponential_bound", "Sigma.spd_determinant_exponential_equality", "Sigma.spd_determinant_arithmetic_mean_bound", "Sigma.spd_determinant_arithmetic_mean_equality", "Sigma.positive_definite_trace_positive", "Sigma.positive_definite_convex", "Sigma.matrix_logdet_strictConcave", "Sigma.matrix_fenchel_conjugate_formula", "Sigma.matrix_fenchel_conjugate_finite", "Sigma.matrix_fenchel_conjugate_infinite", "Sigma.matrix_fenchel_unbounded", "Sigma.matrix_fenchel_equality_iff", "Sigma.matrix_legendre_coordinate_inverse", "Sigma.matrix_legendre_inverse_coordinate"],
+      "proved_components": ["Actual Frechet differential and second derivative of the matrix potential", "Actual differential Bregman formula", "Strict positivity on nonzero symmetric tangent matrices", "Divergence nonnegativity and equality exactly at identical matrices", "Congruence invariance of divergence and metric", "Inversion isometry and directed-divergence reversal", "Exponential determinant bound and identity equality case", "Arithmetic-mean determinant bound and exact scalar-matrix equality case in every positive rank", "Strict concavity of log determinant on the actual convex SPD cone", "Literal extended-real supremum conjugate with exact finite domain and infinite boundary for symmetric dual matrices", "Unique finite-domain optimizer and both Legendre coordinate inverse identities", "Actual SPD spectral witnesses making the dual objective arbitrarily large whenever a dual-complement eigenvalue is nonpositive, including zero"],
+      "unproved_components": [],
+      "notes": "Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. Adjacent substantive proof/prose claims remain separately unmapped: dual Bregman equality, marked gradient/Hessian reconstruction converses, and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
     },
     {
       "latex_label": "final:M3",
@@ -153,7 +153,7 @@
     {"latex_label": "final:matrix-gradient", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_fderiv"]},
     {"latex_label": "final:matrix-hessian", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric"]},
     {"latex_label": "final:matrix-divergence", "status": "complete", "lean_declarations": ["Sigma.matrix_actual_bregman"]},
-    {"latex_label": "final:matrix-conjugate", "status": "missing", "lean_declarations": [], "unproved_components": ["Exact extended-real conjugate and finite/infinite domain"]},
+    {"latex_label": "final:matrix-conjugate", "status": "complete", "lean_declarations": ["Sigma.matrix_fenchel_conjugate_formula", "Sigma.matrix_fenchel_conjugate_finite", "Sigma.matrix_fenchel_conjugate_infinite", "Sigma.matrix_fenchel_equality_iff"], "unproved_components": []},
     {"latex_label": "final:radial-residual", "status": "complete", "lean_declarations": ["Sigma.radial_residual"]},
     {"latex_label": "final:tree-integral", "status": "complete", "lean_declarations": ["Sigma.farey_left_integral"], "unproved_components": []},
     {"latex_label": "final:integer-collision", "status": "complete", "lean_declarations": ["Sigma.placed_collision_iff"]}
