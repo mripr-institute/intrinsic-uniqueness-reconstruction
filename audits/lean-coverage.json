@@ -3,9 +3,9 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 35,
+    "complete": 36,
     "partial": 32,
-    "missing": 11
+    "missing": 10
   },
   "pending_exact_statement_matches": 0,
   "additional_labelled_claims": [
@@ -1408,13 +1408,23 @@
         "Sigma.finite_nonnegative_times_ordered_cover",
         "Sigma.process_fdd_eq_of_ordered",
         "Sigma.IsGammaTimeOneProcess",
-        "Sigma.gamma_time_one_process_fdd_unique"
+        "Sigma.gamma_time_one_process_fdd_unique",
+        "Sigma.gammaSingleVariableProcess",
+        "Sigma.gamma_single_variable_measurable",
+        "Sigma.gamma_single_variable_time_one",
+        "Sigma.gamma_single_variable_zero",
+        "Sigma.gamma_single_variable_nonnegative",
+        "Sigma.gamma_single_variable_stationary_increments",
+        "Sigma.gamma_coordinate_not_independent_of_itself",
+        "Sigma.gamma_single_variable_dependent_unit_increments",
+        "Sigma.gamma_single_variable_not_independent_increments"
       ],
       "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
         "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.",
-        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise."
+        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise.",
+        "Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent."
       ],
       "unproved_components": [
         "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
@@ -1423,7 +1433,7 @@
         "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; no claim about P8-samples. The proof-only right-continuous increasing version and explicit correlated-process boundary X_r=rT are also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; P8-samples is audited separately. The same auditor returned bounded AUDIT PASS for SigmaProbCompletionBoundary's actual correlated-process witness, whose two unit increments are the same Gamma variable and cannot be independent because its second moment is six rather than the product of means four. The proof-only right-continuous increasing version remains unmapped."
     },
     {
       "id": "final:P8-levy",
@@ -1444,25 +1454,63 @@
         "Sigma.gamma_levy_exponent_integrable",
         "Sigma.gamma_levy_complete_monotone_representation",
         "Sigma.log_complete_bernstein_integral",
-        "Sigma.gamma_exponent_derivative"
+        "Sigma.gamma_exponent_derivative",
+        "Sigma.gammaLevyDerivativeMajorant",
+        "Sigma.gamma_levy_derivative_majorant_hasDerivAt",
+        "Sigma.gamma_levy_iterated_derivative",
+        "Sigma.gamma_levy_density_completely_monotone",
+        "Sigma.gamma_levy_density_smooth",
+        "Sigma.gamma_levy_completely_monotone",
+        "Sigma.gamma_exponent_derivative_stieltjes",
+        "Sigma.HasCompleteBernsteinRepresentation",
+        "Sigma.gamma_exponent_complete_bernstein",
+        "Sigma.gamma_exponent_sublinear",
+        "Sigma.gamma_drifted_exponent_ratio",
+        "Sigma.gamma_drift_zero_iff_sublinear",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_positive_support",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gammaDriftedProbability",
+        "Sigma.gamma_drifted_probability_mean",
+        "Sigma.gamma_drifted_probability_support",
+        "Sigma.gamma_drifted_probability_support_infimum",
+        "Sigma.gamma_drifted_probability_laplace",
+        "Sigma.gamma_drifted_probability_unique",
+        "Sigma.bernstein_probability_excludes_killing",
+        "Sigma.probability_with_gamma_levy_is_shifted_gamma",
+        "Sigma.gamma_levy_drift_characterization",
+        "Sigma.gammaDriftCompletion",
+        "Sigma.gamma_drift_completion_zero",
+        "Sigma.gamma_drift_completion_one",
+        "Sigma.gamma_drift_completion_nonnegative",
+        "Sigma.gamma_drift_completion_convolution",
+        "Sigma.gammaDriftBernsteinRepresentation",
+        "Sigma.gamma_drift_completion_levy_representation",
+        "Sigma.gamma_drift_completions_distinct",
+        "Sigma.stationary_independent_process_convolution",
+        "Sigma.subordinator_gamma_levy_drift_characterization",
+        "Sigma.addProcessDrift",
+        "Sigma.process_drift_preserves_independence",
+        "Sigma.process_drift_preserves_stationarity",
+        "Sigma.drifted_gamma_process_witness"
       ],
       "proved_components": [
-        "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative."
+        "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative.",
+        "Actual positive-supported Gamma Levy measure and its Levy integrability; smooth complete monotonicity of its density, complete-Bernstein representation of the exponent, and actual Stieltjes derivative representation by twice the Dirac measure at one.",
+        "The scalar drifted exponent has asymptotic ratio d, so zero drift is equivalent to a zero asymptotic ratio.",
+        "Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.",
+        "Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.",
+        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom."
       ],
       "unproved_components": [
-        "Actual Levy measure integrability and identification for the Gamma subordinator.",
-        "Within all probability subordinators with that Levy measure: zero drift iff asymptotic ratio zero iff time-one support infimum zero iff time-one mean two, and each identifies the semigroup.",
-        "Explicit nonnegative drift freedom and distinct process/law witnesses.",
-        "Complete monotonicity of the Levy density, actual complete Bernstein status and Stieltjes derivative representation."
+        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
       ],
       "gaps": [
-        "Actual Levy measure integrability and identification for the Gamma subordinator.",
-        "Within all probability subordinators with that Levy measure: zero drift iff asymptotic ratio zero iff time-one support infimum zero iff time-one mean two, and each identifies the semigroup.",
-        "Explicit nonnegative drift freedom and distinct process/law witnesses.",
-        "Complete monotonicity of the Levy density, actual complete Bernstein status and Stieltjes derivative representation."
+        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": ""
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS for LevyRegularity, Samples, Drift and Subordinator batches. The actual supplied-process bridge is proved: native iIndepFun and stationarity give convolution, and a Levy representation linked to actual Laplace transforms yields killing zero, all four tests and canonical marginal identification. No Gamma time-one premise is inserted. Actual translated measures and distinct convolution families are unconditional; the drifted process construction assumes a supplied Gamma process and therefore does not establish global process existence. Only this nonvacuous realization dependency and the usual increasing right-continuous version remain unproved."
     },
     {
       "id": "final:P8-samples",
@@ -2539,25 +2587,35 @@
       "line": 435,
       "statement_tex": "\\label{final:M3}\nFor $X,Y\\in\\mathcal P_n$ put\n$K=\\log(X^{-1/2}YX^{-1/2})$.  The unique constant-speed minimizing\ngeodesic for $g$ is\n\\[\n \\gamma(s)=X^{1/2}e^{sK}X^{1/2},\\quad0\\leq s\\leq1,\n \\qquad d(X,Y)=\\|K\\|_F.\n\\]\nIf $\\lambda_i$ are the eigenvalues of $X^{-1/2}YX^{-1/2}$, then\n\\[\n D(X,Y)+D(Y,X)=4\\sum_i\\sinh^2\\left(\\frac{\\log\\lambda_i}{2}\\right).\n\\]\nFor $n=1$ this is $4\\sinh^2(d(X,Y)/2)$.  For every $n\\geq2$,\nsymmetrization is not a function of distance alone.\n",
       "statement_sha256": "936d813043c5feb89fa54606ee5a3ebb22beae14ed16a3f29a61bcadc04fd0ff",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.matrixRelativeSPD",
+        "Sigma.matrix_relative_spd_positive",
+        "Sigma.matrix_inverse_sqrt_whitens",
+        "Sigma.matrix_symmetrization_relative",
+        "Sigma.matrix_trace_inverse_eigenvalues",
+        "Sigma.positive_eigenvalue_hyperbolic_symmetrization",
+        "Sigma.matrix_potential_symmetrization_spectral",
+        "Sigma.matrix_divergence_relative_symmetrization"
+      ],
+      "proved_components": [
+        "Relative spectral symmetrization of the actual SPD matrix divergence using eigenvalues of X inverse-square-root times Y times X inverse-square-root",
+        "Native positive-definite relative matrix, inverse-square-root whitening, and trace of the inverse as the sum of reciprocal positive eigenvalues"
+      ],
       "unproved_components": [
         "Actual SPD geodesic and metric length/distance formula",
         "Unique constant-speed minimizing curve including X=Y",
-        "Relative spectral symmetrization formula",
         "Rank-one distance formula",
         "Equal-distance unequal-symmetrization witnesses in every rank at least two"
       ],
       "gaps": [
         "Actual SPD geodesic and metric length/distance formula",
         "Unique constant-speed minimizing curve including X=Y",
-        "Relative spectral symmetrization formula",
         "Rank-one distance formula",
         "Equal-distance unequal-symmetrization witnesses in every rank at least two"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Scalar or matrix divergence algebra alone does not supply geodesic minimality, an actual Riemannian distance, or the stated boundary witnesses."
+      "notes": "Bounded relative-spectral-component AUDIT PASS. matrixRelativeSPD uses the actual positive square root of X inverse, proves positive definiteness from X and Y, and whitens X to identity through native matrix congruence. Its actual Hermitian eigenvalues are positive; the final formula is D(X,Y)+D(Y,X)=4 sum sinh(log(lambda_i)/2)^2 with exactly the paper's relative-matrix orientation. No eigenvalues are supplied as unrelated parameters and no metric or distance is defined by the desired formula. The result holds in every finite rank, hence all required positive ranks, without excluding repeated eigenvalues or X=Y. Matrix divergence algebra does not supply the still-unproved geodesic minimality, actual Riemannian distance, rank-one distance identity, or equal-distance boundary witnesses."
     },
     {
       "id": "final:M4",
@@ -2611,27 +2669,35 @@
       "statement_sha256": "b91cacaccd8eb9ee073c94fa0d70a3eddc95a0526f5b34c311dbb5ae2cf10b19",
       "lean_status": "partial",
       "lean_theorems": [
-        "Sigma.radial_OU_dimension"
+        "Sigma.radial_OU_dimension",
+        "Sigma.radial_energy_hasFDerivAt",
+        "Sigma.radial_energy_gradient",
+        "Sigma.radial_energy_direction_second_derivative",
+        "Sigma.radial_energy_euclidean_laplacian",
+        "Sigma.radial_energy_OU_generator",
+        "Sigma.radial_energy_direction_second_derivative_of_eventually",
+        "Sigma.radial_energy_direction_second_derivative_positive",
+        "Sigma.radial_energy_euclidean_laplacian_positive",
+        "Sigma.radial_energy_OU_generator_positive"
       ],
       "proved_components": [
-        "Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4"
+        "Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4",
+        "Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies"
       ],
       "unproved_components": [
         "Actual four-dimensional Gaussian radial pushforward",
         "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness",
         "Same-radial-law different-vector-law witness",
-        "Euclidean gradient/Laplacian computation of the radial-energy OU generator",
         "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"
       ],
       "gaps": [
         "Actual four-dimensional Gaussian radial pushforward",
         "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness",
         "Same-radial-law different-vector-law witness",
-        "Euclidean gradient/Laplacian computation of the radial-energy OU generator",
         "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The sole matching declaration is a scalar coefficient equivalence; no multivariate probability law or stochastic differential equation is encoded by it. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem."
+      "notes": "Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem."
     },
     {
       "id": "final:R2",
@@ -2680,7 +2746,7 @@
       "line": 717,
       "statement_tex": "\\label{final:R3}\nIn integer Euclidean dimension $D\\geq1$ the radial Laplacian is\n$\\Delta_D f=f''+(D-1)f'/x$ for $x>0$.  For every twice differentiable\nnonvanishing profile $f$ and $\\alpha=(D-1)/2$,\n\\begin{equation}\\label{final:radial-residual}\n \\frac{(x^\\alpha f)''}{x^\\alpha f}\n    -\\left(\\frac{f''}{f}+\\frac{D-1}{x}\\frac{f'}{f}\\right)\n     =\\frac{(D-1)(D-3)}{4x^2}.\n\\end{equation}\nEquivalently, writing $f=x^{-\\alpha}u$ gives the operator identity\n\\[\n -\\Delta_D f=x^{-\\alpha}\n   \\left(-u''+\\frac{(D-1)(D-3)}{4x^2}u\\right),\n\\]\nwhich does not require $f$ to be nonvanishing.  Residual cancellation\nholds exactly for $D=1$ or $D=3$; with the independently retained\nrestriction $D\\geq2$ it selects $D=3$.  It has no reverse identifying\nforce for the profile $f$.\n",
       "statement_sha256": "a80047e27e1dc819b7cdac2562a86e02b64f748aae113aa239390a8a4822ab45",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.radialWeight_eq_rpow",
         "Sigma.weighted_profile_second_deriv",
@@ -2689,22 +2755,23 @@
         "Sigma.radial_residual_cancellation",
         "Sigma.radial_residual_dimension_three",
         "Sigma.constant_profile_radial_residual_three",
-        "Sigma.constant_profile_differs_from_H_on_positive_ray"
+        "Sigma.constant_profile_differs_from_H_on_positive_ray",
+        "Sigma.euclideanLaplacian",
+        "Sigma.norm_line_hasDerivAt",
+        "Sigma.radial_direction_second_derivative",
+        "Sigma.radial_euclidean_laplacian"
       ],
       "proved_components": [
         "Actual second-derivative quotient identity on the positive ray",
         "Conjugated radial differential expression without nonvanishing assumption",
         "Cancellation iff dimension is one or three and selection of three when dimension is at least two",
-        "Different constant profile with the same cancellation"
+        "Different constant profile with the same cancellation",
+        "Actual Euclidean Laplacian radial formula from the sum of coordinate second derivatives along any finite orthonormal basis, at every nonzero point"
       ],
-      "unproved_components": [
-        "Identification of the displayed radial expression with the actual Euclidean Laplacian in integer dimension"
-      ],
-      "gaps": [
-        "Identification of the displayed radial expression with the actual Euclidean Laplacian in integer dimension"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "All displayed one-variable operator calculations are proved. The only remaining named-statement distinction is the assertion that this expression is the Euclidean radial Laplacian; the project has no full Euclidean Laplacian declaration."
+      "notes": "Bounded complete R3 AUDIT PASS. Initially only the one-variable expressions were proved; radial_euclidean_laplacian now derives the radial expression from euclideanLaplacian, defined as the finite sum of actual second derivatives along orthonormal coordinate lines, not as the desired radial formula. The proof derives each directional second derivative from the actual norm derivative and uses the orthonormal-basis Parseval identity. Basis cardinal is the integer Euclidean dimension; every positive dimension and positive radius is covered, while the excluded origin matches the paper's x>0. Only ordinary differentiability on the positive ray and differentiability of the first derivative at the evaluated radius are required, not continuity of the second derivative. The existing conjugation identity requires no nonvanishing hypothesis. The constant-profile witness is an alternative to the paper proof's Gaussian-profile example and establishes the named nonidentification claim."
     },
     {
       "id": "final:R4",

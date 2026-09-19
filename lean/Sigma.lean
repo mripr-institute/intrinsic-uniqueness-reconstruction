@@ -43,6 +43,10 @@ import SigmaProbCompletion
 import SigmaProbCompletionContinuity
 import SigmaProbCompletionProcess
 import SigmaProbCompletionSamples
+import SigmaProbCompletionBoundary
+import SigmaProbCompletionLevyRegularity
+import SigmaProbCompletionDrift
+import SigmaProbCompletionSubordinator
 import SigmaProbWeights
 import SigmaProbFourier
 import SigmaProbFourierUnique
@@ -137,6 +141,8 @@ import SigmaSteinConsequences
 import SigmaZeroFamily
 import SigmaZeroAnalytic
 import SigmaFormalGroupNSeries
+import SigmaEuclideanLaplacian
+import SigmaMatrixSymmetrization
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation

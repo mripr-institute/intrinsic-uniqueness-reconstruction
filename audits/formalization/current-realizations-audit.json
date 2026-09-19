@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 6, "partial": 9, "missing": 2},
+  "totals": {"definition": 0, "complete": 7, "partial": 9, "missing": 1},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -62,11 +62,11 @@
     },
     {
       "latex_label": "final:M3",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": ["Actual SPD geodesic and metric length/distance formula", "Unique constant-speed minimizing curve including X=Y", "Relative spectral symmetrization formula", "Rank-one distance formula", "Equal-distance unequal-symmetrization witnesses in every rank at least two"],
-      "notes": "Scalar or matrix divergence algebra alone does not supply geodesic minimality, an actual Riemannian distance, or the stated boundary witnesses."
+      "status": "partial",
+      "lean_declarations": ["Sigma.matrixRelativeSPD", "Sigma.matrix_relative_spd_positive", "Sigma.matrix_inverse_sqrt_whitens", "Sigma.matrix_symmetrization_relative", "Sigma.matrix_trace_inverse_eigenvalues", "Sigma.positive_eigenvalue_hyperbolic_symmetrization", "Sigma.matrix_potential_symmetrization_spectral", "Sigma.matrix_divergence_relative_symmetrization"],
+      "proved_components": ["Relative spectral symmetrization of the actual SPD matrix divergence using eigenvalues of X inverse-square-root times Y times X inverse-square-root", "Native positive-definite relative matrix, inverse-square-root whitening, and trace of the inverse as the sum of reciprocal positive eigenvalues"],
+      "unproved_components": ["Actual SPD geodesic and metric length/distance formula", "Unique constant-speed minimizing curve including X=Y", "Rank-one distance formula", "Equal-distance unequal-symmetrization witnesses in every rank at least two"],
+      "notes": "Bounded relative-spectral-component AUDIT PASS. matrixRelativeSPD uses the actual positive square root of X inverse, proves positive definiteness from X and Y, and whitens X to identity through native matrix congruence. Its actual Hermitian eigenvalues are positive; the final formula is D(X,Y)+D(Y,X)=4 sum sinh(log(lambda_i)/2)^2 with exactly the paper's relative-matrix orientation. No eigenvalues are supplied as unrelated parameters and no metric or distance is defined by the desired formula. The result holds in every finite rank, hence all required positive ranks, without excluding repeated eigenvalues or X=Y. Matrix divergence algebra does not supply the still-unproved geodesic minimality, actual Riemannian distance, rank-one distance identity, or equal-distance boundary witnesses."
     },
     {
       "latex_label": "final:M4",
@@ -79,10 +79,10 @@
     {
       "latex_label": "final:R1",
       "status": "partial",
-      "lean_declarations": ["Sigma.radial_OU_dimension"],
-      "proved_components": ["Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4"],
-      "unproved_components": ["Actual four-dimensional Gaussian radial pushforward", "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness", "Same-radial-law different-vector-law witness", "Euclidean gradient/Laplacian computation of the radial-energy OU generator", "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"],
-      "notes": "The sole matching declaration is a scalar coefficient equivalence; no multivariate probability law or stochastic differential equation is encoded by it. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem."
+      "lean_declarations": ["Sigma.radial_OU_dimension", "Sigma.radial_energy_hasFDerivAt", "Sigma.radial_energy_gradient", "Sigma.radial_energy_direction_second_derivative", "Sigma.radial_energy_euclidean_laplacian", "Sigma.radial_energy_OU_generator", "Sigma.radial_energy_direction_second_derivative_of_eventually", "Sigma.radial_energy_direction_second_derivative_positive", "Sigma.radial_energy_euclidean_laplacian_positive", "Sigma.radial_energy_OU_generator_positive"],
+      "proved_components": ["Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4", "Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies"],
+      "unproved_components": ["Actual four-dimensional Gaussian radial pushforward", "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness", "Same-radial-law different-vector-law witness", "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"],
+      "notes": "Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem."
     },
     {
       "latex_label": "final:R2",
@@ -94,11 +94,11 @@
     },
     {
       "latex_label": "final:R3",
-      "status": "partial",
-      "lean_declarations": ["Sigma.radialWeight_eq_rpow", "Sigma.weighted_profile_second_deriv", "Sigma.radial_residual", "Sigma.radial_laplacian_conjugation", "Sigma.radial_residual_cancellation", "Sigma.radial_residual_dimension_three", "Sigma.constant_profile_radial_residual_three", "Sigma.constant_profile_differs_from_H_on_positive_ray"],
-      "proved_components": ["Actual second-derivative quotient identity on the positive ray", "Conjugated radial differential expression without nonvanishing assumption", "Cancellation iff dimension is one or three and selection of three when dimension is at least two", "Different constant profile with the same cancellation"],
-      "unproved_components": ["Identification of the displayed radial expression with the actual Euclidean Laplacian in integer dimension"],
-      "notes": "All displayed one-variable operator calculations are proved. The only remaining named-statement distinction is the assertion that this expression is the Euclidean radial Laplacian; the project has no full Euclidean Laplacian declaration."
+      "status": "complete",
+      "lean_declarations": ["Sigma.radialWeight_eq_rpow", "Sigma.weighted_profile_second_deriv", "Sigma.radial_residual", "Sigma.radial_laplacian_conjugation", "Sigma.radial_residual_cancellation", "Sigma.radial_residual_dimension_three", "Sigma.constant_profile_radial_residual_three", "Sigma.constant_profile_differs_from_H_on_positive_ray", "Sigma.euclideanLaplacian", "Sigma.norm_line_hasDerivAt", "Sigma.radial_direction_second_derivative", "Sigma.radial_euclidean_laplacian"],
+      "proved_components": ["Actual second-derivative quotient identity on the positive ray", "Conjugated radial differential expression without nonvanishing assumption", "Cancellation iff dimension is one or three and selection of three when dimension is at least two", "Different constant profile with the same cancellation", "Actual Euclidean Laplacian radial formula from the sum of coordinate second derivatives along any finite orthonormal basis, at every nonzero point"],
+      "unproved_components": [],
+      "notes": "Bounded complete R3 AUDIT PASS. Initially only the one-variable expressions were proved; radial_euclidean_laplacian now derives the radial expression from euclideanLaplacian, defined as the finite sum of actual second derivatives along orthonormal coordinate lines, not as the desired radial formula. The proof derives each directional second derivative from the actual norm derivative and uses the orthonormal-basis Parseval identity. Basis cardinal is the integer Euclidean dimension; every positive dimension and positive radius is covered, while the excluded origin matches the paper's x>0. Only ordinary differentiability on the positive ray and differentiability of the first derivative at the evaluated radius are required, not continuity of the second derivative. The existing conjugation identity requires no nonvanishing hypothesis. The constant-profile witness is an alternative to the paper proof's Gaussian-profile example and establishes the named nonidentification claim."
     },
     {
       "latex_label": "final:R4",

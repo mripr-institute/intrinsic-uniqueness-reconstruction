@@ -515,18 +515,28 @@
         "Sigma.finite_nonnegative_times_ordered_cover",
         "Sigma.process_fdd_eq_of_ordered",
         "Sigma.IsGammaTimeOneProcess",
-        "Sigma.gamma_time_one_process_fdd_unique"
+        "Sigma.gamma_time_one_process_fdd_unique",
+        "Sigma.gammaSingleVariableProcess",
+        "Sigma.gamma_single_variable_measurable",
+        "Sigma.gamma_single_variable_time_one",
+        "Sigma.gamma_single_variable_zero",
+        "Sigma.gamma_single_variable_nonnegative",
+        "Sigma.gamma_single_variable_stationary_increments",
+        "Sigma.gamma_coordinate_not_independent_of_itself",
+        "Sigma.gamma_single_variable_dependent_unit_increments",
+        "Sigma.gamma_single_variable_not_independent_increments"
       ],
       "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
         "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.",
-        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise."
+        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise.",
+        "Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent."
       ],
       "unproved_components": [
         "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
       ],
-      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; no claim about P8-samples. The proof-only right-continuous increasing version and explicit correlated-process boundary X_r=rT are also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; P8-samples is audited separately. The same auditor returned bounded AUDIT PASS for SigmaProbCompletionBoundary's actual correlated-process witness, whose two unit increments are the same Gamma variable and cannot be independent because its second moment is six rather than the product of means four. The proof-only right-continuous increasing version remains unmapped."
     },
     {
       "latex_label": "final:P8-levy",
@@ -536,18 +546,59 @@
         "Sigma.gamma_levy_exponent_integrable",
         "Sigma.gamma_levy_complete_monotone_representation",
         "Sigma.log_complete_bernstein_integral",
-        "Sigma.gamma_exponent_derivative"
+        "Sigma.gamma_exponent_derivative",
+        "Sigma.gammaLevyDerivativeMajorant",
+        "Sigma.gamma_levy_derivative_majorant_hasDerivAt",
+        "Sigma.gamma_levy_iterated_derivative",
+        "Sigma.gamma_levy_density_completely_monotone",
+        "Sigma.gamma_levy_density_smooth",
+        "Sigma.gamma_levy_completely_monotone",
+        "Sigma.gamma_exponent_derivative_stieltjes",
+        "Sigma.HasCompleteBernsteinRepresentation",
+        "Sigma.gamma_exponent_complete_bernstein",
+        "Sigma.gamma_exponent_sublinear",
+        "Sigma.gamma_drifted_exponent_ratio",
+        "Sigma.gamma_drift_zero_iff_sublinear",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_positive_support",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gammaDriftedProbability",
+        "Sigma.gamma_drifted_probability_mean",
+        "Sigma.gamma_drifted_probability_support",
+        "Sigma.gamma_drifted_probability_support_infimum",
+        "Sigma.gamma_drifted_probability_laplace",
+        "Sigma.gamma_drifted_probability_unique",
+        "Sigma.bernstein_probability_excludes_killing",
+        "Sigma.probability_with_gamma_levy_is_shifted_gamma",
+        "Sigma.gamma_levy_drift_characterization",
+        "Sigma.gammaDriftCompletion",
+        "Sigma.gamma_drift_completion_zero",
+        "Sigma.gamma_drift_completion_one",
+        "Sigma.gamma_drift_completion_nonnegative",
+        "Sigma.gamma_drift_completion_convolution",
+        "Sigma.gammaDriftBernsteinRepresentation",
+        "Sigma.gamma_drift_completion_levy_representation",
+        "Sigma.gamma_drift_completions_distinct",
+        "Sigma.stationary_independent_process_convolution",
+        "Sigma.subordinator_gamma_levy_drift_characterization",
+        "Sigma.addProcessDrift",
+        "Sigma.process_drift_preserves_independence",
+        "Sigma.process_drift_preserves_stationarity",
+        "Sigma.drifted_gamma_process_witness"
       ],
       "proved_components": [
-        "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative."
+        "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative.",
+        "Actual positive-supported Gamma Levy measure and its Levy integrability; smooth complete monotonicity of its density, complete-Bernstein representation of the exponent, and actual Stieltjes derivative representation by twice the Dirac measure at one.",
+        "The scalar drifted exponent has asymptotic ratio d, so zero drift is equivalent to a zero asymptotic ratio.",
+        "Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.",
+        "Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.",
+        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom."
       ],
       "unproved_components": [
-        "Actual Levy measure integrability and identification for the Gamma subordinator.",
-        "Within all probability subordinators with that Levy measure: zero drift iff asymptotic ratio zero iff time-one support infimum zero iff time-one mean two, and each identifies the semigroup.",
-        "Explicit nonnegative drift freedom and distinct process/law witnesses.",
-        "Complete monotonicity of the Levy density, actual complete Bernstein status and Stieltjes derivative representation."
+        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
       ],
-      "notes": ""
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS for LevyRegularity, Samples, Drift and Subordinator batches. The actual supplied-process bridge is proved: native iIndepFun and stationarity give convolution, and a Levy representation linked to actual Laplace transforms yields killing zero, all four tests and canonical marginal identification. No Gamma time-one premise is inserted. Actual translated measures and distinct convolution families are unconditional; the drifted process construction assumes a supplied Gamma process and therefore does not establish global process existence. Only this nonvacuous realization dependency and the usual increasing right-continuous version remain unproved."
     },
     {
       "latex_label": "final:P8-samples",
