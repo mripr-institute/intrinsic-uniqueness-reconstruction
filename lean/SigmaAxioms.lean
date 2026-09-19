@@ -1,5 +1,26 @@
 import Sigma
 
+#print axioms Sigma.labelled_irreducible_iff
+#print axioms Sigma.labelled_factor_count
+#print axioms Sigma.labelled_distinct_factor_count
+#print axioms Sigma.mem_labelled_divisors
+#print axioms Sigma.labelled_divisor_count
+#print axioms Sigma.factorBoxEquiv
+#print axioms Sigma.labelledDivisorBoxEquiv
+#print axioms Sigma.labelled_divisor_box_order
+#print axioms Sigma.rank_one_piecewise_path_length_lower_bound
+#print axioms Sigma.rank_one_piecewise_hessian_distance
+#print axioms Sigma.rank_one_piecewise_distance_divergence_symmetrization
+#print axioms Sigma.rank_one_piecewise_subinterval_length_lower_bound
+#print axioms Sigma.rank_one_piecewise_constant_speed_minimizer_unique
+#print axioms Sigma.rank_one_canonical_matrix_geodesic
+#print axioms Sigma.rank_one_matrix_geodesic_minimizing
+#print axioms Sigma.rank_one_matrix_geodesic_unique_piecewise_minimizer
+#print axioms Sigma.todd_arbitrary_power_coefficient
+#print axioms Sigma.todd_arbitrary_power_coefficient_over_Q_algebra
+#print axioms Sigma.formal_binomial_power_over_nat
+#print axioms Sigma.formal_binomial_power_over_field
+
 #print axioms Sigma.placed_integer_operation_iff
 #print axioms Sigma.integerCodeUnitEquiv
 #print axioms Sigma.labelledImageEquiv

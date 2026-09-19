@@ -147,6 +147,14 @@ import SigmaMatrixGeodesic
 import SigmaMatrixRankOne
 import SigmaArithmeticTransport
 import SigmaArithmeticInventory
+import SigmaArithmeticDivisors
+import SigmaArithmeticDivisorBox
+import SigmaMatrixRankOneUnique
+import SigmaMatrixPiecewiseRankOne
+import SigmaMatrixPiecewiseRankOneUnique
+import SigmaMatrixRankOneGeodesic
+import SigmaToddArbitraryPower
+import SigmaToddArbitraryPowerAlgebra
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation
