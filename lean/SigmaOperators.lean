@@ -105,15 +105,15 @@ theorem operator_quadratic_positive_counterexample (t : ℝ) (ht : 0 < t) :
   refine ⟨div_pos ht hp, ?_⟩
   rw [opExpression_quadratic]
   field_simp
-  <;> ring
+  ring
 
 /-- Canonical zero-current flux, with an actual derivative of the stated density. -/
 theorem operator_pearson_flux_derivative (t : ℝ) :
     HasDerivAt (fun x : ℝ => x * SigmaPresentations.density x)
       ((2 - t) * SigmaPresentations.density t) t := by
   have he := (Real.hasDerivAt_exp (-t)).comp t (hasDerivAt_neg t)
-  convert (hasDerivAt_id t).mul ((hasDerivAt_id t).mul he) using 1 <;>
-    simp [SigmaPresentations.density, Function.comp_def] <;> ring
+  convert (hasDerivAt_id t).mul ((hasDerivAt_id t).mul he) using 1 ;
+    simp [SigmaPresentations.density, Function.comp_def] ; ring
 
 /-- Every constant-flux Stein family in final:O1-kernel satisfies the differential equation. -/
 theorem operator_stein_flux_family (C t : ℝ) :

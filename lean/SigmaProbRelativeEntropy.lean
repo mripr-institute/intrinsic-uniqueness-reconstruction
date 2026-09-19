@@ -133,7 +133,7 @@ theorem poisson_relative_entropy (a b : ℝ≥0) (ha : 0 < a) (hb : 0 < b) :
     integral_add (integrable_const _) ((poisson_general_identity_integrable a).mul_const _),
     integral_const,integral_mul_right,poisson_general_mean]
   simp only [measure_univ,ENNReal.one_toReal,one_smul]
-  convert SigmaPresentations.poisson_KL_orientation (show (0:ℝ)<a from ha) (show (0:ℝ)<b from hb) using 1 <;> ring
+  convert SigmaPresentations.poisson_KL_orientation (show (0:ℝ)<a from ha) (show (0:ℝ)<b from hb) using 1 ; ring
 
 theorem poisson_mutual_absolute_continuity (a b : ℝ≥0) (ha : 0 < a) (hb : 0 < b) :
     poissonMeasure a ≪ poissonMeasure b ∧ poissonMeasure b ≪ poissonMeasure a := by

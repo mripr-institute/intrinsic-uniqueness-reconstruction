@@ -107,5 +107,42 @@ theorem CalibratedGammaDensity.finite_entropy_formula {f : ℝ → ℝ} {ell : �
   congr 1
   ring
 
+/-- Finite divergence derives entropy integrability; it is not an extra premise. -/
+theorem CalibratedGammaDensity.entropy_integrable_of_divergence_ne_top
+    {f : ℝ → ℝ} {ell : ℝ} (h : CalibratedGammaDensity f ell)
+    (hd : gammaDensityDivergence f ≠ ∞) :
+    IntegrableOn (fun t : ℝ => f t * Real.log (f t)) (Ioi 0) := by
+  have hp : Measurable SigmaPresentations.density :=
+    (continuous_id.mul continuous_id.neg.rexp).measurable
+  have hm := hp.mul (entropy_defect_measurable.comp (h.measurable.div hp))
+  have hn : ∀ᵐ t ∂volume.restrict (Ioi (0 : ℝ)),
+      0 ≤ SigmaPresentations.density t * entropyDefect (f t / SigmaPresentations.density t) := by
+    filter_upwards [h.nonnegative, ae_restrict_mem measurableSet_Ioi] with t ht ht0
+    exact mul_nonneg (SigmaPresentations.density_pos ht0).le
+      (entropy_defect_nonneg (div_nonneg ht (SigmaPresentations.density_pos ht0).le))
+  have hi : IntegrableOn (fun t => SigmaPresentations.density t *
+      entropyDefect (f t / SigmaPresentations.density t)) (Ioi (0 : ℝ)) :=
+    (lintegral_ofReal_ne_top_iff_integrable hm.aestronglyMeasurable hn).mp hd
+  apply (((hi.add h.cross_integrable).add h.integrable).sub intrinsic_density_integrable).congr
+  filter_upwards [h.nonnegative, ae_restrict_mem measurableSet_Ioi] with t ht ht0
+  simp only [Pi.add_apply, Pi.sub_apply]
+  rw [gamma_entropy_defect_identity (SigmaPresentations.density_pos ht0) ht]
+  ring
+
+/-- The finite extended-entropy convention agrees with the ordinary integral,
+with integrability derived from the extended value being different from -infinity. -/
+theorem CalibratedGammaDensity.finite_extended_entropy_formula
+    {f : ℝ → ℝ} {ell : ℝ} (h : CalibratedGammaDensity f ell)
+    (hfinite : calibratedExtendedEntropy (2 - ell) f ≠ ⊥) :
+    IntegrableOn (fun t : ℝ => f t * Real.log (f t)) (Ioi 0) ∧
+    calibratedExtendedEntropy (2 - ell) f =
+      ((-(∫ t : ℝ in Ioi 0, f t * Real.log (f t)) : ℝ) : EReal) := by
+  have hd : gammaDensityDivergence f ≠ ∞ := by
+    intro hd
+    apply hfinite
+    simp [calibratedExtendedEntropy, hd]
+  have hi := h.entropy_integrable_of_divergence_ne_top hd
+  exact ⟨hi, h.finite_entropy_formula hi⟩
+
 end
 end Sigma

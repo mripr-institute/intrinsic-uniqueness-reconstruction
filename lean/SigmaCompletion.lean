@@ -115,7 +115,7 @@ theorem completion_second_hasDerivAt (h : ℝ → ℝ)
   simp only [Pi.div_apply, Function.comp_def, slope_def_field]
   rw [← he y hyD, ← he z hz]
   field_simp [hdif, sub_ne_zero.mpr hy, sub_ne_zero.mpr hqne]
-  <;> ring
+  ring
 
 end
 end Sigma

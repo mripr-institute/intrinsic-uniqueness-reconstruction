@@ -52,7 +52,7 @@ theorem gamma_laplace_derivative_tower :
     have hne : 1 + x ≠ 0 := ne_of_gt (by linarith)
     have hinv : HasDerivAt (fun y : ℝ => (1 + y)⁻¹) (-((1 + x)⁻¹ ^ 2)) x := by
       have h := ((hasDerivAt_const x 1).add (hasDerivAt_id x)).inv hne
-      convert h using 1 <;> field_simp [hne] <;> ring
+      convert h using 1; field_simp [hne]
     have hp := hinv.pow (n + 2)
     unfold gammaLaplaceDerivative
     convert hp.const_mul ((-1 : ℝ) ^ n * ((n + 1).factorial : ℝ)) using 1
@@ -80,8 +80,8 @@ theorem gamma_laplace_completely_monotone :
 theorem intrinsic_density_derivative (x : ℝ) :
     HasDerivAt SigmaPresentations.density ((1 - x) * Real.exp (-x)) x := by
   unfold SigmaPresentations.density
-  convert (hasDerivAt_id x).mul (((hasDerivAt_id x).neg).exp) using 1 <;>
-    simp only [id_eq] <;> ring
+  convert (hasDerivAt_id x).mul (((hasDerivAt_id x).neg).exp) using 1 ;
+    simp only [id_eq] ; ring
 
 theorem intrinsic_density_not_completely_monotone :
     ¬ CompletelyMonotoneOnPositive SigmaPresentations.density := by
@@ -99,7 +99,7 @@ theorem gamma_survival_second_derivative (x : ℝ) :
     exact (gamma_survival_derivative y).deriv
   rw [hfirst]
   have hd := (intrinsic_density_derivative x).neg
-  convert hd.deriv using 1 <;> ring
+  convert hd.deriv using 1 ; ring
 
 theorem gamma_survival_not_completely_monotone :
     ¬ CompletelyMonotoneOnPositive gammaSurvival := by

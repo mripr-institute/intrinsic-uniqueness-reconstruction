@@ -56,7 +56,7 @@ theorem completion_product_constant (h : ℝ → ℝ)
     convert hh using 1
     simp only [id_eq]
     field_simp
-    <;> ring
+    ring
   apply equal_of_equal_derivatives _ (fun _ => completionParameter h)
     (fun t ht => (hp t ht).differentiableAt)
     (fun t _ => (hasDerivAt_const t (completionParameter h)).differentiableAt)

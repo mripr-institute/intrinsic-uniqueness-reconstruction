@@ -11,7 +11,7 @@ def gammaProbability : Measure ℝ := gammaMeasure 2 1
 theorem gamma_pdf_intrinsic (t : ℝ) :
     gammaPDFReal 2 1 t = if 0 ≤ t then SigmaPresentations.density t else 0 := by
   have hg : Real.Gamma 2 = 1 := by
-    simpa using Real.Gamma_nat_eq_factorial 1
+    simp
   norm_num [gammaPDFReal, hg, SigmaPresentations.density]
 
 instance gamma_probability_is_probability : IsProbabilityMeasure gammaProbability :=
@@ -33,7 +33,7 @@ theorem intrinsic_gamma_integral (n : ℕ) :
   have hi := Real.integral_rpow_mul_exp_neg_mul_Ioi
       (a := (n : ℝ) + 2) (r := 1) (by positivity) (by norm_num)
   have hg : Real.Gamma ((n : ℝ) + 2) = ((n + 1).factorial : ℝ) := by
-    convert Real.Gamma_nat_eq_factorial (n + 1) using 1 <;> push_cast <;> ring
+    convert Real.Gamma_nat_eq_factorial (n + 1) using 1 ; push_cast ; ring
   rw [one_div_one, Real.one_rpow, one_mul, hg] at hi
   convert hi using 1
   apply setIntegral_congr_fun measurableSet_Ioi
@@ -53,7 +53,7 @@ theorem intrinsic_density_laplace {s : ℝ} (hs : -1 < s) :
   have hi := Real.integral_rpow_mul_exp_neg_mul_Ioi
       (a := 2) (r := 1 + s) (by norm_num) (by linarith)
   have hg : Real.Gamma 2 = 1 := by
-    simpa using Real.Gamma_nat_eq_factorial 1
+    simp
   norm_num [hg, Real.rpow_two] at hi
   rw [inv_pow, ← hi]
   apply setIntegral_congr_fun measurableSet_Ioi

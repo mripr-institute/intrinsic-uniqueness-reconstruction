@@ -45,6 +45,7 @@ def strip_lean_comments(text: str) -> str:
 
 def source_audit() -> None:
     forbidden = re.compile(r"\b(sorry|admit|sorryAx)\b")
+    project_axiom = re.compile(r"\baxiom\b")
     violations = []
 
     for path in sorted(ROOT.glob("*.lean")):
@@ -56,13 +57,15 @@ def source_audit() -> None:
                 violations.append(
                     f"{path.name}:{lineno}: {match.group(1)}"
                 )
+            if project_axiom.search(line):
+                violations.append(f"{path.name}:{lineno}: project axiom declaration")
 
     if violations:
-        print("Admitted-proof markers found:")
+        print("Proof escapes found:")
         print("\n".join(violations))
         raise SystemExit(1)
 
-    print("Source audit: no sorry, admit, or sorryAx.")
+    print("Source audit: no sorry, admit, sorryAx, or project axiom declarations.")
 
 
 def run(command: list[str]) -> str:
@@ -96,6 +99,13 @@ def main() -> None:
     if "sorryAx" in axiom_output:
         print("Axiom audit contains sorryAx.", file=sys.stderr)
         raise SystemExit(1)
+
+    allowed_axioms = {"propext", "Classical.choice", "Quot.sound"}
+    for report in re.findall(r"depends on axioms:\s*\[([^]]*)\]", axiom_output):
+        unexpected = set(report.replace(",", " ").split()) - allowed_axioms
+        if unexpected:
+            print("Unexpected proof axioms:", sorted(unexpected), file=sys.stderr)
+            raise SystemExit(1)
 
     print()
     print("Verification completed successfully.")

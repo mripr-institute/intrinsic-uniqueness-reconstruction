@@ -66,30 +66,30 @@ theorem gamma_log_moment_one :
   have hd := gamma_derivative_recurrence 2 (1-Real.eulerMascheroniConstant) (by norm_num)
     gamma_derivative_two_euler
   have he : HasDerivAt Real.Gamma (3-2*Real.eulerMascheroniConstant) 3 := by
-    convert hd using 1 <;> norm_num [Real.Gamma_two] <;> ring
-  simpa using gamma_log_moment_of_gamma_derivative 1 _ (by convert he using 1 <;> norm_num)
+    convert hd using 1 <;> norm_num [Real.Gamma_two]; ring
+  simpa using gamma_log_moment_of_gamma_derivative 1 _ (by convert he using 1; norm_num)
 
 theorem gamma_log_moment_two :
     (∫ t : ℝ, t^2*Real.log t ∂gammaProbability) = 11-6*Real.eulerMascheroniConstant := by
   have hd2 := gamma_derivative_recurrence 2 (1-Real.eulerMascheroniConstant) (by norm_num)
     gamma_derivative_two_euler
   have hd3 := gamma_derivative_recurrence 3 (3-2*Real.eulerMascheroniConstant) (by norm_num)
-    (by convert hd2 using 1 <;> norm_num [Real.Gamma_two] <;> ring)
+    (by convert hd2 using 1 <;> norm_num [Real.Gamma_two]; ring)
   have he : HasDerivAt Real.Gamma (11-6*Real.eulerMascheroniConstant) 4 := by
-    convert hd3 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial] <;> ring
-  simpa using gamma_log_moment_of_gamma_derivative 2 _ (by convert he using 1 <;> norm_num)
+    convert hd3 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial]; ring
+  simpa using gamma_log_moment_of_gamma_derivative 2 _ (by convert he using 1; norm_num)
 
 theorem gamma_log_moment_three :
     (∫ t : ℝ, t^3*Real.log t ∂gammaProbability) = 50-24*Real.eulerMascheroniConstant := by
   have hd2 := gamma_derivative_recurrence 2 (1-Real.eulerMascheroniConstant) (by norm_num)
     gamma_derivative_two_euler
   have hd3 := gamma_derivative_recurrence 3 (3-2*Real.eulerMascheroniConstant) (by norm_num)
-    (by convert hd2 using 1 <;> norm_num [Real.Gamma_two] <;> ring)
+    (by convert hd2 using 1 <;> norm_num [Real.Gamma_two]; ring)
   have hd4 := gamma_derivative_recurrence 4 (11-6*Real.eulerMascheroniConstant) (by norm_num)
-    (by convert hd3 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial] <;> ring)
+    (by convert hd3 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial]; ring)
   have he : HasDerivAt Real.Gamma (50-24*Real.eulerMascheroniConstant) 5 := by
-    convert hd4 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial] <;> ring
-  simpa using gamma_log_moment_of_gamma_derivative 3 _ (by convert he using 1 <;> norm_num)
+    convert hd4 using 1 <;> norm_num [Real.Gamma_nat_eq_factorial,Nat.factorial]; ring
+  simpa using gamma_log_moment_of_gamma_derivative 3 _ (by convert he using 1; norm_num)
 
 end
 end Sigma

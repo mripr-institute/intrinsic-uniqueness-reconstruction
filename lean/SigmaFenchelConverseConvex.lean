@@ -23,8 +23,8 @@ theorem fenchel_convex_candidate_finite (F : ℝ → EReal)
   have hab : a+b=1 := by dsimp [a,b]; field_simp
   have hsum : a*x+b*y=t₀ := by dsimp [a,b]; field_simp; ring
   have hp : F (a*x+b*y) ≤ ((a*r+b*s : ℝ) : EReal) :=
-    hv (show (x,r) ∈ {p : ℝ × ℝ | F p.1 ≤ (p.2 : EReal)} by simpa [hxr])
-      (show (y,s) ∈ {p : ℝ × ℝ | F p.1 ≤ (p.2 : EReal)} by simpa [hys]) ha hb hab
+    hv (show (x,r) ∈ {p : ℝ × ℝ | F p.1 ≤ (p.2 : EReal)} by simp [hxr])
+      (show (y,s) ∈ {p : ℝ × ℝ | F p.1 ≤ (p.2 : EReal)} by simp [hys]) ha hb hab
   rw [hsum] at hp
   exact ne_of_lt (lt_of_le_of_lt hp (EReal.coe_lt_top _))
 

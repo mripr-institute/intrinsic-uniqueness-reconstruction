@@ -1,4 +1,5 @@
 import SigmaRealArithmetic
+import Mathlib.MeasureTheory.Integral.FundThmCalculus
 
 namespace Sigma
 noncomputable section
@@ -46,6 +47,29 @@ theorem farey_right_surjective : fareyRight '' Icc (0:ℝ) 1 = Icc (1/2:ℝ) 1 :
     refine ⟨(1-y)/y, ⟨hx0, hx1⟩, ?_⟩
     unfold fareyRight
     field_simp [hy0.ne']
+
+/-- The Farey branch integrates to the intrinsic potential on its whole positive domain. -/
+theorem farey_left_integral {t : ℝ} (ht : 0 < t) :
+    (∫ s in (0 : ℝ)..t-1, fareyLeft s) = SigmaBase.potential t := by
+  have hp : ∀ s ∈ uIcc (0 : ℝ) (t-1), 0 < 1+s := by
+    intro s hs
+    rcases le_total (0 : ℝ) (t-1) with h | h
+    · rw [uIcc_of_le h] at hs
+      linarith [hs.1]
+    · rw [uIcc_of_ge h] at hs
+      linarith [hs.1]
+  have hd : ∀ s ∈ uIcc (0 : ℝ) (t-1),
+      HasDerivAt (fun x : ℝ => x-Real.log (1+x)) (fareyLeft s) s := by
+    intro s hs
+    convert (hasDerivAt_id s).sub (((hasDerivAt_id s).const_add 1).log (hp s hs).ne') using 1
+    dsimp [fareyLeft]
+    field_simp [(hp s hs).ne']
+  have hi : IntervalIntegrable fareyLeft MeasureTheory.volume 0 (t-1) := by
+    apply ContinuousOn.intervalIntegrable
+    exact continuousOn_id.div (continuous_const.add continuous_id).continuousOn
+      (fun s hs => (hp s hs).ne')
+  rw [intervalIntegral.integral_eq_sub_of_hasDerivAt hd hi]
+  simp [SigmaBase.potential]
 
 end
 end Sigma

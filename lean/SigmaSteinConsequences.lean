@@ -46,7 +46,7 @@ theorem stein_flux_representative_absolute_continuity (C a b : ℝ) :
       (∑ i, |r i-l i|) < δ →
       (∑ i, |(steinFlux (r i)+C)-(steinFlux (l i)+C)|) < ε := by
   have hc : Continuous (fun t => ‖(2-t)*SigmaPresentations.density t‖) :=
-    ((continuous_const.sub continuous_id).mul (continuous_id.mul continuous_id.neg.exp)).norm
+    ((continuous_const.sub continuous_id).mul (continuous_id.mul continuous_id.neg.rexp)).norm
   obtain ⟨B,hB⟩ := (isCompact_Icc.image hc).bddAbove
   let K := |B|+1
   have hK : 0 < K := by dsimp [K]; positivity

@@ -44,7 +44,7 @@ theorem stein_kernel_family_weak (C : ℝ) : WeakSteinKernel (steinKernelFamily 
   have hi2 : IntegrableOn (fun t => ((2-t)*SigmaPresentations.density t)*f t) (Ioi 0) := by
     apply Continuous.integrable_of_hasCompactSupport _ hs.mul_left |>.integrableOn
     exact ((continuous_const.sub continuous_id).mul
-      (continuous_id.mul continuous_id.neg.exp)).mul hf.continuous
+      (continuous_id.mul continuous_id.neg.rexp)).mul hf.continuous
   rw [integral_add hi1 hi2, h0, mul_zero, neg_zero] at hh
   have he : (∫ t : ℝ in Ioi 0, steinKernelFamily C t * SigmaPresentations.density t * deriv f t) =
       ∫ t : ℝ in Ioi 0, (steinFlux t+C)*deriv f t := by

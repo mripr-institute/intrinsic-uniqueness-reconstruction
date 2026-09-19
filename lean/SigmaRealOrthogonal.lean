@@ -287,6 +287,11 @@ theorem quadratic_scale_calibration (u : V) (hu : ‖u‖ = 1) (c d : ℝ)
     (h : c * ‖u‖ ^ 2 = d * ‖u‖ ^ 2) : c = d := by simpa [hu] using h
 
 omit [InnerProductSpace ℝ V] in
+theorem quadratic_scale_calibration_nonzero (u : V) (hu : u ≠ 0) (c d : ℝ)
+    (h : c * ‖u‖ ^ 2 = d * ‖u‖ ^ 2) : c = d :=
+  mul_right_cancel₀ (pow_ne_zero 2 (norm_ne_zero_iff.mpr hu)) h
+
+omit [InnerProductSpace ℝ V] in
 theorem quadratic_nontrivial_scale_positive (c : ℝ) (hc : 0 ≤ c)
     (h : ∃ x : V, c * ‖x‖ ^ 2 ≠ 0) : 0 < c := by
   rcases h with ⟨x, hx⟩

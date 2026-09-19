@@ -33,7 +33,7 @@ theorem residual_characteristic_telescopes (c x : ℝ) (n : ℕ) :
   push_cast
   push_cast at h0 h1
   field_simp
-  <;> ring
+  ring
 
 theorem linked_characteristic_iteration (φ : ℝ → ℂ) (c : ℝ)
     (hlink : ∀ x, φ x = φ (c * x) * residualCharacteristic c x)

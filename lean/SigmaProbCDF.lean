@@ -10,7 +10,7 @@ open scoped Topology ENNReal
 def gumbelStieltjes : StieltjesFunction where
   toFun := gumbelCDF
   mono' := gumbel_cdf_monotone
-  right_continuous' x := gumbel_cdf_continuous.continuousAt.continuousWithinAt
+  right_continuous' _x := gumbel_cdf_continuous.continuousAt.continuousWithinAt
 
 def gumbelProbability : Measure ℝ := gumbelStieltjes.measure
 

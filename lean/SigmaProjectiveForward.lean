@@ -26,7 +26,7 @@ theorem projectiveModel_cross_ratio {x₁ x₂ x₃ x₄ : ℝ}
     (mul_ne_zero (sub_ne_zero.mpr h14) (sub_ne_zero.mpr h23))).mpr
   unfold projectiveModel
   field_simp
-  <;> ring
+  ring
 
 theorem projectiveModel_preserves_cross_ratios : PreservesPositiveCrossRatios projectiveModel := by
   intro x₁ h1 x₂ h2 x₃ h3 x₄ h4 _ _ h14 h23 _ _
@@ -49,7 +49,7 @@ theorem projectiveModel_second_hasDerivAt {t : ℝ} (ht : 0 < t) :
   have hh : HasDerivAt (fun x : ℝ => -(1 / x ^ (2 : ℕ))) (2 / t ^ (3 : ℕ)) t := by
     convert hd using 1
     field_simp
-    <;> ring
+    ring
   apply hh.congr_of_eventuallyEq
   filter_upwards [isOpen_Ioi.mem_nhds ht] with x hx
   exact projectiveModel_first_derivative hx
@@ -65,7 +65,7 @@ theorem projectiveModel_third_hasDerivAt {t : ℝ} (ht : 0 < t) :
   have hh : HasDerivAt (fun x : ℝ => 2 / x ^ (3 : ℕ)) (-6 / t ^ (4 : ℕ)) t := by
     convert hd using 1
     field_simp
-    <;> ring
+    ring
   apply hh.congr_of_eventuallyEq
   filter_upwards [isOpen_Ioi.mem_nhds ht] with x hx
   exact projectiveModel_second_derivative hx
@@ -80,7 +80,7 @@ theorem projectiveModel_schwarzian_zero {t : ℝ} (ht : 0 < t) :
   rw [projectiveModel_first_derivative ht, projectiveModel_second_derivative ht,
     projectiveModel_third_derivative ht]
   field_simp
-  <;> ring
+  ring
 
 theorem projectiveModel_C3 : ContDiffOn ℝ 3 projectiveModel (Ioi 0) := by
   exact (contDiffOn_const.div contDiffOn_id (fun t ht => ne_of_gt ht)).sub contDiffOn_const

@@ -1,0 +1,163 @@
+{
+  "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
+  "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
+  "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
+  "totals": {"definition": 0, "complete": 3, "partial": 12, "missing": 2},
+  "statements": [
+    {
+      "latex_label": "final:F1",
+      "status": "complete",
+      "lean_declarations": ["Sigma.exponential_quotient_todd_exists_unique", "Sigma.normalized_todd_tower_iff_exponential_quotient", "Sigma.all_degree_todd_tower_iff_exponential_quotient", "Sigma.formal_twisted_todd_coeff", "Sigma.todd_twist_polynomial_identity", "Sigma.formal_twisted_todd_coeff_nat", "Sigma.formal_todd_omitted_degree", "Sigma.formal_twisted_todd_coeff_over_Q_algebra", "Sigma.todd_tower_iff_exponential_quotient_over_Q_algebra", "Sigma.unnormalized_todd_family_over_Q_algebra_exists_unique"],
+      "proved_components": ["Actual exponential quotient, normalized tower existence and uniqueness over every characteristic-zero field", "Degree-zero equation equivalence", "Polynomial twist identity, arbitrary field parameter, empty product and negative integer specializations", "Counterexample after deletion of each positive tower degree", "Twist and tower identities over commutative rational algebras", "Unnormalized unit-parameter family"],
+      "unproved_components": [],
+      "notes": "The separate displayed equation final:todd-arbitrary-power is outside the F1 theorem statement and is not covered by these twist theorems; see additional_labelled_claims."
+    },
+    {
+      "latex_label": "final:F2",
+      "status": "complete",
+      "lean_declarations": ["Sigma.formal_ahat_constant", "Sigma.formal_L_constant", "Sigma.formal_chi_constant", "Sigma.formal_ahat_quotient", "Sigma.formal_L_quotient", "Sigma.formal_ahat_to_todd", "Sigma.formal_todd_to_L", "Sigma.formal_L_to_todd", "Sigma.formal_todd_recovers_exponential", "Sigma.formal_L_recovers_exponential", "Sigma.formal_chi_recovers_todd", "Sigma.formal_ahat_square_root_exists_unique", "Sigma.formal_ahat_recovers_todd_from_any_normalized_root", "Sigma.characteristic_chi_minus_one_noninjective", "Sigma.formal_chi_minus_one_standard", "Sigma.standard_characteristic_inverse_reconstruction", "Sigma.formal_chi_over_recovers_todd", "Sigma.standard_characteristic_units_inverse_reconstruction", "Sigma.formal_chi_polynomial_localization_reconstruction"],
+      "proved_components": ["Actual normalized characteristic quotient series", "Marked mutually inverse Todd/Ahat/L/chi formulas and exponential recovery", "Normalized square-root existence, uniqueness and reconstruction", "Exceptional y=-1 specialization and noninjectivity", "Multiplicative unit inversion", "General rational-algebra unit-parameter reconstruction and polynomial localization"],
+      "unproved_components": [],
+      "notes": "Inspected quotient definitions and base-change constructions: these are not arbitrary series renamed as the desired functions."
+    },
+    {
+      "latex_label": "final:F3",
+      "status": "partial",
+      "lean_declarations": ["Sigma.formal_todd_recovers_exponential", "Sigma.formal_L_recovers_exponential", "SigmaPresentations.formalLog_ode", "SigmaPresentations.normalized_formal_log_ode_reconstruction"],
+      "proved_components": ["Formal exponential recovery", "Normalized rational formal logarithm and uniqueness for its differential equation"],
+      "unproved_components": ["Formal compositional exponential/logarithm inverse and identification with the H germ", "Full real analytic characteristic representatives including removable values at zero and all real reconstruction formulas", "Identification of independently supplied analytic global representatives in the declared connected-domain category", "Nonzero compactly supported smooth perturbation with unchanged germ and preserved strict convexity"],
+      "notes": "Existing analytic perturbations in SigmaClosurePerturbation preserve finitely many derivatives, not a germ, so do not prove this counterexample. The proof's nearest-complex-pole and Taylor-disc claims also have no located declarations."
+    },
+    {
+      "latex_label": "final:F4",
+      "status": "partial",
+      "lean_declarations": ["Sigma.universal_line_correction_unique", "Sigma.universal_unit_inverse_reconstruction"],
+      "proved_components": ["Cancellation of multiplication by the formal variable in rational power series", "Inversion injectivity for complete formal units"],
+      "unproved_components": ["Actual supplied K-theory/cohomology Thom comparison and existence/uniqueness of its correction", "Universal-line compatibility and inverse-limit correction identity", "Multiplicative splitting-principle descent to actual bundles", "Collapse/Gysin Riemann--Roch identity for oriented proper maps and virtual tangent bundles", "Finite-base nilpotence nonidentification witness"],
+      "notes": "A scalar cancellation lemma is not a theorem about actual supplied Thom classes, bundles or Gysin maps. No project topology interface implementing the stated foundations was located."
+    },
+    {
+      "latex_label": "final:F5",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": ["Actual complexification of the tautological real line on RP2", "Nontriviality of that bundle and of its class relative to the trivial line in complex K0", "Its rational Chern character equals one", "Resulting fixed-base nonreconstruction witness"],
+      "notes": "No project declaration constructs this topological counterexample. Scalar torsion arithmetic would not suffice."
+    },
+    {
+      "latex_label": "final:M1",
+      "status": "partial",
+      "lean_declarations": ["Sigma.spd_positive_rank_lift_unique", "Sigma.matrixPotential_spectral", "Sigma.matrixPotential_nonnegative", "Sigma.matrixPotential_similarity", "Sigma.matrixPotential_block_additivity"],
+      "proved_components": ["Uniqueness for actual positive-rank SPD matrix families without regularity", "Spectral sum equals trace minus log determinant minus rank", "Nonnegativity", "Full arbitrary-block additivity", "Similarity invariance, which supplies orthogonal conjugacy as a specialization"],
+      "unproved_components": ["Actual nonnegative matrix-family counterexample retaining the seed and recursion when orthogonal invariance is deleted", "Actual nonnegative matrix-family counterexample retaining the seed and invariance when scalar-block recursion is deleted"],
+      "notes": "The positive-rank uniqueness theorem needs recursion only on diagonal blocks, which is weaker than the paper's assumptions and therefore sound. The older map's missing full block-additivity clause is now proved."
+    },
+    {
+      "latex_label": "final:M2",
+      "status": "partial",
+      "lean_declarations": ["Sigma.matrixPotential_fderiv", "Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric", "Sigma.matrix_actual_bregman", "Sigma.matrixDivergence_nonnegative", "Sigma.matrixDivergence_eq_zero_iff", "Sigma.matrixDivergence_congruence", "Sigma.matrix_precision_reversal", "Sigma.precisionMetric_positive", "Sigma.hessianMetric_congruence", "Sigma.hessianMetric_inversion", "Sigma.spd_determinant_exponential_bound", "Sigma.spd_determinant_exponential_equality"],
+      "proved_components": ["Actual Frechet differential and second derivative of the matrix potential", "Actual differential Bregman formula", "Strict positivity on nonzero symmetric tangent matrices", "Divergence nonnegativity and equality exactly at identical matrices", "Congruence invariance of divergence and metric", "Inversion isometry and directed-divergence reversal", "Exponential determinant bound and identity equality case"],
+      "unproved_components": ["Extended-real matrix Fenchel conjugate with exact finite domain and infinite boundary", "Legendre coordinate inverse and optimizer", "Arithmetic-mean determinant bound and scalar-matrix equality case", "Strict concavity of log determinant"],
+      "notes": "Adjacent substantive claims also remain: dual Bregman equality, marked gradient/Hessian reconstruction converses, alternative invariant metrics and the alpha/beta positivity criterion. Matrix calculus/strict metric positivity/isometries are already proved and must not be reproved due to stale audit metadata."
+    },
+    {
+      "latex_label": "final:M3",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": ["Actual SPD geodesic and metric length/distance formula", "Unique constant-speed minimizing curve including X=Y", "Relative spectral symmetrization formula", "Rank-one distance formula", "Equal-distance unequal-symmetrization witnesses in every rank at least two"],
+      "notes": "Scalar or matrix divergence algebra alone does not supply geodesic minimality, an actual Riemannian distance, or the stated boundary witnesses."
+    },
+    {
+      "latex_label": "final:M4",
+      "status": "partial",
+      "lean_declarations": ["Sigma.gaussian_relative_entropy", "Sigma.gaussian_zero_log_likelihood", "Sigma.gaussian_zero_second_moment"],
+      "proved_components": ["Actual univariate centered Gaussian relative entropy and log likelihood, supplying the n=1 single-observation entropy component"],
+      "unproved_components": ["Actual iid multivariate Gaussian sample/scatter law and sufficiency", "Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence", "Almost sure positive-definiteness iff sample count is at least dimension", "Unique positive-definite observed covariance MLE and likelihood excess with m/2 orientation", "Singular-scatter nonattainment", "Full matrix Gaussian relative entropy and its m-copy factor"],
+      "notes": "The existing actual Gaussian entropy theorem is univariate; it must be credited but cannot establish arbitrary covariance-matrix/Wishart content."
+    },
+    {
+      "latex_label": "final:R1",
+      "status": "partial",
+      "lean_declarations": ["Sigma.radial_OU_dimension"],
+      "proved_components": ["Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4"],
+      "unproved_components": ["Actual four-dimensional Gaussian radial pushforward", "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness", "Same-radial-law different-vector-law witness", "Euclidean gradient/Laplacian computation of the radial-energy OU generator", "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"],
+      "notes": "The sole matching declaration is a scalar coefficient equivalence; no multivariate probability law or stochastic differential equation is encoded by it. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem."
+    },
+    {
+      "latex_label": "final:R2",
+      "status": "complete",
+      "lean_declarations": ["Sigma.nonnegative_orthogonal_quadratic_iff", "Sigma.nonnegative_orthogonal_star_iff", "Sigma.quadratic_nontrivial_scale_positive", "Sigma.quadratic_scale_calibration", "Sigma.quadratic_scale_calibration_nonzero", "Sigma.line_quartic_orthogonal_additive", "Sigma.line_quartic_not_quadratic", "Sigma.linear_profile_orthogonally_additive", "Sigma.linear_profile_negative_at_neg_unit", "Sigma.linear_profile_not_quadratic"],
+      "proved_components": ["Full no-regularity quadratic iff on arbitrary real inner-product spaces of cardinal dimension at least two", "Full exponential-star iff with nonnegativity", "Positive scale from nontriviality and scale calibration", "Dimension-one quartic and nonnegative-assumption linear-functional omission witnesses"],
+      "unproved_components": [],
+      "notes": "Independent cross-section re-audit confirms no hidden finite-dimensionality/continuity/measurability assumption. The added quadratic_scale_calibration_nonzero theorem calibrates at every nonzero vector, closing the earlier unit-vector-only mapping mismatch. The final adjacent prose example z=exp(linear)-1 with z>-1 is not separately packaged, though its underlying linear witness is proved."
+    },
+    {
+      "latex_label": "final:R3",
+      "status": "partial",
+      "lean_declarations": ["Sigma.radialWeight_eq_rpow", "Sigma.weighted_profile_second_deriv", "Sigma.radial_residual", "Sigma.radial_laplacian_conjugation", "Sigma.radial_residual_cancellation", "Sigma.radial_residual_dimension_three", "Sigma.constant_profile_radial_residual_three", "Sigma.constant_profile_differs_from_H_on_positive_ray"],
+      "proved_components": ["Actual second-derivative quotient identity on the positive ray", "Conjugated radial differential expression without nonvanishing assumption", "Cancellation iff dimension is one or three and selection of three when dimension is at least two", "Different constant profile with the same cancellation"],
+      "unproved_components": ["Identification of the displayed radial expression with the actual Euclidean Laplacian in integer dimension"],
+      "notes": "All displayed one-variable operator calculations are proved. The only remaining named-statement distinction is the assertion that this expression is the Euclidean radial Laplacian; the project has no full Euclidean Laplacian declaration."
+    },
+    {
+      "latex_label": "final:R4",
+      "status": "partial",
+      "lean_declarations": ["Sigma.norm_square_orthogonal_additive", "Sigma.quartic_not_orthogonal_additive_of_pair", "Sigma.radial_residual_cancellation"],
+      "proved_components": ["Squared norm is orthogonally additive", "Quartic norm fails orthogonal additivity given an orthonormal pair", "Residual cancellation at dimension one"],
+      "unproved_components": ["Actual countermodels retaining the entire intrinsic scalar/probability/operator/characteristic structure and canonical Gaussian construction while independently adjoining the designated spatial data", "Explicit dimension-two squared-norm and dimension-one squared-norm extension witnesses"],
+      "notes": "Generic failure lemmas do not establish the stated conjunction with retained external/canonical structures. Adjacent rank-one metric-pullback and composite-Hessian tensor distinction is also not located."
+    },
+    {
+      "latex_label": "final:B1",
+      "status": "partial",
+      "lean_declarations": ["Sigma.cwValue_positive", "Sigma.cwValue_injective", "Sigma.cw_positive_rational_exists_unique", "Sigma.cw_parent_below", "Sigma.cw_parent_above"],
+      "proved_components": ["Every positive rational has exactly one Calkin--Wilf word", "Positive reduced fractions and forced parent steps"],
+      "unproved_components": ["Free generation of exactly the nonnegative determinant-one matrix monoid including identity", "Stern--Brocot endpoint matrices and reversal with the chronological path convention", "Mutual decoding of paths, oriented Euclidean runs and canonical continued fractions", "Terminal quotient minus one correction and root endpoint"],
+      "notes": "Lean cwValue stores outermost letter first, explicitly documented; this is harmless for enumeration but is not a proof of the paper's Stern--Brocot reversal."
+    },
+    {
+      "latex_label": "final:B2",
+      "status": "partial",
+      "lean_declarations": ["Sigma.farey_left_inverse", "Sigma.farey_right_inverse", "Sigma.farey_left_strictMono", "Sigma.farey_right_strictAnti", "Sigma.farey_left_surjective", "Sigma.farey_right_surjective", "Sigma.farey_left_integral"],
+      "proved_components": ["Both marked inverse formulas", "Exact closed-interval branch images including endpoints", "Increasing and decreasing branch orientations", "Full-domain actual interval integral recovery of I for every t>0, including 0<t<1 and t=1"],
+      "unproved_components": ["Identification of complete numerical tree child maps and Mobius three-point global extension", "Connected analytic extension converse", "Same positive-rational action but different smooth strictly convex potential counterexample", "Unlabelled-tree nonreconstruction witness"],
+      "notes": "Farey branch range surjectivity and monotonicity were already proved. Independent review of the new farey_left_integral confirms the exact integrand s/(1+s), limits 0 and t-1, and positive-domain hypothesis only. Its unordered-interval FTC proof handles negative integration direction and the zero-length endpoint. B2 remains partial because the extension/reconstruction-category and boundary witnesses remain."
+    },
+    {
+      "latex_label": "final:B3",
+      "status": "partial",
+      "lean_declarations": ["Sigma.placed_collision_iff", "Sigma.every_placed_collision_breaks_multiplication", "Sigma.intrinsic_alternative_injective", "Sigma.transportedProduct_encode", "Sigma.transportedProduct_assoc", "Sigma.transportedProduct_comm", "Sigma.transportedUnit_mul", "Sigma.transported_divisibility"],
+      "proved_components": ["Exact collision criterion", "Every collision breaks multiplication after any dilation greater than one", "Intrinsic alternative code injectivity", "Generic injective-image multiplication, unit, associativity, commutativity and divisibility"],
+      "unproved_components": ["Exact n>=2 image carrier, separate abstract unit adjunction and existence-of-operation iff injectivity", "Labelled monoid isomorphism on positive integers", "Transported prime/valuation/factor-count/gcd/lcm/divisor/Mobius/Dirichlet inventory and multiplicative-function parametrization", "Labelled totient transport", "Original versus shifted placement sampling identity", "Prime-permutation and addition/analytic-shape nonreconstruction boundaries"],
+      "notes": "Generic transport requires an already supplied CommMonoid A and injective e. It does not instantiate the nonunital n>=2 image or its abstract unit, and it does not prove the full advertised arithmetic inventory."
+    },
+    {
+      "latex_label": "final:B4",
+      "status": "partial",
+      "lean_declarations": ["Sigma.operator_complex_zeta_eigenvalue_summable_iff", "Sigma.operator_zeta_eigenvalue_hasSum"],
+      "proved_components": ["Actual complex numerical zeta series and its absolute-summability half-plane"],
+      "unproved_components": ["Prime Euler product identity on Re(s)>1", "Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis", "From positive Euler-product convergence derive local finiteness/countability and least generator", "Least-generator and multiplicity recovery limits", "Entire-factor removal, recovery of every generator and multiset uniqueness", "Empty multiset iff identically-one product"],
+      "notes": "SigmaOpSpectral explicitly states that its zeta results are eigenvalue-series theorems and not actual trace theorems. No numerical generator-multiset inverse is present."
+    }
+  ],
+  "additional_labelled_claims": [
+    {"latex_label": "final:todd-twists", "status": "complete", "lean_declarations": ["Sigma.formal_twisted_todd_coeff", "Sigma.todd_twist_polynomial_identity", "Sigma.formal_twisted_todd_coeff_over_Q_algebra"]},
+    {"latex_label": "final:todd-arbitrary-power", "status": "missing", "lean_declarations": [], "unproved_components": ["Separate falling-factorial/multiplicity-index coefficient formula for arbitrary powers; the n+1 twisted Todd formula is not this identity"]},
+    {"latex_label": "final:TAL", "status": "complete", "lean_declarations": ["Sigma.formal_ahat_to_todd", "Sigma.formal_todd_to_L", "Sigma.formal_L_to_todd"]},
+    {"latex_label": "final:exponential-recovery", "status": "complete", "lean_declarations": ["Sigma.formal_todd_recovers_exponential", "Sigma.formal_L_recovers_exponential"]},
+    {"latex_label": "final:chi-inverse", "status": "complete", "lean_declarations": ["Sigma.formal_chi_recovers_todd", "Sigma.formal_chi_over_recovers_todd"]},
+    {"latex_label": "final:Thom-comparison", "status": "missing", "lean_declarations": [], "unproved_components": ["Actual uniquely defined Thom correction"]},
+    {"latex_label": "final:RR", "status": "missing", "lean_declarations": [], "unproved_components": ["Actual Riemann--Roch Gysin comparison"]},
+    {"latex_label": "final:matrix-potential", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_spectral", "Sigma.spd_positive_rank_lift_unique"]},
+    {"latex_label": "final:matrix-gradient", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_fderiv"]},
+    {"latex_label": "final:matrix-hessian", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric"]},
+    {"latex_label": "final:matrix-divergence", "status": "complete", "lean_declarations": ["Sigma.matrix_actual_bregman"]},
+    {"latex_label": "final:matrix-conjugate", "status": "missing", "lean_declarations": [], "unproved_components": ["Exact extended-real conjugate and finite/infinite domain"]},
+    {"latex_label": "final:radial-residual", "status": "complete", "lean_declarations": ["Sigma.radial_residual"]},
+    {"latex_label": "final:tree-integral", "status": "complete", "lean_declarations": ["Sigma.farey_left_integral"], "unproved_components": []},
+    {"latex_label": "final:integer-collision", "status": "complete", "lean_declarations": ["Sigma.placed_collision_iff"]}
+  ],
+  "false_paper_clauses": [],
+  "false_clause_note": "No definite mathematically false clause was identified in this assigned section; missing formal coverage must not be represented as a mathematical counterexample to the paper."
+}

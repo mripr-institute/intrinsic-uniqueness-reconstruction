@@ -65,7 +65,7 @@ theorem log_complete_bernstein_integral (l : ℝ) (hl : 0 ≤ l) :
 theorem gamma_exponent_derivative (l : ℝ) (hl : 0 ≤ l) :
     HasDerivAt gammaLaplaceExponent (2/(1+l)) l := by
   convert (((hasDerivAt_id l).const_add 1).log
-    (ne_of_gt (by positivity : 0 < 1+l))).const_mul 2 using 1 <;>
+    (ne_of_gt (by positivity : 0 < 1+l))).const_mul 2 using 1 ;
       simp [gammaLaplaceExponent, div_eq_mul_inv]
 
 end

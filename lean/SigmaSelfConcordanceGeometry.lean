@@ -31,7 +31,7 @@ theorem sc_intrinsic_third_hasDerivAt {t : ℝ} (ht : 0 < t) :
   have hh : HasDerivAt (fun x : ℝ => 1 / x ^ (2 : ℕ)) (-2 / t ^ (3 : ℕ)) t := by
     convert hd using 1
     field_simp
-    <;> ring
+    ring
   apply hh.congr_of_eventuallyEq
   filter_upwards [isOpen_Ioi.mem_nhds ht] with x hx
   exact sc_intrinsic_curvature hx
@@ -215,7 +215,6 @@ theorem sc_gradient_hessian_ratio {t : ℝ} (ht : 0 < t) :
     (deriv I t) ^ (2 : ℕ) / scCurvature I t = (t - 1) ^ (2 : ℕ) := by
   rw [sc_intrinsic_deriv ht, sc_intrinsic_curvature ht]
   field_simp
-  <;> ring
 
 theorem sc_no_finite_barrier_parameter :
     ¬ ∃ ν : ℝ, ∀ t > 0, (deriv I t) ^ (2 : ℕ) ≤ ν * scCurvature I t := by

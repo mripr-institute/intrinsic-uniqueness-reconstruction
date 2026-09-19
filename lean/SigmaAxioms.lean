@@ -1,5 +1,21 @@
 import Sigma
 
+#print axioms Sigma.log_second_difference
+#print axioms Sigma.placed_discrete_curvature
+#print axioms Sigma.second_difference_integer_sequence_unique
+#print axioms Sigma.second_difference_half_lattice_unique
+#print axioms Sigma.integer_samples_nonidentifying
+#print axioms Sigma.farey_left_integral
+
+#print axioms Sigma.CalibratedGammaDensity.entropy_integrable_of_divergence_ne_top
+#print axioms Sigma.CalibratedGammaDensity.finite_extended_entropy_formula
+#print axioms Sigma.calibrated_gamma_finite_extended_entropy
+#print axioms Sigma.quadratic_scale_calibration_nonzero
+#print axioms Sigma.independent_nat_sum_measure
+#print axioms Sigma.independent_nat_sum_law
+#print axioms Sigma.borel_independent_finset_law
+#print axioms Sigma.borel_independent_sum_probabilities
+
 #print axioms Sigma.Closure.intrinsic_loss_reconstruction
 #print axioms Sigma.Closure.intrinsic_density_reconstruction
 #print axioms Sigma.Closure.intrinsic_density_inverse

@@ -79,12 +79,12 @@ theorem operator_tilt_moments_extend (μ : Measure ℝ) {a : ℝ}
   have haeq : a - s * (1 + a) = a + 1 / 2 := by
     dsimp [s, r]
     field_simp
-    <;> ring
+    ring
   rw [haeq] at hh
   have hd : (1 - s) * (1 + a) = 1 + (a + 1 / 2) := by
     dsimp [s, r]
     field_simp
-    <;> ring
+    ring
   have hrn : (1 + a) ^ (m + 2) ≠ 0 := pow_ne_zero _ (by linarith)
   apply (mul_left_cancel₀ hrn)
   rw [hh]
@@ -93,7 +93,7 @@ theorem operator_tilt_moments_extend (μ : Measure ℝ) {a : ℝ}
     linarith
   rw [← hd, mul_pow]
   field_simp
-  <;> ring
+  ring
 
 /-- All integer Laplace samples are derived from full-line factorial moments
 by iterating actual exponential tilts; no support conclusion is assumed. -/
@@ -107,7 +107,7 @@ theorem operator_factorial_moments_integer_samples (μ : Measure ℝ)
       simpa using hm m
     | succ k ih =>
       have hh := operator_tilt_moments_extend μ (by positivity : 0 ≤ (k : ℝ) / 2) ih
-      convert hh using 1 <;> push_cast <;> ring
+      convert hh using 1 ; push_cast ; ring
   intro n
   have hh := htilt (2 * n) 0
   simpa only [Nat.cast_mul, Nat.cast_ofNat, mul_div_cancel_left₀ _ (by norm_num : (2 : ℝ) ≠ 0),

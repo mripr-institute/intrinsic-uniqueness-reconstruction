@@ -6,7 +6,7 @@ open Set Filter MeasureTheory
 open scoped Topology ContDiff
 
 /-- The energy inequality used to bootstrap moments has no tail assumptions. -/
-theorem stein_square_bound (A B L K : ℝ) (hK : 0 ≤ K) (hL : |L| ≤ K) :
+theorem stein_square_bound (A B L K : ℝ) (_hK : 0 ≤ K) (hL : |L| ≤ K) :
     A^2 ≤ K^2*B^2-2*(A*B*L-A^2) := by
   have hsq : L^2 ≤ K^2 := by
     have hll := (abs_le.mp hL).1
@@ -90,7 +90,7 @@ theorem weak_stein_even_moments_integrable (μ : Measure ℝ) [IsFiniteMeasure �
     (hw : WeakGammaStein μ) : ∀ n : ℕ, Integrable (fun t : ℝ => t^(2*n)) μ := by
   intro n
   induction n with
-  | zero => simpa using (integrable_const (1 : ℝ))
+  | zero => simp
   | succ n ih => exact weak_stein_next_even_moment μ hw n ih
 
 end

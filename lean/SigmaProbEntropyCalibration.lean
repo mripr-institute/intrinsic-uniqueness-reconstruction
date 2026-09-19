@@ -42,6 +42,17 @@ theorem calibrated_gamma_finite_entropy (f : ℝ → ℝ)
   have he : 2-(1-Real.eulerMascheroniConstant) = 1+Real.eulerMascheroniConstant := by ring
   simpa only [he] using h.finite_entropy_formula hi
 
+theorem calibrated_gamma_finite_extended_entropy (f : ℝ → ℝ)
+    (h : CalibratedGammaDensity f (1-Real.eulerMascheroniConstant))
+    (hfinite : calibratedExtendedEntropy (1+Real.eulerMascheroniConstant) f ≠ ⊥) :
+    IntegrableOn (fun t : ℝ => f t * Real.log (f t)) (Ioi 0) ∧
+    calibratedExtendedEntropy (1+Real.eulerMascheroniConstant) f =
+      ((-(∫ t : ℝ in Ioi 0, f t * Real.log (f t)) : ℝ) : EReal) := by
+  have he : 2-(1-Real.eulerMascheroniConstant) = 1+Real.eulerMascheroniConstant := by ring
+  have hf : calibratedExtendedEntropy (2-(1-Real.eulerMascheroniConstant)) f ≠ ⊥ := by
+    simpa only [he] using hfinite
+  simpa only [he] using h.finite_extended_entropy_formula hf
+
 theorem gamma_density_entropy_integrable :
     IntegrableOn (fun t : ℝ => SigmaPresentations.density t*Real.log (SigmaPresentations.density t)) (Ioi 0) :=
   gamma_density_calibrated.cross_integrable

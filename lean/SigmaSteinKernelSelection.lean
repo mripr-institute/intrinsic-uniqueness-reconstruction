@@ -78,7 +78,7 @@ theorem stein_kernel_flux_representative_integral (C a b : ℝ) :
     IntervalIntegrable (fun t => (2-t)*SigmaPresentations.density t) volume a b ∧
       (steinFlux b+C)-(steinFlux a+C) = ∫ t : ℝ in a..b, (2-t)*SigmaPresentations.density t := by
   have hc : Continuous (fun t => (2-t)*SigmaPresentations.density t) :=
-    (continuous_const.sub continuous_id).mul (continuous_id.mul continuous_id.neg.exp)
+    (continuous_const.sub continuous_id).mul (continuous_id.mul continuous_id.neg.rexp)
   refine ⟨hc.intervalIntegrable a b, ?_⟩
   symm
   apply intervalIntegral.integral_eq_sub_of_hasDerivAt

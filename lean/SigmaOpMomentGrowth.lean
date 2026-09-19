@@ -45,7 +45,7 @@ theorem opCoshTerm_integral (μ : Measure ℝ) (hm : OpFactorialMoments μ)
   have hf : ((2 * n).factorial : ℝ) ≠ 0 := by exact_mod_cast Nat.factorial_ne_zero (2 * n)
   push_cast
   field_simp
-  <;> ring
+  ring
 
 theorem opCoshMomentSeries_summable {c : ℝ} (hc0 : 0 ≤ c) (hc1 : c < 1) :
     Summable (fun n : ℕ => (2 * (n : ℝ) + 1) * c ^ (2 * n)) := by
@@ -119,7 +119,7 @@ theorem opExpTerm_integral (μ : Measure ℝ) (hm : OpFactorialMoments μ)
   have hf : (n.factorial : ℝ) ≠ 0 := by exact_mod_cast Nat.factorial_ne_zero n
   push_cast
   field_simp
-  <;> ring
+  ring
 
 theorem opExpTerm_hasSum (s t : ℝ) :
     HasSum (fun n => opExpTerm s n t) (Real.exp (s * t)) := by

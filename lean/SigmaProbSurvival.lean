@@ -13,8 +13,8 @@ def logisticHazard (u : ℝ) : ℝ := Real.exp u / (1 + Real.exp u)
 theorem gamma_survival_derivative (x : ℝ) :
     HasDerivAt gammaSurvival (-SigmaPresentations.density x) x := by
   convert (((hasDerivAt_id x).const_add 1).mul
-    ((Real.hasDerivAt_exp (-x)).comp x (hasDerivAt_neg x))) using 1 <;>
-    simp [gammaSurvival, SigmaPresentations.density] <;> ring
+    ((Real.hasDerivAt_exp (-x)).comp x (hasDerivAt_neg x))) using 1 ;
+    simp [gammaSurvival, SigmaPresentations.density] ; ring
 
 theorem gamma_survival_positive {x : ℝ} (hx : 0 ≤ x) : 0 < gammaSurvival x := by
   unfold gammaSurvival

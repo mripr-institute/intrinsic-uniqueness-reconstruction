@@ -29,7 +29,7 @@ theorem sc_inverse_sqrt_hasDerivAt {q : ℝ → ℝ} {q' t : ℝ}
   convert hd using 1
   simp only [zero_mul, one_mul, zero_sub]
   field_simp only [hs]
-  <;> ring
+  ring
 
 /-- The inverse square is derived from the signed equation, not supplied. -/
 theorem sc_signed_curvature_unique (q : ℝ → ℝ)

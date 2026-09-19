@@ -74,7 +74,7 @@ theorem operator_gamma_mixing_integral {lam : ℝ} (hlam : 0 ≤ lam) :
   have h := Real.integral_rpow_mul_exp_neg_mul_Ioi
     (a := 2) (r := 1 + lam) (by norm_num) (by positivity)
   have hg : Real.Gamma 2 = 1 := by
-    simpa using Real.Gamma_nat_eq_factorial 1
+    simp
   simpa only [show (2 : ℝ) - 1 = 1 by norm_num, Real.rpow_one,
     neg_mul, Real.rpow_two, hg, mul_one] using h
 

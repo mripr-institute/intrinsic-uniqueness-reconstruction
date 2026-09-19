@@ -53,7 +53,7 @@ theorem potential_quadratic_factor_one : potentialQuadraticFactor 1 = 1/2 := by
     filter_upwards [Ioi_mem_nhds (show (0:ℝ)<1 by norm_num),
       hs.eventually_analyticAt] with x hx hsa
     have hd : HasDerivAt (fun x => (x-1)*s x) (s x+(x-1)*deriv s x) x := by
-      convert ((hasDerivAt_id x).sub_const 1).mul hsa.differentiableAt.hasDerivAt using 1 <;> simp only [id_eq] <;> ring
+      convert ((hasDerivAt_id x).sub_const 1).mul hsa.differentiableAt.hasDerivAt using 1 ; simp only [id_eq] ; ring
     have heq : (fun x => (x-1)*s x) = SigmaBase.potential := by
       funext y
       simpa [s,SigmaBase.potential] using sub_smul_dslope SigmaBase.potential (1:ℝ) y
@@ -62,7 +62,7 @@ theorem potential_quadratic_factor_one : potentialQuadraticFactor 1 = 1/2 := by
   have hh := hsd.add (((hasDerivAt_id (1:ℝ)).sub_const 1).mul hds.hasDerivAt)
   have hleft : HasDerivAt (fun x : ℝ => 1-1/x) 1 1 := by
     convert (hasDerivAt_const (1:ℝ) (1:ℝ)).sub
-      ((hasDerivAt_const (1:ℝ) (1:ℝ)).div (hasDerivAt_id 1) (by norm_num)) using 1 <;> norm_num
+      ((hasDerivAt_const (1:ℝ) (1:ℝ)).div (hasDerivAt_id 1) (by norm_num)) using 1 ; norm_num
   have hu := hleft.unique (hh.congr_of_eventuallyEq he)
   simp only [id_eq,sub_self,zero_mul,one_mul,add_zero,hsd.deriv] at hu
   linarith
@@ -105,7 +105,7 @@ theorem deficit_normal_coordinate_derivative_one : HasDerivAt deficitNormalCoord
   have hr := potential_quadratic_factor_analytic.differentiableAt.hasDerivAt
   have hh := ((hasDerivAt_id (1:ℝ)).sub_const 1).mul
     ((hr.const_mul 2).sqrt (by norm_num [potential_quadratic_factor_one]))
-  convert hh using 1 <;> simp [deficitNormalCoordinate,potential_quadratic_factor_one]
+  convert hh using 1 ; simp [deficitNormalCoordinate,potential_quadratic_factor_one]
 
 theorem canonical_deficit_involution_continuousAt (t : ℝ) (ht : 0 < t) :
     ContinuousAt canonicalDeficitInvolution t := by

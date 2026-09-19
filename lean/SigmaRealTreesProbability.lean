@@ -1,5 +1,6 @@
 import SigmaRealTreesNormalization
 import Mathlib.Probability.ProbabilityMassFunction.Constructions
+import Mathlib.Probability.Independence.Basic
 
 namespace Sigma
 noncomputable section
@@ -107,6 +108,80 @@ theorem borel_independent_forest_below (n k : ℕ) (hn : n < k) :
     borelForestPMF k n = 0 := by
   rw [borel_forest_pmf_coefficients,
     tree_power_coeff_above ℝ borelSeries borel_series_constant n k hn, ENNReal.ofReal_zero]
+
+/-- The PMF convolution is the pushforward of the actual product measure. -/
+theorem independent_nat_sum_measure (p q : PMF ℕ) :
+    (p.toMeasure.prod q.toMeasure).map (fun x : ℕ × ℕ => x.1 + x.2) =
+      (independentNatSum p q).toMeasure := by
+  ext s hs
+  rw [Measure.map_apply (measurable_fst.add measurable_snd) hs,
+    Measure.prod_apply ((measurable_fst.add measurable_snd) hs),
+    independentNatSum, PMF.toMeasure_bind_apply _ _ _ hs, lintegral_countable']
+  apply tsum_congr
+  intro a
+  rw [PMF.toMeasure_apply_singleton p a (measurableSet_singleton a),
+    PMF.toMeasure_map_apply (fun b : ℕ => a + b) q s
+      (measurable_const.add measurable_id) hs]
+  exact mul_comm _ _
+
+/-- Arbitrary supplied independent random variables have the constructed sum law. -/
+theorem independent_nat_sum_law {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) [IsProbabilityMeasure μ] (X Y : Ω → ℕ)
+    (hX : Measurable X) (hY : Measurable Y)
+    (hI : ProbabilityTheory.IndepFun X Y μ) (p q : PMF ℕ)
+    (hp : μ.map X = p.toMeasure) (hq : μ.map Y = q.toMeasure) :
+    μ.map (fun ω => X ω + Y ω) = (independentNatSum p q).toMeasure := by
+  have hi := (ProbabilityTheory.indepFun_iff_map_prod_eq_prod_map_map
+    hX.aemeasurable hY.aemeasurable).mp hI
+  rw [hp, hq] at hi
+  rw [← independent_nat_sum_measure, ← hi,
+    Measure.map_map (measurable_fst.add measurable_snd) (hX.prod_mk hY)]
+  rfl
+
+/-- No canonical sample-space assumption: every finite independent Borel family
+has the previously computed forest distribution. -/
+theorem borel_independent_finset_law {Ω ι : Type*} [MeasurableSpace Ω]
+    [DecidableEq ι] (μ : Measure Ω) [IsProbabilityMeasure μ] (X : ι → Ω → ℕ)
+    (hX : ∀ i, Measurable (X i))
+    (hI : ProbabilityTheory.iIndepFun (fun _ => inferInstance) X μ)
+    (hL : ∀ i, μ.map (X i) = borelProbability) (s : Finset ι) :
+    μ.map (fun ω => ∑ i ∈ s, X i ω) = (borelForestPMF s.card).toMeasure := by
+  induction s using Finset.induction_on with
+  | empty =>
+    simp only [Finset.sum_empty, Finset.card_empty, borelForestPMF]
+    rw [PMF.toMeasure_pure, Measure.map_const, measure_univ, one_smul]
+  | @insert i s hi ih =>
+    have hs : Measurable (fun ω => ∑ j ∈ s, X j ω) :=
+      Finset.measurable_sum s (fun j _ => hX j)
+    have hind : ProbabilityTheory.IndepFun (fun ω => ∑ j ∈ s, X j ω) (X i) μ := by
+      have he : (∑ j ∈ s, X j) = fun ω => ∑ j ∈ s, X j ω := by
+        funext ω
+        simp only [Finset.sum_apply]
+      rw [← he]
+      exact hI.indepFun_finset_sum_of_not_mem hX hi
+    have hh := independent_nat_sum_law μ _ (X i) hs (hX i) hind
+      (borelForestPMF s.card) borelPMF ih (hL i)
+    simpa only [Finset.card_insert_of_not_mem hi, borelForestPMF,
+      Finset.sum_insert hi, add_comm] using hh
+
+theorem borel_independent_sum_probabilities {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) [IsProbabilityMeasure μ] (k n : ℕ) (hk : 0 < k) (hkn : k ≤ n)
+    (X : Fin k → Ω → ℕ) (hX : ∀ i, Measurable (X i))
+    (hI : ProbabilityTheory.iIndepFun (fun _ => inferInstance) X μ)
+    (hL : ∀ i, μ.map (X i) = borelProbability) :
+    μ {ω | ∑ i, X i ω = n} = ENNReal.ofReal
+      (Real.exp (-(n : ℝ)) * ((k : ℝ) / (n : ℝ) *
+        (n : ℝ) ^ (n - k) / ((n - k).factorial : ℝ))) := by
+  have he : μ.map (fun ω => ∑ i, X i ω) = (borelForestPMF k).toMeasure := by
+    simpa using borel_independent_finset_law μ X hX hI hL Finset.univ
+  have hm : Measurable (fun ω => ∑ i, X i ω) :=
+    Finset.measurable_sum Finset.univ (fun i _ => hX i)
+  have hv := congrArg (fun ν : Measure ℕ => ν {n}) he
+  dsimp only at hv
+  rw [Measure.map_apply hm (measurableSet_singleton n),
+    PMF.toMeasure_apply_singleton _ n (measurableSet_singleton n),
+    borel_independent_forest_probabilities n k hk hkn] at hv
+  exact hv
 
 end
 end Sigma

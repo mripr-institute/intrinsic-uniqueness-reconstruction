@@ -5,6 +5,7 @@ noncomputable section
 open scoped BigOperators Matrix
 variable {n : Type*} [Fintype n] [DecidableEq n]
 
+omit [DecidableEq n] in
 theorem symmetric_trace_square_eq_zero (U : Matrix n n ℝ) (hU : U.IsSymm) :
     Matrix.trace (U*U) = 0 ↔ U = 0 := by
   rw [symmetric_trace_square U hU]

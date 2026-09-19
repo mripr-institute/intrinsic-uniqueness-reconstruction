@@ -1,0 +1,454 @@
+{
+  "scope": "Independent adversarial statement audit of paper/sections/core.tex and closure.tex against current source signatures; read before consulting stale status claims.",
+  "audit_result": "DEFECTS FOUND",
+  "counting_note": "20 labels cover 18 named environments: global-A/global-B and global-C/global-D are aliases. Section/equation labels are not named mathematical environments.",
+  "totals_by_named_environment": {
+    "total": 18,
+    "definition": 2,
+    "complete": 10,
+    "partial": 6,
+    "missing": 0
+  },
+  "mathematically_false_named_clauses_found": [],
+  "statements": [
+    {
+      "latex_label": "final:C0",
+      "status": "definition",
+      "lean_declarations": [
+        "Sigma.placedOriginal",
+        "Sigma.placed",
+        "Sigma.PlacedParameters",
+        "Sigma.PlacedParameters.Admissible",
+        "Sigma.Closure.Placement"
+      ],
+      "proved_components": [
+        "Placed formula, admissible parameter domain, marked affine coordinate and intrinsic coordinate."
+      ],
+      "unproved_components": [],
+      "notes": "PlacedParameters permits a>0; its Admissible subtype and Closure.Placement impose the paper's a<1."
+    },
+    {
+      "latex_label": "final:C0-placement",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.placed_coordinate_bijective",
+        "Sigma.placed_original_identity",
+        "Sigma.placed_parameter_recovery",
+        "Sigma.placed_recover_offset",
+        "Sigma.placed_recover_intrinsic",
+        "Sigma.placed_closure",
+        "Sigma.intrinsic_log_density",
+        "SigmaPresentations.H_eq_neg_potential",
+        "SigmaPresentations.density_eq_exp_H",
+        "Sigma.intrinsic_density_integral_one",
+        "Sigma.placed_density_affine_pushforward",
+        "Sigma.placed_density_affine_pullback",
+        "Sigma.placed_density_nonnegative_pushforward",
+        "Sigma.placed_density_full_mass",
+        "Sigma.placed_density_nonnegative_mass",
+        "Sigma.placed_closed_nonnegative_ray_mass_one",
+        "Sigma.PlacedParameters.presentationEquiv",
+        "Sigma.PlacedParameters.presentationEquiv_roundtrip"
+      ],
+      "proved_components": [
+        "Affine bijection and original formula; parameter and intrinsic recovery; intrinsic sign/exponential identities; closure derivatives; actual density pushforward and pullback; both masses; admissible placed presentation round trips."
+      ],
+      "unproved_components": [],
+      "notes": "Actual measure-level theorems were inspected, not inferred from scalar density identity. Some source theorems valid for a>0 are stronger than required."
+    },
+    {
+      "latex_label": "final:C1",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.calibrated_curvature_iff",
+        "Sigma.calibrated_riccati_iff",
+        "Sigma.exact_flow_identifies",
+        "Sigma.exact_flow_of_reciprocal",
+        "Sigma.reconstruct_H",
+        "Sigma.shifted_curvature_affine_family",
+        "Sigma.affine_summand_two_data_unique",
+        "Sigma.shiftedLogAffine_deriv",
+        "Sigma.shiftedLogAffine_curvature",
+        "Sigma.one_affine_datum_insufficient"
+      ],
+      "proved_components": [
+        "Both differential equivalences, flow in both directions and anchored primitive, shifted curvature family, affine calibration and deletion witness."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C2",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.recentering_iff",
+        "Sigma.recentering_derivative_identity",
+        "Sigma.recentering_transports_curvature",
+        "Sigma.recentering_reconstruction",
+        "Sigma.scaled_H_recentring",
+        "Sigma.recentering_scale_calibration_necessary"
+      ],
+      "proved_components": [
+        "Only first differentiability and second derivative at one are assumed; global second derivative and both anchors are derived; converse and scale boundary are proved."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C3",
+      "status": "complete",
+      "lean_declarations": [
+        "SigmaBase.star_assoc",
+        "SigmaBase.star_comm",
+        "SigmaBase.star_zero",
+        "SigmaBase.star_closed",
+        "SigmaBase.invStar_closed",
+        "SigmaBase.star_inverse",
+        "SigmaBase.log_star",
+        "SigmaBase.displacement_cocycle",
+        "Sigma.group_log_derivative_from_identity",
+        "Sigma.normalized_group_log_unique_at_identity",
+        "Sigma.normalized_cocycle_unique_at_identity"
+      ],
+      "proved_components": [
+        "Group equations and closure/inverse, logarithm/cocycle forward identities and uniqueness from derivative at identity alone."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C3-completion",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.typed_completion_iff_family",
+        "Sigma.completion_derived_regularity",
+        "Sigma.completionEll_strictMono",
+        "Sigma.completionFamily_derivative_range",
+        "Sigma.completionFamily_typed_equation",
+        "Sigma.completionFamily_anchors_select_one",
+        "Sigma.completion_value_anchor_identifies",
+        "Sigma.completion_slope_anchor_identifies"
+      ],
+      "proved_components": [
+        "Exact K>0 family iff, derivative range, derived injectivity and second differentiability, both alternative anchors."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C3-automorphisms",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.group_endomorphism_classification",
+        "Sigma.group_automorphism_slope_nonzero",
+        "Sigma.groupPower_composition",
+        "Sigma.groupPower_inverse",
+        "Sigma.groupPower_hom",
+        "Sigma.groupPower_one",
+        "Sigma.starN",
+        "Sigma.groupPower_nat_nseries",
+        "Sigma.groupPower_nat_nseries_hom"
+      ],
+      "proved_components": [
+        "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition."
+      ],
+      "unproved_components": [
+        "Classification under continuity, measurability or monotonicity without assuming a derivative.",
+        "Nonlinear additive-bijection conjugate automorphism witness without regularity.",
+        "Formal power-series automorphism classification over an arbitrary characteristic-zero field.",
+        "Full integer (including negative indices) repeated-addition series interpretation; explicit calibration statement and power-coordinate formula may reuse existing differentiable classification."
+      ],
+      "notes": "No other project declarations supplying these clauses were found. Natural-index results are proved but omitted from the stale map."
+    },
+    {
+      "latex_label": "final:C4",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.bregman_scale_iff_affine_family",
+        "Sigma.calibrated_scale_bregman_unique",
+        "Sigma.anchored_symmetric_bregman_unique",
+        "Sigma.affinePotential_bregman",
+        "Sigma.affinePotential_scale",
+        "Sigma.affinePotential_calibration",
+        "Sigma.affinePotential_parameters_unique",
+        "Sigma.bregman_three_calibrations_independent"
+      ],
+      "proved_components": [
+        "Differentiability-only affine-family iff, three calibrations, symmetric slice inverse, exact ratio divergence and calibration independence."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C5",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.extended_intrinsic_full_conjugate",
+        "Sigma.extended_intrinsic_conjugate_infinite",
+        "Sigma.exact_legendre_target_identifies",
+        "Sigma.fenchel_candidate_off_positive",
+        "Sigma.fenchel_convex_candidate_lower_semicontinuous",
+        "Sigma.legendre_target_without_regularity_countermodel"
+      ],
+      "proved_components": [
+        "Actual full EReal supremum over all real primal coordinates, finite/infinite dual ranges including theta=1, either regularity condition alone, forced off-ray infinity, raised-point witness with unchanged full conjugate and neither regularity condition."
+      ],
+      "unproved_components": [],
+      "notes": "ExtendedConvex is convexity of the real epigraph, not an assumption of the desired reconstruction."
+    },
+    {
+      "latex_label": "final:C6",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.self_concordance_signed_identifies",
+        "Sigma.self_concordance_unsigned_identifies",
+        "Sigma.sc_intrinsic_C3",
+        "Sigma.sc_intrinsic_calibration",
+        "Sigma.sc_intrinsic_signed_equality",
+        "Sigma.sc_hessian_path_distance",
+        "Sigma.scPathLength_eq_hessian_length",
+        "Sigma.sc_native_hessian_path_distance",
+        "Sigma.sc_symmetrization_distance",
+        "Sigma.sc_anchored_curvature_reconstructs",
+        "Sigma.sc_distance_inversion",
+        "Sigma.sc_inversion_reverses_order",
+        "Sigma.scQuadratic_calibrated_inequality",
+        "Sigma.scQuadratic_not_intrinsic",
+        "Sigma.sc_no_finite_barrier_parameter"
+      ],
+      "proved_components": [
+        "Signed and unsigned C3 reconstruction on whole positive ray; Hessian metric distance via path lengths and a realizing path; symmetric divergence; metric-coordinate reconstruction; inversion orientation boundary; calibrated quadratic witness; absence of finite barrier parameter."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C7",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.calibrated_cross_ratio_identifies",
+        "Sigma.projectiveModel_preserves_cross_ratios",
+        "Sigma.projectiveModel_three_marks",
+        "Sigma.calibrated_schwarzian_identifies",
+        "Sigma.projectiveModel_C3",
+        "Sigma.projectiveModel_schwarzian_zero",
+        "Sigma.projectiveModel_schwarzian_marks",
+        "Sigma.projective_anchored_primitive_identifies",
+        "Sigma.projectiveAffineCounter_preserves_cross_ratios",
+        "Sigma.projectiveAffineCounter_schwarzian_data",
+        "Sigma.projectiveAffineCounter_not_model"
+      ],
+      "proved_components": [
+        "Calibrated projective and C3 Schwarzian inverse theorems with exact marks; forward models; anchored primitive; explicit uncalibrated counterexample."
+      ],
+      "unproved_components": [],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:C8",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.placed_log_iteratedDeriv",
+        "Sigma.placedLogDerivative_step",
+        "Sigma.gamma_iteratedDeriv",
+        "Sigma.gamma_exact_zeros",
+        "Sigma.placed_density_iteratedDeriv",
+        "Sigma.placed_density_exact_derivative_zero",
+        "Sigma.two_indexed_derivative_zeros_identify",
+        "Sigma.second_difference_sequence_unique",
+        "Sigma.log_second_difference",
+        "Sigma.placed_discrete_curvature",
+        "Sigma.second_difference_integer_sequence_unique",
+        "Sigma.second_difference_half_lattice_unique",
+        "Sigma.integer_samples_nonidentifying",
+        "Sigma.inverse_germ_identifies_analytic_density"
+      ],
+      "proved_components": [
+        "Actual placed logarithmic derivatives at all orders at least two; exponential placed-density derivatives and zero sets; two-index parameter identification; one-sided sequence uniqueness; analytic continuation from the density inverse germ.",
+        "Exact placed discrete-curvature formula on the complete stated domain r-1>-a/mu with mu>0; no extra offset restriction. Generic integer sequences are uniquely determined by two consecutive values and equal second differences on all integers.",
+        "Half-lattice uniqueness from any consecutive anchor pair at or above its lower endpoint, requiring recurrence only where all three indices are admissible. For every real function a witness preserves every integer sample, differs by a smooth function, and differs at the positive point 1/4, inside every admissible placed domain since -a/mu<0.",
+        "General analytic germ uniqueness is already supplied by imported Mathlib AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, with analytic candidates on a preconnected common domain and equality near a domain point."
+      ],
+      "unproved_components": [
+        "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
+        "General C(1+gamma*r)exp(-mu*r) derivative/zero statement and mass identification of free C, beyond the currently normalized placed density.",
+        "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
+      ],
+      "notes": "Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."
+    },
+    {
+      "latex_label": "final:Z4",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.zeroFamily_formula",
+        "Sigma.zeroFamily_positive",
+        "Sigma.zeroFamily_iteratedDeriv",
+        "Sigma.zeroFamily_exact_zeros",
+        "Sigma.zeroFamily_simple_zeros",
+        "Sigma.zeroFamily_integrable",
+        "Sigma.zeroFamily_mass_one",
+        "Sigma.zeroFamily_tendsto_zero",
+        "Sigma.zeroFamily_tendsto_infinity",
+        "Sigma.zeroFamily_not_gamma",
+        "Sigma.zeroFamily_analytic",
+        "Sigma.gamma_iteratedDeriv",
+        "Sigma.gamma_exact_zeros",
+        "Sigma.zeroCounterdensity_mass_one",
+        "Sigma.zeroCounterdensity_analytic",
+        "Sigma.zeroCounterdensity_not_gamma"
+      ],
+      "proved_components": [
+        "Entire real k>1 family, exact formula and derivatives, positivity, analyticity, actual integral normalization, both endpoint limits, exact simple zeros and inequality to p; k=2 witness."
+      ],
+      "unproved_components": [],
+      "notes": "The old map's k-family backlog is stale. This status concerns the complete named theorem statement. Extra proof-paragraph observations about non-entireness, log-concavity threshold and placed half-line variants have no explicit exported wrappers; they are not clauses of the theorem statement."
+    },
+    {
+      "latex_label": "final:identification",
+      "status": "definition",
+      "lean_declarations": [
+        "Sigma.presentationEquivalence",
+        "Sigma.Closure.lossEquivalence",
+        "Sigma.Closure.densityEquivalence",
+        "Sigma.Closure.canonical_realization_fibre"
+      ],
+      "proved_components": [
+        "Generic encoding/decoding through equivalences and dependent context recipes represent portions of the definition."
+      ],
+      "unproved_components": [],
+      "notes": "There is no project structure assembling candidate class, observation, observed value and inverse for all E_Sigma nodes. This matters for global-A/B, not for counting the explanatory definition."
+    },
+    {
+      "latex_label": "final:global-A",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.differential_core_iff",
+        "Sigma.differential_core_identifies",
+        "Sigma.Closure.intrinsic_loss_reconstruction",
+        "Sigma.Closure.intrinsic_density_reconstruction",
+        "Sigma.Closure.intrinsic_density_inverse",
+        "Sigma.Closure.presentation_intrinsic_unique",
+        "Sigma.presentationEquivalence_roundtrip",
+        "Sigma.Closure.presentation_transport_composes"
+      ],
+      "proved_components": [
+        "Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences."
+      ],
+      "unproved_components": [
+        "Construct the full typed E_Sigma collection with each actual candidate class and observation.",
+        "Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.",
+        "Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure."
+      ],
+      "notes": "Generic S≃A inputs assume the required inverse; they cannot certify the complete named closure theorem."
+    },
+    {
+      "latex_label": "final:global-B",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.presentationEquivalence",
+        "Sigma.presentationEquivalence_roundtrip",
+        "Sigma.Closure.presentation_transport_composes",
+        "Sigma.Closure.presentation_intrinsic_unique"
+      ],
+      "proved_components": [
+        "Composition, uniqueness and round trips once native presentation equivalences are given."
+      ],
+      "unproved_components": [
+        "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
+      ],
+      "notes": "Second label of the same theorem as global-A; avoid counting as a separate named statement."
+    },
+    {
+      "latex_label": "final:global-E",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.Closure.canonical_realization_fibre",
+        "Sigma.matrixPotential_spectral",
+        "Sigma.spd_scalar_block_lift_unique",
+        "Sigma.spd_positive_rank_lift_unique",
+        "Sigma.native_offspring_pgf_characterization"
+      ],
+      "proved_components": [
+        "Generic context-dependent recipe bookkeeping; genuine matrix uniqueness components; native offspring PGF identification components."
+      ],
+      "unproved_components": [
+        "The six fixed-context existence/uniqueness and reverse-observation assertions must be assembled from actual native context theorems.",
+        "In particular generic unique y satisfying y=recipe(c,s) is not uniqueness among candidates meeting identifying observations; it supplies none of the missing actual convolution, self-adjoint operator, Gaussian radial, iid branching-tree or universal Thom content."
+      ],
+      "notes": "Detailed native context residuals belong to P8/O3/M1/R1/P6-gw/F4 audits. This global item is partial even if one context is fully proved."
+    },
+    {
+      "latex_label": "final:global-C",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.Closure.intrinsic_loss_reconstruction",
+        "Sigma.Closure.intrinsic_density_reconstruction",
+        "Sigma.Closure.intrinsic_density_inverse",
+        "Sigma.Closure.placementEquivalence",
+        "Sigma.Closure.placement_exact_reconstruction",
+        "Sigma.Closure.placed_candidate_exact_reconstruction",
+        "Sigma.Closure.placement_scale_deletion",
+        "Sigma.Closure.placement_offset_deletion",
+        "Sigma.Closure.perturbed_intrinsic_analytic",
+        "Sigma.Closure.perturbed_intrinsic_anchors",
+        "Sigma.Closure.perturbed_intrinsic_identical_iff",
+        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero"
+      ],
+      "proved_components": [
+        "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature and uniform strict-convexity neighborhood."
+      ],
+      "unproved_components": [
+        "A nonzero perturbation with exact integral normalization and stated endpoint behavior in the relaxed deletion universe.",
+        "Complete native external packet deletion witnesses and their independent expansion with other packets fixed.",
+        "Global sufficient decomposition depends on full global-A/B and global-E."
+      ],
+      "notes": "Second theorem's global-C/global-D labels should count as one named mathematical statement."
+    },
+    {
+      "latex_label": "final:global-D",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.Closure.retained_context_deletion",
+        "Sigma.Closure.no_placement_decoder_without_scale",
+        "Sigma.Closure.no_placement_decoder_without_offset",
+        "Sigma.Closure.plane_composition_deletion",
+        "Sigma.Closure.plane_scale_deletion",
+        "Sigma.Closure.spatial_dimension_deletion",
+        "Sigma.borel_size_does_not_identify_random_tree",
+        "Sigma.Closure.perturbations_independent",
+        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero"
+      ],
+      "proved_components": [
+        "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork."
+      ],
+      "unproved_components": [
+        "Normalized nontrivial intrinsic deletion witness including endpoint behavior.",
+        "Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.",
+        "Assembly preserving every other retained packet and changing each named target."
+      ],
+      "notes": "Generic free-product non-decoding is not a substitute for the actual claimed candidate-universe witnesses."
+    },
+    {
+      "latex_label": "final:global-F",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.Closure.no_placement_decoder_without_scale",
+        "Sigma.Closure.no_placement_decoder_without_offset",
+        "Sigma.Closure.no_spatial_observable_decoder",
+        "Sigma.Closure.no_spatial_dimension_decoder",
+        "Sigma.Closure.spatial_observable_reconstruction",
+        "Sigma.Closure.spatial_radial_cancellation",
+        "Sigma.Closure.spatial_radial_dimension_three",
+        "Sigma.Closure.radial_cancellation_does_not_identify_profile",
+        "Sigma.borel_size_does_not_identify_random_tree"
+      ],
+      "proved_components": [
+        "Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation."
+      ],
+      "unproved_components": [
+        "Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly."
+      ],
+      "notes": "Spatial rigidity retains dimension>=2 and does not add continuity/measurability hypotheses."
+    }
+  ]
+}

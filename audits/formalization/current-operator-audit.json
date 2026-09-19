@@ -1,0 +1,357 @@
+{
+  "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
+  "paper": "paper/sections/operators.tex",
+  "namespace": "Sigma",
+  "result": "DEFECT LIST",
+  "passed_labels": [
+    "final:O1",
+    "final:O1-kernel",
+    "final:O7"
+  ],
+  "mathematically_false_paper_clauses": [],
+  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. No Lean edits and no fresh build certification in this audit.",
+  "statements": [
+    {
+      "latex_label": "final:O1",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.WeakGammaStein",
+        "Sigma.stein_test_integrable",
+        "Sigma.gamma_probability_weak_stein",
+        "Sigma.weak_stein_characterization",
+        "Sigma.weak_stein_density",
+        "Sigma.weak_stein_absolutely_continuous",
+        "Sigma.weak_stein_positive_support",
+        "Sigma.weak_stein_no_atoms",
+        "Sigma.weak_stein_moments_integrable",
+        "Sigma.weak_stein_factorial_moments"
+      ],
+      "proved_components": [
+        "Literal native ContDiff-infinity compact-support test identity on the whole real line iff the actual Borel probability is Gamma(2,1).",
+        "Integrability of the tests follows from finite mass; neither support nor moments nor density regularity is assumed.",
+        "Actual positive-ray withDensity equality, absolute continuity, no nonpositive mass, no atoms, and integrability and values of all ordinary moments are conclusions."
+      ],
+      "unproved_components": [],
+      "notes": "AUDIT PASS for this named statement. The formal proof uses a cutoff moment bootstrap rather than the paper's distributional half-line argument; its theorem has the same hypotheses and conclusions. Positive support means concentration on (0,infinity), not topological support excluding zero."
+    },
+    {
+      "latex_label": "final:O1-kernel",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.WeakDerivativePositive",
+        "Sigma.WeakSteinKernel",
+        "Sigma.weak_stein_kernel_iff_family",
+        "Sigma.stein_kernel_family_locally_integrable",
+        "Sigma.weak_stein_kernel_smooth_flux_representative",
+        "Sigma.weak_stein_kernel_continuous_representative_unique",
+        "Sigma.stein_flux_representative_absolute_continuity",
+        "Sigma.stein_kernel_flux_representative_integral",
+        "Sigma.stein_kernel_flux_endpoints",
+        "Sigma.zero_endpoint_weak_stein_kernel_unique",
+        "Sigma.stein_kernel_flux_integrable_iff",
+        "Sigma.weak_stein_kernel_integrable_iff_canonical",
+        "Sigma.finite_expectation_weak_stein_kernel_unique",
+        "Sigma.centered_integral_weak_stein_kernel_unique",
+        "Sigma.steinFlux_integral",
+        "Sigma.gamma_probability_mean",
+        "Sigma.gamma_probability_variance",
+        "Sigma.stein_kernel_family_nonnegative_iff",
+        "Sigma.stein_kernel_family_weak"
+      ],
+      "proved_components": [
+        "Actual weak derivative, tested against all smooth compactly supported functions with support inside the positive ray, iff tau=t+C exp(t)/t almost everywhere; assumes only local integrability of tau*p.",
+        "Smooth flux representative q+C is derived, unique among continuous representatives, satisfies the derivative/interval FTC and the full epsilon-delta local absolute-continuity property; both endpoint limits equal C.",
+        "Either zero endpoint, genuine probability L1-integrability, genuine finite expectation, or the actual finite centered integral selects the canonical kernel.",
+        "Canonical mean and variance are both two; nonnegativity permits exactly C>=0; every C satisfies the compact-test equation."
+      ],
+      "unproved_components": [],
+      "notes": "AUDIT PASS. HasFiniteIntegral plus the stated measurability is genuine finite Lebesgue expectation; it is not the vacuous assertion that Lean's totalized integral is real. For the centered integral =2 selector, nonintegrability would force the totalized integral to zero, so integrability is derived. Local weak tests correctly represent distributions on the open positive ray."
+    },
+    {
+      "latex_label": "final:O2",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.opExpression_linear",
+        "Sigma.opExpression_quadratic",
+        "Sigma.operator_two_probe_iff",
+        "Sigma.operator_two_probe_ae_iff",
+        "Sigma.operator_canonical_probes",
+        "Sigma.operator_pearson_flux_derivative"
+      ],
+      "proved_components": [
+        "Exact two-probe iff, pointwise and almost everywhere, with actual polynomial derivatives.",
+        "Canonical density satisfies the actual Pearson flux derivative."
+      ],
+      "unproved_components": [
+        "Unknown positive normalized locally absolutely continuous density satisfying Pearson must equal p, without an everywhere differentiability premise.",
+        "Consequent exact identification of the normalized Hilbert weight."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O2-boundaries",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.operator_linear_probe_arbitrary_diffusion",
+        "Sigma.operator_quadratic_probe_counterfamily",
+        "Sigma.operator_counterfamily_changes_linear",
+        "Sigma.operator_quadratic_positive_counterexample"
+      ],
+      "proved_components": [
+        "Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.",
+        "An explicit rational quadratic-only diffusion is positive on the positive ray."
+      ],
+      "unproved_components": [
+        "Complete smooth positive coefficient witnesses for irredundancy: attach actual smoothness and distinctness of the concrete rational witness and an explicit smooth positive linear-only witness.",
+        "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
+        "Distinct conservative reversible dynamics cA with invariant p and different time scales."
+      ],
+      "notes": "Compact support of the specific proof's epsilon family is not itself required by the named proposition; a smooth rational witness could discharge that clause."
+    },
+    {
+      "latex_label": "final:O3",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Native weighted complex L2 minimal operator on C_c^infinity; dense domain, nonnegativity and symmetry.",
+        "Both endpoint limit-point classifications, deficiency indices (0,0), closure=adjoint=unique self-adjoint extension.",
+        "Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.",
+        "Domain does not require a finite value at zero, including a witnessing domain element."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O3-form",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual closed energy form with precisely the displayed weighted Sobolev/locally AC domain and no extra endpoint traces.",
+        "Identification of this domain with D(A^(1/2)).",
+        "Native positivity-preserving semigroup, preservation of one and of the probability measure."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O3-spectrum",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.opLaguerre",
+        "Sigma.opLaguerreCoefficient",
+        "Sigma.opLaguerre_first_three",
+        "Sigma.opLaguerre_leading_coefficient",
+        "Sigma.opLaguerre_leading_coefficient_ne_zero",
+        "Sigma.operator_gamma_laguerre_orthogonality"
+      ],
+      "proved_components": [
+        "Exact marked finite-sum Laguerre polynomials and coefficients, including nonzero leading coefficients and the first three modes.",
+        "Canonical mean orthogonality to the constant for every positive mode."
+      ],
+      "unproved_components": [
+        "Rodrigues derivative formula and all-mode differential eigenvalue equation.",
+        "Complete orthonormal basis in the actual weighted complex L2 space and membership in the actual self-adjoint domain.",
+        "Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas."
+      ],
+      "notes": "The old map said unproved despite supplied polynomial components. Current status is partial. Orthogonality to constants is not pairwise orthonormality or L2 completeness."
+    },
+    {
+      "latex_label": "final:O7",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.opLaguerre",
+        "Sigma.opLaguerreCoefficient",
+        "Sigma.operator_gamma_laguerre_orthogonality",
+        "Sigma.operator_laguerre_orthogonality_recovers_moments",
+        "Sigma.operator_laguerre_orthogonality_iff_gamma",
+        "Sigma.operator_marked_laguerre_characterization",
+        "Sigma.operator_marked_laguerre_positive_support",
+        "Sigma.operator_full_line_factorial_moment_unique"
+      ],
+      "proved_components": [
+        "Literal polynomial-integrability candidate class on the entire real line and exact iff between all positive-mode marked Laguerre means zero and the native Gamma measure.",
+        "Triangular finite-sum coefficients recover all factorial moments; actual measure determinacy identifies the law.",
+        "Support in the positive ray is derived, not assumed."
+      ],
+      "unproved_components": [],
+      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate still-unproved Rodrigues identity or operator-basis realization."
+    },
+    {
+      "latex_label": "final:O4",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.operator_heat_eigenvalue_hasSum",
+        "Sigma.operator_heat_eigenvalue_summable_iff",
+        "Sigma.operator_complex_heat_eigenvalue_hasSum",
+        "Sigma.operator_complex_heat_eigenvalue_summable_iff",
+        "Sigma.operator_complex_zeta_eigenvalue_summable_iff",
+        "Sigma.operator_zeta_eigenvalue_hasSum",
+        "Sigma.operator_hausdorff_moment_unique"
+      ],
+      "proved_components": [
+        "Exact scalar eigenvalue-series domains and sums for real/complex heat parameters and complex shifted zeta.",
+        "Actual finite compact moment uniqueness as an ingredient for integer spectral-data recovery."
+      ],
+      "unproved_components": [
+        "Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.",
+        "Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.",
+        "Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O4-convergence-boundary",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual nonnegative diagonal self-adjoint compact-resolvent operator whose heat and positive shifted-zeta traces all diverge.",
+        "Both divergence estimates for the chosen double-log eigenvalue sequence."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O4-heat-kernel",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.",
+        "Local uniform and weighted product-L2 convergence.",
+        "Positivity, symmetry, row normalization, large-time limit one, and the corresponding Lebesgue transition density."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O4-resolvents",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.OpIsResolvent",
+        "Sigma.operator_resolvent_domain",
+        "Sigma.operator_resolvent_action",
+        "Sigma.operator_resolvent_injective",
+        "Sigma.operator_full_resolvent_unique",
+        "Sigma.operator_first_resolvent_eigenvalues_not_summable",
+        "Sigma.operator_squared_resolvent_eigenvalues_summable",
+        "Sigma.operator_shifted_real_eigenvalue_summable_iff"
+      ],
+      "proved_components": [
+        "A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.",
+        "Exact scalar first/squared/shifted resolvent summability thresholds."
+      ],
+      "unproved_components": [
+        "Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.",
+        "Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.",
+        "Trace-class resolvent difference and actual digamma trace formula.",
+        "Recovery of the actual generator from a full marked heat operator by unbounded functional calculus."
+      ],
+      "notes": "OpIsResolvent assumes the defining inverse equations, not the desired equality or recovered domain. This generic operator inverse is a genuine complete subcomponent, but does not supply the missing Laguerre realization."
+    },
+    {
+      "latex_label": "final:O4-determinants",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Actual zeta determinants with Hurwitz continuation and zero-mode conventions, including both sqrt(2pi) values.",
+        "Native Fredholm and Hilbert-Schmidt regularized determinants with both entire product/Gamma/sinh formulas.",
+        "Branch-independent sqrt quotient and value at zero.",
+        "Eigenvalue multiset recovery from zeros with multiplicities in the indicated nonnegative shifted determinant categories."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O4-finite-countermodels",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.",
+        "Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.",
+        "Proof that the spectrum changes, not merely its ordering."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O5",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.operator_gamma_mixing_integral",
+        "Sigma.operator_gamma_mixing_integer_integral",
+        "Sigma.operator_nonnegative_mixing_measure_unique",
+        "Sigma.operator_full_line_mixing_characterization",
+        "Sigma.operator_full_line_mixing_iff",
+        "Sigma.operator_integer_samples_integrable",
+        "Sigma.operator_integer_samples_positive_support",
+        "Sigma.operator_integer_samples_ae_pos"
+      ],
+      "proved_components": [
+        "Scalar Gamma mixing integral for every nonnegative spectral value.",
+        "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
+        "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values."
+      ],
+      "unproved_components": [
+        "Strong-operator mixing identity for every nonnegative self-adjoint B.",
+        "Extraction of scalar samples from each integer eigenvector in that actual operator identity.",
+        "Uniqueness for finite signed/complex measures of finite total variation, not only positive measures."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O6",
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.operator_hausdorff_moment_unique",
+        "Sigma.gamma_levy_exponent_integral",
+        "Sigma.gamma_levy_exponent_integrable"
+      ],
+      "proved_components": [
+        "Actual finite compact Hausdorff moment uniqueness, an ingredient.",
+        "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda."
+      ],
+      "unproved_components": [
+        "For Bernstein representation candidates: construction of finite compact difference measure, tail-weight cancellation at zero and recovery of full killing/drift/Levy data from arbitrary integer tails.",
+        "Gamma target's full Levy integrability/representation identification, including killing and drift zero.",
+        "Actual functional calculus sample extraction on marked integer eigenspaces.",
+        "Actual distinct smooth functions invisible on the integer spectrum."
+      ],
+      "notes": "A whole-tree search found no native Bernstein representation candidate structure or integer-tail inverse. Hausdorff uniqueness and the target scalar integral alone do not prove the named inverse."
+    },
+    {
+      "latex_label": "final:O6-functional-calculus",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.",
+        "Equivalence between actual 2 log(Id+A) and J(A)=(Id+A)^-2 via unbounded logarithmic functional calculus."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O5-isospectral-boundary",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Both actual Gamma-shape-two and shape-three weighted L2 self-adjoint closures with limit-point endpoints.",
+        "Complete simple integer eigenbases and intertwining unitary fixing one.",
+        "Agreement of every listed spectral invariant with conventions/domains and common unique mixing measure.",
+        "Distinct invariant coordinate probabilities with respective means two and three, inside those linked realizations."
+      ],
+      "notes": ""
+    },
+    {
+      "latex_label": "final:O5-canonical-versus-identification",
+      "status": "missing",
+      "lean_declarations": [],
+      "proved_components": [],
+      "unproved_components": [
+        "Canonical Gamma mixing existence for arbitrary nonnegative self-adjoint operators and integer-eigenvalue mixing uniqueness as actual operator facts.",
+        "Actual stationary-coordinate nonidentification witness even retaining all spectral/mixing data and the constant.",
+        "Identification under explicit mixing/coordinate linkage or the locally AC Pearson realization."
+      ],
+      "notes": "Proof-only coordinate multiplication spectral-measure reconstruction, other-shape recipes and failure of the canonical-selection left inverse likewise lack an actual Hilbert/operator implementation."
+    }
+  ]
+}

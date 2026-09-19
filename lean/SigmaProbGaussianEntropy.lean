@@ -26,8 +26,8 @@ theorem gaussian_kernel_second_moment (b : ℝ) (hb : 0 < b) :
     simpa only [Real.rpow_two] using integrable_rpow_mul_exp_neg_mul_sq hb (show (-1:ℝ)<2 by norm_num)
   have hd (t:ℝ) : HasDerivAt (fun t:ℝ => t*Real.exp (-b*t^2))
       (Real.exp (-b*t^2)-(2*b)*(t^2*Real.exp (-b*t^2))) t := by
-    convert (hasDerivAt_id t).mul ((((hasDerivAt_id t).pow 2).const_mul (-b)).exp) using 1 <;>
-      simp only [id_eq] <;> ring
+    convert (hasDerivAt_id t).mul ((((hasDerivAt_id t).pow 2).const_mul (-b)).exp) using 1 ;
+      simp only [id_eq] ; ring
   have hi := integral_eq_zero_of_hasDerivAt_of_integrable hd (h₀.sub (h₂.const_mul (2*b))) h₁
   rw [integral_sub h₀ (h₂.const_mul (2*b)),integral_mul_left] at hi
   have hn : 2*b ≠ 0 := by positivity

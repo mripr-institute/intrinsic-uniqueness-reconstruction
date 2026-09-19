@@ -40,8 +40,8 @@ theorem gamma_deficit_mgf_not_integrable_at_one :
     simp only [Real.log_exp]
     ring
   have hh : IntegrableOn (fun _ : ℝ => Real.exp (-1)) (Ioi (0 : ℝ)) := hd.congr he
-  simpa only [integrableOn_const, Real.exp_ne_zero, Real.volume_Ioi, lt_self_iff_false,
-    or_self] using hh
+  simp only [integrableOn_const, Real.exp_ne_zero, Real.volume_Ioi, lt_self_iff_false,
+    or_self] at hh
 
 theorem gamma_deficit_mgf_not_integrable (s : ℝ) (hs : 1 ≤ s) :
     ¬ Integrable (fun v : ℝ => Real.exp (s*v)) gammaDeficitProbability := by
