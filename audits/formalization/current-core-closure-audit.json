@@ -5,8 +5,8 @@
   "totals_by_named_environment": {
     "total": 18,
     "definition": 2,
-    "complete": 11,
-    "partial": 5,
+    "complete": 12,
+    "partial": 4,
     "missing": 0
   },
   "mathematically_false_named_clauses_found": [],
@@ -137,7 +137,7 @@
     },
     {
       "latex_label": "final:C3-automorphisms",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.group_endomorphism_classification",
         "Sigma.group_automorphism_slope_nonzero",
@@ -165,18 +165,41 @@
         "Sigma.additive_conjugate_closed",
         "Sigma.additive_conjugate_hom",
         "Sigma.additive_conjugate_inverse",
-        "Sigma.wild_group_automorphism"
+        "Sigma.wild_group_automorphism",
+        "Sigma.formalBinomialUnit",
+        "Sigma.formalStarPower",
+        "Sigma.formalStarPullback",
+        "Sigma.IsFormalStarEndomorphism",
+        "Sigma.formal_star_endomorphism_ode",
+        "Sigma.formal_star_endomorphism_classification",
+        "Sigma.formal_star_power_is_endomorphism",
+        "Sigma.formal_star_endomorphism_iff",
+        "Sigma.formal_binomial_unit_add",
+        "Sigma.formal_binomial_unit_nat",
+        "Sigma.formalCompose",
+        "Sigma.formal_compose_monomial",
+        "Sigma.formal_compose_polynomial",
+        "Sigma.formal_star_pullback_X_pow",
+        "Sigma.formal_star_pullback_locality",
+        "Sigma.formal_star_power_composition",
+        "Sigma.formal_star_power_inverse",
+        "Sigma.IsFormalStarAutomorphism",
+        "Sigma.formal_star_automorphism_classification",
+        "Sigma.formal_star_automorphism_tangent_iff",
+        "Sigma.formal_star_power_parameter_injective",
+        "Sigma.formal_star_endomorphism_calibration"
       ],
       "proved_components": [
         "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition.",
         "Continuous, measurable, monotone and antitone automorphism classification on the exact group domain D=(-1,infinity), with nonzero coefficient and the literal real-power formula. Measurability is required only on the domain subtype; automatic continuity of additive measurable maps is proved.",
         "Signed integer repeated group addition, including zero and negative indices, its literal integer-power formula and composition law; the derivative-at-zero calibration selects coefficient one and hence the identity.",
-        "Every additive real bijection produces an actual group automorphism with two-sided inverse on D. A rational-linear projection supplies a genuinely nonlinear additive bijection and a conjugate group automorphism unequal to every real-power map."
+        "Every additive real bijection produces an actual group automorphism with two-sided inverse on D. A rational-linear projection supplies a genuinely nonlinear additive bijection and a conjugate group automorphism unequal to every real-power map.",
+        "Over every characteristic-zero field, the full bivariate formal-group identity forces exactly the standard binomial power family, and every scalar in that family satisfies the full identity.",
+        "Formal automorphisms are exactly the family members with nonzero scalar, using actual zero-constant two-sided compositional inverses; the tangent condition is derived from invertibility.",
+        "Genuine formal substitution semantics, multiplication of parameters under composition, addition of parameters under the formal group law, native natural-power compatibility, unique parameter and tangent-one identity calibration."
       ],
-      "unproved_components": [
-        "Formal power-series automorphism classification over an arbitrary characteristic-zero field."
-      ],
-      "notes": "Bounded independent AUDIT PASS for the real regularity, signed-integer and wild-automorphism batches. Actual signatures use only continuity/monotonicity/measurability on D, not regularity outside the group or a supplied derivative. Both monotonic directions are covered; injectivity yields nonzero slope and surjectivity in the monotone branch is part of the automorphism category. The wild witness proves homomorphism, domain preservation, both inverse identities and inequality to every power map, rather than assuming a nonlinear bijection. The formal arbitrary-characteristic-zero-field classification remains unproved and is not inferred from the real function results."
+      "unproved_components": [],
+      "notes": "Independent complete named-proposition AUDIT PASS after fresh comparison of both existing real signatures and the new formal development. Real regularity is only on D, not outside the group; both monotonic directions and signed integer indices are covered. The wild witness supplies actual homomorphism, domain preservation, both inverse identities and inequality to every power map. The initially missing formal component is now resolved over an arbitrary characteristic-zero field, exactly the domain explicitly stated in this core proposition; the later characteristic-series section's Q-algebra extension is not silently substituted here. IsFormalStarEndomorphism contains the full two-variable identity, and the tangent ODE is a proved consequence rather than a hypothesis. Taylor pullback agrees with native substitution of X+Y+XY on monomials and is total-degree local. formalCompose is the locally finite native-power coefficient substitution on zero-constant inner series and agrees with polynomial evaluation. Both compositional inverse directions are proved for every nonzero field scalar; nonzero tangent is derived for arbitrary automorphisms. The converse full formal identity, parameter composition and calibration are all included, not inferred from naming."
     },
     {
       "latex_label": "final:C4",

@@ -155,6 +155,7 @@ import SigmaMatrixPiecewiseRankOneUnique
 import SigmaMatrixRankOneGeodesic
 import SigmaToddArbitraryPower
 import SigmaToddArbitraryPowerAlgebra
+import SigmaFormalAutomorphisms
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation

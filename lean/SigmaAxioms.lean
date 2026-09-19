@@ -1,5 +1,15 @@
 import Sigma
 
+#print axioms Sigma.formal_star_endomorphism_iff
+#print axioms Sigma.formal_star_automorphism_classification
+#print axioms Sigma.formal_star_power_composition
+#print axioms Sigma.formal_star_power_inverse
+#print axioms Sigma.formal_star_automorphism_tangent_iff
+#print axioms Sigma.formal_star_endomorphism_calibration
+#print axioms Sigma.formal_compose_polynomial
+#print axioms Sigma.formal_star_pullback_X_pow
+#print axioms Sigma.formal_star_pullback_locality
+
 #print axioms Sigma.labelled_irreducible_iff
 #print axioms Sigma.labelled_factor_count
 #print axioms Sigma.labelled_distinct_factor_count

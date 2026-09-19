@@ -22,6 +22,7 @@ lean_lib SigmaFormalization where
     `SigmaMatrixRankOneGeodesic,
     `SigmaToddArbitraryPower,
     `SigmaToddArbitraryPowerAlgebra,
+    `SigmaFormalAutomorphisms,
     `SigmaMatrixGeodesic,
     `SigmaMatrixRankOne,
     `SigmaAutomorphisms,
