@@ -1,5 +1,7 @@
 # Arithmetic transport and matrix path milestone
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent commit: `1dff9bbf6181aa656f8554616cb67fcb6a2f70b6`.
 
 ## Exact additions
@@ -23,10 +25,10 @@ Parent commit: `1dff9bbf6181aa656f8554616cb67fcb6a2f70b6`.
 - `lake build SigmaFormalization`: PASS; no project-owned warnings.
 - Existing full `Verify.py` run for the preceding frozen milestone completed PASS.
 - Current source proof-escape audit: PASS.
-- Focused `#print axioms` for all new material public claims: PASS; only `propext`,
+- Focused `#print axioms` for all new material public results: PASS; only `propext`,
   `Classical.choice`, and `Quot.sound` occur. Checks added to `SigmaAxioms.lean`.
 - Independent adversarial reviewer `/root/coverage_realizations`: AUDIT PASS for
-  the bounded claims and mappings in the stable four-module batch.
+  the bounded results and mappings in the stable four-module batch.
 - Independent older-coverage sampling `/root/coverage_core_closure`: AUDIT PASS
   for P2, P3, F1, with their complete actual analytic/algebraic signatures checked.
 

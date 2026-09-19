@@ -1,11 +1,13 @@
 # Pearson identification and rational-tree decoding
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 ## Verified milestone
 
 B1 and O2 have been independently compared with their complete current paper
 statements and actual Lean signatures. Both received **AUDIT PASS** from the
 independent coverage auditor. Their section maps now classify them as complete,
-with no unproved components.
+with no remaining Lean formalization components.
 
 - B1: 59 mapped declarations, including the nonnegative determinant-one matrix
   monoid, Stern–Brocot/Calkin–Wilf reversal, unique canonical continued fractions,
@@ -28,4 +30,4 @@ with no unproved components.
 
 Coverage after this milestone: 80 named items; 2 definitions, 40 complete,
 28 partial, 10 missing. Ongoing F3 work is excluded from this milestone and its
-coverage claims.
+coverage assessments.

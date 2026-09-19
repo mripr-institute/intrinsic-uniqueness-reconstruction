@@ -1,5 +1,7 @@
 # Exact C3 automorphism classification
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `8f36146`.
 
 `SigmaFormalAutomorphisms.lean` closes the previously remaining formal clause of

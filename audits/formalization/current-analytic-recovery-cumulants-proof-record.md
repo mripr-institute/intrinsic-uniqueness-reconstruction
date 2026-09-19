@@ -1,5 +1,7 @@
 # Formal/analytic recovery and probability clauses
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 This milestone follows `39eebbbd8dab7ae599c6d59be512d618018201f9`.
 
 ## Exact coverage and independent review
@@ -43,7 +45,7 @@ partial probability/topology statements have been promoted by this milestone.
 - Diff whitespace checks: PASS.
 
 Coverage: 80 named paper items, 2 definitions, **41 complete, 27 partial,
-10 missing**. The additional labelled claims remain 13 complete and 2 missing.
+10 missing**. The additional labelled results remain 13 complete and 2 missing.
 The proved inventory records 176 component entries within complete statements
 and 79 within partial statements, with all exact remaining obligations retained.
 
@@ -51,5 +53,5 @@ and 79 within partial statements, with all exact remaining obligations retained.
 
 `lean/SigmaProbCumulantCalibration.lean` remains an untracked local experiment.
 Its targeted compilation fails; it is excluded from this milestone's imports,
-commit, and coverage claims. No code or WIP was deleted. Both metadata-repair
+commit, and coverage assessments. No code or WIP was deleted. Both metadata-repair
 stashes and `backup-before-author-fix` remain intact.

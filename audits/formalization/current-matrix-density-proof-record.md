@@ -1,5 +1,7 @@
 # Matrix deletion boundaries and density/Levy components
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `a403ecc3cd6a0868e09eaf37539256a584821547`, pushed to main.
 The two full verifier/explicit axiom runs pending in its record both subsequently
 completed successfully. No proof escapes or unexpected dependencies appeared.
@@ -13,7 +15,7 @@ completed successfully. No proof escapes or unexpected dependencies appeared.
   zero at rank one and one otherwise. It retains the seed, nonnegativity and
   orthogonal invariance, but fails scalar recursion at identity blocks.
   These are alternative valid witnesses to the named necessity statements,
-  not claims that the paper proof's particular example formulas were formalized.
+  without asserting that the paper proof's particular example formulas were formalized.
 - C8's independent-amplitude family now has actual all-order derivatives,
   exact single zeros, recovery of rate and shape from consecutive indexed
   zeros, positive-ray mass, and amplitude identification from that mass.
@@ -21,7 +23,7 @@ completed successfully. No proof escapes or unexpected dependencies appeared.
 - P8-selfdecomposition now has the displayed nonnegative jump density,
   integrability, the integral -2 log c, and an actual finite withDensity measure
   with that mass. Compound-Poisson identification of the existing residual law
-  remains unproved; the ledger explicitly preserves that distinction.
+  remains unformalized in Lean; the ledger explicitly preserves that distinction.
 
 ## Verification and independent review
 

@@ -1,5 +1,5 @@
 {
-  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. Complete coverage is not established.",
+  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. Complete Lean coverage is not yet established.",
   "count": 80,
   "totals": {
     "definition": 2,

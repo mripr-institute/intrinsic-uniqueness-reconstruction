@@ -1,5 +1,7 @@
 # Complete M2 matrix duality and determinant clauses
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `061b289be4c5642416e9640048accbe74a4917a8`, pushed to main.
 
 The arithmetic-mean determinant inequality is derived by rescaling the actual
@@ -19,7 +21,7 @@ exact. No spectral formula is substituted for an actual supremum.
 Independent review returned AUDIT PASS for the entire named M2 statement and
 the separately labelled matrix-conjugate formula. Their residual lists are now
 empty. The reviewer retained separate notes about adjacent unformalized prose
-claims (dual-Bregman equality, marked affine converses and alternative metrics);
+results (dual-Bregman equality, marked affine converses and alternative metrics);
 this milestone does not assert those or whole-paper completeness.
 
 Validation: aggregate build PASS, zero project-owned warnings; source audit

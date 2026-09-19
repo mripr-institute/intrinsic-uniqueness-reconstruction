@@ -1,5 +1,7 @@
 # Complete B3 and actual matrix distance deletion boundary
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `8df0993`.
 
 ## Exact B3 closure

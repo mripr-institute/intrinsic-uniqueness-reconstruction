@@ -1,5 +1,7 @@
 # Farey recovery, smooth boundaries, and the Gamma convolution family
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `1b4be3d`, pushed to main.
 
 B2 is now complete. Arbitrary numerically labelled child maps are identified
@@ -19,7 +21,7 @@ analytic recovery obligations.
 
 The M2 adjacent dual-Bregman identity now uses the actual Fréchet derivative of
 the dual potential and the correctly reversed Legendre arguments. This does
-not erase the other outstanding adjacent matrix claims.
+not erase the other outstanding adjacent matrix results.
 
 P8 now has an actual probability-measure convolution family with Dirac zero,
 the prescribed time-one marginal, Gamma marginals, and equality for native

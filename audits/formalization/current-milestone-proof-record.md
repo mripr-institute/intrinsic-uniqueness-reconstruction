@@ -1,5 +1,7 @@
 # Coverage reconstruction and exact probability, discrete and Farey bridges
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 This milestone does not claim full-paper completion. It reconstructs the current
 coverage inventory, closes two gaps discovered by independent review, and removes
 the project-owned warnings. The authoritative starting state and initial counts
@@ -90,7 +92,7 @@ labelled formulas. That gate intentionally fails while recorded gaps remain.
 80 named mathematical environments: 2 definitions, 30 complete, 35 partial,
 13 missing, zero pending classifications. Compared with the fresh initial audit,
 P6 and P7 moved from partial to complete. The extra labelled-formula ledger has
-15 component entries, of which four still have missing proofs; several are
+15 component entries, of which four still need Lean formalizations; several are
 components of already-partial named theorems, and the arbitrary-power Todd
 formula is standalone. These must not be ignored in a full-paper completion claim.
 

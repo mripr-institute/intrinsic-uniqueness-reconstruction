@@ -1,5 +1,7 @@
 # Actual radial calculus, subordinator drift, and SPD symmetrization
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent: `d834fd899e82a4948b559485cb6ed741978ec61b`, pushed to main.
 
 R3 is complete. The Laplacian is defined as the sum of actual second

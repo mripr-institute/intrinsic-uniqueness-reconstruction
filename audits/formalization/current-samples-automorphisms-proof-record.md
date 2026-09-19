@@ -1,5 +1,7 @@
 # Bernstein integer tails and real group automorphisms
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `ee69a12c1a40a0ea79ba0def9b24b9345634b31d`, pushed to main.
 
 P8-samples is complete in the Bernstein representation category explicitly

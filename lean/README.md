@@ -3,6 +3,10 @@
 This directory contains the Lean 4 formalization accompanying
 _Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations_.
 
+The mathematical proofs are in the paper. Lean supplies a machine-checked
+formalization of those proofs. A partial or missing Lean formalization does not
+mean that the corresponding paper result is unproved.
+
 ## Entry points
 
 `Sigma.lean` is the complete umbrella module.

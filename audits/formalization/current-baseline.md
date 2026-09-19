@@ -1,5 +1,7 @@
 # Local baseline and coverage reconstruction
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 This document preserves the starting baseline, not the latest totals. For the
 current audited status, use [the live coverage ledger](../lean-coverage.md) and
 [its machine-readable source](../lean-coverage.json). Milestone proof records
@@ -25,22 +27,22 @@ audit found no `sorry`, `admit`, or `sorryAx`.
 The initial build emitted 62 project-owned warnings across 27 source files,
 plus upstream Mathlib doc-string warnings. No dependency files were changed.
 
-## Fresh initial coverage, before new mathematics
+## Fresh initial Lean coverage, before further formalization
 
 80 named mathematical environments in the current five paper sections:
 2 definitions, 28 complete, 37 partial, 13 missing. Labels global-A/global-B
 and global-C/global-D are paired labels of single theorem environments.
 The Formalization remark is software-status prose and is audited separately;
 it currently overstates completion. Standalone labelled equations are retained
-in the detailed section audits, including the unproved arbitrary-power Todd
+in the detailed section audits, including the then-unformalized arbitrary-power Todd
 coefficient formula. They are not silently counted as complete named theorems.
 
 The old top-level ledger had 78 pending exact matches. Those were unclassified,
-not 78 missing proofs. The new ledger credits existing proofs and lists only
+not 78 missing mathematical proofs. The new ledger credits existing Lean proofs and lists only
 their exact remaining clauses. Both the complete-coverage claim and the
 assumption that the entire remainder is small are contradicted by source
 inspection: the unbounded operator and topological developments are substantive
-missing mathematics.
+remaining Lean formalization work.
 
 Examples recovered from stale mappings: the full real-parameter Z4 density
 family; P2 actual entropy/divergence and Poisson clauses; P2 orientation

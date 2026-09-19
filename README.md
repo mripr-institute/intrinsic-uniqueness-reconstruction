@@ -15,6 +15,11 @@ DOI: 10.5281/zenodo.22775358
 
 ## Lean formalization
 
+The paper supplies mathematical proofs; the Lean 4 development formalizes those
+proofs for kernel checking. Coverage statuses such as **complete**, **partial**,
+and **missing** describe the extent of that formalization, not whether the
+paper's results have mathematical proofs.
+
 The formal development is organized by mathematical content.
 
 Principal entry points:

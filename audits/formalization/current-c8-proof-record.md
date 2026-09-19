@@ -1,5 +1,7 @@
 # Complete C8 derivative and local-data boundaries
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent milestone: `81f9e27a991c7dc304467451667592b11568a025`, pushed to main.
 
 The final two residuals of C8 are now proved:

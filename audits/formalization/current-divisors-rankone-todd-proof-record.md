@@ -1,5 +1,7 @@
 # Divisor inventory, exact rank-one geometry, arbitrary Todd powers
 
+Terminology: this record concerns Lean formalization of proofs supplied in the paper. Coverage gaps refer to Lean, not to unproved mathematical results.
+
 Parent commit: `90ae8eb7838f3b7eb7bf08936b80c2d47490bec5`.
 
 ## Exact mathematical additions
@@ -39,7 +41,7 @@ only fields. The Todd labelled equation is now complete with no residual clauses
 - Full `Verify.py` rerun started for this frozen batch; focused checks are complete.
 
 Named statement totals remain 2 definitions, 36 complete, 32 partial, 10 missing.
-The separate labelled-claim inventory now has 13 complete and 2 missing. B3 still
+The separate labelled-result inventory now has 13 complete and 2 missing. B3 still
 requires Mobius/Dirichlet/multiplicative-function and totient content plus remaining
 boundaries. M3 retains higher-rank global minimality/uniqueness and equal-distance
 boundary witnesses. No claim of whole-paper completion is made.
