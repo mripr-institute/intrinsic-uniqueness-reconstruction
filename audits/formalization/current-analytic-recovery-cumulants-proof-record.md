@@ -37,7 +37,8 @@ partial probability/topology statements have been promoted by this milestone.
 - Dependency-only Mathlib doc-string warnings: unchanged.
 - `python3 scripts/rebuild_coverage.py --check --lean`: PASS, 1127 mappings.
 - `Verify.source_audit()`: PASS; no `sorry`, `admit`, `sorryAx`, or project axioms.
-- Full `Verify.py` / `SigmaAxioms.lean`: pending final audit completion.
+- Full `Verify.py` / `SigmaAxioms.lean`: PASS; completed immediately after the
+  milestone push, with only `propext`, `Classical.choice`, and `Quot.sound`.
 - Independent mathematical review: PASS for the scopes above.
 - Diff whitespace checks: PASS.
 
