@@ -1,5 +1,34 @@
 import Sigma
 
+#print axioms Sigma.local_ac_pearson_density_unique
+#print axioms Sigma.local_ac_pearson_weight_measure
+#print axioms Sigma.operator_two_probe_pearson_inverse_ae
+#print axioms Sigma.operator_two_probe_pearson_representative_inverse_ae
+#print axioms Sigma.operator_two_probe_pearson_representative_inverse
+#print axioms Sigma.canonical_density_has_local_ac_pearson_flux
+#print axioms Sigma.operator_marked_probe_irredundancy
+#print axioms Sigma.rational_tree_matrix_append
+#print axioms Sigma.rational_tree_matrix_determinant
+#print axioms Sigma.rational_tree_matrix_exists_unique
+#print axioms Sigma.nonnegative_integer_matrix_exists_unique
+#print axioms Sigma.stern_brocot_cw_reversal
+#print axioms Sigma.stern_brocot_enumeration
+#print axioms Sigma.stern_brocot_mediant_reduced
+#print axioms Sigma.stern_brocot_ordered_endpoints
+#print axioms Sigma.stern_brocot_initial_endpoints
+#print axioms Sigma.canonical_cf_exists_unique
+#print axioms Sigma.canonical_positive_cf_iff_digits
+#print axioms Sigma.canonicalCFPathEquiv
+#print axioms Sigma.orientedRunEquiv
+#print axioms Sigma.canonicalCFRunEquiv
+#print axioms Sigma.cw_subtract_to_root
+#print axioms Sigma.euclidean_right_nonterminal_run
+#print axioms Sigma.euclidean_left_nonterminal_run
+#print axioms Sigma.euclidean_terminal_reduced
+#print axioms Sigma.euclidean_terminal_left_reduced
+#print axioms Sigma.euclidean_root_zero_run
+#print axioms Sigma.finite_cf_remove_terminal_one
+
 #print axioms Sigma.labelled_prime_power_values_exists_unique
 #print axioms Sigma.labelled_multiplicative_product
 #print axioms Sigma.labelled_coprime_iff_gcd_one

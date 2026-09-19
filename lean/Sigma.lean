@@ -164,6 +164,11 @@ import SigmaMatrixMetricBounds
 import SigmaMatrixPathBounds
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
+import SigmaOperatorPearson
+import SigmaOperatorPearsonRepresentative
+import SigmaOperatorProbeBoundaries
+import SigmaRationalMatrixMonoid
+import SigmaRationalEuclidean
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation

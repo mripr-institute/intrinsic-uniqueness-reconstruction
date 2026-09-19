@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 3,
-    "partial": 7,
+    "complete": 4,
+    "partial": 6,
     "missing": 9
   },
   "namespace": "Sigma",
@@ -76,24 +76,45 @@
     },
     {
       "latex_label": "final:O2",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.opExpression_linear",
         "Sigma.opExpression_quadratic",
         "Sigma.operator_two_probe_iff",
         "Sigma.operator_two_probe_ae_iff",
         "Sigma.operator_canonical_probes",
-        "Sigma.operator_pearson_flux_derivative"
+        "Sigma.operator_pearson_flux_derivative",
+        "Sigma.LocallyIntegralAbsolutelyContinuousPositive",
+        "Sigma.local_integral_ac_continuousOn",
+        "Sigma.local_integral_ac_continuousAt",
+        "Sigma.local_ac_pearson_hasDerivAt",
+        "Sigma.differentiable_pearson_density_family",
+        "Sigma.local_ac_pearson_density_unique",
+        "Sigma.local_ac_pearson_density_integrable",
+        "Sigma.local_ac_pearson_weight_measure",
+        "Sigma.ae_equal_positive_derivative_unique",
+        "Sigma.local_integral_ac_ae_differentiable",
+        "Sigma.local_ac_pearson_ae_coefficients",
+        "Sigma.operator_two_probe_pearson_inverse_ae",
+        "Sigma.operator_two_probe_pearson_inverse",
+        "Sigma.canonical_density_local_integral_ac",
+        "Sigma.operator_canonical_pearson_realization",
+        "Sigma.HasLocalACPearsonFlux",
+        "Sigma.local_ac_pearson_representative_canonical",
+        "Sigma.operator_two_probe_pearson_representative_inverse_ae",
+        "Sigma.operator_two_probe_pearson_representative_inverse",
+        "Sigma.canonical_density_has_local_ac_pearson_flux"
       ],
       "proved_components": [
         "Exact two-probe iff, pointwise and almost everywhere, with actual polynomial derivatives.",
-        "Canonical density satisfies the actual Pearson flux derivative."
+        "Canonical density satisfies the actual Pearson flux derivative.",
+        "A locally absolutely continuous weight satisfying Pearson almost everywhere has a derived everywhere derivative on the positive ray, is a constant multiple of the canonical density, and normalization forces pointwise equality with that density.",
+        "The actual positive-ray withDensity measure equals gammaProbability, identifying the normalized Hilbert weight rather than only a scalar ODE solution.",
+        "Both pointwise and almost-everywhere probe interpretations reconstruct coefficients and the normalized weight; the latter allows arbitrary coefficient representatives and a locally absolutely continuous flux representative.",
+        "The canonical positive normalized density and its flux satisfy the local-AC categories and both probes, establishing the converse realization."
       ],
-      "unproved_components": [
-        "Unknown positive normalized locally absolutely continuous density satisfying Pearson must equal p, without an everywhere differentiability premise.",
-        "Consequent exact identification of the normalized Hilbert weight."
-      ],
-      "notes": ""
+      "unproved_components": [],
+      "notes": "Whole-O2 AUDIT PASS. Local absolute continuity uses the standard L1 a.e.-derivative plus integral-representation characterization on every compact positive interval, independent of Pearson and normalization; no unavailable native AC predicate equivalence is claimed. Continuity and the everywhere Pearson derivative are derived, not assumed. Positivity is not required by the uniqueness proof, which is stronger than the paper; canonical positivity is supplied separately. Nonzero mass derives integrability, and the actual positive-supported measure is proved equal. The initial raw-flux differentiability caution is resolved by HasLocalACPearsonFlux: arbitrary a.e. coefficient representatives may have discontinuous raw aw, but an independent locally AC representative F with F=aw a.e. is used instead. After coefficient recovery, continuity upgrades F=tw from a.e. to pointwise, allowing legitimate derivative transport. This is an expression/weight theorem only, not a claim about the separate unbounded Hilbert operator or its domain."
     },
     {
       "latex_label": "final:O2-boundaries",
@@ -102,18 +123,21 @@
         "Sigma.operator_linear_probe_arbitrary_diffusion",
         "Sigma.operator_quadratic_probe_counterfamily",
         "Sigma.operator_counterfamily_changes_linear",
-        "Sigma.operator_quadratic_positive_counterexample"
+        "Sigma.operator_quadratic_positive_counterexample",
+        "Sigma.operator_linear_only_smooth_positive_witness",
+        "Sigma.operator_quadratic_only_smooth_positive_witness",
+        "Sigma.operator_marked_probe_irredundancy"
       ],
       "proved_components": [
         "Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.",
-        "An explicit rational quadratic-only diffusion is positive on the positive ray."
+        "An explicit rational quadratic-only diffusion is positive on the positive ray.",
+        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1."
       ],
       "unproved_components": [
-        "Complete smooth positive coefficient witnesses for irredundancy: attach actual smoothness and distinctness of the concrete rational witness and an explicit smooth positive linear-only witness.",
         "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
         "Distinct conservative reversible dynamics cA with invariant p and different time scales."
       ],
-      "notes": "Compact support of the specific proof's epsilon family is not itself required by the named proposition; a smooth rational witness could discharge that clause."
+      "notes": "Bounded irredundancy AUDIT PASS. The named proposition does not require compact support of the particular proof perturbation. The explicit linear-only diffusion 2t and quadratic-only diffusion t/(1+(t-3)^2) have proved ContDiff smoothness, positivity for every t>0, retained identities throughout that ray and actual omitted-identity failure at one. The self-adjoint and invariant-dynamics boundaries remain separate unresolved clauses."
     },
     {
       "latex_label": "final:O3",

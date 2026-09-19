@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 38,
-    "partial": 30,
+    "complete": 40,
+    "partial": 28,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -1762,29 +1762,47 @@
       "line": 97,
       "statement_tex": "\\label{final:O2}\nIn the conservative local second-order class\n\\[\n Bf=-a(t)f''-b(t)f',\\qquad t>0,\n\\]\nthe two differential-expression identities\n\\begin{equation}\\label{final:O2-probes}\n B(2-t)=2-t,\\qquad\n B(t^2/2-3t+3)=t^2-6t+6\n\\end{equation}\nhold if and only if $a(t)=t$ and $b(t)=2-t$.\nThe conclusion is pointwise or almost everywhere according to the\nmeaning of the coefficient identities.  If a positive, locally\nabsolutely continuous probability density $w$ is also required to obey\nthe zero-current Pearson equation $(aw)'=bw$, then $w=p$.\nThus these data determine the differential expression and its normalized\nHilbert weight in this specified coordinate class.\n",
       "statement_sha256": "4cc6db3d698930a073ccf0f333bcb02b5120960caba5c2fdf5e1afbd8f1de3ff",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.opExpression_linear",
         "Sigma.opExpression_quadratic",
         "Sigma.operator_two_probe_iff",
         "Sigma.operator_two_probe_ae_iff",
         "Sigma.operator_canonical_probes",
-        "Sigma.operator_pearson_flux_derivative"
+        "Sigma.operator_pearson_flux_derivative",
+        "Sigma.LocallyIntegralAbsolutelyContinuousPositive",
+        "Sigma.local_integral_ac_continuousOn",
+        "Sigma.local_integral_ac_continuousAt",
+        "Sigma.local_ac_pearson_hasDerivAt",
+        "Sigma.differentiable_pearson_density_family",
+        "Sigma.local_ac_pearson_density_unique",
+        "Sigma.local_ac_pearson_density_integrable",
+        "Sigma.local_ac_pearson_weight_measure",
+        "Sigma.ae_equal_positive_derivative_unique",
+        "Sigma.local_integral_ac_ae_differentiable",
+        "Sigma.local_ac_pearson_ae_coefficients",
+        "Sigma.operator_two_probe_pearson_inverse_ae",
+        "Sigma.operator_two_probe_pearson_inverse",
+        "Sigma.canonical_density_local_integral_ac",
+        "Sigma.operator_canonical_pearson_realization",
+        "Sigma.HasLocalACPearsonFlux",
+        "Sigma.local_ac_pearson_representative_canonical",
+        "Sigma.operator_two_probe_pearson_representative_inverse_ae",
+        "Sigma.operator_two_probe_pearson_representative_inverse",
+        "Sigma.canonical_density_has_local_ac_pearson_flux"
       ],
       "proved_components": [
         "Exact two-probe iff, pointwise and almost everywhere, with actual polynomial derivatives.",
-        "Canonical density satisfies the actual Pearson flux derivative."
+        "Canonical density satisfies the actual Pearson flux derivative.",
+        "A locally absolutely continuous weight satisfying Pearson almost everywhere has a derived everywhere derivative on the positive ray, is a constant multiple of the canonical density, and normalization forces pointwise equality with that density.",
+        "The actual positive-ray withDensity measure equals gammaProbability, identifying the normalized Hilbert weight rather than only a scalar ODE solution.",
+        "Both pointwise and almost-everywhere probe interpretations reconstruct coefficients and the normalized weight; the latter allows arbitrary coefficient representatives and a locally absolutely continuous flux representative.",
+        "The canonical positive normalized density and its flux satisfy the local-AC categories and both probes, establishing the converse realization."
       ],
-      "unproved_components": [
-        "Unknown positive normalized locally absolutely continuous density satisfying Pearson must equal p, without an everywhere differentiability premise.",
-        "Consequent exact identification of the normalized Hilbert weight."
-      ],
-      "gaps": [
-        "Unknown positive normalized locally absolutely continuous density satisfying Pearson must equal p, without an everywhere differentiability premise.",
-        "Consequent exact identification of the normalized Hilbert weight."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Whole-O2 AUDIT PASS. Local absolute continuity uses the standard L1 a.e.-derivative plus integral-representation characterization on every compact positive interval, independent of Pearson and normalization; no unavailable native AC predicate equivalence is claimed. Continuity and the everywhere Pearson derivative are derived, not assumed. Positivity is not required by the uniqueness proof, which is stronger than the paper; canonical positivity is supplied separately. Nonzero mass derives integrability, and the actual positive-supported measure is proved equal. The initial raw-flux differentiability caution is resolved by HasLocalACPearsonFlux: arbitrary a.e. coefficient representatives may have discontinuous raw aw, but an independent locally AC representative F with F=aw a.e. is used instead. After coefficient recovery, continuity upgrades F=tw from a.e. to pointwise, allowing legitimate derivative transport. This is an expression/weight theorem only, not a claim about the separate unbounded Hilbert operator or its domain."
     },
     {
       "id": "final:O2-boundaries",
@@ -1802,24 +1820,26 @@
         "Sigma.operator_linear_probe_arbitrary_diffusion",
         "Sigma.operator_quadratic_probe_counterfamily",
         "Sigma.operator_counterfamily_changes_linear",
-        "Sigma.operator_quadratic_positive_counterexample"
+        "Sigma.operator_quadratic_positive_counterexample",
+        "Sigma.operator_linear_only_smooth_positive_witness",
+        "Sigma.operator_quadratic_only_smooth_positive_witness",
+        "Sigma.operator_marked_probe_irredundancy"
       ],
       "proved_components": [
         "Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.",
-        "An explicit rational quadratic-only diffusion is positive on the positive ray."
+        "An explicit rational quadratic-only diffusion is positive on the positive ray.",
+        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1."
       ],
       "unproved_components": [
-        "Complete smooth positive coefficient witnesses for irredundancy: attach actual smoothness and distinctness of the concrete rational witness and an explicit smooth positive linear-only witness.",
         "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
         "Distinct conservative reversible dynamics cA with invariant p and different time scales."
       ],
       "gaps": [
-        "Complete smooth positive coefficient witnesses for irredundancy: attach actual smoothness and distinctness of the concrete rational witness and an explicit smooth positive linear-only witness.",
         "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
         "Distinct conservative reversible dynamics cA with invariant p and different time scales."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Compact support of the specific proof's epsilon family is not itself required by the named proposition; a smooth rational witness could discharge that clause."
+      "notes": "Bounded irredundancy AUDIT PASS. The named proposition does not require compact support of the particular proof perturbation. The explicit linear-only diffusion 2t and quadratic-only diffusion t/(1+(t-3)^2) have proved ContDiff smoothness, positivity for every t>0, retained identities throughout that ray and actual omitted-identity failure at one. The self-adjoint and invariant-dynamics boundaries remain separate unresolved clauses."
     },
     {
       "id": "final:O3",
@@ -2951,32 +2971,83 @@
       "line": 796,
       "statement_tex": "\\label{final:B1}\nFix the positive rational coordinate, the root $1$, ordered edge\nlabels $L,R$, and the transformations\n\\[\n L(x)=\\frac{x}{1+x},\\quad R(x)=1+x,\\qquad\n M_L=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\quad\n M_R=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}.\n\\]\nSuccessively applying the letters of a word to $1$ gives a rooted\nCalkin--Wilf tree~\\cite{CalkinWilf} in which every positive rational occurs exactly\nonce.  The matrices $M_L,M_R$ freely generate exactly the determinant-one\nmatrices with nonnegative integer entries, including the identity.\n\nFor a Stern--Brocot interval~\\cite{Stern1858} store the upper endpoint as the first\ncolumn and the lower endpoint as the second, starting with columns\n$(1,0)^{\\mathsf T}$ and $(0,1)^{\\mathsf T}$, representing $\\infty$ and\n$0$.  Its node is their mediant and a left or right step multiplies\nthis matrix on the right by $M_L$ or $M_R$.  With these conventions\nthe Stern--Brocot label of a word is the Calkin--Wilf label of the\nreversed word.\n\nThe complete root path, its oriented subtraction runs, and the\nfinite continued fraction are mutually decodable, with the canonical\nconvention\n\\[\n [a_0;a_1,\\ldots,a_k],\\quad a_0\\geq0,\\quad\n a_j\\geq1\\ (j\\geq1),\\quad a_k\\geq2\\ \\text{if }k\\geq1.\n\\]\nA one-term expansion $[a_0]$ has $a_0\\geq1$, so the root is $[1]$.\nThe last run in the subtraction-to-root algorithm has length one less\nthan its terminal Euclidean quotient; it has length zero for the root.\n",
       "statement_sha256": "fa1a0edb91737e8bdf5e03980824d568014040312c981b82f02ada6b79e99ef8",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.cwValue_positive",
         "Sigma.cwValue_injective",
         "Sigma.cw_positive_rational_exists_unique",
         "Sigma.cw_parent_below",
-        "Sigma.cw_parent_above"
+        "Sigma.cw_parent_above",
+        "Sigma.rationalTreeGenerator",
+        "Sigma.rationalTreeMatrix",
+        "Sigma.rational_tree_matrix_append",
+        "Sigma.rational_tree_matrix_determinant",
+        "Sigma.rational_tree_matrix_exists_unique",
+        "Sigma.nonnegative_integer_matrix_exists_unique",
+        "Sigma.rational_tree_matrix_positive_rows",
+        "Sigma.rational_tree_matrix_mediant",
+        "Sigma.chronologicalCwValue",
+        "Sigma.chronological_cw_left",
+        "Sigma.chronological_cw_right",
+        "Sigma.sternBrocotMatrix",
+        "Sigma.stern_brocot_right_step",
+        "Sigma.stern_brocot_left_columns",
+        "Sigma.stern_brocot_right_columns",
+        "Sigma.stern_brocot_cw_reversal",
+        "Sigma.chronological_cw_LR",
+        "Sigma.stern_brocot_LR",
+        "Sigma.stern_brocot_enumeration",
+        "Sigma.stern_brocot_mediant_reduced",
+        "Sigma.sternBrocotLower",
+        "Sigma.sternBrocotUpper",
+        "Sigma.stern_brocot_ordered_endpoints",
+        "Sigma.stern_brocot_initial_endpoints",
+        "Sigma.finiteCFValue",
+        "Sigma.CanonicalPositiveCF",
+        "Sigma.canonical_positive_cf_iff_digits",
+        "Sigma.canonical_cf_exists_fraction",
+        "Sigma.canonical_cf_exists_unique",
+        "Sigma.canonical_cf_injective",
+        "Sigma.canonical_cf_head_floor",
+        "Sigma.canonical_cf_euclidean_head",
+        "Sigma.cw_path_canonical_cf",
+        "Sigma.canonical_cf_cw_path",
+        "Sigma.canonical_cf_root",
+        "Sigma.NormalOrientedRuns",
+        "Sigma.orientedRunEquiv",
+        "Sigma.expand_oriented_runs",
+        "Sigma.oriented_runs_expand",
+        "Sigma.canonicalCFPathEquiv",
+        "Sigma.canonical_cf_path_value",
+        "Sigma.canonicalCFRunEquiv",
+        "Sigma.cw_subtraction_step",
+        "Sigma.cw_subtraction_orientation",
+        "Sigma.cw_subtract_prefix",
+        "Sigma.cw_subtract_to_root",
+        "Sigma.rational_subtraction_right_fraction",
+        "Sigma.rational_subtraction_left_fraction",
+        "Sigma.euclidean_right_nonterminal_run",
+        "Sigma.euclidean_left_nonterminal_run",
+        "Sigma.euclidean_terminal_reduced",
+        "Sigma.euclidean_terminal_left_reduced",
+        "Sigma.euclidean_root_zero_run",
+        "Sigma.finite_cf_remove_terminal_one"
       ],
       "proved_components": [
         "Every positive rational has exactly one Calkin--Wilf word",
-        "Positive reduced fractions and forced parent steps"
+        "Positive reduced fractions and forced parent steps",
+        "Native nonnegative integral determinant-one matrices are exactly the free word products of the displayed native generators, with append mapped to matrix multiplication and the identity included",
+        "Actual Stern-Brocot column matrices evolve by right multiplication, with positive reduced mediants, determinant-one adjacency, correctly ordered upper/lower endpoints and initial infinity/zero represented without totalized division at infinity",
+        "Chronological Calkin-Wilf paths apply the first letter first, and the actual Stern-Brocot mediant equals the chronological Calkin-Wilf value of the reversed word; complete enumeration and the distinct LR examples hold",
+        "Ordinary finite continued-fraction evaluation with exactly the paper's intrinsic canonical digit conditions, unique existence for every positive rational and root expansion [1]",
+        "Actual two-sided equivalences between canonical continued fractions, complete tree paths and intrinsically normalized oriented runs, not restricted to an encoder image",
+        "Actual parent subtraction along every word reaches the root; maximal nonterminal runs in both orientations have the Euclidean quotient length and the true remainder state",
+        "For reduced terminal fractions both orientations have quotient-minus-one run length, with zero run at the root; terminal digit one is removed by the ordinary continued-fraction identity"
       ],
-      "unproved_components": [
-        "Free generation of exactly the nonnegative determinant-one matrix monoid including identity",
-        "Stern--Brocot endpoint matrices and reversal with the chronological path convention",
-        "Mutual decoding of paths, oriented Euclidean runs and canonical continued fractions",
-        "Terminal quotient minus one correction and root endpoint"
-      ],
-      "gaps": [
-        "Free generation of exactly the nonnegative determinant-one matrix monoid including identity",
-        "Stern--Brocot endpoint matrices and reversal with the chronological path convention",
-        "Mutual decoding of paths, oriented Euclidean runs and canonical continued fractions",
-        "Terminal quotient minus one correction and root endpoint"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Lean cwValue stores outermost letter first, explicitly documented; this is harmless for enumeration but is not a proof of the paper's Stern--Brocot reversal."
+      "notes": "Bounded matrix/Stern-Brocot AUDIT PASS. The initial head-outermost versus chronological convention defect is now resolved by chronologicalCwValue, its append-step equations, and the actual reversal identity. Matrix products, determinants and entries are native, not scalar stand-ins. Exists-unique covers arbitrary nonnegative integer matrices including zero entries and the identity; append compatibility and injectivity establish free generation. The upper first column has denominator zero exactly when represented by WithTop.top; the lower second column has positive denominator, and initial endpoints are literally infinity and zero with root mediant one. The remaining Euclidean/continued-fraction category is not yet promoted. Whole-B1 final AUDIT PASS after SigmaRationalEuclidean. Its inductive continued-fraction category is proved equivalent to the explicit first/internal/terminal digit conditions, including positive singleton and root [1]. Existence uses genuine terminating integer division; uniqueness uses the integer part and reciprocal tail. NormalOrientedRuns requires positive lengths and adjacent orientation changes intrinsically, and both inverse maps hold on every such list. Actual rationalSubtraction formulas, word-prefix subtraction, maximal quotient runs and both terminal corrections establish the Euclidean meaning of the run encoding. The old cwValue head-outermost convention is the subtraction-to-root order; reversing gives the separately audited chronological root path, without changing any edge labels. All initially recorded B1 residuals are now resolved."
     },
     {
       "id": "final:B2",
