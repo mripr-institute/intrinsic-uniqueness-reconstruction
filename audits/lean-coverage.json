@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 31,
-    "partial": 34,
+    "complete": 32,
+    "partial": 33,
     "missing": 13
   },
   "pending_exact_statement_matches": 0,
@@ -516,7 +516,7 @@
       "line": 341,
       "statement_tex": "\\label{final:C8}\nThe placed derivatives satisfy\n\\[\n \\Sigma_P^{(n)}(r)=(-1)^{n-1}(n-1)!\n       \\left(\\frac\\gamma{1+\\gamma r}\\right)^n,\n \\qquad n\\ge2.\n\\]\nAll orders beyond two add no information once curvature is known.\nA lone prescribed derivative of order $n$ identifies a function only\nmodulo a polynomial of degree at most $n-1$.\nFor $\\rho(r)=C(1+\\gamma r)e^{-\\mu r}$, $C>0$, its derivative\nof order $n\\ge1$ has the single zero\n$r_n=n/\\mu-1/\\gamma$. Within this shape family, two consecutive\nindexed zeros determine $\\mu,\\gamma$, and mass determines $C$.\nThe discrete curvature is\n\\[\n \\Sigma_P(r+1)-2\\Sigma_P(r)+\\Sigma_P(r-1)\n =\\log\\left(1-\\frac1{(r-b)^2}\\right),\\quad r-1>b.\n\\]\nIt determines lattice values from two starting values, not an arbitrary\nreal interpolation. A complete germ identifies a global function in a\nspecified connected real-analytic class, but not in a general smooth class.\n",
       "statement_sha256": "1908f0213367a69c67977cad84f0a6767180c7c2bdec636b1e612ff9f58e05c2",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.placed_log_iteratedDeriv",
         "Sigma.placedLogDerivative_step",
@@ -538,23 +538,25 @@
         "Sigma.second_difference_integer_sequence_unique",
         "Sigma.second_difference_half_lattice_unique",
         "Sigma.integer_samples_nonidentifying",
-        "Sigma.inverse_germ_identifies_analytic_density"
+        "Sigma.equal_iteratedDeriv_polynomial_difference",
+        "Sigma.polynomial_difference_equal_iteratedDeriv",
+        "Sigma.equal_iteratedDeriv_iff_polynomial_difference",
+        "Sigma.inverse_germ_identifies_analytic_density",
+        "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "Sigma.smooth_density_germ_nonidentification",
+        "Sigma.smooth_density_same_jet_counterexample"
       ],
       "proved_components": [
         "Actual placed logarithmic derivatives at all orders at least two; exponential placed-density derivatives and zero sets; two-index parameter identification; one-sided sequence uniqueness; analytic continuation from the density inverse germ.",
         "The independent-amplitude family C*(1+gamma*r)*exp(-mu*r) has the stated actual derivative at every positive integer order and its unique real zero n/mu-1/gamma for positive parameters. Two consecutive indexed zeros identify mu and gamma. Its positive-ray integral is C*(1/mu+gamma/mu^2), and equality of masses identifies C without assuming it was normalized in advance.",
         "Exact placed discrete-curvature formula on the complete stated domain r-1>-a/mu with mu>0; no extra offset restriction. Generic integer sequences are uniquely determined by two consecutive values and equal second differences on all integers.",
         "Half-lattice uniqueness from any consecutive anchor pair at or above its lower endpoint, requiring recurrence only where all three indices are admissible. For every real function a witness preserves every integer sample, differs by a smooth function, and differs at the positive point 1/4, inside every admissible placed domain since -a/mu<0.",
+        "On every nonempty convex open real domain, equality of n-th derivatives is equivalent to a difference of the literal form sum over i<n of c_i*x^i. Only existence of successive derivatives of orders below n is required; continuity of the highest derivative is not assumed. Both implications are proved.",
+        "For every observed point there exists a distinct positive, integrable, mass-one smooth density with the same germ and all iterated derivatives there, the same germ near the mode and zero endpoint, and equality on a far tail. The perturbation has compact support and its discrepancy is explicitly within the positive ray. Smoothness is ContDiff infinity, not analyticity.",
         "General analytic germ uniqueness is already supplied by imported Mathlib AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, with analytic candidates on a preconnected common domain and equality near a domain point."
       ],
-      "unproved_components": [
-        "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
-      ],
-      "gaps": [
-        "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
       "notes": "Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."
     },

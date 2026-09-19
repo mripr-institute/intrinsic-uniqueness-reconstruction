@@ -21,6 +21,7 @@ lean_lib SigmaFormalization where
     `SigmaClosurePerturbation,
     `SigmaCore,
     `SigmaDiscrete,
+    `SigmaSmoothGerm,
     `SigmaFareyClosure,
     `SigmaFenchel,
     `SigmaFenchelConverse,

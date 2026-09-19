@@ -1,5 +1,12 @@
 import Sigma
 
+#print axioms Sigma.equal_iteratedDeriv_polynomial_difference
+#print axioms Sigma.polynomial_difference_equal_iteratedDeriv
+#print axioms Sigma.equal_iteratedDeriv_iff_polynomial_difference
+#print axioms Sigma.weighted_density_bump_mass_positive
+#print axioms Sigma.smooth_density_germ_nonidentification
+#print axioms Sigma.smooth_density_same_jet_counterexample
+
 #print axioms Sigma.affine_exponential_first_derivative
 #print axioms Sigma.affine_exponential_derivative_step
 #print axioms Sigma.affine_exponential_iteratedDeriv

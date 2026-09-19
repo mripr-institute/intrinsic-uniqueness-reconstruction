@@ -182,5 +182,118 @@ theorem integer_samples_nonidentifying (f : ℝ → ℝ) :
     rw [he]
     exact Real.contDiff_sin.comp (contDiff_const.mul contDiff_id)
 
+/-- Equality of prescribed derivatives leaves exactly a polynomial-sized freedom.
+Only existence of the successive derivatives is assumed, not continuity of the last one. -/
+theorem equal_iteratedDeriv_polynomial_difference (n : ℕ) (f g : ℝ → ℝ)
+    {s : Set ℝ} (hs : Convex ℝ s) (hne : s.Nonempty)
+    (hf : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k f) x)
+    (hg : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k g) x)
+    (he : ∀ x ∈ s, iteratedDeriv n f x = iteratedDeriv n g x) :
+    ∃ c : ℕ → ℝ, ∀ x ∈ s, f x-g x = ∑ i ∈ Finset.range n, c i*x^i := by
+  induction n generalizing f g with
+  | zero =>
+    refine ⟨fun _ => 0, ?_⟩
+    intro x hx
+    simpa using sub_eq_zero.mpr (he x hx)
+  | succ n ih =>
+    have hf' : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k (deriv f)) x := by
+      intro k hk x hx
+      rw [← iteratedDeriv_succ']
+      exact hf (k+1) (by omega) x hx
+    have hg' : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k (deriv g)) x := by
+      intro k hk x hx
+      rw [← iteratedDeriv_succ']
+      exact hg (k+1) (by omega) x hx
+    obtain ⟨c, hc⟩ := ih (deriv f) (deriv g) hf' hg'
+      (by simpa only [iteratedDeriv_succ'] using he)
+    let P : ℝ → ℝ := fun x => ∑ i ∈ Finset.range n, c i/(i+1)*x^(i+1)
+    have hd (x : ℝ) : HasDerivAt P (∑ i ∈ Finset.range n, c i*x^i) x := by
+      have hi (i : ℕ) : HasDerivAt (fun x : ℝ => c i/(i+1)*x^(i+1)) (c i*x^i) x := by
+        convert ((hasDerivAt_id x).pow (i+1)).const_mul (c i/(i+1)) using 1
+        simp only [Nat.add_sub_cancel, id_eq, mul_one, Nat.cast_add, Nat.cast_one]
+        field_simp
+        ring
+      exact HasDerivAt.sum (fun i _ => hi i)
+    obtain ⟨a, ha⟩ := hne
+    let d : ℝ := f a-g a-P a
+    have hconst : ∀ x ∈ s, f x-g x-P x = d := by
+      have hz : ∀ x ∈ s, HasDerivWithinAt (fun y => f y-g y-P y) 0 s x := by
+        intro x hx
+        have hf0 : DifferentiableAt ℝ f x := by simpa using hf 0 (by omega) x hx
+        have hg0 : DifferentiableAt ℝ g x := by simpa using hg 0 (by omega) x hx
+        have hh := ((hf0.hasDerivAt.sub hg0.hasDerivAt).sub (hd x)).hasDerivWithinAt (s := s)
+        simpa only [hc x hx, sub_self] using hh
+      intro x hx
+      have hb := hs.norm_image_sub_le_of_norm_hasDerivWithin_le (C := 0) hz
+        (by intro y hy; simp) ha hx
+      have hh : f x-g x-P x-(f a-g a-P a) = 0 :=
+        norm_eq_zero.mp (le_antisymm (by simpa using hb) (norm_nonneg _))
+      exact sub_eq_zero.mp hh
+    refine ⟨fun i => if i=0 then d else c (i-1)/i, ?_⟩
+    intro x hx
+    rw [Finset.sum_range_succ']
+    simp only [Nat.add_eq_zero_iff, Nat.one_ne_zero, and_false, ↓reduceIte,
+      Nat.add_sub_cancel, Nat.cast_add, Nat.cast_one, pow_zero, mul_one]
+    have hh := hconst x hx
+    dsimp [P] at hh
+    linarith
+
+/-- Every polynomial of degree below n is invisible to the n-th derivative. -/
+theorem polynomial_difference_equal_iteratedDeriv (n : ℕ) (f g : ℝ → ℝ)
+    {s : Set ℝ} (hs : IsOpen s)
+    (hf : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k f) x)
+    (hg : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k g) x)
+    (c : ℕ → ℝ) (he : ∀ x ∈ s, f x-g x = ∑ i ∈ Finset.range n, c i*x^i) :
+    ∀ x ∈ s, iteratedDeriv n f x = iteratedDeriv n g x := by
+  induction n generalizing f g c with
+  | zero =>
+    intro x hx
+    simpa using (sub_eq_zero.mp (by simpa using he x hx) : f x=g x)
+  | succ n ih =>
+    have hder : ∀ x ∈ s, deriv f x-deriv g x =
+        ∑ i ∈ Finset.range n, (c (i+1)*(i+1))*x^i := by
+      intro x hx
+      have hf0 : DifferentiableAt ℝ f x := by simpa using hf 0 (by omega) x hx
+      have hg0 : DifferentiableAt ℝ g x := by simpa using hg 0 (by omega) x hx
+      have hd : HasDerivAt (fun y : ℝ => ∑ i ∈ Finset.range (n+1), c i*y^i)
+          (∑ i ∈ Finset.range n, (c (i+1)*(i+1))*x^i) x := by
+        have hi (i : ℕ) : HasDerivAt (fun y : ℝ => c (i+1)*y^(i+1))
+            ((c (i+1)*(i+1))*x^i) x := by
+          convert ((hasDerivAt_id x).pow (i+1)).const_mul (c (i+1)) using 1
+          simp only [Nat.add_sub_cancel, id_eq, mul_one, Nat.cast_add, Nat.cast_one]
+          ring
+        have hh := (HasDerivAt.sum (u := Finset.range n) (fun i _ => hi i)).add_const (c 0)
+        convert hh using 1
+        funext y
+        rw [Finset.sum_range_succ']
+        simp
+      have heq : (fun y => ∑ i ∈ Finset.range (n+1), c i*y^i) =ᶠ[𝓝 x]
+          (fun y => f y-g y) := by
+        filter_upwards [hs.mem_nhds hx] with y hy
+        exact (he y hy).symm
+      exact (hf0.hasDerivAt.sub hg0.hasDerivAt).unique
+        (hd.congr_of_eventuallyEq heq.symm)
+    have hf' : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k (deriv f)) x := by
+      intro k hk x hx
+      rw [← iteratedDeriv_succ']
+      exact hf (k+1) (by omega) x hx
+    have hg' : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k (deriv g)) x := by
+      intro k hk x hx
+      rw [← iteratedDeriv_succ']
+      exact hg (k+1) (by omega) x hx
+    simpa only [iteratedDeriv_succ'] using
+      ih (deriv f) (deriv g) hf' hg' (fun i => c (i+1)*(i+1)) hder
+
+theorem equal_iteratedDeriv_iff_polynomial_difference (n : ℕ) (f g : ℝ → ℝ)
+    {s : Set ℝ} (hs : Convex ℝ s) (ho : IsOpen s) (hne : s.Nonempty)
+    (hf : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k f) x)
+    (hg : ∀ k < n, ∀ x ∈ s, DifferentiableAt ℝ (iteratedDeriv k g) x) :
+    (∀ x ∈ s, iteratedDeriv n f x = iteratedDeriv n g x) ↔
+      ∃ c : ℕ → ℝ, ∀ x ∈ s, f x-g x = ∑ i ∈ Finset.range n, c i*x^i := by
+  constructor
+  · exact equal_iteratedDeriv_polynomial_difference n f g hs hne hf hg
+  · rintro ⟨c, hc⟩
+    exact polynomial_difference_equal_iteratedDeriv n f g ho hf hg c hc
+
 end
 end Sigma

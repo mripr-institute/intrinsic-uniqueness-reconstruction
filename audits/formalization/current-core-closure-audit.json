@@ -5,8 +5,8 @@
   "totals_by_named_environment": {
     "total": 18,
     "definition": 2,
-    "complete": 10,
-    "partial": 6,
+    "complete": 11,
+    "partial": 5,
     "missing": 0
   },
   "mathematically_false_named_clauses_found": [],
@@ -246,7 +246,7 @@
     },
     {
       "latex_label": "final:C8",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.placed_log_iteratedDeriv",
         "Sigma.placedLogDerivative_step",
@@ -268,19 +268,24 @@
         "Sigma.second_difference_integer_sequence_unique",
         "Sigma.second_difference_half_lattice_unique",
         "Sigma.integer_samples_nonidentifying",
-        "Sigma.inverse_germ_identifies_analytic_density"
+        "Sigma.equal_iteratedDeriv_polynomial_difference",
+        "Sigma.polynomial_difference_equal_iteratedDeriv",
+        "Sigma.equal_iteratedDeriv_iff_polynomial_difference",
+        "Sigma.inverse_germ_identifies_analytic_density",
+        "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+        "Sigma.smooth_density_germ_nonidentification",
+        "Sigma.smooth_density_same_jet_counterexample"
       ],
       "proved_components": [
         "Actual placed logarithmic derivatives at all orders at least two; exponential placed-density derivatives and zero sets; two-index parameter identification; one-sided sequence uniqueness; analytic continuation from the density inverse germ.",
         "The independent-amplitude family C*(1+gamma*r)*exp(-mu*r) has the stated actual derivative at every positive integer order and its unique real zero n/mu-1/gamma for positive parameters. Two consecutive indexed zeros identify mu and gamma. Its positive-ray integral is C*(1/mu+gamma/mu^2), and equality of masses identifies C without assuming it was normalized in advance.",
         "Exact placed discrete-curvature formula on the complete stated domain r-1>-a/mu with mu>0; no extra offset restriction. Generic integer sequences are uniquely determined by two consecutive values and equal second differences on all integers.",
         "Half-lattice uniqueness from any consecutive anchor pair at or above its lower endpoint, requiring recurrence only where all three indices are admissible. For every real function a witness preserves every integer sample, differs by a smooth function, and differs at the positive point 1/4, inside every admissible placed domain since -a/mu<0.",
+        "On every nonempty convex open real domain, equality of n-th derivatives is equivalent to a difference of the literal form sum over i<n of c_i*x^i. Only existence of successive derivatives of orders below n is required; continuity of the highest derivative is not assumed. Both implications are proved.",
+        "For every observed point there exists a distinct positive, integrable, mass-one smooth density with the same germ and all iterated derivatives there, the same germ near the mode and zero endpoint, and equality on a far tail. The perturbation has compact support and its discrepancy is explicitly within the positive ray. Smoothness is ContDiff infinity, not analyticity.",
         "General analytic germ uniqueness is already supplied by imported Mathlib AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq, with analytic candidates on a preconnected common domain and equality near a domain point."
       ],
-      "unproved_components": [
-        "General n-th derivative equality implies difference polynomial of degree at most n-1 on the domain, with converse freedom.",
-        "Smooth germ/jet non-identification witness, including normalized positive density version away from mode/endpoints."
-      ],
+      "unproved_components": [],
       "notes": "Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."
     },
     {

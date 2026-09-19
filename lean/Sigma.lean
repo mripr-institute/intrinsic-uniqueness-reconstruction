@@ -9,6 +9,7 @@ import SigmaCompletionFamily
 import SigmaZeros
 import SigmaPlacedZeros
 import SigmaDiscrete
+import SigmaSmoothGerm
 import SigmaFenchel
 import SigmaFenchelConverse
 import SigmaFenchelConverseLocal
