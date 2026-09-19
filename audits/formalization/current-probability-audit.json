@@ -222,18 +222,36 @@
         "Sigma.gamma_deficit_moments_identify_real_line_probability",
         "Sigma.gamma_deficit_algebraic_cumulants_identify",
         "Sigma.gamma_deficit_conditional_transform",
-        "Sigma.gamma_deficit_conditional_exponential_integrable"
+        "Sigma.gamma_deficit_conditional_exponential_integrable",
+        "Sigma.log_gamma_euler_product",
+        "Sigma.euler_log_gamma_term_series",
+        "Sigma.euler_log_gamma_double_summable",
+        "Sigma.natural_zeta_riemann",
+        "Sigma.log_gamma_zeta_series",
+        "Sigma.deficit_cgf_log_gamma",
+        "Sigma.deficit_cgf_zeta_series",
+        "Sigma.deficit_cgf_full_series",
+        "Sigma.deficit_cgf_formal_germ",
+        "Sigma.deficit_cumulant_coeff",
+        "Sigma.deficit_cumulant_one",
+        "Sigma.deficit_cumulant_zeta",
+        "Sigma.natural_zeta_two",
+        "Sigma.natural_zeta_four",
+        "Sigma.deficit_cumulants_two_three_four"
       ],
       "proved_components": [
         "Actual deficit MGF and sharp real integrability domain s<1.",
         "Moment determinacy derives candidate exponential integrability; common algebraic cumulant recurrence determines moments.",
-        "Actual conditional probability and exact upper-incomplete-Gamma transform for a>0,s<1."
+        "Actual conditional probability and exact upper-incomplete-Gamma transform for a>0,s<1.",
+        "Convergent Euler log-Gamma product and absolutely convergent double-series exchange for every |s|<1, including negative s.",
+        "Exact Euler/zeta series of the actual deficit CGF, with natural zeta identified with native riemannZeta.",
+        "Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values."
       ],
       "unproved_components": [
-        "Explicit Euler/zeta CGF series and all displayed deficit cumulants, including variance and third/fourth values.",
-        "Calibration of the target algebraic cumulant recurrence with those explicit values, needed for the stated no-extra-exponential-moment inverse."
+        "Identification of the actual variance of the deficit law with its second cumulant, giving pi^2/6-1.",
+        "Calibration of the target AlgebraicCumulantRecurrence with the now-proved explicit cumulant values, needed for the stated no-extra-exponential-moment inverse."
       ],
-      "notes": "gamma_deficit_algebraic_cumulants_identify currently assumes hγ : AlgebraicCumulantRecurrence gammaDeficitProbability κ; it does not establish the displayed target calibration."
+      "notes": "Bounded Euler/zeta CGF and actual cumulant AUDIT PASS. Euler convergence comes from the native Gamma limit; nonnegative terms at |s| justify absolute double convergence and exchange. The resulting native analytic germ gives actual iterated derivatives, not a sequence merely named cumulants. The explicit second cumulant is not yet identified with native variance. gamma_deficit_algebraic_cumulants_identify still assumes target AlgebraicCumulantRecurrence, so its explicit calibration remains an obligation."
     },
     {
       "latex_label": "final:P4",
@@ -283,19 +301,25 @@
         "Sigma.logistic_hazard_unique",
         "Sigma.normalized_second_order_density_unique",
         "Sigma.exponential_pair_convolution",
-        "Sigma.independent_exponential_pair_gamma"
+        "Sigma.independent_exponential_pair_gamma",
+        "Sigma.local_ac_continuous_rhs_hasDerivAt",
+        "Sigma.gamma_hazard_local_ac_derivative",
+        "Sigma.gamma_hazard_unique_local_ac",
+        "Sigma.gamma_probability_local_ac_hazard_inverse",
+        "Sigma.gamma_probability_local_ac_logistic_inverse"
       ],
       "proved_components": [
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
-        "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law."
+        "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
+        "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
+        "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse."
       ],
       "unproved_components": [
-        "Hazard uniqueness for locally absolutely continuous survival with the hazard equality only almost everywhere; current inverse assumes derivatives everywhere.",
-        "Identification from the marked logistic hazard in the paper's actual survival framework, relying on the missing a.e. hazard-to-law bridge.",
+        "Native absolutely continuous input measure and its actual density/survival hazard must imply the local-AC tail and a.e. ODE hypotheses of the proved hazard/logistic inverses; these input bridges are not yet derived from mu absolutely continuous with respect to volume.",
         "Existence and uniqueness of the causal distributional Green kernel among distributions.",
         "Actual unit-rate Poisson-process second-arrival law."
       ],
-      "notes": ""
+      "notes": "Bounded local-AC hazard/logistic AUDIT PASS for SigmaProbSurvivalAC. The ODE regularity upgrade and actual measure identification are genuine conclusions. This does not yet close the paper's native absolutely continuous probability input: local AC of its tail and the ODE corresponding to its actual density/survival hazard remain formal hypotheses, so no completion claim is made for those full native input clauses."
     },
     {
       "latex_label": "final:P5-survival-boundaries",
