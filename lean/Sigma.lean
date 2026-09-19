@@ -4,6 +4,8 @@ import SigmaBregman
 import SigmaPlacement
 import SigmaArchitecture
 import SigmaAutomorphisms
+import SigmaAutomorphismsRegularity
+import SigmaAutomorphismsWild
 import SigmaCompletion
 import SigmaCompletionFamily
 import SigmaZeros
@@ -39,6 +41,8 @@ import SigmaProbContraction
 import SigmaProbResidual
 import SigmaProbCompletion
 import SigmaProbCompletionContinuity
+import SigmaProbCompletionProcess
+import SigmaProbCompletionSamples
 import SigmaProbWeights
 import SigmaProbFourier
 import SigmaProbFourierUnique

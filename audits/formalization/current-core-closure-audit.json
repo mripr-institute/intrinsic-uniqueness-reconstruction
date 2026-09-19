@@ -147,18 +147,36 @@
         "Sigma.groupPower_one",
         "Sigma.starN",
         "Sigma.groupPower_nat_nseries",
-        "Sigma.groupPower_nat_nseries_hom"
+        "Sigma.groupPower_nat_nseries_hom",
+        "Sigma.group_automorphism_continuous_classification",
+        "Sigma.group_automorphism_monotone_classification",
+        "Sigma.real_additive_measurable_continuous",
+        "Sigma.group_automorphism_measurable_classification",
+        "Sigma.groupPower_rpow",
+        "Sigma.starZ",
+        "Sigma.groupPower_int_nseries",
+        "Sigma.starZ_formula",
+        "Sigma.starZ_domain",
+        "Sigma.starZ_composition",
+        "Sigma.groupPower_hasDerivAt_zero",
+        "Sigma.groupPower_calibration",
+        "Sigma.nonlinear_additive_bijection",
+        "Sigma.additiveConjugate",
+        "Sigma.additive_conjugate_closed",
+        "Sigma.additive_conjugate_hom",
+        "Sigma.additive_conjugate_inverse",
+        "Sigma.wild_group_automorphism"
       ],
       "proved_components": [
-        "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition."
+        "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition.",
+        "Continuous, measurable, monotone and antitone automorphism classification on the exact group domain D=(-1,infinity), with nonzero coefficient and the literal real-power formula. Measurability is required only on the domain subtype; automatic continuity of additive measurable maps is proved.",
+        "Signed integer repeated group addition, including zero and negative indices, its literal integer-power formula and composition law; the derivative-at-zero calibration selects coefficient one and hence the identity.",
+        "Every additive real bijection produces an actual group automorphism with two-sided inverse on D. A rational-linear projection supplies a genuinely nonlinear additive bijection and a conjugate group automorphism unequal to every real-power map."
       ],
       "unproved_components": [
-        "Classification under continuity, measurability or monotonicity without assuming a derivative.",
-        "Nonlinear additive-bijection conjugate automorphism witness without regularity.",
-        "Formal power-series automorphism classification over an arbitrary characteristic-zero field.",
-        "Full integer (including negative indices) repeated-addition series interpretation; explicit calibration statement and power-coordinate formula may reuse existing differentiable classification."
+        "Formal power-series automorphism classification over an arbitrary characteristic-zero field."
       ],
-      "notes": "No other project declarations supplying these clauses were found. Natural-index results are proved but omitted from the stale map."
+      "notes": "Bounded independent AUDIT PASS for the real regularity, signed-integer and wild-automorphism batches. Actual signatures use only continuity/monotonicity/measurability on D, not regularity outside the group or a supplied derivative. Both monotonic directions are covered; injectivity yields nonzero slope and surjectivity in the monotone branch is part of the automorphism category. The wild witness proves homomorphism, domain preservation, both inverse identities and inequality to every power map, rather than assuming a nonlinear bijection. The formal arbitrary-characteristic-zero-field classification remains unproved and is not inferred from the real function results."
     },
     {
       "latex_label": "final:C4",

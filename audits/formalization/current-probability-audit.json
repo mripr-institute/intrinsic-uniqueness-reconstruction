@@ -4,9 +4,9 @@
   "totals_by_named_environment": {
     "total": 26,
     "definition": 0,
-    "complete": 14,
+    "complete": 15,
     "partial": 11,
-    "missing": 1
+    "missing": 0
   },
   "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace.",
   "result": "DEFECT LIST",
@@ -504,17 +504,29 @@
         "Sigma.nonnegative_probability_tendsto_dirac",
         "Sigma.gamma_completion_continuousAt_positive",
         "Sigma.gamma_completion_continuousAt_zero",
-        "Sigma.gamma_completion_weak_continuous"
+        "Sigma.gamma_completion_weak_continuous",
+        "Sigma.independent_finite_joint_law",
+        "Sigma.gammaCompletionFiniteLaw",
+        "Sigma.gamma_completion_finite_law_probability",
+        "Sigma.gamma_completion_finite_joint_law",
+        "Sigma.HasIndependentNonnegativeTimeIncrements",
+        "Sigma.stationary_independent_process_gamma_marginals",
+        "Sigma.gamma_completion_process_fdd_unique",
+        "Sigma.finite_nonnegative_times_ordered_cover",
+        "Sigma.process_fdd_eq_of_ordered",
+        "Sigma.IsGammaTimeOneProcess",
+        "Sigma.gamma_time_one_process_fdd_unique"
       ],
       "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
-        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero."
+        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.",
+        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise."
       ],
       "unproved_components": [
-        "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
+        "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
       ],
-      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. The process/FDD clause remains open; no claim about P8-samples. The proof-only correlated process boundary is also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; no claim about P8-samples. The proof-only right-continuous increasing version and explicit correlated-process boundary X_r=rT are also not mapped."
     },
     {
       "latex_label": "final:P8-levy",
@@ -539,13 +551,28 @@
     },
     {
       "latex_label": "final:P8-samples",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "The Gamma specialization of integer-tail uniqueness for arbitrary Bernstein functions; requires the representation/endpoint argument of O6."
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.BernsteinRepresentation",
+        "Sigma.HasBernsteinRepresentation",
+        "Sigma.BernsteinRepresentation.kernel_integrable",
+        "Sigma.BernsteinRepresentation.increment_laplace",
+        "Sigma.BernsteinRepresentation.integer_tail_data_unique",
+        "Sigma.BernsteinRepresentation.integer_tail_unique",
+        "Sigma.bernstein_function_integer_tail_unique",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gamma_laplace_exponent_has_bernstein_representation",
+        "Sigma.gamma_bernstein_integer_tail_unique",
+        "Sigma.gamma_bernstein_function_integer_tail_unique"
       ],
-      "notes": "Compact Hausdorff uniqueness exists but does not itself prove this named statement; no project Bernstein-function candidate class/theorem found."
+      "proved_components": [
+        "Gamma specialization of full integer-tail uniqueness in the literal Bernstein representation category, for every natural tail index including zero, with no supplied value at zero; the conclusion includes every nonnegative real argument.",
+        "Actual finite moment measure construction and full killing, drift and Levy measure recovery, with the Gamma target's Levy integrability and representation proved."
+      ],
+      "unproved_components": [],
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS after checking SigmaProbCompletionSamples against P8-samples and the O6 representation category. Neither endpoint values nor equality of representation data are added as hypotheses. This does not certify O6's separate actual operator and smooth nonidentification clauses."
     },
     {
       "latex_label": "final:P8-selfdecomposition",

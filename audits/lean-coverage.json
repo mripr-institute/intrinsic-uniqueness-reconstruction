@@ -3,9 +3,9 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 34,
+    "complete": 35,
     "partial": 32,
-    "missing": 12
+    "missing": 11
   },
   "pending_exact_statement_matches": 0,
   "additional_labelled_claims": [
@@ -360,25 +360,40 @@
         "Sigma.groupPower_one",
         "Sigma.starN",
         "Sigma.groupPower_nat_nseries",
-        "Sigma.groupPower_nat_nseries_hom"
+        "Sigma.groupPower_nat_nseries_hom",
+        "Sigma.group_automorphism_continuous_classification",
+        "Sigma.group_automorphism_monotone_classification",
+        "Sigma.real_additive_measurable_continuous",
+        "Sigma.group_automorphism_measurable_classification",
+        "Sigma.groupPower_rpow",
+        "Sigma.starZ",
+        "Sigma.groupPower_int_nseries",
+        "Sigma.starZ_formula",
+        "Sigma.starZ_domain",
+        "Sigma.starZ_composition",
+        "Sigma.groupPower_hasDerivAt_zero",
+        "Sigma.groupPower_calibration",
+        "Sigma.nonlinear_additive_bijection",
+        "Sigma.additiveConjugate",
+        "Sigma.additive_conjugate_closed",
+        "Sigma.additive_conjugate_hom",
+        "Sigma.additive_conjugate_inverse",
+        "Sigma.wild_group_automorphism"
       ],
       "proved_components": [
-        "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition."
+        "Differentiable-at-zero endomorphism classification and nonzero slope under injectivity; explicit inverse/composition; natural repeated group addition.",
+        "Continuous, measurable, monotone and antitone automorphism classification on the exact group domain D=(-1,infinity), with nonzero coefficient and the literal real-power formula. Measurability is required only on the domain subtype; automatic continuity of additive measurable maps is proved.",
+        "Signed integer repeated group addition, including zero and negative indices, its literal integer-power formula and composition law; the derivative-at-zero calibration selects coefficient one and hence the identity.",
+        "Every additive real bijection produces an actual group automorphism with two-sided inverse on D. A rational-linear projection supplies a genuinely nonlinear additive bijection and a conjugate group automorphism unequal to every real-power map."
       ],
       "unproved_components": [
-        "Classification under continuity, measurability or monotonicity without assuming a derivative.",
-        "Nonlinear additive-bijection conjugate automorphism witness without regularity.",
-        "Formal power-series automorphism classification over an arbitrary characteristic-zero field.",
-        "Full integer (including negative indices) repeated-addition series interpretation; explicit calibration statement and power-coordinate formula may reuse existing differentiable classification."
+        "Formal power-series automorphism classification over an arbitrary characteristic-zero field."
       ],
       "gaps": [
-        "Classification under continuity, measurability or monotonicity without assuming a derivative.",
-        "Nonlinear additive-bijection conjugate automorphism witness without regularity.",
-        "Formal power-series automorphism classification over an arbitrary characteristic-zero field.",
-        "Full integer (including negative indices) repeated-addition series interpretation; explicit calibration statement and power-coordinate formula may reuse existing differentiable classification."
+        "Formal power-series automorphism classification over an arbitrary characteristic-zero field."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "No other project declarations supplying these clauses were found. Natural-index results are proved but omitted from the stale map."
+      "notes": "Bounded independent AUDIT PASS for the real regularity, signed-integer and wild-automorphism batches. Actual signatures use only continuity/monotonicity/measurability on D, not regularity outside the group or a supplied derivative. Both monotonic directions are covered; injectivity yields nonzero slope and surjectivity in the monotone branch is part of the automorphism category. The wild witness proves homomorphism, domain preservation, both inverse identities and inequality to every power map, rather than assuming a nonlinear bijection. The formal arbitrary-characteristic-zero-field classification remains unproved and is not inferred from the real function results."
     },
     {
       "id": "final:C4",
@@ -1382,21 +1397,33 @@
         "Sigma.nonnegative_probability_tendsto_dirac",
         "Sigma.gamma_completion_continuousAt_positive",
         "Sigma.gamma_completion_continuousAt_zero",
-        "Sigma.gamma_completion_weak_continuous"
+        "Sigma.gamma_completion_weak_continuous",
+        "Sigma.independent_finite_joint_law",
+        "Sigma.gammaCompletionFiniteLaw",
+        "Sigma.gamma_completion_finite_law_probability",
+        "Sigma.gamma_completion_finite_joint_law",
+        "Sigma.HasIndependentNonnegativeTimeIncrements",
+        "Sigma.stationary_independent_process_gamma_marginals",
+        "Sigma.gamma_completion_process_fdd_unique",
+        "Sigma.finite_nonnegative_times_ordered_cover",
+        "Sigma.process_fdd_eq_of_ordered",
+        "Sigma.IsGammaTimeOneProcess",
+        "Sigma.gamma_time_one_process_fdd_unique"
       ],
       "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
-        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero."
+        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.",
+        "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise."
       ],
       "unproved_components": [
-        "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
+        "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
       ],
       "gaps": [
-        "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
+        "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. The process/FDD clause remains open; no claim about P8-samples. The proof-only correlated process boundary is also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; no claim about P8-samples. The proof-only right-continuous increasing version and explicit correlated-process boundary X_r=rT are also not mapped."
     },
     {
       "id": "final:P8-levy",
@@ -1448,17 +1475,30 @@
       "line": 1075,
       "statement_tex": "\\label{final:P8-samples}\nLet $f$ be a Bernstein function.  If, for some integer $N\\geq1$,\n\\[\n f(n)=2\\log(1+n)\\qquad\\hbox{for every integer }n\\geq N,\n\\]\nthen $f(\\lambda)=2\\log(1+\\lambda)$ for every $\\lambda>0$.\n",
       "statement_sha256": "60aa4d7206d0053dcf642f766ff3b8269a3811e2d94ab8e08859b4b84fb65301",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
-      "unproved_components": [
-        "The Gamma specialization of integer-tail uniqueness for arbitrary Bernstein functions; requires the representation/endpoint argument of O6."
+      "lean_status": "complete",
+      "lean_theorems": [
+        "Sigma.BernsteinRepresentation",
+        "Sigma.HasBernsteinRepresentation",
+        "Sigma.BernsteinRepresentation.kernel_integrable",
+        "Sigma.BernsteinRepresentation.increment_laplace",
+        "Sigma.BernsteinRepresentation.integer_tail_data_unique",
+        "Sigma.BernsteinRepresentation.integer_tail_unique",
+        "Sigma.bernstein_function_integer_tail_unique",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gamma_laplace_exponent_has_bernstein_representation",
+        "Sigma.gamma_bernstein_integer_tail_unique",
+        "Sigma.gamma_bernstein_function_integer_tail_unique"
       ],
-      "gaps": [
-        "The Gamma specialization of integer-tail uniqueness for arbitrary Bernstein functions; requires the representation/endpoint argument of O6."
+      "proved_components": [
+        "Gamma specialization of full integer-tail uniqueness in the literal Bernstein representation category, for every natural tail index including zero, with no supplied value at zero; the conclusion includes every nonnegative real argument.",
+        "Actual finite moment measure construction and full killing, drift and Levy measure recovery, with the Gamma target's Levy integrability and representation proved."
       ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Compact Hausdorff uniqueness exists but does not itself prove this named statement; no project Bernstein-function candidate class/theorem found."
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS after checking SigmaProbCompletionSamples against P8-samples and the O6 representation category. Neither endpoint values nor equality of representation data are added as hypotheses. This does not certify O6's separate actual operator and smooth nonidentification clauses."
     },
     {
       "id": "final:P8-selfdecomposition",
@@ -2072,26 +2112,37 @@
       "lean_theorems": [
         "Sigma.operator_hausdorff_moment_unique",
         "Sigma.gamma_levy_exponent_integral",
-        "Sigma.gamma_levy_exponent_integrable"
+        "Sigma.gamma_levy_exponent_integrable",
+        "Sigma.BernsteinRepresentation",
+        "Sigma.HasBernsteinRepresentation",
+        "Sigma.BernsteinRepresentation.kernel_integrable",
+        "Sigma.BernsteinRepresentation.increment_laplace",
+        "Sigma.BernsteinRepresentation.integer_tail_data_unique",
+        "Sigma.BernsteinRepresentation.integer_tail_unique",
+        "Sigma.bernstein_function_integer_tail_unique",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gamma_laplace_exponent_has_bernstein_representation",
+        "Sigma.gamma_bernstein_integer_tail_unique",
+        "Sigma.gamma_bernstein_function_integer_tail_unique"
       ],
       "proved_components": [
         "Actual finite compact Hausdorff moment uniqueness, an ingredient.",
-        "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda."
+        "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.",
+        "For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.",
+        "Gamma target's actual Levy integrability and representation identification, including killing and drift zero."
       ],
       "unproved_components": [
-        "For Bernstein representation candidates: construction of finite compact difference measure, tail-weight cancellation at zero and recovery of full killing/drift/Levy data from arbitrary integer tails.",
-        "Gamma target's full Levy integrability/representation identification, including killing and drift zero.",
         "Actual functional calculus sample extraction on marked integer eigenspaces.",
         "Actual distinct smooth functions invisible on the integer spectrum."
       ],
       "gaps": [
-        "For Bernstein representation candidates: construction of finite compact difference measure, tail-weight cancellation at zero and recovery of full killing/drift/Levy data from arbitrary integer tails.",
-        "Gamma target's full Levy integrability/representation identification, including killing and drift zero.",
         "Actual functional calculus sample extraction on marked integer eigenspaces.",
         "Actual distinct smooth functions invisible on the integer spectrum."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "A whole-tree search found no native Bernstein representation candidate structure or integer-tail inverse. Hausdorff uniqueness and the target scalar integral alone do not prove the named inverse."
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS for the scalar representation inverse in SigmaProbCompletionSamples. O6 remains partial: actual marked-operator sample extraction and its smooth nonidentification boundary are not supplied by scalar identities. The existing integer_samples_nonidentifying establishes a smooth difference but does not alone prove the full smooth nonnegative candidate and actual operator boundary."
     },
     {
       "id": "final:O6-functional-calculus",

@@ -310,19 +310,32 @@
       "lean_declarations": [
         "Sigma.operator_hausdorff_moment_unique",
         "Sigma.gamma_levy_exponent_integral",
-        "Sigma.gamma_levy_exponent_integrable"
+        "Sigma.gamma_levy_exponent_integrable",
+        "Sigma.BernsteinRepresentation",
+        "Sigma.HasBernsteinRepresentation",
+        "Sigma.BernsteinRepresentation.kernel_integrable",
+        "Sigma.BernsteinRepresentation.increment_laplace",
+        "Sigma.BernsteinRepresentation.integer_tail_data_unique",
+        "Sigma.BernsteinRepresentation.integer_tail_unique",
+        "Sigma.bernstein_function_integer_tail_unique",
+        "Sigma.gammaCompletionLevyMeasure",
+        "Sigma.gamma_completion_levy_integrability",
+        "Sigma.gamma_bernstein_representation_exponent",
+        "Sigma.gamma_laplace_exponent_has_bernstein_representation",
+        "Sigma.gamma_bernstein_integer_tail_unique",
+        "Sigma.gamma_bernstein_function_integer_tail_unique"
       ],
       "proved_components": [
         "Actual finite compact Hausdorff moment uniqueness, an ingredient.",
-        "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda."
+        "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.",
+        "For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.",
+        "Gamma target's actual Levy integrability and representation identification, including killing and drift zero."
       ],
       "unproved_components": [
-        "For Bernstein representation candidates: construction of finite compact difference measure, tail-weight cancellation at zero and recovery of full killing/drift/Levy data from arbitrary integer tails.",
-        "Gamma target's full Levy integrability/representation identification, including killing and drift zero.",
         "Actual functional calculus sample extraction on marked integer eigenspaces.",
         "Actual distinct smooth functions invisible on the integer spectrum."
       ],
-      "notes": "A whole-tree search found no native Bernstein representation candidate structure or integer-tail inverse. Hausdorff uniqueness and the target scalar integral alone do not prove the named inverse."
+      "notes": "Separate realizations auditor returned bounded AUDIT PASS for the scalar representation inverse in SigmaProbCompletionSamples. O6 remains partial: actual marked-operator sample extraction and its smooth nonidentification boundary are not supplied by scalar identities. The existing integer_samples_nonidentifying establishes a smooth difference but does not alone prove the full smooth nonnegative candidate and actual operator boundary."
     },
     {
       "latex_label": "final:O6-functional-calculus",
