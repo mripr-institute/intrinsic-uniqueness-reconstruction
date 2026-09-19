@@ -1,5 +1,30 @@
 import Sigma
 
+#print axioms Sigma.placed_integer_operation_iff
+#print axioms Sigma.integerCodeUnitEquiv
+#print axioms Sigma.labelledImageEquiv
+#print axioms Sigma.labelled_image_encode
+#print axioms Sigma.placed_shifted_integer_sampling
+#print axioms Sigma.labelled_factorization_inverse
+#print axioms Sigma.labelled_factorization_unique
+#print axioms Sigma.labelled_valuation_maximum
+#print axioms Sigma.labelled_gcd_universal
+#print axioms Sigma.labelled_lcm_universal
+#print axioms Sigma.labelled_valuation_gcd
+#print axioms Sigma.labelled_valuation_lcm
+#print axioms Sigma.labelledDivisorEquiv
+#print axioms Sigma.primePermutationMonoid
+#print axioms Sigma.swap_two_three_not_additive
+#print axioms Sigma.matrix_exp_spd_log
+#print axioms Sigma.matrix_spd_geodesic_positive
+#print axioms Sigma.matrix_spd_geodesic_zero
+#print axioms Sigma.matrix_spd_geodesic_one
+#print axioms Sigma.matrix_spd_geodesic_length
+#print axioms Sigma.matrix_exponential_curve_native_geodesic_equation
+#print axioms Sigma.rank_one_native_path_length_lower_bound
+#print axioms Sigma.rank_one_native_hessian_distance
+#print axioms Sigma.rank_one_native_distance_divergence_symmetrization
+
 #print axioms Sigma.spd_determinant_arithmetic_mean_bound
 #print axioms Sigma.spd_determinant_arithmetic_mean_equality
 #print axioms Sigma.matrix_logdet_strictConcave

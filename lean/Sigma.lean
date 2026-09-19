@@ -143,6 +143,10 @@ import SigmaZeroAnalytic
 import SigmaFormalGroupNSeries
 import SigmaEuclideanLaplacian
 import SigmaMatrixSymmetrization
+import SigmaMatrixGeodesic
+import SigmaMatrixRankOne
+import SigmaArithmeticTransport
+import SigmaArithmeticInventory
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation
