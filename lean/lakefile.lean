@@ -97,6 +97,8 @@ lean_lib SigmaFormalization where
     `SigmaProbPoissonTilt,
     `SigmaProbRelativeEntropy,
     `SigmaProbResidual,
+    `SigmaProbCompletion,
+    `SigmaProbCompletionContinuity,
     `SigmaProbStieltjes,
     `SigmaProbSupport,
     `SigmaProbSurvival,

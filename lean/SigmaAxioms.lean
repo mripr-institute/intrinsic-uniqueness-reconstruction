@@ -1866,3 +1866,25 @@ import Sigma
 #print axioms Sigma.gamma_tilt_mean_variance
 #print axioms Sigma.gamma_unmarked_tilt_rate_ambiguity
 #print axioms Sigma.gamma_unmarked_tilt_counterexample
+
+#print axioms Sigma.compact_smooth_perturbation_strictConvex
+#print axioms Sigma.smooth_potential_extension_counterexample
+#print axioms Sigma.matrix_dual_potential_fderiv
+#print axioms Sigma.matrix_bregman_legendre_duality
+#print axioms Sigma.cw_labelled_child_maps_identify
+#print axioms Sigma.mobius_left_three_point_extension
+#print axioms Sigma.mobius_right_three_point_extension
+#print axioms Sigma.unlabelled_binary_tree_distinct_numerical_labels
+#print axioms Sigma.analytic_extension_from_positive_rationals
+#print axioms Sigma.analytic_farey_left_extension
+#print axioms Sigma.mobius_left_positive_rational_extension
+#print axioms Sigma.mobius_right_positive_rational_extension
+#print axioms Sigma.nonnegative_integer_laplace_unique
+#print axioms Sigma.gamma_completion_laplace_rpow
+#print axioms Sigma.gamma_completion_native_convolution
+#print axioms Sigma.gamma_completion_unique
+#print axioms Sigma.gamma_probability_convolution_completion
+#print axioms Sigma.normalized_density_tendsto_l1
+#print axioms Sigma.gamma_completion_continuousAt_positive
+#print axioms Sigma.gamma_completion_continuousAt_zero
+#print axioms Sigma.gamma_completion_weak_continuous

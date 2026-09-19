@@ -1,6 +1,13 @@
 {
   "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
   "paper": "paper/sections/operators.tex",
+  "totals_by_named_environment": {
+    "total": 19,
+    "definition": 0,
+    "complete": 3,
+    "partial": 7,
+    "missing": 9
+  },
   "namespace": "Sigma",
   "result": "DEFECT LIST",
   "passed_labels": [

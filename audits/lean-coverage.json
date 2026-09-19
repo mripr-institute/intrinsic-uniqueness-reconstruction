@@ -3,9 +3,9 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 33,
+    "complete": 34,
     "partial": 32,
-    "missing": 13
+    "missing": 12
   },
   "pending_exact_statement_matches": 0,
   "additional_labelled_claims": [
@@ -1365,23 +1365,38 @@
       "line": 977,
       "statement_tex": "\\label{final:P8}\nIn the category of probabilities on $[0,\\infty)$, there is a unique\nfamily $(\\mu_r)_{r\\geq0}$ with $\\mu_0=\\delta_0$,\n$\\mu_{r+s}=\\mu_r*\\mu_s$, and $\\mu_1=\\mu_\\Gamma$.\nIt is\n\\begin{equation}\n \\mu_r=\\operatorname{Gamma}(2r,1)\\ (r>0),\\qquad\n L_{\\mu_r}(\\lambda)=(1+\\lambda)^{-2r}\\quad(\\lambda\\geq0).\n \\label{final:eq-gamma-semigroup}\n\\end{equation}\nWeak continuity in $r$ is a conclusion, not an additional premise.\nThe associated process with stationary independent increments is uniquely\nspecified in finite-dimensional law once that process category and\nthe starting value zero are supplied.\n",
       "statement_sha256": "5750d15ab8f2fea68b92022c9a958463d3e76ad3ad803c9764797999462c96b0",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
-      "unproved_components": [
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.gammaCompletion",
+        "Sigma.gamma_completion_zero",
+        "Sigma.gamma_completion_positive",
+        "Sigma.gamma_completion_probability",
+        "Sigma.gamma_completion_nonnegative",
+        "Sigma.gamma_completion_one",
+        "Sigma.gamma_completion_laplace_rpow",
+        "Sigma.gamma_completion_native_convolution",
+        "Sigma.gamma_completion_unique",
+        "Sigma.gamma_probability_convolution_completion",
+        "Sigma.gammaCompletionProbability",
+        "Sigma.normalized_density_tendsto_l1",
+        "Sigma.nonnegative_probability_tendsto_dirac",
+        "Sigma.gamma_completion_continuousAt_positive",
+        "Sigma.gamma_completion_continuousAt_zero",
+        "Sigma.gamma_completion_weak_continuous"
+      ],
+      "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
-        "Derived weak continuity in time.",
+        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero."
+      ],
+      "unproved_components": [
         "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
       ],
       "gaps": [
-        "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
-        "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
-        "Derived weak continuity in time.",
         "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Existing shape-two transforms and scalar Laplace uniqueness are ingredients, not an actual semigroup theorem. The proof-only correlated process boundary is also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. The process/FDD clause remains open; no claim about P8-samples. The proof-only correlated process boundary is also not mapped."
     },
     {
       "id": "final:P8-levy",
@@ -2262,26 +2277,28 @@
         "Sigma.formal_todd_recovers_exponential",
         "Sigma.formal_L_recovers_exponential",
         "SigmaPresentations.formalLog_ode",
-        "SigmaPresentations.normalized_formal_log_ode_reconstruction"
+        "SigmaPresentations.normalized_formal_log_ode_reconstruction",
+        "Sigma.compact_smooth_perturbation_strictConvex",
+        "Sigma.smooth_potential_extension_counterexample"
       ],
       "proved_components": [
         "Formal exponential recovery",
-        "Normalized rational formal logarithm and uniqueness for its differential equation"
+        "Normalized rational formal logarithm and uniqueness for its differential equation",
+        "Smooth strictly convex global nonidentification witness with unchanged germ and all jets at one but different value at three eighths",
+        "Derived positive perturbation-size threshold preserving strict convexity for every compactly supported smooth perturbation"
       ],
       "unproved_components": [
         "Formal compositional exponential/logarithm inverse and identification with the H germ",
         "Full real analytic characteristic representatives including removable values at zero and all real reconstruction formulas",
-        "Identification of independently supplied analytic global representatives in the declared connected-domain category",
-        "Nonzero compactly supported smooth perturbation with unchanged germ and preserved strict convexity"
+        "Identification of independently supplied analytic global representatives in the declared connected-domain category"
       ],
       "gaps": [
         "Formal compositional exponential/logarithm inverse and identification with the H germ",
         "Full real analytic characteristic representatives including removable values at zero and all real reconstruction formulas",
-        "Identification of independently supplied analytic global representatives in the declared connected-domain category",
-        "Nonzero compactly supported smooth perturbation with unchanged germ and preserved strict convexity"
+        "Identification of independently supplied analytic global representatives in the declared connected-domain category"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Existing analytic perturbations in SigmaClosurePerturbation preserve finitely many derivatives, not a germ, so do not prove this counterexample. The proof's nearest-complex-pole and Taylor-disc claims also have no located declarations."
+      "notes": "The initial finite-jet analytic perturbation did not establish equality of germs. This defect is now resolved by smooth_potential_extension_counterexample, whose proof constructs a nonzero smooth bump centered at 3/8 with outer radius 1/8 and derives a nonzero admissible scale from compact_smooth_perturbation_strictConvex. The exported witness gives actual neighborhood equality, every iterated derivative, smoothness and strict convexity on the positive ray, and a concrete unequal value. Bounded boundary-component AUDIT PASS; remaining formal/analytic identification clauses are not promoted. The proof's nearest-complex-pole and Taylor-disc claims also have no located declarations."
     },
     {
       "id": "final:F4",
@@ -2436,7 +2453,9 @@
         "Sigma.matrix_fenchel_unbounded",
         "Sigma.matrix_fenchel_equality_iff",
         "Sigma.matrix_legendre_coordinate_inverse",
-        "Sigma.matrix_legendre_inverse_coordinate"
+        "Sigma.matrix_legendre_inverse_coordinate",
+        "Sigma.matrix_dual_potential_fderiv",
+        "Sigma.matrix_bregman_legendre_duality"
       ],
       "proved_components": [
         "Actual Frechet differential and second derivative of the matrix potential",
@@ -2450,12 +2469,13 @@
         "Strict concavity of log determinant on the actual convex SPD cone",
         "Literal extended-real supremum conjugate with exact finite domain and infinite boundary for symmetric dual matrices",
         "Unique finite-domain optimizer and both Legendre coordinate inverse identities",
-        "Actual SPD spectral witnesses making the dual objective arbitrarily large whenever a dual-complement eigenvalue is nonpositive, including zero"
+        "Actual SPD spectral witnesses making the dual objective arbitrarily large whenever a dual-complement eigenvalue is nonpositive, including zero",
+        "Actual differential of the finite dual potential and Bregman duality with reversed Legendre coordinates"
       ],
       "unproved_components": [],
       "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. Adjacent substantive proof/prose claims remain separately unmapped: dual Bregman equality, marked gradient/Hessian reconstruction converses, and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
+      "notes": "Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. The initially unmapped adjacent dual-Bregman claim is now independently audited: matrixDualPotential is the exact finite conjugate formula, its actual Frechet derivative is proved, and matrix_bregman_legendre_duality uses Theta_Y first and Theta_X second, with SPD dual complements derived from the primal hypotheses. Adjacent substantive prose claims remain separately unmapped: marked gradient/Hessian reconstruction converses and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
     },
     {
       "id": "final:M3",
@@ -2718,7 +2738,7 @@
       "line": 889,
       "statement_tex": "\\label{final:B2}\nOn $[0,1]$ define the Farey map and its inverse branches~\\cite{IsolaFarey}\n\\[\n \\psi_0(x)=\\frac{x}{1+x},\\qquad \\psi_1(x)=\\frac1{1+x}.\n\\]\nTheir respective ranges are $[0,1/2]$ and $[1/2,1]$, and they are\nthe increasing and decreasing inverse branches of\n\\[\n F(y)=\n \\begin{cases}\n y/(1-y),&0\\leq y\\leq1/2,\\\\\n (1-y)/y,&1/2\\leq y\\leq1.\n \\end{cases}\n\\]\nAt the common endpoint both forward formulas equal one, and branch\nlabels retain the inverse-branch information.\n\nThe complete numerically labelled Calkin--Wilf tree determines $L,R$\non positive rationals.  If the candidate maps are declared to be\nM\\\"obius transformations, these data determine their full rational\nformulas, in particular $L$ on $(-1,\\infty)$.  In that marked\nextension category the scalar potential is recovered by\n\\begin{equation}\\label{final:tree-integral}\n I(t)=\\int_0^{t-1}L(s)\\,ds=t-1-\\log t,\\qquad t>0.\n\\end{equation}\nConnected real analytic continuation is another sufficient extension\ncategory.  A bare tree, or positive-rational action without a suitable\nextension category, has no such global converse.\n",
       "statement_sha256": "29303bb71ff446c81c79aeeaa68453227f5c28f1869807314a3b4ba17caa2951",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.farey_left_inverse",
         "Sigma.farey_right_inverse",
@@ -2726,28 +2746,34 @@
         "Sigma.farey_right_strictAnti",
         "Sigma.farey_left_surjective",
         "Sigma.farey_right_surjective",
-        "Sigma.farey_left_integral"
+        "Sigma.farey_left_integral",
+        "Sigma.compact_smooth_perturbation_strictConvex",
+        "Sigma.smooth_potential_extension_counterexample",
+        "SigmaBase.potential_hasDerivAt",
+        "Sigma.cw_labelled_child_maps_identify",
+        "Sigma.mobius_left_three_point_extension",
+        "Sigma.mobius_right_three_point_extension",
+        "Sigma.mobius_left_positive_rational_extension",
+        "Sigma.mobius_right_positive_rational_extension",
+        "Sigma.analytic_extension_from_positive_rationals",
+        "Sigma.analytic_farey_left_extension",
+        "Sigma.unlabelled_binary_tree_distinct_numerical_labels"
       ],
       "proved_components": [
-        "Both marked inverse formulas",
+        "Both marked inverse formulas, including the common endpoint where both forward formulas equal one",
         "Exact closed-interval branch images including endpoints",
         "Increasing and decreasing branch orientations",
-        "Full-domain actual interval integral recovery of I for every t>0, including 0<t<1 and t=1"
+        "Full-domain actual interval integral recovery of I for every t>0, including 0<t<1 and t=1",
+        "Same generator action for every nonnegative real input, hence every positive rational input, but different smooth strictly convex potential counterexample",
+        "Identification of arbitrary child-map candidates from the complete numerically labelled tree",
+        "Three-point Mobius identification and full rational extension of both canonical child maps from all positive-rational data",
+        "Connected real analytic extension from positive-rational data on the whole interval (-1,infinity), with analyticity of the canonical Farey map proved",
+        "Same abstract binary tree admits distinct injective positive numerical labelings, witnessing failure to recover numerical markings"
       ],
-      "unproved_components": [
-        "Identification of complete numerical tree child maps and Mobius three-point global extension",
-        "Connected analytic extension converse",
-        "Same positive-rational action but different smooth strictly convex potential counterexample",
-        "Unlabelled-tree nonreconstruction witness"
-      ],
-      "gaps": [
-        "Identification of complete numerical tree child maps and Mobius three-point global extension",
-        "Connected analytic extension converse",
-        "Same positive-rational action but different smooth strictly convex potential counterexample",
-        "Unlabelled-tree nonreconstruction witness"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Farey branch range surjectivity and monotonicity were already proved. Independent review of the new farey_left_integral confirms the exact integrand s/(1+s), limits 0 and t-1, and positive-domain hypothesis only. Its unordered-interval FTC proof handles negative integration direction and the zero-length endpoint. B2 remains partial because the extension/reconstruction-category and boundary witnesses remain."
+      "notes": "Bounded complete B2 AUDIT PASS after independent comparison of every named clause. The initial missing extension and boundary components are now resolved. The inverse identities apply at x=1, while branch surjectivity gives the full closed images; hence the shared endpoint is retained. The Mobius wrappers derive nonzero denominators at 1,2,3 from the supplied values rather than imposing new hypotheses, and identify both formulas globally (in particular on the required domain). The analytic theorem uses the actual connected interval and rational density, not analyticity as a substitute for equality data. The unordered-interval FTC handles negative integration direction and the zero-length endpoint. The smooth witness gives actual derivative agreement for every s>=0, identified with the generator by potential_hasDerivAt, but a different strictly convex potential at 3/8. Distinct injective positive labelings on the same List Bool tree supply a genuine unlabelled-marking ambiguity. No claim that the abstract tree determines a numerical coordinate was added."
     },
     {
       "id": "final:B3",

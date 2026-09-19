@@ -37,6 +37,8 @@ import SigmaPlacementPackage
 import SigmaProbDeficit
 import SigmaProbContraction
 import SigmaProbResidual
+import SigmaProbCompletion
+import SigmaProbCompletionContinuity
 import SigmaProbWeights
 import SigmaProbFourier
 import SigmaProbFourierUnique

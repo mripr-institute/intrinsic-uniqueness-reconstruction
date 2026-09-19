@@ -6,6 +6,7 @@ noncomputable section
 open scoped Matrix ComplexOrder
 variable {n : Type*} [Fintype n] [DecidableEq n]
 attribute [local instance] Classical.propDecidable
+attribute [local instance] Matrix.frobeniusNormedRing Matrix.frobeniusNormedAlgebra
 
 def extendedMatrixPotential (X : Matrix n n ℝ) : EReal := by
   classical
@@ -162,6 +163,43 @@ theorem matrix_fenchel_conjugate_formula (Θ : Matrix n n ℝ) (hΘ : Θ.IsHermi
   split_ifs with h
   · exact matrix_fenchel_conjugate_finite Θ h
   · exact matrix_fenchel_conjugate_infinite Θ hΘ h
+
+def matrixDualPotential (Θ : Matrix n n ℝ) : ℝ := -Real.log (1-Θ).det
+
+theorem matrix_dual_potential_fderiv (Θ U : Matrix n n ℝ) (hΘ : (1-Θ).PosDef) :
+    fderiv ℝ matrixDualPotential Θ U = Matrix.trace ((1-Θ)⁻¹*U) := by
+  have hb := (hasFDerivAt_id (𝕜 := ℝ) Θ).const_sub (1 : Matrix n n ℝ)
+  have hd := (((matrix_det_differentiable (1-Θ)).hasFDerivAt.log hΘ.det_pos.ne').neg).comp Θ hb
+  have hd' : HasFDerivAt matrixDualPotential
+      ((-((1-Θ).det⁻¹ • fderiv ℝ Matrix.det (1-Θ))).comp
+        (-ContinuousLinearMap.id ℝ (Matrix n n ℝ))) Θ := hd
+  rw [hd'.fderiv]
+  simp only [ContinuousLinearMap.comp_apply, ContinuousLinearMap.neg_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.id_apply, smul_eq_mul]
+  rw [matrix_det_fderiv _ _ (isUnit_iff_ne_zero.mpr hΘ.det_pos.ne')]
+  simp only [Matrix.mul_neg, Matrix.trace_neg]
+  field_simp [hΘ.det_pos.ne']
+
+def matrixDualBregman (Θ Ψ : Matrix n n ℝ) : ℝ :=
+  matrixDualPotential Θ-matrixDualPotential Ψ-fderiv ℝ matrixDualPotential Ψ (Θ-Ψ)
+
+theorem matrix_bregman_legendre_duality (X Y : Matrix n n ℝ)
+    (hX : X.PosDef) (hY : Y.PosDef) :
+    matrixDualBregman (1-Y⁻¹) (1-X⁻¹) = matrixDivergence X Y := by
+  have hx : (1 : Matrix n n ℝ)-(1-X⁻¹)=X⁻¹ := by abel
+  have hy : (1 : Matrix n n ℝ)-(1-Y⁻¹)=Y⁻¹ := by abel
+  have hu : (1 : Matrix n n ℝ)-Y⁻¹-(1-X⁻¹)=X⁻¹-Y⁻¹ := by abel
+  unfold matrixDualBregman
+  rw [matrix_dual_potential_fderiv _ _ (by rw [hx]; exact hX.inv), hx, hu,
+    Matrix.nonsing_inv_nonsing_inv X (isUnit_iff_ne_zero.mpr hX.det_pos.ne')]
+  unfold matrixDualPotential matrixDivergence
+  rw [hx, hy, Matrix.det_nonsing_inv, Matrix.det_nonsing_inv,
+    Ring.inverse_eq_inv, Ring.inverse_eq_inv, Real.log_inv, Real.log_inv,
+    Matrix.det_mul, Matrix.det_nonsing_inv, Ring.inverse_eq_inv,
+    Real.log_mul (inv_ne_zero hY.det_pos.ne') hX.det_pos.ne', Real.log_inv,
+    Matrix.mul_sub, Matrix.mul_nonsing_inv X (isUnit_iff_ne_zero.mpr hX.det_pos.ne'),
+    Matrix.trace_sub, Matrix.trace_one, Matrix.trace_mul_comm X Y⁻¹]
+  ring
 
 end
 end Sigma

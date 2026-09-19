@@ -1,6 +1,13 @@
 {
   "scope": "Independent current-source exact named-statement probability audit; proof-only omissions separately noted. Read-only mathematical review; this artifact does not certify an aggregate build.",
   "paper": "paper/sections/probability.tex",
+  "totals_by_named_environment": {
+    "total": 26,
+    "definition": 0,
+    "complete": 14,
+    "partial": 11,
+    "missing": 1
+  },
   "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace.",
   "result": "DEFECT LIST",
   "mathematically_false_paper_clauses": [],
@@ -480,16 +487,34 @@
     },
     {
       "latex_label": "final:P8",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.gammaCompletion",
+        "Sigma.gamma_completion_zero",
+        "Sigma.gamma_completion_positive",
+        "Sigma.gamma_completion_probability",
+        "Sigma.gamma_completion_nonnegative",
+        "Sigma.gamma_completion_one",
+        "Sigma.gamma_completion_laplace_rpow",
+        "Sigma.gamma_completion_native_convolution",
+        "Sigma.gamma_completion_unique",
+        "Sigma.gamma_probability_convolution_completion",
+        "Sigma.gammaCompletionProbability",
+        "Sigma.normalized_density_tendsto_l1",
+        "Sigma.nonnegative_probability_tendsto_dirac",
+        "Sigma.gamma_completion_continuousAt_positive",
+        "Sigma.gamma_completion_continuousAt_zero",
+        "Sigma.gamma_completion_weak_continuous"
+      ],
+      "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
-        "Derived weak continuity in time.",
+        "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero."
+      ],
+      "unproved_components": [
         "Construction and uniqueness in finite-dimensional law of the stationary independent-increment process starting at zero."
       ],
-      "notes": "Existing shape-two transforms and scalar Laplace uniqueness are ingredients, not an actual semigroup theorem. The proof-only correlated process boundary is also not mapped."
+      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. The process/FDD clause remains open; no claim about P8-samples. The proof-only correlated process boundary is also not mapped."
     },
     {
       "latex_label": "final:P8-levy",

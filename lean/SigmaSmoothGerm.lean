@@ -1,4 +1,6 @@
 import SigmaProbGamma
+import SigmaSelfConcordanceGeometry
+import Mathlib.Analysis.Convex.Deriv
 import Mathlib.Analysis.Calculus.BumpFunction.InnerProduct
 import Mathlib.MeasureTheory.Integral.SetIntegral
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
@@ -160,6 +162,92 @@ theorem smooth_density_same_jet_counterexample (a : ℝ) :
   · filter_upwards [eventually_ge_atTop (R+7)] with x hx
     exact hr x hx
   · exact ⟨R+3, by dsimp [R]; have := le_max_right a 1; linarith, hd⟩
+
+theorem compact_smooth_perturbation_strictConvex (χ : ℝ → ℝ)
+    (hχ : ContDiff ℝ ∞ χ) (hs : HasCompactSupport χ) :
+    ∃ η > 0, ∀ ε : ℝ, |ε| < η →
+      StrictConvexOn ℝ (Ioi 0) (fun t => I t+ε*χ t) := by
+  have hc1 : ContDiff ℝ ∞ (deriv χ) := (contDiff_infty_iff_deriv.mp hχ).2
+  have hc2 : Continuous (deriv (deriv χ)) := hc1.continuous_deriv (by simp)
+  have hw : Continuous (fun t : ℝ => t^2*deriv (deriv χ) t) :=
+    (continuous_id.pow 2).mul hc2
+  have hws : HasCompactSupport (fun t : ℝ => t^2*deriv (deriv χ) t) := hs.deriv.deriv.mul_left
+  obtain ⟨B, hB⟩ := (hws.abs.isCompact_range hw.abs).bddAbove
+  let K := |B|+1
+  have hK : 0 < K := by dsimp [K]; positivity
+  have hk : ∀ t : ℝ, |t^2*deriv (deriv χ) t| ≤ K := by
+    intro t
+    have hh := hB (mem_range_self t)
+    change |t^2*deriv (deriv χ) t| ≤ B at hh
+    dsimp [K]
+    linarith [le_abs_self B]
+  refine ⟨1/(2*K), by positivity, ?_⟩
+  intro ε hε
+  have hfirst (t : ℝ) (ht : 0 < t) :
+      HasDerivAt (fun t => I t+ε*χ t) (deriv I t+ε*deriv χ t) t :=
+    ((SigmaBase.potential_hasDerivAt ht).differentiableAt.hasDerivAt).add
+      (((contDiff_infty_iff_deriv.mp hχ).1 t).hasDerivAt.const_mul ε)
+  apply strictConvexOn_of_deriv2_pos' (convex_Ioi (0 : ℝ))
+    (fun t ht => (hfirst t ht).continuousAt.continuousWithinAt)
+  intro t ht
+  have hd : HasDerivAt (deriv (fun t => I t+ε*χ t))
+      (1/t^2+ε*deriv (deriv χ) t) t := by
+    have hh := (sc_intrinsic_second_hasDerivAt ht).add
+      (((contDiff_infty_iff_deriv.mp hc1).1 t).hasDerivAt.const_mul ε)
+    apply hh.congr_of_eventuallyEq
+    filter_upwards [Ioi_mem_nhds ht] with x hx
+    exact (hfirst x hx).deriv
+  change 0 < deriv (deriv (fun t => I t+ε*χ t)) t
+  rw [hd.deriv]
+  have he : |ε*(t^2*deriv (deriv χ) t)| < 1/2 := by
+    rw [abs_mul]
+    have hh := (mul_le_mul_of_nonneg_left (hk t) (abs_nonneg ε)).trans_lt
+      (mul_lt_mul_of_pos_right hε hK)
+    have heq : (1/(2*K))*K=1/2 := by field_simp; ring
+    simpa only [heq] using hh
+  have hp : 0 < 1+ε*(t^2*deriv (deriv χ) t) := by
+    have hh := neg_abs_le (ε*(t^2*deriv (deriv χ) t))
+    linarith
+  have ht2 : 0 < t^2 := sq_pos_of_pos ht
+  have heq : t^2*(1/t^2+ε*deriv (deriv χ) t)=1+ε*(t^2*deriv (deriv χ) t) := by
+    field_simp
+    ring
+  exact (mul_pos_iff_of_pos_left ht2).mp (heq.symm ▸ hp)
+
+theorem smooth_potential_extension_counterexample :
+    ∃ J : ℝ → ℝ, ContDiffOn ℝ ∞ J (Ioi 0) ∧ StrictConvexOn ℝ (Ioi 0) J ∧
+      (J =ᶠ[𝓝 1] I) ∧ (∀ n : ℕ, iteratedDeriv n J 1=iteratedDeriv n I 1) ∧
+      (∀ s ≥ 0, deriv J (1+s)=deriv I (1+s)) ∧ J (3/8) ≠ I (3/8) := by
+  let χ : ContDiffBump (3/8 : ℝ) := ⟨1/16, 1/8, by norm_num, by norm_num⟩
+  have hc : ContDiff ℝ ∞ (χ : ℝ → ℝ) := χ.contDiff
+  obtain ⟨η, hη, hconv⟩ := compact_smooth_perturbation_strictConvex χ hc χ.hasCompactSupport
+  let ε := η/2
+  have hε : 0 < ε := half_pos hη
+  have he : |ε| < η := by rw [abs_of_pos hε]; dsimp [ε]; linarith
+  let J : ℝ → ℝ := fun t => I t+ε*χ t
+  have hzero : ∀ t ≥ (1/2 : ℝ), χ t=0 := by
+    intro t ht
+    apply χ.zero_of_le_dist
+    rw [Real.dist_eq]
+    dsimp [χ]
+    linarith [le_abs_self (t-3/8)]
+  have heq (x : ℝ) (hx : (1/2 : ℝ)<x) : J =ᶠ[𝓝 x] I := by
+    filter_upwards [Ioi_mem_nhds hx] with t ht
+    simp [J, hzero t (le_of_lt ht)]
+  have hg := heq 1 (by norm_num)
+  refine ⟨J, ?_, hconv ε he, hg, fun n => hg.iteratedDeriv_eq n, ?_, ?_⟩
+  · have hI : ContDiffOn ℝ ∞ I (Ioi 0) :=
+      (contDiffOn_id.sub contDiffOn_const).sub
+        (contDiffOn_id.log (fun t ht => (ne_of_gt ht)))
+    exact hI.add (contDiffOn_const.mul hc.contDiffOn)
+  · intro s hs
+    exact (heq (1+s) (by linarith)).deriv_eq
+  · have hχ : χ (3/8)=1 := by
+      apply χ.one_of_mem_closedBall
+      norm_num [χ, Metric.mem_closedBall]
+    dsimp [J]
+    rw [hχ, mul_one]
+    linarith
 
 end
 end Sigma

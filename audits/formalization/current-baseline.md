@@ -1,5 +1,10 @@
 # Local baseline and coverage reconstruction
 
+This document preserves the starting baseline, not the latest totals. For the
+current audited status, use [the live coverage ledger](../lean-coverage.md) and
+[its machine-readable source](../lean-coverage.json). Milestone proof records
+likewise retain the counts at their own verification milestone.
+
 Starting commit: `5260a8cb433815e9ef20015a2396865b3c6b2582` on `main`.
 Configured remote: `https://github.com/mripr-institute/intrinsic-uniqueness-reconstruction.git`.
 The initial status reported `main` up to date with `origin/main`.
@@ -51,7 +56,8 @@ independent-variable interface to its canonical sum law; P7 needs entropy
 integrability derived from finite extended entropy. These were recorded before
 implementing a fix. Complete compilation alone was not used as coverage evidence.
 
-The initial residual inventory is the `unproved_components` entries in the four
-`current-*-audit.json` artifacts, rendered in `audits/lean-coverage.md`. Subsequent
-verified changes are recorded in milestone proof records. No paper statement
-has been weakened and no proof obligation has been removed.
+The residual inventory is maintained in the `unproved_components` entries in
+the four `current-*-audit.json` artifacts, rendered in `audits/lean-coverage.md`;
+these are live records and no longer reproduce the initial inventory unchanged.
+Subsequent verified changes are recorded in milestone proof records. No paper
+statement has been weakened and no proof obligation has been removed.
