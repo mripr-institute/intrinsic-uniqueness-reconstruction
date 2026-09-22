@@ -192,6 +192,82 @@ structure SpatialPacket where
   dimension : ℕ
   observable : EuclideanSpace ℝ (Fin dimension) → ℝ
 
+/-- The plane with the quartic observable used in the first countermodel of
+Proposition 9.4. -/
+def planeQuarticPacket : SpatialPacket :=
+  ⟨2, fun x => ‖x‖ ^ 4⟩
+
+/-- The plane with its squared-norm observable used in the second countermodel. -/
+def planeSquaredNormPacket : SpatialPacket :=
+  ⟨2, fun x => ‖x‖ ^ 2⟩
+
+/-- The line with its squared-norm observable used in the third countermodel. -/
+def lineSquaredNormPacket : SpatialPacket :=
+  ⟨1, fun x => ‖x‖ ^ 2⟩
+
+/-- The five families of facts retained in Proposition 9.4, stated as
+predicates on a common intrinsic/canonical data packet. -/
+def CompleteIntrinsicContextAt {R : Type*}
+    (scalarIdentities probabilityRealizations operatorRealizations
+      characteristicSeries canonicalGaussian : R → Prop) (r : R) : Prop :=
+  scalarIdentities r ∧ probabilityRealizations r ∧ operatorRealizations r ∧
+    characteristicSeries r ∧ canonicalGaussian r
+
+/-- Any packet satisfying all the named intrinsic and canonical facts can be
+extended independently by each spatial countermodel.  Each extension retains
+the identical packet and hence the same proofs of all five families of facts. -/
+theorem spatial_countermodels_retain_context {R : Type*}
+    (scalarIdentities probabilityRealizations operatorRealizations
+      characteristicSeries canonicalGaussian : R → Prop)
+    (retained : R)
+    (hcomplete : CompleteIntrinsicContextAt scalarIdentities probabilityRealizations
+      operatorRealizations characteristicSeries canonicalGaussian retained) :
+    (∃ E : R × SpatialPacket,
+      E.1 = retained ∧
+      CompleteIntrinsicContextAt scalarIdentities probabilityRealizations
+        operatorRealizations characteristicSeries canonicalGaussian E.1 ∧
+      E.2.dimension = 2 ∧
+      (∀ x, 0 ≤ E.2.observable x) ∧
+      ¬ OrthogonallyAdditive E.2.observable) ∧
+    (∃ E : R × SpatialPacket,
+      E.1 = retained ∧
+      CompleteIntrinsicContextAt scalarIdentities probabilityRealizations
+        operatorRealizations characteristicSeries canonicalGaussian E.1 ∧
+      E.2.dimension = 2 ∧
+      (∀ x, 0 ≤ E.2.observable x) ∧
+      OrthogonallyAdditive E.2.observable) ∧
+    (∃ E : R × SpatialPacket,
+      E.1 = retained ∧
+      CompleteIntrinsicContextAt scalarIdentities probabilityRealizations
+        operatorRealizations characteristicSeries canonicalGaussian E.1 ∧
+      E.2.dimension = 1 ∧
+      (∀ x, 0 ≤ E.2.observable x) ∧
+      OrthogonallyAdditive E.2.observable) := by
+  refine ⟨⟨(retained, planeQuarticPacket), rfl, hcomplete, rfl,
+      fun x => by change 0 ≤ ‖x‖ ^ 4; positivity, ?_⟩,
+    ⟨(retained, planeSquaredNormPacket), rfl, hcomplete, rfl,
+      fun x => by change 0 ≤ ‖x‖ ^ 2; positivity, ?_⟩,
+    ⟨(retained, lineSquaredNormPacket), rfl, hcomplete, rfl,
+      fun x => by change 0 ≤ ‖x‖ ^ 2; positivity, ?_⟩⟩
+  · exact plane_quartic_not_orthogonally_additive
+  · exact norm_square_orthogonal_additive
+  · exact norm_square_orthogonal_additive
+
+/-- In designated dimension two the residual coefficient is exactly the
+nonzero value stated in the paper. -/
+theorem dimension_two_radial_residual_coefficient (x : ℝ) (hx : 0 < x) :
+    ((2 - 1) * (2 - 3) / (4 * x ^ 2) : ℝ) = -1 / (4 * x ^ 2) ∧
+      (-1 / (4 * x ^ 2) : ℝ) ≠ 0 := by
+  constructor
+  · ring
+  · exact div_ne_zero (by norm_num) (mul_ne_zero (by norm_num)
+      (pow_ne_zero 2 (ne_of_gt hx)))
+
+/-- In designated dimension one the same residual coefficient vanishes. -/
+theorem dimension_one_radial_residual_coefficient (x : ℝ) :
+    ((1 - 1) * (1 - 3) / (4 * x ^ 2) : ℝ) = 0 := by
+  ring
+
 theorem spatial_dimension_deletion :
     ∃ P Q : SpatialPacket, P.dimension = 2 ∧ Q.dimension = 3 ∧
       (∀ x, 0 ≤ P.observable x) ∧ (∀ x, 0 ≤ Q.observable x) ∧

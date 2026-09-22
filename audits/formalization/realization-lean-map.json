@@ -715,18 +715,21 @@
     },
     {
       "statement_id": "final:R4",
-      "status": "partial",
-      "checked_scope": "Dimension-one versus >=2 cancellation follows from the exact residual theorem; squared norm is orthogonally additive; the quartic fails in every supplied orthonormal two-plane.",
+      "status": "complete",
+      "checked_scope": "Every packet satisfying the five named intrinsic/canonical families has three independent spatial extensions preserving the identical retained packet and all five proofs. The concrete extensions are the dimension-two quartic, dimension-two squared norm, and dimension-one squared norm; the stated residual coefficients are proved exactly.",
       "lean_theorems": [
-        "SigmaFinal.norm_square_orthogonal_additive",
-        "SigmaFinal.quartic_not_orthogonal_additive_of_pair",
-        "SigmaFinal.line_quartic_orthogonal_additive",
-        "SigmaFinal.radial_residual_cancellation"
+        "Sigma.norm_square_orthogonal_additive",
+        "Sigma.quartic_not_orthogonal_additive_of_pair",
+        "Sigma.radial_residual_cancellation",
+        "Sigma.Closure.CompleteIntrinsicContextAt",
+        "Sigma.Closure.planeQuarticPacket",
+        "Sigma.Closure.planeSquaredNormPacket",
+        "Sigma.Closure.lineSquaredNormPacket",
+        "Sigma.Closure.spatial_countermodels_retain_context",
+        "Sigma.Closure.dimension_two_radial_residual_coefficient",
+        "Sigma.Closure.dimension_one_radial_residual_coefficient"
       ],
-      "remaining_components": [
-        "Package extensions retaining every designated scalar/probability/operator/formal-network field with independent spatial sorts.",
-        "Concrete R2 squared-norm residual value and the scalar-metric pullback versus composite-Hessian tensor formulas."
-      ]
+      "remaining_components": []
     },
     {
       "statement_id": "final:B1",

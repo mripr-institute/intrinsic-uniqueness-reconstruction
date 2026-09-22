@@ -2137,3 +2137,6 @@ import Sigma
 #print axioms Sigma.matrix_trace_inverse_eigenvalues
 #print axioms Sigma.matrix_potential_symmetrization_spectral
 #print axioms Sigma.matrix_divergence_relative_symmetrization
+#print axioms Sigma.Closure.spatial_countermodels_retain_context
+#print axioms Sigma.Closure.dimension_two_radial_residual_coefficient
+#print axioms Sigma.Closure.dimension_one_radial_residual_coefficient

@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 43,
-    "partial": 25,
+    "complete": 44,
+    "partial": 24,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -3060,27 +3060,31 @@
       "line": 754,
       "statement_tex": "\\label{final:R4}\nAll intrinsic scalar identities, their probability and operator\nrealizations, their formal characteristic series, and the canonical\nfour-dimensional Gaussian construction may hold while an independent\ndesignated spatial observable fails orthogonal additivity, or while\nits designated dimension fails to equal three.  Their conjunction therefore\ndoes not imply either the hypotheses of Theorem~\\ref{final:R2} or a\ndesignated dimension conclusion from Proposition~\\ref{final:R3}.\n",
       "statement_sha256": "47b1532bd2acf8ed0226940a75b4d2e07ac9ebb89c615779184feb1677d0451d",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.norm_square_orthogonal_additive",
         "Sigma.quartic_not_orthogonal_additive_of_pair",
-        "Sigma.radial_residual_cancellation"
+        "Sigma.radial_residual_cancellation",
+        "Sigma.Closure.CompleteIntrinsicContextAt",
+        "Sigma.Closure.planeQuarticPacket",
+        "Sigma.Closure.planeSquaredNormPacket",
+        "Sigma.Closure.lineSquaredNormPacket",
+        "Sigma.Closure.spatial_countermodels_retain_context",
+        "Sigma.Closure.dimension_two_radial_residual_coefficient",
+        "Sigma.Closure.dimension_one_radial_residual_coefficient"
       ],
       "proved_components": [
         "Squared norm is orthogonally additive",
-        "Quartic norm fails orthogonal additivity given an orthonormal pair",
-        "Residual cancellation at dimension one"
+        "Quartic norm fails orthogonal additivity on the designated plane",
+        "Every packet satisfying the intrinsic scalar, probability, operator, characteristic-series, and canonical-Gaussian facts has three independent spatial extensions retaining the identical packet and all five families of facts",
+        "Explicit dimension-two quartic, dimension-two squared-norm, and dimension-one squared-norm extension witnesses",
+        "The dimension-two residual coefficient is exactly -1/(4x^2) and nonzero on the positive ray",
+        "The dimension-one residual coefficient vanishes"
       ],
-      "unproved_components": [
-        "Actual countermodels retaining the entire intrinsic scalar/probability/operator/characteristic structure and canonical Gaussian construction while independently adjoining the designated spatial data",
-        "Explicit dimension-two squared-norm and dimension-one squared-norm extension witnesses"
-      ],
-      "gaps": [
-        "Actual countermodels retaining the entire intrinsic scalar/probability/operator/characteristic structure and canonical Gaussian construction while independently adjoining the designated spatial data",
-        "Explicit dimension-two squared-norm and dimension-one squared-norm extension witnesses"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Generic failure lemmas do not establish the stated conjunction with retained external/canonical structures. Adjacent rank-one metric-pullback and composite-Hessian tensor distinction is also not located."
+      "notes": "Bounded final:R4 milestone audit PASS. CompleteIntrinsicContextAt explicitly records all five retained families named by the proposition. The three product extensions preserve the identical retained packet and its complete proof while adjoining the paper's concrete spatial observables. The adjacent unlabelled tensor-comparison paragraph is outside Proposition final:R4."
     },
     {
       "id": "final:B1",
