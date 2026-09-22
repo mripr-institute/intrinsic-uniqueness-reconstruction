@@ -262,20 +262,21 @@
     },
     {
       "latex_label": "final:P4",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.linked_deficit_and_involution_unique_on_positive_ray",
         "Sigma.canonical_deficit_pair_identifies_on_positive_ray",
-        "Sigma.canonical_linked_density_measure"
+        "Sigma.canonical_linked_density_measure",
+        "Sigma.rayDeficitLaw",
+        "Sigma.canonical_deficit_pair_identifies_from_explicit_cumulants"
       ],
       "proved_components": [
         "Full actual law-and-involution uniqueness in the continuous ray-only two-branch class, without differentiability, density of deficit or extra pairing monotonicity assumptions.",
-        "Concrete canonical target and converse supplied by the canonical pairing and linked-density theorems."
+        "Concrete canonical target and converse supplied by the canonical pairing and linked-density theorems.",
+        "The complete explicit Euler/zeta algebraic cumulant list may replace deficit-law equality, with no candidate exponential-moment assumption."
       ],
-      "unproved_components": [
-        "The alternative replacing equality of deficit laws by the complete explicitly calibrated Euler/zeta cumulant list (depends on P4-cumulants)."
-      ],
-      "notes": ""
+      "unproved_components": [],
+      "notes": "Bounded milestone audit PASS."
     },
     {
       "latex_label": "final:P4-boundaries",

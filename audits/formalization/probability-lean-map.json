@@ -258,7 +258,7 @@
     },
     {
       "latex_label": "final:P4",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "SigmaFinal.linked_deficit_law_recovers_level_measure",
         "SigmaFinal.linked_deficit_law_recovers_width",
@@ -268,16 +268,16 @@
         "SigmaFinal.RayPotential.extension",
         "SigmaFinal.linked_deficit_and_involution_unique_on_positive_ray",
         "SigmaFinal.canonical_linked_density_measure",
-        "SigmaFinal.canonical_deficit_pair_identifies_on_positive_ray"
+        "SigmaFinal.canonical_deficit_pair_identifies_on_positive_ray",
+        "Sigma.canonical_deficit_pair_identifies_from_explicit_cumulants"
       ],
       "proved_components": [
         "Actual linked pushforward probability data undo the positive density weighting and recover sublevel widths; common root pairing then determines both branches and the full potential, including the canonical Gamma target.",
         "Literal positive-ray-only class wrapper derives measurability of the canonical extension and strict decrease of the linked root pairing; no global regularity or extra involution monotonicity premise.",
-        "Literal positive-ray inverse for the actual canonical target pair, with all target pairing properties and monotonicity derived; identifies both potential and density pointwise."
+        "Literal positive-ray inverse for the actual canonical target pair, with all target pairing properties and monotonicity derived; identifies both potential and density pointwise.",
+        "The explicit Euler/zeta algebraic cumulant list replaces deficit-law equality without an extra exponential-moment assumption."
       ],
-      "unproved_components": [
-        "The alternative using the explicit zeta/Euler cumulant target values; actual law-and-involution inverse and exact Lambert target observations are proved."
-      ]
+      "unproved_components": []
     },
     {
       "latex_label": "final:P4-boundaries",

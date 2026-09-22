@@ -50,6 +50,7 @@ lean_lib SigmaFormalization where
     `SigmaProbDeficitCGFSeries,
     `SigmaProbDeficitZetaCumulants,
     `SigmaProbDeficitRecurrence,
+    `SigmaProbDeficitCumulantInverse,
     `SigmaMatrixGeodesic,
     `SigmaMatrixRankOne,
     `SigmaAutomorphisms,

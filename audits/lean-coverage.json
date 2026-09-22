@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 42,
-    "partial": 26,
+    "complete": 43,
+    "partial": 25,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -1049,24 +1049,23 @@
       "line": 440,
       "statement_tex": "\\label{final:P4}\nLet $J:(0,\\infty)\\to[0,\\infty)$ be continuous, satisfy $J(1)=0$,\nbe strictly decreasing on $(0,1]$ and strictly increasing on\n$[1,\\infty)$, and tend to infinity at both endpoints.  Suppose\n$q_J(t)=e^{-1-J(t)}$ has integral one.  Let $F_J$ be the law of\n$J(T_J)$ under this same density $q_J$, and let $j_J$ exchange its\ntwo equal-level roots in the same $t$ coordinate and fix one.\nIf\n\\[\n F_J=F_I\\quad\\hbox{and}\\quad j_J=j_I,\n\\]\nwith the target values specified in\n\\eqref{final:eq-deficit-cdf} and \\eqref{final:eq-deficit-involution},\nthen $J=I$ and $q_J=p$.  Conversely $I$ supplies these data.\nThe full list \\eqref{final:eq-deficit-cumulants} may replace $F_J=F_I$.\nMore generally the complete pair $(F_J,j_J)$ uniquely determines\nevery potential in this candidate class.\n",
       "statement_sha256": "2c0d9b52849daea9d0d70d5d486f9c4ee62578d113f5cb2aaf52380b815285ec",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.linked_deficit_and_involution_unique_on_positive_ray",
         "Sigma.canonical_deficit_pair_identifies_on_positive_ray",
-        "Sigma.canonical_linked_density_measure"
+        "Sigma.canonical_linked_density_measure",
+        "Sigma.rayDeficitLaw",
+        "Sigma.canonical_deficit_pair_identifies_from_explicit_cumulants"
       ],
       "proved_components": [
         "Full actual law-and-involution uniqueness in the continuous ray-only two-branch class, without differentiability, density of deficit or extra pairing monotonicity assumptions.",
-        "Concrete canonical target and converse supplied by the canonical pairing and linked-density theorems."
+        "Concrete canonical target and converse supplied by the canonical pairing and linked-density theorems.",
+        "The complete explicit Euler/zeta algebraic cumulant list may replace deficit-law equality, with no candidate exponential-moment assumption."
       ],
-      "unproved_components": [
-        "The alternative replacing equality of deficit laws by the complete explicitly calibrated Euler/zeta cumulant list (depends on P4-cumulants)."
-      ],
-      "gaps": [
-        "The alternative replacing equality of deficit laws by the complete explicitly calibrated Euler/zeta cumulant list (depends on P4-cumulants)."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": ""
+      "notes": "Bounded milestone audit PASS."
     },
     {
       "id": "final:P4-boundaries",
