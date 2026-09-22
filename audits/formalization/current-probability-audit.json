@@ -214,7 +214,7 @@
     },
     {
       "latex_label": "final:P4-cumulants",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.gamma_deficit_mgf",
         "Sigma.gamma_deficit_exponential_integrable",
@@ -237,7 +237,15 @@
         "Sigma.deficit_cumulant_zeta",
         "Sigma.natural_zeta_two",
         "Sigma.natural_zeta_four",
-        "Sigma.deficit_cumulants_two_three_four"
+        "Sigma.deficit_cumulants_two_three_four",
+        "Sigma.deficit_mgf_formal_germ",
+        "Sigma.gamma_deficit_algebraic_cumulant_recurrence",
+        "Sigma.deficitCumulantValue",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulant_recurrence",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulants_identify",
+        "Sigma.gamma_deficit_mean",
+        "Sigma.gamma_deficit_second_moment",
+        "Sigma.gamma_deficit_variance"
       ],
       "proved_components": [
         "Actual deficit MGF and sharp real integrability domain s<1.",
@@ -245,13 +253,12 @@
         "Actual conditional probability and exact upper-incomplete-Gamma transform for a>0,s<1.",
         "Convergent Euler log-Gamma product and absolutely convergent double-series exchange for every |s|<1, including negative s.",
         "Exact Euler/zeta series of the actual deficit CGF, with natural zeta identified with native riemannZeta.",
-        "Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values."
+        "Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values.",
+        "The actual centered variance integral equals the second cumulant, pi^2/6-1.",
+        "The explicit Euler/zeta cumulant sequence satisfies the target algebraic recurrence, and any probability law with all finite moments satisfying that recurrence equals the deficit law without an exponential-moment premise."
       ],
-      "unproved_components": [
-        "Identification of the actual variance of the deficit law with its second cumulant, giving pi^2/6-1.",
-        "Calibration of the target AlgebraicCumulantRecurrence with the now-proved explicit cumulant values, needed for the stated no-extra-exponential-moment inverse."
-      ],
-      "notes": "Bounded Euler/zeta CGF and actual cumulant AUDIT PASS. Euler convergence comes from the native Gamma limit; nonnegative terms at |s| justify absolute double convergence and exchange. The resulting native analytic germ gives actual iterated derivatives, not a sequence merely named cumulants. The explicit second cumulant is not yet identified with native variance. gamma_deficit_algebraic_cumulants_identify still assumes target AlgebraicCumulantRecurrence, so its explicit calibration remains an obligation."
+      "unproved_components": [],
+      "notes": "Completed by the actual MGF/CGF germ derivative identity, which calibrates the explicit cumulant recurrence, and by a direct centered-integral variance theorem. Bounded milestone audit PASS."
     },
     {
       "latex_label": "final:P4",

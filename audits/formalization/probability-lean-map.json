@@ -227,7 +227,7 @@
     },
     {
       "latex_label": "final:P4-cumulants",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "SigmaFinal.gamma_deficit_probability_is_probability",
         "SigmaFinal.gamma_deficit_nonnegative",
@@ -237,16 +237,24 @@
         "SigmaFinal.probability_moment_unique_of_target_exponential",
         "SigmaFinal.gamma_deficit_moments_identify_real_line_probability",
         "SigmaFinal.probability_moments_eq_of_algebraic_cumulants",
-        "SigmaFinal.gamma_deficit_algebraic_cumulants_identify"
+        "SigmaFinal.gamma_deficit_algebraic_cumulants_identify",
+        "Sigma.deficit_cgf_full_series",
+        "Sigma.deficit_cumulant_coeff",
+        "Sigma.deficit_cumulant_zeta",
+        "Sigma.deficit_cumulants_two_three_four",
+        "Sigma.gamma_deficit_conditional_transform",
+        "Sigma.gamma_deficit_algebraic_cumulant_recurrence",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulant_recurrence",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulants_identify",
+        "Sigma.gamma_deficit_variance"
       ],
       "proved_components": [
         "Actual canonical deficit pushforward probability on the nonnegative ray; exact full real MGF and exponential integrability for every s<1.",
         "Sharp actual MGF integrability domain s<1, including divergence at and above one. Full-real-line moment determinacy from the actual target moments, deriving the candidate exponential envelope.",
-        "Standard algebraic cumulant recurrence determines the moment sequence; the deficit inverse follows when the target cumulant recurrence is calibrated. The explicit target calibration is not assumed proved."
+        "Standard algebraic cumulant recurrence determines the moment sequence; the explicit Euler/zeta target recurrence is calibrated and gives the inverse without a candidate exponential-moment assumption.",
+        "The explicit CGF series, full cumulant list and displayed evaluations, conditional truncated transform, and actual centered variance integral are proved."
       ],
-      "unproved_components": [
-        "Complete explicit cumulant list and CGF series, Gamma/polygamma/zeta/Euler evaluations, and the truncated transform."
-      ]
+      "unproved_components": []
     },
     {
       "latex_label": "final:P4",

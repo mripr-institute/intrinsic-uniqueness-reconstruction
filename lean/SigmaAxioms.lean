@@ -914,6 +914,11 @@ import Sigma
 #print axioms Sigma.AlgebraicCumulantRecurrence
 #print axioms Sigma.probability_moments_eq_of_algebraic_cumulants
 #print axioms Sigma.gamma_deficit_algebraic_cumulants_identify
+#print axioms Sigma.deficit_mgf_formal_germ
+#print axioms Sigma.gamma_deficit_algebraic_cumulant_recurrence
+#print axioms Sigma.gamma_deficit_explicit_algebraic_cumulant_recurrence
+#print axioms Sigma.gamma_deficit_explicit_algebraic_cumulants_identify
+#print axioms Sigma.gamma_deficit_variance
 #print axioms Sigma.gamma_density_integrability
 #print axioms Sigma.gamma_deficit_mgf_not_integrable_at_one
 #print axioms Sigma.gamma_deficit_mgf_not_integrable

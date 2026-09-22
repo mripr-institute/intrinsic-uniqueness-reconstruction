@@ -182,6 +182,7 @@ import SigmaProbEulerProduct
 import SigmaProbZetaSeries
 import SigmaProbDeficitCGFSeries
 import SigmaProbDeficitZetaCumulants
+import SigmaProbDeficitRecurrence
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePerturbation

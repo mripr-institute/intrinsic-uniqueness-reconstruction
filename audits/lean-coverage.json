@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 41,
-    "partial": 27,
+    "complete": 42,
+    "partial": 26,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -990,7 +990,7 @@
       "line": 375,
       "statement_tex": "\\label{final:P4-cumulants}\nThe maximal real moment-generating domain of $V$ is $s<1$, and\n\\begin{align}\n M_V(s)&=e^{-s}\\frac{\\Gamma(2-s)}{(1-s)^{2-s}},\\label{final:eq-deficit-mgf}\\\\\n K_V(s)&=\\gamma_Es+\n \\sum_{n=2}^\\infty\\frac{1}{n}\n       \\left(\\zeta(n)-\\frac{1}{n-1}\\right)s^n\\quad(|s|<1).\n       \\label{final:eq-deficit-cgf}\n\\end{align}\nConsequently\n\\begin{equation}\n \\kappa_1(V)=\\gamma_E,\\qquad\n \\kappa_n(V)=(n-1)!\n       \\left(\\zeta(n)-\\frac{1}{n-1}\\right)\\quad(n\\geq2).\n       \\label{final:eq-deficit-cumulants}\n\\end{equation}\nIn particular $\\operatorname{Var}V=\\pi^2/6-1$,\n$\\kappa_3(V)=2\\zeta(3)-1$, and $\\kappa_4(V)=\\pi^4/15-2$.\nEvery nonnegative probability law with all finite moments and these\nalgebraic cumulants equals the law of $V$; no separate exponential\nmoment assumption on that candidate is necessary.\nFor $a>0$ and $s<1$, the conditional transform is\n\\begin{equation}\n \\mathbb E[e^{sI(T)}\\mid T\\geq a]\n =\\frac{e^{-s}\\Gamma(2-s,(1-s)a)}\n       {(1+a)e^{-a}(1-s)^{2-s}},\n \\label{final:eq-deficit-truncation}\n\\end{equation}\nwhere $\\Gamma(q,x)=\\int_x^\\infty u^{q-1}e^{-u}\\,du$.\n",
       "statement_sha256": "71ea74f211605fa70694978ec9b53b68c40881df30c57c2a3a989773ec376fe2",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_deficit_mgf",
         "Sigma.gamma_deficit_exponential_integrable",
@@ -1013,7 +1013,15 @@
         "Sigma.deficit_cumulant_zeta",
         "Sigma.natural_zeta_two",
         "Sigma.natural_zeta_four",
-        "Sigma.deficit_cumulants_two_three_four"
+        "Sigma.deficit_cumulants_two_three_four",
+        "Sigma.deficit_mgf_formal_germ",
+        "Sigma.gamma_deficit_algebraic_cumulant_recurrence",
+        "Sigma.deficitCumulantValue",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulant_recurrence",
+        "Sigma.gamma_deficit_explicit_algebraic_cumulants_identify",
+        "Sigma.gamma_deficit_mean",
+        "Sigma.gamma_deficit_second_moment",
+        "Sigma.gamma_deficit_variance"
       ],
       "proved_components": [
         "Actual deficit MGF and sharp real integrability domain s<1.",
@@ -1021,18 +1029,14 @@
         "Actual conditional probability and exact upper-incomplete-Gamma transform for a>0,s<1.",
         "Convergent Euler log-Gamma product and absolutely convergent double-series exchange for every |s|<1, including negative s.",
         "Exact Euler/zeta series of the actual deficit CGF, with natural zeta identified with native riemannZeta.",
-        "Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values."
+        "Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values.",
+        "The actual centered variance integral equals the second cumulant, pi^2/6-1.",
+        "The explicit Euler/zeta cumulant sequence satisfies the target algebraic recurrence, and any probability law with all finite moments satisfying that recurrence equals the deficit law without an exponential-moment premise."
       ],
-      "unproved_components": [
-        "Identification of the actual variance of the deficit law with its second cumulant, giving pi^2/6-1.",
-        "Calibration of the target AlgebraicCumulantRecurrence with the now-proved explicit cumulant values, needed for the stated no-extra-exponential-moment inverse."
-      ],
-      "gaps": [
-        "Identification of the actual variance of the deficit law with its second cumulant, giving pi^2/6-1.",
-        "Calibration of the target AlgebraicCumulantRecurrence with the now-proved explicit cumulant values, needed for the stated no-extra-exponential-moment inverse."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Bounded Euler/zeta CGF and actual cumulant AUDIT PASS. Euler convergence comes from the native Gamma limit; nonnegative terms at |s| justify absolute double convergence and exchange. The resulting native analytic germ gives actual iterated derivatives, not a sequence merely named cumulants. The explicit second cumulant is not yet identified with native variance. gamma_deficit_algebraic_cumulants_identify still assumes target AlgebraicCumulantRecurrence, so its explicit calibration remains an obligation."
+      "notes": "Completed by the actual MGF/CGF germ derivative identity, which calibrates the explicit cumulant recurrence, and by a direct centered-integral variance theorem. Bounded milestone audit PASS."
     },
     {
       "id": "final:P4",
