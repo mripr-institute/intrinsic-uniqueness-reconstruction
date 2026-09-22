@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 26,
     "definition": 0,
-    "complete": 15,
-    "partial": 11,
+    "complete": 16,
+    "partial": 10,
     "missing": 0
   },
   "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace.",
@@ -659,7 +659,7 @@
     },
     {
       "latex_label": "final:P8-selfdecomposition",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.gamma_residual_probability",
         "Sigma.gamma_residual_nonnegative",
@@ -673,17 +673,28 @@
         "Sigma.gamma_residual_levy_integral",
         "Sigma.gammaResidualLevyMeasure",
         "Sigma.gamma_residual_levy_measure_mass",
-        "Sigma.gamma_residual_levy_measure_finite"
+        "Sigma.gamma_residual_levy_measure_finite",
+        "Sigma.poissonConvolutionLaw",
+        "Sigma.gamma_residual_compound_poisson",
+        "Sigma.gamma_residual_jump_intensity_measure",
+        "Sigma.gamma_probability_infinitely_divisible",
+        "Sigma.gamma_shape_four_identification",
+        "Sigma.gamma_shape_four_infinitely_divisible",
+        "Sigma.gamma_shape_four_self_decomposition",
+        "Sigma.gamma_shape_four_ne_canonical",
+        "Sigma.gamma_rate_two_eq_scaled",
+        "Sigma.gamma_rate_two_infinitely_divisible",
+        "Sigma.gamma_rate_two_self_decomposition",
+        "Sigma.gamma_rate_two_ne_canonical"
       ],
       "proved_components": [
         "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate).",
-        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c)."
+        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c).",
+        "The actual residual law is the native Poisson mixture of convolution powers of a normalized jump law, and rate times that jump law is exactly the displayed Levy measure.",
+        "Gamma is infinitely divisible, while Gamma(4,1) and Gamma(2,2) each have native convolution roots and independent self-decompositions and differ from the canonical Gamma(2,1)."
       ],
-      "unproved_components": [
-        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
-        "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
-      ],
-      "notes": "New residual-density/mass batch: AUDIT PASS for the exact components credited. Read the actual definitions and proofs in SigmaProbLevyIntegral.lean: the exponential factorization reduces to the already proved genuine Levy-kernel integral; nonnegativity prevents ENNReal.ofReal from masking a signed density; the parameter range includes every paper value 0<c<1 and additionally the zero-measure endpoint c=1. Naming gammaResidualLevyMeasure does not by itself establish it as the Levy measure of gammaResidualProbability; that linkage remains unproved. Compilation PASS was reported by the proving agent; no full verifier was rerun in this independent source review."
+      "unproved_components": [],
+      "notes": "Milestone bounded independent audit PASS for all previously unproved P8-selfdecomposition components; full SigmaFormalization build PASS."
     },
     {
       "latex_label": "final:P9",

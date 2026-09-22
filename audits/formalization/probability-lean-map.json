@@ -548,19 +548,34 @@
     },
     {
       "latex_label": "final:P8-selfdecomposition",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
-        "SigmaFinal.gamma_residual_probability",
-        "SigmaFinal.gamma_residual_laplace",
-        "SigmaFinal.gamma_residual_zero_atom",
-        "SigmaFinal.gamma_canonical_self_decomposition"
+        "Sigma.gamma_residual_probability",
+        "Sigma.gamma_residual_nonnegative",
+        "Sigma.gamma_residual_laplace",
+        "Sigma.gamma_residual_zero_atom",
+        "Sigma.gamma_canonical_self_decomposition",
+        "Sigma.gammaResidualLevyMeasure",
+        "Sigma.gamma_residual_levy_measure_mass",
+        "Sigma.poissonConvolutionLaw",
+        "Sigma.gamma_residual_compound_poisson",
+        "Sigma.gamma_residual_jump_intensity_measure",
+        "Sigma.gamma_probability_infinitely_divisible",
+        "Sigma.gamma_shape_four_identification",
+        "Sigma.gamma_shape_four_infinitely_divisible",
+        "Sigma.gamma_shape_four_self_decomposition",
+        "Sigma.gamma_shape_four_ne_canonical",
+        "Sigma.gamma_rate_two_eq_scaled",
+        "Sigma.gamma_rate_two_infinitely_divisible",
+        "Sigma.gamma_rate_two_self_decomposition",
+        "Sigma.gamma_rate_two_ne_canonical"
       ],
       "proved_components": [
-        "Actual nonnegative residual distribution, exact transform and zero atom, actual independent Gamma self-decomposition."
+        "Actual nonnegative residual distribution, exact transform and zero atom, actual independent Gamma self-decomposition.",
+        "The residual is an actual Poisson mixture of native convolution powers whose jump intensity measure is the displayed finite Levy measure with total mass -2*log c.",
+        "Gamma has convolution roots of every positive integer order; native Gamma(4,1) and Gamma(2,2) are distinct shape/rate witnesses with the same infinite-divisibility and self-decomposition properties."
       ],
-      "unproved_components": [
-        "Compound-Poisson/Levy realization, total jump intensity, infinite divisibility and full Gamma-family nonidentification examples."
-      ]
+      "unproved_components": []
     },
     {
       "latex_label": "final:P9",

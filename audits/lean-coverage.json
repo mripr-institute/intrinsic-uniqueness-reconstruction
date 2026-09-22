@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 44,
-    "partial": 24,
+    "complete": 45,
+    "partial": 23,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -1632,7 +1632,7 @@
       "line": 1091,
       "statement_tex": "\\label{final:P8-selfdecomposition}\nFor $0<c<1$ there exists a nonnegative compound-Poisson residual\n$Y_c$, independent of a Gamma copy $T'$, such that\n$T\\stackrel{d}{=}cT'+Y_c$.  Its L\\'evy measure, total jump intensity,\nLaplace transform, and mass at zero are respectively\n\\begin{align}\n \\nu_c(dx)&=\\frac{2(e^{-x}-e^{-x/c})}{x}\\,dx,\n &\\nu_c((0,\\infty))&=-2\\log c,\\label{final:eq-residual-levy}\\\\\n R_c(\\lambda)&=\\left(\\frac{1+c\\lambda}{1+\\lambda}\\right)^2,\n &\\mathbb P(Y_c=0)&=c^2.\\label{final:eq-residual-transform}\n\\end{align}\nIn particular the Gamma law is infinitely divisible and\nself-decomposable.  Those two general properties alone do not\nidentify its shape or rate.\n",
       "statement_sha256": "570a2b161dcb94f3a93304589a73639bc7e13df09535a6c78517b024323cb38c",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_residual_probability",
         "Sigma.gamma_residual_nonnegative",
@@ -1646,22 +1646,30 @@
         "Sigma.gamma_residual_levy_integral",
         "Sigma.gammaResidualLevyMeasure",
         "Sigma.gamma_residual_levy_measure_mass",
-        "Sigma.gamma_residual_levy_measure_finite"
+        "Sigma.gamma_residual_levy_measure_finite",
+        "Sigma.poissonConvolutionLaw",
+        "Sigma.gamma_residual_compound_poisson",
+        "Sigma.gamma_residual_jump_intensity_measure",
+        "Sigma.gamma_probability_infinitely_divisible",
+        "Sigma.gamma_shape_four_identification",
+        "Sigma.gamma_shape_four_infinitely_divisible",
+        "Sigma.gamma_shape_four_self_decomposition",
+        "Sigma.gamma_shape_four_ne_canonical",
+        "Sigma.gamma_rate_two_eq_scaled",
+        "Sigma.gamma_rate_two_infinitely_divisible",
+        "Sigma.gamma_rate_two_self_decomposition",
+        "Sigma.gamma_rate_two_ne_canonical"
       ],
       "proved_components": [
         "Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate).",
-        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c)."
+        "For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c).",
+        "The actual residual law is the native Poisson mixture of convolution powers of a normalized jump law, and rate times that jump law is exactly the displayed Levy measure.",
+        "Gamma is infinitely divisible, while Gamma(4,1) and Gamma(2,2) each have native convolution roots and independent self-decompositions and differ from the canonical Gamma(2,1)."
       ],
-      "unproved_components": [
-        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
-        "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
-      ],
-      "gaps": [
-        "Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.",
-        "Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "New residual-density/mass batch: AUDIT PASS for the exact components credited. Read the actual definitions and proofs in SigmaProbLevyIntegral.lean: the exponential factorization reduces to the already proved genuine Levy-kernel integral; nonnegativity prevents ENNReal.ofReal from masking a signed density; the parameter range includes every paper value 0<c<1 and additionally the zero-measure endpoint c=1. Naming gammaResidualLevyMeasure does not by itself establish it as the Levy measure of gammaResidualProbability; that linkage remains unproved. Compilation PASS was reported by the proving agent; no full verifier was rerun in this independent source review."
+      "notes": "Milestone bounded independent audit PASS for all previously unproved P8-selfdecomposition components; full SigmaFormalization build PASS."
     },
     {
       "id": "final:P9",

@@ -40,6 +40,7 @@ import SigmaProbDeficit
 import SigmaProbContraction
 import SigmaProbResidual
 import SigmaProbCompletion
+import SigmaProbCompletionDivisibility
 import SigmaProbCompletionContinuity
 import SigmaProbCompletionProcess
 import SigmaProbCompletionSamples

@@ -143,6 +143,7 @@ lean_lib SigmaFormalization where
     `SigmaProbRelativeEntropy,
     `SigmaProbResidual,
     `SigmaProbCompletion,
+    `SigmaProbCompletionDivisibility,
     `SigmaProbCompletionContinuity,
     `SigmaProbCompletionProcess,
     `SigmaProbCompletionSamples,
