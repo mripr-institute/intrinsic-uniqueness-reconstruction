@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 49.
-- Partially formalized statements: 21.
+- Fully formalized statements: 50.
+- Partially formalized statements: 20.
 - Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1305 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1321 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -58,6 +58,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:F3** — Formal, analytic, and global recovery
 - **final:M1** — The unique scalar-block spectral lift
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
+- **final:M4** — The supplied Gaussian and Wishart sampling model
 - **final:R2** — Nonnegative orthogonal additivity without regularity
 - **final:R3** — The profile-independent radial residual
 - **final:R4** — Spatial countermodels retaining the complete intrinsic structure
@@ -2078,41 +2079,53 @@ Remaining Lean formalization:
 
 ### final:M4 — The supplied Gaussian and Wishart sampling model
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L499); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L499); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
-- Actual univariate centered Gaussian relative entropy and log likelihood, supplying the n=1 single-observation entropy component
-- For the exact displayed determinant-and-trace negative log-likelihood expression, every positive sample count has unique SPD optimizer C when C is SPD and exact excess (m/2)D(C,X), with covariance first in the divergence
-- The actual finite outer-product sample scatter is its Gram matrix and is PSD, as is its normalized covariance; the displayed objective is unbounded below for singular PSD covariance and has no optimizer in the open SPD cone
+- Actual centered covariance-X multivariate Gaussian probability, constructed from independent native standard Gaussians by the invertible SPD square root, with derived normalized density, mean and covariance.
+- Actual iid joint/sample and Wishart scatter pushforward laws, including arbitrary measurable independent samples on a supplied probability space; exact normalized log likelihood and its scatter factorization.
+- Statistical sufficiency: one native Markov kernel is a regular conditional law of the full sample given its scatter simultaneously for every SPD covariance. The full joint-law disintegration identity is proved from the density tilt, not assumed as a factorization interpretation.
+- For every symmetric Theta, the actual extended Wishart exponential expectation has the stated determinant formula exactly on the SPD domain, and equals infinity otherwise, including zero eigenvalues. Positive sample count is retained where required.
+- The actual sample and Wishart scatter are positive definite almost surely exactly when m>=n. Independent absolutely continuous samples avoid proper subspaces by Haar-nullity and product induction; generic position is a conclusion, not a premise.
+- The actual sample density has unique MLE C when C is SPD, exact negative-log-likelihood excess (m/2)D(C,X), and no MLE for singular observed covariance in the open cone.
+- Actual native Radon-Nikodym log-ratio integrability and oriented Gaussian relative entropy KL(X||Y)=D(X,Y)/2, with the exact m-fold independent-copy factor.
 
 Mapped Lean declarations:
 
-- `Sigma.gaussian_relative_entropy`
-- `Sigma.gaussian_zero_log_likelihood`
-- `Sigma.gaussian_zero_second_moment`
 - `Sigma.matrixScatterNegLogLikelihood`
 - `Sigma.matrixCovarianceNegLogLikelihood`
-- `Sigma.matrix_scatter_likelihood_covariance`
-- `Sigma.matrix_covariance_likelihood_gap`
-- `Sigma.matrix_covariance_likelihood_minimum`
-- `Sigma.matrix_covariance_likelihood_equality_iff`
-- `Sigma.matrix_covariance_unique_mle`
-- `Sigma.matrix_covariance_likelihood_precision`
-- `Sigma.matrix_covariance_likelihood_unbounded`
-- `Sigma.matrix_singular_covariance_no_mle`
 - `Sigma.matrix_sample_scatter_gram`
 - `Sigma.matrix_sample_scatter_posSemidef`
-- `Sigma.matrix_sample_covariance_posSemidef`
-- `Sigma.matrix_sample_likelihood_gap`
-- `Sigma.matrix_singular_sample_no_mle`
-
-Remaining Lean formalization:
-
-- Actual iid multivariate Gaussian sample/scatter law and sufficiency, including derivation of the displayed likelihood expression from that probabilistic model
-- Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence
-- Almost sure positive-definiteness iff sample count is at least dimension
-- Full matrix Gaussian relative entropy and its m-copy factor
+- `Sigma.matrixGaussianMeasure`
+- `Sigma.matrix_gaussian_measure_density`
+- `Sigma.matrix_gaussian_coordinate_mean`
+- `Sigma.matrix_gaussian_coordinate_pair_moment`
+- `Sigma.matrixGaussianSampleMeasure`
+- `Sigma.matrixWishartMeasure`
+- `Sigma.matrix_gaussian_iid_joint_law`
+- `Sigma.matrix_gaussian_iid_scatter_law`
+- `Sigma.matrix_gaussian_sample_measure_density`
+- `Sigma.matrix_gaussian_sample_log_density`
+- `Sigma.matrix_gaussian_sample_density_factorization`
+- `Sigma.HasCommonStatisticKernel`
+- `Sigma.common_statistic_kernel_of_tilts`
+- `Sigma.matrix_gaussian_scatter_sufficient`
+- `Sigma.matrixWishartExponentialMoment`
+- `Sigma.matrixWishartDomain`
+- `Sigma.matrix_wishart_moment_formula`
+- `Sigma.matrix_wishart_moment_finite_iff`
+- `Sigma.matrix_wishart_moment_infinite`
+- `Sigma.matrix_sample_scatter_rank`
+- `Sigma.matrix_gaussian_sample_scatter_ae_posDef_iff`
+- `Sigma.matrix_wishart_ae_posDef_iff`
+- `Sigma.matrix_gaussian_log_likelihood_gap`
+- `Sigma.matrix_gaussian_sample_unique_mle`
+- `Sigma.matrix_gaussian_singular_sample_no_mle`
+- `Sigma.matrix_gaussian_relative_entropy_integrable`
+- `Sigma.matrix_gaussian_relative_entropy`
+- `Sigma.matrix_gaussian_sample_relative_entropy_integrable`
+- `Sigma.matrix_gaussian_sample_relative_entropy_divergence`
 
 ### final:R1 — The isotropic four-dimensional Gaussian realization
 

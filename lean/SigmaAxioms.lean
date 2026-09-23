@@ -2208,5 +2208,16 @@ import Sigma
 #print axioms Sigma.laguerre_heat_injective
 #print axioms Sigma.laguerre_marked_heat_inverse
 #print axioms Sigma.laguerre_marked_heat_inverse_domain
+#print axioms Sigma.matrix_gaussian_iid_scatter_law
+#print axioms Sigma.matrix_gaussian_sample_log_density
+#print axioms Sigma.matrix_gaussian_scatter_sufficient
+#print axioms Sigma.matrix_wishart_moment_formula
+#print axioms Sigma.matrix_wishart_moment_finite_iff
+#print axioms Sigma.matrix_gaussian_sample_scatter_ae_posDef_iff
+#print axioms Sigma.matrix_wishart_ae_posDef_iff
+#print axioms Sigma.matrix_gaussian_sample_unique_mle
+#print axioms Sigma.matrix_gaussian_singular_sample_no_mle
+#print axioms Sigma.matrix_gaussian_relative_entropy
+#print axioms Sigma.matrix_gaussian_sample_relative_entropy_divergence
 #print axioms Sigma.positivity_removed_all_moments_counterexample
 #print axioms Sigma.finite_moments_do_not_identify_gamma

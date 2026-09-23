@@ -22,6 +22,10 @@ import SigmaRealMatrix
 import SigmaMatrixCalculus
 import SigmaMatrixGeometry
 import SigmaMatrixFenchel
+import SigmaMatrixGaussianDivergence
+import SigmaMatrixGaussianEntropy
+import SigmaMatrixScatterFullRank
+import SigmaMatrixGaussianSufficiency
 import SigmaProbCharacteristic
 import SigmaProbGamma
 import SigmaOpLaguerre
