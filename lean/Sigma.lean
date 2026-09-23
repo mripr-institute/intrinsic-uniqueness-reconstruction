@@ -96,6 +96,9 @@ import SigmaProbEntropyCalibration
 import SigmaProbLogMoments
 import SigmaProbEntropyCounterexample
 import SigmaProbPoisson
+import SigmaProbPoissonClock
+import SigmaProbPoissonArrival
+import SigmaProbPoissonRenewal
 import SigmaProbRelativeEntropy
 import SigmaProbExpEntropy
 import SigmaProbHaar

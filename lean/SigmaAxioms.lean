@@ -2,6 +2,17 @@ import Sigma
 
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique
+#print axioms Sigma.poisson_exponential_clock_map
+#print axioms Sigma.poisson_unit_rate_interarrival_law
+#print axioms Sigma.unit_rate_poisson_process_interarrival_law
+#print axioms Sigma.poisson_renewal_arrivals_tendsto_top_ae
+#print axioms Sigma.unit_rate_poisson_process_count_measurable
+#print axioms Sigma.unit_rate_poisson_process_count_finite_ae
+#print axioms Sigma.unit_rate_poisson_process_count_monotone
+#print axioms Sigma.unit_rate_poisson_process_exponential_interarrival_construction
+#print axioms Sigma.poisson_renewal_second_arrival_gamma_law
+#print axioms Sigma.unit_rate_poisson_process_second_arrival_law
+#print axioms Sigma.unit_rate_poisson_at_most_one_arrival_probability
 
 #print axioms Sigma.gamma_probability_native_hazard_inverse
 #print axioms Sigma.gamma_probability_native_marked_logistic_inverse

@@ -3,7 +3,6 @@ import Mathlib.MeasureTheory.Measure.Haar.Unique
 import Mathlib.MeasureTheory.Integral.Periodic
 import Mathlib.MeasureTheory.Constructions.Pi
 import Mathlib.Probability.Independence.Basic
-import Mathlib.Probability.Distributions.Exponential
 
 open MeasureTheory Measure Set TopologicalSpace
 open scoped ENNReal

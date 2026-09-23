@@ -313,7 +313,7 @@
     },
     {
       "latex_label": "final:P5",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.gamma_probability_tail",
         "Sigma.gamma_survival_tail_integral",
@@ -334,6 +334,22 @@
         "Sigma.p5_causal_regular_distribution_green_exists_unique",
         "Sigma.p5_causal_regular_distribution_green_representation",
         "Sigma.independent_exponential_pair_gamma",
+        "Sigma.poisson_exponential_clock_map",
+        "Sigma.poisson_unit_rate_interarrival_law",
+        "Sigma.unit_rate_poisson_process_interarrival_law",
+        "Sigma.poisson_renewal_arrival_measurable",
+        "Sigma.poisson_renewal_arrivals_monotone",
+        "Sigma.poisson_renewal_arrivals_tendsto_top_ae",
+        "Sigma.unit_rate_poisson_count_le_iff",
+        "Sigma.unit_rate_poisson_process_count_measurable",
+        "Sigma.unit_rate_poisson_process_count_finite_ae",
+        "Sigma.unit_rate_poisson_process_count_monotone",
+        "Sigma.unit_rate_poisson_process_exponential_interarrival_construction",
+        "Sigma.poisson_renewal_second_arrival_eq",
+        "Sigma.poisson_renewal_second_arrival_gamma_law",
+        "Sigma.unit_rate_poisson_process_second_arrival_law",
+        "Sigma.unit_rate_poisson_at_most_one_event",
+        "Sigma.unit_rate_poisson_at_most_one_arrival_probability",
         "Sigma.local_ac_continuous_rhs_hasDerivAt",
         "Sigma.gamma_hazard_local_ac_derivative",
         "Sigma.gamma_hazard_unique_local_ac",
@@ -355,13 +371,12 @@
         "The regular distribution defined by integration against the exact whole-line causal kernel g(t)=1_[0,∞)(t)t exp(-t) satisfies (D+1)^2 g=δ₀ with standard distributional differentiation and exact Dirac normalization. It is the unique causal distributional solution: uniqueness is proved on the larger class of all algebraic linear functionals on C∞_c(R) satisfying the support condition and equation. The witness has a proved L1 pairing bound, and the existing whole-line k*k identity is reused.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
         "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
-        "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio."
+        "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio.",
+        "The actual unit-rate Poisson counting process is constructed on the infinite product probability space using the standard iid-Exp(1) interarrival characterization. Its full independent clock family, exponential marginals, cumulative arrival epochs, measurable monotone counts, and almost-sure non-explosion/local finiteness are proved. The actual index-1 (second) arrival is the sum of the first two constructed clocks and has law gammaProbability; the at-most-one-arrival probability has the exact Gamma survival formula."
       ],
-      "unproved_components": [
-        "Actual unit-rate Poisson-process second-arrival law."
-      ],
-      "independent_audit": "audits/formalization/p5-distributional-green-formal-independent-audit.md",
-      "notes": "The survival, native probability, classical ODE, whole-line convolution, and distributional Green-kernel clauses are formalized. Independent targeted adversarial AUDIT PASS for the distributional clause. The only remaining P5 component is construction of an actual unit-rate Poisson process and proof of its second-arrival law; the independent exponential-pair theorem does not discharge it."
+      "unproved_components": [],
+      "independent_audit": "audits/formalization/p5-poisson-process-formal-independent-audit.md",
+      "notes": "All clauses in final:P5 are formalized. The distributional causal Green-kernel clause has its separate targeted PASS record at p5-distributional-green-formal-independent-audit.md. The actual process uses the standard iid-Exp(1) interarrival construction, not merely a separately postulated exponential pair. A fresh adversarial audit of the complete remaining process clause is recorded at p5-poisson-process-formal-independent-audit.md."
     },
     {
       "latex_label": "final:P5-survival-boundaries",
