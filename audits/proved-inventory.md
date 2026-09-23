@@ -1,21 +1,17 @@
 # Inventory of Lean-formalized paper results
 
-Snapshot for the formal/analytic recovery milestone following `39eebbbd8dab7ae599c6d59be512d618018201f9`.
+Generated from the current independently reviewed maps by `python3 scripts/rebuild_coverage.py --write`.
 
-The paper supplies mathematical proofs of its results. This inventory lists the parts of those proofs formalized in Lean, including formalized components of statements whose Lean coverage is still partial. A partial or missing formalization does not mean the paper result is unproved. Internal Lean helper lemmas are represented through the declaration mappings, not counted as additional paper results.
+The paper supplies mathematical proofs of its results. This inventory lists their Lean formalizations. Partial or missing Lean coverage does not mean that a paper result is unproved.
 
 ## At a glance
 
 - Named paper items: 80.
 - Definitions: 2.
-- Named statements fully formalized in Lean: 41.
-- Named statements partially formalized in Lean: 27.
-- Named statements awaiting Lean formalization: 10.
-- Additional labelled results: 13 complete, 2 missing.
-- Lean-formalized component entries: 176 within fully formalized statements and 79 within partially formalized statements.
-- Distinct mapped declarations across named items: 1110 (includes definitions and helpers, not only theorems).
-
-F3 is now wholly complete following an independent whole-statement audit. The F4 finite-base boundary, P4 Euler/zeta cumulants, and P5 local-AC hazard inverses are credited only for their proved components. Remaining topology, cumulant-calibration/variance, native hazard-input, and other obligations remain explicit.
+- Fully formalized statements: 47.
+- Partially formalized statements: 21.
+- Statements awaiting Lean formalization: 10.
+- Distinct mapped declarations across named items: 1251 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -34,21 +30,26 @@ F3 is now wholly complete following an independent whole-statement audit. The F4
 - **final:P0-uniqueness** — Uniqueness principles for the transforms used below
 - **final:P1** — Gamma law and complete transform characterizations
 - **final:P1-samples** — Exponential samples also derive support
+- **final:P1-boundaries** — Boundaries of moment identification
 - **final:P2** — Marked Poisson recurrence, cumulants and divergences
 - **final:P2-boundaries** — The centering mark and KL orientation are essential
 - **final:P3** — Two marked max laws characterize the Gumbel CDF
 - **final:P3-haar** — Haar weighting and Gumbel calibration boundaries
 - **final:P4-data** — Canonical deficit law and coordinate involution
+- **final:P4-cumulants** — Deficit transform, cumulants, and determinacy
+- **final:P4** — The linked deficit law and involution identify the potential
 - **final:P5-stieltjes** — Probability Stieltjes transform and its inverse
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
 - **final:P5-equilibrium-fixed** — Equilibrium fixed points
 - **final:P6** — Rooted coefficients, Borel probabilities, and the inverse germ
 - **final:P7** — The calibrated maximum-entropy characterization
 - **final:P8-samples** — Complete integer tails identify the Gamma exponent
+- **final:P8-selfdecomposition** — Explicit Gamma self-decomposition
 - **final:P9** — One linked residual determines a law on the entire real line
 - **final:O1** — The full-line weak Stein characterization
 - **final:O1-kernel** — The integrable centered Stein kernel
 - **final:O2** — Two marked probes and the Pearson realization
+- **final:O2-boundaries** — The exact limits of the probe and stationary data
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
@@ -57,17 +58,18 @@ F3 is now wholly complete following an independent whole-statement audit. The F4
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
 - **final:R2** — Nonnegative orthogonal additivity without regularity
 - **final:R3** — The profile-independent radial residual
+- **final:R4** — Spatial countermodels retaining the complete intrinsic structure
 - **final:B1** — Rational trees, Euclidean decoding, and the matrix monoid
 - **final:B2** — Marked Farey branches and full-domain scalar recovery
 - **final:B3** — Exact collisions and complete labelled arithmetic transport
 
-## Scalar, intrinsic, and local structure
+## Exact formalized components and declaration mappings
 
 ### final:C0 — The placed presentation of $\Sigma$
 
 Lean coverage: **definition**. [Paper statement](../paper/sections/core.tex#L8); [independent coverage map](formalization/current-core-closure-audit.json).
 
-Formalized definitions:
+Mathematical content formalized in Lean:
 
 - Placed formula, admissible parameter domain, marked affine coordinate and intrinsic coordinate.
 
@@ -408,9 +410,6 @@ Mapped Lean declarations:
 - `Sigma.zeroCounterdensity_analytic`
 - `Sigma.zeroCounterdensity_not_gamma`
 
-
-## Probability
-
 ### final:P0-uniqueness — Uniqueness principles for the transforms used below
 
 Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L17); [independent coverage map](formalization/current-probability-audit.json).
@@ -472,22 +471,21 @@ Mapped Lean declarations:
 
 ### final:P1-boundaries — Boundaries of moment identification
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L135); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L135); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
-- Actual distinct Gamma-plus-Dirac measure preserves positive-order moments.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- A distinct finite signed measure with all Gamma moments after positivity is removed.
-- For every finite moment cutoff, a distinct positive probability preserving all specified ordinary moments.
+- Explicit actual finite positive measure gammaProbability+dirac 0 retains every strictly positive-order factorial moment and is distinct, proving necessity of the zeroth moment.
+- A distinct finite signed measure is constructed as the Gamma signed measure plus an integrable continuous Lebesgue density whose every polynomial moment vanishes.
+- For every finite cutoff m, a distinct positive probability measure has finite ordinary moments matching gammaProbability in every order n at most m.
 
 Mapped Lean declarations:
 
 - `Sigma.gamma_with_zero_atom_positive_moments`
 - `Sigma.gamma_with_zero_atom_mass`
 - `Sigma.gamma_with_zero_atom_distinct`
+- `Sigma.positivity_removed_all_moments_counterexample`
+- `Sigma.finite_moments_do_not_identify_gamma`
 
 ### final:P2 — Marked Poisson recurrence, cumulants and divergences
 
@@ -615,7 +613,7 @@ Mapped Lean declarations:
 
 ### final:P4-cumulants — Deficit transform, cumulants, and determinacy
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L375); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L375); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -625,11 +623,8 @@ Mathematical content formalized in Lean:
 - Convergent Euler log-Gamma product and absolutely convergent double-series exchange for every |s|<1, including negative s.
 - Exact Euler/zeta series of the actual deficit CGF, with natural zeta identified with native riemannZeta.
 - Actual iterated-derivative cumulants in every positive order, including Euler's constant at order one and all displayed second, third and fourth cumulant values.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Identification of the actual variance of the deficit law with its second cumulant, giving pi^2/6-1.
-- Calibration of the target AlgebraicCumulantRecurrence with the now-proved explicit cumulant values, needed for the stated no-extra-exponential-moment inverse.
+- The actual centered variance integral equals the second cumulant, pi^2/6-1.
+- The explicit Euler/zeta cumulant sequence satisfies the target algebraic recurrence, and any probability law with all finite moments satisfying that recurrence equals the deficit law without an exponential-moment premise.
 
 Mapped Lean declarations:
 
@@ -655,25 +650,32 @@ Mapped Lean declarations:
 - `Sigma.natural_zeta_two`
 - `Sigma.natural_zeta_four`
 - `Sigma.deficit_cumulants_two_three_four`
+- `Sigma.deficit_mgf_formal_germ`
+- `Sigma.gamma_deficit_algebraic_cumulant_recurrence`
+- `Sigma.deficitCumulantValue`
+- `Sigma.gamma_deficit_explicit_algebraic_cumulant_recurrence`
+- `Sigma.gamma_deficit_explicit_algebraic_cumulants_identify`
+- `Sigma.gamma_deficit_mean`
+- `Sigma.gamma_deficit_second_moment`
+- `Sigma.gamma_deficit_variance`
 
 ### final:P4 — The linked deficit law and involution identify the potential
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L440); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L440); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Full actual law-and-involution uniqueness in the continuous ray-only two-branch class, without differentiability, density of deficit or extra pairing monotonicity assumptions.
 - Concrete canonical target and converse supplied by the canonical pairing and linked-density theorems.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- The alternative replacing equality of deficit laws by the complete explicitly calibrated Euler/zeta cumulant list (depends on P4-cumulants).
+- The complete explicit Euler/zeta algebraic cumulant list may replace deficit-law equality, with no candidate exponential-moment assumption.
 
 Mapped Lean declarations:
 
 - `Sigma.linked_deficit_and_involution_unique_on_positive_ray`
 - `Sigma.canonical_deficit_pair_identifies_on_positive_ray`
 - `Sigma.canonical_linked_density_measure`
+- `Sigma.rayDeficitLaw`
+- `Sigma.canonical_deficit_pair_identifies_from_explicit_cumulants`
 
 ### final:P4-boundaries — Neither linked observation alone suffices
 
@@ -683,17 +685,17 @@ Mathematical content formalized in Lean:
 
 - Actual upper-branch source probability has the same deficit law and differs from Gamma.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Noncanonical normalized two-branch potential with exactly canonical deficit law.
-- Noncanonical normalized two-branch potential with exactly canonical involution.
-
 Mapped Lean declarations:
 
 - `Sigma.upper_branch_source_counterexample`
 - `Sigma.upper_branch_potential_probability`
 - `Sigma.upper_branch_Ici_one`
 - `Sigma.gamma_Ici_one_lt_one`
+
+Remaining Lean formalization:
+
+- Noncanonical normalized two-branch potential with exactly canonical deficit law.
+- Noncanonical normalized two-branch potential with exactly canonical involution.
 
 ### final:P5 — Survival, hazard, logistic equation, and causal Green kernel
 
@@ -705,12 +707,7 @@ Mathematical content formalized in Lean:
 - Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.
 - Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.
 - Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Native absolutely continuous input measure and its actual density/survival hazard must imply the local-AC tail and a.e. ODE hypotheses of the proved hazard/logistic inverses; these input bridges are not yet derived from mu absolutely continuous with respect to volume.
-- Existence and uniqueness of the causal distributional Green kernel among distributions.
-- Actual unit-rate Poisson-process second-arrival law.
+- The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio.
 
 Mapped Lean declarations:
 
@@ -729,6 +726,19 @@ Mapped Lean declarations:
 - `Sigma.gamma_hazard_unique_local_ac`
 - `Sigma.gamma_probability_local_ac_hazard_inverse`
 - `Sigma.gamma_probability_local_ac_logistic_inverse`
+- `Sigma.lifetime_density_integrable`
+- `Sigma.ac_lifetime_survival_increment`
+- `Sigma.ac_lifetime_survival_continuous`
+- `Sigma.ac_lifetime_survival_derivative`
+- `Sigma.ac_lifetime_survival_local_ac_of_density`
+- `Sigma.gamma_probability_native_hazard_inverse`
+- `Sigma.gamma_probability_native_marked_logistic_inverse`
+- `Sigma.gamma_probability_native_logistic_inverse`
+
+Remaining Lean formalization:
+
+- Existence and uniqueness of the causal distributional Green kernel among distributions.
+- Actual unit-rate Poisson-process second-arrival law.
 
 ### final:P5-survival-boundaries — Precise survival boundaries and Gamma shift uniqueness
 
@@ -739,10 +749,6 @@ Mathematical content formalized in Lean:
 - Actual atom-at-zero anchor counterexample, actual logarithmic pushforward hazard/Jacobian distinction.
 - Full native Gamma self-survival-shift iff for every positive shape, rate and shift.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Continuous singular-survival counterexample with the same a.e. hazard equation, showing local absolute continuity is necessary.
-
 Mapped Lean declarations:
 
 - `Sigma.gamma_hazard_anchor_counterexample`
@@ -750,6 +756,10 @@ Mapped Lean declarations:
 - `Sigma.log_gamma_actual_hazard`
 - `Sigma.log_gamma_hazard_ne_composition`
 - `Sigma.gamma_self_shift_iff`
+
+Remaining Lean formalization:
+
+- Continuous singular-survival counterexample with the same a.e. hazard equation, showing local absolute continuity is necessary.
 
 ### final:P5-stieltjes — Probability Stieltjes transform and its inverse
 
@@ -865,18 +875,18 @@ Mathematical content formalized in Lean:
 
 - Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.
-- Poisson critical extinction/finite total size and identification of its actual total-size law.
-- Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction.
-
 Mapped Lean declarations:
 
 - `Sigma.native_pgf_identifies_nat_probability`
 - `Sigma.offspring_pgf_equation_identifies_poisson`
 - `Sigma.poisson_offspring_pgf_equation`
 - `Sigma.native_offspring_pgf_characterization`
+
+Remaining Lean formalization:
+
+- Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.
+- Poisson critical extinction/finite total size and identification of its actual total-size law.
+- Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction.
 
 ### final:P6-boundaries — Tree and continuation boundaries
 
@@ -885,12 +895,7 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#
 Mathematical content formalized in Lean:
 
 - Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.
-- Critical non-Poisson offspring witness with non-Borel size law.
-- Distinct probability retaining the exact leading Borel tail asymptotic, together with the Borel asymptotic itself.
+- Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail.
 
 Mapped Lean declarations:
 
@@ -898,6 +903,20 @@ Mapped Lean declarations:
 - `Sigma.borel_star_size_law`
 - `Sigma.borel_tree_laws_distinct`
 - `Sigma.borel_size_does_not_identify_random_tree`
+- `Sigma.borel_coefficient_stirling_ratio`
+- `Sigma.borel_coefficient_scaled_limit`
+- `Sigma.borel_tail_asymptotic_rpow`
+- `Sigma.borel_tail_perturbation_positive`
+- `Sigma.borel_tail_perturbation_hasSum`
+- `Sigma.borel_tail_perturbation_eq`
+- `Sigma.borel_tail_perturbation_distinct`
+- `Sigma.borel_tail_perturbation_probability_distinct`
+- `Sigma.borel_tail_does_not_identify_probability`
+
+Remaining Lean formalization:
+
+- Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.
+- Critical non-Poisson offspring witness with non-Borel size law.
 
 ### final:P7 — The calibrated maximum-entropy characterization
 
@@ -935,10 +954,6 @@ Mathematical content formalized in Lean:
 - Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.
 - Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise.
 - Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument.
 
 Mapped Lean declarations:
 
@@ -979,6 +994,10 @@ Mapped Lean declarations:
 - `Sigma.gamma_single_variable_dependent_unit_increments`
 - `Sigma.gamma_single_variable_not_independent_increments`
 
+Remaining Lean formalization:
+
+- Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument.
+
 ### final:P8-levy — Gamma L\'evy measure, drift, and complete Bernstein structure
 
 Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L1021); [independent coverage map](formalization/current-probability-audit.json).
@@ -991,10 +1010,6 @@ Mathematical content formalized in Lean:
 - Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.
 - Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.
 - Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed.
 
 Mapped Lean declarations:
 
@@ -1043,6 +1058,10 @@ Mapped Lean declarations:
 - `Sigma.process_drift_preserves_stationarity`
 - `Sigma.drifted_gamma_process_witness`
 
+Remaining Lean formalization:
+
+- Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed.
+
 ### final:P8-samples — Complete integer tails identify the Gamma exponent
 
 Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1075); [independent coverage map](formalization/current-probability-audit.json).
@@ -1070,17 +1089,14 @@ Mapped Lean declarations:
 
 ### final:P8-selfdecomposition — Explicit Gamma self-decomposition
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L1091); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1091); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual nonnegative residual law, exact rational Laplace transform and zero-atom mass; independent Gamma self-decomposition for 0<c<1 (also endpoints where appropriate).
 - For 0<c<=1 the exact displayed candidate jump density 2*(exp(-x)-exp(-x/c))/x is nonnegative on the positive ray, genuinely integrable there, and its integral is -2*log c. Its actual restricted-Lebesgue withDensity measure is finite and has total mass ENNReal.ofReal (-2*log c).
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Link the displayed finite jump measure to the actual residual probability via a compound-Poisson construction or equivalent proved characterization, thereby identifying this computed mass as that residual's jump intensity.
-- Infinite divisibility of Gamma and actual distinct Gamma-family witnesses sharing infinite divisibility/self-decomposability.
+- The actual residual law is the native Poisson mixture of convolution powers of a normalized jump law, and rate times that jump law is exactly the displayed Levy measure.
+- Gamma is infinitely divisible, while Gamma(4,1) and Gamma(2,2) each have native convolution roots and independent self-decompositions and differ from the canonical Gamma(2,1).
 
 Mapped Lean declarations:
 
@@ -1097,6 +1113,18 @@ Mapped Lean declarations:
 - `Sigma.gammaResidualLevyMeasure`
 - `Sigma.gamma_residual_levy_measure_mass`
 - `Sigma.gamma_residual_levy_measure_finite`
+- `Sigma.poissonConvolutionLaw`
+- `Sigma.gamma_residual_compound_poisson`
+- `Sigma.gamma_residual_jump_intensity_measure`
+- `Sigma.gamma_probability_infinitely_divisible`
+- `Sigma.gamma_shape_four_identification`
+- `Sigma.gamma_shape_four_infinitely_divisible`
+- `Sigma.gamma_shape_four_self_decomposition`
+- `Sigma.gamma_shape_four_ne_canonical`
+- `Sigma.gamma_rate_two_eq_scaled`
+- `Sigma.gamma_rate_two_infinitely_divisible`
+- `Sigma.gamma_rate_two_self_decomposition`
+- `Sigma.gamma_rate_two_ne_canonical`
 
 ### final:P9 — One linked residual determines a law on the entire real line
 
@@ -1119,9 +1147,6 @@ Mapped Lean declarations:
 - `Sigma.unlinked_residual_observation_counterexample`
 - `Sigma.residual_endpoint_one`
 - `Sigma.residual_endpoint_one_every_law`
-
-
-## Operators and Stein identities
 
 ### final:O1 — The full-line weak Stein characterization
 
@@ -1223,18 +1248,15 @@ Mapped Lean declarations:
 
 ### final:O2-boundaries — The exact limits of the probe and stationary data
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L132); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L132); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.
 - An explicit rational quadratic-only diffusion is positive on the positive ray.
 - Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.
-- Distinct conservative reversible dynamics cA with invariant p and different time scales.
+- Two actual densely defined self-adjoint operators on Gamma-weighted complex L2 agree on the literal constant and both marked probe polynomials but are distinct. The swapped-mode operator has no local second-order coefficient expression, even almost everywhere.
+- Native conservative Markov kernel semigroups preserve the positive ray and the actual Gamma probability, satisfy joint-measure detailed balance, and differ at every positive state. Their explicit factor-two time rescaling proves that the invariant density identifies neither dynamics nor time scale.
 
 Mapped Lean declarations:
 
@@ -1245,15 +1267,20 @@ Mapped Lean declarations:
 - `Sigma.operator_linear_only_smooth_positive_witness`
 - `Sigma.operator_quadratic_only_smooth_positive_witness`
 - `Sigma.operator_marked_probe_irredundancy`
+- `Sigma.marked_functional_calculus_selfAdjoint`
+- `Sigma.laguerre_spectral_selfAdjoint`
+- `Sigma.actual_selfadjoint_probe_nonidentification`
+- `Sigma.swapped_laguerre_no_local_expression`
+- `Sigma.gamma_refresh_semigroup`
+- `Sigma.gamma_refresh_detailed_balance`
+- `Sigma.gamma_refresh_different_rates_at_state`
+- `Sigma.gamma_invariant_does_not_identify_reversible_dynamics`
 
 ### final:O3 — Essential self-adjointness and the full domain
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Native weighted complex L2 minimal operator on C_c^infinity; dense domain, nonnegativity and symmetry.
 - Both endpoint limit-point classifications, deficiency indices (0,0), closure=adjoint=unique self-adjoint extension.
@@ -1264,10 +1291,7 @@ Remaining Lean formalization (the mathematical proofs are in the paper):
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Actual closed energy form with precisely the displayed weighted Sobolev/locally AC domain and no extra endpoint traces.
 - Identification of this domain with D(A^(1/2)).
@@ -1281,12 +1305,10 @@ Mathematical content formalized in Lean:
 
 - Exact marked finite-sum Laguerre polynomials and coefficients, including nonzero leading coefficients and the first three modes.
 - Canonical mean orthogonality to the constant for every positive mode.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Rodrigues derivative formula and all-mode differential eigenvalue equation.
-- Complete orthonormal basis in the actual weighted complex L2 space and membership in the actual self-adjoint domain.
-- Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas.
+- Exact marked Rodrigues formula with the actual nth ordinary derivative for every n >= 0 and every nonzero real argument, with a numerator identity also valid at zero. The actual first and second derivatives satisfy the Laguerre equation at every real point, and the canonical differential expression has eigenvalue n on the marked polynomial.
+- The actual gamma-weighted complex L2 space contains every complex lift of a real polynomial, each marked Laguerre mode and its native complex differential image. Those modes are nonzero, and the differential-image L2 class equals n times the mode. The exact representatives L_n/sqrt(n+1) likewise belong to L2, are nonzero and satisfy the native differential equation, with their L2 scaling identification proved.
+- Actual pairwise Gamma integrals and literal positive-ray density-weighted integrals equal (n+1) times the Kronecker delta for every pair of modes, including zero. The resulting actual complex L2 inner products prove orthonormality and unit norms for the exact square-root-normalized family.
+- The orthogonal complement of the actual normalized Laguerre family is zero, its span is dense in the weighted complex L2 space, and the exact modes form a native HilbertBasis. Exponential-envelope moment uniqueness supplies the completeness proof without assuming density.
 
 Mapped Lean declarations:
 
@@ -1296,6 +1318,46 @@ Mapped Lean declarations:
 - `Sigma.opLaguerre_leading_coefficient`
 - `Sigma.opLaguerre_leading_coefficient_ne_zero`
 - `Sigma.operator_gamma_laguerre_orthogonality`
+- `Sigma.op_laguerre_polynomial_eval`
+- `Sigma.op_laguerre_coefficient_recurrence`
+- `Sigma.op_laguerre_polynomial_ode`
+- `Sigma.op_laguerre_derivative`
+- `Sigma.op_laguerre_second_derivative`
+- `Sigma.op_laguerre_differential_equation`
+- `Sigma.op_laguerre_expression_eigenvalue`
+- `Sigma.op_laguerre_rodrigues_numerator`
+- `Sigma.op_laguerre_rodrigues`
+- `Sigma.gamma_complex_polynomial_mem_l2`
+- `Sigma.op_laguerre_complex_mem_l2`
+- `Sigma.op_laguerre_expression_complex_mem_l2`
+- `Sigma.laguerre_l2_vector_ne_zero`
+- `Sigma.laguerre_l2_differential_eigenvalue`
+- `Sigma.op_laguerre_native_complex_eigenvalue`
+- `Sigma.op_laguerre_native_complex_image_mem_l2`
+- `Sigma.laguerre_l2_native_complex_eigenvalue`
+- `Sigma.normalized_op_laguerre_native_eigenvalue`
+- `Sigma.normalized_op_laguerre_mem_l2`
+- `Sigma.normalized_op_laguerre_to_l2`
+- `Sigma.normalized_laguerre_l2_vector_ne_zero`
+- `Sigma.gamma_polynomial_integral_factorial_moment`
+- `Sigma.op_laguerre_polynomial_rodrigues_integral`
+- `Sigma.op_laguerre_squared_integral`
+- `Sigma.op_laguerre_pair_integral`
+- `Sigma.op_laguerre_pair_integrable`
+- `Sigma.op_laguerre_weighted_pair_integral`
+- `Sigma.laguerre_l2_inner`
+- `Sigma.normalized_laguerre_l2_orthonormal`
+- `Sigma.normalized_laguerre_l2_norm`
+- `Sigma.finite_measure_moments_unique_of_exponential_envelopes`
+- `Sigma.laguerre_l2_eq_zero_of_orthogonal`
+- `Sigma.normalized_laguerre_l2_dense_span`
+- `Sigma.laguerreHilbertBasis`
+- `Sigma.laguerre_hilbert_basis_apply`
+
+Remaining Lean formalization:
+
+- Membership in the domain of the paper's actual self-adjoint differential operator, including identification with the constructed spectral operator.
+- Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas.
 
 ### final:O7 — Complete marked Laguerre orthogonality identifies the law
 
@@ -1327,12 +1389,6 @@ Mathematical content formalized in Lean:
 - Exact scalar eigenvalue-series domains and sums for real/complex heat parameters and complex shifted zeta.
 - Actual finite compact moment uniqueness as an ingredient for integer spectral-data recovery.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.
-- Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.
-- Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces.
-
 Mapped Lean declarations:
 
 - `Sigma.operator_heat_eigenvalue_hasSum`
@@ -1343,14 +1399,17 @@ Mapped Lean declarations:
 - `Sigma.operator_zeta_eigenvalue_hasSum`
 - `Sigma.operator_hausdorff_moment_unique`
 
+Remaining Lean formalization:
+
+- Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.
+- Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.
+- Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces.
+
 ### final:O4-convergence-boundary — Compact resolvent does not supply finite trace data
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L496); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Actual nonnegative diagonal self-adjoint compact-resolvent operator whose heat and positive shifted-zeta traces all diverge.
 - Both divergence estimates for the chosen double-log eigenvalue sequence.
@@ -1359,10 +1418,7 @@ Remaining Lean formalization (the mathematical proofs are in the paper):
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L515); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.
 - Local uniform and weighted product-L2 convergence.
@@ -1377,13 +1433,6 @@ Mathematical content formalized in Lean:
 - A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.
 - Exact scalar first/squared/shifted resolvent summability thresholds.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.
-- Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.
-- Trace-class resolvent difference and actual digamma trace formula.
-- Recovery of the actual generator from a full marked heat operator by unbounded functional calculus.
-
 Mapped Lean declarations:
 
 - `Sigma.OpIsResolvent`
@@ -1395,14 +1444,18 @@ Mapped Lean declarations:
 - `Sigma.operator_squared_resolvent_eigenvalues_summable`
 - `Sigma.operator_shifted_real_eigenvalue_summable_iff`
 
+Remaining Lean formalization:
+
+- Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.
+- Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.
+- Trace-class resolvent difference and actual digamma trace formula.
+- Recovery of the actual generator from a full marked heat operator by unbounded functional calculus.
+
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Actual zeta determinants with Hurwitz continuation and zero-mode conventions, including both sqrt(2pi) values.
 - Native Fredholm and Hilbert-Schmidt regularized determinants with both entire product/Gamma/sinh formulas.
@@ -1413,10 +1466,7 @@ Remaining Lean formalization (the mathematical proofs are in the paper):
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L708); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.
 - Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.
@@ -1431,12 +1481,7 @@ Mathematical content formalized in Lean:
 - Scalar Gamma mixing integral for every nonnegative spectral value.
 - Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.
 - Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Strong-operator mixing identity for every nonnegative self-adjoint B.
-- Extraction of scalar samples from each integer eigenvector in that actual operator identity.
-- Uniqueness for finite signed/complex measures of finite total variation, not only positive measures.
+- Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.
 
 Mapped Lean declarations:
 
@@ -1448,6 +1493,23 @@ Mapped Lean declarations:
 - `Sigma.operator_integer_samples_integrable`
 - `Sigma.operator_integer_samples_positive_support`
 - `Sigma.operator_integer_samples_ae_pos`
+- `Sigma.signed_total_variation_finite`
+- `Sigma.complex_measure_norm_le_control`
+- `Sigma.nonnegative_laplace_test_integrable`
+- `Sigma.operator_signed_mixing_measure_unique`
+- `Sigma.operator_complex_mixing_measure_unique`
+- `Sigma.signed_integer_sample_zero_mass`
+- `Sigma.complex_integer_sample_zero_mass`
+- `Sigma.nonnegative_gamma_mixing_on_real_line`
+- `Sigma.nonnegative_gamma_complex_integer_samples`
+- `Sigma.operator_complex_gamma_mixing_characterization`
+- `Sigma.operator_complex_gamma_mixing_iff`
+- `Sigma.nonnegative_gamma_complex_measure_apply`
+
+Remaining Lean formalization:
+
+- Strong-operator mixing identity for every nonnegative self-adjoint B.
+- Extraction of scalar samples from each integer eigenvector in that actual operator identity.
 
 ### final:O6 — A Bernstein function is determined by every integer tail
 
@@ -1459,11 +1521,8 @@ Mathematical content formalized in Lean:
 - The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.
 - For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.
 - Gamma target's actual Levy integrability and representation identification, including killing and drift zero.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual functional calculus sample extraction on marked integer eigenspaces.
-- Actual distinct smooth functions invisible on the integer spectrum.
+- An independently constructed native complex sequence-l2 diagonal LinearPMap has the exact weighted-square-summability domain; its action on every coordinate eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.
+- A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same diagonal sequence-l2 LinearPMap, including its domain.
 
 Mapped Lean declarations:
 
@@ -1483,15 +1542,22 @@ Mapped Lean declarations:
 - `Sigma.gamma_laplace_exponent_has_bernstein_representation`
 - `Sigma.gamma_bernstein_integer_tail_unique`
 - `Sigma.gamma_bernstein_function_integer_tail_unique`
+- `Sigma.smooth_integer_invisible_exponent_boundary`
+- `Sigma.markedFunctionalCalculus`
+- `Sigma.markedFunctionalCalculus_eigenvector_action`
+- `Sigma.marked_samples_of_eigenvector_actions`
+- `Sigma.markedFunctionalCalculus_congr`
+- `Sigma.smooth_integer_invisible_marked_functional_calculus`
+
+Remaining Lean formalization:
+
+- Identify the separately constructed marked sequence-l2 calculus with the functional calculus of the paper's actual gamma-weighted self-adjoint operator A, so that its marked eigenspace actions supply the scalar samples and the smooth perturbation has the same actual f(A), with the stated domains.
 
 ### final:O6-functional-calculus — Two different functional-calculus inverse questions
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.
 - Equivalence between actual 2 log(Id+A) and J(A)=(Id+A)^-2 via unbounded logarithmic functional calculus.
@@ -1500,10 +1566,7 @@ Remaining Lean formalization (the mathematical proofs are in the paper):
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Both actual Gamma-shape-two and shape-three weighted L2 self-adjoint closures with limit-point endpoints.
 - Complete simple integer eigenbases and intertwining unitary fixing one.
@@ -1514,17 +1577,11 @@ Remaining Lean formalization (the mathematical proofs are in the paper):
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Canonical Gamma mixing existence for arbitrary nonnegative self-adjoint operators and integer-eigenvalue mixing uniqueness as actual operator facts.
 - Actual stationary-coordinate nonidentification witness even retaining all spectral/mixing data and the constant.
 - Identification under explicit mixing/coordinate linkage or the locally AC Pearson realization.
-
-
-## Formal series, matrices, radial and arithmetic realizations
 
 ### final:F1 — The normalized Todd tower and all its twists
 
@@ -1716,13 +1773,6 @@ Mathematical content formalized in Lean:
 - Actual finite coefficient evaluation at a nilpotent class is independent of every sufficiently large cutoff and agrees with native polynomial evaluation
 - Adding X^(N+1)R at u^(N+1)=0 changes no evaluation; the explicit distinct rational series F+X^(N+1) preserves the constant term and all sufficiently large cutoff evaluations
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual supplied K-theory/cohomology Thom comparison and existence/uniqueness of its correction
-- Universal-line compatibility and inverse-limit correction identity
-- Multiplicative splitting-principle descent to actual bundles
-- Collapse/Gysin Riemann--Roch identity for oriented proper maps and virtual tangent bundles
-
 Mapped Lean declarations:
 
 - `Sigma.universal_line_correction_unique`
@@ -1734,14 +1784,18 @@ Mapped Lean declarations:
 - `Sigma.nilpotent_series_evaluation_tail`
 - `Sigma.nilpotent_complete_series_nonidentification`
 
+Remaining Lean formalization:
+
+- Actual supplied K-theory/cohomology Thom comparison and existence/uniqueness of its correction
+- Universal-line compatibility and inverse-limit correction identity
+- Multiplicative splitting-principle descent to actual bundles
+- Collapse/Gysin Riemann--Roch identity for oriented proper maps and virtual tangent bundles
+
 ### final:F5 — Rational characteristic data lose integral data
 
 Lean coverage: **missing**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
 
-No exact Lean formalization is currently recorded for this paper result.
-
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
+Remaining Lean formalization:
 
 - Actual complexification of the tautological real line on RP2
 - Nontriviality of that bundle and of its class relative to the trivial line in complex K0
@@ -1852,11 +1906,6 @@ Mathematical content formalized in Lean:
 - Exact distances from identity to single-log-coordinate and isotropic diagonal exponential endpoints, proved by all-path lower bounds and attaining paths
 - Actual equal-distance unequal-symmetrization SPD witnesses in every rank at least two, hence no scalar function of the path distance recovers symmetrized divergence
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Metric-geodesic interpretation, higher-rank global length minimality among admissible SPD paths and actual metric distance formula
-- Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y
-
 Mapped Lean declarations:
 
 - `Sigma.matrixRelativeSPD`
@@ -1948,6 +1997,11 @@ Mapped Lean declarations:
 - `Sigma.matrix_equal_distance_divergence_counterexample`
 - `Sigma.matrix_symmetrized_divergence_not_distance_function`
 
+Remaining Lean formalization:
+
+- Metric-geodesic interpretation, higher-rank global length minimality among admissible SPD paths and actual metric distance formula
+- Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y
+
 ### final:M4 — The supplied Gaussian and Wishart sampling model
 
 Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L499); [independent coverage map](formalization/current-realizations-audit.json).
@@ -1955,21 +2009,36 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizati
 Mathematical content formalized in Lean:
 
 - Actual univariate centered Gaussian relative entropy and log likelihood, supplying the n=1 single-observation entropy component
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual iid multivariate Gaussian sample/scatter law and sufficiency
-- Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence
-- Almost sure positive-definiteness iff sample count is at least dimension
-- Unique positive-definite observed covariance MLE and likelihood excess with m/2 orientation
-- Singular-scatter nonattainment
-- Full matrix Gaussian relative entropy and its m-copy factor
+- For the exact displayed determinant-and-trace negative log-likelihood expression, every positive sample count has unique SPD optimizer C when C is SPD and exact excess (m/2)D(C,X), with covariance first in the divergence
+- The actual finite outer-product sample scatter is its Gram matrix and is PSD, as is its normalized covariance; the displayed objective is unbounded below for singular PSD covariance and has no optimizer in the open SPD cone
 
 Mapped Lean declarations:
 
 - `Sigma.gaussian_relative_entropy`
 - `Sigma.gaussian_zero_log_likelihood`
 - `Sigma.gaussian_zero_second_moment`
+- `Sigma.matrixScatterNegLogLikelihood`
+- `Sigma.matrixCovarianceNegLogLikelihood`
+- `Sigma.matrix_scatter_likelihood_covariance`
+- `Sigma.matrix_covariance_likelihood_gap`
+- `Sigma.matrix_covariance_likelihood_minimum`
+- `Sigma.matrix_covariance_likelihood_equality_iff`
+- `Sigma.matrix_covariance_unique_mle`
+- `Sigma.matrix_covariance_likelihood_precision`
+- `Sigma.matrix_covariance_likelihood_unbounded`
+- `Sigma.matrix_singular_covariance_no_mle`
+- `Sigma.matrix_sample_scatter_gram`
+- `Sigma.matrix_sample_scatter_posSemidef`
+- `Sigma.matrix_sample_covariance_posSemidef`
+- `Sigma.matrix_sample_likelihood_gap`
+- `Sigma.matrix_singular_sample_no_mle`
+
+Remaining Lean formalization:
+
+- Actual iid multivariate Gaussian sample/scatter law and sufficiency, including derivation of the displayed likelihood expression from that probabilistic model
+- Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence
+- Almost sure positive-definiteness iff sample count is at least dimension
+- Full matrix Gaussian relative entropy and its m-copy factor
 
 ### final:R1 — The isotropic four-dimensional Gaussian realization
 
@@ -1979,13 +2048,7 @@ Mathematical content formalized in Lean:
 
 - Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4
 - Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual four-dimensional Gaussian radial pushforward
-- Independent uniform S3-angle inverse and orthogonal-invariance uniqueness
-- Same-radial-law different-vector-law witness
-- Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion
+- Two genuine probabilities on native four-dimensional Euclidean space, constructed by opposite unit-vector lifts of the Gamma radius, have the exact same energy pushforward gammaProbability and are distinct: a measurable coordinate halfspace has mass one for one and zero for the other
 
 Mapped Lean declarations:
 
@@ -1999,6 +2062,20 @@ Mapped Lean declarations:
 - `Sigma.radial_energy_direction_second_derivative_positive`
 - `Sigma.radial_energy_euclidean_laplacian_positive`
 - `Sigma.radial_energy_OU_generator_positive`
+- `Sigma.radial_four_positive_lift_energy`
+- `Sigma.radial_four_negative_lift_energy`
+- `Sigma.radial_four_positive_law_energy`
+- `Sigma.radial_four_negative_law_energy`
+- `Sigma.radial_four_positive_law_halfspace`
+- `Sigma.radial_four_negative_law_halfspace`
+- `Sigma.radial_four_laws_distinct`
+- `Sigma.gamma_radial_energy_does_not_identify_vector_law`
+
+Remaining Lean formalization:
+
+- Actual four-dimensional Gaussian radial pushforward
+- Independent uniform S3-angle inverse and orthogonal-invariance uniqueness
+- Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion
 
 ### final:R2 — Nonnegative orthogonal additivity without regularity
 
@@ -2053,24 +2130,29 @@ Mapped Lean declarations:
 
 ### final:R4 — Spatial countermodels retaining the complete intrinsic structure
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L754); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L754); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Squared norm is orthogonally additive
-- Quartic norm fails orthogonal additivity given an orthonormal pair
-- Residual cancellation at dimension one
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Actual countermodels retaining the entire intrinsic scalar/probability/operator/characteristic structure and canonical Gaussian construction while independently adjoining the designated spatial data
-- Explicit dimension-two squared-norm and dimension-one squared-norm extension witnesses
+- Quartic norm fails orthogonal additivity on the designated plane
+- Every packet satisfying the intrinsic scalar, probability, operator, characteristic-series, and canonical-Gaussian facts has three independent spatial extensions retaining the identical packet and all five families of facts
+- Explicit dimension-two quartic, dimension-two squared-norm, and dimension-one squared-norm extension witnesses
+- The dimension-two residual coefficient is exactly -1/(4x^2) and nonzero on the positive ray
+- The dimension-one residual coefficient vanishes
 
 Mapped Lean declarations:
 
 - `Sigma.norm_square_orthogonal_additive`
 - `Sigma.quartic_not_orthogonal_additive_of_pair`
 - `Sigma.radial_residual_cancellation`
+- `Sigma.Closure.CompleteIntrinsicContextAt`
+- `Sigma.Closure.planeQuarticPacket`
+- `Sigma.Closure.planeSquaredNormPacket`
+- `Sigma.Closure.lineSquaredNormPacket`
+- `Sigma.Closure.spatial_countermodels_retain_context`
+- `Sigma.Closure.dimension_two_radial_residual_coefficient`
+- `Sigma.Closure.dimension_one_radial_residual_coefficient`
 
 ### final:B1 — Rational trees, Euclidean decoding, and the matrix monoid
 
@@ -2339,29 +2421,36 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizati
 Mathematical content formalized in Lean:
 
 - Actual complex numerical zeta series and its absolute-summability half-plane
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Prime Euler product identity on Re(s)>1
-- Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis
-- From positive Euler-product convergence derive local finiteness/countability and least generator
-- Least-generator and multiplicity recovery limits
-- Entire-factor removal, recovery of every generator and multiset uniqueness
-- Empty multiset iff identically-one product
+- Actual convergent HasProd over native positive-integer primes equals the numerical zeta series for every complex s with Re(s)>1, by reuse of Mathlib's native Euler product
+- For an arbitrary real generator set q>1 with positive integer multiplicities, convergence of the actual Euler product to a positive value at one positive real argument derives the logarithmic sum, finiteness below every real bound, countability and a least generator when nonempty, without assuming any of these properties
+- At every positive argument with a positive convergent product, its value is one exactly when the generator set is empty; a nonempty product is strictly greater than one
+- Removing any generator removes its entire multiplicity factor and derives a genuine convergent residual HasProd with value Z divided by that factor and strictly positive value; no multiplicative independence is assumed
 
 Mapped Lean declarations:
 
 - `Sigma.operator_complex_zeta_eigenvalue_summable_iff`
 - `Sigma.operator_zeta_eigenvalue_hasSum`
+- `Sigma.numerical_zeta_series_euler_product`
+- `Sigma.numerical_zeta_euler_product_identity`
+- `Sigma.real_euler_product_log_hasSum`
+- `Sigma.real_euler_generators_bounded_finite`
+- `Sigma.real_euler_generators_countable`
+- `Sigma.real_euler_generators_least`
+- `Sigma.real_euler_product_gt_one`
+- `Sigma.real_euler_product_eq_one_iff_empty`
+- `Sigma.real_euler_product_remove_generator`
 
+Remaining Lean formalization:
 
-## Global reconstruction and closure
+- Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis
+- Least-generator and multiplicity recovery limits
+- Iterated recovery of every generator and multiset uniqueness
 
 ### final:identification — Identification and a retained context
 
 Lean coverage: **definition**. [Paper statement](../paper/sections/closure.tex#L10); [independent coverage map](formalization/current-core-closure-audit.json).
 
-Formalized definitions:
+Mathematical content formalized in Lean:
 
 - Generic encoding/decoding through equivalences and dependent context recipes represent portions of the definition.
 
@@ -2381,13 +2470,6 @@ Mathematical content formalized in Lean:
 - Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.
 - Composition, uniqueness and round trips once native presentation equivalences are given.
 
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Construct the full typed E_Sigma collection with each actual candidate class and observation.
-- Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.
-- Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure.
-- Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
-
 Mapped Lean declarations:
 
 - `Sigma.differential_core_iff`
@@ -2400,6 +2482,13 @@ Mapped Lean declarations:
 - `Sigma.Closure.presentation_transport_composes`
 - `Sigma.presentationEquivalence`
 
+Remaining Lean formalization:
+
+- Construct the full typed E_Sigma collection with each actual candidate class and observation.
+- Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.
+- Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure.
+- Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
+
 ### final:global-E — Canonical realization fibres
 
 Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L139); [independent coverage map](formalization/current-core-closure-audit.json).
@@ -2407,11 +2496,6 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L139
 Mathematical content formalized in Lean:
 
 - Generic context-dependent recipe bookkeeping; genuine matrix uniqueness components; native offspring PGF identification components.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- The six fixed-context existence/uniqueness and reverse-observation assertions must be assembled from actual native context theorems.
-- In particular generic unique y satisfying y=recipe(c,s) is not uniqueness among candidates meeting identifying observations; it supplies none of the missing actual convolution, self-adjoint operator, Gaussian radial, iid branching-tree or universal Thom content.
 
 Mapped Lean declarations:
 
@@ -2421,6 +2505,11 @@ Mapped Lean declarations:
 - `Sigma.spd_positive_rank_lift_unique`
 - `Sigma.native_offspring_pgf_characterization`
 
+Remaining Lean formalization:
+
+- The six fixed-context existence/uniqueness and reverse-observation assertions must be assembled from actual native context theorems.
+- In particular generic unique y satisfying y=recipe(c,s) is not uniqueness among candidates meeting identifying observations; it supplies none of the missing actual convolution, self-adjoint operator, Gaussian radial, iid branching-tree or universal Thom content.
+
 ### final:global-C — Relative irredundancy and its deletion witnesses
 
 Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L173); [independent coverage map](formalization/current-core-closure-audit.json).
@@ -2429,15 +2518,6 @@ Mathematical content formalized in Lean:
 
 - Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature and uniform strict-convexity neighborhood.
 - Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- A nonzero perturbation with exact integral normalization and stated endpoint behavior in the relaxed deletion universe.
-- Complete native external packet deletion witnesses and their independent expansion with other packets fixed.
-- Global sufficient decomposition depends on full global-A/B and global-E.
-- Normalized nontrivial intrinsic deletion witness including endpoint behavior.
-- Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.
-- Assembly preserving every other retained packet and changing each named target.
 
 Mapped Lean declarations:
 
@@ -2462,6 +2542,15 @@ Mapped Lean declarations:
 - `Sigma.borel_size_does_not_identify_random_tree`
 - `Sigma.Closure.perturbations_independent`
 
+Remaining Lean formalization:
+
+- A nonzero perturbation with exact integral normalization and stated endpoint behavior in the relaxed deletion universe.
+- Complete native external packet deletion witnesses and their independent expansion with other packets fixed.
+- Global sufficient decomposition depends on full global-A/B and global-E.
+- Normalized nontrivial intrinsic deletion witness including endpoint behavior.
+- Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.
+- Assembly preserving every other retained packet and changing each named target.
+
 ### final:global-F — Boundary of scalar reconstruction
 
 Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L246); [independent coverage map](formalization/current-core-closure-audit.json).
@@ -2469,10 +2558,6 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L246
 Mathematical content formalized in Lean:
 
 - Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.
-
-Remaining Lean formalization (the mathematical proofs are in the paper):
-
-- Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly.
 
 Mapped Lean declarations:
 
@@ -2486,7 +2571,11 @@ Mapped Lean declarations:
 - `Sigma.Closure.radial_cancellation_does_not_identify_profile`
 - `Sigma.borel_size_does_not_identify_random_tree`
 
-## Additional labelled results
+Remaining Lean formalization:
+
+- Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly.
+
+## Additional labelled mathematical results
 
 ### final:todd-twists
 
@@ -2500,11 +2589,6 @@ Lean coverage: **complete**.
 
 Lean coverage: **complete**.
 
-- Exact arbitrary-field-scalar Todd power coefficient identity over every characteristic-zero field, for every degree including zero
-- Independent standard locally finite formal-binomial power construction and compatibility with native natural powers
-- Exact positive-degree multiplicity support, weighted sum, falling factorial and factorial denominators
-- The same identity over every commutative Q-algebra with arbitrary scalar exponent, including zero divisors, using canonical rational inverses of factorials
-- Compatibility of the Q-algebra and field formal-power conventions
 - `Sigma.formalBinomialPower`
 - `Sigma.scalarFallingFactorial`
 - `Sigma.formal_binomial_power_nat`
@@ -2549,19 +2633,13 @@ Lean coverage: **complete**.
 
 Lean coverage: **missing**.
 
-
-Remaining:
-
-- Actual uniquely defined Thom correction
+- Remaining Lean formalization: Actual uniquely defined Thom correction
 
 ### final:RR
 
 Lean coverage: **missing**.
 
-
-Remaining:
-
-- Actual Riemann--Roch Gysin comparison
+- Remaining Lean formalization: Actual Riemann--Roch Gysin comparison
 
 ### final:matrix-potential
 
@@ -2616,6 +2694,6 @@ Lean coverage: **complete**.
 
 - `Sigma.placed_collision_iff`
 
-## Excluded unfinished work
+## Preserved excluded experiment
 
-The local `lean/SigmaProbCumulantCalibration.lean` experiment is not part of this milestone, its imports, declaration mappings, or Lean coverage assessments. Targeted compilation still reports errors. It remains preserved locally for future work; it supplies no credited Lean proof in this inventory.
+The pre-existing local `lean/SigmaProbCumulantCalibration.lean` experiment is not imported or credited. It remains preserved as local work; the completed P4 cumulant formalization is mapped to the other verified modules.

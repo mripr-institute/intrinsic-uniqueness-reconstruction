@@ -315,20 +315,28 @@
         "Sigma.gamma_hazard_local_ac_derivative",
         "Sigma.gamma_hazard_unique_local_ac",
         "Sigma.gamma_probability_local_ac_hazard_inverse",
-        "Sigma.gamma_probability_local_ac_logistic_inverse"
+        "Sigma.gamma_probability_local_ac_logistic_inverse",
+        "Sigma.lifetime_density_integrable",
+        "Sigma.ac_lifetime_survival_increment",
+        "Sigma.ac_lifetime_survival_continuous",
+        "Sigma.ac_lifetime_survival_derivative",
+        "Sigma.ac_lifetime_survival_local_ac_of_density",
+        "Sigma.gamma_probability_native_hazard_inverse",
+        "Sigma.gamma_probability_native_marked_logistic_inverse",
+        "Sigma.gamma_probability_native_logistic_inverse"
       ],
       "proved_components": [
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
         "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
-        "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse."
+        "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
+        "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio."
       ],
       "unproved_components": [
-        "Native absolutely continuous input measure and its actual density/survival hazard must imply the local-AC tail and a.e. ODE hypotheses of the proved hazard/logistic inverses; these input bridges are not yet derived from mu absolutely continuous with respect to volume.",
         "Existence and uniqueness of the causal distributional Green kernel among distributions.",
         "Actual unit-rate Poisson-process second-arrival law."
       ],
-      "notes": "Bounded local-AC hazard/logistic AUDIT PASS for SigmaProbSurvivalAC. The ODE regularity upgrade and actual measure identification are genuine conclusions. This does not yet close the paper's native absolutely continuous probability input: local AC of its tail and the ODE corresponding to its actual density/survival hazard remain formal hypotheses, so no completion claim is made for those full native input clauses."
+      "notes": "Independent bounded AUDIT PASS for SigmaProbSurvivalAC and SigmaProbNativeHazard. The initial missing native-input bridge is resolved: tail regularity is derived from absolute continuity of the actual measure and its hazard, not assumed. The marked logistic theorem uses an a.e. representative link, avoiding an extra pointwise regularity requirement on the canonical Radon-Nikodym representative. This closes the first two identifying clauses, but does not establish distributional Green-kernel uniqueness or an actual Poisson-process second-arrival construction."
     },
     {
       "latex_label": "final:P5-survival-boundaries",
@@ -481,17 +489,26 @@
         "Sigma.borel_path_size_law",
         "Sigma.borel_star_size_law",
         "Sigma.borel_tree_laws_distinct",
-        "Sigma.borel_size_does_not_identify_random_tree"
+        "Sigma.borel_size_does_not_identify_random_tree",
+        "Sigma.borel_coefficient_stirling_ratio",
+        "Sigma.borel_coefficient_scaled_limit",
+        "Sigma.borel_tail_asymptotic_rpow",
+        "Sigma.borel_tail_perturbation_positive",
+        "Sigma.borel_tail_perturbation_hasSum",
+        "Sigma.borel_tail_perturbation_eq",
+        "Sigma.borel_tail_perturbation_distinct",
+        "Sigma.borel_tail_perturbation_probability_distinct",
+        "Sigma.borel_tail_does_not_identify_probability"
       ],
       "proved_components": [
-        "Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws."
+        "Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws.",
+        "Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail."
       ],
       "unproved_components": [
         "Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.",
-        "Critical non-Poisson offspring witness with non-Borel size law.",
-        "Distinct probability retaining the exact leading Borel tail asymptotic, together with the Borel asymptotic itself."
+        "Critical non-Poisson offspring witness with non-Borel size law."
       ],
-      "notes": "Proof-only note: no separate coupling/independence counterexample for designated forest marginals was found."
+      "notes": "Independent bounded AUDIT PASS for SigmaRealTreesTailBoundary: native IsEquivalent has the exact paper constant and exponent; the counterexample is an actual normalized PMF with a proved distinct toMeasure, not merely a changed scalar sequence. This resolves only the asymptotic deletion clause, not the smooth-density or Galton-Watson boundary clauses. Proof-only note: no separate coupling/independence counterexample for designated forest marginals was found."
     },
     {
       "latex_label": "final:P7",

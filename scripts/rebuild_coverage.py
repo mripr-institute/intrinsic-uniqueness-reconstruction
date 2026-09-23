@@ -137,6 +137,59 @@ def markdown(ledger):
     return "\n".join(lines) + "\n"
 
 
+def inventory_markdown(ledger):
+    """Keep the readable proved-result inventory synchronized with the same maps."""
+    totals = ledger["totals"]
+    items = ledger["obligations"]
+    additional = ledger["additional_labelled_claims"]
+    names = {d for item in items for d in item["lean_theorems"]}
+    lines = ["# Inventory of Lean-formalized paper results", "",
+             "Generated from the current independently reviewed maps by "
+             "`python3 scripts/rebuild_coverage.py --write`.", "",
+             "The paper supplies mathematical proofs of its results. This inventory lists "
+             "their Lean formalizations. Partial or missing Lean coverage does not mean "
+             "that a paper result is unproved.", "", "## At a glance", "",
+             f"- Named paper items: {ledger['count']}.",
+             f"- Definitions: {totals.get('definition', 0)}.",
+             f"- Fully formalized statements: {totals.get('complete', 0)}.",
+             f"- Partially formalized statements: {totals.get('partial', 0)}.",
+             f"- Statements awaiting Lean formalization: {totals.get('missing', 0)}.",
+             f"- Distinct mapped declarations across named items: {len(names)} "
+             "(including definitions and helpers).", "",
+             "## Statements fully formalized in Lean", ""]
+    for item in items:
+        if item["lean_status"] == "complete":
+            lines.append(f"- **{item['id']}** — {item['title']}")
+    lines += ["", "## Exact formalized components and declaration mappings", ""]
+    for item in items:
+        lines += [f"### {item['id']} — {item['title']}", "",
+                  f"Lean coverage: **{item['lean_status']}**. "
+                  f"[Paper statement](../{item['source']}#L{item['line']}); "
+                  f"[independent coverage map]({item['independent_audit'].removeprefix('audits/')}).", ""]
+        if item["proved_components"]:
+            lines += ["Mathematical content formalized in Lean:", ""]
+            lines += [f"- {c}" for c in item["proved_components"]]
+            lines += ["", "Mapped Lean declarations:", ""]
+            lines += [f"- `{d}`" for d in item["lean_theorems"]]
+            lines += [""]
+        if item["unproved_components"]:
+            lines += ["Remaining Lean formalization:", ""]
+            lines += [f"- {c}" for c in item["unproved_components"]]
+            lines += [""]
+    lines += ["## Additional labelled mathematical results", ""]
+    for item in additional:
+        lines += [f"### {item['latex_label']}", "",
+                  f"Lean coverage: **{item['status']}**.", ""]
+        lines += [f"- `{d}`" for d in item["lean_declarations"]]
+        lines += [f"- Remaining Lean formalization: {c}" for c in item.get("unproved_components", [])]
+        lines += [""]
+    lines += ["## Preserved excluded experiment", "",
+              "The pre-existing local `lean/SigmaProbCumulantCalibration.lean` experiment "
+              "is not imported or credited. It remains preserved as local work; "
+              "the completed P4 cumulant formalization is mapped to the other verified modules.", ""]
+    return "\n".join(lines)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -147,7 +200,8 @@ def main():
     args = parser.parse_args()
     ledger = reconstruct()
     outputs = {"audits/lean-coverage.json": json.dumps(ledger, indent=2, ensure_ascii=False) + "\n",
-               "audits/lean-coverage.md": markdown(ledger)}
+               "audits/lean-coverage.md": markdown(ledger),
+               "audits/proved-inventory.md": inventory_markdown(ledger)}
     for name, content in outputs.items():
         path = ROOT / name
         if args.write:

@@ -784,7 +784,7 @@
       "unproved_components": [],
       "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
+      "notes": "Milestone-specific independent review returned PASS after the full SigmaFormalization build."
     },
     {
       "id": "final:P2",
@@ -1125,26 +1125,33 @@
         "Sigma.gamma_hazard_local_ac_derivative",
         "Sigma.gamma_hazard_unique_local_ac",
         "Sigma.gamma_probability_local_ac_hazard_inverse",
-        "Sigma.gamma_probability_local_ac_logistic_inverse"
+        "Sigma.gamma_probability_local_ac_logistic_inverse",
+        "Sigma.lifetime_density_integrable",
+        "Sigma.ac_lifetime_survival_increment",
+        "Sigma.ac_lifetime_survival_continuous",
+        "Sigma.ac_lifetime_survival_derivative",
+        "Sigma.ac_lifetime_survival_local_ac_of_density",
+        "Sigma.gamma_probability_native_hazard_inverse",
+        "Sigma.gamma_probability_native_marked_logistic_inverse",
+        "Sigma.gamma_probability_native_logistic_inverse"
       ],
       "proved_components": [
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
         "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
-        "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse."
+        "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
+        "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio."
       ],
       "unproved_components": [
-        "Native absolutely continuous input measure and its actual density/survival hazard must imply the local-AC tail and a.e. ODE hypotheses of the proved hazard/logistic inverses; these input bridges are not yet derived from mu absolutely continuous with respect to volume.",
         "Existence and uniqueness of the causal distributional Green kernel among distributions.",
         "Actual unit-rate Poisson-process second-arrival law."
       ],
       "gaps": [
-        "Native absolutely continuous input measure and its actual density/survival hazard must imply the local-AC tail and a.e. ODE hypotheses of the proved hazard/logistic inverses; these input bridges are not yet derived from mu absolutely continuous with respect to volume.",
         "Existence and uniqueness of the causal distributional Green kernel among distributions.",
         "Actual unit-rate Poisson-process second-arrival law."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Bounded local-AC hazard/logistic AUDIT PASS for SigmaProbSurvivalAC. The ODE regularity upgrade and actual measure identification are genuine conclusions. This does not yet close the paper's native absolutely continuous probability input: local AC of its tail and the ODE corresponding to its actual density/survival hazard remain formal hypotheses, so no completion claim is made for those full native input clauses."
+      "notes": "Independent bounded AUDIT PASS for SigmaProbSurvivalAC and SigmaProbNativeHazard. The initial missing native-input bridge is resolved: tail regularity is derived from absolute continuity of the actual measure and its hazard, not assumed. The marked logistic theorem uses an a.e. representative link, avoiding an extra pointwise regularity requirement on the canonical Radon-Nikodym representative. This closes the first two identifying clauses, but does not establish distributional Green-kernel uniqueness or an actual Poisson-process second-arrival construction."
     },
     {
       "id": "final:P5-survival-boundaries",
@@ -1383,23 +1390,31 @@
         "Sigma.borel_path_size_law",
         "Sigma.borel_star_size_law",
         "Sigma.borel_tree_laws_distinct",
-        "Sigma.borel_size_does_not_identify_random_tree"
+        "Sigma.borel_size_does_not_identify_random_tree",
+        "Sigma.borel_coefficient_stirling_ratio",
+        "Sigma.borel_coefficient_scaled_limit",
+        "Sigma.borel_tail_asymptotic_rpow",
+        "Sigma.borel_tail_perturbation_positive",
+        "Sigma.borel_tail_perturbation_hasSum",
+        "Sigma.borel_tail_perturbation_eq",
+        "Sigma.borel_tail_perturbation_distinct",
+        "Sigma.borel_tail_perturbation_probability_distinct",
+        "Sigma.borel_tail_does_not_identify_probability"
       ],
       "proved_components": [
-        "Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws."
+        "Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws.",
+        "Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail."
       ],
       "unproved_components": [
         "Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.",
-        "Critical non-Poisson offspring witness with non-Borel size law.",
-        "Distinct probability retaining the exact leading Borel tail asymptotic, together with the Borel asymptotic itself."
+        "Critical non-Poisson offspring witness with non-Borel size law."
       ],
       "gaps": [
         "Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.",
-        "Critical non-Poisson offspring witness with non-Borel size law.",
-        "Distinct probability retaining the exact leading Borel tail asymptotic, together with the Borel asymptotic itself."
+        "Critical non-Poisson offspring witness with non-Borel size law."
       ],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Proof-only note: no separate coupling/independence counterexample for designated forest marginals was found."
+      "notes": "Independent bounded AUDIT PASS for SigmaRealTreesTailBoundary: native IsEquivalent has the exact paper constant and exponent; the counterexample is an actual normalized PMF with a proved distinct toMeasure, not merely a changed scalar sequence. This resolves only the asymptotic deletion clause, not the smooth-density or Galton-Watson boundary clauses. Proof-only note: no separate coupling/independence counterexample for designated forest marginals was found."
     },
     {
       "id": "final:P7",
@@ -1847,7 +1862,7 @@
       "line": 132,
       "statement_tex": "\\label{final:O2-boundaries}\nThe pair \\eqref{final:O2-probes} is irredundant within the indicated\ncoefficient class, even if the coefficients are smooth and $a>0$.\nIt does not identify an arbitrary self-adjoint operator outside that\nlocal class.  The invariant density $p$ alone does not identify a\nreversible dynamics or its time scale.\n",
       "statement_sha256": "4a55764919cb714f36e70865b0b3663e464be7487a567c425ece6129d7247063",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.operator_linear_probe_arbitrary_diffusion",
         "Sigma.operator_quadratic_probe_counterfamily",
@@ -1855,23 +1870,27 @@
         "Sigma.operator_quadratic_positive_counterexample",
         "Sigma.operator_linear_only_smooth_positive_witness",
         "Sigma.operator_quadratic_only_smooth_positive_witness",
-        "Sigma.operator_marked_probe_irredundancy"
+        "Sigma.operator_marked_probe_irredundancy",
+        "Sigma.marked_functional_calculus_selfAdjoint",
+        "Sigma.laguerre_spectral_selfAdjoint",
+        "Sigma.actual_selfadjoint_probe_nonidentification",
+        "Sigma.swapped_laguerre_no_local_expression",
+        "Sigma.gamma_refresh_semigroup",
+        "Sigma.gamma_refresh_detailed_balance",
+        "Sigma.gamma_refresh_different_rates_at_state",
+        "Sigma.gamma_invariant_does_not_identify_reversible_dynamics"
       ],
       "proved_components": [
         "Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.",
         "An explicit rational quadratic-only diffusion is positive on the positive ray.",
-        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1."
+        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1.",
+        "Two actual densely defined self-adjoint operators on Gamma-weighted complex L2 agree on the literal constant and both marked probe polynomials but are distinct. The swapped-mode operator has no local second-order coefficient expression, even almost everywhere.",
+        "Native conservative Markov kernel semigroups preserve the positive ray and the actual Gamma probability, satisfy joint-measure detailed balance, and differ at every positive state. Their explicit factor-two time rescaling proves that the invariant density identifies neither dynamics nor time scale."
       ],
-      "unproved_components": [
-        "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
-        "Distinct conservative reversible dynamics cA with invariant p and different time scales."
-      ],
-      "gaps": [
-        "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
-        "Distinct conservative reversible dynamics cA with invariant p and different time scales."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Bounded irredundancy AUDIT PASS. The named proposition does not require compact support of the particular proof perturbation. The explicit linear-only diffusion 2t and quadratic-only diffusion t/(1+(t-3)^2) have proved ContDiff smoothness, positivity for every t>0, retained identities throughout that ray and actual omitted-identity failure at one. The self-adjoint and invariant-dynamics boundaries remain separate unresolved clauses."
+      "notes": "Whole-statement independent adversarial AUDIT PASS. The named proposition does not prescribe the particular witnesses in its paper proof: smooth positive rational coefficient witnesses, swapping modes three and four, and reversible Gamma-refresh kernels establish its three exact nonidentification assertions. Native self-adjointness is equality with the actual partial-map adjoint on the maximal spectral domain, transported through the proved weighted Laguerre Hilbert basis. The refresh witness has actual probability kernels, zero-time identity, composition law, invariance and joint-measure detailed balance. Review required strengthening distinctness from an off-ray state to every positive state; the packaged theorem now includes that conclusion. No identification of the separate compact-test minimal differential operator is assumed or claimed."
     },
     {
       "id": "final:O3",
@@ -1952,24 +1971,61 @@
         "Sigma.opLaguerre_first_three",
         "Sigma.opLaguerre_leading_coefficient",
         "Sigma.opLaguerre_leading_coefficient_ne_zero",
-        "Sigma.operator_gamma_laguerre_orthogonality"
+        "Sigma.operator_gamma_laguerre_orthogonality",
+        "Sigma.op_laguerre_polynomial_eval",
+        "Sigma.op_laguerre_coefficient_recurrence",
+        "Sigma.op_laguerre_polynomial_ode",
+        "Sigma.op_laguerre_derivative",
+        "Sigma.op_laguerre_second_derivative",
+        "Sigma.op_laguerre_differential_equation",
+        "Sigma.op_laguerre_expression_eigenvalue",
+        "Sigma.op_laguerre_rodrigues_numerator",
+        "Sigma.op_laguerre_rodrigues",
+        "Sigma.gamma_complex_polynomial_mem_l2",
+        "Sigma.op_laguerre_complex_mem_l2",
+        "Sigma.op_laguerre_expression_complex_mem_l2",
+        "Sigma.laguerre_l2_vector_ne_zero",
+        "Sigma.laguerre_l2_differential_eigenvalue",
+        "Sigma.op_laguerre_native_complex_eigenvalue",
+        "Sigma.op_laguerre_native_complex_image_mem_l2",
+        "Sigma.laguerre_l2_native_complex_eigenvalue",
+        "Sigma.normalized_op_laguerre_native_eigenvalue",
+        "Sigma.normalized_op_laguerre_mem_l2",
+        "Sigma.normalized_op_laguerre_to_l2",
+        "Sigma.normalized_laguerre_l2_vector_ne_zero",
+        "Sigma.gamma_polynomial_integral_factorial_moment",
+        "Sigma.op_laguerre_polynomial_rodrigues_integral",
+        "Sigma.op_laguerre_squared_integral",
+        "Sigma.op_laguerre_pair_integral",
+        "Sigma.op_laguerre_pair_integrable",
+        "Sigma.op_laguerre_weighted_pair_integral",
+        "Sigma.laguerre_l2_inner",
+        "Sigma.normalized_laguerre_l2_orthonormal",
+        "Sigma.normalized_laguerre_l2_norm",
+        "Sigma.finite_measure_moments_unique_of_exponential_envelopes",
+        "Sigma.laguerre_l2_eq_zero_of_orthogonal",
+        "Sigma.normalized_laguerre_l2_dense_span",
+        "Sigma.laguerreHilbertBasis",
+        "Sigma.laguerre_hilbert_basis_apply"
       ],
       "proved_components": [
         "Exact marked finite-sum Laguerre polynomials and coefficients, including nonzero leading coefficients and the first three modes.",
-        "Canonical mean orthogonality to the constant for every positive mode."
+        "Canonical mean orthogonality to the constant for every positive mode.",
+        "Exact marked Rodrigues formula with the actual nth ordinary derivative for every n >= 0 and every nonzero real argument, with a numerator identity also valid at zero. The actual first and second derivatives satisfy the Laguerre equation at every real point, and the canonical differential expression has eigenvalue n on the marked polynomial.",
+        "The actual gamma-weighted complex L2 space contains every complex lift of a real polynomial, each marked Laguerre mode and its native complex differential image. Those modes are nonzero, and the differential-image L2 class equals n times the mode. The exact representatives L_n/sqrt(n+1) likewise belong to L2, are nonzero and satisfy the native differential equation, with their L2 scaling identification proved.",
+        "Actual pairwise Gamma integrals and literal positive-ray density-weighted integrals equal (n+1) times the Kronecker delta for every pair of modes, including zero. The resulting actual complex L2 inner products prove orthonormality and unit norms for the exact square-root-normalized family.",
+        "The orthogonal complement of the actual normalized Laguerre family is zero, its span is dense in the weighted complex L2 space, and the exact modes form a native HilbertBasis. Exponential-envelope moment uniqueness supplies the completeness proof without assuming density."
       ],
       "unproved_components": [
-        "Rodrigues derivative formula and all-mode differential eigenvalue equation.",
-        "Complete orthonormal basis in the actual weighted complex L2 space and membership in the actual self-adjoint domain.",
+        "Membership in the domain of the paper's actual self-adjoint differential operator, including identification with the constructed spectral operator.",
         "Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas."
       ],
       "gaps": [
-        "Rodrigues derivative formula and all-mode differential eigenvalue equation.",
-        "Complete orthonormal basis in the actual weighted complex L2 space and membership in the actual self-adjoint domain.",
+        "Membership in the domain of the paper's actual self-adjoint differential operator, including identification with the constructed spectral operator.",
         "Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "The old map said unproved despite supplied polynomial components. Current status is partial. Orthogonality to constants is not pairwise orthonormality or L2 completeness."
+      "notes": "Independent bounded AUDIT PASS for Rodrigues, actual derivatives and differential eigenvalue, weighted complex L2 membership and pairwise integrals, orthonormality, and now completeness/HilbertBasis. The moment-density argument separates real and imaginary parts and derives exponential integrability; orthonormality alone is not used as a completeness premise. A genuine self-adjoint spectral operator is constructed for O2-boundaries, but identifying its domain with the closure of the paper's compact-test differential operator remains separate. O3-spectrum therefore remains partial for the actual differential-operator domain, spectrum, compact resolvent and energy formulas."
     },
     {
       "id": "final:O7",
@@ -2001,7 +2057,7 @@
       "unproved_components": [],
       "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate still-unproved Rodrigues identity or operator-basis realization."
+      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate operator-basis realization. The Rodrigues identity is now independently covered under O3-spectrum."
     },
     {
       "id": "final:O4",
@@ -2221,25 +2277,36 @@
         "Sigma.operator_full_line_mixing_iff",
         "Sigma.operator_integer_samples_integrable",
         "Sigma.operator_integer_samples_positive_support",
-        "Sigma.operator_integer_samples_ae_pos"
+        "Sigma.operator_integer_samples_ae_pos",
+        "Sigma.signed_total_variation_finite",
+        "Sigma.complex_measure_norm_le_control",
+        "Sigma.nonnegative_laplace_test_integrable",
+        "Sigma.operator_signed_mixing_measure_unique",
+        "Sigma.operator_complex_mixing_measure_unique",
+        "Sigma.signed_integer_sample_zero_mass",
+        "Sigma.complex_integer_sample_zero_mass",
+        "Sigma.nonnegative_gamma_mixing_on_real_line",
+        "Sigma.nonnegative_gamma_complex_integer_samples",
+        "Sigma.operator_complex_gamma_mixing_characterization",
+        "Sigma.operator_complex_gamma_mixing_iff",
+        "Sigma.nonnegative_gamma_complex_measure_apply"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
-        "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values."
+        "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
+        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions."
       ],
       "unproved_components": [
         "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity.",
-        "Uniqueness for finite signed/complex measures of finite total variation, not only positive measures."
+        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
       ],
       "gaps": [
         "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity.",
-        "Uniqueness for finite signed/complex measures of finite total variation, not only positive measures."
+        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result."
     },
     {
       "id": "final:O6",
@@ -2253,7 +2320,7 @@
       "line": 841,
       "statement_tex": "\\label{final:O6}\nLet $f,g$ be Bernstein functions, in their usual representation\ncategory\n\\begin{equation}\\label{final:O6-bernstein-representation}\n f(\\lambda)=k_f+d_f\\lambda+\n   \\int_{(0,\\infty)}(1-e^{-\\lambda s})\\,\\Pi_f(ds),\n \\qquad \\lambda\\geq0,\n\\end{equation}\nwhere $k_f,d_f\\geq0$, $\\Pi_f$ is positive, and\n$\\int(1\\wedge s)\\Pi_f(ds)<\\infty$, and likewise for $g$.\nFor any fixed $N\\in\\mathbb N_0$, equality $f(n)=g(n)$ for every\ninteger $n\\geq N$ implies $f=g$ on $[0,\\infty)$, including equality\nof killing, drift and L\\'evy measure.\nIn particular the samples\n\\[\n f(n)=2\\log(1+n)\\qquad(n\\geq N)\n\\]\nidentify the complete exponent $f(\\lambda)=2\\log(1+\\lambda)$,\nwith $k_f=d_f=0$ and $\\Pi_f(ds)=2e^{-s}ds/s$.\nKnowledge of $f(A)$ on the marked integer eigenspaces supplies these\nsamples.  This inverse does not extend to arbitrary smooth functions.\n",
       "statement_sha256": "8e2435a7c10f097c26815b9e9f6d1378d78317b708cffc2f8bb52d2fd2f8434d",
-      "lean_status": "complete",
+      "lean_status": "partial",
       "lean_theorems": [
         "Sigma.operator_hausdorff_moment_unique",
         "Sigma.gamma_levy_exponent_integral",
@@ -2283,13 +2350,17 @@
         "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.",
         "For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.",
         "Gamma target's actual Levy integrability and representation identification, including killing and drift zero.",
-        "A native complex l2 partially defined diagonal functional calculus has the exact weighted-square-summability domain; its action on every marked integer eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
-        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain."
+        "An independently constructed native complex sequence-l2 diagonal LinearPMap has the exact weighted-square-summability domain; its action on every coordinate eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
+        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same diagonal sequence-l2 LinearPMap, including its domain."
       ],
-      "unproved_components": [],
-      "gaps": [],
+      "unproved_components": [
+        "Identify the separately constructed marked sequence-l2 calculus with the functional calculus of the paper's actual gamma-weighted self-adjoint operator A, so that its marked eigenspace actions supply the scalar samples and the smooth perturbation has the same actual f(A), with the stated domains."
+      ],
+      "gaps": [
+        "Identify the separately constructed marked sequence-l2 calculus with the functional calculus of the paper's actual gamma-weighted self-adjoint operator A, so that its marked eigenspace actions supply the scalar samples and the smooth perturbation has the same actual f(A), with the stated domains."
+      ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
+      "notes": "Fresh independent sample audit found an old complete-status overclaim. The scalar Bernstein integer-tail theorem, exact Levy-measure recovery and smooth scalar boundary remain proved. SigmaOpMarkedCalculus constructs a genuine diagonal LinearPMap on sequence l2, but contains no bridge to the paper's gamma-weighted differential operator A or its functional calculus. The new O3 native L2 orthonormal family does not supply completeness or a self-adjoint-domain identification. Consequently the named O6 operator-sampling clause remains partial; this is a model-linkage defect, not a defect in the scalar Bernstein proofs."
     },
     {
       "id": "final:O6-functional-calculus",
@@ -2916,29 +2987,42 @@
       "lean_theorems": [
         "Sigma.gaussian_relative_entropy",
         "Sigma.gaussian_zero_log_likelihood",
-        "Sigma.gaussian_zero_second_moment"
+        "Sigma.gaussian_zero_second_moment",
+        "Sigma.matrixScatterNegLogLikelihood",
+        "Sigma.matrixCovarianceNegLogLikelihood",
+        "Sigma.matrix_scatter_likelihood_covariance",
+        "Sigma.matrix_covariance_likelihood_gap",
+        "Sigma.matrix_covariance_likelihood_minimum",
+        "Sigma.matrix_covariance_likelihood_equality_iff",
+        "Sigma.matrix_covariance_unique_mle",
+        "Sigma.matrix_covariance_likelihood_precision",
+        "Sigma.matrix_covariance_likelihood_unbounded",
+        "Sigma.matrix_singular_covariance_no_mle",
+        "Sigma.matrix_sample_scatter_gram",
+        "Sigma.matrix_sample_scatter_posSemidef",
+        "Sigma.matrix_sample_covariance_posSemidef",
+        "Sigma.matrix_sample_likelihood_gap",
+        "Sigma.matrix_singular_sample_no_mle"
       ],
       "proved_components": [
-        "Actual univariate centered Gaussian relative entropy and log likelihood, supplying the n=1 single-observation entropy component"
+        "Actual univariate centered Gaussian relative entropy and log likelihood, supplying the n=1 single-observation entropy component",
+        "For the exact displayed determinant-and-trace negative log-likelihood expression, every positive sample count has unique SPD optimizer C when C is SPD and exact excess (m/2)D(C,X), with covariance first in the divergence",
+        "The actual finite outer-product sample scatter is its Gram matrix and is PSD, as is its normalized covariance; the displayed objective is unbounded below for singular PSD covariance and has no optimizer in the open SPD cone"
       ],
       "unproved_components": [
-        "Actual iid multivariate Gaussian sample/scatter law and sufficiency",
+        "Actual iid multivariate Gaussian sample/scatter law and sufficiency, including derivation of the displayed likelihood expression from that probabilistic model",
         "Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence",
         "Almost sure positive-definiteness iff sample count is at least dimension",
-        "Unique positive-definite observed covariance MLE and likelihood excess with m/2 orientation",
-        "Singular-scatter nonattainment",
         "Full matrix Gaussian relative entropy and its m-copy factor"
       ],
       "gaps": [
-        "Actual iid multivariate Gaussian sample/scatter law and sufficiency",
+        "Actual iid multivariate Gaussian sample/scatter law and sufficiency, including derivation of the displayed likelihood expression from that probabilistic model",
         "Wishart exponential moment determinant formula with exact finiteness domain including boundary divergence",
         "Almost sure positive-definiteness iff sample count is at least dimension",
-        "Unique positive-definite observed covariance MLE and likelihood excess with m/2 orientation",
-        "Singular-scatter nonattainment",
         "Full matrix Gaussian relative entropy and its m-copy factor"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The existing actual Gaussian entropy theorem is univariate; it must be credited but cannot establish arbitrary covariance-matrix/Wishart content."
+      "notes": "Independent bounded AUDIT PASS for SigmaMatrixLikelihood: the objective is the literal displayed log-determinant/trace expression, not divergence by definition; its precision substitution and actual Fenchel unboundedness prove singular nonattainment, including zero eigenvalues. All finite dimensions are allowed and the paper's m>=1 condition is retained. Scatter and covariance are genuine finite sample matrices, with PSD derived. These deterministic likelihood clauses do not identify the objective with the log-density of an actual multivariate Gaussian sampling law; that bridge and the probabilistic model remain explicit residuals. The existing actual Gaussian entropy theorem is univariate and does not establish arbitrary covariance-matrix/Wishart content."
     },
     {
       "id": "final:R1",
@@ -2962,22 +3046,29 @@
         "Sigma.radial_energy_direction_second_derivative_of_eventually",
         "Sigma.radial_energy_direction_second_derivative_positive",
         "Sigma.radial_energy_euclidean_laplacian_positive",
-        "Sigma.radial_energy_OU_generator_positive"
+        "Sigma.radial_energy_OU_generator_positive",
+        "Sigma.radial_four_positive_lift_energy",
+        "Sigma.radial_four_negative_lift_energy",
+        "Sigma.radial_four_positive_law_energy",
+        "Sigma.radial_four_negative_law_energy",
+        "Sigma.radial_four_positive_law_halfspace",
+        "Sigma.radial_four_negative_law_halfspace",
+        "Sigma.radial_four_laws_distinct",
+        "Sigma.gamma_radial_energy_does_not_identify_vector_law"
       ],
       "proved_components": [
         "Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4",
-        "Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies"
+        "Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies",
+        "Two genuine probabilities on native four-dimensional Euclidean space, constructed by opposite unit-vector lifts of the Gamma radius, have the exact same energy pushforward gammaProbability and are distinct: a measurable coordinate halfspace has mass one for one and zero for the other"
       ],
       "unproved_components": [
         "Actual four-dimensional Gaussian radial pushforward",
         "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness",
-        "Same-radial-law different-vector-law witness",
         "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"
       ],
       "gaps": [
         "Actual four-dimensional Gaussian radial pushforward",
         "Independent uniform S3-angle inverse and orthogonal-invariance uniqueness",
-        "Same-radial-law different-vector-law witness",
         "Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
@@ -3403,29 +3494,36 @@
       "lean_status": "partial",
       "lean_theorems": [
         "Sigma.operator_complex_zeta_eigenvalue_summable_iff",
-        "Sigma.operator_zeta_eigenvalue_hasSum"
+        "Sigma.operator_zeta_eigenvalue_hasSum",
+        "Sigma.numerical_zeta_series_euler_product",
+        "Sigma.numerical_zeta_euler_product_identity",
+        "Sigma.real_euler_product_log_hasSum",
+        "Sigma.real_euler_generators_bounded_finite",
+        "Sigma.real_euler_generators_countable",
+        "Sigma.real_euler_generators_least",
+        "Sigma.real_euler_product_gt_one",
+        "Sigma.real_euler_product_eq_one_iff_empty",
+        "Sigma.real_euler_product_remove_generator"
       ],
       "proved_components": [
-        "Actual complex numerical zeta series and its absolute-summability half-plane"
+        "Actual complex numerical zeta series and its absolute-summability half-plane",
+        "Actual convergent HasProd over native positive-integer primes equals the numerical zeta series for every complex s with Re(s)>1, by reuse of Mathlib's native Euler product",
+        "For an arbitrary real generator set q>1 with positive integer multiplicities, convergence of the actual Euler product to a positive value at one positive real argument derives the logarithmic sum, finiteness below every real bound, countability and a least generator when nonempty, without assuming any of these properties",
+        "At every positive argument with a positive convergent product, its value is one exactly when the generator set is empty; a nonempty product is strictly greater than one",
+        "Removing any generator removes its entire multiplicity factor and derives a genuine convergent residual HasProd with value Z divided by that factor and strictly positive value; no multiplicative independence is assumed"
       ],
       "unproved_components": [
-        "Prime Euler product identity on Re(s)>1",
         "Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis",
-        "From positive Euler-product convergence derive local finiteness/countability and least generator",
         "Least-generator and multiplicity recovery limits",
-        "Entire-factor removal, recovery of every generator and multiset uniqueness",
-        "Empty multiset iff identically-one product"
+        "Iterated recovery of every generator and multiset uniqueness"
       ],
       "gaps": [
-        "Prime Euler product identity on Re(s)>1",
         "Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis",
-        "From positive Euler-product convergence derive local finiteness/countability and least generator",
         "Least-generator and multiplicity recovery limits",
-        "Entire-factor removal, recovery of every generator and multiset uniqueness",
-        "Empty multiset iff identically-one product"
+        "Iterated recovery of every generator and multiset uniqueness"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "SigmaOpSpectral explicitly states that its zeta results are eigenvalue-series theorems and not actual trace theorems. No numerical generator-multiset inverse is present."
+      "notes": "Independent bounded AUDIT PASS for SigmaArithmeticEulerProduct and SigmaArithmeticEulerGenerators: HasProd asserts convergence, not just an equality between potentially totalized infinite products; native Nat.Primes and the exact complex half-plane match the numerical labels and parameter scope. The general-generator results assume neither countability nor local finiteness; positive finite integer multiplicities are exactly the paper category. One positive convergent argument suffices and is available on the paper's terminal ray. The pointwise empty-product iff is stronger than the ray-level identically-one criterion. SigmaOpSpectral's eigenvalue-series theorems and these numerical Euler products do not prove an actual operator trace. Recovery limits and the full numerical generator-multiset inverse remain unproved."
     },
     {
       "id": "final:identification",
@@ -3494,7 +3592,7 @@
         "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Generic S\u2243A inputs assume the required inverse; they cannot certify the complete named closure theorem."
+      "notes": "Generic S≃A inputs assume the required inverse; they cannot certify the complete named closure theorem."
     },
     {
       "id": "final:global-E",

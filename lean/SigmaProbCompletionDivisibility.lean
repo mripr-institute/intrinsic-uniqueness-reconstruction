@@ -584,7 +584,8 @@ theorem gamma_rate_two_self_decomposition (c : ℝ) (hc0 : 0 ≤ c) (hc1 : c ≤
     realLaplace_map_scale,
     realLaplace_map_scale,
     realLaplace_map_scale]
-  convert hbase using 1 <;> ring
+  convert hbase using 1
+  ring_nf
 
 theorem gamma_rate_two_ne_canonical : gammaMeasure 2 2 ≠ gammaProbability := by
   intro h

@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 4,
-    "partial": 6,
+    "complete": 5,
+    "partial": 5,
     "missing": 9
   },
   "namespace": "Sigma",
@@ -13,6 +13,7 @@
   "passed_labels": [
     "final:O1",
     "final:O1-kernel",
+    "final:O2-boundaries",
     "final:O7"
   ],
   "mathematically_false_paper_clauses": [],
@@ -118,7 +119,7 @@
     },
     {
       "latex_label": "final:O2-boundaries",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.operator_linear_probe_arbitrary_diffusion",
         "Sigma.operator_quadratic_probe_counterfamily",
@@ -126,18 +127,25 @@
         "Sigma.operator_quadratic_positive_counterexample",
         "Sigma.operator_linear_only_smooth_positive_witness",
         "Sigma.operator_quadratic_only_smooth_positive_witness",
-        "Sigma.operator_marked_probe_irredundancy"
+        "Sigma.operator_marked_probe_irredundancy",
+        "Sigma.marked_functional_calculus_selfAdjoint",
+        "Sigma.laguerre_spectral_selfAdjoint",
+        "Sigma.actual_selfadjoint_probe_nonidentification",
+        "Sigma.swapped_laguerre_no_local_expression",
+        "Sigma.gamma_refresh_semigroup",
+        "Sigma.gamma_refresh_detailed_balance",
+        "Sigma.gamma_refresh_different_rates_at_state",
+        "Sigma.gamma_invariant_does_not_identify_reversible_dynamics"
       ],
       "proved_components": [
         "Arbitrary diffusion preserves the linear probe; an exact counterfamily preserves quadratic and changes linear when its perturbation is nonzero.",
         "An explicit rational quadratic-only diffusion is positive on the positive ray.",
-        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1."
+        "Actual globally smooth coefficient witnesses with positive diffusion on the entire positive ray retain either probe and violate the other at t=1.",
+        "Two actual densely defined self-adjoint operators on Gamma-weighted complex L2 agree on the literal constant and both marked probe polynomials but are distinct. The swapped-mode operator has no local second-order coefficient expression, even almost everywhere.",
+        "Native conservative Markov kernel semigroups preserve the positive ray and the actual Gamma probability, satisfy joint-measure detailed balance, and differ at every positive state. Their explicit factor-two time rescaling proves that the invariant density identifies neither dynamics nor time scale."
       ],
-      "unproved_components": [
-        "Actual nonlocal self-adjoint unitary-rotation countermodel preserving the two probes and constant.",
-        "Distinct conservative reversible dynamics cA with invariant p and different time scales."
-      ],
-      "notes": "Bounded irredundancy AUDIT PASS. The named proposition does not require compact support of the particular proof perturbation. The explicit linear-only diffusion 2t and quadratic-only diffusion t/(1+(t-3)^2) have proved ContDiff smoothness, positivity for every t>0, retained identities throughout that ray and actual omitted-identity failure at one. The self-adjoint and invariant-dynamics boundaries remain separate unresolved clauses."
+      "unproved_components": [],
+      "notes": "Whole-statement independent adversarial AUDIT PASS. The named proposition does not prescribe the particular witnesses in its paper proof: smooth positive rational coefficient witnesses, swapping modes three and four, and reversible Gamma-refresh kernels establish its three exact nonidentification assertions. Native self-adjointness is equality with the actual partial-map adjoint on the maximal spectral domain, transported through the proved weighted Laguerre Hilbert basis. The refresh witness has actual probability kernels, zero-time identity, composition law, invariance and joint-measure detailed balance. Review required strengthening distinctness from an off-ray state to every positive state; the packaged theorem now includes that conclusion. No identification of the separate compact-test minimal differential operator is assumed or claimed."
     },
     {
       "latex_label": "final:O3",
@@ -173,18 +181,56 @@
         "Sigma.opLaguerre_first_three",
         "Sigma.opLaguerre_leading_coefficient",
         "Sigma.opLaguerre_leading_coefficient_ne_zero",
-        "Sigma.operator_gamma_laguerre_orthogonality"
+        "Sigma.operator_gamma_laguerre_orthogonality",
+        "Sigma.op_laguerre_polynomial_eval",
+        "Sigma.op_laguerre_coefficient_recurrence",
+        "Sigma.op_laguerre_polynomial_ode",
+        "Sigma.op_laguerre_derivative",
+        "Sigma.op_laguerre_second_derivative",
+        "Sigma.op_laguerre_differential_equation",
+        "Sigma.op_laguerre_expression_eigenvalue",
+        "Sigma.op_laguerre_rodrigues_numerator",
+        "Sigma.op_laguerre_rodrigues",
+        "Sigma.gamma_complex_polynomial_mem_l2",
+        "Sigma.op_laguerre_complex_mem_l2",
+        "Sigma.op_laguerre_expression_complex_mem_l2",
+        "Sigma.laguerre_l2_vector_ne_zero",
+        "Sigma.laguerre_l2_differential_eigenvalue",
+        "Sigma.op_laguerre_native_complex_eigenvalue",
+        "Sigma.op_laguerre_native_complex_image_mem_l2",
+        "Sigma.laguerre_l2_native_complex_eigenvalue",
+        "Sigma.normalized_op_laguerre_native_eigenvalue",
+        "Sigma.normalized_op_laguerre_mem_l2",
+        "Sigma.normalized_op_laguerre_to_l2",
+        "Sigma.normalized_laguerre_l2_vector_ne_zero",
+        "Sigma.gamma_polynomial_integral_factorial_moment",
+        "Sigma.op_laguerre_polynomial_rodrigues_integral",
+        "Sigma.op_laguerre_squared_integral",
+        "Sigma.op_laguerre_pair_integral",
+        "Sigma.op_laguerre_pair_integrable",
+        "Sigma.op_laguerre_weighted_pair_integral",
+        "Sigma.laguerre_l2_inner",
+        "Sigma.normalized_laguerre_l2_orthonormal",
+        "Sigma.normalized_laguerre_l2_norm",
+        "Sigma.finite_measure_moments_unique_of_exponential_envelopes",
+        "Sigma.laguerre_l2_eq_zero_of_orthogonal",
+        "Sigma.normalized_laguerre_l2_dense_span",
+        "Sigma.laguerreHilbertBasis",
+        "Sigma.laguerre_hilbert_basis_apply"
       ],
       "proved_components": [
         "Exact marked finite-sum Laguerre polynomials and coefficients, including nonzero leading coefficients and the first three modes.",
-        "Canonical mean orthogonality to the constant for every positive mode."
+        "Canonical mean orthogonality to the constant for every positive mode.",
+        "Exact marked Rodrigues formula with the actual nth ordinary derivative for every n >= 0 and every nonzero real argument, with a numerator identity also valid at zero. The actual first and second derivatives satisfy the Laguerre equation at every real point, and the canonical differential expression has eigenvalue n on the marked polynomial.",
+        "The actual gamma-weighted complex L2 space contains every complex lift of a real polynomial, each marked Laguerre mode and its native complex differential image. Those modes are nonzero, and the differential-image L2 class equals n times the mode. The exact representatives L_n/sqrt(n+1) likewise belong to L2, are nonzero and satisfy the native differential equation, with their L2 scaling identification proved.",
+        "Actual pairwise Gamma integrals and literal positive-ray density-weighted integrals equal (n+1) times the Kronecker delta for every pair of modes, including zero. The resulting actual complex L2 inner products prove orthonormality and unit norms for the exact square-root-normalized family.",
+        "The orthogonal complement of the actual normalized Laguerre family is zero, its span is dense in the weighted complex L2 space, and the exact modes form a native HilbertBasis. Exponential-envelope moment uniqueness supplies the completeness proof without assuming density."
       ],
       "unproved_components": [
-        "Rodrigues derivative formula and all-mode differential eigenvalue equation.",
-        "Complete orthonormal basis in the actual weighted complex L2 space and membership in the actual self-adjoint domain.",
+        "Membership in the domain of the paper's actual self-adjoint differential operator, including identification with the constructed spectral operator.",
         "Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas."
       ],
-      "notes": "The old map said unproved despite supplied polynomial components. Current status is partial. Orthogonality to constants is not pairwise orthonormality or L2 completeness."
+      "notes": "Independent bounded AUDIT PASS for Rodrigues, actual derivatives and differential eigenvalue, weighted complex L2 membership and pairwise integrals, orthonormality, and now completeness/HilbertBasis. The moment-density argument separates real and imaginary parts and derives exponential integrability; orthonormality alone is not used as a completeness premise. A genuine self-adjoint spectral operator is constructed for O2-boundaries, but identifying its domain with the closure of the paper's compact-test differential operator remains separate. O3-spectrum therefore remains partial for the actual differential-operator domain, spectrum, compact resolvent and energy formulas."
     },
     {
       "latex_label": "final:O7",
@@ -205,7 +251,7 @@
         "Support in the positive ray is derived, not assumed."
       ],
       "unproved_components": [],
-      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate still-unproved Rodrigues identity or operator-basis realization."
+      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate operator-basis realization. The Rodrigues identity is now independently covered under O3-spectrum."
     },
     {
       "latex_label": "final:O4",
@@ -314,23 +360,35 @@
         "Sigma.operator_full_line_mixing_iff",
         "Sigma.operator_integer_samples_integrable",
         "Sigma.operator_integer_samples_positive_support",
-        "Sigma.operator_integer_samples_ae_pos"
+        "Sigma.operator_integer_samples_ae_pos",
+        "Sigma.signed_total_variation_finite",
+        "Sigma.complex_measure_norm_le_control",
+        "Sigma.nonnegative_laplace_test_integrable",
+        "Sigma.operator_signed_mixing_measure_unique",
+        "Sigma.operator_complex_mixing_measure_unique",
+        "Sigma.signed_integer_sample_zero_mass",
+        "Sigma.complex_integer_sample_zero_mass",
+        "Sigma.nonnegative_gamma_mixing_on_real_line",
+        "Sigma.nonnegative_gamma_complex_integer_samples",
+        "Sigma.operator_complex_gamma_mixing_characterization",
+        "Sigma.operator_complex_gamma_mixing_iff",
+        "Sigma.nonnegative_gamma_complex_measure_apply"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
-        "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values."
+        "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
+        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions."
       ],
       "unproved_components": [
         "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity.",
-        "Uniqueness for finite signed/complex measures of finite total variation, not only positive measures."
+        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
       ],
-      "notes": ""
+      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result."
     },
     {
       "latex_label": "final:O6",
-      "status": "complete",
+      "status": "partial",
       "lean_declarations": [
         "Sigma.operator_hausdorff_moment_unique",
         "Sigma.gamma_levy_exponent_integral",
@@ -360,11 +418,13 @@
         "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.",
         "For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.",
         "Gamma target's actual Levy integrability and representation identification, including killing and drift zero.",
-        "A native complex l2 partially defined diagonal functional calculus has the exact weighted-square-summability domain; its action on every marked integer eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
-        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain."
+        "An independently constructed native complex sequence-l2 diagonal LinearPMap has the exact weighted-square-summability domain; its action on every coordinate eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
+        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same diagonal sequence-l2 LinearPMap, including its domain."
       ],
-      "unproved_components": [],
-      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
+      "unproved_components": [
+        "Identify the separately constructed marked sequence-l2 calculus with the functional calculus of the paper's actual gamma-weighted self-adjoint operator A, so that its marked eigenspace actions supply the scalar samples and the smooth perturbation has the same actual f(A), with the stated domains."
+      ],
+      "notes": "Fresh independent sample audit found an old complete-status overclaim. The scalar Bernstein integer-tail theorem, exact Levy-measure recovery and smooth scalar boundary remain proved. SigmaOpMarkedCalculus constructs a genuine diagonal LinearPMap on sequence l2, but contains no bridge to the paper's gamma-weighted differential operator A or its functional calculus. The new O3 native L2 orthonormal family does not supply completeness or a self-adjoint-domain identification. Consequently the named O6 operator-sampling clause remains partial; this is a model-linkage defect, not a defect in the scalar Bernstein proofs."
     },
     {
       "latex_label": "final:O6-functional-calculus",

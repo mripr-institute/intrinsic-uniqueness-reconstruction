@@ -1,5 +1,36 @@
 import Sigma
 
+#print axioms Sigma.gamma_probability_native_hazard_inverse
+#print axioms Sigma.gamma_probability_native_marked_logistic_inverse
+#print axioms Sigma.borel_tail_does_not_identify_probability
+#print axioms Sigma.op_laguerre_rodrigues
+#print axioms Sigma.laguerre_l2_native_complex_eigenvalue
+#print axioms Sigma.normalized_op_laguerre_to_l2
+#print axioms Sigma.normalized_laguerre_l2_vector_ne_zero
+#print axioms Sigma.op_laguerre_weighted_pair_integral
+#print axioms Sigma.normalized_laguerre_l2_orthonormal
+#print axioms Sigma.finite_measure_moments_unique_of_exponential_envelopes
+#print axioms Sigma.laguerre_l2_eq_zero_of_orthogonal
+#print axioms Sigma.normalized_laguerre_l2_dense_span
+#print axioms Sigma.laguerreHilbertBasis
+#print axioms Sigma.marked_functional_calculus_selfAdjoint
+#print axioms Sigma.laguerre_spectral_selfAdjoint
+#print axioms Sigma.actual_selfadjoint_probe_nonidentification
+#print axioms Sigma.gamma_refresh_semigroup
+#print axioms Sigma.gamma_refresh_detailed_balance
+#print axioms Sigma.gamma_invariant_does_not_identify_reversible_dynamics
+#print axioms Sigma.matrix_covariance_unique_mle
+#print axioms Sigma.matrix_singular_sample_no_mle
+#print axioms Sigma.numerical_zeta_series_euler_product
+#print axioms Sigma.real_euler_generators_bounded_finite
+#print axioms Sigma.real_euler_generators_countable
+#print axioms Sigma.real_euler_generators_least
+#print axioms Sigma.real_euler_product_eq_one_iff_empty
+#print axioms Sigma.real_euler_product_remove_generator
+#print axioms Sigma.operator_signed_mixing_measure_unique
+#print axioms Sigma.operator_complex_gamma_mixing_iff
+#print axioms Sigma.gamma_radial_energy_does_not_identify_vector_law
+
 #print axioms Sigma.complex_todd_taylor_radius
 #print axioms Sigma.complex_ahat_taylor_radius
 #print axioms Sigma.complex_lgenus_taylor_radius
