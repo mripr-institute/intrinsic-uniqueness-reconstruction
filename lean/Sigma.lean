@@ -28,6 +28,8 @@ import SigmaMatrixScatterFullRank
 import SigmaMatrixGaussianSufficiency
 import SigmaProbCharacteristic
 import SigmaProbGamma
+import SigmaProbSmoothDensityBoundary
+import SigmaRealTreesCriticalBoundary
 import SigmaOpLaguerre
 import SigmaOpMarkedCalculus
 import SigmaOpCanonicalCalculus

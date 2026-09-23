@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 50.
-- Partially formalized statements: 20.
+- Fully formalized statements: 51.
+- Partially formalized statements: 19.
 - Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1321 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1333 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -42,6 +42,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
 - **final:P5-equilibrium-fixed** — Equilibrium fixed points
 - **final:P6** — Rooted coefficients, Borel probabilities, and the inverse germ
+- **final:P6-boundaries** — Tree and continuation boundaries
 - **final:P7** — The calibrated maximum-entropy characterization
 - **final:P8-samples** — Complete integer tails identify the Gamma exponent
 - **final:P8-selfdecomposition** — Explicit Gamma self-decomposition
@@ -893,12 +894,14 @@ Remaining Lean formalization:
 
 ### final:P6-boundaries — Tree and continuation boundaries
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L906); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L906); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws.
 - Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail.
+- A nonzero derivative bump supported strictly inside (2,3) gives a genuinely distinct smooth positive probability density with both exact inverse germs, the canonical unique maximum, strict two-branch shape, and both endpoint limits. Zero perturbation integral, positive normalization and all shape bounds are derived; distinction holds up to almost-everywhere equality.
+- An actual iid constant-one offspring array has mean one and non-Poisson law. Its usual active-word recursion derives the infinite unary rooted tree with exactly one vertex per generation and one child per active vertex. The actual total-progeny pushforward is the probability mass at infinity, distinct from the native finite Borel law.
 
 Mapped Lean declarations:
 
@@ -915,11 +918,18 @@ Mapped Lean declarations:
 - `Sigma.borel_tail_perturbation_distinct`
 - `Sigma.borel_tail_perturbation_probability_distinct`
 - `Sigma.borel_tail_does_not_identify_probability`
-
-Remaining Lean formalization:
-
-- Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.
-- Critical non-Poisson offspring witness with non-Borel size law.
+- `Sigma.smooth_inverse_germ_density_boundary`
+- `Sigma.criticalLineProbability`
+- `Sigma.criticalLineOffspring`
+- `Sigma.criticalLineActive`
+- `Sigma.critical_line_active_replicate`
+- `Sigma.critical_line_one_vertex_each_generation`
+- `Sigma.critical_line_one_child`
+- `Sigma.criticalLineTotalProgeny`
+- `Sigma.critical_line_total_progeny_infinite`
+- `Sigma.criticalLineTotalProgenyLaw`
+- `Sigma.extendedBorelTotalProgenyLaw`
+- `Sigma.critical_iid_galton_watson_boundary`
 
 ### final:P7 — The calibrated maximum-entropy characterization
 

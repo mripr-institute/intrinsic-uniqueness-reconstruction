@@ -2219,5 +2219,10 @@ import Sigma
 #print axioms Sigma.matrix_gaussian_singular_sample_no_mle
 #print axioms Sigma.matrix_gaussian_relative_entropy
 #print axioms Sigma.matrix_gaussian_sample_relative_entropy_divergence
+#print axioms Sigma.smooth_inverse_germ_density_boundary
+#print axioms Sigma.critical_line_active_replicate
+#print axioms Sigma.critical_line_one_vertex_each_generation
+#print axioms Sigma.critical_line_one_child
+#print axioms Sigma.critical_iid_galton_watson_boundary
 #print axioms Sigma.positivity_removed_all_moments_counterexample
 #print axioms Sigma.finite_moments_do_not_identify_gamma

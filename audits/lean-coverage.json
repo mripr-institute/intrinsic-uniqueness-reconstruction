@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 50,
-    "partial": 20,
+    "complete": 51,
+    "partial": 19,
     "missing": 8
   },
   "pending_exact_statement_matches": 0,
@@ -1385,7 +1385,7 @@
       "line": 906,
       "statement_tex": "\\label{final:P6-boundaries}\nA complete Borel size law does not identify an arbitrary random\nrooted tree.  A complete inverse germ does not identify an arbitrary\nsmooth positive probability density on $(0,\\infty)$, even with the\ncanonical maximum, strict two-branch shape, and endpoint limits.\nCriticality or a leading Borel tail asymptotic alone does not\nidentify the complete Borel law.\n",
       "statement_sha256": "4180aad43076331b330ee54bb70aa12eafcdc24e72c22c40710feecabffb60f5",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.borel_path_size_law",
         "Sigma.borel_star_size_law",
@@ -1399,22 +1399,30 @@
         "Sigma.borel_tail_perturbation_eq",
         "Sigma.borel_tail_perturbation_distinct",
         "Sigma.borel_tail_perturbation_probability_distinct",
-        "Sigma.borel_tail_does_not_identify_probability"
+        "Sigma.borel_tail_does_not_identify_probability",
+        "Sigma.smooth_inverse_germ_density_boundary",
+        "Sigma.criticalLineProbability",
+        "Sigma.criticalLineOffspring",
+        "Sigma.criticalLineActive",
+        "Sigma.critical_line_active_replicate",
+        "Sigma.critical_line_one_vertex_each_generation",
+        "Sigma.critical_line_one_child",
+        "Sigma.criticalLineTotalProgeny",
+        "Sigma.critical_line_total_progeny_infinite",
+        "Sigma.criticalLineTotalProgenyLaw",
+        "Sigma.extendedBorelTotalProgenyLaw",
+        "Sigma.critical_iid_galton_watson_boundary"
       ],
       "proved_components": [
         "Actual rooted path/star PMF countermodels have identical Borel size and distinct tree laws.",
-        "Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail."
+        "Native Stirling asymptotics give the exact Borel PMF leading term (2*pi)^(-1/2)*n^(-3/2). A normalized PMF transfers half of the mass at 2 to 1, remains positive at every positive integer and zero at 0, agrees with Borel for every n >= 3, defines a distinct actual probability measure, and retains the exact same leading tail.",
+        "A nonzero derivative bump supported strictly inside (2,3) gives a genuinely distinct smooth positive probability density with both exact inverse germs, the canonical unique maximum, strict two-branch shape, and both endpoint limits. Zero perturbation integral, positive normalization and all shape bounds are derived; distinction holds up to almost-everywhere equality.",
+        "An actual iid constant-one offspring array has mean one and non-Poisson law. Its usual active-word recursion derives the infinite unary rooted tree with exactly one vertex per generation and one child per active vertex. The actual total-progeny pushforward is the probability mass at infinity, distinct from the native finite Borel law."
       ],
-      "unproved_components": [
-        "Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.",
-        "Critical non-Poisson offspring witness with non-Borel size law."
-      ],
-      "gaps": [
-        "Distinct smooth positive probability density preserving the full inverse germ, maximum, strict two-branch shape and endpoint limits.",
-        "Critical non-Poisson offspring witness with non-Borel size law."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent bounded AUDIT PASS for SigmaRealTreesTailBoundary: native IsEquivalent has the exact paper constant and exponent; the counterexample is an actual normalized PMF with a proved distinct toMeasure, not merely a changed scalar sequence. This resolves only the asymptotic deletion clause, not the smooth-density or Galton-Watson boundary clauses. Proof-only note: no separate coupling/independence counterexample for designated forest marginals was found."
+      "notes": "Fresh whole named-statement adversarial AUDIT PASS. Every nonidentification assertion has a genuine mathematical witness. The criticality-alone statement has no nondegeneracy, extinction or finite-total-progeny premise, so the actual deterministic critical iid tree is an exact witness. It does not formalize the paper proof's stronger finite-extinct binary-0/2 example or its separate forest-marginal nonindependence prose; neither is inferred from this construction."
     },
     {
       "id": "final:P7",
