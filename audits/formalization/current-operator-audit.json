@@ -4,9 +4,9 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 7,
-    "partial": 5,
-    "missing": 7
+    "complete": 9,
+    "partial": 4,
+    "missing": 6
   },
   "namespace": "Sigma",
   "result": "DEFECT LIST",
@@ -16,10 +16,12 @@
     "final:O2-boundaries",
     "final:O7",
     "final:O6",
-    "final:O3-spectrum"
+    "final:O3-spectrum",
+    "final:O4",
+    "final:O4-convergence-boundary"
   ],
   "mathematically_false_paper_clauses": [],
-  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. No Lean edits and no fresh build certification in this audit.",
+  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules.",
   "statements": [
     {
       "latex_label": "final:O1",
@@ -305,7 +307,7 @@
     },
     {
       "latex_label": "final:O4",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.operator_heat_eigenvalue_hasSum",
         "Sigma.operator_heat_eigenvalue_summable_iff",
@@ -313,29 +315,76 @@
         "Sigma.operator_complex_heat_eigenvalue_summable_iff",
         "Sigma.operator_complex_zeta_eigenvalue_summable_iff",
         "Sigma.operator_zeta_eigenvalue_hasSum",
-        "Sigma.operator_hausdorff_moment_unique"
+        "Sigma.operator_hausdorff_moment_unique",
+        "Sigma.integer_eigenbasis_zeta_trace",
+        "Sigma.integer_eigenbasis_heat_trace",
+        "Sigma.nonnegative_compact_resolvent_eigenbasis",
+        "Sigma.spectral_integer_moments_equiv",
+        "Sigma.integer_shifted_spectral_data_equiv",
+        "Sigma.heat_spectral_data_equiv",
+        "Sigma.zeta_spectral_data_equiv",
+        "Sigma.eigenbasis_heat_traces_recover_operator",
+        "Sigma.eigenbasis_shifted_zeta_traces_recover_operator",
+        "Sigma.compact_resolvent_integer_traces_recover_operator"
       ],
       "proved_components": [
-        "Exact scalar eigenvalue-series domains and sums for real/complex heat parameters and complex shifted zeta.",
-        "Actual finite compact moment uniqueness as an ingredient for integer spectral-data recovery."
+        "Exact heat and shifted-zeta series domains and values identify the actual Laguerre heat and zeta traces, with exact trace-class ranges.",
+        "For any nonnegative self-adjoint operator with an actual compact positive-shift resolvent, a complete eigenbasis is constructed and the eigenvalues are proved nonnegative; eigenvector domain membership is derived.",
+        "Finite weighted spectral measures recover positive eigenvalue multiplicities, including finite and empty index types.",
+        "Heat, real shifted-zeta, and integer shifted-resolvent trace data each recover the full eigenvalue multiset and give a unitary intertwining the native operators on their full domains."
       ],
-      "unproved_components": [
-        "Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.",
-        "Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.",
-        "Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces."
-      ],
-      "notes": ""
+      "unproved_components": [],
+      "notes": "Independent adversarial AUDIT PASS for the complete parent O4 statement. The heat and zeta results use actual bounded spectral multipliers and native trace-class criteria. The integer-trace inverse uses powers of genuine resolvents, extracts multiplicities through an actual finite weighted measure, and returns a full-domain unitary. The separately labelled heat-kernel, resolvent-kernel/digamma, determinant, and finite-countermodel clauses remain separate obligations and are not included in this completion."
     },
     {
       "latex_label": "final:O4-convergence-boundary",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "Actual nonnegative diagonal self-adjoint compact-resolvent operator whose heat and positive shifted-zeta traces all diverge.",
-        "Both divergence estimates for the chosen double-log eigenvalue sequence."
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.boundarySpectralFunction",
+        "Sigma.boundaryEigenvalue",
+        "Sigma.boundary_eigenvalue_nonneg",
+        "Sigma.boundary_eigenvalue_tendsto_atTop",
+        "Sigma.boundary_heat_eigenvalues_not_summable",
+        "Sigma.boundary_zeta_eigenvalues_not_summable",
+        "Sigma.boundaryResolventCoefficient",
+        "Sigma.boundary_resolvent_coefficient_nonneg",
+        "Sigma.boundary_resolvent_coefficient_bound",
+        "Sigma.boundary_resolvent_coefficient_antitone",
+        "Sigma.boundaryResolvent",
+        "Sigma.boundary_resolvent_coordinate",
+        "Sigma.boundaryResolventTruncation",
+        "Sigma.boundary_resolvent_truncation_compact",
+        "Sigma.boundary_resolvent_truncation_coordinate",
+        "Sigma.boundary_resolvent_truncation_error",
+        "Sigma.boundary_resolvent_truncation_tendsto",
+        "Sigma.boundary_resolvent_compact",
+        "Sigma.boundaryOperator",
+        "Sigma.boundary_operator_selfadjoint",
+        "Sigma.boundary_operator_nonnegative",
+        "Sigma.boundary_resolvent_denominator_ne_zero",
+        "Sigma.boundary_resolvent_mem_domain",
+        "Sigma.boundary_resolvent_generator_action",
+        "Sigma.boundary_resolvent_right_inverse",
+        "Sigma.boundary_resolvent_left_inverse",
+        "Sigma.boundary_operator_has_compact_resolvent",
+        "Sigma.boundaryHeatCoefficient",
+        "Sigma.boundary_heat_coefficient_bound",
+        "Sigma.boundaryHeatOperator",
+        "Sigma.boundary_heat_operator_basis_action",
+        "Sigma.boundary_heat_operator_not_trace_class",
+        "Sigma.boundaryZetaCoefficient",
+        "Sigma.boundary_zeta_coefficient_bound",
+        "Sigma.boundaryZetaOperator",
+        "Sigma.boundary_zeta_operator_basis_action",
+        "Sigma.boundary_zeta_operator_not_trace_class",
+        "Sigma.compact_resolvent_without_positive_traces"
       ],
-      "notes": ""
+      "proved_components": [
+        "A native diagonal nonnegative self-adjoint operator on the Laguerre weighted Hilbert space, with maximal spectral domain and an actual compact shift-one resolvent satisfying both inverse equations.",
+        "Actual bounded heat and shifted-zeta diagonal operators fail to be trace class for every positive real parameter, by tail lower bounds against the divergent (n+3)^(-1/2) series."
+      ],
+      "unproved_components": [],
+      "notes": "Independent adversarial AUDIT PASS. The paper's proposition is existential; Lean uses the alternative explicit eigenvalues sqrt(log(n+3)) rather than log log(n+e^e). The native operator, its full domain, self-adjointness, nonnegativity, compact resolvent, and actual heat/zeta multiplier trace-class failures are proved. The rest of O4 remains separate: heat-kernel formulas/convergence, resolvent-kernel/digamma formulas, determinants, and finite-invariant countermodels are still incomplete."
     },
     {
       "latex_label": "final:O4-heat-kernel",

@@ -2251,6 +2251,12 @@ import Sigma
 #print axioms Sigma.integer_zeta_operator_nuclear_iff
 #print axioms Sigma.integer_eigenbasis_zeta_trace
 #print axioms Sigma.integer_zeta_trace_any_basis
+#print axioms Sigma.boundary_operator_selfadjoint
+#print axioms Sigma.boundary_operator_nonnegative
+#print axioms Sigma.boundary_operator_has_compact_resolvent
+#print axioms Sigma.boundary_heat_operator_not_trace_class
+#print axioms Sigma.boundary_zeta_operator_not_trace_class
+#print axioms Sigma.compact_resolvent_without_positive_traces
 #print axioms Sigma.real_euler_multiset_recovery_limits
 #print axioms Sigma.real_euler_remove_generator_terminal_convergence
 #print axioms Sigma.RealEulerPresentation.multiplicityAt_eq_of_same_tail

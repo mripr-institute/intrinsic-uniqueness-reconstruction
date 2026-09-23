@@ -85,6 +85,7 @@ lean_lib SigmaFormalization where
     `SigmaOpCompactTotal,
     `SigmaOpCompactResolventBasis,
     `SigmaOpHeatTrace,
+    `SigmaOpConvergenceBoundary,
     `SigmaOpSpectralTraceRecovery,
     `SigmaOpSignedMixing,
     `SigmaRealRadialBoundary,

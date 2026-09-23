@@ -237,6 +237,7 @@ import SigmaOpCompactBasis
 import SigmaOpCompactTotal
 import SigmaOpCompactResolventBasis
 import SigmaOpHeatTrace
+import SigmaOpConvergenceBoundary
 import SigmaOpSpectralTraceRecovery
 import SigmaOpSignedMixing
 import SigmaRealRadialBoundary
