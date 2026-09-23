@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 53.
-- Partially formalized statements: 17.
+- Fully formalized statements: 54.
+- Partially formalized statements: 16.
 - Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1356 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1372 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -68,6 +68,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:B1** — Rational trees, Euclidean decoding, and the matrix monoid
 - **final:B2** — Marked Farey branches and full-domain scalar recovery
 - **final:B3** — Exact collisions and complete labelled arithmetic transport
+- **final:B4** — Numerical Euler products and the full multiset inverse
 
 ## Exact formalized components and declaration mappings
 
@@ -2532,7 +2533,7 @@ Mapped Lean declarations:
 
 ### final:B4 — Numerical Euler products and the full multiset inverse
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L1106); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L1106); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2541,6 +2542,8 @@ Mathematical content formalized in Lean:
 - For an arbitrary real generator set q>1 with positive integer multiplicities, convergence of the actual Euler product to a positive value at one positive real argument derives the logarithmic sum, finiteness below every real bound, countability and a least generator when nonempty, without assuming any of these properties
 - At every positive argument with a positive convergent product, its value is one exactly when the generator set is empty; a nonempty product is strictly greater than one
 - Removing any generator removes its entire multiplicity factor and derives a genuine convergent residual HasProd with value Z divided by that factor and strictly positive value; no multiplicative independence is assumed
+- For the supplied arbitrary native self-adjoint operator with complete integer eigenbasis, the exact maximal weighted domain and diagonal action are derived. Its actual complex power is nuclear/trace-class iff Re(s)>1 for every complex parameter, including exclusion of unbounded powers. Its actual basis-independent operator trace is native riemannZeta; power one is the genuine two-sided bounded inverse of 1+A
+- Both literal least-generator and multiplicity limits follow from terminal-ray positive convergence. Full-factor erasure and finite-predecessor induction derive equality of the numerical multiplicity functions at every real argument, without multiplicative independence. The constructed reconstruction map is a left inverse on the stated raw presentation class
 
 Mapped Lean declarations:
 
@@ -2555,12 +2558,22 @@ Mapped Lean declarations:
 - `Sigma.real_euler_product_gt_one`
 - `Sigma.real_euler_product_eq_one_iff_empty`
 - `Sigma.real_euler_product_remove_generator`
-
-Remaining Lean formalization:
-
-- Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis
-- Least-generator and multiplicity recovery limits
-- Iterated recovery of every generator and multiset uniqueness
+- `Sigma.IsNuclearOperator`
+- `Sigma.nuclear_trace_basis_independent`
+- `Sigma.diagonal_operator_nuclear_iff`
+- `Sigma.integer_eigenbasis_operator_eq`
+- `Sigma.integer_eigenbasis_domain_iff`
+- `Sigma.integer_eigenbasis_shift_inverse`
+- `Sigma.integer_zeta_operator_nuclear_iff`
+- `Sigma.integer_zeta_operator_trace`
+- `Sigma.integer_zeta_trace_any_basis`
+- `Sigma.integer_eigenbasis_zeta_trace`
+- `Sigma.real_euler_multiset_recovery_limits`
+- `Sigma.real_euler_remove_generator_terminal_convergence`
+- `Sigma.RealEulerPresentation.multiplicityAt_eq_of_same_tail`
+- `Sigma.RealEulerPresentation.generators_eq_of_same_tail`
+- `Sigma.real_euler_reconstruction_left_inverse`
+- `Sigma.real_euler_reconstruction_generators`
 
 ### final:identification — Identification and a retained context
 

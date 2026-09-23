@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 53,
-    "partial": 17,
+    "complete": 54,
+    "partial": 16,
     "missing": 8
   },
   "pending_exact_statement_matches": 0,
@@ -3585,7 +3585,7 @@
       "line": 1106,
       "statement_tex": "\\label{final:B4}\nWith the numerical positive-integer labels and their usual\nmultiplication,\n\\[\n \\zeta(s)=\\sum_{n\\geq1}n^{-s}\n          =\\prod_{p\\text{ prime}}(1-p^{-s})^{-1},\n \\qquad\\operatorname{Re}s>1.\n\\]\nIf a supplied nonnegative self-adjoint operator $A$ has a complete\nsimple eigenbasis with eigenvalues $0,1,2,\\ldots$, then on that same\ndomain $\\operatorname{Tr}(1+A)^{-s}=\\zeta(s)$.\n\nConversely, let a multiset of real generators $q>1$ have positive\ninteger multiplicities $m_q$.  Suppose its Euler product\n\\[\n Z(s)=\\prod_q(1-q^{-s})^{-m_q}\n\\]\nconverges to a finite positive value for all sufficiently large real\n$s$.  The full real function on any such terminal ray uniquely\ndetermines the numerical multiset, including multiplicities.\nFor a nonempty multiset its least generator $q_0$ and multiplicity\n$m_0$ are recovered by\n\\[\n q_0=\\lim_{s\\to\\infty}(\\log Z(s))^{-1/s},\\qquad\n m_0=\\lim_{s\\to\\infty}q_0^s\\log Z(s).\n\\]\nRemoving the entire factor $(1-q_0^{-s})^{-m_0}$ and repeating\nrecovers every remaining generator.  The empty multiset is exactly\n$Z\\equiv1$.\n",
       "statement_sha256": "99046ed7b5fb3f26afc98748c448dfdf3f9defcaf96f0a7d99ec10c21f23755e",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.operator_complex_zeta_eigenvalue_summable_iff",
         "Sigma.operator_zeta_eigenvalue_hasSum",
@@ -3597,27 +3597,37 @@
         "Sigma.real_euler_generators_least",
         "Sigma.real_euler_product_gt_one",
         "Sigma.real_euler_product_eq_one_iff_empty",
-        "Sigma.real_euler_product_remove_generator"
+        "Sigma.real_euler_product_remove_generator",
+        "Sigma.IsNuclearOperator",
+        "Sigma.nuclear_trace_basis_independent",
+        "Sigma.diagonal_operator_nuclear_iff",
+        "Sigma.integer_eigenbasis_operator_eq",
+        "Sigma.integer_eigenbasis_domain_iff",
+        "Sigma.integer_eigenbasis_shift_inverse",
+        "Sigma.integer_zeta_operator_nuclear_iff",
+        "Sigma.integer_zeta_operator_trace",
+        "Sigma.integer_zeta_trace_any_basis",
+        "Sigma.integer_eigenbasis_zeta_trace",
+        "Sigma.real_euler_multiset_recovery_limits",
+        "Sigma.real_euler_remove_generator_terminal_convergence",
+        "Sigma.RealEulerPresentation.multiplicityAt_eq_of_same_tail",
+        "Sigma.RealEulerPresentation.generators_eq_of_same_tail",
+        "Sigma.real_euler_reconstruction_left_inverse",
+        "Sigma.real_euler_reconstruction_generators"
       ],
       "proved_components": [
         "Actual complex numerical zeta series and its absolute-summability half-plane",
         "Actual convergent HasProd over native positive-integer primes equals the numerical zeta series for every complex s with Re(s)>1, by reuse of Mathlib's native Euler product",
         "For an arbitrary real generator set q>1 with positive integer multiplicities, convergence of the actual Euler product to a positive value at one positive real argument derives the logarithmic sum, finiteness below every real bound, countability and a least generator when nonempty, without assuming any of these properties",
         "At every positive argument with a positive convergent product, its value is one exactly when the generator set is empty; a nonempty product is strictly greater than one",
-        "Removing any generator removes its entire multiplicity factor and derives a genuine convergent residual HasProd with value Z divided by that factor and strictly positive value; no multiplicative independence is assumed"
+        "Removing any generator removes its entire multiplicity factor and derives a genuine convergent residual HasProd with value Z divided by that factor and strictly positive value; no multiplicative independence is assumed",
+        "For the supplied arbitrary native self-adjoint operator with complete integer eigenbasis, the exact maximal weighted domain and diagonal action are derived. Its actual complex power is nuclear/trace-class iff Re(s)>1 for every complex parameter, including exclusion of unbounded powers. Its actual basis-independent operator trace is native riemannZeta; power one is the genuine two-sided bounded inverse of 1+A",
+        "Both literal least-generator and multiplicity limits follow from terminal-ray positive convergence. Full-factor erasure and finite-predecessor induction derive equality of the numerical multiplicity functions at every real argument, without multiplicative independence. The constructed reconstruction map is a left inverse on the stated raw presentation class"
       ],
-      "unproved_components": [
-        "Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis",
-        "Least-generator and multiplicity recovery limits",
-        "Iterated recovery of every generator and multiset uniqueness"
-      ],
-      "gaps": [
-        "Actual trace-class functional-calculus statement for the supplied self-adjoint operator with complete simple eigenbasis",
-        "Least-generator and multiplicity recovery limits",
-        "Iterated recovery of every generator and multiset uniqueness"
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Independent bounded AUDIT PASS for SigmaArithmeticEulerProduct and SigmaArithmeticEulerGenerators: HasProd asserts convergence, not just an equality between potentially totalized infinite products; native Nat.Primes and the exact complex half-plane match the numerical labels and parameter scope. The general-generator results assume neither countability nor local finiteness; positive finite integer multiplicities are exactly the paper category. One positive convergent argument suffices and is available on the paper's terminal ray. The pointwise empty-product iff is stronger than the ray-level identically-one criterion. SigmaOpSpectral's eigenvalue-series theorems and these numerical Euler products do not prove an actual operator trace. Recovery limits and the full numerical generator-multiset inverse remain unproved."
+      "notes": "Fresh whole named-statement independent adversarial AUDIT PASS. Trace-class uses the standard nuclear characterization by actual operator-norm convergent rank-one series, not summability of a selected eigenvalue list by definition. Absolute diagonal summability, representation independence and basis independence are proved. Native self-adjointness plus complete eigenbasis derives, rather than assumes, the full maximal domain; this identifies the pure-point functional calculus exactly. Preserved local Euler recovery/erasure/uniqueness proofs were reused, integrated and freshly audited, not duplicated."
     },
     {
       "id": "final:identification",

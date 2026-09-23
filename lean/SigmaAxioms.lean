@@ -2228,6 +2228,16 @@ import Sigma
 #print axioms Sigma.cantor_probability_exists
 #print axioms Sigma.continuous_singular_function_exists
 #print axioms Sigma.gamma_hazard_regularity_counterexample
+#print axioms Sigma.nuclear_trace_basis_independent
+#print axioms Sigma.diagonal_operator_nuclear_iff
+#print axioms Sigma.integer_eigenbasis_operator_eq
+#print axioms Sigma.integer_zeta_operator_nuclear_iff
+#print axioms Sigma.integer_eigenbasis_zeta_trace
+#print axioms Sigma.integer_zeta_trace_any_basis
+#print axioms Sigma.real_euler_multiset_recovery_limits
+#print axioms Sigma.real_euler_remove_generator_terminal_convergence
+#print axioms Sigma.RealEulerPresentation.multiplicityAt_eq_of_same_tail
+#print axioms Sigma.real_euler_reconstruction_left_inverse
 #print axioms Sigma.critical_line_active_replicate
 #print axioms Sigma.critical_line_one_vertex_each_generation
 #print axioms Sigma.critical_line_one_child

@@ -217,5 +217,7 @@ import SigmaOpRefreshDynamics
 import SigmaMatrixLikelihood
 import SigmaArithmeticEulerProduct
 import SigmaArithmeticEulerGenerators
+import SigmaArithmeticEulerUnique
+import SigmaOpZetaTrace
 import SigmaOpSignedMixing
 import SigmaRealRadialBoundary
