@@ -53,6 +53,7 @@ import SigmaProbFourier
 import SigmaProbFourierUnique
 import SigmaProbGammaTransforms
 import SigmaProbBoundaries
+import SigmaProbMomentBoundaries
 import SigmaProbInverse
 import SigmaProbMGFUnique
 import SigmaProbDeficitTransform

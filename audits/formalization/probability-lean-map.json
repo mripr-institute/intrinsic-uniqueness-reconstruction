@@ -75,18 +75,20 @@
     },
     {
       "latex_label": "final:P1-boundaries",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "SigmaFinal.gamma_with_zero_atom_positive_moments",
         "SigmaFinal.gamma_with_zero_atom_mass",
-        "SigmaFinal.gamma_with_zero_atom_distinct"
+        "SigmaFinal.gamma_with_zero_atom_distinct",
+        "Sigma.positivity_removed_all_moments_counterexample",
+        "Sigma.finite_moments_do_not_identify_gamma"
       ],
       "proved_components": [
-        "Explicit actual finite positive measure gammaProbability+dirac 0 retains every strictly positive-order factorial moment and is distinct, proving necessity of the zeroth moment."
+        "Explicit actual finite positive measure gammaProbability+dirac 0 retains every strictly positive-order factorial moment and is distinct, proving necessity of the zeroth moment.",
+        "A distinct finite signed measure is constructed as the Gamma signed measure plus an integrable continuous Lebesgue density whose every polynomial moment vanishes.",
+        "For every finite cutoff m, a distinct positive probability measure has finite ordinary moments matching gammaProbability in every order n at most m."
       ],
-      "unproved_components": [
-        "Signed moment-null perturbations and finite-moment positive perturbations."
-      ]
+      "unproved_components": []
     },
     {
       "latex_label": "final:P2",

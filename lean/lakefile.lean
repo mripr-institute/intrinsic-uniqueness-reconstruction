@@ -95,6 +95,7 @@ lean_lib SigmaFormalization where
     `SigmaPlacementPushforward,
     `SigmaPresentations,
     `SigmaProbBoundaries,
+    `SigmaProbMomentBoundaries,
     `SigmaProbCDF,
     `SigmaProbCanonicalPair,
     `SigmaProbCharacteristic,

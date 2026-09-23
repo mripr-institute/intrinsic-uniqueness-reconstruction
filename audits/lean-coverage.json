@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 45,
-    "partial": 23,
+    "complete": 46,
+    "partial": 22,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -768,25 +768,23 @@
       "line": 135,
       "statement_tex": "\\label{final:P1-boundaries}\nRemoving positivity, removing the zeroth moment, or retaining only\nfinitely many ordinary moments invalidates the corresponding\nunrestricted moment converse in Theorem~\\ref{final:P1}.\n",
       "statement_sha256": "46fca4a1da510f9a6d7f6186c30fe464dd056945807fd6a154bb83f5b5035d46",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_with_zero_atom_positive_moments",
         "Sigma.gamma_with_zero_atom_mass",
-        "Sigma.gamma_with_zero_atom_distinct"
+        "Sigma.gamma_with_zero_atom_distinct",
+        "Sigma.positivity_removed_all_moments_counterexample",
+        "Sigma.finite_moments_do_not_identify_gamma"
       ],
       "proved_components": [
-        "Actual distinct Gamma-plus-Dirac measure preserves positive-order moments."
+        "Explicit actual finite positive measure gammaProbability+dirac 0 retains every strictly positive-order factorial moment and is distinct, proving necessity of the zeroth moment.",
+        "A distinct finite signed measure is constructed as the Gamma signed measure plus an integrable continuous Lebesgue density whose every polynomial moment vanishes.",
+        "For every finite cutoff m, a distinct positive probability measure has finite ordinary moments matching gammaProbability in every order n at most m."
       ],
-      "unproved_components": [
-        "A distinct finite signed measure with all Gamma moments after positivity is removed.",
-        "For every finite moment cutoff, a distinct positive probability preserving all specified ordinary moments."
-      ],
-      "gaps": [
-        "A distinct finite signed measure with all Gamma moments after positivity is removed.",
-        "For every finite moment cutoff, a distinct positive probability preserving all specified ordinary moments."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": ""
+      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
     },
     {
       "id": "final:P2",
@@ -3494,7 +3492,7 @@
         "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Generic S≃A inputs assume the required inverse; they cannot certify the complete named closure theorem."
+      "notes": "Generic S\u2243A inputs assume the required inverse; they cannot certify the complete named closure theorem."
     },
     {
       "id": "final:global-E",
