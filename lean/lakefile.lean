@@ -124,6 +124,7 @@ lean_lib SigmaFormalization where
     `SigmaComplexCharacteristicPoles,
     `SigmaComplexCharacteristicTaylor,
     `SigmaProbSurvivalAC,
+    `SigmaProbDistributionGreen,
     `SigmaProbEulerProduct,
     `SigmaProbZetaSeries,
     `SigmaProbDeficitCGFSeries,

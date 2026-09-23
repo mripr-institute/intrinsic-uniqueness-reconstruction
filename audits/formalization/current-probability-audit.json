@@ -325,6 +325,14 @@
         "Sigma.normalized_second_order_density_unique",
         "Sigma.exponential_pair_convolution",
         "Sigma.causal_unit_exponential_convolution_eq_gamma_green",
+        "Sigma.p5DistributionGreenOperator_apply",
+        "Sigma.p5_causal_green_pairing_eq_dirac",
+        "Sigma.p5_causal_green_distributional_equation",
+        "Sigma.p5_causal_distribution_green_unique",
+        "Sigma.p5_causal_distribution_green_exists_unique",
+        "Sigma.causalGammaGreen_eq_indicator",
+        "Sigma.p5_causal_regular_distribution_green_exists_unique",
+        "Sigma.p5_causal_regular_distribution_green_representation",
         "Sigma.independent_exponential_pair_gamma",
         "Sigma.local_ac_continuous_rhs_hasDerivAt",
         "Sigma.gamma_hazard_local_ac_derivative",
@@ -344,15 +352,16 @@
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
         "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
         "The explicit causal kernels k(t)=1_{[0,∞)}e^{-t} and g(t)=1_{[0,∞)}te^{-t} satisfy the actual whole-line convolution identity k*k=g for every real t, including the zero and negative-time cases.",
+        "The regular distribution defined by integration against the exact whole-line causal kernel g(t)=1_[0,∞)(t)t exp(-t) satisfies (D+1)^2 g=δ₀ with standard distributional differentiation and exact Dirac normalization. It is the unique causal distributional solution: uniqueness is proved on the larger class of all algebraic linear functionals on C∞_c(R) satisfying the support condition and equation. The witness has a proved L1 pairing bound, and the existing whole-line k*k identity is reused.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
         "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
         "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio."
       ],
       "unproved_components": [
-        "Existence and uniqueness of the causal distributional Green kernel among distributions.",
         "Actual unit-rate Poisson-process second-arrival law."
       ],
-      "notes": "Independent bounded AUDIT PASS for SigmaProbSurvivalAC and SigmaProbNativeHazard. The initial missing native-input bridge is resolved: tail regularity is derived from absolute continuity of the actual measure and its hazard, not assumed. The marked logistic theorem uses an a.e. representative link, avoiding an extra pointwise regularity requirement on the canonical Radon-Nikodym representative. This closes the first two identifying clauses, but does not establish distributional Green-kernel uniqueness or an actual Poisson-process second-arrival construction."
+      "independent_audit": "audits/formalization/p5-distributional-green-formal-independent-audit.md",
+      "notes": "The survival, native probability, classical ODE, whole-line convolution, and distributional Green-kernel clauses are formalized. Independent targeted adversarial AUDIT PASS for the distributional clause. The only remaining P5 component is construction of an actual unit-rate Poisson process and proof of its second-arrival law; the independent exponential-pair theorem does not discharge it."
     },
     {
       "latex_label": "final:P5-survival-boundaries",

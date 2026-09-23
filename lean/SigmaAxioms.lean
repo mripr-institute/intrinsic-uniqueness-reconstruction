@@ -1,5 +1,8 @@
 import Sigma
 
+#print axioms Sigma.p5_causal_green_distributional_equation
+#print axioms Sigma.p5_causal_regular_distribution_green_exists_unique
+
 #print axioms Sigma.gamma_probability_native_hazard_inverse
 #print axioms Sigma.gamma_probability_native_marked_logistic_inverse
 #print axioms Sigma.borel_tail_does_not_identify_probability
