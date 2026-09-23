@@ -449,16 +449,23 @@
     },
     {
       "latex_label": "final:O6",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
-        "SigmaFinal.operator_hausdorff_moment_unique"
+        "SigmaFinal.operator_hausdorff_moment_unique",
+        "Sigma.smooth_integer_invisible_exponent_boundary",
+        "Sigma.markedFunctionalCalculus",
+        "Sigma.markedFunctionalCalculus_eigenvector_action",
+        "Sigma.marked_samples_of_eigenvector_actions",
+        "Sigma.markedFunctionalCalculus_congr",
+        "Sigma.smooth_integer_invisible_marked_functional_calculus"
       ],
       "proved_components": [
-        "The underlying full compact Hausdorff moment uniqueness theorem is proved for actual finite positive Borel measures."
+        "The underlying full compact Hausdorff moment uniqueness theorem is proved for actual finite positive Borel measures.",
+        "A native complex l2 partially defined diagonal functional calculus has the exact weighted-square-summability domain; its action on every marked integer eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
+        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain."
       ],
-      "unproved_components": [
-        "Actual Bernstein/Levy representation, weighted integer-tail moment extraction, cancellation of the vanishing endpoint weight, drift/Levy/killing recovery, target exponent, native f(A) domains and smooth-function counterexample."
-      ]
+      "unproved_components": [],
+      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
     },
     {
       "latex_label": "final:O6-functional-calculus",

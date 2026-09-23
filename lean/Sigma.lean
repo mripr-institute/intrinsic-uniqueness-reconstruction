@@ -25,6 +25,7 @@ import SigmaMatrixFenchel
 import SigmaProbCharacteristic
 import SigmaProbGamma
 import SigmaOpLaguerre
+import SigmaOpMarkedCalculus
 import SigmaOpMoments
 import SigmaOpMixing
 import SigmaOpMomentGrowth

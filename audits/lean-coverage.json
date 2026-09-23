@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 46,
-    "partial": 22,
+    "complete": 47,
+    "partial": 21,
     "missing": 10
   },
   "pending_exact_statement_matches": 0,
@@ -2253,7 +2253,7 @@
       "line": 841,
       "statement_tex": "\\label{final:O6}\nLet $f,g$ be Bernstein functions, in their usual representation\ncategory\n\\begin{equation}\\label{final:O6-bernstein-representation}\n f(\\lambda)=k_f+d_f\\lambda+\n   \\int_{(0,\\infty)}(1-e^{-\\lambda s})\\,\\Pi_f(ds),\n \\qquad \\lambda\\geq0,\n\\end{equation}\nwhere $k_f,d_f\\geq0$, $\\Pi_f$ is positive, and\n$\\int(1\\wedge s)\\Pi_f(ds)<\\infty$, and likewise for $g$.\nFor any fixed $N\\in\\mathbb N_0$, equality $f(n)=g(n)$ for every\ninteger $n\\geq N$ implies $f=g$ on $[0,\\infty)$, including equality\nof killing, drift and L\\'evy measure.\nIn particular the samples\n\\[\n f(n)=2\\log(1+n)\\qquad(n\\geq N)\n\\]\nidentify the complete exponent $f(\\lambda)=2\\log(1+\\lambda)$,\nwith $k_f=d_f=0$ and $\\Pi_f(ds)=2e^{-s}ds/s$.\nKnowledge of $f(A)$ on the marked integer eigenspaces supplies these\nsamples.  This inverse does not extend to arbitrary smooth functions.\n",
       "statement_sha256": "8e2435a7c10f097c26815b9e9f6d1378d78317b708cffc2f8bb52d2fd2f8434d",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.operator_hausdorff_moment_unique",
         "Sigma.gamma_levy_exponent_integral",
@@ -2270,24 +2270,26 @@
         "Sigma.gamma_bernstein_representation_exponent",
         "Sigma.gamma_laplace_exponent_has_bernstein_representation",
         "Sigma.gamma_bernstein_integer_tail_unique",
-        "Sigma.gamma_bernstein_function_integer_tail_unique"
+        "Sigma.gamma_bernstein_function_integer_tail_unique",
+        "Sigma.smooth_integer_invisible_exponent_boundary",
+        "Sigma.markedFunctionalCalculus",
+        "Sigma.markedFunctionalCalculus_eigenvector_action",
+        "Sigma.marked_samples_of_eigenvector_actions",
+        "Sigma.markedFunctionalCalculus_congr",
+        "Sigma.smooth_integer_invisible_marked_functional_calculus"
       ],
       "proved_components": [
         "Actual finite compact Hausdorff moment uniqueness, an ingredient.",
         "The actual scalar integral with density 2 exp(-s)/s equals 2 log(1+lambda), including integrability for nonnegative lambda.",
         "For Bernstein representation candidates, construction of the finite moment measure and recovery of full killing, drift and actual Levy measure from arbitrary integer tails, including tail index zero and the conclusion at zero without assuming it.",
-        "Gamma target's actual Levy integrability and representation identification, including killing and drift zero."
+        "Gamma target's actual Levy integrability and representation identification, including killing and drift zero.",
+        "A native complex l2 partially defined diagonal functional calculus has the exact weighted-square-summability domain; its action on every marked integer eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
+        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain."
       ],
-      "unproved_components": [
-        "Actual functional calculus sample extraction on marked integer eigenspaces.",
-        "Actual distinct smooth functions invisible on the integer spectrum."
-      ],
-      "gaps": [
-        "Actual functional calculus sample extraction on marked integer eigenspaces.",
-        "Actual distinct smooth functions invisible on the integer spectrum."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Separate realizations auditor returned bounded AUDIT PASS for the scalar representation inverse in SigmaProbCompletionSamples. O6 remains partial: actual marked-operator sample extraction and its smooth nonidentification boundary are not supplied by scalar identities. The existing integer_samples_nonidentifying establishes a smooth difference but does not alone prove the full smooth nonnegative candidate and actual operator boundary."
+      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
     },
     {
       "id": "final:O6-functional-calculus",

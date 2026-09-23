@@ -2140,5 +2140,9 @@ import Sigma
 #print axioms Sigma.Closure.spatial_countermodels_retain_context
 #print axioms Sigma.Closure.dimension_two_radial_residual_coefficient
 #print axioms Sigma.Closure.dimension_one_radial_residual_coefficient
+#print axioms Sigma.smooth_integer_invisible_exponent_boundary
+#print axioms Sigma.markedFunctionalCalculus_eigenvector_action
+#print axioms Sigma.marked_samples_of_eigenvector_actions
+#print axioms Sigma.smooth_integer_invisible_marked_functional_calculus
 #print axioms Sigma.positivity_removed_all_moments_counterexample
 #print axioms Sigma.finite_moments_do_not_identify_gamma

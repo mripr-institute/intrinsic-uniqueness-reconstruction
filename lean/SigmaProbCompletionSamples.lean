@@ -343,5 +343,49 @@ theorem gamma_bernstein_function_integer_tail_unique (f : ℝ → ℝ)
   exact bernstein_function_integer_tail_unique f gammaLaplaceExponent hf
     gamma_laplace_exponent_has_bernstein_representation N he
 
+/-- The paper's smooth nonnegative perturbation, invisible on the marked
+nonnegative integer spectrum. -/
+def smoothIntegerInvisibleExponent (l : ℝ) : ℝ :=
+  gammaLaplaceExponent l + Real.sin (Real.pi * l) ^ 2
+
+theorem smooth_integer_invisible_exponent_boundary :
+    ContDiffOn ℝ ⊤ smoothIntegerInvisibleExponent (Set.Ici 0) ∧
+    (∀ l : ℝ, 0 ≤ l → 0 ≤ smoothIntegerInvisibleExponent l) ∧
+    (∀ n : ℕ, smoothIntegerInvisibleExponent n = gammaLaplaceExponent n) ∧
+    smoothIntegerInvisibleExponent (1 / 2) ≠ gammaLaplaceExponent (1 / 2) ∧
+    ¬ HasBernsteinRepresentation smoothIntegerInvisibleExponent := by
+  have hsmooth : ContDiffOn ℝ ⊤ gammaLaplaceExponent (Set.Ici 0) := by
+    intro l hl
+    apply ContDiffAt.contDiffWithinAt
+    unfold gammaLaplaceExponent
+    exact contDiffAt_const.mul ((contDiffAt_const.add contDiffAt_id).log (by
+      dsimp only [id_eq]
+      exact ne_of_gt (by have hl0 : 0 ≤ l := hl; linarith)))
+  have hsin : ContDiff ℝ ⊤ (fun l : ℝ => Real.sin (Real.pi * l) ^ 2) :=
+    (Real.contDiff_sin.comp (contDiff_const.mul contDiff_id)).pow 2
+  have hsamples : ∀ n : ℕ,
+      smoothIntegerInvisibleExponent n = gammaLaplaceExponent n := by
+    intro n
+    have hpi : Real.pi * (n : ℝ) = ((n : ℤ) : ℝ) * Real.pi := by
+      push_cast
+      ring
+    simp [smoothIntegerInvisibleExponent, hpi]
+  have hhalf : smoothIntegerInvisibleExponent (1 / 2) ≠
+      gammaLaplaceExponent (1 / 2) := by
+    rw [smoothIntegerInvisibleExponent,
+      show Real.pi * (1 / 2 : ℝ) = Real.pi / 2 by ring,
+      Real.sin_pi_div_two]
+    norm_num
+  refine ⟨hsmooth.add hsin.contDiffOn, ?_, hsamples, hhalf, ?_⟩
+  · intro l hl
+    unfold smoothIntegerInvisibleExponent gammaLaplaceExponent
+    have hlog : 0 ≤ Real.log (1 + l) := Real.log_nonneg (by linarith)
+    positivity
+  · intro hbernstein
+    have he := bernstein_function_integer_tail_unique smoothIntegerInvisibleExponent
+      gammaLaplaceExponent hbernstein gamma_laplace_exponent_has_bernstein_representation
+      0 (fun n _ => hsamples n) (1 / 2) (by norm_num)
+    exact hhalf he
+
 end
 end Sigma

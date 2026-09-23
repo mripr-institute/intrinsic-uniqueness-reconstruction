@@ -80,6 +80,7 @@ lean_lib SigmaFormalization where
     `SigmaMatrixGeometry,
     `SigmaMatrixFenchel,
     `SigmaOpLaguerre,
+    `SigmaOpMarkedCalculus,
     `SigmaOpMixing,
     `SigmaOpMomentGrowth,
     `SigmaOpMomentInverse,
