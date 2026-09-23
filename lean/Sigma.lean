@@ -27,6 +27,9 @@ import SigmaProbGamma
 import SigmaOpLaguerre
 import SigmaOpMarkedCalculus
 import SigmaOpCanonicalCalculus
+import SigmaOpWeightedSobolev
+import SigmaOpDeficiency
+import SigmaOpCanonicalInverse
 import SigmaOpMoments
 import SigmaOpMixing
 import SigmaOpMomentGrowth

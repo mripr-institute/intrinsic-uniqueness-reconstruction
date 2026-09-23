@@ -20,9 +20,10 @@ Verification for this milestone:
 - Targeted transitive axiom audit: PASS, only ordinary Lean foundations.
 - Coverage declaration checks: 1303 PASS.
 - Independent canonical-closure and whole-O6 adversarial audits: PASS.
-- Full `Verify.py` was also started; its build passed and its expanded
-  `SigmaAxioms.lean` stage was still running when this record was prepared.
-  The preceding O2 milestone's full verifier subsequently finished PASS.
+- Full `Verify.py` was also started; its build passed. Its lengthy expanded
+  `SigmaAxioms.lean` stage was subsequently interrupted to stop redundant broad
+  verification, following the user's request. The targeted transitive axiom
+  audit above passed. The preceding O2 milestone's full verifier finished PASS.
 
 Coverage: 80 named items; 2 definitions, 48 complete, 21 partial, 9 missing.
 O6 moves from partial to complete; the newly established parts of O3 move that

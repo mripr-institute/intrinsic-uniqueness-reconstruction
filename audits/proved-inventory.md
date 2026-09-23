@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 48.
+- Fully formalized statements: 49.
 - Partially formalized statements: 21.
-- Statements awaiting Lean formalization: 9.
-- Distinct mapped declarations across named items: 1286 (including definitions and helpers).
+- Statements awaiting Lean formalization: 8.
+- Distinct mapped declarations across named items: 1305 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -50,6 +50,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O1-kernel** — The integrable centered Stein kernel
 - **final:O2** — Two marked probes and the Pearson realization
 - **final:O2-boundaries** — The exact limits of the probe and stationary data
+- **final:O3-spectrum** — The Laguerre basis and the exact integer spectrum
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
@@ -1285,6 +1286,7 @@ Mathematical content formalized in Lean:
 
 - Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.
 - Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.
+- The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.
 
 Mapped Lean declarations:
 
@@ -1299,26 +1301,46 @@ Mapped Lean declarations:
 - `Sigma.laguerre_minimal_adjoint_eq_canonical`
 - `Sigma.laguerre_canonical_selfAdjoint`
 - `Sigma.laguerre_canonical_unique_selfAdjoint_extension`
+- `Sigma.partialOperatorEigenspace`
+- `Sigma.laguerre_minimal_deficiency_spaces`
+- `Sigma.laguerre_minimal_deficiency_indices`
 
 Remaining Lean formalization:
 
-- Both endpoint limit-point classifications and explicit deficiency indices (0,0).
+- Both endpoint limit-point classifications.
 - Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.
 - Domain does not require a finite value at zero, including a witnessing domain element.
 
 ### final:O3-form — The closed form and the conservative semigroup
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Every square-root-domain vector has an actual locally absolutely continuous representative with finite literal weighted derivative energy equal to the square-root norm squared. Regularity and integrability are derived, not assumed.
+- Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.
+
+Mapped Lean declarations:
+
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous`
+- `Sigma.laguerre_square_root_regular_representative`
+- `Sigma.laguerre_square_root_derivative_energy`
+- `Sigma.laguerreHeatOperator`
+- `Sigma.laguerre_heat_spectral_domain_top`
+- `Sigma.laguerre_heat_spectral_action`
+- `Sigma.laguerre_heat_contracts`
+- `Sigma.laguerre_heat_zero`
+- `Sigma.laguerre_heat_add`
 
 Remaining Lean formalization:
 
-- Actual closed energy form with precisely the displayed weighted Sobolev/locally AC domain and no extra endpoint traces.
-- Identification of this domain with D(A^(1/2)).
+- Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.
+- Full sesquilinear closed-form identity on the exact weighted Sobolev domain.
 - Native positivity-preserving semigroup, preservation of one and of the probability measure.
 
 ### final:O3-spectrum — The Laguerre basis and the exact integer spectrum
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L321); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L321); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1330,6 +1352,7 @@ Mathematical content formalized in Lean:
 - The orthogonal complement of the actual normalized Laguerre family is zero, its span is dense in the weighted complex L2 space, and the exact modes form a native HilbertBasis. Exponential-envelope moment uniqueness supplies the completeness proof without assuming density.
 - The actual compact-test differential closure equals the integer spectral operator. Every normalized mode lies in its domain with eigenvalue n; the full bounded-resolvent spectrum is exactly the nonnegative integers, each eigenspace has dimension one, and positive-shift resolvents are actual compact bounded operators with both inverse identities.
 - The actual operator has exactly the n-squared weighted coefficient domain and convergent action series. Its nonnegative self-adjoint spectral square root has exactly the n-weighted domain, squares to A with the exact composition domain, and has squared norm equal to the weighted coefficient energy sum.
+- For every square-root-domain vector, an actual Gamma-almost-everywhere representative is derived with literal local absolute continuity, integrable q times the squared norm of its actual derivative, and derivative-energy integral equal to the weighted coefficient sum. Genuine compact form approximants, weighted-gradient completion, local L1 estimates and the almost-everywhere fundamental theorem supply the proof.
 
 Mapped Lean declarations:
 
@@ -1388,10 +1411,9 @@ Mapped Lean declarations:
 - `Sigma.laguerre_square_root_image_domain_iff`
 - `Sigma.laguerre_square_root_nonnegative`
 - `Sigma.laguerre_square_root_energy`
-
-Remaining Lean formalization:
-
-- For every square-root-domain vector, derive a locally absolutely continuous representative and identify the literal integral of q times its actual derivative squared with the spectral energy sum.
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous`
+- `Sigma.laguerre_square_root_regular_representative`
+- `Sigma.laguerre_square_root_derivative_energy`
 
 ### final:O7 — Complete marked Laguerre orthogonality identifies the law
 
@@ -1466,6 +1488,7 @@ Mathematical content formalized in Lean:
 
 - A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.
 - Exact scalar first/squared/shifted resolvent summability thresholds.
+- The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero.
 
 Mapped Lean declarations:
 
@@ -1477,13 +1500,20 @@ Mapped Lean declarations:
 - `Sigma.operator_first_resolvent_eigenvalues_not_summable`
 - `Sigma.operator_squared_resolvent_eigenvalues_summable`
 - `Sigma.operator_shifted_real_eigenvalue_summable_iff`
+- `Sigma.laguerre_canonical_positive_shift_resolvent`
+- `Sigma.laguerre_complete_resolvent_identifies`
+- `Sigma.laguerre_heat_spectral_action`
+- `Sigma.laguerre_heat_injective`
+- `Sigma.laguerre_heat_samples_positive`
+- `Sigma.laguerre_heat_samples_tendsto_zero`
+- `Sigma.laguerre_marked_heat_inverse`
+- `Sigma.laguerre_marked_heat_inverse_domain`
 
 Remaining Lean formalization:
 
 - Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.
 - Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.
 - Trace-class resolvent difference and actual digamma trace formula.
-- Recovery of the actual generator from a full marked heat operator by unbounded functional calculus.
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 

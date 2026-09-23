@@ -2198,5 +2198,15 @@ import Sigma
 #print axioms Sigma.laguerre_bernstein_tail_actions_data_unique
 #print axioms Sigma.laguerre_gamma_tail_actions_unique
 #print axioms Sigma.smooth_integer_invisible_canonical_calculus
+#print axioms Sigma.laguerre_square_root_regular_representative
+#print axioms Sigma.laguerre_square_root_derivative_energy
+#print axioms Sigma.laguerre_minimal_deficiency_spaces
+#print axioms Sigma.laguerre_minimal_deficiency_indices
+#print axioms Sigma.laguerre_complete_resolvent_identifies
+#print axioms Sigma.laguerre_heat_spectral_action
+#print axioms Sigma.laguerre_heat_add
+#print axioms Sigma.laguerre_heat_injective
+#print axioms Sigma.laguerre_marked_heat_inverse
+#print axioms Sigma.laguerre_marked_heat_inverse_domain
 #print axioms Sigma.positivity_removed_all_moments_counterexample
 #print axioms Sigma.finite_moments_do_not_identify_gamma
