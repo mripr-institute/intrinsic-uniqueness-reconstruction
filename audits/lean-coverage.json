@@ -2140,7 +2140,7 @@
       "line": 420,
       "statement_tex": "\\label{final:O4}\nFor the operator $A$ above, the ordinary traces are\n\\begin{align}\n Z_A(s)&=\\operatorname{Tr}(\\mathrm{Id}+A)^{-s}=\\zeta(s),\n &&\\operatorname{Re}s>1,\\label{final:O4-zeta}\\\\\n \\Theta_A(\\tau)&=\\operatorname{Tr}e^{-\\tau A}\n       =\\frac1{1-e^{-\\tau}},\n &&\\operatorname{Re}\\tau>0.\\label{final:O4-heat-trace}\n\\end{align}\nThese are precisely their trace-class domains.  The powers use the\nreal logarithms of the positive eigenvalues $n+1$; the zero eigenspace\nis included through this shift.\n\nLet $B\\geq0$ be self-adjoint with compact resolvent.  Each of the\nfollowing complete data sets determines its eigenvalue multiset,\nincluding multiplicities, and hence its unitary equivalence class:\nall finite heat traces $\\operatorname{Tr}e^{-\\tau B}$, $\\tau>0$;\nall shifted zeta traces on a real half-line $s>s_0$ on which they are\nfinite; or all integer shifted traces\n$\\operatorname{Tr}(\\mathrm{Id}+B)^{-k}$, $k\\geq2$, with\n$\\operatorname{Tr}(\\mathrm{Id}+B)^{-2}<\\infty$.\nThe coordinate law of an unspecified realization is not part of this\nunitary-class conclusion.\n",
       "statement_sha256": "ff2ed56d9bd91f28b97259f5f145c39e28c0728999758b29cfd541901fc9544b",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.operator_heat_eigenvalue_hasSum",
         "Sigma.operator_heat_eigenvalue_summable_iff",
@@ -2148,24 +2148,29 @@
         "Sigma.operator_complex_heat_eigenvalue_summable_iff",
         "Sigma.operator_complex_zeta_eigenvalue_summable_iff",
         "Sigma.operator_zeta_eigenvalue_hasSum",
-        "Sigma.operator_hausdorff_moment_unique"
+        "Sigma.operator_hausdorff_moment_unique",
+        "Sigma.integer_eigenbasis_zeta_trace",
+        "Sigma.integer_eigenbasis_heat_trace",
+        "Sigma.nonnegative_compact_resolvent_eigenbasis",
+        "Sigma.spectral_integer_moments_equiv",
+        "Sigma.integer_shifted_spectral_data_equiv",
+        "Sigma.heat_spectral_data_equiv",
+        "Sigma.zeta_spectral_data_equiv",
+        "Sigma.eigenbasis_heat_traces_recover_operator",
+        "Sigma.eigenbasis_shifted_zeta_traces_recover_operator",
+        "Sigma.compact_resolvent_integer_traces_recover_operator"
       ],
       "proved_components": [
         "Exact scalar eigenvalue-series domains and sums for real/complex heat parameters and complex shifted zeta.",
-        "Actual finite compact moment uniqueness as an ingredient for integer spectral-data recovery."
+        "Actual Laguerre heat and shifted-zeta traces, with exact trace-class domains and the stated values.",
+        "A nonnegative self-adjoint operator with genuine compact shift-1 resolvent is given a complete eigenbasis with derived nonnegative eigenvalues and generator-domain eigenvectors.",
+        "Finite weighted spectral measures recover every positive eigenvalue multiplicity, including finite and empty basis types.",
+        "Heat, real shifted-zeta, and integer shifted-resolvent trace data each recover the eigenvalue multiset and a unitary intertwining the native operators on their full domains."
       ],
-      "unproved_components": [
-        "Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.",
-        "Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.",
-        "Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces."
-      ],
-      "gaps": [
-        "Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.",
-        "Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.",
-        "Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Fresh independent adversarial audit: AUDIT PASS. The heat and shifted-zeta reconstruction theorems use actual bounded spectral multipliers in complete eigenbases; the integer-trace theorem uses powers of genuine compact resolvents and derives the bases internally. The coordinate law of an unspecified realization is not asserted."
     },
     {
       "id": "final:O4-convergence-boundary",
