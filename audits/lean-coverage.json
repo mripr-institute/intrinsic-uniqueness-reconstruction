@@ -1131,6 +1131,7 @@
         "Sigma.logistic_hazard_unique",
         "Sigma.normalized_second_order_density_unique",
         "Sigma.exponential_pair_convolution",
+        "Sigma.causal_unit_exponential_convolution_eq_gamma_green",
         "Sigma.independent_exponential_pair_gamma",
         "Sigma.local_ac_continuous_rhs_hasDerivAt",
         "Sigma.gamma_hazard_local_ac_derivative",
@@ -1149,6 +1150,7 @@
       "proved_components": [
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
         "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
+        "The explicit causal kernels k(t)=1_{[0,∞)}e^{-t} and g(t)=1_{[0,∞)}te^{-t} satisfy the actual whole-line convolution identity k*k=g for every real t, including the zero and negative-time cases.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
         "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
         "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio."

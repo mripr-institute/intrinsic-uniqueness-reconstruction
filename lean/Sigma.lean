@@ -48,6 +48,7 @@ import SigmaOperators
 import SigmaOpResolvent
 import SigmaOpSpectral
 import SigmaProbSurvival
+import SigmaProbCausalConvolution
 import SigmaPlacementMeasure
 import SigmaPlacementPackage
 import SigmaProbDeficit

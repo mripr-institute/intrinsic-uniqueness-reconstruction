@@ -234,6 +234,7 @@ lean_lib SigmaFormalization where
     `SigmaProbStieltjes,
     `SigmaProbSupport,
     `SigmaProbSurvival,
+    `SigmaProbCausalConvolution,
     `SigmaProbSurvivalBoundaries,
     `SigmaProbWeights,
     `SigmaProbWeightsReal,

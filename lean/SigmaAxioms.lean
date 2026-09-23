@@ -771,6 +771,7 @@ import Sigma
 #print axioms Sigma.gamma_survival_anchor
 #print axioms Sigma.gamma_survival_tendsto
 #print axioms Sigma.gamma_survival_tail_integral
+#print axioms Sigma.causal_unit_exponential_convolution_eq_gamma_green
 #print axioms Sigma.gamma_hazard_ratio
 #print axioms Sigma.gamma_self_survival_shift
 #print axioms Sigma.gamma_survival_potential
