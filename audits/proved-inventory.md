@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 47.
+- Fully formalized statements: 48.
 - Partially formalized statements: 21.
-- Statements awaiting Lean formalization: 10.
-- Distinct mapped declarations across named items: 1251 (including definitions and helpers).
+- Statements awaiting Lean formalization: 9.
+- Distinct mapped declarations across named items: 1286 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -51,6 +51,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O2** — Two marked probes and the Pearson realization
 - **final:O2-boundaries** — The exact limits of the probe and stationary data
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
+- **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
@@ -1278,12 +1279,30 @@ Mapped Lean declarations:
 
 ### final:O3 — Essential self-adjointness and the full domain
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.
+- Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.
+
+Mapped Lean declarations:
+
+- `Sigma.laguerreMinimalOperator`
+- `Sigma.laguerre_minimal_domain`
+- `Sigma.laguerre_minimal_test_action`
+- `Sigma.laguerre_minimal_formal_adjoint`
+- `Sigma.laguerre_minimal_nonnegative`
+- `Sigma.laguerre_minimal_dense`
+- `Sigma.laguerreCanonicalOperator`
+- `Sigma.laguerre_canonical_eq_spectral`
+- `Sigma.laguerre_minimal_adjoint_eq_canonical`
+- `Sigma.laguerre_canonical_selfAdjoint`
+- `Sigma.laguerre_canonical_unique_selfAdjoint_extension`
 
 Remaining Lean formalization:
 
-- Native weighted complex L2 minimal operator on C_c^infinity; dense domain, nonnegativity and symmetry.
-- Both endpoint limit-point classifications, deficiency indices (0,0), closure=adjoint=unique self-adjoint extension.
+- Both endpoint limit-point classifications and explicit deficiency indices (0,0).
 - Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.
 - Domain does not require a finite value at zero, including a witnessing domain element.
 
@@ -1309,6 +1328,8 @@ Mathematical content formalized in Lean:
 - The actual gamma-weighted complex L2 space contains every complex lift of a real polynomial, each marked Laguerre mode and its native complex differential image. Those modes are nonzero, and the differential-image L2 class equals n times the mode. The exact representatives L_n/sqrt(n+1) likewise belong to L2, are nonzero and satisfy the native differential equation, with their L2 scaling identification proved.
 - Actual pairwise Gamma integrals and literal positive-ray density-weighted integrals equal (n+1) times the Kronecker delta for every pair of modes, including zero. The resulting actual complex L2 inner products prove orthonormality and unit norms for the exact square-root-normalized family.
 - The orthogonal complement of the actual normalized Laguerre family is zero, its span is dense in the weighted complex L2 space, and the exact modes form a native HilbertBasis. Exponential-envelope moment uniqueness supplies the completeness proof without assuming density.
+- The actual compact-test differential closure equals the integer spectral operator. Every normalized mode lies in its domain with eigenvalue n; the full bounded-resolvent spectrum is exactly the nonnegative integers, each eigenspace has dimension one, and positive-shift resolvents are actual compact bounded operators with both inverse identities.
+- The actual operator has exactly the n-squared weighted coefficient domain and convergent action series. Its nonnegative self-adjoint spectral square root has exactly the n-weighted domain, squares to A with the exact composition domain, and has squared norm equal to the weighted coefficient energy sum.
 
 Mapped Lean declarations:
 
@@ -1353,11 +1374,24 @@ Mapped Lean declarations:
 - `Sigma.normalized_laguerre_l2_dense_span`
 - `Sigma.laguerreHilbertBasis`
 - `Sigma.laguerre_hilbert_basis_apply`
+- `Sigma.laguerre_canonical_eq_spectral`
+- `Sigma.laguerre_basis_mem_canonical_domain`
+- `Sigma.laguerre_canonical_basis_action`
+- `Sigma.laguerre_canonical_domain_iff`
+- `Sigma.laguerre_canonical_action_hasSum`
+- `Sigma.laguerre_canonical_spectrum_exact`
+- `Sigma.laguerre_canonical_compact_resolvent`
+- `Sigma.laguerre_canonical_eigenspace_iff`
+- `Sigma.laguerre_integer_eigenvalue_simple`
+- `Sigma.laguerre_square_root_domain_iff`
+- `Sigma.laguerre_square_root_squared`
+- `Sigma.laguerre_square_root_image_domain_iff`
+- `Sigma.laguerre_square_root_nonnegative`
+- `Sigma.laguerre_square_root_energy`
 
 Remaining Lean formalization:
 
-- Membership in the domain of the paper's actual self-adjoint differential operator, including identification with the constructed spectral operator.
-- Exact simple integer spectrum, compact resolvent, and both weighted coefficient domain/action/energy formulas.
+- For every square-root-domain vector, derive a locally absolutely continuous representative and identify the literal integral of q times its actual derivative squared with the spectral energy sum.
 
 ### final:O7 — Complete marked Laguerre orthogonality identifies the law
 
@@ -1513,7 +1547,7 @@ Remaining Lean formalization:
 
 ### final:O6 — A Bernstein function is determined by every integer tail
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L841); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L841); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1523,6 +1557,8 @@ Mathematical content formalized in Lean:
 - Gamma target's actual Levy integrability and representation identification, including killing and drift zero.
 - An independently constructed native complex sequence-l2 diagonal LinearPMap has the exact weighted-square-summability domain; its action on every coordinate eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.
 - A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same diagonal sequence-l2 LinearPMap, including its domain.
+- The proved complete Laguerre representation intertwines the actual differential closure A, including its full domain. Its self-adjoint functional calculus has the exact weighted coefficient domain and convergent action series; it is uniquely characterized among self-adjoint operators by those marked basis actions.
+- Actual weighted-L2 operator actions on any integer tail extract the scalar samples and recover the full Bernstein function and killing, drift and native Levy measure, including the Gamma target and zero endpoint. The explicit distinct smooth nonnegative non-Bernstein perturbation has exactly the same full actual weighted-L2 operator, including domain.
 
 Mapped Lean declarations:
 
@@ -1548,10 +1584,18 @@ Mapped Lean declarations:
 - `Sigma.marked_samples_of_eigenvector_actions`
 - `Sigma.markedFunctionalCalculus_congr`
 - `Sigma.smooth_integer_invisible_marked_functional_calculus`
-
-Remaining Lean formalization:
-
-- Identify the separately constructed marked sequence-l2 calculus with the functional calculus of the paper's actual gamma-weighted self-adjoint operator A, so that its marked eigenspace actions supply the scalar samples and the smooth perturbation has the same actual f(A), with the stated domains.
+- `Sigma.laguerre_canonical_eq_spectral`
+- `Sigma.laguerre_canonical_repr`
+- `Sigma.laguerre_canonical_repr_domain`
+- `Sigma.laguerre_spectral_domain_iff`
+- `Sigma.laguerre_spectral_action_hasSum`
+- `Sigma.laguerre_selfAdjoint_eq_spectral_of_basis`
+- `Sigma.laguerre_spectral_congr`
+- `Sigma.laguerre_samples_of_tail_actions`
+- `Sigma.laguerre_bernstein_tail_actions_unique`
+- `Sigma.laguerre_bernstein_tail_actions_data_unique`
+- `Sigma.laguerre_gamma_tail_actions_unique`
+- `Sigma.smooth_integer_invisible_canonical_calculus`
 
 ### final:O6-functional-calculus — Two different functional-calculus inverse questions
 

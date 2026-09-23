@@ -1,0 +1,18 @@
+{
+  "scope": "Transitive axiom checks for the actual differential closure and completed O6 canonical calculus",
+  "check_source": "lean/SigmaAxioms.lean",
+  "targeted_command": "lake env lean --stdin (import SigmaOpCanonicalCalculus and print the five listed declarations)",
+  "compiler_exit_status": 0,
+  "all_dependencies_standard": true,
+  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "custom_axioms": [],
+  "sorryAx": false,
+  "checked_declarations": [
+    "Sigma.laguerre_canonical_repr",
+    "Sigma.laguerre_canonical_spectrum_exact",
+    "Sigma.laguerre_canonical_compact_resolvent",
+    "Sigma.laguerre_bernstein_tail_actions_data_unique",
+    "Sigma.smooth_integer_invisible_canonical_calculus"
+  ],
+  "result_for_each": ["propext", "Classical.choice", "Quot.sound"]
+}

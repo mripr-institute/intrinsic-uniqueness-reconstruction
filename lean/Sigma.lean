@@ -26,6 +26,7 @@ import SigmaProbCharacteristic
 import SigmaProbGamma
 import SigmaOpLaguerre
 import SigmaOpMarkedCalculus
+import SigmaOpCanonicalCalculus
 import SigmaOpMoments
 import SigmaOpMixing
 import SigmaOpMomentGrowth

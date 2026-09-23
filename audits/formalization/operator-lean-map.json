@@ -1,5 +1,5 @@
 {
-  "scope": "Exact operator-chapter statement/component map; a partial entry does not certify its unproved components.",
+  "scope": "Historical operator-chapter component map. Current exact statuses and residuals are maintained in current-operator-audit.json; the O6 canonical-operator bridge below supersedes its earlier sequence-only mapping.",
   "namespace": "SigmaFinal",
   "custom_axioms": false,
   "proof_escape_terms": false,
@@ -457,15 +457,27 @@
         "Sigma.markedFunctionalCalculus_eigenvector_action",
         "Sigma.marked_samples_of_eigenvector_actions",
         "Sigma.markedFunctionalCalculus_congr",
-        "Sigma.smooth_integer_invisible_marked_functional_calculus"
+        "Sigma.smooth_integer_invisible_marked_functional_calculus",
+        "Sigma.laguerre_canonical_eq_spectral",
+        "Sigma.laguerre_canonical_repr",
+        "Sigma.laguerre_canonical_repr_domain",
+        "Sigma.laguerre_spectral_domain_iff",
+        "Sigma.laguerre_spectral_action_hasSum",
+        "Sigma.laguerre_selfAdjoint_eq_spectral_of_basis",
+        "Sigma.laguerre_samples_of_tail_actions",
+        "Sigma.laguerre_bernstein_tail_actions_unique",
+        "Sigma.laguerre_bernstein_tail_actions_data_unique",
+        "Sigma.laguerre_gamma_tail_actions_unique",
+        "Sigma.smooth_integer_invisible_canonical_calculus"
       ],
       "proved_components": [
         "The underlying full compact Hausdorff moment uniqueness theorem is proved for actual finite positive Borel measures.",
         "A native complex l2 partially defined diagonal functional calculus has the exact weighted-square-summability domain; its action on every marked integer eigenvector is f(n)e_n, and equality of these actions extracts every scalar sample.",
-        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain."
+        "A distinct smooth nonnegative non-Bernstein perturbation agrees with the Gamma exponent at every nonnegative integer and yields exactly the same native marked functional-calculus LinearPMap, including its domain.",
+        "The actual Gamma-weighted differential closure is unitarily represented by the complete marked basis, including exact domains. Its actual functional-calculus actions extract every integer-tail sample and recover the complete Bernstein data. The smooth witness has equal actual weighted-L2 partial maps and domains."
       ],
       "unproved_components": [],
-      "notes": "Full SigmaFormalization build passed; bounded independent milestone audit returned PASS."
+      "notes": "Fresh whole-O6 independent adversarial AUDIT PASS for CanonicalClosure and CanonicalCalculus. This supersedes the earlier sequence-model-only completeness assertion. See the current map and canonical-calculus milestone record for verification."
     },
     {
       "latex_label": "final:O6-functional-calculus",
