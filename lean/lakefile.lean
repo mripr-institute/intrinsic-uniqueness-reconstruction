@@ -107,6 +107,7 @@ lean_lib SigmaFormalization where
     `SigmaArithmeticMultiplicative,
     `SigmaMatrixMetricBounds,
     `SigmaMatrixPathBounds,
+    `SigmaMatrixGlobalGeodesic,
     `SigmaMatrixDiagonalDistances,
     `SigmaMatrixDistanceBoundary,
     `SigmaOperatorPearson,

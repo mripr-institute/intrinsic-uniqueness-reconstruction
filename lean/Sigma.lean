@@ -179,6 +179,7 @@ import SigmaArithmeticConvolution
 import SigmaArithmeticMultiplicative
 import SigmaMatrixMetricBounds
 import SigmaMatrixPathBounds
+import SigmaMatrixGlobalGeodesic
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
 import SigmaOperatorPearson

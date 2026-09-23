@@ -204,6 +204,8 @@ import Sigma
 #print axioms Sigma.matrix_spd_geodesic_zero
 #print axioms Sigma.matrix_spd_geodesic_one
 #print axioms Sigma.matrix_spd_geodesic_length
+#print axioms Sigma.matrix_spd_geodesic_admissible
+#print axioms Sigma.matrix_spd_geodesic_is_admissible_with_exact_length
 #print axioms Sigma.matrix_exponential_curve_native_geodesic_equation
 #print axioms Sigma.rank_one_native_path_length_lower_bound
 #print axioms Sigma.rank_one_native_hessian_distance

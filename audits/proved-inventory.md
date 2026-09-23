@@ -2001,6 +2001,7 @@ Mathematical content formalized in Lean:
 - Native positive-definite relative matrix, inverse-square-root whitening, and trace of the inverse as the sum of reciprocal positive eigenvalues
 - Symmetric spectral matrix logarithm whose native matrix exponential is the original SPD matrix
 - The displayed native matrix exponential path is SPD at every parameter and has exactly the specified endpoints
+- The canonical full-rank path belongs to the actual finite-piece admissible class, and its exact Hessian path length is an explicit variational competitor
 - Actual first and second derivatives of the path, continuous first derivative, and the displayed differential equation gamma''=gamma' gamma-inverse gamma'
 - Actual Hessian-metric speed is constant and its interval-integral path length equals the Frobenius norm of the relative logarithm
 - Rank-one native SPD-matrix path-length infimum over both C1 and finite-piece C1 paths equals the absolute logarithmic endpoint difference, with an attained exponential path and zero self-distance
@@ -2043,6 +2044,8 @@ Mapped Lean declarations:
 - `Sigma.matrixHessianPathLength`
 - `Sigma.matrix_exponential_curve_constant_speed`
 - `Sigma.matrix_spd_geodesic_length`
+- `Sigma.matrix_spd_geodesic_admissible`
+- `Sigma.matrix_spd_geodesic_is_admissible_with_exact_length`
 - `Sigma.matrix_exponential_curve_deriv`
 - `Sigma.matrix_exponential_curve_continuous_deriv`
 - `Sigma.matrix_exponential_curve_native_geodesic_equation`
