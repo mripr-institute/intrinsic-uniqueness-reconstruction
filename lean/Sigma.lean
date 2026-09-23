@@ -29,6 +29,8 @@ import SigmaMatrixGaussianSufficiency
 import SigmaProbCharacteristic
 import SigmaProbGamma
 import SigmaProbSmoothDensityBoundary
+import SigmaProbDeficitLawBoundary
+import SigmaProbInvolutionBoundary
 import SigmaRealTreesCriticalBoundary
 import SigmaOpLaguerre
 import SigmaOpMarkedCalculus

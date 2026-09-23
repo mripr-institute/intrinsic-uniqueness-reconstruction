@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 26,
     "definition": 0,
-    "complete": 20,
-    "partial": 6,
+    "complete": 21,
+    "partial": 5,
     "missing": 0
   },
   "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace.",
@@ -281,21 +281,35 @@
     },
     {
       "latex_label": "final:P4-boundaries",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.upper_branch_source_counterexample",
         "Sigma.upper_branch_potential_probability",
         "Sigma.upper_branch_Ici_one",
-        "Sigma.gamma_Ici_one_lt_one"
+        "Sigma.gamma_Ici_one_lt_one",
+        "Sigma.deficit_level_shift_orderIso",
+        "Sigma.shifted_deficit_potential_two_branch",
+        "Sigma.shifted_deficit_roots_and_width",
+        "Sigma.equal_widths_level_measure",
+        "Sigma.equal_widths_linked_deficit_law",
+        "Sigma.linked_probability_real_normalization",
+        "Sigma.canonical_deficit_law_does_not_identify_potential",
+        "Sigma.involution_counterpotential_two_branch",
+        "Sigma.involution_counterpotential_density_integrable",
+        "Sigma.involution_counterpotential_density_mass",
+        "Sigma.involution_counterprobability_is_probability",
+        "Sigma.involution_counterpotential_pair",
+        "Sigma.involution_counterpotential_noncanonical",
+        "Sigma.involution_counterpotential_deficit_law_ne",
+        "Sigma.canonical_involution_does_not_identify_linked_density"
       ],
       "proved_components": [
-        "Actual upper-branch source probability has the same deficit law and differs from Gamma."
+        "Actual upper-branch source probability has the same deficit law and differs from Gamma.",
+        "A nonzero smooth common-level coordinate shift gives a genuinely noncanonical two-branch potential with all anchor and endpoint conditions. Equal widths imply equality of actual linked deficit measures; normalization and real density integrability are derived. Its canonical pairing differs.",
+        "A balanced zero-mean level perturbation gives an explicit increasing reparametrization fixing zero. The resulting noncanonical two-branch potential has a normalized actual linked probability, preserves the canonical involution at every positive point, and has a different actual deficit law."
       ],
-      "unproved_components": [
-        "Noncanonical normalized two-branch potential with exactly canonical deficit law.",
-        "Noncanonical normalized two-branch potential with exactly canonical involution."
-      ],
-      "notes": ""
+      "unproved_components": [],
+      "notes": "Whole named-statement independent adversarial AUDIT PASS. Each of the three deletion boundaries has a witness in the exact paper category. Infinite unweighted level measures are handled using finite sublevel masses, not a finite-total-mass assumption. The same-involution construction uses an explicit balanced level weight instead of the paper proof's implicit-function construction; compact perturbation support and h'(0)=1 are not premises of the named candidate class."
     },
     {
       "latex_label": "final:P5",

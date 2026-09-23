@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 51.
-- Partially formalized statements: 19.
+- Fully formalized statements: 52.
+- Partially formalized statements: 18.
 - Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1333 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1348 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -38,6 +38,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P4-data** — Canonical deficit law and coordinate involution
 - **final:P4-cumulants** — Deficit transform, cumulants, and determinacy
 - **final:P4** — The linked deficit law and involution identify the potential
+- **final:P4-boundaries** — Neither linked observation alone suffices
 - **final:P5-stieltjes** — Probability Stieltjes transform and its inverse
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
 - **final:P5-equilibrium-fixed** — Equilibrium fixed points
@@ -683,11 +684,13 @@ Mapped Lean declarations:
 
 ### final:P4-boundaries — Neither linked observation alone suffices
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L484); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L484); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual upper-branch source probability has the same deficit law and differs from Gamma.
+- A nonzero smooth common-level coordinate shift gives a genuinely noncanonical two-branch potential with all anchor and endpoint conditions. Equal widths imply equality of actual linked deficit measures; normalization and real density integrability are derived. Its canonical pairing differs.
+- A balanced zero-mean level perturbation gives an explicit increasing reparametrization fixing zero. The resulting noncanonical two-branch potential has a normalized actual linked probability, preserves the canonical involution at every positive point, and has a different actual deficit law.
 
 Mapped Lean declarations:
 
@@ -695,11 +698,21 @@ Mapped Lean declarations:
 - `Sigma.upper_branch_potential_probability`
 - `Sigma.upper_branch_Ici_one`
 - `Sigma.gamma_Ici_one_lt_one`
-
-Remaining Lean formalization:
-
-- Noncanonical normalized two-branch potential with exactly canonical deficit law.
-- Noncanonical normalized two-branch potential with exactly canonical involution.
+- `Sigma.deficit_level_shift_orderIso`
+- `Sigma.shifted_deficit_potential_two_branch`
+- `Sigma.shifted_deficit_roots_and_width`
+- `Sigma.equal_widths_level_measure`
+- `Sigma.equal_widths_linked_deficit_law`
+- `Sigma.linked_probability_real_normalization`
+- `Sigma.canonical_deficit_law_does_not_identify_potential`
+- `Sigma.involution_counterpotential_two_branch`
+- `Sigma.involution_counterpotential_density_integrable`
+- `Sigma.involution_counterpotential_density_mass`
+- `Sigma.involution_counterprobability_is_probability`
+- `Sigma.involution_counterpotential_pair`
+- `Sigma.involution_counterpotential_noncanonical`
+- `Sigma.involution_counterpotential_deficit_law_ne`
+- `Sigma.canonical_involution_does_not_identify_linked_density`
 
 ### final:P5 — Survival, hazard, logistic equation, and causal Green kernel
 

@@ -13,6 +13,8 @@ lean_lib SigmaFormalization where
     `SigmaProbNativeHazard,
     `SigmaRealTreesTailBoundary,
     `SigmaProbSmoothDensityBoundary,
+    `SigmaProbDeficitLawBoundary,
+    `SigmaProbInvolutionBoundary,
     `SigmaRealTreesCriticalBoundary,
     `SigmaOpLaguerreDifferential,
     `SigmaOpLaguerreL2,

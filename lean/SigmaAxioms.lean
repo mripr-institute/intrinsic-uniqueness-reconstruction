@@ -2220,6 +2220,10 @@ import Sigma
 #print axioms Sigma.matrix_gaussian_relative_entropy
 #print axioms Sigma.matrix_gaussian_sample_relative_entropy_divergence
 #print axioms Sigma.smooth_inverse_germ_density_boundary
+#print axioms Sigma.equal_widths_level_measure
+#print axioms Sigma.equal_widths_linked_deficit_law
+#print axioms Sigma.canonical_deficit_law_does_not_identify_potential
+#print axioms Sigma.canonical_involution_does_not_identify_linked_density
 #print axioms Sigma.critical_line_active_replicate
 #print axioms Sigma.critical_line_one_vertex_each_generation
 #print axioms Sigma.critical_line_one_child
