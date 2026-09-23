@@ -8,10 +8,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 52.
-- Partially formalized statements: 18.
+- Fully formalized statements: 53.
+- Partially formalized statements: 17.
 - Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1348 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1356 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -39,6 +39,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P4-cumulants** — Deficit transform, cumulants, and determinacy
 - **final:P4** — The linked deficit law and involution identify the potential
 - **final:P4-boundaries** — Neither linked observation alone suffices
+- **final:P5-survival-boundaries** — Precise survival boundaries and Gamma shift uniqueness
 - **final:P5-stieltjes** — Probability Stieltjes transform and its inverse
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
 - **final:P5-equilibrium-fixed** — Equilibrium fixed points
@@ -759,12 +760,13 @@ Remaining Lean formalization:
 
 ### final:P5-survival-boundaries — Precise survival boundaries and Gamma shift uniqueness
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L599); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L599); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual atom-at-zero anchor counterexample, actual logarithmic pushforward hazard/Jacobian distinction.
 - Full native Gamma self-survival-shift iff for every positive shape, rate and shift.
+- A genuine atomless probability on the native null Cantor set supplies a continuous monotone singular function with derivative zero almost everywhere. Its survival perturbation defines an actual atomless positive-supported probability, distinct from Gamma, with strictly decreasing continuous positive survival, anchor one, limit zero, and exactly the Gamma hazard and logarithmic-derivative equations almost everywhere. Failure of local integral absolute continuity is derived.
 
 Mapped Lean declarations:
 
@@ -773,10 +775,14 @@ Mapped Lean declarations:
 - `Sigma.log_gamma_actual_hazard`
 - `Sigma.log_gamma_hazard_ne_composition`
 - `Sigma.gamma_self_shift_iff`
-
-Remaining Lean formalization:
-
-- Continuous singular-survival counterexample with the same a.e. hazard equation, showing local absolute continuity is necessary.
+- `Sigma.volume_cantorSet_zero`
+- `Sigma.cantor_probability_exists`
+- `Sigma.atomless_probability_cdf_continuous`
+- `Sigma.singular_shifted_cdf_derivative_zero_ae`
+- `Sigma.continuous_singular_function_exists`
+- `Sigma.singular_survival_actual_tail`
+- `Sigma.singular_survival_not_local_ac`
+- `Sigma.gamma_hazard_regularity_counterexample`
 
 ### final:P5-stieltjes — Probability Stieltjes transform and its inverse
 

@@ -2224,6 +2224,10 @@ import Sigma
 #print axioms Sigma.equal_widths_linked_deficit_law
 #print axioms Sigma.canonical_deficit_law_does_not_identify_potential
 #print axioms Sigma.canonical_involution_does_not_identify_linked_density
+#print axioms Sigma.volume_cantorSet_zero
+#print axioms Sigma.cantor_probability_exists
+#print axioms Sigma.continuous_singular_function_exists
+#print axioms Sigma.gamma_hazard_regularity_counterexample
 #print axioms Sigma.critical_line_active_replicate
 #print axioms Sigma.critical_line_one_vertex_each_generation
 #print axioms Sigma.critical_line_one_child

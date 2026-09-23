@@ -31,6 +31,7 @@ import SigmaProbGamma
 import SigmaProbSmoothDensityBoundary
 import SigmaProbDeficitLawBoundary
 import SigmaProbInvolutionBoundary
+import SigmaProbSurvivalRegularityBoundary
 import SigmaRealTreesCriticalBoundary
 import SigmaOpLaguerre
 import SigmaOpMarkedCalculus

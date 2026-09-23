@@ -15,6 +15,7 @@ lean_lib SigmaFormalization where
     `SigmaProbSmoothDensityBoundary,
     `SigmaProbDeficitLawBoundary,
     `SigmaProbInvolutionBoundary,
+    `SigmaProbSurvivalRegularityBoundary,
     `SigmaRealTreesCriticalBoundary,
     `SigmaOpLaguerreDifferential,
     `SigmaOpLaguerreL2,

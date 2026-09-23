@@ -3,8 +3,8 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 52,
-    "partial": 18,
+    "complete": 53,
+    "partial": 17,
     "missing": 8
   },
   "pending_exact_statement_matches": 0,
@@ -1176,26 +1176,31 @@
       "line": 599,
       "statement_tex": "\\label{final:P5-survival-boundaries}\nLocal absolute continuity and the survival anchor in\nTheorem~\\ref{final:P5} cannot be dropped from its almost-everywhere\nhazard formulation.  For the logarithmic random variable $Y=\\log T$,\nthe hazard with respect to its own coordinate is\n\\[\n h_Y(u)=e^u h_\\Gamma(e^u)=\\frac{e^{2u}}{1+e^u},\n\\]\nwhich differs from the composition $v(u)$ in that theorem.\nFor a Gamma density of shape $\\alpha>0$ and rate $\\beta>0$, the\nself-survival shift identity\n\\begin{equation}\n \\overline F_{\\alpha,\\beta}(x)\n =\\frac{f_{\\alpha,\\beta}(x+c)}{f_{\\alpha,\\beta}(c)}\n                  \\quad(x\\geq0),\\qquad c>0,\n \\label{final:eq-gamma-self-shift}\n\\end{equation}\nholds exactly when $\\alpha=1$ with arbitrary $c$, or when\n$\\alpha=2$ and $c=1/\\beta$.\n",
       "statement_sha256": "e3c37802c84c8b73fffafaf1aa1423b0d6fd5cb7eeaf75e79056a1c4ec54e311",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_hazard_anchor_counterexample",
         "Sigma.log_gamma_probability_density",
         "Sigma.log_gamma_actual_hazard",
         "Sigma.log_gamma_hazard_ne_composition",
-        "Sigma.gamma_self_shift_iff"
+        "Sigma.gamma_self_shift_iff",
+        "Sigma.volume_cantorSet_zero",
+        "Sigma.cantor_probability_exists",
+        "Sigma.atomless_probability_cdf_continuous",
+        "Sigma.singular_shifted_cdf_derivative_zero_ae",
+        "Sigma.continuous_singular_function_exists",
+        "Sigma.singular_survival_actual_tail",
+        "Sigma.singular_survival_not_local_ac",
+        "Sigma.gamma_hazard_regularity_counterexample"
       ],
       "proved_components": [
         "Actual atom-at-zero anchor counterexample, actual logarithmic pushforward hazard/Jacobian distinction.",
-        "Full native Gamma self-survival-shift iff for every positive shape, rate and shift."
+        "Full native Gamma self-survival-shift iff for every positive shape, rate and shift.",
+        "A genuine atomless probability on the native null Cantor set supplies a continuous monotone singular function with derivative zero almost everywhere. Its survival perturbation defines an actual atomless positive-supported probability, distinct from Gamma, with strictly decreasing continuous positive survival, anchor one, limit zero, and exactly the Gamma hazard and logarithmic-derivative equations almost everywhere. Failure of local integral absolute continuity is derived."
       ],
-      "unproved_components": [
-        "Continuous singular-survival counterexample with the same a.e. hazard equation, showing local absolute continuity is necessary."
-      ],
-      "gaps": [
-        "Continuous singular-survival counterexample with the same a.e. hazard equation, showing local absolute continuity is necessary."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": ""
+      "notes": "Fresh whole named-statement independent adversarial AUDIT PASS. The singular function is constructed, not assumed: injective ternary coding and native Standard-Borel transport produce an atomless Cantor-supported probability; recursive measure bounds prove Cantor nullity; local constancy off its closed support proves the CDF derivative is zero almost everywhere. The hazard boundary concerns the paper's bare a.e. survival derivative formulation, not an assertion that the singular law has a global Lebesgue density. The atom-at-zero anchor witness likewise concerns the local-survival formulation rather than retaining global absolute continuity of the source measure."
     },
     {
       "id": "final:P5-stieltjes",
