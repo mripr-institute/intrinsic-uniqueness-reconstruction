@@ -1,11 +1,16 @@
 {
-  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only.",
+  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. The named count includes definitions; additional labelled claims are tracked separately. Complete Lean coverage is not yet established.",
   "count": 80,
+  "named_statement_count": 78,
   "totals": {
     "definition": 2,
     "complete": 58,
     "partial": 14,
     "missing": 6
+  },
+  "additional_labelled_claim_totals": {
+    "complete": 13,
+    "missing": 2
   },
   "pending_exact_statement_matches": 0,
   "additional_labelled_claims": [
@@ -1183,7 +1188,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/p5-poisson-process-formal-independent-audit.md",
+      "independent_audit": "audits/formalization/current-probability-audit.json",
       "notes": "All clauses in final:P5 are formalized. The distributional causal Green-kernel clause has its separate targeted PASS record at p5-distributional-green-formal-independent-audit.md. The actual process uses the standard iid-Exp(1) interarrival construction, not merely a separately postulated exponential pair. A fresh adversarial audit of the complete remaining process clause is recorded at p5-poisson-process-formal-independent-audit.md."
     },
     {

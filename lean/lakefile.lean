@@ -33,6 +33,7 @@ lean_lib SigmaFormalization where
     `SigmaOpLaguerreDomains,
     `SigmaOpLaguerreEigenvalues,
     `SigmaOpLaguerreResolvent,
+    `SigmaOpLaguerreResolventTrace,
     `SigmaOpLaguerreResolventCompact,
     `SigmaOpLaguerreComplexResolvent,
     `SigmaOpDifferentialBridge,

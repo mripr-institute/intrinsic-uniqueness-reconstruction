@@ -8,10 +8,12 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 
 - Named paper items: 80.
 - Definitions: 2.
-- Fully formalized statements: 54.
-- Partially formalized statements: 16.
-- Statements awaiting Lean formalization: 8.
-- Distinct mapped declarations across named items: 1372 (including definitions and helpers).
+- Named statements excluding definitions: 78.
+- Fully formalized named statements: 58/78.
+- Partially formalized statements: 14.
+- Statements awaiting Lean formalization: 6.
+- Additional labelled claims outside named environments: 15 (13 complete, 0 partial, 2 missing).
+- Distinct mapped declarations across named items: 1457 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -39,6 +41,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P4-cumulants** — Deficit transform, cumulants, and determinacy
 - **final:P4** — The linked deficit law and involution identify the potential
 - **final:P4-boundaries** — Neither linked observation alone suffices
+- **final:P5** — Survival, hazard, logistic equation, and causal Green kernel
 - **final:P5-survival-boundaries** — Precise survival boundaries and Gamma shift uniqueness
 - **final:P5-stieltjes** — Probability Stieltjes transform and its inverse
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
@@ -55,6 +58,9 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O2-boundaries** — The exact limits of the probe and stationary data
 - **final:O3-spectrum** — The Laguerre basis and the exact integer spectrum
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
+- **final:O4** — Exact trace domains and reconstruction of the unitary class
+- **final:O4-convergence-boundary** — Compact resolvent does not supply finite trace data
+- **final:O4-heat-kernel** — The complete heat kernel relative to the invariant measure
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
@@ -718,16 +724,18 @@ Mapped Lean declarations:
 
 ### final:P5 — Survival, hazard, logistic equation, and causal Green kernel
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L533); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L533); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.
 - Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.
 - The explicit causal kernels k(t)=1_{[0,∞)}e^{-t} and g(t)=1_{[0,∞)}te^{-t} satisfy the actual whole-line convolution identity k*k=g for every real t, including the zero and negative-time cases.
+- The regular distribution defined by integration against the exact whole-line causal kernel g(t)=1_[0,∞)(t)t exp(-t) satisfies (D+1)^2 g=δ₀ with standard distributional differentiation and exact Dirac normalization. It is the unique causal distributional solution: uniqueness is proved on the larger class of all algebraic linear functionals on C∞_c(R) satisfying the support condition and equation. The witness has a proved L1 pairing bound, and the existing whole-line k*k identity is reused.
 - Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.
 - Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.
 - The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio.
+- The actual unit-rate Poisson counting process is constructed on the infinite product probability space using the standard iid-Exp(1) interarrival characterization. Its full independent clock family, exponential marginals, cumulative arrival epochs, measurable monotone counts, and almost-sure non-explosion/local finiteness are proved. The actual index-1 (second) arrival is the sum of the first two constructed clocks and has law gammaProbability; the at-most-one-arrival probability has the exact Gamma survival formula.
 
 Mapped Lean declarations:
 
@@ -741,7 +749,31 @@ Mapped Lean declarations:
 - `Sigma.normalized_second_order_density_unique`
 - `Sigma.exponential_pair_convolution`
 - `Sigma.causal_unit_exponential_convolution_eq_gamma_green`
+- `Sigma.p5DistributionGreenOperator_apply`
+- `Sigma.p5_causal_green_pairing_eq_dirac`
+- `Sigma.p5_causal_green_distributional_equation`
+- `Sigma.p5_causal_distribution_green_unique`
+- `Sigma.p5_causal_distribution_green_exists_unique`
+- `Sigma.causalGammaGreen_eq_indicator`
+- `Sigma.p5_causal_regular_distribution_green_exists_unique`
+- `Sigma.p5_causal_regular_distribution_green_representation`
 - `Sigma.independent_exponential_pair_gamma`
+- `Sigma.poisson_exponential_clock_map`
+- `Sigma.poisson_unit_rate_interarrival_law`
+- `Sigma.unit_rate_poisson_process_interarrival_law`
+- `Sigma.poisson_renewal_arrival_measurable`
+- `Sigma.poisson_renewal_arrivals_monotone`
+- `Sigma.poisson_renewal_arrivals_tendsto_top_ae`
+- `Sigma.unit_rate_poisson_count_le_iff`
+- `Sigma.unit_rate_poisson_process_count_measurable`
+- `Sigma.unit_rate_poisson_process_count_finite_ae`
+- `Sigma.unit_rate_poisson_process_count_monotone`
+- `Sigma.unit_rate_poisson_process_exponential_interarrival_construction`
+- `Sigma.poisson_renewal_second_arrival_eq`
+- `Sigma.poisson_renewal_second_arrival_gamma_law`
+- `Sigma.unit_rate_poisson_process_second_arrival_law`
+- `Sigma.unit_rate_poisson_at_most_one_event`
+- `Sigma.unit_rate_poisson_at_most_one_arrival_probability`
 - `Sigma.local_ac_continuous_rhs_hasDerivAt`
 - `Sigma.gamma_hazard_local_ac_derivative`
 - `Sigma.gamma_hazard_unique_local_ac`
@@ -755,11 +787,6 @@ Mapped Lean declarations:
 - `Sigma.gamma_probability_native_hazard_inverse`
 - `Sigma.gamma_probability_native_marked_logistic_inverse`
 - `Sigma.gamma_probability_native_logistic_inverse`
-
-Remaining Lean formalization:
-
-- Existence and uniqueness of the causal distributional Green kernel among distributions.
-- Actual unit-rate Poisson-process second-arrival law.
 
 ### final:P5-survival-boundaries — Precise survival boundaries and Gamma shift uniqueness
 
@@ -1471,12 +1498,14 @@ Mapped Lean declarations:
 
 ### final:O4 — Exact trace domains and reconstruction of the unitary class
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L420); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L420); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
-- Exact scalar eigenvalue-series domains and sums for real/complex heat parameters and complex shifted zeta.
-- Actual finite compact moment uniqueness as an ingredient for integer spectral-data recovery.
+- Exact heat and shifted-zeta series domains and values identify the actual Laguerre heat and zeta traces, with exact trace-class ranges.
+- For any nonnegative self-adjoint operator with an actual compact positive-shift resolvent, a complete eigenbasis is constructed and the eigenvalues are proved nonnegative; eigenvector domain membership is derived.
+- Finite weighted spectral measures recover positive eigenvalue multiplicities, including finite and empty index types.
+- Heat, real shifted-zeta, and integer shifted-resolvent trace data each recover the full eigenvalue multiset and give a unitary intertwining the native operators on their full domains.
 
 Mapped Lean declarations:
 
@@ -1487,21 +1516,66 @@ Mapped Lean declarations:
 - `Sigma.operator_complex_zeta_eigenvalue_summable_iff`
 - `Sigma.operator_zeta_eigenvalue_hasSum`
 - `Sigma.operator_hausdorff_moment_unique`
-
-Remaining Lean formalization:
-
-- Identification of these series as actual traces of the native Laguerre operator, with exact trace-class domains.
-- Recovery of arbitrary nonnegative compact-resolvent eigenvalue multisets including multiplicities from each of the three data categories.
-- Unitary equivalence including exact domains; actual extraction/recovery of the weighted spectral measure for integer traces.
+- `Sigma.integer_eigenbasis_zeta_trace`
+- `Sigma.integer_eigenbasis_heat_trace`
+- `Sigma.nonnegative_compact_resolvent_eigenbasis`
+- `Sigma.spectral_integer_moments_equiv`
+- `Sigma.integer_shifted_spectral_data_equiv`
+- `Sigma.heat_spectral_data_equiv`
+- `Sigma.zeta_spectral_data_equiv`
+- `Sigma.eigenbasis_heat_traces_recover_operator`
+- `Sigma.eigenbasis_shifted_zeta_traces_recover_operator`
+- `Sigma.compact_resolvent_integer_traces_recover_operator`
 
 ### final:O4-convergence-boundary — Compact resolvent does not supply finite trace data
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L496); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L496); [independent coverage map](formalization/current-operator-audit.json).
 
-Remaining Lean formalization:
+Mathematical content formalized in Lean:
 
-- Actual nonnegative diagonal self-adjoint compact-resolvent operator whose heat and positive shifted-zeta traces all diverge.
-- Both divergence estimates for the chosen double-log eigenvalue sequence.
+- A native diagonal nonnegative self-adjoint operator on the Laguerre weighted Hilbert space, with maximal spectral domain and an actual compact shift-one resolvent satisfying both inverse equations.
+- Actual bounded heat and shifted-zeta diagonal operators fail to be trace class for every positive real parameter, by tail lower bounds against the divergent (n+3)^(-1/2) series.
+
+Mapped Lean declarations:
+
+- `Sigma.boundarySpectralFunction`
+- `Sigma.boundaryEigenvalue`
+- `Sigma.boundary_eigenvalue_nonneg`
+- `Sigma.boundary_eigenvalue_tendsto_atTop`
+- `Sigma.boundary_heat_eigenvalues_not_summable`
+- `Sigma.boundary_zeta_eigenvalues_not_summable`
+- `Sigma.boundaryResolventCoefficient`
+- `Sigma.boundary_resolvent_coefficient_nonneg`
+- `Sigma.boundary_resolvent_coefficient_bound`
+- `Sigma.boundary_resolvent_coefficient_antitone`
+- `Sigma.boundaryResolvent`
+- `Sigma.boundary_resolvent_coordinate`
+- `Sigma.boundaryResolventTruncation`
+- `Sigma.boundary_resolvent_truncation_compact`
+- `Sigma.boundary_resolvent_truncation_coordinate`
+- `Sigma.boundary_resolvent_truncation_error`
+- `Sigma.boundary_resolvent_truncation_tendsto`
+- `Sigma.boundary_resolvent_compact`
+- `Sigma.boundaryOperator`
+- `Sigma.boundary_operator_selfadjoint`
+- `Sigma.boundary_operator_nonnegative`
+- `Sigma.boundary_resolvent_denominator_ne_zero`
+- `Sigma.boundary_resolvent_mem_domain`
+- `Sigma.boundary_resolvent_generator_action`
+- `Sigma.boundary_resolvent_right_inverse`
+- `Sigma.boundary_resolvent_left_inverse`
+- `Sigma.boundary_operator_has_compact_resolvent`
+- `Sigma.boundaryHeatCoefficient`
+- `Sigma.boundary_heat_coefficient_bound`
+- `Sigma.boundaryHeatOperator`
+- `Sigma.boundary_heat_operator_basis_action`
+- `Sigma.boundary_heat_operator_not_trace_class`
+- `Sigma.boundaryZetaCoefficient`
+- `Sigma.boundary_zeta_coefficient_bound`
+- `Sigma.boundaryZetaOperator`
+- `Sigma.boundary_zeta_operator_basis_action`
+- `Sigma.boundary_zeta_operator_not_trace_class`
+- `Sigma.compact_resolvent_without_positive_traces`
 
 ### final:O4-heat-kernel — The complete heat kernel relative to the invariant measure
 
