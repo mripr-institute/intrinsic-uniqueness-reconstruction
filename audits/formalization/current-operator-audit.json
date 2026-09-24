@@ -388,15 +388,27 @@
     },
     {
       "latex_label": "final:O4-heat-kernel",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.modifiedBesselI1",
+        "Sigma.laguerreHeatKernel",
+        "Sigma.laguerre_heat_kernel_integral_eq_operator",
+        "Sigma.laguerre_heat_kernel_eq_spectral",
+        "Sigma.laguerre_heat_series_locally_uniform",
+        "Sigma.laguerre_heat_kernel_product_l2_eq_spectral",
+        "Sigma.laguerre_heat_kernel_pos",
+        "Sigma.laguerre_heat_kernel_symm",
+        "Sigma.laguerre_heat_kernel_row_mass",
+        "Sigma.laguerre_heat_kernel_tendsto_one",
+        "Sigma.laguerre_heat_kernel_lebesgue_integral"
+      ],
+      "proved_components": [
         "Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.",
         "Local uniform and weighted product-L2 convergence.",
         "Positivity, symmetry, row normalization, large-time limit one, and the corresponding Lebesgue transition density."
       ],
-      "notes": ""
+      "unproved_components": [],
+      "notes": "Independent adversarial AUDIT PASS for the complete heat-kernel statement. The Bessel expression is the actual Gamma-relative integral kernel on every weighted-L2 input, equals the Laguerre series at every positive pair, and represents the same weighted product-L2 sum. Local uniform convergence, positivity, symmetry, row mass, large-time limit, and all-real-test-function Lebesgue density identity are proved."
     },
     {
       "latex_label": "final:O4-resolvents",

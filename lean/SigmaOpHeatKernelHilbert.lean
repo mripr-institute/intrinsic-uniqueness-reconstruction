@@ -2,6 +2,10 @@ import SigmaOpHeatKernel
 import SigmaOpLaguerreComplete
 import SigmaOpCanonicalInverse
 import Mathlib.Data.Nat.Choose.Sum
+import Mathlib.Analysis.Normed.Group.Tannery
+import Mathlib.MeasureTheory.Measure.Prod
+import Mathlib.Analysis.NormedSpace.FunctionSeries
+import Mathlib.MeasureTheory.Function.ConvergenceInMeasure
 
 namespace Sigma
 noncomputable section
@@ -55,7 +59,7 @@ private theorem power_series_constant_coefficient_zero {a : ℕ → ℂ} {R : �
       (𝓝[>] 0) (𝓝 0) := tendsto_const_nhds.congr' hzeroevent.symm
   exact tendsto_nhds_unique hlim hlim0
 
-private theorem power_series_coefficients_zero {a : ℕ → ℂ} {R : ℝ}
+theorem power_series_coefficients_zero {a : ℕ → ℂ} {R : ℝ}
     (hR : 0 < R) (hs : Summable (fun n => ‖a n‖ * R^n))
     (hzero : ∀ z : ℝ, 0 < z → z < R →
       (∑' n : ℕ, a n * (z : ℂ)^n) = 0) : ∀ n, a n = 0 := by
@@ -206,7 +210,7 @@ private theorem modified_bessel_i1_measurable : Measurable modifiedBesselI1 := b
     intro t
     exact (modified_bessel_i1_term_summable t).hasSum.tendsto_sum_nat
 
-private theorem laguerre_heat_kernel_measurable (τ : ℝ) :
+theorem laguerre_heat_kernel_measurable (τ : ℝ) :
     Measurable (fun z : ℝ × ℝ => laguerreHeatKernel τ z.1 z.2) := by
   have hI : Measurable modifiedBesselI1 := modified_bessel_i1_measurable
   refine Measurable.ite (measurableSet_lt measurable_const measurable_snd) ?_ measurable_const
@@ -219,7 +223,7 @@ private theorem laguerre_heat_kernel_measurable (τ : ℝ) :
       (1-Real.exp (-τ))*Real.sqrt (Real.exp (-τ)*z.1*z.2)) := by fun_prop
   exact (hnum.div hden).mul (hI.comp harg)
 
-private theorem laguerre_heat_kernel_closed_growth_bound {τ x y : ℝ}
+theorem laguerre_heat_kernel_closed_growth_bound {τ x y : ℝ}
     (hτ : 0 < τ) (hx : 0 < x) (hy : 0 < y) :
     laguerreHeatKernelClosed τ x y ≤
       ((1-Real.exp (-τ))⁻¹)^2 *
@@ -310,6 +314,311 @@ private theorem laguerre_heat_kernel_closed_growth_bound {τ x y : ℝ}
     _ = ((1-Real.exp (-τ))⁻¹)^2 *
         Real.exp ((Real.sqrt (Real.exp (-τ))/(1+Real.sqrt (Real.exp (-τ))))*(x+y)) := by
       simp [r, d, s]
+
+/-- The closed kernel is an actual vector in the Gamma-weighted product `L²`. -/
+theorem laguerre_heat_kernel_mem_product_l2 {τ : ℝ} (hτ : 0 < τ) :
+    Memℒp (fun z : ℝ × ℝ => laguerreHeatKernel τ z.1 z.2) 2
+      (gammaProbability.prod gammaProbability) := by
+  let r := Real.exp (-τ)
+  let c := Real.sqrt r / (1+Real.sqrt r)
+  let D := ((1-r)⁻¹)^2
+  have hr : 0 < r ∧ r < 1 := by
+    constructor
+    · exact Real.exp_pos _
+    · rw [Real.exp_lt_one_iff]; linarith
+  have hs : Real.sqrt r < 1 := by
+    nlinarith [Real.sq_sqrt hr.1.le, Real.sqrt_nonneg r]
+  have hc : c < 1/2 := by
+    dsimp [c]
+    rw [div_lt_iff₀ (by positivity : 0 < 1+Real.sqrt r)]
+    nlinarith
+  have hβ : -1 < -(2*c) := by linarith
+  have hExpInt : Integrable (fun x : ℝ => Real.exp ((2*c)*x))
+      gammaProbability := by
+    apply Integrable.of_integral_ne_zero
+    have h := gamma_probability_laplace (s := -(2*c)) hβ
+    simpa only [neg_mul, neg_neg] using
+      (show (∫ x : ℝ, Real.exp ((2*c)*x) ∂gammaProbability) ≠ 0 by
+        rw [show (fun x : ℝ => Real.exp ((2*c)*x)) =
+          (fun x : ℝ => Real.exp (-(-(2*c)*x))) by funext x; congr 1; ring,
+          h]
+        have hden : 0 < 1 + -(2*c) := by linarith
+        positivity)
+  have hboundInt : Integrable (fun z : ℝ × ℝ =>
+      D^2 * (Real.exp ((2*c)*z.1) * Real.exp ((2*c)*z.2)))
+      (gammaProbability.prod gammaProbability) :=
+    (hExpInt.prod_mul hExpInt).const_mul _
+  have hp : ∀ᵐ x : ℝ ∂gammaProbability, 0 < x := by
+    have hn : ∀ᵐ x : ℝ ∂gammaProbability, 0 ≤ x := by
+      simpa only [ae_iff, not_le] using gamma_probability_negative_ray
+    have hne : ∀ᵐ x : ℝ ∂gammaProbability, x ≠ 0 := by
+      rw [ae_iff]
+      simpa only [not_ne_iff, Set.setOf_eq_eq_singleton] using
+        gamma_probability_no_atom 0
+    filter_upwards [hn, hne] with x hx hxn
+    exact lt_of_le_of_ne hx (Ne.symm hxn)
+  have hprod : ∀ᵐ z : ℝ × ℝ ∂gammaProbability.prod gammaProbability,
+      0 < z.1 ∧ 0 < z.2 := by
+    apply (Measure.ae_prod_iff_ae_ae (show MeasurableSet
+      {z : ℝ × ℝ | 0 < z.1 ∧ 0 < z.2} from
+        (measurableSet_lt measurable_const measurable_fst).inter
+          (measurableSet_lt measurable_const measurable_snd))).2
+    filter_upwards [hp] with x hx
+    filter_upwards [hp] with y hy
+    exact ⟨hx, hy⟩
+  have hmeas : AEStronglyMeasurable
+      (fun z : ℝ × ℝ => laguerreHeatKernel τ z.1 z.2)
+      (gammaProbability.prod gammaProbability) :=
+    (laguerre_heat_kernel_measurable τ).aestronglyMeasurable
+  apply (memℒp_two_iff_integrable_sq_norm hmeas).mpr
+  apply Integrable.mono' hboundInt
+  · exact (laguerre_heat_kernel_measurable τ).norm.pow_const 2 |>.aestronglyMeasurable
+  · filter_upwards [hprod] with z hz
+    have hKpos : 0 ≤ laguerreHeatKernel τ z.1 z.2 := by
+      rw [laguerreHeatKernel, if_pos hz.2]
+      exact (laguerre_heat_kernel_closed_pos hτ hz.1 hz.2).le
+    have hKbound : laguerreHeatKernel τ z.1 z.2 ≤
+        D * Real.exp (c*(z.1+z.2)) := by
+      rw [laguerreHeatKernel, if_pos hz.2]
+      simpa only [D, c, r] using
+        laguerre_heat_kernel_closed_growth_bound hτ hz.1 hz.2
+    have hsq : (laguerreHeatKernel τ z.1 z.2)^2 ≤
+        (D * Real.exp (c*(z.1+z.2)))^2 := by
+      gcongr
+    rw [Real.norm_of_nonneg (sq_nonneg (‖laguerreHeatKernel τ z.1 z.2‖)),
+      Real.norm_eq_abs, sq_abs]
+    calc
+      (laguerreHeatKernel τ z.1 z.2)^2 ≤
+          (D * Real.exp (c*(z.1+z.2)))^2 := hsq
+      _ = D^2 * (Real.exp ((2*c)*z.1) * Real.exp ((2*c)*z.2)) := by
+        rw [mul_pow, pow_two (Real.exp (c*(z.1+z.2))), ← Real.exp_add]
+        congr 1
+        rw [← Real.exp_add]
+        congr 1
+        ring
+
+/-- A tunable geometric coefficient bound on compact positive intervals. -/
+theorem op_laguerre_geometric_bound {t M x : ℝ} (ht : 0 < t)
+    (hM : 0 ≤ M) (hx : 0 ≤ x) (hxM : x ≤ M) (n : ℕ) :
+    |opLaguerre n x| ≤ ((1+t)^(n+1)/t) * Real.exp (M/t) := by
+  have hchoose (k : ℕ) (hk : k ≤ n) :
+      ((n+1).choose (k+1):ℝ) * t^(k+1) ≤ (1+t)^(n+1) := by
+    have hsingle : ((n+1).choose (k+1):ℝ) * t^(k+1) ≤
+        ∑ j ∈ Finset.range (n+2),
+          ((n+1).choose j:ℝ) * t^j := by
+      exact Finset.single_le_sum (s := Finset.range (n+2))
+        (f := fun j => ((n+1).choose j:ℝ) * t^j)
+        (fun j hj => by positivity) (Finset.mem_range.mpr (by omega))
+    calc
+      ((n+1).choose (k+1):ℝ) * t^(k+1) ≤
+          ∑ j ∈ Finset.range (n+2), ((n+1).choose j:ℝ) * t^j := hsingle
+      _ = (1+t)^(n+1) := by
+        rw [show (1+t) = (t+1) by ring, add_pow]
+        apply Finset.sum_congr rfl
+        intro j hj
+        simp only [one_pow, mul_one]
+        ring
+  have hterm (k : ℕ) (hk : k ≤ n) :
+      |opLaguerreCoefficient n k * x^k| ≤
+        ((1+t)^(n+1)/t) * ((M/t)^k/(k.factorial:ℝ)) := by
+    have hc : 0 ≤ ((n+1).choose (k+1):ℝ) := Nat.cast_nonneg _
+    have hf : 0 < (k.factorial:ℝ) := by positivity
+    have hchoose' : ((n+1).choose (k+1):ℝ) ≤
+        (1+t)^(n+1)/t^(k+1) := by
+      exact (le_div_iff₀ (pow_pos ht _)).mpr (hchoose k hk)
+    have hpow : x^k ≤ M^k := pow_le_pow_left₀ hx hxM k
+    have hterm' : ((n+1).choose (k+1):ℝ) * x^k/(k.factorial:ℝ) ≤
+        ((1+t)^(n+1)/t^(k+1)) * M^k/(k.factorial:ℝ) := by
+      gcongr
+    have halg : ((1+t)^(n+1)/t^(k+1)) * M^k/(k.factorial:ℝ) =
+        ((1+t)^(n+1)/t) * ((M/t)^k/(k.factorial:ℝ)) := by
+      simp only [div_eq_mul_inv, mul_pow, inv_pow, pow_succ]
+      ring
+    have habs : |opLaguerreCoefficient n k * x^k| =
+        ((n+1).choose (k+1):ℝ) * x^k/(k.factorial:ℝ) := by
+      simp only [opLaguerreCoefficient, abs_mul, abs_div, abs_pow,
+        abs_of_nonneg hx, abs_of_nonneg hc,
+        abs_of_nonneg (le_of_lt hf), abs_pow, abs_neg, abs_one,
+        one_pow, one_mul]
+      ring
+    rw [habs]
+    exact hterm'.trans_eq halg
+  have hseries : Summable (fun k : ℕ => (M/t)^k/(k.factorial:ℝ)) := by
+    simpa only [← Real.exp_eq_exp_ℝ] using
+      (NormedSpace.expSeries_div_hasSum_exp ℝ (M/t)).summable
+  have hpartial :
+      (∑ k ∈ Finset.range (n+1), (M/t)^k/(k.factorial:ℝ)) ≤
+        Real.exp (M/t) := by
+    calc
+      _ ≤ ∑' k : ℕ, (M/t)^k/(k.factorial:ℝ) :=
+        sum_le_tsum _ (fun k hk => div_nonneg (pow_nonneg (div_nonneg hM ht.le) _)
+          (Nat.cast_nonneg _)) hseries
+      _ = Real.exp (M/t) := by
+        simpa only [← Real.exp_eq_exp_ℝ] using
+          (NormedSpace.expSeries_div_hasSum_exp ℝ (M/t)).tsum_eq
+  calc
+    |opLaguerre n x| ≤
+        ∑ k ∈ Finset.range (n+1), |opLaguerreCoefficient n k * x^k| := by
+      simpa only [opLaguerre, Real.norm_eq_abs] using
+        (norm_sum_le (Finset.range (n+1))
+          (fun k => opLaguerreCoefficient n k * x^k))
+    _ ≤ ∑ k ∈ Finset.range (n+1),
+        ((1+t)^(n+1)/t) * ((M/t)^k/(k.factorial:ℝ)) := by
+      apply Finset.sum_le_sum
+      intro k hk
+      exact hterm k (Nat.lt_succ_iff.mp (Finset.mem_range.mp hk))
+    _ = ((1+t)^(n+1)/t) *
+        (∑ k ∈ Finset.range (n+1), (M/t)^k/(k.factorial:ℝ)) := by
+      rw [Finset.mul_sum]
+    _ ≤ ((1+t)^(n+1)/t) * Real.exp (M/t) := by
+      exact mul_le_mul_of_nonneg_left hpartial (div_nonneg (pow_nonneg (by linarith) _) ht.le)
+
+/-- The paper's spectral series converges uniformly on every bounded
+positive rectangle, by a tunable geometric Laguerre coefficient bound. -/
+theorem laguerre_heat_series_uniform_on_box {r M : ℝ}
+    (hr : 0 < r) (hr' : r < 1) (hM : 0 ≤ M) :
+    TendstoUniformlyOn
+      (fun N : ℕ => fun z : ℝ × ℝ =>
+        ∑ n ∈ Finset.range N,
+          (r^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2)
+      (fun z : ℝ × ℝ =>
+        ∑' n : ℕ, (r^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2)
+      atTop {z : ℝ × ℝ | 0 ≤ z.1 ∧ z.1 ≤ M ∧ 0 ≤ z.2 ∧ z.2 ≤ M} := by
+  let d := 1-r
+  let t := d/4
+  let q := 1+t
+  let ρ := r*q^2
+  let B := (q/t * Real.exp (M/t))^2
+  have hd : 0 < d ∧ d < 1 := by dsimp [d]; constructor <;> linarith
+  have ht : 0 < t := div_pos hd.1 (by norm_num)
+  have hq : 0 < q := by dsimp [q]; linarith
+  have hqbound : q^2 ≤ 1+d := by
+    dsimp [q, t]
+    have hdd : d^2 ≤ d := by nlinarith [mul_nonneg hd.1.le (sub_nonneg.mpr hd.2.le)]
+    nlinarith
+  have hρ : 0 ≤ ρ ∧ ρ < 1 := by
+    constructor
+    · dsimp [ρ]; positivity
+    · have hmul : r*q^2 ≤ r*(1+d) :=
+        mul_le_mul_of_nonneg_left hqbound hr.le
+      have hsquare : 0 < d^2 := sq_pos_of_pos hd.1
+      dsimp [ρ, d] at *
+      nlinarith
+  have hsum : Summable (fun n : ℕ => B*ρ^n) :=
+    (summable_geometric_of_lt_one hρ.1 hρ.2).mul_left B
+  apply tendstoUniformlyOn_tsum_nat hsum
+  intro n z hz
+  have hx : |opLaguerre n z.1| ≤ q^(n+1)/t * Real.exp (M/t) := by
+    simpa only [q] using op_laguerre_geometric_bound ht hM hz.1 hz.2.1 n
+  have hy : |opLaguerre n z.2| ≤ q^(n+1)/t * Real.exp (M/t) := by
+    simpa only [q] using op_laguerre_geometric_bound ht hM hz.2.2.1 hz.2.2.2 n
+  have hD : 0 ≤ q/t * Real.exp (M/t) := by positivity
+  have hLx : |opLaguerre n z.1| ≤ (q/t * Real.exp (M/t))*q^n := by
+    calc
+      |opLaguerre n z.1| ≤ q^(n+1)/t * Real.exp (M/t) := hx
+      _ = (q/t * Real.exp (M/t))*q^n := by rw [pow_succ]; ring
+  have hLy : |opLaguerre n z.2| ≤ (q/t * Real.exp (M/t))*q^n := by
+    calc
+      |opLaguerre n z.2| ≤ q^(n+1)/t * Real.exp (M/t) := hy
+      _ = (q/t * Real.exp (M/t))*q^n := by rw [pow_succ]; ring
+  have hden : (1:ℝ) ≤ (n+1:ℝ) := by exact_mod_cast Nat.succ_le_succ (Nat.zero_le n)
+  have hcoef : r^n/(n+1:ℝ) ≤ r^n := by
+    exact (div_le_iff₀ (by linarith)).2 (by
+      nlinarith [mul_nonneg (pow_nonneg hr.le n) (sub_nonneg.mpr hden)])
+  have hcoef0 : 0 ≤ r^n/(n+1:ℝ) := by positivity
+  change ‖(r^n/(n+1:ℝ))*opLaguerre n z.1*opLaguerre n z.2‖ ≤ B*ρ^n
+  rw [Real.norm_eq_abs, abs_mul, abs_mul, abs_of_nonneg hcoef0]
+  have hproduct : |opLaguerre n z.1| * |opLaguerre n z.2| ≤
+      ((q/t*Real.exp (M/t))*q^n)^2 := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr hLx) (abs_nonneg (opLaguerre n z.2)),
+      mul_nonneg (sub_nonneg.mpr hLy)
+        (show 0 ≤ (q/t*Real.exp (M/t))*q^n by positivity)]
+  calc
+    r^n/(n+1:ℝ) * |opLaguerre n z.1| * |opLaguerre n z.2| ≤
+        r^n * (((q/t*Real.exp (M/t))*q^n)^2) := by
+      calc
+        _ = (r^n/(n+1:ℝ)) *
+            (|opLaguerre n z.1| * |opLaguerre n z.2|) := by ring
+        _ ≤ r^n * (|opLaguerre n z.1| * |opLaguerre n z.2|) :=
+          mul_le_mul_of_nonneg_right hcoef
+            (mul_nonneg (abs_nonneg _) (abs_nonneg _))
+        _ ≤ r^n * (((q/t*Real.exp (M/t))*q^n)^2) :=
+          mul_le_mul_of_nonneg_left hproduct (pow_nonneg hr.le n)
+    _ = B*ρ^n := by
+      change r^n * (((q/t*Real.exp (M/t))*q^n)^2) =
+        (q/t*Real.exp (M/t))^2 * (r*q^2)^n
+      have hpow : (q^n)^2 = (q^2)^n := by
+        rw [← pow_mul, ← pow_mul, Nat.mul_comm]
+      rw [mul_pow r (q^2) n,
+        mul_pow (q/t*Real.exp (M/t)) (q^n) 2, hpow]
+      ring
+
+/-- Local uniform convergence of the exact paper spectral series on
+the positive quadrant, including arbitrary heat times `τ > 0`. -/
+theorem laguerre_heat_series_locally_uniform {τ : ℝ} (hτ : 0 < τ) :
+    TendstoLocallyUniformlyOn
+      (fun N : ℕ => fun z : ℝ × ℝ =>
+        ∑ n ∈ Finset.range N,
+          (Real.exp (-τ)^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2)
+      (fun z : ℝ × ℝ =>
+        ∑' n : ℕ, (Real.exp (-τ)^n/(n+1:ℝ)) *
+          opLaguerre n z.1 * opLaguerre n z.2)
+      atTop {z : ℝ × ℝ | 0 < z.1 ∧ 0 < z.2} := by
+  have hopen : IsOpen {z : ℝ × ℝ | 0 < z.1 ∧ 0 < z.2} :=
+    (isOpen_Ioi.preimage continuous_fst).inter
+      (isOpen_Ioi.preimage continuous_snd)
+  apply (tendstoLocallyUniformlyOn_iff_forall_isCompact hopen).2
+  intro K hK hcompact
+  obtain ⟨Mx, hMx⟩ := (hcompact.image continuous_fst).bddAbove
+  obtain ⟨My, hMy⟩ := (hcompact.image continuous_snd).bddAbove
+  let M := max 0 (max Mx My)
+  have hM : 0 ≤ M := le_max_left _ _
+  have hsub : K ⊆ {z : ℝ × ℝ |
+      0 ≤ z.1 ∧ z.1 ≤ M ∧ 0 ≤ z.2 ∧ z.2 ≤ M} := by
+    intro z hz
+    have hzpos := hK hz
+    have hxmax : z.1 ≤ Mx := hMx ⟨z, hz, rfl⟩
+    have hymax : z.2 ≤ My := hMy ⟨z, hz, rfl⟩
+    exact ⟨hzpos.1.le, le_trans hxmax (le_trans (le_max_left _ _) (le_max_right _ _)),
+      hzpos.2.le, le_trans hymax (le_trans (le_max_right _ _) (le_max_right _ _))⟩
+  exact (laguerre_heat_series_uniform_on_box (Real.exp_pos _)
+    (by rw [Real.exp_lt_one_iff]; linarith) hM).mono hsub
+
+private theorem op_laguerre_zero (n : ℕ) : opLaguerre n 0 = (n+1:ℝ) := by
+  unfold opLaguerre
+  rw [Finset.sum_eq_single 0]
+  · simp [opLaguerreCoefficient]
+  · intro k hk hk0
+    simp [hk0]
+  · intro h
+    exact False.elim (h (Finset.mem_range.mpr (by omega)))
+
+/-- The Laguerre generating series is uniformly convergent on bounded
+positive intervals, obtained from the two-variable kernel estimate at `y=0`. -/
+theorem laguerre_generating_series_uniform_on_box {q M : ℝ}
+    (hq : 0 < q) (hq' : q < 1) (hM : 0 ≤ M) :
+    TendstoUniformlyOn
+      (fun N : ℕ => fun x : ℝ =>
+        ∑ n ∈ Finset.range N, q^n * opLaguerre n x)
+      (fun x : ℝ => ∑' n : ℕ, q^n * opLaguerre n x)
+      atTop (Set.Icc 0 M) := by
+  have h := laguerre_heat_series_uniform_on_box hq hq' hM
+  have hcomp : Set.MapsTo (fun x : ℝ => (x, (0:ℝ))) (Set.Icc 0 M)
+      {z : ℝ × ℝ | 0 ≤ z.1 ∧ z.1 ≤ M ∧ 0 ≤ z.2 ∧ z.2 ≤ M} := by
+    intro x hx
+    exact ⟨hx.1, hx.2, le_rfl, hM⟩
+  have h' := (h.comp (fun x : ℝ => (x, (0:ℝ)))).mono hcomp
+  convert h' using 1
+  · funext N x
+    apply Finset.sum_congr rfl
+    intro n hn
+    rw [op_laguerre_zero]
+    field_simp [(by positivity : (n+1:ℝ) ≠ 0)]
+  · funext x
+    apply tsum_congr
+    intro n
+    rw [op_laguerre_zero]
+    field_simp [(by positivity : (n+1:ℝ) ≠ 0)]
 
 theorem laguerre_generating_function_mem_l2 {z : ℝ} (hz : 0 ≤ z) (hz' : z < 1/4) :
     Memℒp (fun y : ℝ => (laguerreGeneratingFunction z y : ℂ)) 2 gammaProbability := by
@@ -751,6 +1060,172 @@ theorem laguerre_heat_kernel_spectral_series_tendsto {r : ℝ}
       laguerreHeatKernelSpectralTerm r n) atTop
       (𝓝 (laguerreHeatKernelSpectralSeries r)) :=
   (laguerre_heat_kernel_spectral_series_summable hr0 hr1).hasSum.tendsto_sum_nat
+
+private theorem laguerre_spectral_partial_sum_coe_ae (r : ℝ) (N : ℕ) :
+    ((∑ n ∈ Finset.range N, laguerreHeatKernelSpectralTerm r n :
+      LaguerreProductHilbert) : ℝ × ℝ → ℝ) =ᵐ[
+      gammaProbability.prod gammaProbability]
+      fun z => ∑ n ∈ Finset.range N,
+        (r^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2 := by
+  induction N with
+  | zero =>
+      simp only [Finset.sum_range_zero]
+      exact Filter.Eventually.of_forall (fun z => by simp)
+  | succ N ih =>
+      simp only [Finset.sum_range_succ]
+      have hadd := Lp.coeFn_add
+        (∑ n ∈ Finset.range N, laguerreHeatKernelSpectralTerm r n)
+        (laguerreHeatKernelSpectralTerm r N)
+      have hterm := (laguerre_heat_kernel_spectral_term_mem r N).coeFn_toLp
+      filter_upwards [hadd, ih, hterm] with z h₁ h₂ h₃
+      change laguerreHeatKernelSpectralTerm r N z = _ at h₃
+      simp only [laguerreHeatKernelSpectralTermFun] at h₃
+      rw [h₁, Pi.add_apply, h₂, h₃]
+
+/-- The locally uniformly convergent pointwise spectral series is the
+representative of the already constructed weighted product-`L²` sum. -/
+theorem laguerre_heat_kernel_spectral_series_represents {τ : ℝ} (hτ : 0 < τ) :
+    (laguerreHeatKernelSpectralSeries (Real.exp (-τ)) : ℝ × ℝ → ℝ) =ᵐ[
+      gammaProbability.prod gammaProbability]
+      (fun z => ∑' n : ℕ,
+        (Real.exp (-τ)^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2) := by
+  let r := Real.exp (-τ)
+  let μ := gammaProbability.prod gammaProbability
+  let S : ℕ → LaguerreProductHilbert := fun N =>
+    ∑ n ∈ Finset.range N, laguerreHeatKernelSpectralTerm r n
+  let f : ℕ → ℝ × ℝ → ℝ := fun N z =>
+    ∑ n ∈ Finset.range N,
+      (r^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2
+  let g : ℝ × ℝ → ℝ := fun z =>
+    ∑' n : ℕ, (r^n/(n+1:ℝ)) * opLaguerre n z.1 * opLaguerre n z.2
+  have hS : Tendsto S atTop (𝓝 (laguerreHeatKernelSpectralSeries r)) :=
+    laguerre_heat_kernel_spectral_series_tendsto (Real.exp_pos _).le
+      (by dsimp [r]; rw [Real.exp_lt_one_iff]; linarith)
+  have hmeasure := tendstoInMeasure_of_tendsto_Lp hS
+  obtain ⟨ns, hns, hae⟩ := hmeasure.exists_seq_tendsto_ae
+  have hrepr : ∀ᵐ z : ℝ × ℝ ∂μ, ∀ N : ℕ, S N z = f N z := by
+    rw [ae_all_iff]
+    intro N
+    exact laguerre_spectral_partial_sum_coe_ae r N
+  have hpositive : ∀ᵐ z : ℝ × ℝ ∂μ, 0 < z.1 ∧ 0 < z.2 := by
+    have hp : ∀ᵐ x : ℝ ∂gammaProbability, 0 < x := by
+      have hn : ∀ᵐ x : ℝ ∂gammaProbability, 0 ≤ x := by
+        simpa only [ae_iff, not_le] using gamma_probability_negative_ray
+      have hne : ∀ᵐ x : ℝ ∂gammaProbability, x ≠ 0 := by
+        rw [ae_iff]
+        simpa only [not_ne_iff, Set.setOf_eq_eq_singleton] using
+          gamma_probability_no_atom 0
+      filter_upwards [hn, hne] with x hx hxn
+      exact lt_of_le_of_ne hx (Ne.symm hxn)
+    apply (Measure.ae_prod_iff_ae_ae (show MeasurableSet
+      {z : ℝ × ℝ | 0 < z.1 ∧ 0 < z.2} from
+        (measurableSet_lt measurable_const measurable_fst).inter
+          (measurableSet_lt measurable_const measurable_snd))).2
+    filter_upwards [hp] with x hx
+    filter_upwards [hp] with y hy
+    exact ⟨hx, hy⟩
+  filter_upwards [hae, hrepr, hpositive] with z hz hrep hpos
+  have hpoint : Tendsto (fun N => f N z) atTop (𝓝 (g z)) :=
+    (laguerre_heat_series_locally_uniform hτ).tendsto_at hpos
+  have hsubseq : Tendsto ns atTop atTop := hns.tendsto_atTop
+  have hpoint' : Tendsto (fun i => f (ns i) z) atTop (𝓝 (g z)) :=
+    hpoint.comp hsubseq
+  have hrewrite : (fun i => S (ns i) z) = fun i => f (ns i) z := by
+    funext i
+    exact hrep (ns i)
+  rw [hrewrite] at hz
+  change (laguerreHeatKernelSpectralSeries r : ℝ × ℝ → ℝ) z = g z
+  exact tendsto_nhds_unique hz hpoint'
+
+/-- The pointwise spectral kernel has the paper's large-time limit. -/
+theorem laguerre_heat_spectral_series_tendsto_one {x y : ℝ}
+    (hx : 0 < x) (hy : 0 < y) :
+    Tendsto (fun τ : ℝ => ∑' n : ℕ,
+      (Real.exp (-τ)^n/(n+1:ℝ)) * opLaguerre n x * opLaguerre n y)
+      atTop (𝓝 1) := by
+  let M := max x y
+  let t : ℝ := 1/4
+  let q : ℝ := 1+t
+  let C := q/t * Real.exp (M/t)
+  let ρ : ℝ := (1/2)*q^2
+  have hM : 0 ≤ M := le_trans hx.le (le_max_left _ _)
+  have hq : 0 < q := by dsimp [q, t]; norm_num
+  have hρ : 0 ≤ ρ ∧ ρ < 1 := by dsimp [ρ, q, t]; norm_num
+  have hX (n : ℕ) : |opLaguerre n x| ≤ C*q^n := by
+    have h := op_laguerre_geometric_bound
+      (t := t) (M := M) (x := x) (by norm_num [t]) hM hx.le
+      (le_max_left _ _) n
+    calc
+      |opLaguerre n x| ≤ q^(n+1)/t * Real.exp (M/t) := by simpa [q] using h
+      _ = C*q^n := by dsimp [C]; rw [pow_succ]; ring
+  have hY (n : ℕ) : |opLaguerre n y| ≤ C*q^n := by
+    have h := op_laguerre_geometric_bound
+      (t := t) (M := M) (x := y) (by norm_num [t]) hM hy.le
+      (le_max_right _ _) n
+    calc
+      |opLaguerre n y| ≤ q^(n+1)/t * Real.exp (M/t) := by simpa [q] using h
+      _ = C*q^n := by dsimp [C]; rw [pow_succ]; ring
+  have hC : 0 ≤ C := by dsimp [C, q, t]; positivity
+  have hsum : Summable (fun n : ℕ => C^2*ρ^n) :=
+    (summable_geometric_of_lt_one hρ.1 hρ.2).mul_left _
+  have hr : Tendsto (fun τ : ℝ => Real.exp (-τ)) atTop (𝓝 0) := by
+    exact Real.tendsto_exp_atBot.comp tendsto_neg_atTop_atBot
+  have hlim (n : ℕ) :
+      Tendsto (fun τ : ℝ => (Real.exp (-τ)^n/(n+1:ℝ)) *
+        opLaguerre n x * opLaguerre n y) atTop
+        (𝓝 (if n = 0 then 1 else 0)) := by
+    by_cases hn : n = 0
+    · subst n
+      simp [opLaguerre_first_three]
+    · have hpow : Tendsto (fun τ : ℝ => Real.exp (-τ)^n) atTop (𝓝 0) := by
+        simpa [hn] using hr.pow n
+      have h := (hpow.div_const (n+1:ℝ)).mul_const (opLaguerre n x)
+      have h' := h.mul_const (opLaguerre n y)
+      simpa [hn] using h'
+  have hevent : ∀ᶠ τ : ℝ in atTop, Real.exp (-τ) ≤ 1/2 :=
+    (hr.eventually (eventually_le_nhds (by norm_num : (0:ℝ) < 1/2))).mono
+      (fun τ h => h)
+  have hbound : ∀ᶠ τ : ℝ in atTop, ∀ n : ℕ,
+      ‖(Real.exp (-τ)^n/(n+1:ℝ)) * opLaguerre n x * opLaguerre n y‖ ≤
+        C^2*ρ^n := by
+    filter_upwards [hevent] with τ hτ n
+    have hnonneg : 0 ≤ Real.exp (-τ)^n/(n+1:ℝ) := by positivity
+    have hden : (1:ℝ) ≤ (n+1:ℝ) := by exact_mod_cast Nat.succ_le_succ (Nat.zero_le n)
+    have hcoef : Real.exp (-τ)^n/(n+1:ℝ) ≤ (1/2:ℝ)^n := by
+      have hp : Real.exp (-τ)^n ≤ (1/2:ℝ)^n :=
+        pow_le_pow_left₀ (Real.exp_nonneg _) hτ n
+      calc
+        _ ≤ Real.exp (-τ)^n := by
+          have hp0 : 0 ≤ Real.exp (-τ)^n := pow_nonneg (Real.exp_nonneg (-τ)) n
+          exact (div_le_iff₀ (by positivity)).2 (by
+            nlinarith [mul_nonneg hp0
+              (show 0 ≤ (n+1:ℝ)-1 by linarith)])
+        _ ≤ (1/2:ℝ)^n := hp
+    rw [Real.norm_eq_abs, abs_mul, abs_mul, abs_of_nonneg hnonneg]
+    have hproduct : |opLaguerre n x| * |opLaguerre n y| ≤ (C*q^n)^2 := by
+      nlinarith [mul_nonneg (sub_nonneg.mpr (hX n)) (abs_nonneg (opLaguerre n y)),
+        mul_nonneg (sub_nonneg.mpr (hY n))
+          (show 0 ≤ C*q^n by positivity)]
+    calc
+      Real.exp (-τ)^n/(n+1:ℝ) * |opLaguerre n x| * |opLaguerre n y| ≤
+          (1/2:ℝ)^n * (C*q^n)^2 := by
+        calc
+          _ = (Real.exp (-τ)^n/(n+1:ℝ)) *
+              (|opLaguerre n x| * |opLaguerre n y|) := by ring
+          _ ≤ (1/2:ℝ)^n *
+              (|opLaguerre n x| * |opLaguerre n y|) :=
+            mul_le_mul_of_nonneg_right hcoef
+              (mul_nonneg (abs_nonneg _) (abs_nonneg _))
+          _ ≤ (1/2:ℝ)^n * (C*q^n)^2 :=
+            mul_le_mul_of_nonneg_left hproduct (by positivity)
+      _ = C^2*ρ^n := by
+        change (1/2:ℝ)^n*(C*q^n)^2 = C^2*((1/2:ℝ)*q^2)^n
+        have hpow : (q^n)^2 = (q^2)^n := by
+          rw [← pow_mul, ← pow_mul, Nat.mul_comm]
+        rw [mul_pow (1/2:ℝ) (q^2) n, mul_pow C (q^n) 2, hpow]
+        ring
+  have hmain := tendsto_tsum_of_dominated_convergence hsum hlim hbound
+  simpa only [tsum_ite_eq, op_laguerre_zero, Nat.cast_one, zero_add] using hmain
 
 end
 end Sigma

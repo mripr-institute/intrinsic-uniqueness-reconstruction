@@ -3,9 +3,9 @@
   "count": 80,
   "totals": {
     "definition": 2,
-    "complete": 57,
+    "complete": 58,
     "partial": 14,
-    "missing": 7
+    "missing": 6
   },
   "pending_exact_statement_matches": 0,
   "additional_labelled_claims": [
@@ -2267,21 +2267,29 @@
       "line": 515,
       "statement_tex": "\\label{final:O4-heat-kernel}\nFor $\\tau>0$, set $r=e^{-\\tau}$.  The kernel of $e^{-\\tau A}$ relative\nto $p(y)\\,dy$ is\n\\begin{align}\n K_\\tau(x,y)\n &=\\sum_{n=0}^\\infty\\frac{r^n}{n+1}\n       L_n^{(1)}(x)L_n^{(1)}(y)\\label{final:O4-kernel-series}\\\\\n &=\\frac{\\exp[-r(x+y)/(1-r)]}{(1-r)\\sqrt{rxy}}\n       I_1\\!\\left(\\frac{2\\sqrt{rxy}}{1-r}\\right),\n       \\qquad x,y>0.\\label{final:O4-hille-hardy}\n\\end{align}\nHere $I_1$ is the modified Bessel function, specified by\n$I_1(z)=\\sum_{m\\geq0}(z/2)^{2m+1}/(m!(m+1)!)$.\nThe series converges locally uniformly in $x,y>0$ and in\n$L^2(p(x)p(y)\\,dx\\,dy)$.\nThe kernel is positive and symmetric,\n$\\int K_\\tau(x,y)p(y)\\,dy=1$, and it tends to $1$ as\n$\\tau\\to\\infty$.  The Lebesgue transition density is\n$K_\\tau(x,y)p(y)$.\n",
       "statement_sha256": "9f28e3530b9ccf066a14be9da39c989489001c07b7e79637d6388bf5d6fd6a56",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
-      "unproved_components": [
+      "lean_status": "complete",
+      "lean_theorems": [
+        "Sigma.modifiedBesselI1",
+        "Sigma.laguerreHeatKernel",
+        "Sigma.laguerre_heat_kernel_integral_eq_operator",
+        "Sigma.laguerre_heat_kernel_eq_spectral",
+        "Sigma.laguerre_heat_series_locally_uniform",
+        "Sigma.laguerre_heat_kernel_product_l2_eq_spectral",
+        "Sigma.laguerre_heat_kernel_pos",
+        "Sigma.laguerre_heat_kernel_symm",
+        "Sigma.laguerre_heat_kernel_row_mass",
+        "Sigma.laguerre_heat_kernel_tendsto_one",
+        "Sigma.laguerre_heat_kernel_lebesgue_integral"
+      ],
+      "proved_components": [
         "Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.",
         "Local uniform and weighted product-L2 convergence.",
         "Positivity, symmetry, row normalization, large-time limit one, and the corresponding Lebesgue transition density."
       ],
-      "gaps": [
-        "Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.",
-        "Local uniform and weighted product-L2 convergence.",
-        "Positivity, symmetry, row normalization, large-time limit one, and the corresponding Lebesgue transition density."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Independent adversarial AUDIT PASS for the complete heat-kernel statement. The Bessel expression is the actual Gamma-relative integral kernel on every weighted-L2 input, equals the Laguerre series at every positive pair, and represents the same weighted product-L2 sum. Local uniform convergence, positivity, symmetry, row mass, large-time limit, and all-real-test-function Lebesgue density identity are proved."
     },
     {
       "id": "final:O4-resolvents",

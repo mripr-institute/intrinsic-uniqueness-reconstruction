@@ -1505,13 +1505,27 @@ Remaining Lean formalization:
 
 ### final:O4-heat-kernel — The complete heat kernel relative to the invariant measure
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L515); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L515); [independent coverage map](formalization/current-operator-audit.json).
 
-Remaining Lean formalization:
+Mathematical content formalized in Lean:
 
 - Kernel of the actual heat operator relative to the invariant probability; Laguerre and Hille-Hardy/Bessel formulas.
 - Local uniform and weighted product-L2 convergence.
 - Positivity, symmetry, row normalization, large-time limit one, and the corresponding Lebesgue transition density.
+
+Mapped Lean declarations:
+
+- `Sigma.modifiedBesselI1`
+- `Sigma.laguerreHeatKernel`
+- `Sigma.laguerre_heat_kernel_integral_eq_operator`
+- `Sigma.laguerre_heat_kernel_eq_spectral`
+- `Sigma.laguerre_heat_series_locally_uniform`
+- `Sigma.laguerre_heat_kernel_product_l2_eq_spectral`
+- `Sigma.laguerre_heat_kernel_pos`
+- `Sigma.laguerre_heat_kernel_symm`
+- `Sigma.laguerre_heat_kernel_row_mass`
+- `Sigma.laguerre_heat_kernel_tendsto_one`
+- `Sigma.laguerre_heat_kernel_lebesgue_integral`
 
 ### final:O4-resolvents — Resolvents, their kernels, and the operator inverse
 

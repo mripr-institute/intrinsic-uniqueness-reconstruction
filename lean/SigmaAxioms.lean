@@ -1,4 +1,5 @@
 import Sigma
+import SigmaOpHeatKernelPointwise
 
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique
@@ -2225,6 +2226,10 @@ import Sigma
 #print axioms Sigma.laguerre_heat_injective
 #print axioms Sigma.laguerre_marked_heat_inverse
 #print axioms Sigma.laguerre_marked_heat_inverse_domain
+#print axioms Sigma.laguerre_heat_kernel_integral_eq_operator
+#print axioms Sigma.laguerre_heat_kernel_eq_spectral
+#print axioms Sigma.laguerre_heat_kernel_product_l2_eq_spectral
+#print axioms Sigma.laguerre_heat_kernel_tendsto_one
 #print axioms Sigma.matrix_gaussian_iid_scatter_law
 #print axioms Sigma.matrix_gaussian_sample_log_density
 #print axioms Sigma.matrix_gaussian_scatter_sufficient
