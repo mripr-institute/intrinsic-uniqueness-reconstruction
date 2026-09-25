@@ -63,6 +63,7 @@ lean_lib SigmaFormalization where
     `SigmaOpHeatKernelRowFourier,
     `SigmaOpHeatKernelAction,
     `SigmaOpHeatKernelPointwise,
+    `SigmaOpHeatResolvent,
     `SigmaOpNonlocalBoundary,
     `SigmaOpRefreshDynamics,
     `SigmaMatrixLikelihood,

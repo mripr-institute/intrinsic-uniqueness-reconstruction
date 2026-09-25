@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 14.
 - Statements awaiting Lean formalization: 6.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1457 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1468 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1610,6 +1610,8 @@ Mathematical content formalized in Lean:
 - A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.
 - Exact scalar first/squared/shifted resolvent summability thresholds.
 - The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero.
+- The first and time-weighted heat Laplace integrals equal the actual first and squared resolvents on every weighted-L2 Laguerre basis vector.
+- The actual first resolvent is Hilbert-Schmidt and not nuclear; its square and the difference of two first resolvents are nuclear, with basis-independent native traces equal to their respective convergent eigenvalue series.
 
 Mapped Lean declarations:
 
@@ -1629,12 +1631,23 @@ Mapped Lean declarations:
 - `Sigma.laguerre_heat_samples_tendsto_zero`
 - `Sigma.laguerre_marked_heat_inverse`
 - `Sigma.laguerre_marked_heat_inverse_domain`
+- `Sigma.laguerre_heat_laplace_eigenvalue`
+- `Sigma.laguerre_heat_time_laplace_eigenvalue`
+- `Sigma.laguerre_heat_basis_action`
+- `Sigma.laguerre_heat_laplace_basis_action`
+- `Sigma.laguerre_heat_time_laplace_basis_action`
+- `Sigma.laguerre_resolvent_hilbert_schmidt`
+- `Sigma.laguerre_resolvent_not_nuclear`
+- `Sigma.laguerre_squared_resolvent_nuclear`
+- `Sigma.laguerre_squared_resolvent_trace`
+- `Sigma.laguerre_resolvent_difference_nuclear`
+- `Sigma.laguerre_resolvent_difference_trace`
 
 Remaining Lean formalization:
 
-- Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.
-- Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.
-- Trace-class resolvent difference and actual digamma trace formula.
+- Extend the heat Laplace identities from basis vectors to every weighted-L2 input and prove the resulting nonnegative kernel integrals are weighted product-L2 kernels, finite almost everywhere.
+- Identify the native squared-resolvent trace series with the Hurwitz zeta value at two for every positive shift.
+- Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign.
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 

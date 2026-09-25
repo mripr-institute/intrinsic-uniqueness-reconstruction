@@ -429,19 +429,32 @@
         "Sigma.laguerre_heat_samples_positive",
         "Sigma.laguerre_heat_samples_tendsto_zero",
         "Sigma.laguerre_marked_heat_inverse",
-        "Sigma.laguerre_marked_heat_inverse_domain"
+        "Sigma.laguerre_marked_heat_inverse_domain",
+        "Sigma.laguerre_heat_laplace_eigenvalue",
+        "Sigma.laguerre_heat_time_laplace_eigenvalue",
+        "Sigma.laguerre_heat_basis_action",
+        "Sigma.laguerre_heat_laplace_basis_action",
+        "Sigma.laguerre_heat_time_laplace_basis_action",
+        "Sigma.laguerre_resolvent_hilbert_schmidt",
+        "Sigma.laguerre_resolvent_not_nuclear",
+        "Sigma.laguerre_squared_resolvent_nuclear",
+        "Sigma.laguerre_squared_resolvent_trace",
+        "Sigma.laguerre_resolvent_difference_nuclear",
+        "Sigma.laguerre_resolvent_difference_trace"
       ],
       "proved_components": [
         "A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.",
         "Exact scalar first/squared/shifted resolvent summability thresholds.",
-        "The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero."
+        "The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero.",
+        "The first and time-weighted heat Laplace integrals equal the actual first and squared resolvents on every weighted-L2 Laguerre basis vector.",
+        "The actual first resolvent is Hilbert-Schmidt and not nuclear; its square and the difference of two first resolvents are nuclear, with basis-independent native traces equal to their respective convergent eigenvalue series."
       ],
       "unproved_components": [
-        "Actual heat-kernel Laplace formulas as weighted L2 resolvent kernels, finite almost everywhere.",
-        "Hilbert-Schmidt/not-trace-class first resolvent, trace-class square and actual Hurwitz-zeta trace.",
-        "Trace-class resolvent difference and actual digamma trace formula."
+        "Extend the heat Laplace identities from basis vectors to every weighted-L2 input and prove the resulting nonnegative kernel integrals are weighted product-L2 kernels, finite almost everywhere.",
+        "Identify the native squared-resolvent trace series with the Hurwitz zeta value at two for every positive shift.",
+        "Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign."
       ],
-      "notes": "Independent bounded AUDIT PASS for the actual canonical resolvent and full marked heat inverse. Existing generic OpIsResolvent inverse results are reused. The heat reconstruction retains the complete marked basis and is not a general unmarked Borel inverse for arbitrary self-adjoint operators. Kernel and trace clauses remain separate."
+      "notes": "Independent bounded AUDIT PASS for the actual canonical resolvent and full marked heat inverse. Existing generic OpIsResolvent inverse results are reused. The heat reconstruction retains the complete marked basis and is not a general unmarked Borel inverse for arbitrary self-adjoint operators. The basis Laplace equalities compile in SigmaOpHeatResolvent; the native ideal and eigenvalue-series trace theorems already compile in SigmaOpLaguerreResolventTrace. Full kernel and named special-function identifications remain open."
     },
     {
       "latex_label": "final:O4-determinants",

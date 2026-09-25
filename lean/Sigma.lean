@@ -40,6 +40,7 @@ import SigmaOpWeightedSobolev
 import SigmaOpDeficiency
 import SigmaOpCanonicalInverse
 import SigmaOpHeatKernelPointwise
+import SigmaOpHeatResolvent
 import SigmaOpMoments
 import SigmaOpMixing
 import SigmaOpMomentGrowth
