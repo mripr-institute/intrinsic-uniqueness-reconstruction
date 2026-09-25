@@ -13,9 +13,10 @@ In the coverage ledger, proved-result inventory, and formalization records:
 - **Remaining component** means a remaining Lean formalization task.
 
 These statuses do not downgrade the paper's proved results to conjectures.
-The machine-readable keys `unproved_components` and `additional_labelled_claims`
-are retained for compatibility; they mean remaining Lean formalization components
-and additional labelled paper results, respectively.
+The machine-readable key `unproved_components` is retained for compatibility;
+it means remaining Lean formalization components. The `labelled_equations`
+records check displayed equations at equation level. Equations within named
+statements are components of those statements, not additional paper results.
 
 Use [the current coverage ledger](lean-coverage.md) and
 [the formalized-result inventory](proved-inventory.md) for the current Lean

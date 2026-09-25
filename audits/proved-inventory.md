@@ -12,7 +12,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Fully formalized named statements: 58/78.
 - Partially formalized statements: 14.
 - Statements awaiting Lean formalization: 6.
-- Additional labelled claims outside named environments: 15 (13 complete, 0 partial, 2 missing).
+- Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
 - Distinct mapped declarations across named items: 1457 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
@@ -2797,11 +2797,13 @@ Remaining Lean formalization:
 
 - Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly.
 
-## Additional labelled mathematical results
+## Labelled equations
+
+Equations within named statements are component-level checks of those statements, not separate paper results.
 
 ### final:todd-twists
 
-Lean coverage: **complete**.
+Parent named statement: **final:F1**. Lean coverage: **complete**.
 
 - `Sigma.formal_twisted_todd_coeff`
 - `Sigma.todd_twist_polynomial_identity`
@@ -2809,7 +2811,7 @@ Lean coverage: **complete**.
 
 ### final:todd-arbitrary-power
 
-Lean coverage: **complete**.
+Parent named statement: **none (standalone equation)**. Lean coverage: **complete**.
 
 - `Sigma.formalBinomialPower`
 - `Sigma.scalarFallingFactorial`
@@ -2831,7 +2833,7 @@ Lean coverage: **complete**.
 
 ### final:TAL
 
-Lean coverage: **complete**.
+Parent named statement: **final:F2**. Lean coverage: **complete**.
 
 - `Sigma.formal_ahat_to_todd`
 - `Sigma.formal_todd_to_L`
@@ -2839,59 +2841,59 @@ Lean coverage: **complete**.
 
 ### final:exponential-recovery
 
-Lean coverage: **complete**.
+Parent named statement: **final:F2**. Lean coverage: **complete**.
 
 - `Sigma.formal_todd_recovers_exponential`
 - `Sigma.formal_L_recovers_exponential`
 
 ### final:chi-inverse
 
-Lean coverage: **complete**.
+Parent named statement: **final:F2**. Lean coverage: **complete**.
 
 - `Sigma.formal_chi_recovers_todd`
 - `Sigma.formal_chi_over_recovers_todd`
 
 ### final:Thom-comparison
 
-Lean coverage: **missing**.
+Parent named statement: **final:F4**. Lean coverage: **missing**.
 
 - Remaining Lean formalization: Actual uniquely defined Thom correction
 
 ### final:RR
 
-Lean coverage: **missing**.
+Parent named statement: **final:F4**. Lean coverage: **missing**.
 
 - Remaining Lean formalization: Actual Riemann--Roch Gysin comparison
 
 ### final:matrix-potential
 
-Lean coverage: **complete**.
+Parent named statement: **final:M1**. Lean coverage: **complete**.
 
 - `Sigma.matrixPotential_spectral`
 - `Sigma.spd_positive_rank_lift_unique`
 
 ### final:matrix-gradient
 
-Lean coverage: **complete**.
+Parent named statement: **final:M2**. Lean coverage: **complete**.
 
 - `Sigma.matrixPotential_fderiv`
 
 ### final:matrix-hessian
 
-Lean coverage: **complete**.
+Parent named statement: **final:M2**. Lean coverage: **complete**.
 
 - `Sigma.matrixPotential_second_fderiv`
 - `Sigma.matrix_hessian_metric`
 
 ### final:matrix-divergence
 
-Lean coverage: **complete**.
+Parent named statement: **final:M2**. Lean coverage: **complete**.
 
 - `Sigma.matrix_actual_bregman`
 
 ### final:matrix-conjugate
 
-Lean coverage: **complete**.
+Parent named statement: **final:M2**. Lean coverage: **complete**.
 
 - `Sigma.matrix_fenchel_conjugate_formula`
 - `Sigma.matrix_fenchel_conjugate_finite`
@@ -2900,19 +2902,19 @@ Lean coverage: **complete**.
 
 ### final:radial-residual
 
-Lean coverage: **complete**.
+Parent named statement: **final:R3**. Lean coverage: **complete**.
 
 - `Sigma.radial_residual`
 
 ### final:tree-integral
 
-Lean coverage: **complete**.
+Parent named statement: **final:B2**. Lean coverage: **complete**.
 
 - `Sigma.farey_left_integral`
 
 ### final:integer-collision
 
-Lean coverage: **complete**.
+Parent named statement: **final:B3**. Lean coverage: **complete**.
 
 - `Sigma.placed_collision_iff`
 

@@ -1,5 +1,5 @@
 {
-  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. The named count includes definitions; additional labelled claims are tracked separately. Complete Lean coverage is not yet established.",
+  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. The named count includes definitions. Labelled equations are tracked at equation level; those inside named statements are not additional paper results. Complete Lean coverage is not yet established.",
   "count": 80,
   "named_statement_count": 78,
   "totals": {
@@ -8,12 +8,12 @@
     "partial": 14,
     "missing": 6
   },
-  "additional_labelled_claim_totals": {
+  "labelled_equation_totals": {
     "complete": 13,
     "missing": 2
   },
   "pending_exact_statement_matches": 0,
-  "additional_labelled_claims": [
+  "labelled_equations": [
     {
       "latex_label": "final:todd-twists",
       "status": "complete",
@@ -22,7 +22,8 @@
         "Sigma.todd_twist_polynomial_identity",
         "Sigma.formal_twisted_todd_coeff_over_Q_algebra"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F1"
     },
     {
       "latex_label": "final:todd-arbitrary-power",
@@ -55,7 +56,8 @@
       ],
       "unproved_components": [],
       "notes": "Bounded complete labelled-equation AUDIT PASS. The left side is the standard binomial expansion using coefficients of native powers of F-1, not the desired multiplicity right side by definition. The membership theorem gives exactly all vectors supported in degrees 1 through n with weighted sum n; empty products handle n=0, and no positivity or integrality restriction is imposed on the scalar exponent. Negative scalars use the paper's formal-binomial convention; no separate native integer-power compatibility beyond natural powers is claimed. Initial review found the section's commutative-Q-algebra scope missing. SigmaToddArbitraryPowerAlgebra now resolves it with only CommRing and Algebra Q assumptions, no domain/field/no-zero-divisors or rational-image restriction on k. Factorial inverses are actual images of rational inverses, and the Todd unit is the previously proved base-changed standard quotient, not a newly assumed series. Native natural-power compatibility and equality with the previous field convention are separately proved.",
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": null
     },
     {
       "latex_label": "final:TAL",
@@ -65,7 +67,8 @@
         "Sigma.formal_todd_to_L",
         "Sigma.formal_L_to_todd"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F2"
     },
     {
       "latex_label": "final:exponential-recovery",
@@ -74,7 +77,8 @@
         "Sigma.formal_todd_recovers_exponential",
         "Sigma.formal_L_recovers_exponential"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F2"
     },
     {
       "latex_label": "final:chi-inverse",
@@ -83,7 +87,8 @@
         "Sigma.formal_chi_recovers_todd",
         "Sigma.formal_chi_over_recovers_todd"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F2"
     },
     {
       "latex_label": "final:Thom-comparison",
@@ -92,7 +97,8 @@
       "unproved_components": [
         "Actual uniquely defined Thom correction"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F4"
     },
     {
       "latex_label": "final:RR",
@@ -101,7 +107,8 @@
       "unproved_components": [
         "Actual Riemann--Roch Gysin comparison"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:F4"
     },
     {
       "latex_label": "final:matrix-potential",
@@ -110,7 +117,8 @@
         "Sigma.matrixPotential_spectral",
         "Sigma.spd_positive_rank_lift_unique"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:M1"
     },
     {
       "latex_label": "final:matrix-gradient",
@@ -118,7 +126,8 @@
       "lean_declarations": [
         "Sigma.matrixPotential_fderiv"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:M2"
     },
     {
       "latex_label": "final:matrix-hessian",
@@ -127,7 +136,8 @@
         "Sigma.matrixPotential_second_fderiv",
         "Sigma.matrix_hessian_metric"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:M2"
     },
     {
       "latex_label": "final:matrix-divergence",
@@ -135,7 +145,8 @@
       "lean_declarations": [
         "Sigma.matrix_actual_bregman"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:M2"
     },
     {
       "latex_label": "final:matrix-conjugate",
@@ -147,7 +158,8 @@
         "Sigma.matrix_fenchel_equality_iff"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:M2"
     },
     {
       "latex_label": "final:radial-residual",
@@ -155,7 +167,8 @@
       "lean_declarations": [
         "Sigma.radial_residual"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:R3"
     },
     {
       "latex_label": "final:tree-integral",
@@ -164,7 +177,8 @@
         "Sigma.farey_left_integral"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:B2"
     },
     {
       "latex_label": "final:integer-collision",
@@ -172,7 +186,8 @@
       "lean_declarations": [
         "Sigma.placed_collision_iff"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json"
+      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "parent_statement": "final:B3"
     }
   ],
   "obligations": [
@@ -2639,7 +2654,7 @@
       "unproved_components": [],
       "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The separate displayed equation final:todd-arbitrary-power is outside the F1 theorem statement and is not covered by these twist theorems; see additional_labelled_claims."
+      "notes": "The separate displayed equation final:todd-arbitrary-power is outside the F1 theorem statement and is not covered by these twist theorems; see labelled_equations."
     },
     {
       "id": "final:F2",
