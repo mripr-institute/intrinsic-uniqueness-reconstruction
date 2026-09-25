@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 14.
 - Statements awaiting Lean formalization: 6.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1473 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1476 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1612,6 +1612,7 @@ Mathematical content formalized in Lean:
 - The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero.
 - The first and time-weighted Bochner heat Laplace integrals are strongly measurable and integrable on every weighted-L2 input, and equal the actual first and squared resolvents as full operators, not merely on basis vectors.
 - The actual first resolvent is Hilbert-Schmidt and not nuclear; its square and the difference of two first resolvents are nuclear, with basis-independent native traces equal to their respective convergent eigenvalue series.
+- For every positive shift, the native squared-resolvent trace equals the analytic Hurwitz zeta value at two after the canonical reduction to a shift in (0,1] and subtraction of the omitted finite initial segment.
 
 Mapped Lean declarations:
 
@@ -1645,13 +1646,15 @@ Mapped Lean declarations:
 - `Sigma.laguerre_resolvent_not_nuclear`
 - `Sigma.laguerre_squared_resolvent_nuclear`
 - `Sigma.laguerre_squared_resolvent_trace`
+- `Sigma.laguerre_squared_resolvent_trace_hurwitz_unit`
+- `Sigma.laguerre_squared_resolvent_trace_hurwitz_shifted`
+- `Sigma.laguerre_squared_resolvent_trace_hurwitz`
 - `Sigma.laguerre_resolvent_difference_nuclear`
 - `Sigma.laguerre_resolvent_difference_trace`
 
 Remaining Lean formalization:
 
 - Prove the pointwise nonnegative heat-kernel Laplace integrals are finite almost everywhere and represent the first and squared resolvents as weighted product-L2 kernels.
-- Identify the native squared-resolvent trace series with the Hurwitz zeta value at two for every positive shift.
 - Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign.
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
