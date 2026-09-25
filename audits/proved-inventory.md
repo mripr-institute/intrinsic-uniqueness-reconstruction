@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 14.
 - Statements awaiting Lean formalization: 6.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1476 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1481 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2759,8 +2759,8 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L173
 
 Mathematical content formalized in Lean:
 
-- Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature and uniform strict-convexity neighborhood.
-- Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork.
+- Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.
+- Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences.
 
 Mapped Lean declarations:
 
@@ -2776,6 +2776,11 @@ Mapped Lean declarations:
 - `Sigma.Closure.perturbed_intrinsic_anchors`
 - `Sigma.Closure.perturbed_intrinsic_identical_iff`
 - `Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero`
+- `Sigma.Closure.perturbation_tendsto_atTop`
+- `Sigma.Closure.perturbation_tendsto_zero_right`
+- `Sigma.Closure.perturbed_intrinsic_difference_tendsto_atTop`
+- `Sigma.Closure.perturbed_intrinsic_difference_tendsto_zero_right`
+- `Sigma.Closure.perturbed_intrinsic_endpoint_divergence`
 - `Sigma.Closure.retained_context_deletion`
 - `Sigma.Closure.no_placement_decoder_without_scale`
 - `Sigma.Closure.no_placement_decoder_without_offset`
@@ -2787,10 +2792,10 @@ Mapped Lean declarations:
 
 Remaining Lean formalization:
 
-- A nonzero perturbation with exact integral normalization and stated endpoint behavior in the relaxed deletion universe.
+- A nonzero perturbation with exact integral normalization in the relaxed deletion universe.
 - Complete native external packet deletion witnesses and their independent expansion with other packets fixed.
 - Global sufficient decomposition depends on full global-A/B and global-E.
-- Normalized nontrivial intrinsic deletion witness including endpoint behavior.
+- Normalized nontrivial intrinsic deletion witness.
 - Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.
 - Assembly preserving every other retained packet and changing each named target.
 

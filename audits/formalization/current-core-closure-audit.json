@@ -445,13 +445,18 @@
         "Sigma.Closure.perturbed_intrinsic_analytic",
         "Sigma.Closure.perturbed_intrinsic_anchors",
         "Sigma.Closure.perturbed_intrinsic_identical_iff",
-        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero"
+        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero",
+        "Sigma.Closure.perturbation_tendsto_atTop",
+        "Sigma.Closure.perturbation_tendsto_zero_right",
+        "Sigma.Closure.perturbed_intrinsic_difference_tendsto_atTop",
+        "Sigma.Closure.perturbed_intrinsic_difference_tendsto_zero_right",
+        "Sigma.Closure.perturbed_intrinsic_endpoint_divergence"
       ],
       "proved_components": [
-        "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature and uniform strict-convexity neighborhood."
+        "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation."
       ],
       "unproved_components": [
-        "A nonzero perturbation with exact integral normalization and stated endpoint behavior in the relaxed deletion universe.",
+        "A nonzero perturbation with exact integral normalization in the relaxed deletion universe.",
         "Complete native external packet deletion witnesses and their independent expansion with other packets fixed.",
         "Global sufficient decomposition depends on full global-A/B and global-E."
       ],
@@ -469,13 +474,14 @@
         "Sigma.Closure.spatial_dimension_deletion",
         "Sigma.borel_size_does_not_identify_random_tree",
         "Sigma.Closure.perturbations_independent",
-        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero"
+        "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero",
+        "Sigma.Closure.perturbed_intrinsic_endpoint_divergence"
       ],
       "proved_components": [
-        "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork."
+        "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences."
       ],
       "unproved_components": [
-        "Normalized nontrivial intrinsic deletion witness including endpoint behavior.",
+        "Normalized nontrivial intrinsic deletion witness.",
         "Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.",
         "Assembly preserving every other retained packet and changing each named target."
       ],

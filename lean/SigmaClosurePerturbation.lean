@@ -144,6 +144,96 @@ theorem monomial_exp_decay (b : ℝ) (hb : 0 < b) (n : ℕ) :
     field_simp
     ring))
 
+/-- Each perturbation vanishes at the upper endpoint of the positive ray. -/
+theorem perturbation_tendsto_atTop (b : ℝ) (hb : 0 < b) :
+    Tendsto (perturbation b) atTop (𝓝 0) := by
+  have h := (((((monomial_exp_decay b hb 4).add
+    ((monomial_exp_decay b hb 3).const_mul (-4))).add
+    ((monomial_exp_decay b hb 2).const_mul 6)).add
+    ((monomial_exp_decay b hb 1).const_mul (-4))).add
+    (monomial_exp_decay b hb 0))
+  convert h using 1
+  · funext t
+    dsimp [perturbation]
+    ring
+  · ring
+
+/-- At the lower endpoint each perturbation has the finite limit one. -/
+theorem perturbation_tendsto_zero_right (b : ℝ) :
+    Tendsto (perturbation b) (𝓝[>] (0 : ℝ)) (𝓝 1) := by
+  have hc : ContinuousAt (perturbation b) 0 := by
+    unfold perturbation
+    fun_prop
+  have h := hc.tendsto.mono_left
+    (show (𝓝[>] (0 : ℝ)) ≤ 𝓝 0 from nhdsWithin_le_nhds)
+  convert h using 1
+  norm_num [perturbation]
+
+/-- The upper-endpoint perturbation of the intrinsic potential vanishes. -/
+theorem perturbed_intrinsic_difference_tendsto_atTop (ε δ : ℝ) :
+    Tendsto (fun t => perturbedIntrinsic ε δ t - I t) atTop (𝓝 0) := by
+  have h := ((perturbation_tendsto_atTop 1 (by norm_num)).const_mul ε).add
+    ((perturbation_tendsto_atTop 2 (by norm_num)).const_mul δ)
+  convert h using 1
+  · funext t
+    dsimp [perturbedIntrinsic]
+    ring
+  · ring
+
+/-- The lower-endpoint perturbation has the finite offset `ε + δ`. -/
+theorem perturbed_intrinsic_difference_tendsto_zero_right (ε δ : ℝ) :
+    Tendsto (fun t => perturbedIntrinsic ε δ t - I t)
+      (𝓝[>] (0 : ℝ)) (𝓝 (ε + δ)) := by
+  have h := ((perturbation_tendsto_zero_right 1).const_mul ε).add
+    ((perturbation_tendsto_zero_right 2).const_mul δ)
+  convert h using 1
+  · funext t
+    dsimp [perturbedIntrinsic]
+    ring
+  · ring
+
+/-- The unperturbed calibrated intrinsic potential diverges at zero. -/
+private theorem intrinsic_tendsto_zero_right :
+    Tendsto I (𝓝[>] (0 : ℝ)) atTop := by
+  have hc : ContinuousAt (fun t : ℝ => t - 1) 0 := by fun_prop
+  have hfin : Tendsto (fun t : ℝ => t - 1) (𝓝[>] (0 : ℝ)) (𝓝 (-1)) := by
+    simpa using hc.tendsto.mono_left
+      (show (𝓝[>] (0 : ℝ)) ≤ 𝓝 0 from nhdsWithin_le_nhds)
+  have hlog : Tendsto (fun t : ℝ => -Real.log t) (𝓝[>] (0 : ℝ)) atTop :=
+    tendsto_neg_atBot_atTop.comp Real.tendsto_log_nhdsWithin_zero_right
+  exact hfin.add_atTop hlog
+
+/-- The unperturbed calibrated intrinsic potential diverges at infinity. -/
+private theorem intrinsic_tendsto_atTop : Tendsto I atTop atTop := by
+  have hratio : Tendsto (fun t : ℝ => Real.log t / t) atTop (𝓝 0) :=
+    Real.isLittleO_log_id_atTop.tendsto_div_nhds_zero
+  have hfac : Tendsto (fun t : ℝ => 1 - Real.log t / t) atTop (𝓝 1) := by
+    simpa using tendsto_const_nhds.sub hratio
+  have hprod : Tendsto (fun t : ℝ => t * (1 - Real.log t / t)) atTop atTop :=
+    tendsto_id.atTop_mul (by norm_num : (0 : ℝ) < 1) hfac
+  have hshift := tendsto_atTop_add_const_right atTop (-1) hprod
+  apply hshift.congr'
+  filter_upwards [eventually_gt_atTop (0 : ℝ)] with t ht
+  dsimp [I, SigmaBase.potential]
+  field_simp [ht.ne']
+  ring
+
+/-- Every two-parameter perturbation retains divergence at both endpoints. -/
+theorem perturbed_intrinsic_endpoint_divergence (ε δ : ℝ) :
+    Tendsto (perturbedIntrinsic ε δ) (𝓝[>] (0 : ℝ)) atTop ∧
+      Tendsto (perturbedIntrinsic ε δ) atTop atTop := by
+  constructor
+  · have h := (perturbed_intrinsic_difference_tendsto_zero_right ε δ).add_atTop
+      intrinsic_tendsto_zero_right
+    convert h using 1
+    funext t
+    ring
+  · have h := (perturbed_intrinsic_difference_tendsto_atTop ε δ).add_atTop
+      intrinsic_tendsto_atTop
+    convert h using 1
+    funext t
+    ring
+
 theorem perturbation_weighted_curvature_decay (b : ℝ) (hb : 0 < b) :
     Tendsto (fun t : ℝ => t ^ 2 * perturbationCurvature b t) atTop (𝓝 0) := by
   have h := (((((monomial_exp_decay b hb 6).const_mul (b ^ 2)).add
