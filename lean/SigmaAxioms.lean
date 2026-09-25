@@ -1,5 +1,4 @@
 import Sigma
-import SigmaOpHeatKernelPointwise
 
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique
