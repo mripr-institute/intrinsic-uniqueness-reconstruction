@@ -38,6 +38,14 @@ import SigmaOpMarkedCalculus
 import SigmaOpCanonicalCalculus
 import SigmaOpWeightedSobolev
 import SigmaOpSesquilinearForm
+import SigmaOpFormDomainCriterion
+import SigmaOpFiniteEnergy
+import SigmaOpLocalACDifferentiability
+import SigmaRealTaggedPartition
+import SigmaOpACZeroDerivative
+import SigmaOpACFundamental
+import SigmaOpACProduct
+import SigmaOpACIntegrationByParts
 import SigmaOpDeficiency
 import SigmaOpCanonicalInverse
 import SigmaOpHeatKernelPointwise
@@ -249,3 +257,6 @@ import SigmaOpResolventDigamma
 import SigmaOpHeatKernelNorm
 import SigmaL2BochnerKernel
 import SigmaOpResolventKernel
+import SigmaOpSobolevDomain
+import SigmaOpDeterminantFredholm
+import SigmaOpDeterminantRegularized

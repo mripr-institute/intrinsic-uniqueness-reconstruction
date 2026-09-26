@@ -4,9 +4,9 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 59,
+    "complete": 60,
     "partial": 13,
-    "missing": 6
+    "missing": 5
   },
   "labelled_equation_totals": {
     "complete": 13,
@@ -2018,7 +2018,7 @@
       "line": 269,
       "statement_tex": "\\label{final:O3-form}\nThe closed form of $A$ is\n\\[\n \\mathcal E(f,g)=\\int_0^\\infty qf'\\overline{g'}\\,dt,\n\\]\nwith the exact domain\n\\begin{equation}\\label{final:O3-form-domain}\n D(A^{1/2})=\n \\left\\{f\\in\\mathcal H:f\\in AC_{\\mathrm{loc}}(0,\\infty),\\quad\n \\int_0^\\infty q|f'|^2\\,dt<\\infty\\right\\}.\n\\end{equation}\nThere are no additional endpoint traces.  The semigroup $e^{-sA}$,\n$s\\geq0$, is positivity preserving, preserves the constant function\n$1$, and preserves the probability $p\\,dt$.\n",
       "statement_sha256": "19829695480ca3af13da3fb0f6e80affa1c3149634d3b1bd9a03e90fc24b1ebe",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.PositiveRayLocallyAbsolutelyContinuous",
         "Sigma.laguerre_square_root_regular_representative",
@@ -2038,22 +2038,30 @@
         "Sigma.smooth_compact_root_tendsto_of_gradient",
         "Sigma.regular_representative_weighted_inner",
         "Sigma.laguerre_square_root_sesquilinear_representatives",
-        "Sigma.laguerre_square_root_sesquilinear_form"
+        "Sigma.laguerre_square_root_sesquilinear_form",
+        "Sigma.laguerre_square_root_domain_iff_weak_gradient",
+        "Sigma.weighted_derivative_mem_l2_iff_energy",
+        "Sigma.PositiveRayLocallyAbsolutelyContinuous.ae_differentiableAt",
+        "Sigma.exists_real_tagged_partition",
+        "Sigma.PositiveRayLocallyAbsolutelyContinuous.eq_of_ae_hasDerivAt_zero",
+        "Sigma.PositiveRayLocallyAbsolutelyContinuous.integral_eq_sub",
+        "Sigma.finite_energy_ac_integral_deriv",
+        "Sigma.PositiveRayLocallyAbsolutelyContinuous.compact_integration_by_parts",
+        "Sigma.finite_energy_ac_compact_gradient_pairing",
+        "Sigma.laguerre_square_root_mem_of_ac_finite_energy",
+        "Sigma.laguerre_square_root_domain_iff_ac_finite_energy"
       ],
       "proved_components": [
         "Every square-root-domain vector has an actual locally absolutely continuous representative with finite literal weighted derivative energy equal to the square-root norm squared. Regularity and integrability are derived, not assumed.",
         "Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.",
         "The actual Gamma-weighted complex L2 heat semigroup preserves nonnegative real inputs, the constant one, and the Gamma integral, including time zero.",
-        "For every pair of vectors in the full native square-root domain and any locally absolutely continuous representatives F,G, the literal mixed weighted derivative integral is integrable and equals inner(A^(1/2)G,A^(1/2)F) in Lean conventions. Existence of such representatives is derived, continuity follows from the finite-disjoint-interval AC definition, and uniqueness on the positive ray makes the identity representative-independent."
+        "For every pair of vectors in the full native square-root domain and any locally absolutely continuous representatives F,G, the literal mixed weighted derivative integral is integrable and equals inner(A^(1/2)G,A^(1/2)F) in Lean conventions. Existence of such representatives is derived, continuity follows from the finite-disjoint-interval AC definition, and uniqueness on the positive ray makes the identity representative-independent.",
+        "Exact two-way Sobolev characterization of the actual square-root domain: a Gamma-weighted L2 class belongs exactly when it admits a literal locally absolutely continuous representative with finite integral of t^2 exp(-t) times its derivative norm squared. The reverse inclusion derives a.e. differentiability, local derivative integrability, the fundamental theorem (including exclusion of singular derivative components), and compact-interior integration by parts before applying the proved spectral weak-gradient criterion. No endpoint values or traces are assumed."
       ],
-      "unproved_components": [
-        "Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces."
-      ],
-      "gaps": [
-        "Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent paper_coverage_review AUDIT PASS on 2026-09-26 for the native Markov semigroup conclusions and the complete mixed-form identity on D(A^(1/2)). The final form theorem covers arbitrary AC representatives and assumes neither finite energy nor derivative formulas or endpoint conditions. The reversed Lean inner-product arguments match the paper convention. Independent source elaboration and targeted transitive axiom checks passed with only standard axioms. Only the reverse Sobolev inclusion and its no-extra-endpoint-traces consequence remain; this statement stays partial. See o3-form-sesquilinear-2026-09-26-review.md."
+      "notes": "Independent paper_coverage_review COMPLETE PASS on 2026-09-26 for the entire proposition: exact AC finite-energy domain with no endpoint traces, arbitrary-representative mixed form, and positivity/one/probability preservation for all nonnegative semigroup times. Actual canonical graph closure and square-root identification are proved. Source elaboration and targeted transitive axiom checks use only standard axioms. See o3-form-complete-2026-09-26-review.md."
     },
     {
       "id": "final:O3-spectrum",
@@ -2415,23 +2423,44 @@
       "line": 650,
       "statement_tex": "\\label{final:O4-determinants}\nFor $\\alpha>0$, define the zeta determinant using the meromorphic\ncontinuation of the Hurwitz zeta function.  Then\n\\begin{equation}\\label{final:O4-zeta-determinant}\n \\det{}_{\\zeta}(A+\\alpha\\mathrm{Id})\n =\\exp[-\\partial_s\\zeta(0,\\alpha)]\n =\\frac{\\sqrt{2\\pi}}{\\Gamma(\\alpha)}.\n\\end{equation}\nIn particular\n$\\det{}_{\\zeta}(\\mathrm{Id}+A)=\\det{}'_{\\zeta}(A)=\\sqrt{2\\pi}$,\nwhere the prime omits the zero mode.\nFor every $z\\in\\mathbb C$ one has the entire-function identities\n\\begin{align}\n \\det\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-2}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k^2)\n   =\\frac{\\sinh(\\pi\\sqrt z)}{\\pi\\sqrt z},\n   \\label{final:O4-fredholm}\\\\\n \\det{}_2\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-1}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k)e^{-z/k}\n   =\\frac{e^{-\\gamma_E z}}{\\Gamma(1+z)}.\n   \\label{final:O4-det2}\n\\end{align}\nThe first determinant is the ordinary trace-class Fredholm determinant;\nthe second is the Hilbert--Schmidt regularized determinant.\nThe square-root quotient denotes its entire power series, with\nvalue $1$ at zero.  Its value is independent of the square-root choice.\nThe full zero multiset of either displayed determinant identifies\nthe eigenvalue multiset of $A$ in the corresponding nonnegative,\nshifted determinant category.\n",
       "statement_sha256": "07c7b9d740907bc1693cc0903bf8988b29c36adc271a17690e01af4204b79c9c",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.hilbertCompressionMatrix",
+        "Sigma.laguerreFredholmApprox",
+        "Sigma.laguerre_fredholm_approx_product",
+        "Sigma.laguerre_fredholm_approx_tendsto",
+        "Sigma.laguerreFredholmDeterminant",
+        "Sigma.laguerre_fredholm_determinant_series",
+        "Sigma.laguerre_fredholm_determinant_sqrt",
+        "Sigma.laguerre_fredholm_determinant_zero",
+        "Sigma.laguerre_fredholm_determinant_entire",
+        "Sigma.laguerre_fredholm_determinant_zeros",
+        "Sigma.laguerre_fredholm_determinant_simple_zeros",
+        "Sigma.laguerreRegularizedApprox",
+        "Sigma.laguerre_regularized_approx_product",
+        "Sigma.laguerre_regularized_approx_tendsto",
+        "Sigma.laguerreRegularizedDeterminant",
+        "Sigma.laguerre_regularized_determinant_gamma",
+        "Sigma.laguerre_regularized_determinant_entire",
+        "Sigma.laguerre_regularized_determinant_zeros",
+        "Sigma.laguerre_regularized_determinant_simple_zeros"
+      ],
+      "proved_components": [
+        "Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.",
+        "Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros."
+      ],
       "unproved_components": [
-        "Actual zeta determinants with Hurwitz continuation and zero-mode conventions, including both sqrt(2pi) values.",
-        "Native Fredholm and Hilbert-Schmidt regularized determinants with both entire product/Gamma/sinh formulas.",
-        "Branch-independent sqrt quotient and value at zero.",
-        "Eigenvalue multiset recovery from zeros with multiplicities in the indicated nonnegative shifted determinant categories."
+        "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
+        "Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.",
+        "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
       ],
       "gaps": [
-        "Actual zeta determinants with Hurwitz continuation and zero-mode conventions, including both sqrt(2pi) values.",
-        "Native Fredholm and Hilbert-Schmidt regularized determinants with both entire product/Gamma/sinh formulas.",
-        "Branch-independent sqrt quotient and value at zero.",
-        "Eigenvalue multiset recovery from zeros with multiplicities in the indicated nonnegative shifted determinant categories."
+        "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
+        "Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.",
+        "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Independent paper_coverage_review PASS on 2026-09-26 for genuine canonical compression constructions, entire formulas, branch independence, and simple zero sets. This is a partial result: no basis-independent determinant API or competing-operator inverse is inferred from the canonical formulas. Source elaboration and targeted axiom checks passed. See o4-determinants-2026-09-26-review.md."
     },
     {
       "id": "final:O4-finite-countermodels",

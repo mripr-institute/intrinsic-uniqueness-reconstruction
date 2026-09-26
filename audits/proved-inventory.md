@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 59/78.
+- Fully formalized named statements: 60/78.
 - Partially formalized statements: 13.
-- Statements awaiting Lean formalization: 6.
+- Statements awaiting Lean formalization: 5.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1507 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1537 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -56,6 +56,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O1-kernel** — The integrable centered Stein kernel
 - **final:O2** — Two marked probes and the Pearson realization
 - **final:O2-boundaries** — The exact limits of the probe and stationary data
+- **final:O3-form** — The closed form and the conservative semigroup
 - **final:O3-spectrum** — The Laguerre basis and the exact integer spectrum
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
 - **final:O4** — Exact trace domains and reconstruction of the unitary class
@@ -1374,7 +1375,7 @@ Remaining Lean formalization:
 
 ### final:O3-form — The closed form and the conservative semigroup
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1382,6 +1383,7 @@ Mathematical content formalized in Lean:
 - Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.
 - The actual Gamma-weighted complex L2 heat semigroup preserves nonnegative real inputs, the constant one, and the Gamma integral, including time zero.
 - For every pair of vectors in the full native square-root domain and any locally absolutely continuous representatives F,G, the literal mixed weighted derivative integral is integrable and equals inner(A^(1/2)G,A^(1/2)F) in Lean conventions. Existence of such representatives is derived, continuity follows from the finite-disjoint-interval AC definition, and uniqueness on the positive ray makes the identity representative-independent.
+- Exact two-way Sobolev characterization of the actual square-root domain: a Gamma-weighted L2 class belongs exactly when it admits a literal locally absolutely continuous representative with finite integral of t^2 exp(-t) times its derivative norm squared. The reverse inclusion derives a.e. differentiability, local derivative integrability, the fundamental theorem (including exclusion of singular derivative components), and compact-interior integration by parts before applying the proved spectral weak-gradient criterion. No endpoint values or traces are assumed.
 
 Mapped Lean declarations:
 
@@ -1404,10 +1406,17 @@ Mapped Lean declarations:
 - `Sigma.regular_representative_weighted_inner`
 - `Sigma.laguerre_square_root_sesquilinear_representatives`
 - `Sigma.laguerre_square_root_sesquilinear_form`
-
-Remaining Lean formalization:
-
-- Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.
+- `Sigma.laguerre_square_root_domain_iff_weak_gradient`
+- `Sigma.weighted_derivative_mem_l2_iff_energy`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.ae_differentiableAt`
+- `Sigma.exists_real_tagged_partition`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.eq_of_ae_hasDerivAt_zero`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.integral_eq_sub`
+- `Sigma.finite_energy_ac_integral_deriv`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.compact_integration_by_parts`
+- `Sigma.finite_energy_ac_compact_gradient_pairing`
+- `Sigma.laguerre_square_root_mem_of_ac_finite_energy`
+- `Sigma.laguerre_square_root_domain_iff_ac_finite_energy`
 
 ### final:O3-spectrum — The Laguerre basis and the exact integer spectrum
 
@@ -1684,14 +1693,40 @@ Mapped Lean declarations:
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.
+- Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.
+
+Mapped Lean declarations:
+
+- `Sigma.hilbertCompressionMatrix`
+- `Sigma.laguerreFredholmApprox`
+- `Sigma.laguerre_fredholm_approx_product`
+- `Sigma.laguerre_fredholm_approx_tendsto`
+- `Sigma.laguerreFredholmDeterminant`
+- `Sigma.laguerre_fredholm_determinant_series`
+- `Sigma.laguerre_fredholm_determinant_sqrt`
+- `Sigma.laguerre_fredholm_determinant_zero`
+- `Sigma.laguerre_fredholm_determinant_entire`
+- `Sigma.laguerre_fredholm_determinant_zeros`
+- `Sigma.laguerre_fredholm_determinant_simple_zeros`
+- `Sigma.laguerreRegularizedApprox`
+- `Sigma.laguerre_regularized_approx_product`
+- `Sigma.laguerre_regularized_approx_tendsto`
+- `Sigma.laguerreRegularizedDeterminant`
+- `Sigma.laguerre_regularized_determinant_gamma`
+- `Sigma.laguerre_regularized_determinant_entire`
+- `Sigma.laguerre_regularized_determinant_zeros`
+- `Sigma.laguerre_regularized_determinant_simple_zeros`
 
 Remaining Lean formalization:
 
-- Actual zeta determinants with Hurwitz continuation and zero-mode conventions, including both sqrt(2pi) values.
-- Native Fredholm and Hilbert-Schmidt regularized determinants with both entire product/Gamma/sinh formulas.
-- Branch-independent sqrt quotient and value at zero.
-- Eigenvalue multiset recovery from zeros with multiplicities in the indicated nonnegative shifted determinant categories.
+- Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.
+- Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.
+- Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories.
 
 ### final:O4-finite-countermodels — Finite familiar spectral invariants do not determine the spectrum
 
