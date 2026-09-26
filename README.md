@@ -4,7 +4,7 @@ Formal mathematical sources, Lean 4 verification, reconstruction audits, and pub
 
 **Alex Albert, _Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations_**
 
-DOI: 10.5281/zenodo.22775358
+[DOI: 10.5281/zenodo.22775358](https://doi.org/10.5281/zenodo.22775358)
 
 ## Repository structure
 
