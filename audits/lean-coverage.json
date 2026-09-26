@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 63,
-    "partial": 11,
+    "complete": 64,
+    "partial": 10,
     "missing": 4
   },
   "labelled_equation_totals": {
@@ -1409,28 +1409,46 @@
       "line": 872,
       "statement_tex": "\\label{final:P6-gw}\nIn a Galton--Watson tree started from one ancestor, with independent\nidentically distributed offspring counts and the usual rooted-tree\nconstruction fixed, the total size has law \\eqref{final:eq-borel}\nif and only if the offspring law is $\\operatorname{Pois}(1)$.\nThis determines the full tree law within that construction.\n",
       "statement_sha256": "a45a55f285d169491dcf866aa3326154af345be3d09e7e74aa1642c467eb38f1",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.native_pgf_identifies_nat_probability",
         "Sigma.offspring_pgf_equation_identifies_poisson",
         "Sigma.poisson_offspring_pgf_equation",
-        "Sigma.native_offspring_pgf_characterization"
+        "Sigma.native_offspring_pgf_characterization",
+        "Sigma.nat_pmf_sample_map",
+        "Sigma.iid_offspring_array_independent",
+        "Sigma.treeCoordinates_independent",
+        "Sigma.treeChildSources_independent",
+        "Sigma.treeRootSource_independent_children",
+        "Sigma.tree_offspring_product_lintegral",
+        "Sigma.gwTree",
+        "Sigma.gwTotalSize",
+        "Sigma.gw_total_size_eq_iSup",
+        "Sigma.gw_total_size_root_decomposition",
+        "Sigma.gw_total_size_finite_iff_extinct",
+        "Sigma.gw_tree_measurable",
+        "Sigma.gw_offspring_independent",
+        "Sigma.gw_extinction_probability_succ",
+        "Sigma.gw_nat_size_pgf_real_conditioning",
+        "Sigma.gw_poisson_total_size_finite_ae",
+        "Sigma.exists_poisson_gw_finite_tree",
+        "Sigma.nat_pgf_poisson_branching_identifies_borel",
+        "Sigma.gw_poisson_total_size_borel",
+        "Sigma.gw_total_size_borel_iff_poisson",
+        "Sigma.iid_gw_borel_iff_poisson",
+        "Sigma.iid_gw_borel_determines_tree_law"
       ],
       "proved_components": [
-        "Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation."
+        "Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation.",
+        "An explicit inverse cumulative sampler on Haar circles constructs the countable iid offspring field. The literal retained-word tree and its actual counting-measure total size are measurable; finite-depth vertex counts, root decomposition, and finite-tree/extinction equivalence are proved.",
+        "Whole descendant sources are independent with the same law and independent of root offspring. The actual root-conditioned random product identity yields both the extinction recurrence and the total-size PGF equation under explicit actual-size almost-sure finiteness.",
+        "For Poisson(1), the monotone extinction probability limit satisfies the derived exponential fixedpoint equation and equals one. Actual total size is almost surely finite, and its extended law is exactly the Borel law.",
+        "For arbitrary supplied iid offspring arrays, equality of the actual extended total-size law to Borel is equivalent to Poisson(1) offspring, with no assumed finiteness or PGF equation. The Borel observation also identifies the full literal tree law via native finite-dimensional projective uniqueness."
       ],
-      "unproved_components": [
-        "Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.",
-        "Poisson critical extinction/finite total size and identification of its actual total-size law.",
-        "Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction."
-      ],
-      "gaps": [
-        "Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.",
-        "Poisson critical extinction/finite total size and identification of its actual total-size law.",
-        "Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "SigmaRealTreesOffspring.lean explicitly says deriving the conditioning equation from a native Galton-Watson construction remains separate; hcondition cannot substitute for this derivation."
+      "notes": "Whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27, with independent cross-review of the source-independence, conditioning and extinction modules by missing_countermodels. All new modules elaborate and targeted transitive axiom checks use only propext, Classical.choice and Quot.sound. The final theorem uses the actual total-size pushforward on extended nonnegative reals, so infinity cannot be hidden by natural-size conversion. See p6-gw-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P6-boundaries",

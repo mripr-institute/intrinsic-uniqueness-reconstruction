@@ -2402,3 +2402,15 @@ import Sigma
 #print axioms Sigma.laguerre_native_fredholm_series
 #print axioms Sigma.laguerre_native_fredholm_sqrt
 #print axioms Sigma.laguerre_native_regularized_gamma
+#print axioms Sigma.nat_pmf_sample_map
+#print axioms Sigma.iid_offspring_array_independent
+#print axioms Sigma.treeChildSources_independent
+#print axioms Sigma.treeRootSource_independent_children
+#print axioms Sigma.tree_offspring_product_lintegral
+#print axioms Sigma.gw_total_size_root_decomposition
+#print axioms Sigma.gw_total_size_finite_iff_extinct
+#print axioms Sigma.gw_nat_size_pgf_real_conditioning
+#print axioms Sigma.gw_poisson_total_size_finite_ae
+#print axioms Sigma.gw_poisson_total_size_borel
+#print axioms Sigma.iid_gw_borel_iff_poisson
+#print axioms Sigma.iid_gw_borel_determines_tree_law

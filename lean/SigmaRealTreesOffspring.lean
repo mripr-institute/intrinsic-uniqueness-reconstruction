@@ -82,8 +82,9 @@ theorem poisson_one_native_pgf (s : ℝ) :
   simp only [ProbabilityTheory.poissonPMFReal, NNReal.coe_one, one_pow, mul_one]
   ring
 
-/-- The conditioning equation is exposed explicitly here; deriving it from a native
-Galton--Watson construction is a separate obligation. The law and its PGF are native. -/
+/-- Scalar identification from the conditioning equation. The native tree construction
+and derivation of this premise are provided in `SigmaProbGWSize`; the unconditional
+whole-statement equivalence is proved in `SigmaProbGWIdentification`. -/
 theorem offspring_pgf_equation_identifies_poisson (q : PMF ℕ)
     (hcondition : ∀ s : ℝ, 0 < s → s < 1 →
       borelGenerating s = s * natProbabilityGenerating q (borelGenerating s)) :

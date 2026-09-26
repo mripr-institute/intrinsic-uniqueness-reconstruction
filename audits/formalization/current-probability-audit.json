@@ -2,13 +2,13 @@
   "scope": "Independent current-source exact named-statement probability audit; proof-only omissions separately noted. Read-only mathematical review; this artifact does not certify an aggregate build.",
   "paper": "paper/sections/probability.tex",
   "totals_by_named_environment": {
-    "total": 26,
+    "total": 27,
     "definition": 0,
-    "complete": 22,
-    "partial": 4,
+    "complete": 24,
+    "partial": 3,
     "missing": 0
   },
-  "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace.",
+  "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace. The 2026-09-27 independent whole-statement P6-gw review, with cross-review of separately authored probability infrastructure, verifies the concrete iid construction, extinction, actual total-size law iff Poisson offspring, and full tree-law determination.",
   "result": "DEFECT LIST",
   "mathematically_false_paper_clauses": [],
   "statements": [
@@ -367,8 +367,8 @@
       "proved_components": [
         "All survival/hazard/shift/potential formulas; differentiable hazard inverse; global logistic ODE inverse without an assumed range.",
         "Complete normalized second-order classical ODE inverse and actual independent exponential-sum Gamma law.",
-        "The explicit causal kernels k(t)=1_{[0,∞)}e^{-t} and g(t)=1_{[0,∞)}te^{-t} satisfy the actual whole-line convolution identity k*k=g for every real t, including the zero and negative-time cases.",
-        "The regular distribution defined by integration against the exact whole-line causal kernel g(t)=1_[0,∞)(t)t exp(-t) satisfies (D+1)^2 g=δ₀ with standard distributional differentiation and exact Dirac normalization. It is the unique causal distributional solution: uniqueness is proved on the larger class of all algebraic linear functionals on C∞_c(R) satisfying the support condition and equation. The witness has a proved L1 pairing bound, and the existing whole-line k*k identity is reused.",
+        "The explicit causal kernels k(t)=1_{[0,\u221e)}e^{-t} and g(t)=1_{[0,\u221e)}te^{-t} satisfy the actual whole-line convolution identity k*k=g for every real t, including the zero and negative-time cases.",
+        "The regular distribution defined by integration against the exact whole-line causal kernel g(t)=1_[0,\u221e)(t)t exp(-t) satisfies (D+1)^2 g=\u03b4\u2080 with standard distributional differentiation and exact Dirac normalization. It is the unique causal distributional solution: uniqueness is proved on the larger class of all algebraic linear functionals on C\u221e_c(R) satisfying the support condition and equation. The witness has a proved L1 pairing bound, and the existing whole-line k*k identity is reused.",
         "Local absolute continuity plus the a.e. hazard ODE derives an everywhere derivative and the anchored survival formula, without a derivative assumption at zero.",
         "Native probability measures with that local-AC survival and a.e. ODE are identified through actual CDF equality; endpoint continuity is derived from native survival right continuity, and the marked logistic equation transfers to this same inverse.",
         "The exact native absolutely continuous probability input now suffices: the Radon-Nikodym density yields the actual tail integral and continuity; the actual a.e. hazard and positive tail derive a continuous density representative, tail derivatives and local absolute continuity, and hence equality of the supplied measure with gammaProbability. The marked logistic inverse permits any differentiable marked hazard linked a.e. to the actual Radon-Nikodym density/survival ratio.",
@@ -512,22 +512,44 @@
     },
     {
       "latex_label": "final:P6-gw",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.native_pgf_identifies_nat_probability",
         "Sigma.offspring_pgf_equation_identifies_poisson",
         "Sigma.poisson_offspring_pgf_equation",
-        "Sigma.native_offspring_pgf_characterization"
+        "Sigma.native_offspring_pgf_characterization",
+        "Sigma.nat_pmf_sample_map",
+        "Sigma.iid_offspring_array_independent",
+        "Sigma.treeCoordinates_independent",
+        "Sigma.treeChildSources_independent",
+        "Sigma.treeRootSource_independent_children",
+        "Sigma.tree_offspring_product_lintegral",
+        "Sigma.gwTree",
+        "Sigma.gwTotalSize",
+        "Sigma.gw_total_size_eq_iSup",
+        "Sigma.gw_total_size_root_decomposition",
+        "Sigma.gw_total_size_finite_iff_extinct",
+        "Sigma.gw_tree_measurable",
+        "Sigma.gw_offspring_independent",
+        "Sigma.gw_extinction_probability_succ",
+        "Sigma.gw_nat_size_pgf_real_conditioning",
+        "Sigma.gw_poisson_total_size_finite_ae",
+        "Sigma.exists_poisson_gw_finite_tree",
+        "Sigma.nat_pgf_poisson_branching_identifies_borel",
+        "Sigma.gw_poisson_total_size_borel",
+        "Sigma.gw_total_size_borel_iff_poisson",
+        "Sigma.iid_gw_borel_iff_poisson",
+        "Sigma.iid_gw_borel_determines_tree_law"
       ],
       "proved_components": [
-        "Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation."
+        "Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation.",
+        "An explicit inverse cumulative sampler on Haar circles constructs the countable iid offspring field. The literal retained-word tree and its actual counting-measure total size are measurable; finite-depth vertex counts, root decomposition, and finite-tree/extinction equivalence are proved.",
+        "Whole descendant sources are independent with the same law and independent of root offspring. The actual root-conditioned random product identity yields both the extinction recurrence and the total-size PGF equation under explicit actual-size almost-sure finiteness.",
+        "For Poisson(1), the monotone extinction probability limit satisfies the derived exponential fixedpoint equation and equals one. Actual total size is almost surely finite, and its extended law is exactly the Borel law.",
+        "For arbitrary supplied iid offspring arrays, equality of the actual extended total-size law to Borel is equivalent to Poisson(1) offspring, with no assumed finiteness or PGF equation. The Borel observation also identifies the full literal tree law via native finite-dimensional projective uniqueness."
       ],
-      "unproved_components": [
-        "Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.",
-        "Poisson critical extinction/finite total size and identification of its actual total-size law.",
-        "Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction."
-      ],
-      "notes": "SigmaRealTreesOffspring.lean explicitly says deriving the conditioning equation from a native Galton-Watson construction remains separate; hcondition cannot substitute for this derivation."
+      "unproved_components": [],
+      "notes": "Whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27, with independent cross-review of the source-independence, conditioning and extinction modules by missing_countermodels. All new modules elaborate and targeted transitive axiom checks use only propext, Classical.choice and Quot.sound. The final theorem uses the actual total-size pushforward on extended nonnegative reals, so infinity cannot be hidden by natural-size conversion. See p6-gw-complete-2026-09-27-review.md."
     },
     {
       "latex_label": "final:P6-boundaries",

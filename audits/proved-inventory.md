@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 63/78.
-- Partially formalized statements: 11.
+- Fully formalized named statements: 64/78.
+- Partially formalized statements: 10.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1621 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1643 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -47,6 +47,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P5-transforms** — Reverse size bias, equilibrium, and marked tilting
 - **final:P5-equilibrium-fixed** — Equilibrium fixed points
 - **final:P6** — Rooted coefficients, Borel probabilities, and the inverse germ
+- **final:P6-gw** — Borel total size identifies a one-ancestor iid GW law
 - **final:P6-boundaries** — Tree and continuation boundaries
 - **final:P7** — The calibrated maximum-entropy characterization
 - **final:P8-samples** — Complete integer tails identify the Gamma exponent
@@ -927,11 +928,15 @@ Mapped Lean declarations:
 
 ### final:P6-gw — Borel total size identifies a one-ancestor iid GW law
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L872); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L872); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual offspring PMF is Poisson iff its PGF satisfies the Borel conditioning equation.
+- An explicit inverse cumulative sampler on Haar circles constructs the countable iid offspring field. The literal retained-word tree and its actual counting-measure total size are measurable; finite-depth vertex counts, root decomposition, and finite-tree/extinction equivalence are proved.
+- Whole descendant sources are independent with the same law and independent of root offspring. The actual root-conditioned random product identity yields both the extinction recurrence and the total-size PGF equation under explicit actual-size almost-sure finiteness.
+- For Poisson(1), the monotone extinction probability limit satisfies the derived exponential fixedpoint equation and equals one. Actual total size is almost surely finite, and its extended law is exactly the Borel law.
+- For arbitrary supplied iid offspring arrays, equality of the actual extended total-size law to Borel is equivalent to Poisson(1) offspring, with no assumed finiteness or PGF equation. The Borel observation also identifies the full literal tree law via native finite-dimensional projective uniqueness.
 
 Mapped Lean declarations:
 
@@ -939,12 +944,28 @@ Mapped Lean declarations:
 - `Sigma.offspring_pgf_equation_identifies_poisson`
 - `Sigma.poisson_offspring_pgf_equation`
 - `Sigma.native_offspring_pgf_characterization`
-
-Remaining Lean formalization:
-
-- Native one-ancestor iid Galton-Watson construction and derivation of the conditioning equation from independence/tree construction.
-- Poisson critical extinction/finite total size and identification of its actual total-size law.
-- Converse from the observed actual total-size Borel law, and uniqueness of the full tree law within the construction.
+- `Sigma.nat_pmf_sample_map`
+- `Sigma.iid_offspring_array_independent`
+- `Sigma.treeCoordinates_independent`
+- `Sigma.treeChildSources_independent`
+- `Sigma.treeRootSource_independent_children`
+- `Sigma.tree_offspring_product_lintegral`
+- `Sigma.gwTree`
+- `Sigma.gwTotalSize`
+- `Sigma.gw_total_size_eq_iSup`
+- `Sigma.gw_total_size_root_decomposition`
+- `Sigma.gw_total_size_finite_iff_extinct`
+- `Sigma.gw_tree_measurable`
+- `Sigma.gw_offspring_independent`
+- `Sigma.gw_extinction_probability_succ`
+- `Sigma.gw_nat_size_pgf_real_conditioning`
+- `Sigma.gw_poisson_total_size_finite_ae`
+- `Sigma.exists_poisson_gw_finite_tree`
+- `Sigma.nat_pgf_poisson_branching_identifies_borel`
+- `Sigma.gw_poisson_total_size_borel`
+- `Sigma.gw_total_size_borel_iff_poisson`
+- `Sigma.iid_gw_borel_iff_poisson`
+- `Sigma.iid_gw_borel_determines_tree_law`
 
 ### final:P6-boundaries — Tree and continuation boundaries
 

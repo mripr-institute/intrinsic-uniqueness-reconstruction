@@ -293,3 +293,14 @@ import SigmaOpDeterminantCategory
 import SigmaOpDeterminantPaper
 import SigmaOpDeterminantUniform
 import SigmaOpDeterminantCompression
+import SigmaProbNatSampler
+import SigmaProbOffspringArray
+import SigmaProbTreeSource
+import SigmaProbTreeConditioning
+import SigmaProbGWTree
+import SigmaProbGWCanonical
+import SigmaProbGWSize
+import SigmaProbGWExtinction
+import SigmaProbGWLaw
+import SigmaProbGWBorel
+import SigmaProbGWIdentification
