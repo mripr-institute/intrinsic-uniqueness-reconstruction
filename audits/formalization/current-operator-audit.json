@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 14,
-    "partial": 2,
+    "complete": 15,
+    "partial": 1,
     "missing": 3
   },
   "namespace": "Sigma",
@@ -24,10 +24,11 @@
     "final:O6",
     "final:O3-form",
     "final:O3",
-    "final:O4-finite-countermodels"
+    "final:O4-finite-countermodels",
+    "final:O4-determinants"
   ],
   "mathematically_false_paper_clauses": [],
-  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation.",
+  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation. Independent final whole-statement review on 2026-09-27 passed O4-determinants with native categories, locally uniform compression limits, basis independence and zero-multiset reconstruction.",
   "statements": [
     {
       "latex_label": "final:O1",
@@ -545,7 +546,7 @@
     },
     {
       "latex_label": "final:O4-determinants",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.hilbertCompressionMatrix",
         "Sigma.laguerreFredholmApprox",
@@ -582,18 +583,31 @@
         "Sigma.laguerre_hurwitz_deriv_zero",
         "Sigma.laguerre_zeta_determinant_gamma",
         "Sigma.laguerre_zeta_determinant_shift_one_value",
-        "Sigma.laguerre_prime_zeta_determinant_value"
+        "Sigma.laguerre_prime_zeta_determinant_value",
+        "Sigma.NativeShiftedDeterminantClass",
+        "Sigma.NativeShiftedDeterminantClass.ofHilbertSchmidt",
+        "Sigma.nativeShiftedDeterminant",
+        "Sigma.native_shifted_determinant_choice_independent",
+        "Sigma.native_shifted_determinant_eq_spectral",
+        "Sigma.native_shifted_determinant_entire",
+        "Sigma.native_determinant_compressions_locally_uniform",
+        "Sigma.spectral_determinant_locally_uniform",
+        "Sigma.spectral_determinant_zero_order",
+        "Sigma.native_shifted_determinant_zero_multiset_unique",
+        "Sigma.laguerre_native_determinant_reconstruction",
+        "Sigma.laguerre_native_fredholm_series",
+        "Sigma.laguerre_native_fredholm_sqrt",
+        "Sigma.laguerre_native_regularized_gamma"
       ],
       "proved_components": [
         "Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.",
         "Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.",
-        "Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication."
+        "Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication.",
+        "The native shifted determinant category assumes nonnegative self-adjointness, a genuine shifted inverse and nuclear resolvent square. Compactness and a complete spectral basis are derived; the conventional Hilbert-Schmidt premise implies membership. Both determinant conventions are unordered products, independent of spectral basis and category witness, and are locally uniform limits of genuine finite spectral compression determinants.",
+        "Exact analytic zero orders equal finite spectral-fibre cardinalities, including repeated eigenvalues. Equality of full zero multisets for competing native operators recovers a unitary intertwining the generators on their entire domains. The canonical sinh and Gamma formulas are identified with these basis-independent native determinants."
       ],
-      "unproved_components": [
-        "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
-        "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
-      ],
-      "notes": "Independent paper_coverage_review PASS on 2026-09-26 for genuine canonical compression constructions, entire formulas, branch independence, and simple zero sets. This is a partial result: no basis-independent determinant API or competing-operator inverse is inferred from the canonical formulas. Source elaboration and targeted axiom checks passed. See o4-determinants-2026-09-26-review.md. A second independent COMPLETE PASS closes the zeta determinant equation and both special values with the actual zero-mode convention. No Lerch formula or normalization is assumed; all-positive-shift identities are derived. See o4-zeta-determinant-2026-09-26-review.md."
+      "unproved_components": [],
+      "notes": "Independent whole-statement COMPLETE PASS by missing_countermodels on 2026-09-27, following the earlier canonical-formula and zeta-clause reviews. All native determinant category, convergence, basis independence, exact multiplicity and competing-operator reconstruction residuals are now closed. All 12 new modules elaborate; eight principal transitive axiom checks use only propext, Classical.choice, and Quot.sound. The all-positive-shift Lerch identity and normalization are derived, and the prime determinant removes exactly the zero mode. See o4-determinants-complete-2026-09-27-review.md; earlier bounded reviews are o4-determinants-2026-09-26-review.md and o4-zeta-determinant-2026-09-26-review.md."
     },
     {
       "latex_label": "final:O4-finite-countermodels",

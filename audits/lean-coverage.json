@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 62,
-    "partial": 12,
+    "complete": 63,
+    "partial": 11,
     "missing": 4
   },
   "labelled_equation_totals": {
@@ -2456,7 +2456,7 @@
       "line": 650,
       "statement_tex": "\\label{final:O4-determinants}\nFor $\\alpha>0$, define the zeta determinant using the meromorphic\ncontinuation of the Hurwitz zeta function.  Then\n\\begin{equation}\\label{final:O4-zeta-determinant}\n \\det{}_{\\zeta}(A+\\alpha\\mathrm{Id})\n =\\exp[-\\partial_s\\zeta(0,\\alpha)]\n =\\frac{\\sqrt{2\\pi}}{\\Gamma(\\alpha)}.\n\\end{equation}\nIn particular\n$\\det{}_{\\zeta}(\\mathrm{Id}+A)=\\det{}'_{\\zeta}(A)=\\sqrt{2\\pi}$,\nwhere the prime omits the zero mode.\nFor every $z\\in\\mathbb C$ one has the entire-function identities\n\\begin{align}\n \\det\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-2}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k^2)\n   =\\frac{\\sinh(\\pi\\sqrt z)}{\\pi\\sqrt z},\n   \\label{final:O4-fredholm}\\\\\n \\det{}_2\\bigl(\\mathrm{Id}+z(\\mathrm{Id}+A)^{-1}\\bigr)\n &=\\prod_{k=1}^\\infty(1+z/k)e^{-z/k}\n   =\\frac{e^{-\\gamma_E z}}{\\Gamma(1+z)}.\n   \\label{final:O4-det2}\n\\end{align}\nThe first determinant is the ordinary trace-class Fredholm determinant;\nthe second is the Hilbert--Schmidt regularized determinant.\nThe square-root quotient denotes its entire power series, with\nvalue $1$ at zero.  Its value is independent of the square-root choice.\nThe full zero multiset of either displayed determinant identifies\nthe eigenvalue multiset of $A$ in the corresponding nonnegative,\nshifted determinant category.\n",
       "statement_sha256": "07c7b9d740907bc1693cc0903bf8988b29c36adc271a17690e01af4204b79c9c",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.hilbertCompressionMatrix",
         "Sigma.laguerreFredholmApprox",
@@ -2493,23 +2493,33 @@
         "Sigma.laguerre_hurwitz_deriv_zero",
         "Sigma.laguerre_zeta_determinant_gamma",
         "Sigma.laguerre_zeta_determinant_shift_one_value",
-        "Sigma.laguerre_prime_zeta_determinant_value"
+        "Sigma.laguerre_prime_zeta_determinant_value",
+        "Sigma.NativeShiftedDeterminantClass",
+        "Sigma.NativeShiftedDeterminantClass.ofHilbertSchmidt",
+        "Sigma.nativeShiftedDeterminant",
+        "Sigma.native_shifted_determinant_choice_independent",
+        "Sigma.native_shifted_determinant_eq_spectral",
+        "Sigma.native_shifted_determinant_entire",
+        "Sigma.native_determinant_compressions_locally_uniform",
+        "Sigma.spectral_determinant_locally_uniform",
+        "Sigma.spectral_determinant_zero_order",
+        "Sigma.native_shifted_determinant_zero_multiset_unique",
+        "Sigma.laguerre_native_determinant_reconstruction",
+        "Sigma.laguerre_native_fredholm_series",
+        "Sigma.laguerre_native_fredholm_sqrt",
+        "Sigma.laguerre_native_regularized_gamma"
       ],
       "proved_components": [
         "Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.",
         "Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.",
-        "Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication."
+        "Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication.",
+        "The native shifted determinant category assumes nonnegative self-adjointness, a genuine shifted inverse and nuclear resolvent square. Compactness and a complete spectral basis are derived; the conventional Hilbert-Schmidt premise implies membership. Both determinant conventions are unordered products, independent of spectral basis and category witness, and are locally uniform limits of genuine finite spectral compression determinants.",
+        "Exact analytic zero orders equal finite spectral-fibre cardinalities, including repeated eigenvalues. Equality of full zero multisets for competing native operators recovers a unitary intertwining the generators on their entire domains. The canonical sinh and Gamma formulas are identified with these basis-independent native determinants."
       ],
-      "unproved_components": [
-        "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
-        "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
-      ],
-      "gaps": [
-        "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
-        "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent paper_coverage_review PASS on 2026-09-26 for genuine canonical compression constructions, entire formulas, branch independence, and simple zero sets. This is a partial result: no basis-independent determinant API or competing-operator inverse is inferred from the canonical formulas. Source elaboration and targeted axiom checks passed. See o4-determinants-2026-09-26-review.md. A second independent COMPLETE PASS closes the zeta determinant equation and both special values with the actual zero-mode convention. No Lerch formula or normalization is assumed; all-positive-shift identities are derived. See o4-zeta-determinant-2026-09-26-review.md."
+      "notes": "Independent whole-statement COMPLETE PASS by missing_countermodels on 2026-09-27, following the earlier canonical-formula and zeta-clause reviews. All native determinant category, convergence, basis independence, exact multiplicity and competing-operator reconstruction residuals are now closed. All 12 new modules elaborate; eight principal transitive axiom checks use only propext, Classical.choice, and Quot.sound. The all-positive-shift Lerch identity and normalization are derived, and the prime determinant removes exactly the zero mode. See o4-determinants-complete-2026-09-27-review.md; earlier bounded reviews are o4-determinants-2026-09-26-review.md and o4-zeta-determinant-2026-09-26-review.md."
     },
     {
       "id": "final:O4-finite-countermodels",

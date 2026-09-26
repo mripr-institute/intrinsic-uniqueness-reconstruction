@@ -2395,3 +2395,10 @@ import Sigma
 #print axioms Sigma.finite_perturbed_principal_part_iff
 #print axioms Sigma.finite_perturbed_finite_part_iff
 #print axioms Sigma.finite_perturbed_domain_eq
+#print axioms Sigma.native_determinant_compressions_locally_uniform
+#print axioms Sigma.native_shifted_determinant_choice_independent
+#print axioms Sigma.native_shifted_determinant_zero_multiset_unique
+#print axioms Sigma.laguerre_native_determinant_reconstruction
+#print axioms Sigma.laguerre_native_fredholm_series
+#print axioms Sigma.laguerre_native_fredholm_sqrt
+#print axioms Sigma.laguerre_native_regularized_gamma

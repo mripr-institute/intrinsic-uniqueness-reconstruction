@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 62/78.
-- Partially formalized statements: 12.
+- Fully formalized named statements: 63/78.
+- Partially formalized statements: 11.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1607 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1621 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -64,6 +64,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O4-convergence-boundary** — Compact resolvent does not supply finite trace data
 - **final:O4-heat-kernel** — The complete heat kernel relative to the invariant measure
 - **final:O4-resolvents** — Resolvents, their kernels, and the operator inverse
+- **final:O4-determinants** — Zeta and Fredholm determinants with their conventions
 - **final:O4-finite-countermodels** — Finite familiar spectral invariants do not determine the spectrum
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
@@ -1730,13 +1731,15 @@ Mapped Lean declarations:
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.
 - Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.
 - Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication.
+- The native shifted determinant category assumes nonnegative self-adjointness, a genuine shifted inverse and nuclear resolvent square. Compactness and a complete spectral basis are derived; the conventional Hilbert-Schmidt premise implies membership. Both determinant conventions are unordered products, independent of spectral basis and category witness, and are locally uniform limits of genuine finite spectral compression determinants.
+- Exact analytic zero orders equal finite spectral-fibre cardinalities, including repeated eigenvalues. Equality of full zero multisets for competing native operators recovers a unitary intertwining the generators on their entire domains. The canonical sinh and Gamma formulas are identified with these basis-independent native determinants.
 
 Mapped Lean declarations:
 
@@ -1776,11 +1779,20 @@ Mapped Lean declarations:
 - `Sigma.laguerre_zeta_determinant_gamma`
 - `Sigma.laguerre_zeta_determinant_shift_one_value`
 - `Sigma.laguerre_prime_zeta_determinant_value`
-
-Remaining Lean formalization:
-
-- Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.
-- Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories.
+- `Sigma.NativeShiftedDeterminantClass`
+- `Sigma.NativeShiftedDeterminantClass.ofHilbertSchmidt`
+- `Sigma.nativeShiftedDeterminant`
+- `Sigma.native_shifted_determinant_choice_independent`
+- `Sigma.native_shifted_determinant_eq_spectral`
+- `Sigma.native_shifted_determinant_entire`
+- `Sigma.native_determinant_compressions_locally_uniform`
+- `Sigma.spectral_determinant_locally_uniform`
+- `Sigma.spectral_determinant_zero_order`
+- `Sigma.native_shifted_determinant_zero_multiset_unique`
+- `Sigma.laguerre_native_determinant_reconstruction`
+- `Sigma.laguerre_native_fredholm_series`
+- `Sigma.laguerre_native_fredholm_sqrt`
+- `Sigma.laguerre_native_regularized_gamma`
 
 ### final:O4-finite-countermodels — Finite familiar spectral invariants do not determine the spectrum
 
