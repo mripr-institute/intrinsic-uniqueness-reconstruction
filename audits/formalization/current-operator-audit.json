@@ -4,9 +4,9 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 13,
+    "complete": 14,
     "partial": 2,
-    "missing": 4
+    "missing": 3
   },
   "namespace": "Sigma",
   "result": "DEFECT LIST",
@@ -23,10 +23,11 @@
     "final:O4-resolvents",
     "final:O6",
     "final:O3-form",
-    "final:O3"
+    "final:O3",
+    "final:O4-finite-countermodels"
   ],
   "mathematically_false_paper_clauses": [],
-  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed.",
+  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation.",
   "statements": [
     {
       "latex_label": "final:O1",
@@ -216,9 +217,9 @@
         "Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.",
         "Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.",
         "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.",
-        "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
+        "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF\u2032, together with weighted L2 membership of -p^-1(qF\u2032)\u2032. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
         "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.",
-        "Both endpoints are limit point under the paper’s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
+        "Both endpoints are limit point under the paper\u2019s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
         "Explicit canonical-domain vector represented by F(t)=log(1+log(1+1/t)); its actual flux and divergence formulas and both weighted L2 memberships are proved. Every locally AC representative of this class has real part tending to +infinity at zero, so none admits a finite complex boundary value."
       ],
       "unproved_components": [],
@@ -596,15 +597,32 @@
     },
     {
       "latex_label": "final:O4-finite-countermodels",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.",
-        "Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.",
-        "Proof that the spectrum changes, not merely its ordering."
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.finite_spectral_invariant_countermodels",
+        "Sigma.finite_invariant_preserving_curve",
+        "Sigma.finite_exponential_preserving_curve",
+        "Sigma.finite_perturbed_operator_selfadjoint",
+        "Sigma.finite_perturbed_operator_nonnegative",
+        "Sigma.finite_perturbed_operator_basis_action",
+        "Sigma.finite_perturbed_initial_operator",
+        "Sigma.finite_perturbed_domain_eq",
+        "Sigma.finite_perturbed_spectrum_changed",
+        "Sigma.finite_perturbed_zeta_trace",
+        "Sigma.finite_perturbed_zeta_zero",
+        "Sigma.finite_perturbed_principal_part_iff",
+        "Sigma.finite_perturbed_zeta_regular_iff",
+        "Sigma.finite_perturbed_zeta_residue",
+        "Sigma.finite_perturbed_finite_part_iff",
+        "Sigma.finite_perturbed_determinant_preserved"
       ],
-      "notes": ""
+      "proved_components": [
+        "For every finite set of real sample arguments, a genuine nonconstant continuous local family through the canonical operator varies only finitely many strictly positive eigenvalues. Its native maximal operators are nonnegative and self-adjoint, with unchanged domains; every sufficiently small nonzero parameter introduces a spectral value absent from the original spectrum.",
+        "The continued shifted zeta functions are tied to actual diagonal nuclear traces and preserve all prescribed regular samples. The finite part at one and literal zeta determinant are simultaneously preserved.",
+        "Entire finite corrections preserve every pole and principal part, regularity away from one, the residue at one, and the value at zero."
+      ],
+      "unproved_components": [],
+      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. All three source files elaborated; targeted transitive axiom checks use only propext, Classical.choice, and Quot.sound. The geometric-index Vandermonde proof replaces the general exponential-zero-count argument. Proof-only small examples and general level-manifold dimension are not claimed. See o4-finite-countermodels-2026-09-27-review.md."
     },
     {
       "latex_label": "final:O5",

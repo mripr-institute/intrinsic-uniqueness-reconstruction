@@ -70,6 +70,9 @@ lean_lib SigmaFormalization where
     `SigmaOpDeterminantZetaTaylor,
     `SigmaOpDeterminantZetaRemainder,
     `SigmaOpDeterminantLerch,
+    `SigmaOpFiniteCountermodelLocal,
+    `SigmaOpFiniteCountermodelSpectrum,
+    `SigmaOpFiniteCountermodelFamily,
 
     `SigmaOpDeterminantFredholm,
     `SigmaOpDeterminantRegularized,

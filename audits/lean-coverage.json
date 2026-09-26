@@ -4,9 +4,9 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 61,
+    "complete": 62,
     "partial": 12,
-    "missing": 5
+    "missing": 4
   },
   "labelled_equation_totals": {
     "complete": 13,
@@ -2522,21 +2522,34 @@
       "line": 708,
       "statement_tex": "\\label{final:O4-finite-countermodels}\nFix any finite list of values of the continued shifted zeta function\nat nonzero real regular points, optionally its finite part at $s=1$\nand its zeta determinant.  There is a nonconstant local family of\nnonnegative self-adjoint diagonal operators, differing from $A$ in\nonly finitely many positive eigenvalues, that retains all these\nspecified invariants.  Their zeta functions also retain every pole\nand principal part, and the value at zero.  Thus this finite list,\nincluding a single zeta determinant as a special case, does not\nidentify the complete spectrum.\n",
       "statement_sha256": "5b4c43a50dc09c8127e3a9315465335f4ce9444eb5505ea737e497159ff1fe60",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
-      "unproved_components": [
-        "Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.",
-        "Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.",
-        "Proof that the spectrum changes, not merely its ordering."
+      "lean_status": "complete",
+      "lean_theorems": [
+        "Sigma.finite_spectral_invariant_countermodels",
+        "Sigma.finite_invariant_preserving_curve",
+        "Sigma.finite_exponential_preserving_curve",
+        "Sigma.finite_perturbed_operator_selfadjoint",
+        "Sigma.finite_perturbed_operator_nonnegative",
+        "Sigma.finite_perturbed_operator_basis_action",
+        "Sigma.finite_perturbed_initial_operator",
+        "Sigma.finite_perturbed_domain_eq",
+        "Sigma.finite_perturbed_spectrum_changed",
+        "Sigma.finite_perturbed_zeta_trace",
+        "Sigma.finite_perturbed_zeta_zero",
+        "Sigma.finite_perturbed_principal_part_iff",
+        "Sigma.finite_perturbed_zeta_regular_iff",
+        "Sigma.finite_perturbed_zeta_residue",
+        "Sigma.finite_perturbed_finite_part_iff",
+        "Sigma.finite_perturbed_determinant_preserved"
       ],
-      "gaps": [
-        "Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.",
-        "Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.",
-        "Proof that the spectrum changes, not merely its ordering."
+      "proved_components": [
+        "For every finite set of real sample arguments, a genuine nonconstant continuous local family through the canonical operator varies only finitely many strictly positive eigenvalues. Its native maximal operators are nonnegative and self-adjoint, with unchanged domains; every sufficiently small nonzero parameter introduces a spectral value absent from the original spectrum.",
+        "The continued shifted zeta functions are tied to actual diagonal nuclear traces and preserve all prescribed regular samples. The finite part at one and literal zeta determinant are simultaneously preserved.",
+        "Entire finite corrections preserve every pole and principal part, regularity away from one, the residue at one, and the value at zero."
       ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. All three source files elaborated; targeted transitive axiom checks use only propext, Classical.choice, and Quot.sound. The geometric-index Vandermonde proof replaces the general exponential-zero-count argument. Proof-only small examples and general level-manifold dimension are not claimed. See o4-finite-countermodels-2026-09-27-review.md."
     },
     {
       "id": "final:O5",

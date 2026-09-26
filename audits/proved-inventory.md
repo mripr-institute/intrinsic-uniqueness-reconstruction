@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 61/78.
+- Fully formalized named statements: 62/78.
 - Partially formalized statements: 12.
-- Statements awaiting Lean formalization: 5.
+- Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1591 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1607 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -64,6 +64,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O4-convergence-boundary** — Compact resolvent does not supply finite trace data
 - **final:O4-heat-kernel** — The complete heat kernel relative to the invariant measure
 - **final:O4-resolvents** — Resolvents, their kernels, and the operator inverse
+- **final:O4-finite-countermodels** — Finite familiar spectral invariants do not determine the spectrum
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
@@ -1783,13 +1784,32 @@ Remaining Lean formalization:
 
 ### final:O4-finite-countermodels — Finite familiar spectral invariants do not determine the spectrum
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L708); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L708); [independent coverage map](formalization/current-operator-audit.json).
 
-Remaining Lean formalization:
+Mathematical content formalized in Lean:
 
-- Nonconstant local family of actual nonnegative diagonal self-adjoint operators varying finitely many positive eigenvalues.
-- Preservation of any finite prescribed real regular zeta values, optional finite part at one and determinant, together with every pole/principal part/value at zero.
-- Proof that the spectrum changes, not merely its ordering.
+- For every finite set of real sample arguments, a genuine nonconstant continuous local family through the canonical operator varies only finitely many strictly positive eigenvalues. Its native maximal operators are nonnegative and self-adjoint, with unchanged domains; every sufficiently small nonzero parameter introduces a spectral value absent from the original spectrum.
+- The continued shifted zeta functions are tied to actual diagonal nuclear traces and preserve all prescribed regular samples. The finite part at one and literal zeta determinant are simultaneously preserved.
+- Entire finite corrections preserve every pole and principal part, regularity away from one, the residue at one, and the value at zero.
+
+Mapped Lean declarations:
+
+- `Sigma.finite_spectral_invariant_countermodels`
+- `Sigma.finite_invariant_preserving_curve`
+- `Sigma.finite_exponential_preserving_curve`
+- `Sigma.finite_perturbed_operator_selfadjoint`
+- `Sigma.finite_perturbed_operator_nonnegative`
+- `Sigma.finite_perturbed_operator_basis_action`
+- `Sigma.finite_perturbed_initial_operator`
+- `Sigma.finite_perturbed_domain_eq`
+- `Sigma.finite_perturbed_spectrum_changed`
+- `Sigma.finite_perturbed_zeta_trace`
+- `Sigma.finite_perturbed_zeta_zero`
+- `Sigma.finite_perturbed_principal_part_iff`
+- `Sigma.finite_perturbed_zeta_regular_iff`
+- `Sigma.finite_perturbed_zeta_residue`
+- `Sigma.finite_perturbed_finite_part_iff`
+- `Sigma.finite_perturbed_determinant_preserved`
 
 ### final:O5 — Existence and uniqueness of the linked mixing measure
 

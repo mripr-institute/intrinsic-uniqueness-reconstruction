@@ -270,6 +270,9 @@ import SigmaOpDeterminantZetaHalf
 import SigmaOpDeterminantZetaTaylor
 import SigmaOpDeterminantZetaRemainder
 import SigmaOpDeterminantLerch
+import SigmaOpFiniteCountermodelLocal
+import SigmaOpFiniteCountermodelSpectrum
+import SigmaOpFiniteCountermodelFamily
 import SigmaOpEndpointFlux
 import SigmaOpZeroEnergy
 import SigmaOpEndpointCutoff

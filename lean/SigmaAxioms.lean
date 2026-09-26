@@ -2389,3 +2389,9 @@ import Sigma
 #print axioms Sigma.laguerre_unbounded_divergence_mem_l2
 #print axioms Sigma.laguerre_unbounded_domain_any_ac_representative
 #print axioms Sigma.laguerre_domain_without_finite_boundary_value
+#print axioms Sigma.finite_spectral_invariant_countermodels
+#print axioms Sigma.finite_perturbed_spectrum_changed
+#print axioms Sigma.finite_perturbed_zeta_trace
+#print axioms Sigma.finite_perturbed_principal_part_iff
+#print axioms Sigma.finite_perturbed_finite_part_iff
+#print axioms Sigma.finite_perturbed_domain_eq
