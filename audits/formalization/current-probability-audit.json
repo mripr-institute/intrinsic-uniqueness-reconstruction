@@ -4,12 +4,12 @@
   "totals_by_named_environment": {
     "total": 26,
     "definition": 0,
-    "complete": 25,
-    "partial": 1,
+    "complete": 26,
+    "partial": 0,
     "missing": 0
   },
-  "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace. The 2026-09-27 independent whole-statement P6-gw review, with cross-review of separately authored probability infrastructure, verifies the concrete iid construction, extinction, actual total-size law iff Poisson offspring, and full tree-law determination. The 2026-09-27 whole-statement P8 review verifies an unconditional Haar-Beta dyadic Gamma process and its right-continuous increasing real-time extension. Mathematical totals exclude the separately recorded formalization-scope remark.",
-  "result": "DEFECT LIST",
+  "method": "Read complete named statements and compared actual current declaration signatures and relevant definitions; checked older maps/independent records only as search aids. All declaration names use current Sigma namespace. The 2026-09-27 independent whole-statement P6-gw review, with cross-review of separately authored probability infrastructure, verifies the concrete iid construction, extinction, actual total-size law iff Poisson offspring, and full tree-law determination. The 2026-09-27 whole-statement P8 review verifies an unconditional Haar-Beta dyadic Gamma process and its right-continuous increasing real-time extension. Mathematical totals exclude the separately recorded formalization-scope remark. The 2026-09-27 whole-statement P8-levy review closes nonvacuous canonical and arbitrary-drift subordinator realizations and validates all path/law/Levy links. All named probability mathematical statements are now complete; the broad scope remark retains its explicit proof-only combinatorics caveat.",
+  "result": "PASS for all named mathematical statements; broader formalization-scope remark qualified",
   "mathematically_false_paper_clauses": [],
   "statements": [
     {
@@ -691,7 +691,7 @@
     },
     {
       "latex_label": "final:P8-levy",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.gamma_levy_exponent_integral",
         "Sigma.gamma_levy_exponent_integrable",
@@ -736,7 +736,20 @@
         "Sigma.addProcessDrift",
         "Sigma.process_drift_preserves_independence",
         "Sigma.process_drift_preserves_stationarity",
-        "Sigma.drifted_gamma_process_witness"
+        "Sigma.drifted_gamma_process_witness",
+        "Sigma.HasIncreasingRightContinuousPaths",
+        "Sigma.IsProbabilitySubordinator",
+        "Sigma.IsProbabilitySubordinator.nonnegative",
+        "Sigma.process_drift_preserves_paths",
+        "Sigma.gamma_subordinator_drift_realization",
+        "Sigma.probability_subordinator_gamma_levy_characterization",
+        "Sigma.native_gamma_subordinator",
+        "Sigma.nativeGammaDriftProcess",
+        "Sigma.native_gamma_drift_subordinator",
+        "Sigma.native_gamma_drift_process_marginal",
+        "Sigma.native_gamma_drift_process_levy",
+        "Sigma.native_gamma_drift_processes_distinct",
+        "Sigma.native_gamma_drift_subordinator_exists"
       ],
       "proved_components": [
         "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative.",
@@ -744,12 +757,13 @@
         "The scalar drifted exponent has asymptotic ratio d, so zero drift is equivalent to a zero asymptotic ratio.",
         "Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.",
         "Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.",
-        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom."
+        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom.",
+        "Unconditional canonical subordinator realization on the actual Haar probability space, with measurable coordinates, zero start, stationary independent increments and increasing right-continuous paths on a single full-measure event.",
+        "Every nonnegative drift is realized on that same space by explicit drifted paths. Their actual marginals equal gammaDriftCompletion, their Bernstein representations have the common exact Gamma Levy measure with killing zero and the specified drift, and the exact Laplace link holds at every time. Unequal drifts have different actual time-one laws.",
+        "The four drift tests apply in the explicit native probability-subordinator path category with only the linked exact Levy representation; no Gamma time-one law or existence premise is inserted."
       ],
-      "unproved_components": [
-        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
-      ],
-      "notes": "Separate realizations auditor returned bounded AUDIT PASS for LevyRegularity, Samples, Drift and Subordinator batches. The actual supplied-process bridge is proved: native iIndepFun and stationarity give convolution, and a Levy representation linked to actual Laplace transforms yields killing zero, all four tests and canonical marginal identification. No Gamma time-one premise is inserted. Actual translated measures and distinct convolution families are unconditional; the drifted process construction assumes a supplied Gamma process and therefore does not establish global process existence. Only this nonvacuous realization dependency and the usual increasing right-continuous version remain unproved."
+      "unproved_components": [],
+      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier exact Levy integrals, complete-Bernstein/Stieltjes structure, killing exclusion, drift tests and conditional process bridges remain covered. P8 now supplies an unconditional actual process and the new drifted realization theorem supplies every nonnegative drift with the usual increasing right-continuous paths. The final source files independently elaborate cleanly; targeted transitive axioms use only propext, Classical.choice and Quot.sound. See p8-levy-complete-2026-09-27-review.md."
     },
     {
       "latex_label": "final:P8-samples",
@@ -841,11 +855,13 @@
       "latex_label": "final:P-formalization-scope",
       "status": "partial",
       "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": [
-        "The assertion that the entire probability development is completely formalized is not supported while the mathematical residual items in this audit remain."
+      "proved_components": [
+        "All named probability mathematical statements are covered by reviewed native Lean declarations, including the global Gamma process and all nonnegative drift realizations."
       ],
-      "notes": "This is a metamathematical scope remark, not a theorem/definition. Exclude it from mathematical theorem totals and record its unsupported completeness claim separately. No mathematically false theorem clause was found."
+      "unproved_components": [
+        "The broader claim of coverage for every statement in the probability development remains qualified by separately unmapped proof-only labelled-tree and ordered/unordered forest combinatorial counts."
+      ],
+      "notes": "This metamathematical scope remark is excluded from named mathematical totals. Independent 2026-09-27 review confirms all named probability statements complete, but recommends retaining the qualification on the broader original prose. No line-by-line reproduction of paper proofs is claimed; alternative valid Lean proofs are accepted. Additional combinatorial claims inside the P6 proof remain separately unmapped."
     }
   ]
 }

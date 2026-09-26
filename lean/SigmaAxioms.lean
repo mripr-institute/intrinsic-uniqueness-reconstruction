@@ -2429,3 +2429,9 @@ import Sigma
 #print axioms Sigma.native_gamma_process_category
 #print axioms Sigma.native_gamma_process_increment
 #print axioms Sigma.native_gamma_process_fdd_unique
+#print axioms Sigma.process_drift_preserves_paths
+#print axioms Sigma.probability_subordinator_gamma_levy_characterization
+#print axioms Sigma.native_gamma_subordinator
+#print axioms Sigma.native_gamma_drift_subordinator_exists
+#print axioms Sigma.native_gamma_drift_process_levy
+#print axioms Sigma.native_gamma_drift_processes_distinct

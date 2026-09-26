@@ -90,6 +90,8 @@ lean_lib SigmaFormalization where
     `SigmaProbGammaCadlagDyadic,
     `SigmaProbGammaProcessSupport,
     `SigmaProbGammaProcessExistence,
+    `SigmaProbGammaSubordinatorPaths,
+    `SigmaProbGammaSubordinatorExistence,
     `SigmaProbNatSampler,
     `SigmaProbOffspringArray,
     `SigmaProbTreeSource,

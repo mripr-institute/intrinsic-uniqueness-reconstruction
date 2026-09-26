@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 65/78.
-- Partially formalized statements: 9.
+- Fully formalized named statements: 66/78.
+- Partially formalized statements: 8.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1663 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1676 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -51,6 +51,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P6-boundaries** — Tree and continuation boundaries
 - **final:P7** — The calibrated maximum-entropy characterization
 - **final:P8** — Unique probability convolution completion
+- **final:P8-levy** — Gamma L\'evy measure, drift, and complete Bernstein structure
 - **final:P8-samples** — Complete integer tails identify the Gamma exponent
 - **final:P8-selfdecomposition** — Explicit Gamma self-decomposition
 - **final:P9** — One linked residual determines a law on the entire real line
@@ -1108,7 +1109,7 @@ Mapped Lean declarations:
 
 ### final:P8-levy — Gamma L\'evy measure, drift, and complete Bernstein structure
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L1021); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1021); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1118,6 +1119,9 @@ Mathematical content formalized in Lean:
 - Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.
 - Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.
 - Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom.
+- Unconditional canonical subordinator realization on the actual Haar probability space, with measurable coordinates, zero start, stationary independent increments and increasing right-continuous paths on a single full-measure event.
+- Every nonnegative drift is realized on that same space by explicit drifted paths. Their actual marginals equal gammaDriftCompletion, their Bernstein representations have the common exact Gamma Levy measure with killing zero and the specified drift, and the exact Laplace link holds at every time. Unequal drifts have different actual time-one laws.
+- The four drift tests apply in the explicit native probability-subordinator path category with only the linked exact Levy representation; no Gamma time-one law or existence premise is inserted.
 
 Mapped Lean declarations:
 
@@ -1165,10 +1169,19 @@ Mapped Lean declarations:
 - `Sigma.process_drift_preserves_independence`
 - `Sigma.process_drift_preserves_stationarity`
 - `Sigma.drifted_gamma_process_witness`
-
-Remaining Lean formalization:
-
-- Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed.
+- `Sigma.HasIncreasingRightContinuousPaths`
+- `Sigma.IsProbabilitySubordinator`
+- `Sigma.IsProbabilitySubordinator.nonnegative`
+- `Sigma.process_drift_preserves_paths`
+- `Sigma.gamma_subordinator_drift_realization`
+- `Sigma.probability_subordinator_gamma_levy_characterization`
+- `Sigma.native_gamma_subordinator`
+- `Sigma.nativeGammaDriftProcess`
+- `Sigma.native_gamma_drift_subordinator`
+- `Sigma.native_gamma_drift_process_marginal`
+- `Sigma.native_gamma_drift_process_levy`
+- `Sigma.native_gamma_drift_processes_distinct`
+- `Sigma.native_gamma_drift_subordinator_exists`
 
 ### final:P8-samples — Complete integer tails identify the Gamma exponent
 

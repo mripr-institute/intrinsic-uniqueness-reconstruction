@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 65,
-    "partial": 9,
+    "complete": 66,
+    "partial": 8,
     "missing": 4
   },
   "labelled_equation_totals": {
@@ -1635,7 +1635,7 @@
       "line": 1021,
       "statement_tex": "\\label{final:P8-levy}\nThe Gamma convolution semigroup has exponent and L\\'evy measure\n\\begin{equation}\n \\psi(\\lambda)=2\\log(1+\\lambda)\n =\\int_0^\\infty(1-e^{-\\lambda x})\\frac{2e^{-x}}x\\,dx,\n \\qquad \\nu(dx)=\\frac{2e^{-x}}x\\,dx.\n \\label{final:eq-gamma-levy}\n\\end{equation}\nAmong probability subordinators with this exact L\\'evy measure, the\nfollowing are equivalent and each identifies that semigroup:\nzero drift; $\\psi(\\lambda)/\\lambda\\to0$; time-one support infimum\nzero; and time-one mean two.  The L\\'evy measure alone leaves arbitrary\nnonnegative drift.  Moreover\n\\begin{equation}\n \\frac{2e^{-x}}x=2\\int_1^\\infty e^{-sx}\\,ds,\n \\qquad\n \\log(1+\\lambda)=\\int_1^\\infty\n                 \\frac{\\lambda}{s(s+\\lambda)}\\,ds.\n \\label{final:eq-complete-bernstein}\n\\end{equation}\nThus $\\psi$ is a complete Bernstein function and\n$\\psi'(\\lambda)=2/(1+\\lambda)$ is Stieltjes.\n",
       "statement_sha256": "009a964afb6ce520886e81197513ee46a64b9b8df1ea18c552a7498639e8695b",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_levy_exponent_integral",
         "Sigma.gamma_levy_exponent_integrable",
@@ -1680,7 +1680,20 @@
         "Sigma.addProcessDrift",
         "Sigma.process_drift_preserves_independence",
         "Sigma.process_drift_preserves_stationarity",
-        "Sigma.drifted_gamma_process_witness"
+        "Sigma.drifted_gamma_process_witness",
+        "Sigma.HasIncreasingRightContinuousPaths",
+        "Sigma.IsProbabilitySubordinator",
+        "Sigma.IsProbabilitySubordinator.nonnegative",
+        "Sigma.process_drift_preserves_paths",
+        "Sigma.gamma_subordinator_drift_realization",
+        "Sigma.probability_subordinator_gamma_levy_characterization",
+        "Sigma.native_gamma_subordinator",
+        "Sigma.nativeGammaDriftProcess",
+        "Sigma.native_gamma_drift_subordinator",
+        "Sigma.native_gamma_drift_process_marginal",
+        "Sigma.native_gamma_drift_process_levy",
+        "Sigma.native_gamma_drift_processes_distinct",
+        "Sigma.native_gamma_drift_subordinator_exists"
       ],
       "proved_components": [
         "Actual Levy-exponent improper integral, exponential mixture representation of the density, complete-Bernstein scalar rational integral and exponent derivative.",
@@ -1688,16 +1701,15 @@
         "The scalar drifted exponent has asymptotic ratio d, so zero drift is equivalent to a zero asymptotic ratio.",
         "Actual shifted time-one probabilities have support [d,infinity), support infimum d and mean d+2. Probability normalization excludes killing, and the four drift/ratio/support/mean tests are equivalent and identify the whole marginal convolution semigroup.",
         "Actual distinct nonnegative-drift convolution families have the same actual Levy measure. For supplied stationary independent nonnegative-increment processes, native independence and stationarity derive convolution; the linked Levy representation implies the four tests and canonical marginal family, without assuming a Gamma time-one law.",
-        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom."
+        "Adding deterministic drift to any supplied Gamma process preserves stationary independent increments and gives the actual gammaDriftCompletion marginals, furnishing the conditional process-level drift freedom.",
+        "Unconditional canonical subordinator realization on the actual Haar probability space, with measurable coordinates, zero start, stationary independent increments and increasing right-continuous paths on a single full-measure event.",
+        "Every nonnegative drift is realized on that same space by explicit drifted paths. Their actual marginals equal gammaDriftCompletion, their Bernstein representations have the common exact Gamma Levy measure with killing zero and the specified drift, and the exact Laplace link holds at every time. Unequal drifts have different actual time-one laws.",
+        "The four drift tests apply in the explicit native probability-subordinator path category with only the linked exact Levy representation; no Gamma time-one law or existence premise is inserted."
       ],
-      "unproved_components": [
-        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
-      ],
-      "gaps": [
-        "Nonvacuous global subordinator realization of the Gamma and drifted families, sharing P8's actual process existence/extension dependency; the usual increasing right-continuous realization is not yet constructed."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Separate realizations auditor returned bounded AUDIT PASS for LevyRegularity, Samples, Drift and Subordinator batches. The actual supplied-process bridge is proved: native iIndepFun and stationarity give convolution, and a Levy representation linked to actual Laplace transforms yields killing zero, all four tests and canonical marginal identification. No Gamma time-one premise is inserted. Actual translated measures and distinct convolution families are unconditional; the drifted process construction assumes a supplied Gamma process and therefore does not establish global process existence. Only this nonvacuous realization dependency and the usual increasing right-continuous version remain unproved."
+      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier exact Levy integrals, complete-Bernstein/Stieltjes structure, killing exclusion, drift tests and conditional process bridges remain covered. P8 now supplies an unconditional actual process and the new drifted realization theorem supplies every nonnegative drift with the usual increasing right-continuous paths. The final source files independently elaborate cleanly; targeted transitive axioms use only propext, Classical.choice and Quot.sound. See p8-levy-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P8-samples",
