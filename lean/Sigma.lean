@@ -260,3 +260,14 @@ import SigmaOpResolventKernel
 import SigmaOpSobolevDomain
 import SigmaOpDeterminantFredholm
 import SigmaOpDeterminantRegularized
+import SigmaOpWeakPrimitive
+import SigmaOpWeakFlux
+import SigmaOpClassicalFlux
+import SigmaOpMaximalDomain
+import SigmaOpDeterminantZeta
+import SigmaOpDeterminantZetaPrime
+import SigmaOpDeterminantZetaHalf
+import SigmaOpDeterminantZetaTaylor
+import SigmaOpDeterminantZetaRemainder
+import SigmaOpDeterminantLerch
+import SigmaOpEndpointFlux

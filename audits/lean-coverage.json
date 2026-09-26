@@ -1986,25 +1986,38 @@
         "Sigma.laguerre_canonical_unique_selfAdjoint_extension",
         "Sigma.partialOperatorEigenspace",
         "Sigma.laguerre_minimal_deficiency_spaces",
-        "Sigma.laguerre_minimal_deficiency_indices"
+        "Sigma.laguerre_minimal_deficiency_indices",
+        "Sigma.complex_zero_weak_derivative_constant",
+        "Sigma.complex_weak_derivative_regular_representative",
+        "Sigma.laguerre_operator_weak_flux",
+        "Sigma.laguerre_operator_regular_flux",
+        "Sigma.PositiveRayLocallyAbsolutelyContinuous.hasDerivAt_of_ae_continuous",
+        "Sigma.laguerre_operator_classical_flux",
+        "Sigma.laguerreDivergenceExpression",
+        "Sigma.laguerre_operator_maximal_representative",
+        "Sigma.laguerre_mem_of_maximal_representative",
+        "Sigma.laguerre_canonical_domain_iff_maximal",
+        "Sigma.positive_ac_zero_endpoint_limits",
+        "Sigma.finite_energy_flux_square_integrable",
+        "Sigma.laguerre_canonical_zero_flux"
       ],
       "proved_components": [
         "Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.",
         "Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.",
-        "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero."
+        "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.",
+        "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
+        "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish."
       ],
       "unproved_components": [
         "Both endpoint limit-point classifications.",
-        "Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.",
         "Domain does not require a finite value at zero, including a witnessing domain element."
       ],
       "gaps": [
         "Both endpoint limit-point classifications.",
-        "Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.",
         "Domain does not require a finite value at zero, including a witnessing domain element."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial AUDIT PASS for the unconditional differential graph-closure bridge. Local maximal-domain and endpoint assertions remain separate; no completion is inferred from essential self-adjointness alone."
+      "notes": "Independent adversarial reviews passed the native graph closure, exact maximal-domain equation, actual divergence image, and automatic endpoint flux limits. The maximal-domain reverse theorem adds no energy or boundary assumption. The flux theorem covers any AC representative. Targeted transitive axioms and independent source elaborations passed with only standard axioms. See o3-maximal-flux-2026-09-26-review.md. Limit-point classifications and the unbounded-at-zero witness remain separate obligations."
     },
     {
       "id": "final:O3-form",
@@ -2443,24 +2456,40 @@
         "Sigma.laguerre_regularized_determinant_gamma",
         "Sigma.laguerre_regularized_determinant_entire",
         "Sigma.laguerre_regularized_determinant_zeros",
-        "Sigma.laguerre_regularized_determinant_simple_zeros"
+        "Sigma.laguerre_regularized_determinant_simple_zeros",
+        "Sigma.laguerreHurwitzZeta",
+        "Sigma.laguerre_hurwitz_zeta_hasSum",
+        "Sigma.laguerre_hurwitz_zeta_regular_zero",
+        "Sigma.laguerreShiftedZetaOperator",
+        "Sigma.laguerre_shifted_zeta_trace",
+        "Sigma.laguerreZetaDeterminant",
+        "Sigma.laguerrePrimeZetaOperator",
+        "Sigma.laguerre_prime_zeta_trace",
+        "Sigma.laguerre_prime_zeta_omits_zero",
+        "Sigma.laguerrePrimeZetaDeterminant",
+        "Sigma.laguerre_prime_zeta_determinant_eq_shift_one",
+        "Sigma.hurwitz_half_duplication",
+        "Sigma.hurwitz_half_deriv_zero",
+        "Sigma.laguerre_hurwitz_deriv_zero",
+        "Sigma.laguerre_zeta_determinant_gamma",
+        "Sigma.laguerre_zeta_determinant_shift_one_value",
+        "Sigma.laguerre_prime_zeta_determinant_value"
       ],
       "proved_components": [
         "Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.",
-        "Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros."
+        "Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.",
+        "Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication."
       ],
       "unproved_components": [
         "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
-        "Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.",
         "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
       ],
       "gaps": [
         "Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.",
-        "Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.",
         "Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent paper_coverage_review PASS on 2026-09-26 for genuine canonical compression constructions, entire formulas, branch independence, and simple zero sets. This is a partial result: no basis-independent determinant API or competing-operator inverse is inferred from the canonical formulas. Source elaboration and targeted axiom checks passed. See o4-determinants-2026-09-26-review.md."
+      "notes": "Independent paper_coverage_review PASS on 2026-09-26 for genuine canonical compression constructions, entire formulas, branch independence, and simple zero sets. This is a partial result: no basis-independent determinant API or competing-operator inverse is inferred from the canonical formulas. Source elaboration and targeted axiom checks passed. See o4-determinants-2026-09-26-review.md. A second independent COMPLETE PASS closes the zeta determinant equation and both special values with the actual zero-mode convention. No Lerch formula or normalization is assumed; all-positive-shift identities are derived. See o4-zeta-determinant-2026-09-26-review.md."
     },
     {
       "id": "final:O4-finite-countermodels",

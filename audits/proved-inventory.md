@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 13.
 - Statements awaiting Lean formalization: 5.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1537 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1567 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1349,6 +1349,8 @@ Mathematical content formalized in Lean:
 - Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.
 - Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.
 - The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.
+- Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.
+- Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.
 
 Mapped Lean declarations:
 
@@ -1366,11 +1368,23 @@ Mapped Lean declarations:
 - `Sigma.partialOperatorEigenspace`
 - `Sigma.laguerre_minimal_deficiency_spaces`
 - `Sigma.laguerre_minimal_deficiency_indices`
+- `Sigma.complex_zero_weak_derivative_constant`
+- `Sigma.complex_weak_derivative_regular_representative`
+- `Sigma.laguerre_operator_weak_flux`
+- `Sigma.laguerre_operator_regular_flux`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.hasDerivAt_of_ae_continuous`
+- `Sigma.laguerre_operator_classical_flux`
+- `Sigma.laguerreDivergenceExpression`
+- `Sigma.laguerre_operator_maximal_representative`
+- `Sigma.laguerre_mem_of_maximal_representative`
+- `Sigma.laguerre_canonical_domain_iff_maximal`
+- `Sigma.positive_ac_zero_endpoint_limits`
+- `Sigma.finite_energy_flux_square_integrable`
+- `Sigma.laguerre_canonical_zero_flux`
 
 Remaining Lean formalization:
 
 - Both endpoint limit-point classifications.
-- Exact maximal locally absolutely continuous domain and both automatic zero-flux endpoint limits.
 - Domain does not require a finite value at zero, including a witnessing domain element.
 
 ### final:O3-form — The closed form and the conservative semigroup
@@ -1699,6 +1713,7 @@ Mathematical content formalized in Lean:
 
 - Actual finite Hilbert-basis compression determinants of the squared native resolvent converge at every complex z to the entire sinh power series. The square-root formula holds for every nonzero square root, the value at zero is one, and all zeros are exactly negative squares of positive integers with simple multiplicity.
 - Actual finite native first-resolvent compression determinants multiplied by exp(-z trace) converge for every complex z to exp(-EulerGamma*z)/Gamma(1+z), including Gamma poles. The limit is entire and has exactly the negative positive integers as simple zeros.
+- Complete zeta-determinant clause for every positive shift: the correctly shifted Hurwitz meromorphic continuation equals the actual nuclear trace on Re(s)>1, is regular at zero, and has derivative log Gamma(a)-log(2pi)/2. The determinant is literally exp(-derivative) and equals sqrt(2pi)/Gamma(a). Both shift-one and prime determinants equal sqrt(2pi); the native prime multiplier removes exactly the zero mode. The normalization is derived from uniform analytic remainders, Euler log-Gamma, and half-shift duplication.
 
 Mapped Lean declarations:
 
@@ -1721,11 +1736,27 @@ Mapped Lean declarations:
 - `Sigma.laguerre_regularized_determinant_entire`
 - `Sigma.laguerre_regularized_determinant_zeros`
 - `Sigma.laguerre_regularized_determinant_simple_zeros`
+- `Sigma.laguerreHurwitzZeta`
+- `Sigma.laguerre_hurwitz_zeta_hasSum`
+- `Sigma.laguerre_hurwitz_zeta_regular_zero`
+- `Sigma.laguerreShiftedZetaOperator`
+- `Sigma.laguerre_shifted_zeta_trace`
+- `Sigma.laguerreZetaDeterminant`
+- `Sigma.laguerrePrimeZetaOperator`
+- `Sigma.laguerre_prime_zeta_trace`
+- `Sigma.laguerre_prime_zeta_omits_zero`
+- `Sigma.laguerrePrimeZetaDeterminant`
+- `Sigma.laguerre_prime_zeta_determinant_eq_shift_one`
+- `Sigma.hurwitz_half_duplication`
+- `Sigma.hurwitz_half_deriv_zero`
+- `Sigma.laguerre_hurwitz_deriv_zero`
+- `Sigma.laguerre_zeta_determinant_gamma`
+- `Sigma.laguerre_zeta_determinant_shift_one_value`
+- `Sigma.laguerre_prime_zeta_determinant_value`
 
 Remaining Lean formalization:
 
 - Identify the canonical compression limits with the basis-independent ordinary Fredholm and Hilbert-Schmidt regularized determinants; independence of basis/exhaustion and locally uniform or unordered product convergence are not proved.
-- Prove the continued-Hurwitz zeta-determinant formula for all positive shifts, including both sqrt(2pi) values and zero-mode conventions.
 - Prove eigenvalue-multiset recovery from zero multisets with multiplicities for competing nonnegative operators in both shifted determinant categories.
 
 ### final:O4-finite-countermodels — Finite familiar spectral invariants do not determine the spectrum
