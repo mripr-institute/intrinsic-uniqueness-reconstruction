@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 58/78.
-- Partially formalized statements: 14.
+- Fully formalized named statements: 59/78.
+- Partially formalized statements: 13.
 - Statements awaiting Lean formalization: 6.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1481 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1500 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -61,6 +61,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O4** — Exact trace domains and reconstruction of the unitary class
 - **final:O4-convergence-boundary** — Compact resolvent does not supply finite trace data
 - **final:O4-heat-kernel** — The complete heat kernel relative to the invariant measure
+- **final:O4-resolvents** — Resolvents, their kernels, and the operator inverse
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
@@ -1379,6 +1380,7 @@ Mathematical content formalized in Lean:
 
 - Every square-root-domain vector has an actual locally absolutely continuous representative with finite literal weighted derivative energy equal to the square-root norm squared. Regularity and integrability are derived, not assumed.
 - Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.
+- The actual Gamma-weighted complex L2 heat semigroup preserves nonnegative real inputs, the constant one, and the Gamma integral, including time zero.
 
 Mapped Lean declarations:
 
@@ -1391,12 +1393,14 @@ Mapped Lean declarations:
 - `Sigma.laguerre_heat_contracts`
 - `Sigma.laguerre_heat_zero`
 - `Sigma.laguerre_heat_add`
+- `Sigma.laguerre_heat_preserves_one`
+- `Sigma.laguerre_heat_preserves_integral`
+- `Sigma.laguerre_heat_preserves_nonnegative`
 
 Remaining Lean formalization:
 
 - Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.
 - Full sesquilinear closed-form identity on the exact weighted Sobolev domain.
-- Native positivity-preserving semigroup, preservation of one and of the probability measure.
 
 ### final:O3-spectrum — The Laguerre basis and the exact integer spectrum
 
@@ -1603,7 +1607,7 @@ Mapped Lean declarations:
 
 ### final:O4-resolvents — Resolvents, their kernels, and the operator inverse
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L583); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L583); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1613,6 +1617,9 @@ Mathematical content formalized in Lean:
 - The first and time-weighted Bochner heat Laplace integrals are strongly measurable and integrable on every weighted-L2 input, and equal the actual first and squared resolvents as full operators, not merely on basis vectors.
 - The actual first resolvent is Hilbert-Schmidt and not nuclear; its square and the difference of two first resolvents are nuclear, with basis-independent native traces equal to their respective convergent eigenvalue series.
 - For every positive shift, the native squared-resolvent trace equals the analytic Hurwitz zeta value at two after the canonical reduction to a shift in (0,1] and subtraction of the omitted finite initial segment.
+- The literal positive-time Lebesgue Laplace integrals of the Bessel heat kernel, with weights exp(-a*t) and t*exp(-a*t), are nonnegative and genuinely integrable in time for weighted-product-almost-every pair. They belong to weighted product L2 and represent the actual first and squared resolvents on every complex weighted-L2 input.
+- The exact squared heat-kernel norm and a usable near-zero bound yield actual Bochner integrability. A generic L2 representative/Fubini argument identifies the vector integrals with the literal scalar kernels.
+- The actual nuclear trace of the resolvent difference equals psi(b)-psi(a) for all positive a,b, with psi defined as the actual Gamma derivative divided by Gamma. The normalized digamma series is derived by differentiating the proved Euler log-Gamma product.
 
 Mapped Lean declarations:
 
@@ -1651,11 +1658,22 @@ Mapped Lean declarations:
 - `Sigma.laguerre_squared_resolvent_trace_hurwitz`
 - `Sigma.laguerre_resolvent_difference_nuclear`
 - `Sigma.laguerre_resolvent_difference_trace`
-
-Remaining Lean formalization:
-
-- Prove the pointwise nonnegative heat-kernel Laplace integrals are finite almost everywhere and represent the first and squared resolvents as weighted product-L2 kernels.
-- Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign.
+- `Sigma.laguerre_heat_kernel_norm_sq`
+- `Sigma.laguerre_heat_kernel_vector_norm_bound`
+- `Sigma.laguerre_heat_kernel_weighted_integrable`
+- `Sigma.laguerreLaplaceKernelVector`
+- `Sigma.laguerreLaplaceKernel`
+- `Sigma.laguerre_laplace_kernel_eq_setIntegral`
+- `Sigma.laguerre_laplace_kernel_vector_coe`
+- `Sigma.laguerre_laplace_kernel_mem_l2`
+- `Sigma.laguerre_laplace_kernel_integrable_ae`
+- `Sigma.laguerre_laplace_kernel_nonnegative`
+- `Sigma.laguerre_resolvent_kernel_action`
+- `Sigma.laguerre_squared_resolvent_kernel_action`
+- `Sigma.realDigamma`
+- `Sigma.real_digamma_series`
+- `Sigma.real_digamma_sub`
+- `Sigma.laguerre_resolvent_difference_trace_digamma`
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 

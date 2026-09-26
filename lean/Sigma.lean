@@ -243,3 +243,8 @@ import SigmaOpConvergenceBoundary
 import SigmaOpSpectralTraceRecovery
 import SigmaOpSignedMixing
 import SigmaRealRadialBoundary
+import SigmaOpHeatMarkov
+import SigmaOpResolventDigamma
+import SigmaOpHeatKernelNorm
+import SigmaL2BochnerKernel
+import SigmaOpResolventKernel

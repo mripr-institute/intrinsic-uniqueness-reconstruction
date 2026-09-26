@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 58,
-    "partial": 14,
+    "complete": 59,
+    "partial": 13,
     "missing": 6
   },
   "labelled_equation_totals": {
@@ -2028,24 +2028,26 @@
         "Sigma.laguerre_heat_spectral_action",
         "Sigma.laguerre_heat_contracts",
         "Sigma.laguerre_heat_zero",
-        "Sigma.laguerre_heat_add"
+        "Sigma.laguerre_heat_add",
+        "Sigma.laguerre_heat_preserves_one",
+        "Sigma.laguerre_heat_preserves_integral",
+        "Sigma.laguerre_heat_preserves_nonnegative"
       ],
       "proved_components": [
         "Every square-root-domain vector has an actual locally absolutely continuous representative with finite literal weighted derivative energy equal to the square-root norm squared. Regularity and integrability are derived, not assumed.",
-        "Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space."
+        "Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.",
+        "The actual Gamma-weighted complex L2 heat semigroup preserves nonnegative real inputs, the constant one, and the Gamma integral, including time zero."
       ],
       "unproved_components": [
         "Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.",
-        "Full sesquilinear closed-form identity on the exact weighted Sobolev domain.",
-        "Native positivity-preserving semigroup, preservation of one and of the probability measure."
+        "Full sesquilinear closed-form identity on the exact weighted Sobolev domain."
       ],
       "gaps": [
         "Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.",
-        "Full sesquilinear closed-form identity on the exact weighted Sobolev domain.",
-        "Native positivity-preserving semigroup, preservation of one and of the probability measure."
+        "Full sesquilinear closed-form identity on the exact weighted Sobolev domain."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Independent paper_coverage_review clause AUDIT PASS on 2026-09-26 for the native Markov semigroup conclusions. The reverse Sobolev inclusion and full sesquilinear form identity remain open; this named statement stays partial."
     },
     {
       "id": "final:O3-spectrum",
@@ -2272,7 +2274,7 @@
       "unproved_components": [],
       "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial AUDIT PASS. The paper's proposition is existential; Lean uses the alternative explicit eigenvalues sqrt(log(n+3)) rather than log log(n+e^e). The native operator, its full domain, self-adjointness, nonnegativity, compact resolvent, and actual heat/zeta multiplier trace-class failures are proved. The rest of O4 remains separate: heat-kernel formulas/convergence, resolvent-kernel/digamma formulas, determinants, and finite-invariant countermodels are still incomplete."
+      "notes": "Independent adversarial AUDIT PASS. The paper's proposition is existential; Lean uses the alternative explicit eigenvalues sqrt(log(n+3)) rather than log log(n+e^e). The native operator, its full domain, self-adjointness, nonnegativity, compact resolvent, and actual heat/zeta multiplier trace-class failures are proved. The separate O4 heat-kernel and resolvent statements are now complete; determinants and finite-invariant countermodels remain incomplete."
     },
     {
       "id": "final:O4-heat-kernel",
@@ -2323,7 +2325,7 @@
       "line": 583,
       "statement_tex": "\\label{final:O4-resolvents}\nFor $\\alpha>0$, the kernels relative to $p(y)\\,dy$ of\n$(A+\\alpha\\mathrm{Id})^{-1}$ and $(A+\\alpha\\mathrm{Id})^{-2}$ are\nrespectively\n\\begin{align*}\n R_\\alpha(x,y)&=\\int_0^\\infty e^{-\\alpha\\tau}K_\\tau(x,y)\\,d\\tau,\\\\\n S_\\alpha(x,y)&=\\int_0^\\infty \\tau e^{-\\alpha\\tau}K_\\tau(x,y)\\,d\\tau.\n\\end{align*}\nThese identities hold as $L^2$ kernels, and the nonnegative integrals\nare finite almost everywhere.  The first resolvent is Hilbert--Schmidt\nbut is not trace class.  The second is trace class and\n\\[\n \\operatorname{Tr}(A+\\alpha\\mathrm{Id})^{-2}=\\zeta(2,\\alpha),\n\\]\nwhere $\\zeta(s,\\alpha)=\\sum_{n=0}^\\infty(n+\\alpha)^{-s}$ for\n$\\operatorname{Re}s>1$.  For $\\alpha,\\beta>0$,\n\\begin{equation}\\label{final:O4-resolvent-difference}\n \\operatorname{Tr}\\bigl[(A+\\alpha\\mathrm{Id})^{-1}\n       -(A+\\beta\\mathrm{Id})^{-1}\\bigr]\n       =\\psi(\\beta)-\\psi(\\alpha),\n\\end{equation}\nwith $\\psi=\\Gamma'/\\Gamma$.\nA complete resolvent operator, with its Hilbert realization and shift\nretained, determines $A$ and its domain.  A full marked heat operator\nat any fixed positive time also determines $A$.\n",
       "statement_sha256": "4ceb7c9a0a8e622c0f9eba5e9e054b72a4036e6b26270bfe616b8df9090e4031",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.OpIsResolvent",
         "Sigma.operator_resolvent_domain",
@@ -2359,7 +2361,23 @@
         "Sigma.laguerre_squared_resolvent_trace_hurwitz_shifted",
         "Sigma.laguerre_squared_resolvent_trace_hurwitz",
         "Sigma.laguerre_resolvent_difference_nuclear",
-        "Sigma.laguerre_resolvent_difference_trace"
+        "Sigma.laguerre_resolvent_difference_trace",
+        "Sigma.laguerre_heat_kernel_norm_sq",
+        "Sigma.laguerre_heat_kernel_vector_norm_bound",
+        "Sigma.laguerre_heat_kernel_weighted_integrable",
+        "Sigma.laguerreLaplaceKernelVector",
+        "Sigma.laguerreLaplaceKernel",
+        "Sigma.laguerre_laplace_kernel_eq_setIntegral",
+        "Sigma.laguerre_laplace_kernel_vector_coe",
+        "Sigma.laguerre_laplace_kernel_mem_l2",
+        "Sigma.laguerre_laplace_kernel_integrable_ae",
+        "Sigma.laguerre_laplace_kernel_nonnegative",
+        "Sigma.laguerre_resolvent_kernel_action",
+        "Sigma.laguerre_squared_resolvent_kernel_action",
+        "Sigma.realDigamma",
+        "Sigma.real_digamma_series",
+        "Sigma.real_digamma_sub",
+        "Sigma.laguerre_resolvent_difference_trace_digamma"
       ],
       "proved_components": [
         "A common bounded resolvent satisfying its actual two inverse equations determines a native partially defined linear operator and domain; range and action formulas proved.",
@@ -2367,18 +2385,15 @@
         "The actual canonical positive-shift resolvent satisfies the inverse equations and identifies its native generator. A full marked canonical heat operator at any positive time reconstructs that generator and its exact domain using the logarithms of its actual marked coefficients; positive coefficients may accumulate at zero.",
         "The first and time-weighted Bochner heat Laplace integrals are strongly measurable and integrable on every weighted-L2 input, and equal the actual first and squared resolvents as full operators, not merely on basis vectors.",
         "The actual first resolvent is Hilbert-Schmidt and not nuclear; its square and the difference of two first resolvents are nuclear, with basis-independent native traces equal to their respective convergent eigenvalue series.",
-        "For every positive shift, the native squared-resolvent trace equals the analytic Hurwitz zeta value at two after the canonical reduction to a shift in (0,1] and subtraction of the omitted finite initial segment."
+        "For every positive shift, the native squared-resolvent trace equals the analytic Hurwitz zeta value at two after the canonical reduction to a shift in (0,1] and subtraction of the omitted finite initial segment.",
+        "The literal positive-time Lebesgue Laplace integrals of the Bessel heat kernel, with weights exp(-a*t) and t*exp(-a*t), are nonnegative and genuinely integrable in time for weighted-product-almost-every pair. They belong to weighted product L2 and represent the actual first and squared resolvents on every complex weighted-L2 input.",
+        "The exact squared heat-kernel norm and a usable near-zero bound yield actual Bochner integrability. A generic L2 representative/Fubini argument identifies the vector integrals with the literal scalar kernels.",
+        "The actual nuclear trace of the resolvent difference equals psi(b)-psi(a) for all positive a,b, with psi defined as the actual Gamma derivative divided by Gamma. The normalized digamma series is derived by differentiating the proved Euler log-Gamma product."
       ],
-      "unproved_components": [
-        "Prove the pointwise nonnegative heat-kernel Laplace integrals are finite almost everywhere and represent the first and squared resolvents as weighted product-L2 kernels.",
-        "Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign."
-      ],
-      "gaps": [
-        "Prove the pointwise nonnegative heat-kernel Laplace integrals are finite almost everywhere and represent the first and squared resolvents as weighted product-L2 kernels.",
-        "Identify the native resolvent-difference trace series with the digamma difference, including its stated normalization and sign."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent bounded AUDIT PASS for the actual canonical resolvent and full marked heat inverse. Existing generic OpIsResolvent inverse results are reused. The heat reconstruction retains the complete marked basis and is not a general unmarked Borel inverse for arbitrary self-adjoint operators. SigmaOpHeatResolvent proves both full Bochner operator identities after deriving strong measurability and integrability from finite-basis limits and contraction bounds. SigmaOpLaguerreResolventTrace identifies the squared-resolvent nuclear trace with Mathlib's analytic Hurwitz zeta on the unit shift interval and gives the exact finite correction for all positive shifts. The product-L2 kernel and digamma identifications remain open."
+      "notes": "Independent full named-statement COMPLETE PASS by paper_coverage_review on 2026-09-26. Every kernel, ideal, trace, generator/domain reconstruction, and marked heat inverse clause was checked against the paper. Temporary vector-integrability premises are discharged in both final kernel-action theorems. All positive Hurwitz shifts include the necessary finite correction to Mathlib conventions. The native operators are linked to the differential closure. Independent elaboration and targeted transitive axiom checks passed with only propext, Classical.choice, and Quot.sound. Full project build passed; the repository-wide axiom print audit was still running when this record was committed. See o4-resolvents-2026-09-26-review.md."
     },
     {
       "id": "final:O4-determinants",
