@@ -2303,3 +2303,10 @@ import Sigma
 #print axioms Sigma.laguerre_laplace_kernel_eq_setIntegral
 #print axioms Sigma.laguerre_resolvent_kernel_action
 #print axioms Sigma.laguerre_squared_resolvent_kernel_action
+#print axioms Sigma.PositiveRayLocallyAbsolutelyContinuous.continuousAt
+#print axioms Sigma.PositiveRayLocallyAbsolutelyContinuous.eqOn_of_ae
+#print axioms Sigma.smooth_compact_gradient_inner
+#print axioms Sigma.smooth_compact_root_tendsto_of_gradient
+#print axioms Sigma.regular_representative_weighted_inner
+#print axioms Sigma.laguerre_square_root_sesquilinear_representatives
+#print axioms Sigma.laguerre_square_root_sesquilinear_form

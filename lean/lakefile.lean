@@ -54,6 +54,7 @@ lean_lib SigmaFormalization where
     `SigmaOpWeightedEnergy,
     `SigmaOpWeightedLocal,
     `SigmaOpWeightedSobolev,
+    `SigmaOpSesquilinearForm,
     `SigmaOpDeficiency,
     `SigmaOpCanonicalInverse,
     `SigmaOpHeatKernel,

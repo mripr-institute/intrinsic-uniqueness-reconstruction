@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 13.
 - Statements awaiting Lean formalization: 6.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1500 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1507 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1381,6 +1381,7 @@ Mathematical content formalized in Lean:
 - Every square-root-domain vector has an actual locally absolutely continuous representative with finite literal weighted derivative energy equal to the square-root norm squared. Regularity and integrability are derived, not assumed.
 - Actual bounded exponential-calculus operators form a contraction semigroup, including zero time, on the Gamma-weighted Hilbert space.
 - The actual Gamma-weighted complex L2 heat semigroup preserves nonnegative real inputs, the constant one, and the Gamma integral, including time zero.
+- For every pair of vectors in the full native square-root domain and any locally absolutely continuous representatives F,G, the literal mixed weighted derivative integral is integrable and equals inner(A^(1/2)G,A^(1/2)F) in Lean conventions. Existence of such representatives is derived, continuity follows from the finite-disjoint-interval AC definition, and uniqueness on the positive ray makes the identity representative-independent.
 
 Mapped Lean declarations:
 
@@ -1396,11 +1397,17 @@ Mapped Lean declarations:
 - `Sigma.laguerre_heat_preserves_one`
 - `Sigma.laguerre_heat_preserves_integral`
 - `Sigma.laguerre_heat_preserves_nonnegative`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.continuousAt`
+- `Sigma.PositiveRayLocallyAbsolutelyContinuous.eqOn_of_ae`
+- `Sigma.smooth_compact_gradient_inner`
+- `Sigma.smooth_compact_root_tendsto_of_gradient`
+- `Sigma.regular_representative_weighted_inner`
+- `Sigma.laguerre_square_root_sesquilinear_representatives`
+- `Sigma.laguerre_square_root_sesquilinear_form`
 
 Remaining Lean formalization:
 
 - Reverse inclusion: every locally absolutely continuous weighted-L2 function of finite weighted derivative energy belongs to D(A^(1/2)), with no extra endpoint traces.
-- Full sesquilinear closed-form identity on the exact weighted Sobolev domain.
 
 ### final:O3-spectrum — The Laguerre basis and the exact integer spectrum
 

@@ -37,6 +37,7 @@ import SigmaOpLaguerre
 import SigmaOpMarkedCalculus
 import SigmaOpCanonicalCalculus
 import SigmaOpWeightedSobolev
+import SigmaOpSesquilinearForm
 import SigmaOpDeficiency
 import SigmaOpCanonicalInverse
 import SigmaOpHeatKernelPointwise
