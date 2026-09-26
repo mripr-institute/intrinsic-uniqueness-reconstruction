@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 60/78.
-- Partially formalized statements: 13.
+- Fully formalized named statements: 61/78.
+- Partially formalized statements: 12.
 - Statements awaiting Lean formalization: 5.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1567 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1591 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -56,6 +56,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O1-kernel** — The integrable centered Stein kernel
 - **final:O2** — Two marked probes and the Pearson realization
 - **final:O2-boundaries** — The exact limits of the probe and stationary data
+- **final:O3** — Essential self-adjointness and the full domain
 - **final:O3-form** — The closed form and the conservative semigroup
 - **final:O3-spectrum** — The Laguerre basis and the exact integer spectrum
 - **final:O7** — Complete marked Laguerre orthogonality identifies the law
@@ -1342,7 +1343,7 @@ Mapped Lean declarations:
 
 ### final:O3 — Essential self-adjointness and the full domain
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1351,6 +1352,8 @@ Mathematical content formalized in Lean:
 - The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.
 - Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.
 - Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.
+- Both endpoints are limit point under the paper’s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.
+- Explicit canonical-domain vector represented by F(t)=log(1+log(1+1/t)); its actual flux and divergence formulas and both weighted L2 memberships are proved. Every locally AC representative of this class has real part tending to +infinity at zero, so none admits a finite complex boundary value.
 
 Mapped Lean declarations:
 
@@ -1381,11 +1384,30 @@ Mapped Lean declarations:
 - `Sigma.positive_ac_zero_endpoint_limits`
 - `Sigma.finite_energy_flux_square_integrable`
 - `Sigma.laguerre_canonical_zero_flux`
-
-Remaining Lean formalization:
-
-- Both endpoint limit-point classifications.
-- Domain does not require a finite value at zero, including a witnessing domain element.
+- `Sigma.laguerreSecondZeroSolution`
+- `Sigma.laguerre_second_zero_hasDerivAt`
+- `Sigma.laguerre_second_zero_flux`
+- `Sigma.laguerre_zero_solution_fundamental_system`
+- `Sigma.laguerre_zero_fundamental_independent`
+- `Sigma.LaguerreZeroEnergySolution`
+- `Sigma.LaguerreSquareIntegrableAtZero`
+- `Sigma.LaguerreSquareIntegrableAtInfinity`
+- `Sigma.LaguerreWeylLimitPoint`
+- `Sigma.laguerre_second_zero_not_l2_at_zero`
+- `Sigma.laguerre_second_zero_not_l2_at_infinity`
+- `Sigma.laguerre_zero_solution_l2_at_zero_iff_constant`
+- `Sigma.laguerre_zero_solution_l2_at_infinity_iff_constant`
+- `Sigma.laguerre_both_endpoints_limit_point`
+- `Sigma.laguerreUnboundedRepresentative`
+- `Sigma.laguerre_unbounded_hasDerivAt`
+- `Sigma.laguerre_unbounded_flux_identity`
+- `Sigma.laguerre_unbounded_divergence`
+- `Sigma.endpoint_witness_kernel_integrable`
+- `Sigma.laguerre_unbounded_representative_mem_l2`
+- `Sigma.laguerre_unbounded_divergence_mem_l2`
+- `Sigma.laguerreUnboundedDomainVector`
+- `Sigma.laguerre_unbounded_domain_any_ac_representative`
+- `Sigma.laguerre_domain_without_finite_boundary_value`
 
 ### final:O3-form — The closed form and the conservative semigroup
 

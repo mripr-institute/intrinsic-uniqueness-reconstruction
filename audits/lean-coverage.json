@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 60,
-    "partial": 13,
+    "complete": 61,
+    "partial": 12,
     "missing": 5
   },
   "labelled_equation_totals": {
@@ -1971,7 +1971,7 @@
       "line": 179,
       "statement_tex": "\\label{final:O3}\nThe operator $A_0$ is densely defined, nonnegative and symmetric.\nBoth singular endpoints are limit point, its deficiency indices are\n$(0,0)$, and its unique self-adjoint extension is\n$A=\\overline{A_0}=A_0^*$.  Its exact domain is\n\\begin{equation}\\label{final:O3-domain}\n D(A)=\\left\\{f\\in\\mathcal H:\n f,qf'\\in AC_{\\mathrm{loc}}(0,\\infty),\\quad\n -p^{-1}(qf')'\\in\\mathcal H\\right\\}.\n\\end{equation}\nHere the regularity refers to the indicated representatives of the\n$L^2$ classes.  For every $f\\in D(A)$,\n\\begin{equation}\\label{final:O3-flux}\n \\lim_{t\\downarrow0}q(t)f'(t)=\n \\lim_{t\\to\\infty}q(t)f'(t)=0.\n\\end{equation}\nThese limits are consequences of the domain, not additional boundary\nconditions.  In particular no finite boundary value $f(0)$ is required.\n",
       "statement_sha256": "36f9ba0772d5ee215172456c549db005a25dbdeb2275b1bf73149560831920f9",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.laguerreMinimalOperator",
         "Sigma.laguerre_minimal_domain",
@@ -1999,25 +1999,45 @@
         "Sigma.laguerre_canonical_domain_iff_maximal",
         "Sigma.positive_ac_zero_endpoint_limits",
         "Sigma.finite_energy_flux_square_integrable",
-        "Sigma.laguerre_canonical_zero_flux"
+        "Sigma.laguerre_canonical_zero_flux",
+        "Sigma.laguerreSecondZeroSolution",
+        "Sigma.laguerre_second_zero_hasDerivAt",
+        "Sigma.laguerre_second_zero_flux",
+        "Sigma.laguerre_zero_solution_fundamental_system",
+        "Sigma.laguerre_zero_fundamental_independent",
+        "Sigma.LaguerreZeroEnergySolution",
+        "Sigma.LaguerreSquareIntegrableAtZero",
+        "Sigma.LaguerreSquareIntegrableAtInfinity",
+        "Sigma.LaguerreWeylLimitPoint",
+        "Sigma.laguerre_second_zero_not_l2_at_zero",
+        "Sigma.laguerre_second_zero_not_l2_at_infinity",
+        "Sigma.laguerre_zero_solution_l2_at_zero_iff_constant",
+        "Sigma.laguerre_zero_solution_l2_at_infinity_iff_constant",
+        "Sigma.laguerre_both_endpoints_limit_point",
+        "Sigma.laguerreUnboundedRepresentative",
+        "Sigma.laguerre_unbounded_hasDerivAt",
+        "Sigma.laguerre_unbounded_flux_identity",
+        "Sigma.laguerre_unbounded_divergence",
+        "Sigma.endpoint_witness_kernel_integrable",
+        "Sigma.laguerre_unbounded_representative_mem_l2",
+        "Sigma.laguerre_unbounded_divergence_mem_l2",
+        "Sigma.laguerreUnboundedDomainVector",
+        "Sigma.laguerre_unbounded_domain_any_ac_representative",
+        "Sigma.laguerre_domain_without_finite_boundary_value"
       ],
       "proved_components": [
         "Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.",
         "Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.",
         "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.",
         "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
-        "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish."
+        "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.",
+        "Both endpoints are limit point under the paper’s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
+        "Explicit canonical-domain vector represented by F(t)=log(1+log(1+1/t)); its actual flux and divergence formulas and both weighted L2 memberships are proved. Every locally AC representative of this class has real part tending to +infinity at zero, so none admits a finite complex boundary value."
       ],
-      "unproved_components": [
-        "Both endpoint limit-point classifications.",
-        "Domain does not require a finite value at zero, including a witnessing domain element."
-      ],
-      "gaps": [
-        "Both endpoint limit-point classifications.",
-        "Domain does not require a finite value at zero, including a witnessing domain element."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial reviews passed the native graph closure, exact maximal-domain equation, actual divergence image, and automatic endpoint flux limits. The maximal-domain reverse theorem adds no energy or boundary assumption. The flux theorem covers any AC representative. Targeted transitive axioms and independent source elaborations passed with only standard axioms. See o3-maximal-flux-2026-09-26-review.md. Limit-point classifications and the unbounded-at-zero witness remain separate obligations."
+      "notes": "Independent paper_coverage_review COMPLETE PASS on 2026-09-27 for the entire named theorem, including exact minimal operator, density/nonnegativity/symmetry, native deficiency indices and unique self-adjoint graph closure/adjoint, exact maximal domain and image, both automatic zero-flux limits, both endpoint Weyl classifications, and an intrinsic no-finite-boundary-value domain witness. Fixed-parameter Weyl classification follows the explicit paper characterization; no general Weyl-alternative theorem is claimed. Independent elaboration and targeted transitive axioms passed with only standard axioms. See o3-complete-2026-09-27-review.md."
     },
     {
       "id": "final:O3-form",

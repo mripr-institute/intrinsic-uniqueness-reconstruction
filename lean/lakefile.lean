@@ -61,7 +61,9 @@ lean_lib SigmaFormalization where
     `SigmaRealTaggedPartition,
     `SigmaOpACZeroDerivative,
     `SigmaOpACFundamental, `SigmaOpACProduct, `SigmaOpACIntegrationByParts,
-    `SigmaOpSobolevDomain, `SigmaOpWeakPrimitive, `SigmaOpWeakFlux, `SigmaOpClassicalFlux, `SigmaOpMaximalDomain, `SigmaOpEndpointFlux,
+    `SigmaOpSobolevDomain, `SigmaOpWeakPrimitive, `SigmaOpWeakFlux, `SigmaOpClassicalFlux, `SigmaOpMaximalDomain, `SigmaOpEndpointFlux, `SigmaOpZeroEnergy, `SigmaOpEndpointCutoff, `SigmaOpEndpointTransition, `SigmaOpLimitPoint, `SigmaOpUnboundedWitnessCalculus, `SigmaOpUnboundedWitnessIntegrability,
+    `SigmaOpUnboundedWitness,
+
     `SigmaOpDeterminantZeta,
     `SigmaOpDeterminantZetaPrime,
     `SigmaOpDeterminantZetaHalf,

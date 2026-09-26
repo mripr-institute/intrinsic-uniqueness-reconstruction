@@ -4,8 +4,8 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 12,
-    "partial": 3,
+    "complete": 13,
+    "partial": 2,
     "missing": 4
   },
   "namespace": "Sigma",
@@ -22,10 +22,11 @@
     "final:O4-heat-kernel",
     "final:O4-resolvents",
     "final:O6",
-    "final:O3-form"
+    "final:O3-form",
+    "final:O3"
   ],
   "mathematically_false_paper_clauses": [],
-  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses.",
+  "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed.",
   "statements": [
     {
       "latex_label": "final:O1",
@@ -157,7 +158,7 @@
     },
     {
       "latex_label": "final:O3",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.laguerreMinimalOperator",
         "Sigma.laguerre_minimal_domain",
@@ -185,20 +186,43 @@
         "Sigma.laguerre_canonical_domain_iff_maximal",
         "Sigma.positive_ac_zero_endpoint_limits",
         "Sigma.finite_energy_flux_square_integrable",
-        "Sigma.laguerre_canonical_zero_flux"
+        "Sigma.laguerre_canonical_zero_flux",
+        "Sigma.laguerreSecondZeroSolution",
+        "Sigma.laguerre_second_zero_hasDerivAt",
+        "Sigma.laguerre_second_zero_flux",
+        "Sigma.laguerre_zero_solution_fundamental_system",
+        "Sigma.laguerre_zero_fundamental_independent",
+        "Sigma.LaguerreZeroEnergySolution",
+        "Sigma.LaguerreSquareIntegrableAtZero",
+        "Sigma.LaguerreSquareIntegrableAtInfinity",
+        "Sigma.LaguerreWeylLimitPoint",
+        "Sigma.laguerre_second_zero_not_l2_at_zero",
+        "Sigma.laguerre_second_zero_not_l2_at_infinity",
+        "Sigma.laguerre_zero_solution_l2_at_zero_iff_constant",
+        "Sigma.laguerre_zero_solution_l2_at_infinity_iff_constant",
+        "Sigma.laguerre_both_endpoints_limit_point",
+        "Sigma.laguerreUnboundedRepresentative",
+        "Sigma.laguerre_unbounded_hasDerivAt",
+        "Sigma.laguerre_unbounded_flux_identity",
+        "Sigma.laguerre_unbounded_divergence",
+        "Sigma.endpoint_witness_kernel_integrable",
+        "Sigma.laguerre_unbounded_representative_mem_l2",
+        "Sigma.laguerre_unbounded_divergence_mem_l2",
+        "Sigma.laguerreUnboundedDomainVector",
+        "Sigma.laguerre_unbounded_domain_any_ac_representative",
+        "Sigma.laguerre_domain_without_finite_boundary_value"
       ],
       "proved_components": [
         "Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.",
         "Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.",
         "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.",
         "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
-        "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish."
+        "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.",
+        "Both endpoints are limit point under the paper’s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
+        "Explicit canonical-domain vector represented by F(t)=log(1+log(1+1/t)); its actual flux and divergence formulas and both weighted L2 memberships are proved. Every locally AC representative of this class has real part tending to +infinity at zero, so none admits a finite complex boundary value."
       ],
-      "unproved_components": [
-        "Both endpoint limit-point classifications.",
-        "Domain does not require a finite value at zero, including a witnessing domain element."
-      ],
-      "notes": "Independent adversarial reviews passed the native graph closure, exact maximal-domain equation, actual divergence image, and automatic endpoint flux limits. The maximal-domain reverse theorem adds no energy or boundary assumption. The flux theorem covers any AC representative. Targeted transitive axioms and independent source elaborations passed with only standard axioms. See o3-maximal-flux-2026-09-26-review.md. Limit-point classifications and the unbounded-at-zero witness remain separate obligations."
+      "unproved_components": [],
+      "notes": "Independent paper_coverage_review COMPLETE PASS on 2026-09-27 for the entire named theorem, including exact minimal operator, density/nonnegativity/symmetry, native deficiency indices and unique self-adjoint graph closure/adjoint, exact maximal domain and image, both automatic zero-flux limits, both endpoint Weyl classifications, and an intrinsic no-finite-boundary-value domain witness. Fixed-parameter Weyl classification follows the explicit paper characterization; no general Weyl-alternative theorem is claimed. Independent elaboration and targeted transitive axioms passed with only standard axioms. See o3-complete-2026-09-27-review.md."
     },
     {
       "latex_label": "final:O3-form",
