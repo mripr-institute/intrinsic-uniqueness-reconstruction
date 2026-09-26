@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 8.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1676 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1718 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2479,6 +2479,11 @@ Mathematical content formalized in Lean:
 - Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4
 - Actual Frechet gradient, coordinate second derivatives, Euclidean Laplacian and OU differential-expression identity, with an origin-inclusive version for profiles differentiable at nonnegative energies and an off-origin version requiring differentiability only at positive energies
 - Two genuine probabilities on native four-dimensional Euclidean space, constructed by opposite unit-vector lifts of the Gamma radius, have the exact same energy pushforward gammaProbability and are distinct: a measurable coordinate halfspace has mass one for one and zero for the other
+- The actual four-coordinate standard Gaussian transported to native Euclidean R4 has radial energy law Gamma(2,1); its density and invariance under every real linear isometry are proved.
+- The normalized actual geometric sphere measure volume.toSphere on S3, independent of Gamma radial energy, reconstructs the Gaussian law; this holds for arbitrary supplied independent random variables.
+- Any orthogonally invariant probability on actual Euclidean R4 with the indicated radial law equals the Gaussian. A native normalized-quaternion Gaussian averaging proof establishes uniqueness without assuming angular independence or a radial vector density.
+- The actual Gaussian direction and radial energy have the uniform-S3 times Gamma product law and are independent; the chosen direction at the null origin is explicit.
+- The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event.
 
 Mapped Lean declarations:
 
@@ -2500,12 +2505,34 @@ Mapped Lean declarations:
 - `Sigma.radial_four_negative_law_halfspace`
 - `Sigma.radial_four_laws_distinct`
 - `Sigma.gamma_radial_energy_does_not_identify_vector_law`
+- `Sigma.radial_four_gaussian_density`
+- `Sigma.gaussian_square_laplace`
+- `Sigma.radial_four_gaussian_energy`
+- `Sigma.radial_four_gaussian_orthogonal`
+- `Sigma.radial_four_isotropic_unique`
+- `Sigma.radial_four_isotropic_energy_iff`
+- `Sigma.radial_four_polar_lift_volume`
+- `Sigma.radial_four_gaussian_polar`
+- `Sigma.radial_four_uniform_gamma_lift`
+- `Sigma.radial_four_independent_uniform_inverse`
+- `Sigma.radial_four_gaussian_direction_energy`
+- `Sigma.radial_four_gaussian_direction_uniform`
+- `Sigma.radial_four_gaussian_direction_energy_independent`
+- `Sigma.radial_ou_normalize_norm`
+- `Sigma.radial_ou_normalize_energy_reconstruct`
+- `Sigma.radial_ou_normalize_measurable`
+- `Sigma.radial_ou_normalize_progressive`
+- `Sigma.ou_path_integral_equation`
+- `Sigma.ou_path_unique`
+- `Sigma.radial_brownian_time_law`
+- `Sigma.radial_brownian_increment_joint_law`
+- `Sigma.radial_brownian_naturally_adapted`
+- `Sigma.radial_ou_driven_paths`
 
 Remaining Lean formalization:
 
-- Actual four-dimensional Gaussian radial pushforward
-- Independent uniform S3-angle inverse and orthogonal-invariance uniqueness
-- Actual OU process and Ito radial SDE with normalized one-dimensional Brownian motion
+- Brownian existence and stochastic-calculus foundations for the actual radial OU Ito identity: construct the stochastic integral, derive the norm-square Ito formula, and prove the normalized unit-integrand integral is a one-dimensional Brownian motion.
+- Complete the actual radial stochastic equation dT=(2-T)ds+sqrt(2T)dBeta; the continuous-path OU integral equation and formal differential generator alone do not establish it.
 
 ### final:R2 — Nonnegative orthogonal additivity without regularity
 
@@ -2937,7 +2964,8 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L139
 
 Mathematical content formalized in Lean:
 
-- Generic context-dependent recipe bookkeeping; genuine matrix uniqueness components; native offspring PGF identification components.
+- Five actual fixed-context existence, uniqueness and reverse-observation clauses are assembled: nonnegative probability convolution with marked time one; literal marked Laguerre minimal operator and its unique self-adjoint extension, with normalized Pearson coordinate inverse; positive-rank SPD matrix family under scalar-block recursion and orthogonal invariance; actual isotropic Euclidean R4 probability with Gamma radial law and independent geometric uniform-sphere reconstruction; one-ancestor iid Galton-Watson offspring and tree laws identified by the complete extended Borel progeny law.
+- The candidate predicates retain the paper identifying conditions and do not define a candidate by equality to a canonical recipe. Matrix uniqueness is on the actual SPD domain, with no assertion about arbitrary off-domain values. The reverse observations explicitly recover the intrinsic density, H, scalar potential, or marked inverse data.
 
 Mapped Lean declarations:
 
@@ -2946,11 +2974,29 @@ Mapped Lean declarations:
 - `Sigma.spd_scalar_block_lift_unique`
 - `Sigma.spd_positive_rank_lift_unique`
 - `Sigma.native_offspring_pgf_characterization`
+- `Sigma.Closure.gamma_completion_context`
+- `Sigma.Closure.convolution_context_time_one_iff`
+- `Sigma.Closure.convolution_context_exists_unique`
+- `Sigma.Closure.convolution_context_process_realization`
+- `Sigma.Closure.laguerre_context_iff`
+- `Sigma.Closure.laguerre_context_exists_unique`
+- `Sigma.Closure.laguerre_coordinate_intrinsic_reverse`
+- `Sigma.Closure.laguerre_coordinate_context_exists`
+- `Sigma.Closure.matrix_context_iff`
+- `Sigma.Closure.matrix_context_rank_one_reverse`
+- `Sigma.Closure.matrix_context_exists_unique`
+- `Sigma.Closure.gw_context_identification`
+- `Sigma.Closure.gw_context_exists_unique_offspring`
+- `Sigma.Closure.gw_context_native_realization`
+- `Sigma.Closure.gw_context_intrinsic_reverse`
+- `Sigma.Closure.gaussian_radial_context_iff`
+- `Sigma.Closure.gaussian_radial_context_exists_unique`
+- `Sigma.Closure.gaussian_radial_context_inverse`
+- `Sigma.Closure.gaussian_radial_context_intrinsic_reverse`
 
 Remaining Lean formalization:
 
-- The six fixed-context existence/uniqueness and reverse-observation assertions must be assembled from actual native context theorems.
-- In particular generic unique y satisfying y=recipe(c,s) is not uniqueness among candidates meeting identifying observations; it supplies none of the missing actual convolution, self-adjoint operator, Gaussian radial, iid branching-tree or universal Thom content.
+- The sixth fixed-context universal complex Thom/Chern correction clause and its complete universal-line reverse observation await the exact supplied-theory bundle theorem from F4.
 
 ### final:global-C — Relative irredundancy and its deletion witnesses
 

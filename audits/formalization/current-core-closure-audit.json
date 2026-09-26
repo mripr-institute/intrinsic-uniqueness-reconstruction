@@ -419,16 +419,35 @@
         "Sigma.matrixPotential_spectral",
         "Sigma.spd_scalar_block_lift_unique",
         "Sigma.spd_positive_rank_lift_unique",
-        "Sigma.native_offspring_pgf_characterization"
+        "Sigma.native_offspring_pgf_characterization",
+        "Sigma.Closure.gamma_completion_context",
+        "Sigma.Closure.convolution_context_time_one_iff",
+        "Sigma.Closure.convolution_context_exists_unique",
+        "Sigma.Closure.convolution_context_process_realization",
+        "Sigma.Closure.laguerre_context_iff",
+        "Sigma.Closure.laguerre_context_exists_unique",
+        "Sigma.Closure.laguerre_coordinate_intrinsic_reverse",
+        "Sigma.Closure.laguerre_coordinate_context_exists",
+        "Sigma.Closure.matrix_context_iff",
+        "Sigma.Closure.matrix_context_rank_one_reverse",
+        "Sigma.Closure.matrix_context_exists_unique",
+        "Sigma.Closure.gw_context_identification",
+        "Sigma.Closure.gw_context_exists_unique_offspring",
+        "Sigma.Closure.gw_context_native_realization",
+        "Sigma.Closure.gw_context_intrinsic_reverse",
+        "Sigma.Closure.gaussian_radial_context_iff",
+        "Sigma.Closure.gaussian_radial_context_exists_unique",
+        "Sigma.Closure.gaussian_radial_context_inverse",
+        "Sigma.Closure.gaussian_radial_context_intrinsic_reverse"
       ],
       "proved_components": [
-        "Generic context-dependent recipe bookkeeping; genuine matrix uniqueness components; native offspring PGF identification components."
+        "Five actual fixed-context existence, uniqueness and reverse-observation clauses are assembled: nonnegative probability convolution with marked time one; literal marked Laguerre minimal operator and its unique self-adjoint extension, with normalized Pearson coordinate inverse; positive-rank SPD matrix family under scalar-block recursion and orthogonal invariance; actual isotropic Euclidean R4 probability with Gamma radial law and independent geometric uniform-sphere reconstruction; one-ancestor iid Galton-Watson offspring and tree laws identified by the complete extended Borel progeny law.",
+        "The candidate predicates retain the paper identifying conditions and do not define a candidate by equality to a canonical recipe. Matrix uniqueness is on the actual SPD domain, with no assertion about arbitrary off-domain values. The reverse observations explicitly recover the intrinsic density, H, scalar potential, or marked inverse data."
       ],
       "unproved_components": [
-        "The six fixed-context existence/uniqueness and reverse-observation assertions must be assembled from actual native context theorems.",
-        "In particular generic unique y satisfying y=recipe(c,s) is not uniqueness among candidates meeting identifying observations; it supplies none of the missing actual convolution, self-adjoint operator, Gaussian radial, iid branching-tree or universal Thom content."
+        "The sixth fixed-context universal complex Thom/Chern correction clause and its complete universal-line reverse observation await the exact supplied-theory bundle theorem from F4."
       ],
-      "notes": "Detailed native context residuals belong to P8/O3/M1/R1/P6-gw/F4 audits. This global item is partial even if one context is fully proved."
+      "notes": "2026-09-27 independently reviewed five-context assembly in SigmaClosureContexts. Probability, operator, matrix and branching clauses received bounded independent PASS; the Gaussian clause uses separately reviewed exact R1 geometric results. The OU stochastic clause of R1 is not required by the actual global-E statement. Global E remains partial until the native supplied universal Thom clause is assembled."
     },
     {
       "latex_label": "final:global-C",
