@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 64,
-    "partial": 10,
+    "complete": 65,
+    "partial": 9,
     "missing": 4
   },
   "labelled_equation_totals": {
@@ -1548,7 +1548,7 @@
       "line": 977,
       "statement_tex": "\\label{final:P8}\nIn the category of probabilities on $[0,\\infty)$, there is a unique\nfamily $(\\mu_r)_{r\\geq0}$ with $\\mu_0=\\delta_0$,\n$\\mu_{r+s}=\\mu_r*\\mu_s$, and $\\mu_1=\\mu_\\Gamma$.\nIt is\n\\begin{equation}\n \\mu_r=\\operatorname{Gamma}(2r,1)\\ (r>0),\\qquad\n L_{\\mu_r}(\\lambda)=(1+\\lambda)^{-2r}\\quad(\\lambda\\geq0).\n \\label{final:eq-gamma-semigroup}\n\\end{equation}\nWeak continuity in $r$ is a conclusion, not an additional premise.\nThe associated process with stationary independent increments is uniquely\nspecified in finite-dimensional law once that process category and\nthe starting value zero are supplied.\n",
       "statement_sha256": "5750d15ab8f2fea68b92022c9a958463d3e76ad3ad803c9764797999462c96b0",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gammaCompletion",
         "Sigma.gamma_completion_zero",
@@ -1585,23 +1585,42 @@
         "Sigma.gamma_single_variable_stationary_increments",
         "Sigma.gamma_coordinate_not_independent_of_itself",
         "Sigma.gamma_single_variable_dependent_unit_increments",
-        "Sigma.gamma_single_variable_not_independent_increments"
+        "Sigma.gamma_single_variable_not_independent_increments",
+        "Sigma.gamma_process_circle_sampler_map",
+        "Sigma.gamma_process_samples_independent",
+        "Sigma.gamma_process_grouped_product_law",
+        "Sigma.gamma_process_beta_split_law",
+        "Sigma.gamma_dyadic_level_product_law",
+        "Sigma.gamma_dyadic_process_grid_independent",
+        "Sigma.gamma_dyadic_process_grid_increment_law",
+        "Sigma.gamma_dyadic_process_grid_paths",
+        "Sigma.gamma_law_of_ae_tendsto",
+        "Sigma.independent_of_ae_tendsto",
+        "Sigma.gamma_grid_right_extension_continuousWithinAt",
+        "Sigma.gammaDyadicUpperApproximation",
+        "Sigma.gamma_dyadic_grid_realization",
+        "Sigma.nativeGammaProcess",
+        "Sigma.native_gamma_process_exists",
+        "Sigma.native_gamma_process_category",
+        "Sigma.native_gamma_process_paths",
+        "Sigma.native_gamma_process_marginal",
+        "Sigma.native_gamma_process_increment",
+        "Sigma.native_gamma_process_fdd_unique"
       ],
       "proved_components": [
         "Actual family Gamma(2r,1), including Dirac at r=0, with convolution law and transforms.",
         "Uniqueness among all nonnegative probability semigroups from the time-one Gamma law without an assumed continuity hypothesis.",
         "Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.",
         "Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise.",
-        "Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent."
+        "Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent.",
+        "Unconditional actual global process construction on a countable compact Haar probability space. Exact inverse-CDF sampling and a proved native Gamma-Beta split law yield consistent dyadic increments with genuine Gamma product laws at every level. Common refinement proves joint independent increments at arbitrary ordered grid times, including repeated times.",
+        "An explicit strict-upper dyadic approximation and measurable right-infimum extension construct the process at every nonnegative real time. Almost-sure limits preserve Gamma laws and finite independence; zero start follows from the Dirac zero marginal. A single probability-one event gives nonnegative, increasing, right-continuous paths at all real times.",
+        "The actual constructed process realizes the prescribed consistent finite-dimensional laws and agrees in every arbitrary-time finite-dimensional distribution with every supplied process in the paper category. No global process, limiting independence or target law is assumed."
       ],
-      "unproved_components": [
-        "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
-      ],
-      "gaps": [
-        "Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent bounded review of SigmaProbCompletion and SigmaProbCompletionContinuity: AUDIT PASS for actual measures, native Measure.conv, arbitrary-semigroup uniqueness without regularity assumptions, and derived weak continuity. The positive-time Scheffe bridge derives L1 convergence from normalized nonnegative densities and a.e. pointwise convergence; its countably-generated-filter hypothesis holds for the actual time neighborhoods. The zero-time bridge uses only probability, a.e. nonnegative support and Laplace convergence at one, and is applied to the proved explicit transforms, not a continuity premise. A separate realizations auditor returned bounded AUDIT PASS for SigmaProbCompletionProcess: its conditional finite-dimensional uniqueness and actual finite product laws are credited, but conditional uniqueness does not supply nonvacuous global process existence. The extension/consistency component remains open; P8-samples is audited separately. The same auditor returned bounded AUDIT PASS for SigmaProbCompletionBoundary's actual correlated-process witness, whose two unit increments are the same Gamma variable and cannot be independent because its second moment is six rather than the product of means four. The proof-only right-continuous increasing version remains unmapped."
+      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier scalar semigroup, weak-continuity, arbitrary-time conditional FDD uniqueness and correlated-boundary audits are retained. The remaining global construction is now unconditional: native_gamma_process_exists has no realization premises. Every new component has an independent cross-review; source elaboration and targeted transitive axioms are clean apart from harmless style warnings. Explicit Haar-Beta dyadic construction replaces the generic extension theorem proof route and supplies the actual real-time process and shared almost-sure path regularity. See p8-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P8-levy",

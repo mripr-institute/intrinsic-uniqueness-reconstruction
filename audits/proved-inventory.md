@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 64/78.
-- Partially formalized statements: 10.
+- Fully formalized named statements: 65/78.
+- Partially formalized statements: 9.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1643 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1663 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -50,6 +50,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:P6-gw** — Borel total size identifies a one-ancestor iid GW law
 - **final:P6-boundaries** — Tree and continuation boundaries
 - **final:P7** — The calibrated maximum-entropy characterization
+- **final:P8** — Unique probability convolution completion
 - **final:P8-samples** — Complete integer tails identify the Gamma exponent
 - **final:P8-selfdecomposition** — Explicit Gamma self-decomposition
 - **final:P9** — One linked residual determines a law on the entire real line
@@ -1033,7 +1034,7 @@ Mapped Lean declarations:
 
 ### final:P8 — Unique probability convolution completion
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/probability.tex#L977); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L977); [independent coverage map](formalization/current-probability-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1042,6 +1043,9 @@ Mathematical content formalized in Lean:
 - Derived continuity of the actual family in the native ProbabilityMeasure weak topology, including convergence to Dirac zero at time zero.
 - Actual finite product increment laws and partial-sum probability laws; uniqueness of every supplied process's finite-dimensional distributions at arbitrary finite observation times, including unordered, repeated, zero and empty observations. Gamma increment laws are derived from the time-one Gamma law and stationary independent nonnegative increments with starting value zero, without a regularity premise.
 - Proof-only correlated-process boundary: the actual measurable nonnegative process X_r=rT starts at zero, has Gamma time-one law and stationary increments, but its disjoint unit increments are not independent.
+- Unconditional actual global process construction on a countable compact Haar probability space. Exact inverse-CDF sampling and a proved native Gamma-Beta split law yield consistent dyadic increments with genuine Gamma product laws at every level. Common refinement proves joint independent increments at arbitrary ordered grid times, including repeated times.
+- An explicit strict-upper dyadic approximation and measurable right-infimum extension construct the process at every nonnegative real time. Almost-sure limits preserve Gamma laws and finite independence; zero start follows from the Dirac zero marginal. A single probability-one event gives nonnegative, increasing, right-continuous paths at all real times.
+- The actual constructed process realizes the prescribed consistent finite-dimensional laws and agrees in every arbitrary-time finite-dimensional distribution with every supplied process in the paper category. No global process, limiting independence or target law is assumed.
 
 Mapped Lean declarations:
 
@@ -1081,10 +1085,26 @@ Mapped Lean declarations:
 - `Sigma.gamma_coordinate_not_independent_of_itself`
 - `Sigma.gamma_single_variable_dependent_unit_increments`
 - `Sigma.gamma_single_variable_not_independent_increments`
-
-Remaining Lean formalization:
-
-- Consistency of the prescribed finite-dimensional laws and construction of an actual global stationary independent-increment process starting at zero via a probability extension argument.
+- `Sigma.gamma_process_circle_sampler_map`
+- `Sigma.gamma_process_samples_independent`
+- `Sigma.gamma_process_grouped_product_law`
+- `Sigma.gamma_process_beta_split_law`
+- `Sigma.gamma_dyadic_level_product_law`
+- `Sigma.gamma_dyadic_process_grid_independent`
+- `Sigma.gamma_dyadic_process_grid_increment_law`
+- `Sigma.gamma_dyadic_process_grid_paths`
+- `Sigma.gamma_law_of_ae_tendsto`
+- `Sigma.independent_of_ae_tendsto`
+- `Sigma.gamma_grid_right_extension_continuousWithinAt`
+- `Sigma.gammaDyadicUpperApproximation`
+- `Sigma.gamma_dyadic_grid_realization`
+- `Sigma.nativeGammaProcess`
+- `Sigma.native_gamma_process_exists`
+- `Sigma.native_gamma_process_category`
+- `Sigma.native_gamma_process_paths`
+- `Sigma.native_gamma_process_marginal`
+- `Sigma.native_gamma_process_increment`
+- `Sigma.native_gamma_process_fdd_unique`
 
 ### final:P8-levy — Gamma L\'evy measure, drift, and complete Bernstein structure
 
