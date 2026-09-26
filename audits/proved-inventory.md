@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 66/78.
-- Partially formalized statements: 8.
+- Fully formalized named statements: 68/78.
+- Partially formalized statements: 6.
 - Statements awaiting Lean formalization: 4.
-- Labelled equations (equation-level checks, not additional named results): 15 (13 complete, 0 partial, 2 missing).
-- Distinct mapped declarations across named items: 1718 (including definitions and helpers).
+- Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
+- Distinct mapped declarations across named items: 1756 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -73,6 +73,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
+- **final:F4** — The universal Thom correction, conditional on topology
 - **final:M1** — The unique scalar-block spectral lift
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
 - **final:M4** — The supplied Gaussian and Wishart sampling model
@@ -83,6 +84,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:B2** — Marked Farey branches and full-domain scalar recovery
 - **final:B3** — Exact collisions and complete labelled arithmetic transport
 - **final:B4** — Numerical Euler products and the full multiset inverse
+- **final:global-E** — Canonical realization fibres
 
 ## Exact formalized components and declaration mappings
 
@@ -2179,7 +2181,7 @@ Mapped Lean declarations:
 
 ### final:F4 — The universal Thom correction, conditional on topology
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L178); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L178); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2187,6 +2189,11 @@ Mathematical content formalized in Lean:
 - Inversion injectivity for complete formal units
 - Actual finite coefficient evaluation at a nilpotent class is independent of every sufficiently large cutoff and agrees with native polynomial evaluation
 - Adding X^(N+1)R at u^(N+1)=0 changes no evaluation; the explicit distinct rational series F+X^(N+1) preserves the constant term and all sufficiently large cutoff evaluations
+- Native actual complex bundles, relative topological pairs, zero sections and supplied K/cohomology functors with compatible Thom maps yield existence and uniqueness of the correction via the cohomological Thom isomorphism.
+- Primitive actual zero-section Euler identities and normalized line Chern character derive the Euler equation. Natural actual projective universal-line stages identify the complete inverse limit with rational power series and determine its inverse-Todd correction without finite-base cancellation.
+- Actual line classifying maps and first Chern classes, native Whitney direct-sum identifications and multilinear Thom cup products derive the Chern-root product; injective splitting proves unique descent and independence of the splitting presentation.
+- Finite-stage nilpotence and injective pullback prove the descended inverse-Todd class is a unit, constructing the forward Todd unit without an extra invertibility hypothesis.
+- Compatible native quotient collapse, actual pair pullbacks, excision and endpoint desuspension derive the proper smooth map pushforward comparison, with an actual stable embedding, normal bundle and virtual relative tangent indexed by that map. The normal correction is discharged from the independent Chern-root characterization. Supported source and target groups are handled as modules/additive groups, without a false unital-ring assumption.
 
 Mapped Lean declarations:
 
@@ -2198,13 +2205,36 @@ Mapped Lean declarations:
 - `Sigma.nilpotent_series_evaluation_polynomial`
 - `Sigma.nilpotent_series_evaluation_tail`
 - `Sigma.nilpotent_complete_series_nonidentification`
-
-Remaining Lean formalization:
-
-- Actual supplied K-theory/cohomology Thom comparison and existence/uniqueness of its correction
-- Universal-line compatibility and inverse-limit correction identity
-- Multiplicative splitting-principle descent to actual bundles
-- Collapse/Gysin Riemann--Roch identity for oriented proper maps and virtual tangent bundles
+- `Sigma.NativeThomContext.correction_exists_unique`
+- `Sigma.NativeThomContext.ch_thom`
+- `Sigma.NativeThomPullback.correction_natural`
+- `Sigma.native_thom_line_euler`
+- `Sigma.thomCompletedLineEquiv`
+- `Sigma.NativeUniversalBundleTower.correctionSeries_euler`
+- `Sigma.NativeUniversalBundleTower.correctionSeries_eq_inverseTodd`
+- `Sigma.NativeUniversalBundleTower.stage_correction`
+- `Sigma.NativeUniversalBundleTower.universal_unit_identification`
+- `Sigma.NativeClassifiedLine.evaluate_X`
+- `Sigma.NativeClassifiedLine.correction_eq_evaluate_inverseTodd`
+- `Sigma.NativeThomProduct.correction_product`
+- `Sigma.NativeThomSplit.correction_root_product`
+- `Sigma.NativeThomSplit.inverseTodd_exists_unique`
+- `Sigma.NativeThomSplit.correction_eq_inverseTodd`
+- `Sigma.NativeThomSplit.inverseTodd_independent`
+- `Sigma.NativeThomSplittingContext.thom_comparison`
+- `Sigma.NativeThomSplittingContext.full_universal_line_inverse`
+- `Sigma.NativeThomSplit.inverseTodd_isUnit`
+- `Sigma.NativeThomSplit.correction_eq_inverse_toddUnit`
+- `Sigma.NativeThomCollapse.comparison`
+- `Sigma.native_gysin_composition`
+- `Sigma.NativeThomQuotientModel.ch_transport`
+- `Sigma.NativeThomQuotientModel.quotient_gysin_comparison`
+- `Sigma.NativeProperGysinFactorization.comparison`
+- `Sigma.NativeProperGysinFactorization.riemann_roch_of_chern_roots`
+- `Sigma.NativeSupportedThom.comparison`
+- `Sigma.NativeSupportedThom.Collapse.comparison`
+- `Sigma.NativeSupportedThom.Collapse.stable_tangent_riemann_roch`
+- `Sigma.NativeProperSupportedGysin.riemann_roch_of_chern_roots`
 
 ### final:F5 — Rational characteristic data lose integral data
 
@@ -2484,6 +2514,7 @@ Mathematical content formalized in Lean:
 - Any orthogonally invariant probability on actual Euclidean R4 with the indicated radial law equals the Gaussian. A native normalized-quaternion Gaussian averaging proof establishes uniqueness without assuming angular independence or a radial vector density.
 - The actual Gaussian direction and radial energy have the uniform-S3 times Gamma product law and are independent; the chosen direction at the null origin is explicit.
 - The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event.
+- The actual four-dimensional Euclidean unit ball has volume pi^2/2 and the genuine S3 surface measure has mass 2*pi^2, proving the paper polar normalization constant.
 
 Mapped Lean declarations:
 
@@ -2528,6 +2559,8 @@ Mapped Lean declarations:
 - `Sigma.radial_brownian_increment_joint_law`
 - `Sigma.radial_brownian_naturally_adapted`
 - `Sigma.radial_ou_driven_paths`
+- `Sigma.radial_four_unit_ball_volume`
+- `Sigma.radial_four_surface_area`
 
 Remaining Lean formalization:
 
@@ -2960,12 +2993,13 @@ Remaining Lean formalization:
 
 ### final:global-E — Canonical realization fibres
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L139); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L139); [independent coverage map](formalization/current-core-closure-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Five actual fixed-context existence, uniqueness and reverse-observation clauses are assembled: nonnegative probability convolution with marked time one; literal marked Laguerre minimal operator and its unique self-adjoint extension, with normalized Pearson coordinate inverse; positive-rank SPD matrix family under scalar-block recursion and orthogonal invariance; actual isotropic Euclidean R4 probability with Gamma radial law and independent geometric uniform-sphere reconstruction; one-ancestor iid Galton-Watson offspring and tree laws identified by the complete extended Borel progeny law.
 - The candidate predicates retain the paper identifying conditions and do not define a candidate by equality to a canonical recipe. Matrix uniqueness is on the actual SPD domain, with no assertion about arbitrary off-domain values. The reverse observations explicitly recover the intrinsic density, H, scalar potential, or marked inverse data.
+- The sixth context is now native supplied complex Thom/Chern theory on actual bundles: actual projective universal-line stages, zero sections, complete cohomological inverse limit, classifying pullbacks, first Chern classes, Whitney splitting and injective descent derive the unique inverse-Todd correction. Every finite universal-stage observation together identifies the Todd unit and recovers the formal exponential. All six native unique-existence clauses are combined in fixed_context_native_closure.
 
 Mapped Lean declarations:
 
@@ -2993,10 +3027,12 @@ Mapped Lean declarations:
 - `Sigma.Closure.gaussian_radial_context_exists_unique`
 - `Sigma.Closure.gaussian_radial_context_inverse`
 - `Sigma.Closure.gaussian_radial_context_intrinsic_reverse`
-
-Remaining Lean formalization:
-
-- The sixth fixed-context universal complex Thom/Chern correction clause and its complete universal-line reverse observation await the exact supplied-theory bundle theorem from F4.
+- `Sigma.Closure.universal_thom_context_iff`
+- `Sigma.Closure.universal_thom_context_exists_unique`
+- `Sigma.Closure.universal_thom_line_observation_iff`
+- `Sigma.Closure.universal_thom_line_exists_unique`
+- `Sigma.Closure.universal_thom_intrinsic_reverse`
+- `Sigma.Closure.fixed_context_native_closure`
 
 ### final:global-C — Relative irredundancy and its deletion witnesses
 
@@ -3126,15 +3162,17 @@ Parent named statement: **final:F2**. Lean coverage: **complete**.
 
 ### final:Thom-comparison
 
-Parent named statement: **final:F4**. Lean coverage: **missing**.
+Parent named statement: **final:F4**. Lean coverage: **complete**.
 
-- Remaining Lean formalization: Actual uniquely defined Thom correction
+- `Sigma.NativeThomSplittingContext.thom_comparison`
+- `Sigma.NativeThomSplittingContext.correction_exists_unique`
 
 ### final:RR
 
-Parent named statement: **final:F4**. Lean coverage: **missing**.
+Parent named statement: **final:F4**. Lean coverage: **complete**.
 
-- Remaining Lean formalization: Actual Riemann--Roch Gysin comparison
+- `Sigma.NativeProperGysinFactorization.riemann_roch_of_chern_roots`
+- `Sigma.NativeProperSupportedGysin.riemann_roch_of_chern_roots`
 
 ### final:matrix-potential
 

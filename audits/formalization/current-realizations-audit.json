@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 13, "partial": 3, "missing": 1},
+  "totals": {"definition": 0, "complete": 14, "partial": 2, "missing": 1},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -30,11 +30,60 @@
     },
     {
       "latex_label": "final:F4",
-      "status": "partial",
-      "lean_declarations": ["Sigma.universal_line_correction_unique", "Sigma.universal_unit_inverse_reconstruction", "Sigma.finiteSeriesEvaluation", "Sigma.finite_series_evaluation_sum", "Sigma.nilpotent_series_evaluation_stable", "Sigma.nilpotent_series_evaluation_polynomial", "Sigma.nilpotent_series_evaluation_tail", "Sigma.nilpotent_complete_series_nonidentification"],
-      "proved_components": ["Cancellation of multiplication by the formal variable in rational power series", "Inversion injectivity for complete formal units", "Actual finite coefficient evaluation at a nilpotent class is independent of every sufficiently large cutoff and agrees with native polynomial evaluation", "Adding X^(N+1)R at u^(N+1)=0 changes no evaluation; the explicit distinct rational series F+X^(N+1) preserves the constant term and all sufficiently large cutoff evaluations"],
-      "unproved_components": ["Actual supplied K-theory/cohomology Thom comparison and existence/uniqueness of its correction", "Universal-line compatibility and inverse-limit correction identity", "Multiplicative splitting-principle descent to actual bundles", "Collapse/Gysin Riemann--Roch identity for oriented proper maps and virtual tangent bundles"],
-      "notes": "A scalar cancellation lemma is not a theorem about actual supplied Thom classes, bundles or Gysin maps. No project topology interface implementing the stated foundations was located. The finite-base nilpotence boundary was independently reviewed by coverage_core_closure (not its proving agent) and received bounded AUDIT PASS: actual truncation/polynomial evaluation, nilpotence-derived cutoff independence, and a concrete unequal complete series with preserved constant term establish that boundary. This does not supply the actual topological Thom or Gysin content."
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.universal_line_correction_unique",
+        "Sigma.universal_unit_inverse_reconstruction",
+        "Sigma.finiteSeriesEvaluation",
+        "Sigma.finite_series_evaluation_sum",
+        "Sigma.nilpotent_series_evaluation_stable",
+        "Sigma.nilpotent_series_evaluation_polynomial",
+        "Sigma.nilpotent_series_evaluation_tail",
+        "Sigma.nilpotent_complete_series_nonidentification",
+        "Sigma.NativeThomContext.correction_exists_unique",
+        "Sigma.NativeThomContext.ch_thom",
+        "Sigma.NativeThomPullback.correction_natural",
+        "Sigma.native_thom_line_euler",
+        "Sigma.thomCompletedLineEquiv",
+        "Sigma.NativeUniversalBundleTower.correctionSeries_euler",
+        "Sigma.NativeUniversalBundleTower.correctionSeries_eq_inverseTodd",
+        "Sigma.NativeUniversalBundleTower.stage_correction",
+        "Sigma.NativeUniversalBundleTower.universal_unit_identification",
+        "Sigma.NativeClassifiedLine.evaluate_X",
+        "Sigma.NativeClassifiedLine.correction_eq_evaluate_inverseTodd",
+        "Sigma.NativeThomProduct.correction_product",
+        "Sigma.NativeThomSplit.correction_root_product",
+        "Sigma.NativeThomSplit.inverseTodd_exists_unique",
+        "Sigma.NativeThomSplit.correction_eq_inverseTodd",
+        "Sigma.NativeThomSplit.inverseTodd_independent",
+        "Sigma.NativeThomSplittingContext.thom_comparison",
+        "Sigma.NativeThomSplittingContext.full_universal_line_inverse",
+        "Sigma.NativeThomSplit.inverseTodd_isUnit",
+        "Sigma.NativeThomSplit.correction_eq_inverse_toddUnit",
+        "Sigma.NativeThomCollapse.comparison",
+        "Sigma.native_gysin_composition",
+        "Sigma.NativeThomQuotientModel.ch_transport",
+        "Sigma.NativeThomQuotientModel.quotient_gysin_comparison",
+        "Sigma.NativeProperGysinFactorization.comparison",
+        "Sigma.NativeProperGysinFactorization.riemann_roch_of_chern_roots",
+        "Sigma.NativeSupportedThom.comparison",
+        "Sigma.NativeSupportedThom.Collapse.comparison",
+        "Sigma.NativeSupportedThom.Collapse.stable_tangent_riemann_roch",
+        "Sigma.NativeProperSupportedGysin.riemann_roch_of_chern_roots"
+      ],
+      "proved_components": [
+        "Cancellation of multiplication by the formal variable in rational power series",
+        "Inversion injectivity for complete formal units",
+        "Actual finite coefficient evaluation at a nilpotent class is independent of every sufficiently large cutoff and agrees with native polynomial evaluation",
+        "Adding X^(N+1)R at u^(N+1)=0 changes no evaluation; the explicit distinct rational series F+X^(N+1) preserves the constant term and all sufficiently large cutoff evaluations",
+        "Native actual complex bundles, relative topological pairs, zero sections and supplied K/cohomology functors with compatible Thom maps yield existence and uniqueness of the correction via the cohomological Thom isomorphism.",
+        "Primitive actual zero-section Euler identities and normalized line Chern character derive the Euler equation. Natural actual projective universal-line stages identify the complete inverse limit with rational power series and determine its inverse-Todd correction without finite-base cancellation.",
+        "Actual line classifying maps and first Chern classes, native Whitney direct-sum identifications and multilinear Thom cup products derive the Chern-root product; injective splitting proves unique descent and independence of the splitting presentation.",
+        "Finite-stage nilpotence and injective pullback prove the descended inverse-Todd class is a unit, constructing the forward Todd unit without an extra invertibility hypothesis.",
+        "Compatible native quotient collapse, actual pair pullbacks, excision and endpoint desuspension derive the proper smooth map pushforward comparison, with an actual stable embedding, normal bundle and virtual relative tangent indexed by that map. The normal correction is discharged from the independent Chern-root characterization. Supported source and target groups are handled as modules/additive groups, without a false unital-ring assumption."
+      ],
+      "unproved_components": [],
+      "notes": "2026-09-27 native supplied-theory development and independent review. Actual projective quotient topology and tautological incidence bundles, native zero-section and classifying maps, all-stage inverse-limit identification, actual Whitney decomposition, injective descent, quotient collapse and proper-map geometry are retained. The paper explicitly supplies the K/cohomological, orientation, splitting and collapse/Gysin foundations; no correction, Todd comparison or RR conclusion is inserted as a foundational field. Whole-F4 independent AUDIT PASS, including supported endpoints. See f4-complete-2026-09-27-review.md."
     },
     {
       "latex_label": "final:F5",
@@ -162,7 +211,9 @@
         "Sigma.radial_brownian_time_law",
         "Sigma.radial_brownian_increment_joint_law",
         "Sigma.radial_brownian_naturally_adapted",
-        "Sigma.radial_ou_driven_paths"
+        "Sigma.radial_ou_driven_paths",
+        "Sigma.radial_four_unit_ball_volume",
+        "Sigma.radial_four_surface_area"
       ],
       "proved_components": [
         "Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4",
@@ -172,7 +223,8 @@
         "The normalized actual geometric sphere measure volume.toSphere on S3, independent of Gamma radial energy, reconstructs the Gaussian law; this holds for arbitrary supplied independent random variables.",
         "Any orthogonally invariant probability on actual Euclidean R4 with the indicated radial law equals the Gaussian. A native normalized-quaternion Gaussian averaging proof establishes uniqueness without assuming angular independence or a radial vector density.",
         "The actual Gaussian direction and radial energy have the uniform-S3 times Gamma product law and are independent; the chosen direction at the null origin is explicit.",
-        "The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event."
+        "The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event.",
+        "The actual four-dimensional Euclidean unit ball has volume pi^2/2 and the genuine S3 surface measure has mass 2*pi^2, proving the paper polar normalization constant."
       ],
       "unproved_components": [
         "Brownian existence and stochastic-calculus foundations for the actual radial OU Ito identity: construct the stochastic integral, derive the norm-square Ito formula, and prove the normalized unit-integrand integral is a one-dimensional Brownian motion.",
@@ -243,8 +295,24 @@
     {"latex_label": "final:TAL", "status": "complete", "lean_declarations": ["Sigma.formal_ahat_to_todd", "Sigma.formal_todd_to_L", "Sigma.formal_L_to_todd"]},
     {"latex_label": "final:exponential-recovery", "status": "complete", "lean_declarations": ["Sigma.formal_todd_recovers_exponential", "Sigma.formal_L_recovers_exponential"]},
     {"latex_label": "final:chi-inverse", "status": "complete", "lean_declarations": ["Sigma.formal_chi_recovers_todd", "Sigma.formal_chi_over_recovers_todd"]},
-    {"latex_label": "final:Thom-comparison", "status": "missing", "lean_declarations": [], "unproved_components": ["Actual uniquely defined Thom correction"]},
-    {"latex_label": "final:RR", "status": "missing", "lean_declarations": [], "unproved_components": ["Actual Riemann--Roch Gysin comparison"]},
+    {
+      "latex_label": "final:Thom-comparison",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.NativeThomSplittingContext.thom_comparison",
+        "Sigma.NativeThomSplittingContext.correction_exists_unique"
+      ],
+      "unproved_components": []
+    },
+    {
+      "latex_label": "final:RR",
+      "status": "complete",
+      "lean_declarations": [
+        "Sigma.NativeProperGysinFactorization.riemann_roch_of_chern_roots",
+        "Sigma.NativeProperSupportedGysin.riemann_roch_of_chern_roots"
+      ],
+      "unproved_components": []
+    },
     {"latex_label": "final:matrix-potential", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_spectral", "Sigma.spd_positive_rank_lift_unique"]},
     {"latex_label": "final:matrix-gradient", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_fderiv"]},
     {"latex_label": "final:matrix-hessian", "status": "complete", "lean_declarations": ["Sigma.matrixPotential_second_fderiv", "Sigma.matrix_hessian_metric"]},

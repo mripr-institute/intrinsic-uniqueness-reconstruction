@@ -5,8 +5,8 @@
   "totals_by_named_environment": {
     "total": 18,
     "definition": 2,
-    "complete": 12,
-    "partial": 4,
+    "complete": 13,
+    "partial": 3,
     "missing": 0
   },
   "mathematically_false_named_clauses_found": [],
@@ -413,7 +413,7 @@
     },
     {
       "latex_label": "final:global-E",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.Closure.canonical_realization_fibre",
         "Sigma.matrixPotential_spectral",
@@ -438,16 +438,21 @@
         "Sigma.Closure.gaussian_radial_context_iff",
         "Sigma.Closure.gaussian_radial_context_exists_unique",
         "Sigma.Closure.gaussian_radial_context_inverse",
-        "Sigma.Closure.gaussian_radial_context_intrinsic_reverse"
+        "Sigma.Closure.gaussian_radial_context_intrinsic_reverse",
+        "Sigma.Closure.universal_thom_context_iff",
+        "Sigma.Closure.universal_thom_context_exists_unique",
+        "Sigma.Closure.universal_thom_line_observation_iff",
+        "Sigma.Closure.universal_thom_line_exists_unique",
+        "Sigma.Closure.universal_thom_intrinsic_reverse",
+        "Sigma.Closure.fixed_context_native_closure"
       ],
       "proved_components": [
         "Five actual fixed-context existence, uniqueness and reverse-observation clauses are assembled: nonnegative probability convolution with marked time one; literal marked Laguerre minimal operator and its unique self-adjoint extension, with normalized Pearson coordinate inverse; positive-rank SPD matrix family under scalar-block recursion and orthogonal invariance; actual isotropic Euclidean R4 probability with Gamma radial law and independent geometric uniform-sphere reconstruction; one-ancestor iid Galton-Watson offspring and tree laws identified by the complete extended Borel progeny law.",
-        "The candidate predicates retain the paper identifying conditions and do not define a candidate by equality to a canonical recipe. Matrix uniqueness is on the actual SPD domain, with no assertion about arbitrary off-domain values. The reverse observations explicitly recover the intrinsic density, H, scalar potential, or marked inverse data."
+        "The candidate predicates retain the paper identifying conditions and do not define a candidate by equality to a canonical recipe. Matrix uniqueness is on the actual SPD domain, with no assertion about arbitrary off-domain values. The reverse observations explicitly recover the intrinsic density, H, scalar potential, or marked inverse data.",
+        "The sixth context is now native supplied complex Thom/Chern theory on actual bundles: actual projective universal-line stages, zero sections, complete cohomological inverse limit, classifying pullbacks, first Chern classes, Whitney splitting and injective descent derive the unique inverse-Todd correction. Every finite universal-stage observation together identifies the Todd unit and recovers the formal exponential. All six native unique-existence clauses are combined in fixed_context_native_closure."
       ],
-      "unproved_components": [
-        "The sixth fixed-context universal complex Thom/Chern correction clause and its complete universal-line reverse observation await the exact supplied-theory bundle theorem from F4."
-      ],
-      "notes": "2026-09-27 independently reviewed five-context assembly in SigmaClosureContexts. Probability, operator, matrix and branching clauses received bounded independent PASS; the Gaussian clause uses separately reviewed exact R1 geometric results. The OU stochastic clause of R1 is not required by the actual global-E statement. Global E remains partial until the native supplied universal Thom clause is assembled."
+      "unproved_components": [],
+      "notes": "2026-09-27 WHOLE global-E independent AUDIT PASS by /root/missing_countermodels. All six exact native candidate contexts, canonical existence/uniqueness and reverse observations are covered. The universal Thom context supplies the paper foundations and primitive geometry; correction and reverse-identification conclusions are derived. No context defines a candidate by equality to a recipe. The exact E statement does not require R1 stochastic calculus or F4 proper-map Riemann--Roch. See global-e-complete-2026-09-27-review.md."
     },
     {
       "latex_label": "final:global-C",

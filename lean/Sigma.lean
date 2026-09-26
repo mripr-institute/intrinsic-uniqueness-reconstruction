@@ -338,3 +338,8 @@ import SigmaRadialOUPaths
 import SigmaRadialOUBrownian
 import SigmaRadialOUDriven
 import SigmaClosureContexts
+import SigmaRadialSphereArea
+import SigmaClosureThom
+import SigmaThomNativeUnits
+import SigmaThomNativeSupports
+import SigmaThomNativeGysinSupported
