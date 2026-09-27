@@ -10,10 +10,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Definitions: 2.
 - Named statements excluding definitions: 78.
 - Fully formalized named statements: 69/78.
-- Partially formalized statements: 6.
-- Statements awaiting Lean formalization: 3.
+- Partially formalized statements: 7.
+- Statements awaiting Lean formalization: 2.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1785 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1818 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1890,6 +1890,7 @@ Mathematical content formalized in Lean:
 - Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.
 - Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.
 - Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.
+- Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure.
 
 Mapped Lean declarations:
 
@@ -1913,11 +1914,23 @@ Mapped Lean declarations:
 - `Sigma.operator_complex_gamma_mixing_characterization`
 - `Sigma.operator_complex_gamma_mixing_iff`
 - `Sigma.nonnegative_gamma_complex_measure_apply`
+- `Sigma.op_evolution_shift_derivative`
+- `Sigma.op_evolution_gamma_primitive_derivative`
+- `Sigma.op_evolution_gamma_integrable`
+- `Sigma.op_evolution_gamma_primitive_tendsto`
+- `Sigma.op_evolution_strong_gamma_mixing`
+- `Sigma.op_evolution_integer_eigenvector_action`
+- `Sigma.op_resolvent_integer_eigenvector_action`
+- `Sigma.op_evolution_finite_measure_integrable`
+- `Sigma.signed_strong_integral_real_test`
+- `Sigma.complex_strong_integral_real_test`
+- `Sigma.op_evolution_complex_mixing_integer_sample`
+- `Sigma.op_evolution_complex_mixing_unique`
 
 Remaining Lean formalization:
 
-- Strong-operator mixing identity for every nonnegative self-adjoint B.
-- Extraction of scalar samples from each integer eigenvector in that actual operator identity.
+- Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.
+- Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator.
 
 ### final:O6 — A Bernstein function is determined by every integer tail
 
@@ -2007,7 +2020,37 @@ Remaining Lean formalization:
 
 ### final:O5-isospectral-boundary — The Gamma shapes two and three retain all spectral and mixing data
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.
+- Explicit polynomial solutions of the ordinary Gamma-shape-three differential eigen-equation, including the constant eigenfunction, degree bounds and nonzero leading coefficient.
+- Exact pair integrals and norms relative to the actual Gamma-shape-three probability measure, and an orthonormal family of actual complex weighted L2 vectors.
+
+Mapped Lean declarations:
+
+- `Sigma.gamma_shape_three_pdf`
+- `Sigma.gamma_shape_three_integral`
+- `Sigma.gamma_shape_three_moments`
+- `Sigma.gamma_shape_three_monomial_integrable`
+- `Sigma.gamma_shape_three_mean`
+- `Sigma.gamma_shape_three_coordinate_law_ne_shape_two`
+- `Sigma.gamma_shape_three_polynomial_integrable`
+- `Sigma.gamma_shape_three_polynomial_integral`
+- `Sigma.gamma_shape_three_laguerre_polynomial_ode`
+- `Sigma.gamma_shape_three_laguerre_derivative`
+- `Sigma.gamma_shape_three_laguerre_second_derivative`
+- `Sigma.gamma_shape_three_laguerre_native_eigenvalue`
+- `Sigma.gamma_shape_three_laguerre_coeff`
+- `Sigma.gamma_shape_three_laguerre_degree_le`
+- `Sigma.gamma_shape_three_laguerre_leading_ne_zero`
+- `Sigma.gamma_shape_three_laguerre_zero`
+- `Sigma.gamma_shape_three_laguerre_green`
+- `Sigma.gamma_shape_three_laguerre_pair_integral`
+- `Sigma.gamma_shape_three_complex_polynomial_mem_l2`
+- `Sigma.gamma_shape_three_l2_inner`
+- `Sigma.normalized_gamma_shape_three_l2_orthonormal`
 
 Remaining Lean formalization:
 

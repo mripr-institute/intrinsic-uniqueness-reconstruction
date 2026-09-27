@@ -198,6 +198,8 @@ import SigmaMatrixGlobalGeodesic
 import SigmaMatrixM3Unique
 import SigmaMatrixM3Geodesic
 import SigmaOpInverseCalculusCanonical
+import SigmaOpGammaShapeThree
+import SigmaOpMixingStrong
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
 import SigmaOperatorPearson

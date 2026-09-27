@@ -5,8 +5,8 @@
   "totals": {
     "definition": 2,
     "complete": 69,
-    "partial": 6,
-    "missing": 3
+    "partial": 7,
+    "missing": 2
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2646,24 +2646,37 @@
         "Sigma.nonnegative_gamma_complex_integer_samples",
         "Sigma.operator_complex_gamma_mixing_characterization",
         "Sigma.operator_complex_gamma_mixing_iff",
-        "Sigma.nonnegative_gamma_complex_measure_apply"
+        "Sigma.nonnegative_gamma_complex_measure_apply",
+        "Sigma.op_evolution_shift_derivative",
+        "Sigma.op_evolution_gamma_primitive_derivative",
+        "Sigma.op_evolution_gamma_integrable",
+        "Sigma.op_evolution_gamma_primitive_tendsto",
+        "Sigma.op_evolution_strong_gamma_mixing",
+        "Sigma.op_evolution_integer_eigenvector_action",
+        "Sigma.op_resolvent_integer_eigenvector_action",
+        "Sigma.op_evolution_finite_measure_integrable",
+        "Sigma.signed_strong_integral_real_test",
+        "Sigma.complex_strong_integral_real_test",
+        "Sigma.op_evolution_complex_mixing_integer_sample",
+        "Sigma.op_evolution_complex_mixing_unique"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
         "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
-        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions."
+        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.",
+        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure."
       ],
       "unproved_components": [
-        "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
+        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
+        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
       ],
       "gaps": [
-        "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
+        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
+        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result."
+      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result. Conditional operator support independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. The supplied evolution and resolvent are explicit hypotheses; no arbitrary-self-adjoint construction is claimed. Integration build, source_audit and selected final transitive axiom checks passed."
     },
     {
       "id": "final:O6",
@@ -2785,9 +2798,35 @@
       "line": 943,
       "statement_tex": "\\label{final:O5-isospectral-boundary}\nFor $\\alpha\\in\\{2,3\\}$ set\n\\[\n p_\\alpha(t)=\\frac{t^{\\alpha-1}e^{-t}}{\\Gamma(\\alpha)},\n \\qquad \\mathcal H_\\alpha=L^2((0,\\infty),p_\\alpha(t)\\,dt),\n\\]\nand let $A_\\alpha$ be the closure of\n\\[\n -tf''-(\\alpha-t)f',\\qquad D=C_c^\\infty(0,\\infty).\n\\]\nBoth endpoints are limit point in both cases.  The operators have\nthe same simple complete spectrum $\\mathbb N_0$ and are intertwined\nby a unitary carrying $1$ to $1$.  Therefore all their heat traces,\nshifted zeta functions, resolvent trace functions and spectral\ndeterminants agree, with the same conventions and domains.\nBoth satisfy \\eqref{final:O5-unknown} with the same unique mixing\nmeasure $\\nu_2(ds)=se^{-s}\\,ds$.  Their invariant coordinate laws\nnevertheless differ: they are $p_2\\,dt$ and\n$p_3\\,dt$, with means $2$ and $3$ respectively.\n",
       "statement_sha256": "9e54f3d3fe7dc96f9ad067d8d35901e09c2732959a0dc30d34c29a277ad6ecb9",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.gamma_shape_three_pdf",
+        "Sigma.gamma_shape_three_integral",
+        "Sigma.gamma_shape_three_moments",
+        "Sigma.gamma_shape_three_monomial_integrable",
+        "Sigma.gamma_shape_three_mean",
+        "Sigma.gamma_shape_three_coordinate_law_ne_shape_two",
+        "Sigma.gamma_shape_three_polynomial_integrable",
+        "Sigma.gamma_shape_three_polynomial_integral",
+        "Sigma.gamma_shape_three_laguerre_polynomial_ode",
+        "Sigma.gamma_shape_three_laguerre_derivative",
+        "Sigma.gamma_shape_three_laguerre_second_derivative",
+        "Sigma.gamma_shape_three_laguerre_native_eigenvalue",
+        "Sigma.gamma_shape_three_laguerre_coeff",
+        "Sigma.gamma_shape_three_laguerre_degree_le",
+        "Sigma.gamma_shape_three_laguerre_leading_ne_zero",
+        "Sigma.gamma_shape_three_laguerre_zero",
+        "Sigma.gamma_shape_three_laguerre_green",
+        "Sigma.gamma_shape_three_laguerre_pair_integral",
+        "Sigma.gamma_shape_three_complex_polynomial_mem_l2",
+        "Sigma.gamma_shape_three_l2_inner",
+        "Sigma.normalized_gamma_shape_three_l2_orthonormal"
+      ],
+      "proved_components": [
+        "Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.",
+        "Explicit polynomial solutions of the ordinary Gamma-shape-three differential eigen-equation, including the constant eigenfunction, degree bounds and nonzero leading coefficient.",
+        "Exact pair integrals and norms relative to the actual Gamma-shape-three probability measure, and an orthonormal family of actual complex weighted L2 vectors."
+      ],
       "unproved_components": [
         "Both actual Gamma-shape-two and shape-three weighted L2 self-adjoint closures with limit-point endpoints.",
         "Complete simple integer eigenbases and intertwining unitary fixing one.",
@@ -2801,7 +2840,7 @@
         "Distinct invariant coordinate probabilities with respective means two and three, inside those linked realizations."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Standalone Gamma-shape-three probability and polynomial/L2 components independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. Completeness, native self-adjoint closure and endpoint analysis, the linked unitary, spectral invariants and stationarity inside the linked realizations remain unproved. Integration build, source_audit and selected final transitive axiom checks passed."
     },
     {
       "id": "final:O5-canonical-versus-identification",

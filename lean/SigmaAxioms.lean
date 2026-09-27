@@ -11,6 +11,11 @@ import Sigma
 #print axioms Sigma.laguerre_canonical_exp_negative_log
 #print axioms Sigma.laguerre_canonical_exponent_determined_by_j
 #print axioms Sigma.laguerre_canonical_j_determined_by_exponent
+#print axioms Sigma.normalized_gamma_shape_three_l2_orthonormal
+#print axioms Sigma.gamma_shape_three_coordinate_law_ne_shape_two
+#print axioms Sigma.op_evolution_strong_gamma_mixing
+#print axioms Sigma.op_evolution_complex_mixing_integer_sample
+#print axioms Sigma.op_evolution_complex_mixing_unique
 
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique

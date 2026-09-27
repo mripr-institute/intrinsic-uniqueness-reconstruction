@@ -1,7 +1,7 @@
 {
   "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
   "paper": "paper/sections/operators.tex",
-  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 15, "partial": 2, "missing": 2},
+  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 15, "partial": 3, "missing": 1},
   "namespace": "Sigma",
   "result": "DEFECT LIST",
   "passed_labels": [
@@ -655,19 +655,32 @@
         "Sigma.nonnegative_gamma_complex_integer_samples",
         "Sigma.operator_complex_gamma_mixing_characterization",
         "Sigma.operator_complex_gamma_mixing_iff",
-        "Sigma.nonnegative_gamma_complex_measure_apply"
+        "Sigma.nonnegative_gamma_complex_measure_apply",
+        "Sigma.op_evolution_shift_derivative",
+        "Sigma.op_evolution_gamma_primitive_derivative",
+        "Sigma.op_evolution_gamma_integrable",
+        "Sigma.op_evolution_gamma_primitive_tendsto",
+        "Sigma.op_evolution_strong_gamma_mixing",
+        "Sigma.op_evolution_integer_eigenvector_action",
+        "Sigma.op_resolvent_integer_eigenvector_action",
+        "Sigma.op_evolution_finite_measure_integrable",
+        "Sigma.signed_strong_integral_real_test",
+        "Sigma.complex_strong_integral_real_test",
+        "Sigma.op_evolution_complex_mixing_integer_sample",
+        "Sigma.op_evolution_complex_mixing_unique"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
         "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
-        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions."
+        "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.",
+        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure."
       ],
       "unproved_components": [
-        "Strong-operator mixing identity for every nonnegative self-adjoint B.",
-        "Extraction of scalar samples from each integer eigenvector in that actual operator identity."
+        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
+        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
       ],
-      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result."
+      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result. Conditional operator support independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. The supplied evolution and resolvent are explicit hypotheses; no arbitrary-self-adjoint construction is claimed. Integration build, source_audit and selected final transitive axiom checks passed."
     },
     {
       "latex_label": "final:O6",
@@ -755,16 +768,42 @@
     },
     {
       "latex_label": "final:O5-isospectral-boundary",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.gamma_shape_three_pdf",
+        "Sigma.gamma_shape_three_integral",
+        "Sigma.gamma_shape_three_moments",
+        "Sigma.gamma_shape_three_monomial_integrable",
+        "Sigma.gamma_shape_three_mean",
+        "Sigma.gamma_shape_three_coordinate_law_ne_shape_two",
+        "Sigma.gamma_shape_three_polynomial_integrable",
+        "Sigma.gamma_shape_three_polynomial_integral",
+        "Sigma.gamma_shape_three_laguerre_polynomial_ode",
+        "Sigma.gamma_shape_three_laguerre_derivative",
+        "Sigma.gamma_shape_three_laguerre_second_derivative",
+        "Sigma.gamma_shape_three_laguerre_native_eigenvalue",
+        "Sigma.gamma_shape_three_laguerre_coeff",
+        "Sigma.gamma_shape_three_laguerre_degree_le",
+        "Sigma.gamma_shape_three_laguerre_leading_ne_zero",
+        "Sigma.gamma_shape_three_laguerre_zero",
+        "Sigma.gamma_shape_three_laguerre_green",
+        "Sigma.gamma_shape_three_laguerre_pair_integral",
+        "Sigma.gamma_shape_three_complex_polynomial_mem_l2",
+        "Sigma.gamma_shape_three_l2_inner",
+        "Sigma.normalized_gamma_shape_three_l2_orthonormal"
+      ],
+      "proved_components": [
+        "Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.",
+        "Explicit polynomial solutions of the ordinary Gamma-shape-three differential eigen-equation, including the constant eigenfunction, degree bounds and nonzero leading coefficient.",
+        "Exact pair integrals and norms relative to the actual Gamma-shape-three probability measure, and an orthonormal family of actual complex weighted L2 vectors."
+      ],
       "unproved_components": [
         "Both actual Gamma-shape-two and shape-three weighted L2 self-adjoint closures with limit-point endpoints.",
         "Complete simple integer eigenbases and intertwining unitary fixing one.",
         "Agreement of every listed spectral invariant with conventions/domains and common unique mixing measure.",
         "Distinct invariant coordinate probabilities with respective means two and three, inside those linked realizations."
       ],
-      "notes": ""
+      "notes": "Standalone Gamma-shape-three probability and polynomial/L2 components independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. Completeness, native self-adjoint closure and endpoint analysis, the linked unitary, spectral invariants and stationarity inside the linked realizations remain unproved. Integration build, source_audit and selected final transitive axiom checks passed."
     },
     {
       "latex_label": "final:O5-canonical-versus-identification",
