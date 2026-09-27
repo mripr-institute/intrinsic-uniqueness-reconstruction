@@ -5,8 +5,7 @@
   "totals": {
     "definition": 2,
     "complete": 72,
-    "missing": 1,
-    "partial": 5
+    "partial": 6
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2921,21 +2920,39 @@
       "line": 1011,
       "statement_tex": "\\label{final:O5-canonical-versus-identification}\nThe fixed exponent-two recipe $J$ constructs the Gamma$(2,1)$ mixing\nmeasure for every nonnegative self-adjoint operator.  Integer\neigenvalues make that mixing measure uniquely recoverable from the\nrestricted operator identity.  They do not identify the stationary\ncoordinate law of an arbitrary realization, even when the constant\nvector is retained.  To identify that candidate law one must retain\neither its explicit equality to the unknown mixing measure in\n\\eqref{final:O5-unknown}, the local Pearson realization of\nTheorem~\\ref{final:O2}, or equivalent coordinate information.\n",
       "statement_sha256": "b7ea0db0656ec335d6fcbb52c4fe01d3a106c76ff32429294dfcb2a508ace766",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.op_nonnegative_operator_gamma_mixing",
+        "Sigma.op_nonnegative_gamma_probability_mixing",
+        "Sigma.op_nonnegative_gamma_complex_mixing",
+        "Sigma.op_nonnegative_complex_mixing_iff",
+        "Sigma.gamma_shapes_two_three_native_boundary",
+        "Sigma.gamma_shapes_two_three_common_mixing",
+        "Sigma.gamma_shape_three_complex_heat_trace",
+        "Sigma.gamma_shape_three_shifted_zeta_trace",
+        "Sigma.gamma_shape_three_resolvent_difference_trace",
+        "Sigma.gamma_shape_three_squared_resolvent_trace",
+        "Sigma.gamma_shape_three_fredholm_determinant",
+        "Sigma.gamma_shape_three_regularized_determinant",
+        "Sigma.stationary_coordinate_no_spectrum_inverse"
+      ],
+      "proved_components": [
+        "Canonical exponent-two Gamma mixing existence for every native nonnegative self-adjoint operator, as genuine operator and strong probability integrals and a native complex measure identity; integer eigenvalues imply uniqueness of that unknown finite complex mixing measure.",
+        "Actual Gamma-two and Gamma-three differential closures are unitarily equivalent on their full domains, fix the constant and share all retained spectral, trace, determinant and unique mixing data, while their stationary coordinate probabilities differ.",
+        "Explicit kernel-checked nonexistence of a spectrum-to-coordinate-probability inverse even on the two native stationary realizations: no map from the actual complex spectrum can recover both Gamma probability measures."
+      ],
       "unproved_components": [
-        "Canonical Gamma mixing existence for arbitrary nonnegative self-adjoint operators and integer-eigenvalue mixing uniqueness as actual operator facts.",
-        "Actual stationary-coordinate nonidentification witness even retaining all spectral/mixing data and the constant.",
-        "Identification under explicit mixing/coordinate linkage or the locally AC Pearson realization."
+        "Corollary-level identification assembly under explicit mixing/coordinate linkage or the locally AC Pearson realization.",
+        "Proof-level marked coordinate multiplication operator and its Borel projection recovery formula, including probability preservation under a unitary intertwining the multiplication operator and fixing one.",
+        "The alternative exponent-a Gamma mixing recipe for every a > 0, and the explicit canonical-selection map with the displayed failure of its left-inverse equation."
       ],
       "gaps": [
-        "Canonical Gamma mixing existence for arbitrary nonnegative self-adjoint operators and integer-eigenvalue mixing uniqueness as actual operator facts.",
-        "Actual stationary-coordinate nonidentification witness even retaining all spectral/mixing data and the constant.",
-        "Identification under explicit mixing/coordinate linkage or the locally AC Pearson realization."
+        "Corollary-level identification assembly under explicit mixing/coordinate linkage or the locally AC Pearson realization.",
+        "Proof-level marked coordinate multiplication operator and its Borel projection recovery formula, including probability preservation under a unitary intertwining the multiplication operator and fixing one.",
+        "The alternative exponent-a Gamma mixing recipe for every a > 0, and the explicit canonical-selection map with the displayed failure of its left-inverse equation."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Proof-only coordinate multiplication spectral-measure reconstruction, other-shape recipes and failure of the canonical-selection left inverse likewise lack an actual Hilbert/operator implementation."
+      "notes": "Progress reuses the completed O5 generic operator mixing and native isospectral boundary. The new stationary_coordinate_no_spectrum_inverse proves an actual coordinate-law inverse obstruction using both full native operator spectra, rather than a scalar surrogate. The affected module and final SigmaFormalization integration build pass. No further independent audit or full axiom check was run. The corollary remains partial; its marked-coordinate and other-recipe proof details are not credited."
     },
     {
       "id": "final:F1",

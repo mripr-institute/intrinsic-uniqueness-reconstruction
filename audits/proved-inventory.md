@@ -10,10 +10,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Definitions: 2.
 - Named statements excluding definitions: 78.
 - Fully formalized named statements: 72/78.
-- Partially formalized statements: 5.
-- Statements awaiting Lean formalization: 1.
+- Partially formalized statements: 6.
+- Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1904 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1905 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2136,13 +2136,35 @@ Mapped Lean declarations:
 
 ### final:O5-canonical-versus-identification — Canonical mixing construction is not unmarked coordinate recovery
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Canonical exponent-two Gamma mixing existence for every native nonnegative self-adjoint operator, as genuine operator and strong probability integrals and a native complex measure identity; integer eigenvalues imply uniqueness of that unknown finite complex mixing measure.
+- Actual Gamma-two and Gamma-three differential closures are unitarily equivalent on their full domains, fix the constant and share all retained spectral, trace, determinant and unique mixing data, while their stationary coordinate probabilities differ.
+- Explicit kernel-checked nonexistence of a spectrum-to-coordinate-probability inverse even on the two native stationary realizations: no map from the actual complex spectrum can recover both Gamma probability measures.
+
+Mapped Lean declarations:
+
+- `Sigma.op_nonnegative_operator_gamma_mixing`
+- `Sigma.op_nonnegative_gamma_probability_mixing`
+- `Sigma.op_nonnegative_gamma_complex_mixing`
+- `Sigma.op_nonnegative_complex_mixing_iff`
+- `Sigma.gamma_shapes_two_three_native_boundary`
+- `Sigma.gamma_shapes_two_three_common_mixing`
+- `Sigma.gamma_shape_three_complex_heat_trace`
+- `Sigma.gamma_shape_three_shifted_zeta_trace`
+- `Sigma.gamma_shape_three_resolvent_difference_trace`
+- `Sigma.gamma_shape_three_squared_resolvent_trace`
+- `Sigma.gamma_shape_three_fredholm_determinant`
+- `Sigma.gamma_shape_three_regularized_determinant`
+- `Sigma.stationary_coordinate_no_spectrum_inverse`
 
 Remaining Lean formalization:
 
-- Canonical Gamma mixing existence for arbitrary nonnegative self-adjoint operators and integer-eigenvalue mixing uniqueness as actual operator facts.
-- Actual stationary-coordinate nonidentification witness even retaining all spectral/mixing data and the constant.
-- Identification under explicit mixing/coordinate linkage or the locally AC Pearson realization.
+- Corollary-level identification assembly under explicit mixing/coordinate linkage or the locally AC Pearson realization.
+- Proof-level marked coordinate multiplication operator and its Borel projection recovery formula, including probability preservation under a unitary intertwining the multiplication operator and fixing one.
+- The alternative exponent-a Gamma mixing recipe for every a > 0, and the explicit canonical-selection map with the displayed failure of its left-inverse equation.
 
 ### final:F1 — The normalized Todd tower and all its twists
 

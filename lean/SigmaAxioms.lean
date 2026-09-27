@@ -2490,3 +2490,4 @@ import Sigma
 #print axioms Sigma.gamma_shape_three_shifted_zeta_trace
 #print axioms Sigma.gamma_shape_three_regularized_determinant
 #print axioms Sigma.gamma_shapes_two_three_native_boundary
+#print axioms Sigma.stationary_coordinate_no_spectrum_inverse

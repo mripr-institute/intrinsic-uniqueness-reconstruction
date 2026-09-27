@@ -63,5 +63,19 @@ theorem gamma_shapes_two_three_native_boundary :
     exact gamma_shape_three_spectral_selfAdjoint
   · rw [laguerre_canonical_spectrum_exact, gamma_shape_three_canonical_spectrum]
 
+/-- Forgetting a native stationary realization to its spectrum admits no
+coordinate-probability inverse even on these two unitarily equivalent closures. -/
+theorem stationary_coordinate_no_spectrum_inverse :
+    ¬ ∃ recover : Set ℂ → Measure ℝ,
+      recover (unboundedOperatorSpectrum laguerreCanonicalOperator) = gammaProbability ∧
+      recover (unboundedOperatorSpectrum gammaShapeThreeCanonicalOperator) =
+        gammaShapeThreeProbability := by
+  rintro ⟨recover, htwo, hthree⟩
+  have hs : unboundedOperatorSpectrum laguerreCanonicalOperator =
+      unboundedOperatorSpectrum gammaShapeThreeCanonicalOperator := by
+    rw [laguerre_canonical_spectrum_exact, gamma_shape_three_canonical_spectrum]
+  exact gamma_shape_three_coordinate_law_ne_shape_two
+    (hthree.symm.trans ((congrArg recover hs.symm).trans htwo))
+
 end
 end Sigma
