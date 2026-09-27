@@ -2484,6 +2484,9 @@ import Sigma
 #print axioms Sigma.gamma_shape_three_canonical_heat_evolution
 #print axioms Sigma.gamma_shape_three_heat_preserves_integral
 #print axioms Sigma.gamma_shape_three_common_mixing_iff
+#print axioms Sigma.gamma_shape_two_common_mixing_iff
+#print axioms Sigma.gamma_shapes_two_three_common_mixing
+#print axioms Sigma.gamma_shape_three_native_resolvent_eq
 #print axioms Sigma.gamma_shape_three_shifted_zeta_trace
 #print axioms Sigma.gamma_shape_three_regularized_determinant
 #print axioms Sigma.gamma_shapes_two_three_native_boundary

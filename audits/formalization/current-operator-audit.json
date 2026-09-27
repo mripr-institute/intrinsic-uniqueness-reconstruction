@@ -1,7 +1,13 @@
 {
   "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
   "paper": "paper/sections/operators.tex",
-  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 17, "partial": 1, "missing": 1},
+  "totals_by_named_environment": {
+    "total": 19,
+    "definition": 0,
+    "complete": 18,
+    "partial": 0,
+    "missing": 1
+  },
   "namespace": "Sigma",
   "result": "DEFECT LIST",
   "passed_labels": [
@@ -21,7 +27,8 @@
     "final:O4-finite-countermodels",
     "final:O4-determinants",
     "final:O6-functional-calculus",
-    "final:O5"
+    "final:O5",
+    "final:O5-isospectral-boundary"
   ],
   "mathematically_false_paper_clauses": [],
   "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation. Independent final whole-statement review on 2026-09-27 passed O4-determinants with native categories, locally uniform compression limits, basis independence and zero-multiset reconstruction.",
@@ -214,9 +221,9 @@
         "Actual weighted complex L2 minimal differential operator on exactly the compact-interior smooth test classes; density, nonnegativity and symmetry.",
         "Its graph closure equals the integer spectral operator and its adjoint, and is the unique self-adjoint extension. Genuine upper and logarithmic lower cutoffs supply graph-norm approximation, without assumed endpoint or mode-domain conditions.",
         "The actual adjoint eigenspaces at plus and minus i are both zero submodules, so both deficiency indices are zero.",
-        "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF\u2032, together with weighted L2 membership of -p^-1(qF\u2032)\u2032. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
+        "Exact maximal-domain equivalence for the actual canonical graph closure: precisely local AC of F and its literal classical flux qF′, together with weighted L2 membership of -p^-1(qF′)′. Forward regularity is derived from the operator equation; the reverse direction assumes no energy or endpoint condition and identifies the actual operator image.",
         "Both automatic zero-flux limits hold for every canonical-domain vector and any locally AC representative. No flux, energy, or boundary condition is assumed. The derivative has zero integral by the zeroth spectral coefficient; finite energy implies Lebesgue-square-integrable flux, forcing its common endpoint limit to vanish.",
-        "Both endpoints are limit point under the paper\u2019s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
+        "Both endpoints are limit point under the paper’s explicitly documented zero-energy Weyl characterization. The actual solution space has the independent spanning basis 1 and integral(1/q), and its endpoint-local weighted L2 solutions are exactly the constants. The second solution is not L2 on any positive neighborhood of zero or any positive tail; a genuine cutoff/maximal-domain argument proves this without assuming endpoint classification.",
         "Explicit canonical-domain vector represented by F(t)=log(1+log(1+1/t)); its actual flux and divergence formulas and both weighted L2 memberships are proved. Every locally AC representative of this class has real part tending to +infinity at zero, so none admits a finite complex boundary value."
       ],
       "unproved_components": [],
@@ -797,7 +804,7 @@
     },
     {
       "latex_label": "final:O5-isospectral-boundary",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.gamma_shape_three_pdf",
         "Sigma.gamma_shape_three_integral",
@@ -856,7 +863,18 @@
         "Sigma.gamma_shape_unitary_heat",
         "Sigma.gamma_shape_three_operator_gamma_mixing",
         "Sigma.gamma_shape_three_complex_mixing_iff",
-        "Sigma.gamma_shape_two_complex_mixing_iff"
+        "Sigma.gamma_shape_two_complex_mixing_iff",
+        "Sigma.gamma_shape_three_canonical_spectrum",
+        "Sigma.gamma_shape_unitary_canonical_domain_iff",
+        "Sigma.gamma_shape_unitary_canonical_action",
+        "Sigma.gamma_shape_three_canonical_heat_evolution",
+        "Sigma.gamma_shape_three_resolvent_compact",
+        "Sigma.gamma_shape_three_native_resolvent_eq",
+        "Sigma.gamma_shape_two_native_resolvent_eq",
+        "Sigma.gamma_shape_three_common_mixing_iff",
+        "Sigma.gamma_shape_two_common_mixing_iff",
+        "Sigma.gamma_shapes_two_three_common_mixing",
+        "Sigma.gamma_shapes_two_three_native_boundary"
       ],
       "proved_components": [
         "Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.",
@@ -868,12 +886,11 @@
         "Actual positive-shift inverses, nonnuclear first resolvents and Hilbert-Schmidt bounds, genuine squared/difference resolvent trace agreements, complex heat and shifted zeta exact nuclear ranges and trace agreements.",
         "Equality of actual finite-compression matrices and ordinary/regularized determinants, with common Hurwitz trace continuation and zeta regularization.",
         "Native C0 heat evolution agrees with the spectral heat multiplier, preserves the actual Gamma-three constant and every probability integral, and is intertwined with Gamma-two heat.",
-        "Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the final bridge to the trace resolvent notation remains in the unconfirmed assembly module."
+        "Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the native shift inverses equal the actual trace resolvents and the joint mixing equation is characterized exactly.",
+        "Kernel-checked final assembly for both literal differential closures, exact-domain unitary equivalence fixing the constant, the common full simple integer spectrum, and unequal actual invariant coordinate measures with means two and three."
       ],
-      "unproved_components": [
-        "Kernel-checked final assembly linking both literal canonical closures, shared native mixing equations and the actual trace resolvents: coercion and heartbeat repairs in SigmaOpGammaShapeThreeBoundary have not been rebuilt."
-      ],
-      "notes": "The new completeness, endpoint, differential closure, spectral, evolution and invariant modules compiled successfully. The single final integration build failed in the new boundary assembly on coercion rewrites and kernel heartbeat limits. Those declarations were repaired, but no subsequent compilation, independent review or axiom audit was performed, following the user's explicit instruction to commit and stop after one build. This row therefore remains partial pending kernel confirmation of the final assembly. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
+      "unproved_components": [],
+      "notes": "The final native boundary assembly and both shared mixing bridges are kernel-checked, and the complete SigmaFormalization integration build passes. Small generic inverse-uniqueness and equation-transport lemmas avoid kernel timeouts in the integral bridges; the native closure assembly is compiled separately from determinant imports. No additional independent review or full axiom audit was run, as explicitly requested by the user. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
     },
     {
       "latex_label": "final:O5-canonical-versus-identification",

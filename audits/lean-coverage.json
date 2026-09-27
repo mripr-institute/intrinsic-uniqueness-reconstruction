@@ -4,9 +4,9 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 71,
-    "partial": 6,
-    "missing": 1
+    "complete": 72,
+    "missing": 1,
+    "partial": 5
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2820,7 +2820,7 @@
       "line": 943,
       "statement_tex": "\\label{final:O5-isospectral-boundary}\nFor $\\alpha\\in\\{2,3\\}$ set\n\\[\n p_\\alpha(t)=\\frac{t^{\\alpha-1}e^{-t}}{\\Gamma(\\alpha)},\n \\qquad \\mathcal H_\\alpha=L^2((0,\\infty),p_\\alpha(t)\\,dt),\n\\]\nand let $A_\\alpha$ be the closure of\n\\[\n -tf''-(\\alpha-t)f',\\qquad D=C_c^\\infty(0,\\infty).\n\\]\nBoth endpoints are limit point in both cases.  The operators have\nthe same simple complete spectrum $\\mathbb N_0$ and are intertwined\nby a unitary carrying $1$ to $1$.  Therefore all their heat traces,\nshifted zeta functions, resolvent trace functions and spectral\ndeterminants agree, with the same conventions and domains.\nBoth satisfy \\eqref{final:O5-unknown} with the same unique mixing\nmeasure $\\nu_2(ds)=se^{-s}\\,ds$.  Their invariant coordinate laws\nnevertheless differ: they are $p_2\\,dt$ and\n$p_3\\,dt$, with means $2$ and $3$ respectively.\n",
       "statement_sha256": "9e54f3d3fe7dc96f9ad067d8d35901e09c2732959a0dc30d34c29a277ad6ecb9",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.gamma_shape_three_pdf",
         "Sigma.gamma_shape_three_integral",
@@ -2879,7 +2879,18 @@
         "Sigma.gamma_shape_unitary_heat",
         "Sigma.gamma_shape_three_operator_gamma_mixing",
         "Sigma.gamma_shape_three_complex_mixing_iff",
-        "Sigma.gamma_shape_two_complex_mixing_iff"
+        "Sigma.gamma_shape_two_complex_mixing_iff",
+        "Sigma.gamma_shape_three_canonical_spectrum",
+        "Sigma.gamma_shape_unitary_canonical_domain_iff",
+        "Sigma.gamma_shape_unitary_canonical_action",
+        "Sigma.gamma_shape_three_canonical_heat_evolution",
+        "Sigma.gamma_shape_three_resolvent_compact",
+        "Sigma.gamma_shape_three_native_resolvent_eq",
+        "Sigma.gamma_shape_two_native_resolvent_eq",
+        "Sigma.gamma_shape_three_common_mixing_iff",
+        "Sigma.gamma_shape_two_common_mixing_iff",
+        "Sigma.gamma_shapes_two_three_common_mixing",
+        "Sigma.gamma_shapes_two_three_native_boundary"
       ],
       "proved_components": [
         "Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.",
@@ -2891,16 +2902,13 @@
         "Actual positive-shift inverses, nonnuclear first resolvents and Hilbert-Schmidt bounds, genuine squared/difference resolvent trace agreements, complex heat and shifted zeta exact nuclear ranges and trace agreements.",
         "Equality of actual finite-compression matrices and ordinary/regularized determinants, with common Hurwitz trace continuation and zeta regularization.",
         "Native C0 heat evolution agrees with the spectral heat multiplier, preserves the actual Gamma-three constant and every probability integral, and is intertwined with Gamma-two heat.",
-        "Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the final bridge to the trace resolvent notation remains in the unconfirmed assembly module."
+        "Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the native shift inverses equal the actual trace resolvents and the joint mixing equation is characterized exactly.",
+        "Kernel-checked final assembly for both literal differential closures, exact-domain unitary equivalence fixing the constant, the common full simple integer spectrum, and unequal actual invariant coordinate measures with means two and three."
       ],
-      "unproved_components": [
-        "Kernel-checked final assembly linking both literal canonical closures, shared native mixing equations and the actual trace resolvents: coercion and heartbeat repairs in SigmaOpGammaShapeThreeBoundary have not been rebuilt."
-      ],
-      "gaps": [
-        "Kernel-checked final assembly linking both literal canonical closures, shared native mixing equations and the actual trace resolvents: coercion and heartbeat repairs in SigmaOpGammaShapeThreeBoundary have not been rebuilt."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "The new completeness, endpoint, differential closure, spectral, evolution and invariant modules compiled successfully. The single final integration build failed in the new boundary assembly on coercion rewrites and kernel heartbeat limits. Those declarations were repaired, but no subsequent compilation, independent review or axiom audit was performed, following the user's explicit instruction to commit and stop after one build. This row therefore remains partial pending kernel confirmation of the final assembly. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
+      "notes": "The final native boundary assembly and both shared mixing bridges are kernel-checked, and the complete SigmaFormalization integration build passes. Small generic inverse-uniqueness and equation-transport lemmas avoid kernel timeouts in the integral bridges; the native closure assembly is compiled separately from determinant imports. No additional independent review or full axiom audit was run, as explicitly requested by the user. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
     },
     {
       "id": "final:O5-canonical-versus-identification",

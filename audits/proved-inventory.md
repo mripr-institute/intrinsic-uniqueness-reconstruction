@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 71/78.
-- Partially formalized statements: 6.
+- Fully formalized named statements: 72/78.
+- Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 1.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1893 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1904 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -72,6 +72,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O5** — Existence and uniqueness of the linked mixing measure
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:O6-functional-calculus** — Two different functional-calculus inverse questions
+- **final:O5-isospectral-boundary** — The Gamma shapes two and three retain all spectral and mixing data
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
@@ -2045,7 +2046,7 @@ Mapped Lean declarations:
 
 ### final:O5-isospectral-boundary — The Gamma shapes two and three retain all spectral and mixing data
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2058,7 +2059,8 @@ Mathematical content formalized in Lean:
 - Actual positive-shift inverses, nonnuclear first resolvents and Hilbert-Schmidt bounds, genuine squared/difference resolvent trace agreements, complex heat and shifted zeta exact nuclear ranges and trace agreements.
 - Equality of actual finite-compression matrices and ordinary/regularized determinants, with common Hurwitz trace continuation and zeta regularization.
 - Native C0 heat evolution agrees with the spectral heat multiplier, preserves the actual Gamma-three constant and every probability integral, and is intertwined with Gamma-two heat.
-- Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the final bridge to the trace resolvent notation remains in the unconfirmed assembly module.
+- Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the native shift inverses equal the actual trace resolvents and the joint mixing equation is characterized exactly.
+- Kernel-checked final assembly for both literal differential closures, exact-domain unitary equivalence fixing the constant, the common full simple integer spectrum, and unequal actual invariant coordinate measures with means two and three.
 
 Mapped Lean declarations:
 
@@ -2120,10 +2122,17 @@ Mapped Lean declarations:
 - `Sigma.gamma_shape_three_operator_gamma_mixing`
 - `Sigma.gamma_shape_three_complex_mixing_iff`
 - `Sigma.gamma_shape_two_complex_mixing_iff`
-
-Remaining Lean formalization:
-
-- Kernel-checked final assembly linking both literal canonical closures, shared native mixing equations and the actual trace resolvents: coercion and heartbeat repairs in SigmaOpGammaShapeThreeBoundary have not been rebuilt.
+- `Sigma.gamma_shape_three_canonical_spectrum`
+- `Sigma.gamma_shape_unitary_canonical_domain_iff`
+- `Sigma.gamma_shape_unitary_canonical_action`
+- `Sigma.gamma_shape_three_canonical_heat_evolution`
+- `Sigma.gamma_shape_three_resolvent_compact`
+- `Sigma.gamma_shape_three_native_resolvent_eq`
+- `Sigma.gamma_shape_two_native_resolvent_eq`
+- `Sigma.gamma_shape_three_common_mixing_iff`
+- `Sigma.gamma_shape_two_common_mixing_iff`
+- `Sigma.gamma_shapes_two_three_common_mixing`
+- `Sigma.gamma_shapes_two_three_native_boundary`
 
 ### final:O5-canonical-versus-identification — Canonical mixing construction is not unmarked coordinate recovery
 
