@@ -1,5 +1,6 @@
 import SigmaMatrixGeodesic
 import Mathlib.Algebra.QuadraticDiscriminant
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
 
 namespace Sigma
 noncomputable section
@@ -7,6 +8,210 @@ open scoped Matrix Topology ComplexOrder BigOperators
 
 variable {n : Type*} [Fintype n] [DecidableEq n]
 attribute [local instance] Matrix.frobeniusNormedRing Matrix.frobeniusNormedAlgebra
+
+private theorem abs_le_abs_sinh (x : ℝ) : |x| ≤ |Real.sinh x| := by
+  by_cases hx : 0 ≤ x
+  · rw [abs_of_nonneg hx, abs_of_nonneg (Real.sinh_nonneg_iff.mpr hx)]
+    exact Real.self_le_sinh_iff.mpr hx
+  · have hx' : x ≤ 0 := le_of_not_ge hx
+    have hn : 0 ≤ -x := by linarith
+    rw [abs_of_nonpos hx', abs_of_nonpos (Real.sinh_nonpos_iff.mpr hx')]
+    have h := Real.self_le_sinh_iff.mpr hn
+    rw [Real.sinh_neg] at h
+    linarith
+
+/-- Scalar divided differences of the logarithm are contractions in the
+relative Frobenius metric. This is the pointwise estimate needed for the
+higher-rank path-length argument. -/
+theorem real_log_divided_difference_bound (x y : ℝ) (hx : 0 < x) (hy : 0 < y) :
+    (Real.log y - Real.log x)^2 * (x * y) ≤ (y - x)^2 := by
+  let a := Real.log x
+  let b := Real.log y
+  let u := (b - a) / 2
+  let m := (a + b) / 2
+  have hxa : Real.exp a = x := Real.exp_log hx
+  have hyb : Real.exp b = y := Real.exp_log hy
+  have hum : Real.log y - Real.log x = 2 * u := by
+    dsimp [u, a, b]
+    ring
+  have hxy : x * y = (Real.exp m)^2 := by
+    rw [← hxa, ← hyb, ← Real.exp_add]
+    have hm : a + b = m + m := by dsimp [m]; ring
+    rw [hm, Real.exp_add]
+    ring
+  have hexp_sinh : Real.exp u - Real.exp (-u) = 2 * Real.sinh u := by
+    calc
+      _ = (Real.cosh u + Real.sinh u) - (Real.cosh u - Real.sinh u) := by
+        rw [Real.cosh_add_sinh, Real.cosh_sub_sinh]
+      _ = _ := by ring
+  have hdiff : y - x = 2 * Real.exp m * Real.sinh u := by
+    rw [← hxa, ← hyb]
+    have hplus : m + u = b := by dsimp [m, u]; ring
+    have hminus : m - u = a := by dsimp [m, u]; ring
+    calc
+      _ = Real.exp (m + u) - Real.exp (m - u) := by rw [hplus, hminus]
+      _ = Real.exp m * (Real.exp u - Real.exp (-u)) := by
+        rw [show m - u = m + (-u) by ring]
+        rw [Real.exp_add, Real.exp_add]
+        ring
+      _ = 2 * Real.exp m * Real.sinh u := by rw [hexp_sinh]; ring
+  have hu : u^2 ≤ (Real.sinh u)^2 := by
+    have h := abs_le_abs_sinh u
+    calc
+      u^2 = |u|^2 := (sq_abs u).symm
+      _ ≤ |Real.sinh u|^2 := by
+        simpa only [pow_two] using mul_self_le_mul_self (abs_nonneg u) h
+      _ = (Real.sinh u)^2 := sq_abs _
+  rw [hum]
+  calc
+    _ = 4 * (Real.exp m)^2 * u^2 := by rw [hxy]; ring
+    _ ≤ 4 * (Real.exp m)^2 * (Real.sinh u)^2 :=
+      mul_le_mul_of_nonneg_left hu (by positivity)
+    _ = (y - x)^2 := by rw [hdiff]; ring
+
+/-- The continuous divided difference of `log`, with its diagonal value. -/
+def realLogDividedDifference (x y : ℝ) : ℝ :=
+  if x = y then x⁻¹ else (Real.log y - Real.log x) / (y - x)
+
+/-- In logarithmic spectral coordinates, the derivative multiplier is bounded
+by one after the relative-metric normalization. -/
+theorem real_log_divided_difference_relative_bound (x y : ℝ)
+    (hx : 0 < x) (hy : 0 < y) :
+    (realLogDividedDifference x y)^2 * (x * y) ≤ 1 := by
+  by_cases hxy : x = y
+  · subst y
+    simp [realLogDividedDifference]
+    have hxne : x ≠ 0 := ne_of_gt hx
+    field_simp [hxne]
+    have hpos : 0 < x^2 := pow_pos hx 2
+    rw [div_le_iff₀ hpos]
+    nlinarith
+  · simp only [realLogDividedDifference, if_neg hxy]
+    have h := real_log_divided_difference_bound x y hx hy
+    have hden : y - x ≠ 0 := sub_ne_zero.mpr (Ne.symm hxy)
+    rw [div_pow]
+    calc
+      ((Real.log y - Real.log x)^2 / (y - x)^2) * (x * y) =
+          ((Real.log y - Real.log x)^2 * (x * y)) / (y - x)^2 := by ring
+      _ ≤ 1 := (div_le_one₀ (sq_pos_of_ne_zero hden)).2 h
+
+theorem real_log_divided_difference_sq_bound (x y : ℝ)
+    (hx : 0 < x) (hy : 0 < y) :
+    (realLogDividedDifference x y)^2 ≤ 1 / (x * y) := by
+  rw [le_div_iff₀ (mul_pos hx hy)]
+  exact real_log_divided_difference_relative_bound x y hx hy
+
+omit [DecidableEq n] in
+theorem real_log_divided_difference_matrix_coefficient_bound
+    (a : n → ℝ) (U : Matrix n n ℝ) (ha : ∀ i, 0 < a i) :
+    ∑ i, ∑ j, (realLogDividedDifference (a i) (a j) * U i j)^2 ≤
+      ∑ i, ∑ j, (U i j)^2 / (a i * a j) := by
+  apply Finset.sum_le_sum
+  intro i hi
+  apply Finset.sum_le_sum
+  intro j hj
+  rw [mul_pow]
+  calc
+    _ ≤ (1 / (a i * a j)) * (U i j)^2 :=
+      mul_le_mul_of_nonneg_right
+        (real_log_divided_difference_sq_bound (a i) (a j) (ha i) (ha j))
+        (sq_nonneg (U i j))
+    _ = (U i j)^2 / (a i * a j) := by ring
+
+theorem precisionMetric_diagonal_formula (d : n → ℝ) (W : Matrix n n ℝ)
+    (hd : ∀ i, d i ≠ 0) (hW : W.IsSymm) :
+    precisionMetric (Matrix.diagonal d)⁻¹ W W =
+      ∑ i, ∑ j, (W i j)^2 / (d i * d j) := by
+  have hinv : (Matrix.diagonal d)⁻¹ = Matrix.diagonal (fun i => (d i)⁻¹) := by
+    apply Matrix.inv_eq_left_inv
+    rw [Matrix.diagonal_mul_diagonal]
+    have hfun : (fun i => (d i)⁻¹ * d i) = fun _ => (1 : ℝ) := by
+      funext i
+      exact inv_mul_cancel₀ (hd i)
+    rw [hfun, Matrix.diagonal_one]
+  have hWcoords : ∀ i j, W j i = W i j := by
+    intro i j
+    have hs : Wᵀ = W := by simpa [Matrix.IsSymm] using hW
+    have hh := congrArg (fun M : Matrix n n ℝ => M i j) hs
+    simpa only [Matrix.transpose_apply] using hh
+  unfold precisionMetric
+  rw [hinv]
+  simp [Matrix.trace, Matrix.diag, Matrix.mul_apply, Matrix.diagonal_apply,
+    hW, div_eq_mul_inv]
+  simp_rw [hWcoords]
+  apply Finset.sum_congr rfl
+  intro i hi
+  apply Finset.sum_congr rfl
+  intro j hj
+  ring
+
+theorem matrix_log_divided_difference_diagonal_metric_bound
+    (a : n → ℝ) (W : Matrix n n ℝ) (ha : ∀ i, 0 < a i) (hW : W.IsSymm) :
+    ∑ i, ∑ j, (realLogDividedDifference (a i) (a j) * W i j)^2 ≤
+      precisionMetric (Matrix.diagonal a)⁻¹ W W := by
+  calc
+    _ ≤ ∑ i, ∑ j, (W i j)^2 / (a i * a j) :=
+      real_log_divided_difference_matrix_coefficient_bound a W ha
+    _ = precisionMetric (Matrix.diagonal a)⁻¹ W W := by
+      symm
+      apply precisionMetric_diagonal_formula
+      · exact fun i => (ha i).ne'
+      · exact hW
+
+theorem matrix_log_spectral_directional_bound
+    (V A U : Matrix n n ℝ) (a : n → ℝ)
+    (hV : IsUnit V) (hVVt : V * Vᵀ = 1)
+    (hA : matrixCongruence V (Matrix.diagonal a) = A)
+    (ha : ∀ i, 0 < a i) (hU : U.IsSymm) :
+    let W := Vᵀ * U * V
+    ∑ i, ∑ j, (realLogDividedDifference (a i) (a j) * W i j)^2 ≤
+      precisionMetric A⁻¹ U U := by
+  dsimp
+  let W := Vᵀ * U * V
+  have hW : W.IsSymm := by
+    change Wᵀ = W
+    dsimp [W]
+    rw [Matrix.transpose_mul, Matrix.transpose_mul, Matrix.transpose_transpose, hU]
+    simp [Matrix.mul_assoc]
+  have hback : matrixCongruence V W = U := by
+    unfold matrixCongruence
+    dsimp [W]
+    calc
+      V * (Vᵀ * U * V) * Vᵀ = (V * Vᵀ) * U * (V * Vᵀ) := by
+        simp only [Matrix.mul_assoc]
+      _ = U := by rw [hVVt]; simp
+  have hmetric := hessianMetric_congruence (Matrix.diagonal a) W W V hV
+  rw [hA, hback] at hmetric
+  calc
+    _ ≤ precisionMetric (Matrix.diagonal a)⁻¹ W W :=
+      matrix_log_divided_difference_diagonal_metric_bound a W ha hW
+    _ = precisionMetric A⁻¹ U U := hmetric.symm
+
+/-- For a native SPD matrix, the spectral divided-difference operator for its
+logarithm is contractive in the actual Hessian metric. This is the pointwise
+matrix estimate used in the path-length lower bound. -/
+theorem matrix_spd_log_spectral_directional_bound
+    (A U : Matrix n n ℝ) (hA : A.PosDef) (hU : U.IsSymm) :
+    let V := (hA.isHermitian.eigenvectorUnitary : Matrix n n ℝ)
+    let a := hA.isHermitian.eigenvalues
+    let W := Vᵀ * U * V
+    ∑ i, ∑ j, (realLogDividedDifference (a i) (a j) * W i j)^2 ≤
+      precisionMetric A⁻¹ U U := by
+  dsimp
+  let V := (hA.isHermitian.eigenvectorUnitary : Matrix n n ℝ)
+  let a := hA.isHermitian.eigenvalues
+  let W := Vᵀ * U * V
+  have hV : IsUnit V := (Matrix.isUnit_iff_isUnit_det V).mpr
+    (Matrix.UnitaryGroup.det_isUnit hA.isHermitian.eigenvectorUnitary)
+  have hVVt : V * Vᵀ = 1 :=
+    unitary.coe_mul_star_self hA.isHermitian.eigenvectorUnitary
+  have hAcong : matrixCongruence V (Matrix.diagonal a) = A := by
+    unfold matrixCongruence
+    have hs := hA.isHermitian.spectral_theorem
+    simpa only [RCLike.ofReal_real_eq_id, Function.comp_def, id_eq,
+      Matrix.conjTranspose_eq_transpose_of_trivial] using hs.symm
+  have ha : ∀ i, 0 < a i := hA.eigenvalues_pos
+  exact matrix_log_spectral_directional_bound V A U a hV hVVt hAcong ha hU
 
 omit [DecidableEq n] in
 theorem precisionMetric_add_left (P U V W : Matrix n n ℝ) :
