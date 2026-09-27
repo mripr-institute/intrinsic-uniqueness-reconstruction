@@ -1,7 +1,7 @@
 {
   "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
   "paper": "paper/sections/operators.tex",
-  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 16, "partial": 2, "missing": 1},
+  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 17, "partial": 1, "missing": 1},
   "namespace": "Sigma",
   "result": "DEFECT LIST",
   "passed_labels": [
@@ -20,7 +20,8 @@
     "final:O3",
     "final:O4-finite-countermodels",
     "final:O4-determinants",
-    "final:O6-functional-calculus"
+    "final:O6-functional-calculus",
+    "final:O5"
   ],
   "mathematically_false_paper_clauses": [],
   "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation. Independent final whole-statement review on 2026-09-27 passed O4-determinants with native categories, locally uniform compression limits, basis independence and zero-multiset reconstruction.",
@@ -635,7 +636,7 @@
     },
     {
       "latex_label": "final:O5",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.operator_gamma_mixing_integral",
         "Sigma.operator_gamma_mixing_integer_integral",
@@ -668,20 +669,34 @@
         "Sigma.signed_strong_integral_real_test",
         "Sigma.complex_strong_integral_real_test",
         "Sigma.op_evolution_complex_mixing_integer_sample",
-        "Sigma.op_evolution_complex_mixing_unique"
+        "Sigma.op_evolution_complex_mixing_unique",
+        "Sigma.opNonnegativeHeat",
+        "Sigma.op_nonnegative_shift_resolvent",
+        "Sigma.op_nonnegative_heat_evolution",
+        "Sigma.op_nonnegative_heat_semigroup",
+        "Sigma.op_resolvent_heat_generator_domain",
+        "Sigma.op_resolvent_heat_generator_domain_iff",
+        "Sigma.op_nonnegative_operator_gamma_mixing",
+        "Sigma.op_nonnegative_strong_gamma_mixing",
+        "Sigma.op_nonnegative_complex_orbit_integrable",
+        "Sigma.op_nonnegative_complex_mixing_integer_sample",
+        "Sigma.op_nonnegative_complex_mixing_unique",
+        "Sigma.op_nonnegative_gamma_probability_mixing",
+        "Sigma.op_nonnegative_gamma_complex_mixing",
+        "Sigma.op_nonnegative_complex_mixing_iff"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
         "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
         "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.",
-        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure."
+        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure.",
+        "For every native nonnegative self-adjoint B, construct the actual bounded shift inverse and heat semigroup from resolvent continuous functional calculus, deriving contraction, strong continuity, semigroup composition and both directions of its exact native generator-domain characterization. No eigenbasis or compactness is assumed.",
+        "The literal Gamma-weighted operator integral converges in norm and its vector Bochner integrals equal the actual squared shift inverse on every vector.",
+        "Actual strong mixing against the native finite complex Borel measure holds for the Gamma measure, with integrability of every finite Jordan-part orbit. Applying the equation to one nonzero eigenvector at each integer extracts all scalar samples, including zero, and proves exact existence and uniqueness without completeness or multiplicity restrictions."
       ],
-      "unproved_components": [
-        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
-        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
-      ],
-      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result. Conditional operator support independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. The supplied evolution and resolvent are explicit hypotheses; no arbitrary-self-adjoint construction is claimed. Integration build, source_audit and selected final transitive axiom checks passed."
+      "unproved_components": [],
+      "notes": "WHOLE final:O5 independent AUDIT PASS, preserved in O5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "latex_label": "final:O6",

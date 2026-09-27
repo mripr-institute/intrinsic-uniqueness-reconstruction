@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 70,
-    "partial": 7,
+    "complete": 71,
+    "partial": 6,
     "missing": 1
   },
   "labelled_equation_totals": {
@@ -2625,7 +2625,7 @@
       "line": 773,
       "statement_tex": "\\label{final:O5}\nLet $B\\geq0$ be a self-adjoint operator on a Hilbert space.  The fixed\nfunction $J(\\lambda)=(1+\\lambda)^{-2}$ always has the strong-operator\nmixing representation\n\\begin{equation}\\label{final:O5-J}\n \\int_0^\\infty e^{-sB}\\,s e^{-s}\\,ds\n       =(\\mathrm{Id}+B)^{-2}.\n\\end{equation}\nIf $B$ has a nonzero eigenvector for every $n\\in\\mathbb N_0$, then\nthe unknown finite complex Borel measure $\\nu$ on $[0,\\infty)$ in\n\\begin{equation}\\label{final:O5-unknown}\n \\int_{[0,\\infty)}e^{-sB}\\,\\nu(ds)=(\\mathrm{Id}+B)^{-2}\n\\end{equation}\nis uniquely $\\nu(ds)=s e^{-s}\\,ds$.\nFinite total variation is understood for a complex measure.  A single\neigenvector at every integer suffices; multiplicities and additional\nspectrum do not affect the conclusion.\n\nThere is also a full-line formulation without initially defining\nnegative-time operators.  If $\\nu$ is a finite positive Borel measure\non $\\mathbb R$ and its finite scalar integer integrals satisfy\n\\begin{equation}\\label{final:O5-integer-samples}\n \\int_{\\mathbb R}e^{-ns}\\,\\nu(ds)=(n+1)^{-2}\n \\qquad(n\\in\\mathbb N_0),\n\\end{equation}\nthen $\\nu(ds)=\\mathbf1_{(0,\\infty)}s e^{-s}\\,ds$.\nIn this formulation mass, positive support and absence of an atom\nat zero are conclusions of the supplied samples.\n",
       "statement_sha256": "6fea225b1b6059268d5f9e5790f74f1227599e33076369d96e8234a1d1f218bf",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.operator_gamma_mixing_integral",
         "Sigma.operator_gamma_mixing_integer_integral",
@@ -2658,25 +2658,36 @@
         "Sigma.signed_strong_integral_real_test",
         "Sigma.complex_strong_integral_real_test",
         "Sigma.op_evolution_complex_mixing_integer_sample",
-        "Sigma.op_evolution_complex_mixing_unique"
+        "Sigma.op_evolution_complex_mixing_unique",
+        "Sigma.opNonnegativeHeat",
+        "Sigma.op_nonnegative_shift_resolvent",
+        "Sigma.op_nonnegative_heat_evolution",
+        "Sigma.op_nonnegative_heat_semigroup",
+        "Sigma.op_resolvent_heat_generator_domain",
+        "Sigma.op_resolvent_heat_generator_domain_iff",
+        "Sigma.op_nonnegative_operator_gamma_mixing",
+        "Sigma.op_nonnegative_strong_gamma_mixing",
+        "Sigma.op_nonnegative_complex_orbit_integrable",
+        "Sigma.op_nonnegative_complex_mixing_integer_sample",
+        "Sigma.op_nonnegative_complex_mixing_unique",
+        "Sigma.op_nonnegative_gamma_probability_mixing",
+        "Sigma.op_nonnegative_gamma_complex_mixing",
+        "Sigma.op_nonnegative_complex_mixing_iff"
       ],
       "proved_components": [
         "Scalar Gamma mixing integral for every nonnegative spectral value.",
         "Actual full-real-line finite-positive measure characterization from all integer exponential samples; integrability, mass, positive support and no atom at zero follow.",
         "Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.",
         "Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.",
-        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure."
+        "Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure.",
+        "For every native nonnegative self-adjoint B, construct the actual bounded shift inverse and heat semigroup from resolvent continuous functional calculus, deriving contraction, strong continuity, semigroup composition and both directions of its exact native generator-domain characterization. No eigenbasis or compactness is assumed.",
+        "The literal Gamma-weighted operator integral converges in norm and its vector Bochner integrals equal the actual squared shift inverse on every vector.",
+        "Actual strong mixing against the native finite complex Borel measure holds for the Gamma measure, with integrability of every finite Jordan-part orbit. Applying the equation to one nonzero eigenvector at each integer extracts all scalar samples, including zero, and proves exact existence and uniqueness without completeness or multiplicity restrictions."
       ],
-      "unproved_components": [
-        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
-        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
-      ],
-      "gaps": [
-        "Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.",
-        "Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent bounded AUDIT PASS for SigmaOpSignedMixing. The unknowns are native SignedMeasure and ComplexMeasure, not scalar densities or positive measures disguised as complex. Real-test integration uses native Jordan positive-minus-negative integrals and the signed real/imaginary components; bounded real Laplace tests are integrable on all these finite measures. A finite positive control measure dominates complex measure norms, and equality concludes equality of the original native measures. No strong operator integral, functional-calculus identity or eigenvector-to-sample bridge is inferred from this scalar result. Conditional operator support independently audited in O5-mixing-and-Gamma3-components-formal-independent-audit.md: AUDIT PASS. The supplied evolution and resolvent are explicit hypotheses; no arbitrary-self-adjoint construction is claimed. Integration build, source_audit and selected final transitive axiom checks passed."
+      "notes": "WHOLE final:O5 independent AUDIT PASS, preserved in O5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "id": "final:O6",
@@ -3208,7 +3219,7 @@
         "Resulting fixed-base nonreconstruction witness"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The actual complexification and the no-section/nontrivial-bundle component are formalized. The closed-hemisphere angle lift is derived by uniform radial subdivision; no angle-lift hypothesis is assumed. K0 stable distinction, rational Chern character, and the resulting fixed-base nonreconstruction witness remain open, so final:F5 remains partial."
+      "notes": "The actual complexification and the no-section/nontrivial-bundle component are formalized. The closed-hemisphere angle lift is derived by uniform radial subdivision; no angle-lift hypothesis is assumed. K0 stable distinction, rational Chern character, and the resulting fixed-base nonreconstruction witness remain open, so final:F5 remains partial. Bounded review of commit 9b82c4d by the independent reviewer passed: actual incidence sections and bundle trivializations, with the hemisphere angle lift derived rather than assumed. Primary coverage synchronized with the upstream proof record so regenerating reports retains this progress."
     },
     {
       "id": "final:M1",

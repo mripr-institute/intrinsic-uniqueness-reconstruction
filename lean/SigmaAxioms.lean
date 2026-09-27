@@ -2468,3 +2468,11 @@ import Sigma
 #print axioms Sigma.op_known_bernstein_inverse_reconstruction
 #print axioms Sigma.op_known_bernstein_inverse_domain
 #print axioms Sigma.op_bernstein_functional_calculus_determines_operator
+#print axioms Sigma.op_nonnegative_heat_evolution
+#print axioms Sigma.op_resolvent_heat_generator_domain_iff
+#print axioms Sigma.op_nonnegative_operator_gamma_mixing
+#print axioms Sigma.op_nonnegative_strong_gamma_mixing
+#print axioms Sigma.op_nonnegative_complex_orbit_integrable
+#print axioms Sigma.op_nonnegative_gamma_complex_mixing
+#print axioms Sigma.op_nonnegative_complex_mixing_integer_sample
+#print axioms Sigma.op_nonnegative_complex_mixing_iff

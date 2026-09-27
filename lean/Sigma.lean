@@ -204,6 +204,10 @@ import SigmaOpNonnegativeResolvent
 import SigmaOpCFCEigen
 import SigmaOpBorelInverse
 import SigmaOpBernsteinInverse
+import SigmaOpResolventHeat
+import SigmaOpResolventHeatSemigroup
+import SigmaOpNonnegativeMixing
+import SigmaOpNonnegativeMixingFinal
 import SigmaRealProjectiveComplexification
 import SigmaRealProjectiveNoSection
 import SigmaMatrixDiagonalDistances

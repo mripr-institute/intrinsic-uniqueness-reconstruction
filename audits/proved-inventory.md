@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 70/78.
-- Partially formalized statements: 7.
+- Fully formalized named statements: 71/78.
+- Partially formalized statements: 6.
 - Statements awaiting Lean formalization: 1.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1841 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1856 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -69,6 +69,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O4-resolvents** — Resolvents, their kernels, and the operator inverse
 - **final:O4-determinants** — Zeta and Fredholm determinants with their conventions
 - **final:O4-finite-countermodels** — Finite familiar spectral invariants do not determine the spectrum
+- **final:O5** — Existence and uniqueness of the linked mixing measure
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:O6-functional-calculus** — Two different functional-calculus inverse questions
 - **final:F1** — The normalized Todd tower and all its twists
@@ -1883,7 +1884,7 @@ Mapped Lean declarations:
 
 ### final:O5 — Existence and uniqueness of the linked mixing measure
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L773); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L773); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1892,6 +1893,9 @@ Mathematical content formalized in Lean:
 - Actual positive finite nonnegative-ray measure uniqueness from integer Laplace values.
 - Actual native signed and complex measures on the closed nonnegative ray are uniquely determined by all integer Laplace samples. Integrability follows from bounded kernels and finite Jordan parts; sample zero is exactly the total mass. The canonical complex Gamma measure is explicitly constructed, its real-line pushforward is gammaProbability, and its integer samples characterize it in both directions.
 - Conditional on a supplied contraction evolution with native generator equation and native two-sided shift resolvent, the actual vector Bochner Gamma integral equals the squared resolvent. Integer eigenvector evolution and extraction of native complex-measure Laplace samples follow, including sample zero; these samples imply uniqueness of the original complex measure.
+- For every native nonnegative self-adjoint B, construct the actual bounded shift inverse and heat semigroup from resolvent continuous functional calculus, deriving contraction, strong continuity, semigroup composition and both directions of its exact native generator-domain characterization. No eigenbasis or compactness is assumed.
+- The literal Gamma-weighted operator integral converges in norm and its vector Bochner integrals equal the actual squared shift inverse on every vector.
+- Actual strong mixing against the native finite complex Borel measure holds for the Gamma measure, with integrability of every finite Jordan-part orbit. Applying the equation to one nonzero eigenvector at each integer extracts all scalar samples, including zero, and proves exact existence and uniqueness without completeness or multiplicity restrictions.
 
 Mapped Lean declarations:
 
@@ -1927,11 +1931,20 @@ Mapped Lean declarations:
 - `Sigma.complex_strong_integral_real_test`
 - `Sigma.op_evolution_complex_mixing_integer_sample`
 - `Sigma.op_evolution_complex_mixing_unique`
-
-Remaining Lean formalization:
-
-- Construction of the required evolution and two-sided resolvent for every nonnegative self-adjoint B, and hence the unconditional strong-operator mixing identity.
-- Unconditional extraction of scalar samples from each integer eigenvector for the evolution constructed from the actual self-adjoint operator.
+- `Sigma.opNonnegativeHeat`
+- `Sigma.op_nonnegative_shift_resolvent`
+- `Sigma.op_nonnegative_heat_evolution`
+- `Sigma.op_nonnegative_heat_semigroup`
+- `Sigma.op_resolvent_heat_generator_domain`
+- `Sigma.op_resolvent_heat_generator_domain_iff`
+- `Sigma.op_nonnegative_operator_gamma_mixing`
+- `Sigma.op_nonnegative_strong_gamma_mixing`
+- `Sigma.op_nonnegative_complex_orbit_integrable`
+- `Sigma.op_nonnegative_complex_mixing_integer_sample`
+- `Sigma.op_nonnegative_complex_mixing_unique`
+- `Sigma.op_nonnegative_gamma_probability_mixing`
+- `Sigma.op_nonnegative_gamma_complex_mixing`
+- `Sigma.op_nonnegative_complex_mixing_iff`
 
 ### final:O6 — A Bernstein function is determined by every integer tail
 
@@ -2324,6 +2337,7 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizati
 Mathematical content formalized in Lean:
 
 - Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.
+- The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.
 
 Mapped Lean declarations:
 
@@ -2338,10 +2352,12 @@ Mapped Lean declarations:
 - `Sigma.realProjectiveComplexIncidenceHomeomorph`
 - `Sigma.realProjectiveComplexScalarExtension`
 - `Sigma.real_projective_complex_scalar_extension_tmul`
+- `Sigma.real_projective_complexification_has_no_nonvanishing_section`
+- `Sigma.real_projective_complex_bundle_not_trivial`
 
 Remaining Lean formalization:
 
-- Nontriviality of that bundle and of its class relative to the trivial line in complex K0
+- The stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle
 - Its rational Chern character equals one
 - Resulting fixed-base nonreconstruction witness
 
