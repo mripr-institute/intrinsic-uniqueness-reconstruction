@@ -33,6 +33,12 @@ The exact mathlib revision is pinned by `lakefile.lean`.
 
 ## Verification
 
+For a build, run `python3 Build.py` from this directory (or
+`python3 lean/Build.py` from the repository root). It hides Mathlib's cached
+docstring-linter messages while retaining project warnings and compiler errors.
+The complete output is saved in `.lake/build.log`; `--all-warnings` also prints
+it to the console. Direct `lake build` retains Lake's unfiltered output.
+
 From this directory run:
 
     python3 Verify.py

@@ -90,7 +90,7 @@ def run(command: list[str]) -> str:
 def main() -> None:
     source_audit()
 
-    run(["lake", "build", "SigmaFormalization"])
+    run([sys.executable, str(ROOT / "Build.py")])
 
     axiom_output = run(
         ["lake", "env", "lean", "SigmaAxioms.lean"]
