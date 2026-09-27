@@ -2462,6 +2462,8 @@ import Sigma
 #print axioms Sigma.realProjectiveComplexScalarExtension
 #print axioms Sigma.real_projective_complex_scalar_extension_tmul
 #print axioms Sigma.real_projective_complex_fiber_finrank
+#print axioms Sigma.real_projective_complexification_has_no_nonvanishing_section
+#print axioms Sigma.real_projective_complex_bundle_not_trivial
 #print axioms Sigma.BernsteinRepresentation.exponent_continuous
 #print axioms Sigma.op_known_bernstein_inverse_reconstruction
 #print axioms Sigma.op_known_bernstein_inverse_domain

@@ -256,6 +256,7 @@ lean_lib SigmaFormalization where
     `SigmaOpBorelInverse,
     `SigmaOpBernsteinInverse,
     `SigmaRealProjectiveComplexification,
+    `SigmaRealProjectiveNoSection,
     `SigmaMatrixDiagonalDistances,
     `SigmaMatrixDistanceBoundary,
     `SigmaOperatorPearson,

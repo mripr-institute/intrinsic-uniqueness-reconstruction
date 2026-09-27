@@ -205,6 +205,7 @@ import SigmaOpCFCEigen
 import SigmaOpBorelInverse
 import SigmaOpBernsteinInverse
 import SigmaRealProjectiveComplexification
+import SigmaRealProjectiveNoSection
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
 import SigmaOperatorPearson

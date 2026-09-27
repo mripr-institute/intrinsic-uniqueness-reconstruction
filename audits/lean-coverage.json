@@ -3189,23 +3189,26 @@
         "Sigma.real_projective_complex_fiber_finrank",
         "Sigma.realProjectiveComplexIncidenceHomeomorph",
         "Sigma.realProjectiveComplexScalarExtension",
-        "Sigma.real_projective_complex_scalar_extension_tmul"
+        "Sigma.real_projective_complex_scalar_extension_tmul",
+        "Sigma.real_projective_complexification_has_no_nonvanishing_section",
+        "Sigma.real_projective_complex_bundle_not_trivial"
       ],
       "proved_components": [
-        "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula."
+        "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.",
+        "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator."
       ],
       "unproved_components": [
-        "Nontriviality of that bundle and of its class relative to the trivial line in complex K0",
+        "The stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
       "gaps": [
-        "Nontriviality of that bundle and of its class relative to the trivial line in complex K0",
+        "The stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Construction component AUDIT PASS: F5-complexification-component-formal-independent-audit.md. Targeted compilation, integration build and selected final transitive axiom checks PASS. Bundle nontriviality, K0 distinction, rational Chern character and the fixed-base witness remain unproved."
+      "notes": "The actual complexification and the no-section/nontrivial-bundle component are formalized. The closed-hemisphere angle lift is derived by uniform radial subdivision; no angle-lift hypothesis is assumed. K0 stable distinction, rational Chern character, and the resulting fixed-base nonreconstruction witness remain open, so final:F5 remains partial."
     },
     {
       "id": "final:M1",
