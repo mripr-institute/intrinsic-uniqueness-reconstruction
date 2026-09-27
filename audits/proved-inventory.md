@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 68/78.
-- Partially formalized statements: 6.
+- Fully formalized named statements: 69/78.
+- Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 4.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1756 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1769 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -76,6 +76,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:F4** — The universal Thom correction, conditional on topology
 - **final:M1** — The unique scalar-block spectral lift
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
+- **final:M3** — Geodesics, distance, and the symmetrization boundary
 - **final:M4** — The supplied Gaussian and Wishart sampling model
 - **final:R2** — Nonnegative orthogonal additivity without regularity
 - **final:R3** — The profile-independent radial residual
@@ -2331,7 +2332,7 @@ Mapped Lean declarations:
 
 ### final:M3 — Geodesics, distance, and the symmetrization boundary
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L435); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L435); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2351,6 +2352,12 @@ Mathematical content formalized in Lean:
 - Native all-rank piecewise-C1 Hessian path-length infimum, metric Cauchy-Schwarz, and log-coordinate/log-determinant lower bounds for every admissible SPD path
 - Exact distances from identity to single-log-coordinate and isotropic diagonal exponential endpoints, proved by all-path lower bounds and attaining paths
 - Actual equal-distance unequal-symmetrization SPD witnesses in every rank at least two, hence no scalar function of the path distance recovers symmetrized divergence
+- Actual noncommutative matrix exponential Frechet differential and its Duhamel integral, with the full spectral inverse at every symmetric SPD logarithm, including repeated eigenvalues
+- Derived native SPD logarithm chain rule, continuity and continuous path velocity; no logarithmic regularity assumptions in the final path results
+- Global all-rank length lower bound for every finite-piece C1 SPD path, with original endpoints and corners retained
+- Actual all-rank variational Hessian distance equals the Frobenius norm of the correctly oriented relative logarithm, attained by the canonical curve
+- Actual metric-geodesic identity d(gamma(s),gamma(t))=abs(t-s)*d(X,Y) for all real times
+- Unique all-rank constant-speed minimizing curve in the full finite-piece C1 category, with constant speed required only almost everywhere and equality throughout the closed interval, including X=Y
 
 Mapped Lean declarations:
 
@@ -2444,11 +2451,19 @@ Mapped Lean declarations:
 - `Sigma.matrix_diagonal_exp_symmetrization`
 - `Sigma.matrix_equal_distance_divergence_counterexample`
 - `Sigma.matrix_symmetrized_divergence_not_distance_function`
-
-Remaining Lean formalization:
-
-- Metric-geodesic interpretation, higher-rank global length minimality among admissible SPD paths and actual metric distance formula
-- Higher-rank unique constant-speed minimizing curve in the full piecewise-C1 category, including X=Y
+- `Sigma.matrix_exp_differential_apply`
+- `Sigma.matrix_exp_differential_spd_log`
+- `Sigma.matrixExpSPDLogEquiv`
+- `Sigma.matrix_spd_log_path_spectral_hasDerivAt`
+- `Sigma.matrix_spd_log_path_spectral_continuousOn`
+- `Sigma.matrix_spd_log_path_velocity_continuousOn`
+- `Sigma.piecewise_curve_subinterval_contraction`
+- `Sigma.matrix_spd_log_piecewise_subinterval_contraction`
+- `Sigma.matrix_piecewise_length_ge_spd_log_norm`
+- `Sigma.matrix_piecewise_hessian_distance_eq_spd_log_norm`
+- `Sigma.matrix_spd_geodesic_globally_minimizing`
+- `Sigma.matrix_piecewise_constant_speed_minimizer_unique`
+- `Sigma.matrix_spd_geodesic_metric_distance`
 
 ### final:M4 — The supplied Gaussian and Wishart sampling model
 

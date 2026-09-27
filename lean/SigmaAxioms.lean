@@ -1,5 +1,12 @@
 import Sigma
 
+#print axioms Sigma.matrix_exp_differential_apply
+#print axioms Sigma.matrix_spd_log_path_spectral_hasDerivAt
+#print axioms Sigma.matrix_piecewise_length_ge_spd_log_norm
+#print axioms Sigma.matrix_piecewise_hessian_distance_eq_spd_log_norm
+#print axioms Sigma.matrix_piecewise_constant_speed_minimizer_unique
+#print axioms Sigma.matrix_spd_geodesic_metric_distance
+
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique
 #print axioms Sigma.poisson_exponential_clock_map
