@@ -5,8 +5,8 @@
   "totals": {
     "definition": 2,
     "complete": 69,
-    "partial": 5,
-    "missing": 4
+    "partial": 6,
+    "missing": 3
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2740,19 +2740,39 @@
       "line": 919,
       "statement_tex": "\\label{final:O6-functional-calculus}\nFor a fixed strictly increasing Bernstein function $f$, the full\nself-adjoint operator $f(B)$ determines a nonnegative self-adjoint\n$B$.  For the canonical $A$, the complete operator\n$2\\log(\\mathrm{Id}+A)$ is equivalently determined by\n$J(A)=(\\mathrm{Id}+A)^{-2}$.\nThese statements retain the known scalar function $f$ or $J$.\n",
       "statement_sha256": "9d0c2549af4b604fe861676ce53a35b9415f8c3fe35630b692839d550efe6461",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.canonical_negative_log_borel",
+        "Sigma.canonical_j_coordinate_pos",
+        "Sigma.canonical_j_negative_log",
+        "Sigma.canonical_j_exp_negative_exponent",
+        "Sigma.laguerre_canonical_j_coordinate",
+        "Sigma.laguerre_canonical_j_basis_action",
+        "Sigma.laguerre_canonical_j_spectral_value",
+        "Sigma.laguerre_canonical_j_kernel_zero",
+        "Sigma.laguerre_canonical_negative_log_j",
+        "Sigma.laguerre_canonical_negative_log_j_selfAdjoint",
+        "Sigma.laguerre_canonical_negative_log_j_domain",
+        "Sigma.laguerre_canonical_negative_log_j_action",
+        "Sigma.laguerre_canonical_exponent_determined_by_j",
+        "Sigma.laguerre_canonical_j_log_endpoint_independent",
+        "Sigma.laguerre_canonical_exp_negative_log",
+        "Sigma.laguerre_canonical_j_determined_by_exponent"
+      ],
+      "proved_components": [
+        "The canonical J(A) is the square of the actual native two-sided bounded inverse of 1+A, with complete-basis action and zero kernel.",
+        "Actual unbounded spectral -log J(A) equals the native canonical 2 log(1+A) operator, including its full maximal domain, coordinate action and self-adjointness.",
+        "The arbitrary value of -log at the unattained zero endpoint does not change the operator or its domain.",
+        "Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions."
+      ],
       "unproved_components": [
-        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.",
-        "Equivalence between actual 2 log(Id+A) and J(A)=(Id+A)^-2 via unbounded logarithmic functional calculus."
+        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints."
       ],
       "gaps": [
-        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.",
-        "Equivalence between actual 2 log(Id+A) and J(A)=(Id+A)^-2 via unbounded logarithmic functional calculus."
+        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints."
       ],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": ""
+      "notes": "Canonical-clause AUDIT PASS: audits/formalization/O6-canonical-inverse-formal-independent-audit.md. SigmaOpInverseCalculusCanonical reuses the actual canonical closure, literal squared shift resolvent and maximal complex spectral multiplier. Full integration build, source_audit and five selected final transitive axioms PASS. The generic arbitrary-self-adjoint-B clause remains unproved: the pinned infrastructure has no general unbounded Borel functional calculus/PVM construction. This row is partial, not complete; no pure-point hypothesis replaces the arbitrary-B statement."
     },
     {
       "id": "final:O5-isospectral-boundary",

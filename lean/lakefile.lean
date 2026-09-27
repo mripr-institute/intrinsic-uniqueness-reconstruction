@@ -248,6 +248,7 @@ lean_lib SigmaFormalization where
     `SigmaMatrixM3Distance,
     `SigmaMatrixM3Unique,
     `SigmaMatrixM3Geodesic,
+    `SigmaOpInverseCalculusCanonical,
     `SigmaMatrixDiagonalDistances,
     `SigmaMatrixDistanceBoundary,
     `SigmaOperatorPearson,

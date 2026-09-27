@@ -6,6 +6,11 @@ import Sigma
 #print axioms Sigma.matrix_piecewise_hessian_distance_eq_spd_log_norm
 #print axioms Sigma.matrix_piecewise_constant_speed_minimizer_unique
 #print axioms Sigma.matrix_spd_geodesic_metric_distance
+#print axioms Sigma.laguerre_canonical_negative_log_j
+#print axioms Sigma.laguerre_canonical_negative_log_j_domain
+#print axioms Sigma.laguerre_canonical_exp_negative_log
+#print axioms Sigma.laguerre_canonical_exponent_determined_by_j
+#print axioms Sigma.laguerre_canonical_j_determined_by_exponent
 
 #print axioms Sigma.p5_causal_green_distributional_equation
 #print axioms Sigma.p5_causal_regular_distribution_green_exists_unique

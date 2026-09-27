@@ -197,6 +197,7 @@ import SigmaMatrixPathBounds
 import SigmaMatrixGlobalGeodesic
 import SigmaMatrixM3Unique
 import SigmaMatrixM3Geodesic
+import SigmaOpInverseCalculusCanonical
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
 import SigmaOperatorPearson

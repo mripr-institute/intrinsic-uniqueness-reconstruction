@@ -10,10 +10,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Definitions: 2.
 - Named statements excluding definitions: 78.
 - Fully formalized named statements: 69/78.
-- Partially formalized statements: 5.
-- Statements awaiting Lean formalization: 4.
+- Partially formalized statements: 6.
+- Statements awaiting Lean formalization: 3.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1769 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1785 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -1973,12 +1973,37 @@ Mapped Lean declarations:
 
 ### final:O6-functional-calculus — Two different functional-calculus inverse questions
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
+
+Mathematical content formalized in Lean:
+
+- The canonical J(A) is the square of the actual native two-sided bounded inverse of 1+A, with complete-basis action and zero kernel.
+- Actual unbounded spectral -log J(A) equals the native canonical 2 log(1+A) operator, including its full maximal domain, coordinate action and self-adjointness.
+- The arbitrary value of -log at the unattained zero endpoint does not change the operator or its domain.
+- Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions.
+
+Mapped Lean declarations:
+
+- `Sigma.canonical_negative_log_borel`
+- `Sigma.canonical_j_coordinate_pos`
+- `Sigma.canonical_j_negative_log`
+- `Sigma.canonical_j_exp_negative_exponent`
+- `Sigma.laguerre_canonical_j_coordinate`
+- `Sigma.laguerre_canonical_j_basis_action`
+- `Sigma.laguerre_canonical_j_spectral_value`
+- `Sigma.laguerre_canonical_j_kernel_zero`
+- `Sigma.laguerre_canonical_negative_log_j`
+- `Sigma.laguerre_canonical_negative_log_j_selfAdjoint`
+- `Sigma.laguerre_canonical_negative_log_j_domain`
+- `Sigma.laguerre_canonical_negative_log_j_action`
+- `Sigma.laguerre_canonical_exponent_determined_by_j`
+- `Sigma.laguerre_canonical_j_log_endpoint_independent`
+- `Sigma.laguerre_canonical_exp_negative_log`
+- `Sigma.laguerre_canonical_j_determined_by_exponent`
 
 Remaining Lean formalization:
 
 - Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.
-- Equivalence between actual 2 log(Id+A) and J(A)=(Id+A)^-2 via unbounded logarithmic functional calculus.
 
 ### final:O5-isospectral-boundary — The Gamma shapes two and three retain all spectral and mixing data
 
