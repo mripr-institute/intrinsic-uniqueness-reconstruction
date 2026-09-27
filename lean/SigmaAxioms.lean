@@ -2476,3 +2476,14 @@ import Sigma
 #print axioms Sigma.op_nonnegative_gamma_complex_mixing
 #print axioms Sigma.op_nonnegative_complex_mixing_integer_sample
 #print axioms Sigma.op_nonnegative_complex_mixing_iff
+#print axioms Sigma.gammaShapeThreeHilbertBasis
+#print axioms Sigma.gamma_shape_three_both_endpoints_limit_point
+#print axioms Sigma.gamma_shape_three_canonical_eq_spectral
+#print axioms Sigma.gamma_shape_three_full_spectrum_exact
+#print axioms Sigma.gamma_shape_three_integer_eigenvalue_simple
+#print axioms Sigma.gamma_shape_three_canonical_heat_evolution
+#print axioms Sigma.gamma_shape_three_heat_preserves_integral
+#print axioms Sigma.gamma_shape_three_common_mixing_iff
+#print axioms Sigma.gamma_shape_three_shifted_zeta_trace
+#print axioms Sigma.gamma_shape_three_regularized_determinant
+#print axioms Sigma.gamma_shapes_two_three_native_boundary

@@ -199,6 +199,7 @@ import SigmaMatrixM3Unique
 import SigmaMatrixM3Geodesic
 import SigmaOpInverseCalculusCanonical
 import SigmaOpGammaShapeThree
+import SigmaOpGammaShapeThreeBoundary
 import SigmaOpMixingStrong
 import SigmaOpNonnegativeResolvent
 import SigmaOpCFCEigen

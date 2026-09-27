@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 6.
 - Statements awaiting Lean formalization: 1.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1856 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1893 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2052,6 +2052,13 @@ Mathematical content formalized in Lean:
 - Actual Gamma-shape-three probability law, exact density and factorial moments, mean three, and inequality with the Gamma-shape-two coordinate law.
 - Explicit polynomial solutions of the ordinary Gamma-shape-three differential eigen-equation, including the constant eigenfunction, degree bounds and nonzero leading coefficient.
 - Exact pair integrals and norms relative to the actual Gamma-shape-three probability measure, and an orthonormal family of actual complex weighted L2 vectors.
+- Complete normalized Hilbert basis in the actual Gamma-three weighted L2, including its literal constant mode, derived by exponential moment uniqueness.
+- Actual Gamma-three compact-test differential graph closure equals the maximal integer spectral operator on its entire domain and action; native self-adjointness and both zero-energy Weyl limit-point endpoints are proved.
+- Full complex spectrum equals the nonnegative integers and every eigenspace is one-dimensional; a native unitary matches both complete bases and intertwines the Gamma-two canonical operator with the Gamma-three spectral operator on their full domains.
+- Actual positive-shift inverses, nonnuclear first resolvents and Hilbert-Schmidt bounds, genuine squared/difference resolvent trace agreements, complex heat and shifted zeta exact nuclear ranges and trace agreements.
+- Equality of actual finite-compression matrices and ordinary/regularized determinants, with common Hurwitz trace continuation and zeta regularization.
+- Native C0 heat evolution agrees with the spectral heat multiplier, preserves the actual Gamma-three constant and every probability integral, and is intertwined with Gamma-two heat.
+- Both native evolutions have the same unique finite complex Gamma-two mixing measure and genuine operator/strong mixing integrals; the final bridge to the trace resolvent notation remains in the unconfirmed assembly module.
 
 Mapped Lean declarations:
 
@@ -2076,13 +2083,47 @@ Mapped Lean declarations:
 - `Sigma.gamma_shape_three_complex_polynomial_mem_l2`
 - `Sigma.gamma_shape_three_l2_inner`
 - `Sigma.normalized_gamma_shape_three_l2_orthonormal`
+- `Sigma.gammaShapeThreeHilbertBasis`
+- `Sigma.gamma_shape_three_hilbert_basis_apply`
+- `Sigma.gamma_shape_three_basis_zero_coe`
+- `Sigma.gamma_shape_three_zero_solution_fundamental_system`
+- `Sigma.gamma_shape_three_second_zero_not_l2_at_zero`
+- `Sigma.gamma_shape_three_second_zero_not_l2_at_infinity`
+- `Sigma.gamma_shape_three_both_endpoints_limit_point`
+- `Sigma.gamma_shape_three_minimal_domain`
+- `Sigma.gamma_shape_three_minimal_test_action`
+- `Sigma.gamma_shape_three_canonical_eq_spectral`
+- `Sigma.gamma_shape_three_canonical_selfAdjoint`
+- `Sigma.gamma_shape_three_full_spectrum_exact`
+- `Sigma.gamma_shape_three_integer_eigenvalue_simple`
+- `Sigma.gamma_shape_unitary_basis`
+- `Sigma.gamma_shape_unitary_spectral_domain_iff`
+- `Sigma.gamma_shape_unitary_spectral_action`
+- `Sigma.gamma_shape_three_resolvent`
+- `Sigma.gamma_shape_three_resolvent_not_nuclear`
+- `Sigma.gamma_shape_three_resolvent_hilbert_schmidt`
+- `Sigma.gamma_shape_three_squared_resolvent_trace`
+- `Sigma.gamma_shape_three_resolvent_difference_trace`
+- `Sigma.gamma_shape_three_complex_heat_trace`
+- `Sigma.gamma_shape_shifted_zeta_nuclear_range`
+- `Sigma.gamma_shape_three_shifted_zeta_trace`
+- `Sigma.gamma_shape_three_multiplier_domain_iff`
+- `Sigma.gamma_shape_three_multiplier_action`
+- `Sigma.gamma_shape_three_fredholm_determinant`
+- `Sigma.gamma_shape_three_regularized_determinant`
+- `Sigma.gamma_shape_three_zeta_regularization`
+- `Sigma.gamma_shape_three_heat_evolution`
+- `Sigma.gamma_shape_three_heat_eq_spectral`
+- `Sigma.gamma_shape_three_heat_preserves_one`
+- `Sigma.gamma_shape_three_heat_preserves_integral`
+- `Sigma.gamma_shape_unitary_heat`
+- `Sigma.gamma_shape_three_operator_gamma_mixing`
+- `Sigma.gamma_shape_three_complex_mixing_iff`
+- `Sigma.gamma_shape_two_complex_mixing_iff`
 
 Remaining Lean formalization:
 
-- Both actual Gamma-shape-two and shape-three weighted L2 self-adjoint closures with limit-point endpoints.
-- Complete simple integer eigenbases and intertwining unitary fixing one.
-- Agreement of every listed spectral invariant with conventions/domains and common unique mixing measure.
-- Distinct invariant coordinate probabilities with respective means two and three, inside those linked realizations.
+- Kernel-checked final assembly linking both literal canonical closures, shared native mixing equations and the actual trace resolvents: coercion and heartbeat repairs in SigmaOpGammaShapeThreeBoundary have not been rebuilt.
 
 ### final:O5-canonical-versus-identification — Canonical mixing construction is not unmarked coordinate recovery
 
