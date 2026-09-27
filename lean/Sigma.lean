@@ -200,6 +200,11 @@ import SigmaMatrixM3Geodesic
 import SigmaOpInverseCalculusCanonical
 import SigmaOpGammaShapeThree
 import SigmaOpMixingStrong
+import SigmaOpNonnegativeResolvent
+import SigmaOpCFCEigen
+import SigmaOpBorelInverse
+import SigmaOpBernsteinInverse
+import SigmaRealProjectiveComplexification
 import SigmaMatrixDiagonalDistances
 import SigmaMatrixDistanceBoundary
 import SigmaOperatorPearson

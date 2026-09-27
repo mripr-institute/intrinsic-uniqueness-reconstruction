@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 69/78.
+- Fully formalized named statements: 70/78.
 - Partially formalized statements: 7.
-- Statements awaiting Lean formalization: 2.
+- Statements awaiting Lean formalization: 1.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1818 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1841 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -70,6 +70,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O4-determinants** — Zeta and Fredholm determinants with their conventions
 - **final:O4-finite-countermodels** — Finite familiar spectral invariants do not determine the spectrum
 - **final:O6** — A Bernstein function is determined by every integer tail
+- **final:O6-functional-calculus** — Two different functional-calculus inverse questions
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
@@ -1986,7 +1987,7 @@ Mapped Lean declarations:
 
 ### final:O6-functional-calculus — Two different functional-calculus inverse questions
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -1994,6 +1995,9 @@ Mathematical content formalized in Lean:
 - Actual unbounded spectral -log J(A) equals the native canonical 2 log(1+A) operator, including its full maximal domain, coordinate action and self-adjointness.
 - The arbitrary value of -log at the unattained zero endpoint does not change the operator or its domain.
 - Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions.
+- For arbitrary native nonnegative self-adjoint B, construct the actual full-domain functional calculus through its derived bounded shift resolvent. Nonnegativity and continuity including zero follow from the existing Bernstein representation.
+- The known scalar inverse reconstructs the entire native operator from the full observed f(B), including exact domains and actions, with no eigenbasis or compactness hypothesis. Equality of observed operators determines the original operators.
+- Both bounded and unbounded strictly increasing Bernstein functions are covered; the unattained limiting endpoint has zero eigenspace, including positive compactified endpoints.
 
 Mapped Lean declarations:
 
@@ -2013,10 +2017,18 @@ Mapped Lean declarations:
 - `Sigma.laguerre_canonical_j_log_endpoint_independent`
 - `Sigma.laguerre_canonical_exp_negative_log`
 - `Sigma.laguerre_canonical_j_determined_by_exponent`
-
-Remaining Lean formalization:
-
-- Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints.
+- `Sigma.opNonnegativeResolvent`
+- `Sigma.op_nonnegative_shift_resolvent`
+- `Sigma.opMonotoneFunctionalCalculus`
+- `Sigma.op_known_monotone_inverse_reconstruction`
+- `Sigma.op_monotone_functional_calculus_endpoint`
+- `Sigma.BernsteinRepresentation.exponent_continuous`
+- `Sigma.HasBernsteinRepresentation.nonnegative`
+- `Sigma.opBernsteinFunctionalCalculus`
+- `Sigma.opKnownBernsteinInverse`
+- `Sigma.op_known_bernstein_inverse_reconstruction`
+- `Sigma.op_known_bernstein_inverse_domain`
+- `Sigma.op_bernstein_functional_calculus_determines_operator`
 
 ### final:O5-isospectral-boundary — The Gamma shapes two and three retain all spectral and mixing data
 
@@ -2307,11 +2319,28 @@ Mapped Lean declarations:
 
 ### final:F5 — Rational characteristic data lose integral data
 
-Lean coverage: **missing**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
+
+Mathematical content formalized in Lean:
+
+- Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.
+
+Mapped Lean declarations:
+
+- `Sigma.RealProjectivePlane`
+- `Sigma.realProjectiveComplexCore`
+- `Sigma.realProjectiveComplexLine`
+- `Sigma.realProjectiveComplexification`
+- `Sigma.real_projective_complexification_continuous`
+- `Sigma.real_projective_complexification_fiber`
+- `Sigma.realProjectiveComplexFiberEquiv`
+- `Sigma.real_projective_complex_fiber_finrank`
+- `Sigma.realProjectiveComplexIncidenceHomeomorph`
+- `Sigma.realProjectiveComplexScalarExtension`
+- `Sigma.real_projective_complex_scalar_extension_tmul`
 
 Remaining Lean formalization:
 
-- Actual complexification of the tautological real line on RP2
 - Nontriviality of that bundle and of its class relative to the trivial line in complex K0
 - Its rational Chern character equals one
 - Resulting fixed-base nonreconstruction witness

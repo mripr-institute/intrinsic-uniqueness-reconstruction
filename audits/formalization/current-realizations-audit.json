@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 15, "partial": 1, "missing": 1},
+  "totals": {"definition": 0, "complete": 15, "partial": 2, "missing": 0},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -87,11 +87,29 @@
     },
     {
       "latex_label": "final:F5",
-      "status": "missing",
-      "lean_declarations": [],
-      "proved_components": [],
-      "unproved_components": ["Actual complexification of the tautological real line on RP2", "Nontriviality of that bundle and of its class relative to the trivial line in complex K0", "Its rational Chern character equals one", "Resulting fixed-base nonreconstruction witness"],
-      "notes": "No project declaration constructs this topological counterexample. Scalar torsion arithmetic would not suffice."
+      "status": "partial",
+      "lean_declarations": [
+        "Sigma.RealProjectivePlane",
+        "Sigma.realProjectiveComplexCore",
+        "Sigma.realProjectiveComplexLine",
+        "Sigma.realProjectiveComplexification",
+        "Sigma.real_projective_complexification_continuous",
+        "Sigma.real_projective_complexification_fiber",
+        "Sigma.realProjectiveComplexFiberEquiv",
+        "Sigma.real_projective_complex_fiber_finrank",
+        "Sigma.realProjectiveComplexIncidenceHomeomorph",
+        "Sigma.realProjectiveComplexScalarExtension",
+        "Sigma.real_projective_complex_scalar_extension_tmul"
+      ],
+      "proved_components": [
+        "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula."
+      ],
+      "unproved_components": [
+        "Nontriviality of that bundle and of its class relative to the trivial line in complex K0",
+        "Its rational Chern character equals one",
+        "Resulting fixed-base nonreconstruction witness"
+      ],
+      "notes": "Construction component AUDIT PASS: F5-complexification-component-formal-independent-audit.md. Targeted compilation, integration build and selected final transitive axiom checks PASS. Bundle nontriviality, K0 distinction, rational Chern character and the fixed-base witness remain unproved."
     },
     {
       "latex_label": "final:M1",

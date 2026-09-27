@@ -2452,3 +2452,17 @@ import Sigma
 #print axioms Sigma.native_gamma_drift_subordinator_exists
 #print axioms Sigma.native_gamma_drift_process_levy
 #print axioms Sigma.native_gamma_drift_processes_distinct
+#print axioms Sigma.op_known_monotone_inverse_reconstruction
+#print axioms Sigma.op_known_monotone_inverse_domain
+#print axioms Sigma.op_monotone_functional_calculus_determines_operator
+#print axioms Sigma.op_monotone_functional_calculus_endpoint
+#print axioms Sigma.op_monotone_functional_calculus_selfAdjoint
+#print axioms Sigma.op_monotone_functional_calculus_nonnegative
+#print axioms Sigma.realProjectiveComplexIncidenceHomeomorph
+#print axioms Sigma.realProjectiveComplexScalarExtension
+#print axioms Sigma.real_projective_complex_scalar_extension_tmul
+#print axioms Sigma.real_projective_complex_fiber_finrank
+#print axioms Sigma.BernsteinRepresentation.exponent_continuous
+#print axioms Sigma.op_known_bernstein_inverse_reconstruction
+#print axioms Sigma.op_known_bernstein_inverse_domain
+#print axioms Sigma.op_bernstein_functional_calculus_determines_operator

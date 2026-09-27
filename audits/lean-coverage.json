@@ -4,9 +4,9 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 69,
+    "complete": 70,
     "partial": 7,
-    "missing": 2
+    "missing": 1
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2753,7 +2753,7 @@
       "line": 919,
       "statement_tex": "\\label{final:O6-functional-calculus}\nFor a fixed strictly increasing Bernstein function $f$, the full\nself-adjoint operator $f(B)$ determines a nonnegative self-adjoint\n$B$.  For the canonical $A$, the complete operator\n$2\\log(\\mathrm{Id}+A)$ is equivalently determined by\n$J(A)=(\\mathrm{Id}+A)^{-2}$.\nThese statements retain the known scalar function $f$ or $J$.\n",
       "statement_sha256": "9d0c2549af4b604fe861676ce53a35b9415f8c3fe35630b692839d550efe6461",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.canonical_negative_log_borel",
         "Sigma.canonical_j_coordinate_pos",
@@ -2770,22 +2770,33 @@
         "Sigma.laguerre_canonical_exponent_determined_by_j",
         "Sigma.laguerre_canonical_j_log_endpoint_independent",
         "Sigma.laguerre_canonical_exp_negative_log",
-        "Sigma.laguerre_canonical_j_determined_by_exponent"
+        "Sigma.laguerre_canonical_j_determined_by_exponent",
+        "Sigma.opNonnegativeResolvent",
+        "Sigma.op_nonnegative_shift_resolvent",
+        "Sigma.opMonotoneFunctionalCalculus",
+        "Sigma.op_known_monotone_inverse_reconstruction",
+        "Sigma.op_monotone_functional_calculus_endpoint",
+        "Sigma.BernsteinRepresentation.exponent_continuous",
+        "Sigma.HasBernsteinRepresentation.nonnegative",
+        "Sigma.opBernsteinFunctionalCalculus",
+        "Sigma.opKnownBernsteinInverse",
+        "Sigma.op_known_bernstein_inverse_reconstruction",
+        "Sigma.op_known_bernstein_inverse_domain",
+        "Sigma.op_bernstein_functional_calculus_determines_operator"
       ],
       "proved_components": [
         "The canonical J(A) is the square of the actual native two-sided bounded inverse of 1+A, with complete-basis action and zero kernel.",
         "Actual unbounded spectral -log J(A) equals the native canonical 2 log(1+A) operator, including its full maximal domain, coordinate action and self-adjointness.",
         "The arbitrary value of -log at the unattained zero endpoint does not change the operator or its domain.",
-        "Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions."
+        "Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions.",
+        "For arbitrary native nonnegative self-adjoint B, construct the actual full-domain functional calculus through its derived bounded shift resolvent. Nonnegativity and continuity including zero follow from the existing Bernstein representation.",
+        "The known scalar inverse reconstructs the entire native operator from the full observed f(B), including exact domains and actions, with no eigenbasis or compactness hypothesis. Equality of observed operators determines the original operators.",
+        "Both bounded and unbounded strictly increasing Bernstein functions are covered; the unattained limiting endpoint has zero eigenspace, including positive compactified endpoints."
       ],
-      "unproved_components": [
-        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints."
-      ],
-      "gaps": [
-        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Canonical-clause AUDIT PASS: audits/formalization/O6-canonical-inverse-formal-independent-audit.md. SigmaOpInverseCalculusCanonical reuses the actual canonical closure, literal squared shift resolvent and maximal complex spectral multiplier. Full integration build, source_audit and five selected final transitive axioms PASS. The generic arbitrary-self-adjoint-B clause remains unproved: the pinned infrastructure has no general unbounded Borel functional calculus/PVM construction. This row is partial, not complete; no pure-point hypothesis replaces the arbitrary-B statement."
+      "notes": "WHOLE statement AUDIT PASS: O6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: O6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "id": "final:O5-isospectral-boundary",
@@ -3166,23 +3177,35 @@
       "line": 251,
       "statement_tex": "\\label{final:F5}\nOn $\\mathbb{RP}^2$, the complexification $L$ of the tautological real\nline is nontrivial and $[L]\\ne[1]$ in complex $K^0$, although\n$\\operatorname{ch}(L)=1$ in rational cohomology.  Thus even with the\nbase fixed, rational characteristic data and the complete scalar\nseries do not reconstruct integral bundle or $K$-theory data.\n",
       "statement_sha256": "abffc2186820bc8de7c6a86b55b03a85dd69427f03afb039bffc68a676f375cc",
-      "lean_status": "missing",
-      "lean_theorems": [],
-      "proved_components": [],
+      "lean_status": "partial",
+      "lean_theorems": [
+        "Sigma.RealProjectivePlane",
+        "Sigma.realProjectiveComplexCore",
+        "Sigma.realProjectiveComplexLine",
+        "Sigma.realProjectiveComplexification",
+        "Sigma.real_projective_complexification_continuous",
+        "Sigma.real_projective_complexification_fiber",
+        "Sigma.realProjectiveComplexFiberEquiv",
+        "Sigma.real_projective_complex_fiber_finrank",
+        "Sigma.realProjectiveComplexIncidenceHomeomorph",
+        "Sigma.realProjectiveComplexScalarExtension",
+        "Sigma.real_projective_complex_scalar_extension_tmul"
+      ],
+      "proved_components": [
+        "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula."
+      ],
       "unproved_components": [
-        "Actual complexification of the tautological real line on RP2",
         "Nontriviality of that bundle and of its class relative to the trivial line in complex K0",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
       "gaps": [
-        "Actual complexification of the tautological real line on RP2",
         "Nontriviality of that bundle and of its class relative to the trivial line in complex K0",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "No project declaration constructs this topological counterexample. Scalar torsion arithmetic would not suffice."
+      "notes": "Construction component AUDIT PASS: F5-complexification-component-formal-independent-audit.md. Targeted compilation, integration build and selected final transitive axiom checks PASS. Bundle nontriviality, K0 distinction, rational Chern character and the fixed-base witness remain unproved."
     },
     {
       "id": "final:M1",

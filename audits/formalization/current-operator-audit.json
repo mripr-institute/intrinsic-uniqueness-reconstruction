@@ -1,7 +1,7 @@
 {
   "scope": "Independent exact named-statement audit of the complete operator chapter against current source signatures and definitions.",
   "paper": "paper/sections/operators.tex",
-  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 15, "partial": 3, "missing": 1},
+  "totals_by_named_environment": {"total": 19, "definition": 0, "complete": 16, "partial": 2, "missing": 1},
   "namespace": "Sigma",
   "result": "DEFECT LIST",
   "passed_labels": [
@@ -19,7 +19,8 @@
     "final:O3-form",
     "final:O3",
     "final:O4-finite-countermodels",
-    "final:O4-determinants"
+    "final:O4-determinants",
+    "final:O6-functional-calculus"
   ],
   "mathematically_false_paper_clauses": [],
   "method": "Read every named statement, current Stein and operator sources, detailed historical maps and Stein audit. Whole-project searches for native L2, self-adjoint, spectral, trace, determinant, Bernstein, Pearson and kernel developments. The later O4 trace-reconstruction and convergence-boundary labels were re-audited against current theorem signatures and compiled modules. The 2026-09-26 independent paper_coverage_review completed a fresh whole-statement O4-resolvents review and a bounded O3-form Markov clause review; see o4-resolvents-2026-09-26-review.md. The 2026-09-26 final O3-form whole-statement review closed the reverse Sobolev inclusion and passed the complete proposition. A separate determinant review passed canonical finite-compression formulas while retaining precise determinant-category and zeta residuals. Additional independent reviews on 2026-09-26 passed exact O3 maximal domain and automatic flux limits, and the complete all-positive-shift O4 zeta determinant clauses. A final 2026-09-27 independent whole-statement review passed every clause of O3 after the endpoint classification and unbounded-domain witness were completed. Independent whole-statement review on 2026-09-27 passed the finite spectral countermodel theorem, including actual changed spectra and simultaneous optional invariant preservation. Independent final whole-statement review on 2026-09-27 passed O4-determinants with native categories, locally uniform compression limits, basis independence and zero-multiset reconstruction.",
@@ -736,7 +737,7 @@
     },
     {
       "latex_label": "final:O6-functional-calculus",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.canonical_negative_log_borel",
         "Sigma.canonical_j_coordinate_pos",
@@ -753,18 +754,31 @@
         "Sigma.laguerre_canonical_exponent_determined_by_j",
         "Sigma.laguerre_canonical_j_log_endpoint_independent",
         "Sigma.laguerre_canonical_exp_negative_log",
-        "Sigma.laguerre_canonical_j_determined_by_exponent"
+        "Sigma.laguerre_canonical_j_determined_by_exponent",
+        "Sigma.opNonnegativeResolvent",
+        "Sigma.op_nonnegative_shift_resolvent",
+        "Sigma.opMonotoneFunctionalCalculus",
+        "Sigma.op_known_monotone_inverse_reconstruction",
+        "Sigma.op_monotone_functional_calculus_endpoint",
+        "Sigma.BernsteinRepresentation.exponent_continuous",
+        "Sigma.HasBernsteinRepresentation.nonnegative",
+        "Sigma.opBernsteinFunctionalCalculus",
+        "Sigma.opKnownBernsteinInverse",
+        "Sigma.op_known_bernstein_inverse_reconstruction",
+        "Sigma.op_known_bernstein_inverse_domain",
+        "Sigma.op_bernstein_functional_calculus_determines_operator"
       ],
       "proved_components": [
         "The canonical J(A) is the square of the actual native two-sided bounded inverse of 1+A, with complete-basis action and zero kernel.",
         "Actual unbounded spectral -log J(A) equals the native canonical 2 log(1+A) operator, including its full maximal domain, coordinate action and self-adjointness.",
         "The arbitrary value of -log at the unattained zero endpoint does not change the operator or its domain.",
-        "Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions."
+        "Exponentiating the negative canonical exponent recovers the actual bounded J(A) on every vector, and actual operator data determine both operators in both directions.",
+        "For arbitrary native nonnegative self-adjoint B, construct the actual full-domain functional calculus through its derived bounded shift resolvent. Nonnegativity and continuity including zero follow from the existing Bernstein representation.",
+        "The known scalar inverse reconstructs the entire native operator from the full observed f(B), including exact domains and actions, with no eigenbasis or compactness hypothesis. Equality of observed operators determines the original operators.",
+        "Both bounded and unbounded strictly increasing Bernstein functions are covered; the unattained limiting endpoint has zero eigenspace, including positive compactified endpoints."
       ],
-      "unproved_components": [
-        "Known strictly increasing Bernstein function's Borel inverse recovers a native nonnegative self-adjoint B from f(B), with exact domains/endpoints."
-      ],
-      "notes": "Canonical-clause AUDIT PASS: audits/formalization/O6-canonical-inverse-formal-independent-audit.md. SigmaOpInverseCalculusCanonical reuses the actual canonical closure, literal squared shift resolvent and maximal complex spectral multiplier. Full integration build, source_audit and five selected final transitive axioms PASS. The generic arbitrary-self-adjoint-B clause remains unproved: the pinned infrastructure has no general unbounded Borel functional calculus/PVM construction. This row is partial, not complete; no pure-point hypothesis replaces the arbitrary-B statement."
+      "unproved_components": [],
+      "notes": "WHOLE statement AUDIT PASS: O6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: O6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "latex_label": "final:O5-isospectral-boundary",
