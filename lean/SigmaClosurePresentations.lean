@@ -23,10 +23,12 @@ import SigmaProbSurvival
 import SigmaOpGammaShapeThreeEvolution
 import SigmaOpLinkedMixingCoordinate
 import SigmaAffineCurvature
+import SigmaProbCanonicalPair
+import SigmaRealCharacteristicGerm
 
 namespace Sigma.Closure
 noncomputable section
-open MeasureTheory Set
+open MeasureTheory Set Filter
 open scoped ContDiff
 
 /-- A calibrated intrinsic object on the paper's marked positive coordinate.
@@ -302,6 +304,41 @@ def markedChiNode (y : ℚ) (hy : y ≠ -1) : IdentifiedNode := by
       (characteristic_Todd_chi_inverse ℚ y hy Q).symm
     _ = characteristicToddToChi ℚ y (formalTodd ℚ) := congrArg _ he
     _ = formalChi ℚ y := rfl
+
+/-- A supplied real-analytic representative is identified by its complete
+formal germ only on the retained connected continuation class. -/
+def analyticSeriesData (F : PowerSeries ℝ) : PresentationData :=
+  ⟨ℝ → ℝ, fun f => AnalyticOnNhd ℝ f Set.univ,
+    Prop, fun f => HasRealFormalGerm f F, True⟩
+
+def analyticSeriesNode (f : ℝ → ℝ) (F : PowerSeries ℝ)
+    (hf : ∀ u, AnalyticAt ℝ f u) (hg : HasRealFormalGerm f F) : IdentifiedNode := by
+  let hfa : AnalyticOnNhd ℝ f Set.univ := fun u _ => hf u
+  refine ⟨analyticSeriesData F,
+    assemblePresentation (analyticSeriesData F) f
+      ⟨hfa, propext ⟨fun _ => True.intro, fun _ => hg⟩⟩ ?_⟩
+  intro g hga he
+  have hgg : HasRealFormalGerm g F := (Iff.of_eq he).mpr True.intro
+  have hEq := real_formal_germ_global_recovery hgg hg hga hfa
+    isPreconnected_univ (Set.mem_univ 0)
+  funext u
+  exact hEq (Set.mem_univ u)
+
+def analyticToddNode : IdentifiedNode :=
+  analyticSeriesNode realTodd (formalTodd ℝ)
+    real_todd_analytic real_todd_formal_germ
+
+def analyticAhatNode : IdentifiedNode :=
+  analyticSeriesNode realAhat (formalAhat ℝ)
+    real_ahat_analytic real_ahat_formal_germ
+
+def analyticLNode : IdentifiedNode :=
+  analyticSeriesNode realLgenus (formalL ℝ)
+    real_lgenus_analytic real_lgenus_formal_germ
+
+def analyticChiNode (y : ℚ) (_hy : y ≠ -1) : IdentifiedNode :=
+  analyticSeriesNode (realChi (y : ℝ)) (formalChi ℝ (y : ℝ))
+    (real_chi_analytic (y : ℝ)) (real_chi_formal_germ (y : ℝ))
 
 /-- Extending a function on the marked positive coordinate is only a device for
 stating the local differential observations; its values off that coordinate
@@ -1019,6 +1056,103 @@ def rootedSeriesNode : IdentifiedNode := by
   · intro F _ he
     exact rooted_series_unique ℝ F ((Iff.of_eq he).mpr True.intro).1
 
+/-- The linked deficit observation keeps both the prescribed involution and
+the actual weighted pushforward law on the marked positive coordinate. -/
+def linkedDeficitData : PresentationData :=
+  ⟨ScalarFunction,
+    fun F => RayPotential (positiveExtension F),
+    Prop × Measure ℝ,
+    fun F =>
+      ((∀ b ≥ 1, 0 < canonicalDeficitInvolution b ∧
+          canonicalDeficitInvolution b ≤ 1 ∧
+          positiveExtension F (canonicalDeficitInvolution b) = positiveExtension F b),
+        Measure.map (positiveRayExtension (positiveExtension F))
+          ((volume.restrict (Ioi 0)).withDensity
+            (deficitWeight ∘ positiveRayExtension (positiveExtension F)))),
+    (True, gammaDeficitProbability)⟩
+
+private theorem linked_deficit_canonical_extension (t : ℝ) (ht : 0 < t) :
+    positiveExtension (fun x : PositiveCoordinate => SigmaBase.potential x.val) t =
+      SigmaBase.potential t := by
+  simp [positiveExtension, ht]
+
+private theorem linked_deficit_canonical_ray_potential :
+    RayPotential (positiveExtension
+      (fun x : PositiveCoordinate => SigmaBase.potential x.val)) := by
+  let J := positiveExtension (fun x : PositiveCoordinate => SigmaBase.potential x.val)
+  have h := intrinsic_potential_two_branch
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact h.continuous.congr (fun t ht =>
+      linked_deficit_canonical_extension t ht)
+  · simpa [J, linked_deficit_canonical_extension] using h.anchor
+  · intro a ha b hb hab
+    simpa only [J, linked_deficit_canonical_extension a ha.1,
+      linked_deficit_canonical_extension b hb.1] using h.left_strict ha hb hab
+  · intro a ha b hb hab
+    have ha0 : 0 < a := lt_of_lt_of_le (by norm_num) ha
+    have hb0 : 0 < b := lt_of_lt_of_le (by norm_num) hb
+    simpa only [J, linked_deficit_canonical_extension a ha0,
+      linked_deficit_canonical_extension b hb0] using h.right_strict ha hb hab
+  · apply h.left_limit.congr'
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    exact (linked_deficit_canonical_extension t ht).symm
+  · apply h.right_limit.congr'
+    filter_upwards [eventually_gt_atTop (0 : ℝ)] with t ht
+    exact (linked_deficit_canonical_extension t ht).symm
+
+private theorem linked_deficit_canonical_observation :
+    (linkedDeficitData.observe
+      (fun x : PositiveCoordinate => SigmaBase.potential x.val)) =
+      linkedDeficitData.value := by
+  apply Prod.ext
+  · apply propext
+    exact ⟨fun _ => True.intro, fun _ b hb => by
+      rcases canonical_deficit_involution_pair b hb with ⟨h0, h1, he⟩
+      exact ⟨h0, h1, by
+        rw [linked_deficit_canonical_extension _ h0,
+          linked_deficit_canonical_extension _ (by linarith : 0 < b)]
+        exact he⟩⟩
+  · have he : positiveRayExtension
+        (positiveExtension (fun x : PositiveCoordinate => SigmaBase.potential x.val)) =
+        positiveRayExtension SigmaBase.potential := by
+      funext t
+      by_cases ht : 0 < t
+      · simp [positive_ray_extension_eq _ ht, linked_deficit_canonical_extension t ht]
+      · simp [positiveRayExtension, ht]
+    change Measure.map _ _ = gammaDeficitProbability
+    rw [he]
+    have hw : (volume.restrict (Ioi (0 : ℝ))).withDensity
+        (deficitWeight ∘ positiveRayExtension SigmaBase.potential) = gammaProbability := by
+      calc
+        _ = (volume.restrict (Ioi 0)).withDensity
+            (deficitWeight ∘ SigmaBase.potential) := by
+              apply withDensity_congr_ae
+              filter_upwards [ae_restrict_mem measurableSet_Ioi] with t ht
+              simp [Function.comp_def, positive_ray_extension_eq _ ht]
+        _ = gammaProbability := canonical_linked_density_measure
+    rw [hw, gammaDeficitProbability]
+    apply Measure.map_congr
+    filter_upwards [operator_integer_samples_ae_pos gammaProbability
+      operator_gamma_probability_integer_samples] with t ht
+    exact positive_ray_extension_eq _ ht
+
+def linkedDeficitNode : IdentifiedNode := by
+  refine ⟨linkedDeficitData,
+    assemblePresentation linkedDeficitData
+      (fun x : PositiveCoordinate => SigmaBase.potential x.val)
+      ⟨linked_deficit_canonical_ray_potential,
+        linked_deficit_canonical_observation⟩ ?_⟩
+  intro F hF he
+  funext t
+  have hp : ∀ b ≥ 1, 0 < canonicalDeficitInvolution b ∧
+      canonicalDeficitInvolution b ≤ 1 ∧
+      positiveExtension F (canonicalDeficitInvolution b) = positiveExtension F b := by
+    exact (Iff.of_eq (congrArg Prod.fst he)).mpr True.intro
+  have hlaw := congrArg Prod.snd he
+  have hu := canonical_deficit_pair_identifies_on_positive_ray
+    (positiveExtension F) hF hp hlaw t.val t.property
+  simpa [positiveExtension, t.property] using hu.1
+
 abbrev NonnegativeCoordinate := {t : ℝ // 0 ≤ t}
 abbrev NonnegativeFunction := NonnegativeCoordinate → ℝ
 
@@ -1059,6 +1193,7 @@ inductive AvailablePresentation
   | gammaLaw | gammaMellin | gammaStieltjes | gammaMarkedCoordinate
   | toddTower
   | ahatSeries | lSeries | markedChi (y : ℚ) (hy : y ≠ -1)
+  | analyticTodd | analyticAhat | analyticL | analyticChi (y : ℚ) (hy : y ≠ -1)
   | differentialCore | calibratedCurvature | calibratedRiccati | recentering
   | exactFlow | groupLog | groupCocycle | symmetricBregman | scaleBregman
   | projectiveCrossRatio | projectiveSchwarzian | exactFenchel
@@ -1066,6 +1201,7 @@ inductive AvailablePresentation
   | gumbelMax | markedHaarDensity | positiveSizeBias
   | positiveEquilibrium | logisticHazard | linkedOperatorMixing
   | borelPGF | borelSeries | rootedSeries
+  | linkedDeficit
   | bernsteinTail
 
 def availablePresentation : AvailablePresentation → IdentifiedNode
@@ -1085,6 +1221,10 @@ def availablePresentation : AvailablePresentation → IdentifiedNode
   | .ahatSeries => ahatSeriesNode
   | .lSeries => lSeriesNode
   | .markedChi y hy => markedChiNode y hy
+  | .analyticTodd => analyticToddNode
+  | .analyticAhat => analyticAhatNode
+  | .analyticL => analyticLNode
+  | .analyticChi y hy => analyticChiNode y hy
   | .differentialCore => differentialCoreNode
   | .calibratedCurvature => calibratedCurvatureNode
   | .calibratedRiccati => calibratedRiccatiNode
@@ -1109,6 +1249,7 @@ def availablePresentation : AvailablePresentation → IdentifiedNode
   | .borelPGF => borelPGFNode
   | .borelSeries => borelSeriesNode
   | .rootedSeries => rootedSeriesNode
+  | .linkedDeficit => linkedDeficitNode
   | .bernsteinTail => bernsteinTailNode
 
 def availableReconstruction (A B : AvailablePresentation) :

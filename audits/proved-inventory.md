@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1984 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1989 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -3207,6 +3207,7 @@ Mathematical content formalized in Lean:
 - Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.
 - A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.
 - The typed available-presentation enumeration now includes additional compiled nodes for calibrated differential and flow observations, group log/cocycle, convex and projective scalar observations, Poisson and Gumbel/Haar observations, size bias/equilibrium, logistic hazard, linked operator mixing, Borel/rooted series, Bernstein tail, and marked formal characteristic series. The generic round trips and pairwise reconstruction apply to these instantiated nodes.
+- A linked-deficit node retains the same positive-ray potential candidate, its prescribed involution and actual weighted pushforward law. Four analytic characteristic-series nodes identify full-line real-analytic Todd, A-hat, L and marked chi representatives from their complete formal germs.
 - Composition, uniqueness and round trips once native presentation equivalences are given.
 
 Mapped Lean declarations:
@@ -3251,13 +3252,18 @@ Mapped Lean declarations:
 - `Sigma.Closure.ahatSeriesNode`
 - `Sigma.Closure.lSeriesNode`
 - `Sigma.Closure.markedChiNode`
+- `Sigma.Closure.linkedDeficitNode`
+- `Sigma.Closure.analyticToddNode`
+- `Sigma.Closure.analyticAhatNode`
+- `Sigma.Closure.analyticLNode`
+- `Sigma.Closure.analyticChiNode`
 - `Sigma.Closure.available_intrinsic_roundtrips`
 - `Sigma.Closure.available_reconstruction_roundtrip`
 - `Sigma.presentationEquivalence`
 
 Remaining Lean formalization:
 
-- Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, linked deficit, native survival/Green, analytic characteristic-series continuation, tree inverse, and fully marked rational data.
+- Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, native survival/Green, arbitrary connected-domain analytic characteristic-series continuation, tree inverse, and fully marked rational data.
 - For each remaining presentation instantiate its exact candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration. Existing partial-family nodes must not stand for stronger paper clauses.
 - Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
 
