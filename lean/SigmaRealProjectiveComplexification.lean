@@ -16,9 +16,9 @@ abbrev RealProjectivePlane := ℙ ℝ (Fin 3 → ℝ)
 instance real_projective_plane_topology : TopologicalSpace RealProjectivePlane :=
   TopologicalSpace.coinduced (Projectivization.mk' ℝ) inferInstance
 
-private def realVectorSquare (v : Fin 3 → ℝ) : ℝ := ∑ k, v k ^ 2
+def realVectorSquare (v : Fin 3 → ℝ) : ℝ := ∑ k, v k ^ 2
 
-private theorem real_vector_square_pos {v : Fin 3 → ℝ} (hv : v ≠ 0) :
+theorem real_vector_square_pos {v : Fin 3 → ℝ} (hv : v ≠ 0) :
     0 < realVectorSquare v := by
   have hex : ∃ i, v i ≠ 0 := by
     by_contra h
@@ -113,7 +113,7 @@ theorem real_projective_coordinate_cocycle (i j k : Fin 3) (p : RealProjectivePl
       real_projective_coordinate_mk v hv i k hi']
     field_simp
 
-private theorem real_projective_chart_cover (p : RealProjectivePlane) :
+theorem real_projective_chart_cover (p : RealProjectivePlane) :
     ∃ i, p ∈ realProjectiveChart i := by
   induction p using Projectivization.ind with
   | h v hv =>
@@ -192,7 +192,7 @@ theorem real_projective_complexification_fiber (p : RealProjectivePlane) :
   conv_lhs => rw [← p.mk_rep]
   rfl
 
-private theorem real_projective_chart_rep (p : RealProjectivePlane) (i : Fin 3) :
+theorem real_projective_chart_rep (p : RealProjectivePlane) (i : Fin 3) :
     p ∈ realProjectiveChart i ↔ p.rep i ≠ 0 := by
   rw [← p.mk_rep, real_projective_chart_mk]
   simp
