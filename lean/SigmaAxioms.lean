@@ -2491,3 +2491,13 @@ import Sigma
 #print axioms Sigma.gamma_shape_three_regularized_determinant
 #print axioms Sigma.gamma_shapes_two_three_native_boundary
 #print axioms Sigma.stationary_coordinate_no_spectrum_inverse
+#print axioms Sigma.marked_multiplication_unitary_preserves_probability
+#print axioms Sigma.marked_multiplication_unitary_intertwines_projections
+#print axioms Sigma.Closure.available_intrinsic_roundtrips
+#print axioms Sigma.Closure.available_reconstruction_roundtrip
+#print axioms Sigma.Closure.vector_packet_no_decoder
+#print axioms Sigma.Closure.tree_packet_no_decoder
+#print axioms Sigma.Closure.stationary_packet_no_decoder
+#print axioms Sigma.Closure.process_packet_no_decoder
+#print axioms Sigma.Closure.matrix_packet_no_decoder
+#print axioms Sigma.Closure.arithmetic_packet_no_decoder

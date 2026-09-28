@@ -214,6 +214,7 @@ import SigmaOpGammaAlternativeRecipe
 import SigmaOpGammaAlternativeOperator
 import SigmaOpCanonicalSelectionBoundary
 import SigmaOpMarkedCoordinate
+import SigmaOpCoordinateProjections
 import SigmaRealProjectiveComplexification
 import SigmaRealProjectiveNoSection
 import SigmaRealProjectiveSquareTransition
@@ -241,6 +242,7 @@ import SigmaProbDeficitRecurrence
 import SigmaProbDeficitCumulantInverse
 import SigmaFareyClosure
 import SigmaClosure
+import SigmaClosurePackets
 import SigmaClosurePerturbation
 import SigmaProbNativeHazard
 import SigmaRealTreesTailBoundary

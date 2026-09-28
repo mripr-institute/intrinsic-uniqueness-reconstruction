@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 72/78.
-- Partially formalized statements: 6.
+- Fully formalized named statements: 73/78.
+- Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1920 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1939 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -73,6 +73,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:O6** — A Bernstein function is determined by every integer tail
 - **final:O6-functional-calculus** — Two different functional-calculus inverse questions
 - **final:O5-isospectral-boundary** — The Gamma shapes two and three retain all spectral and mixing data
+- **final:O5-canonical-versus-identification** — Canonical mixing construction is not unmarked coordinate recovery
 - **final:F1** — The normalized Todd tower and all its twists
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
@@ -2136,7 +2137,7 @@ Mapped Lean declarations:
 
 ### final:O5-canonical-versus-identification — Canonical mixing construction is not unmarked coordinate recovery
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2147,6 +2148,7 @@ Mathematical content formalized in Lean:
 - Both identification routes are kernel-checked: an unknown mixing measure explicitly linked to the candidate coordinate probability, and the locally absolutely continuous Pearson representative with the paper's two probe equations.
 - The maximal coordinate multiplication operator and all actual Borel indicator projections are constructed on weighted L2; their probability recovery formula, domain commutation, and preservation under a projection-intertwining unitary are proved. The specific Gamma-two/Gamma-three unitary is proved unable to intertwine the literal coordinate multipliers while fixing one.
 - The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse.
+- For arbitrary probability measures on the full real line, a unitary intertwining the actual maximal coordinate multiplication operators and fixing the literal constant one preserves the coordinate probability and intertwines every Borel indicator projection. No support, density, moment, or projection-intertwining assumption is added.
 
 Mapped Lean declarations:
 
@@ -2174,10 +2176,10 @@ Mapped Lean declarations:
 - `Sigma.alternative_gamma_laplace`
 - `Sigma.op_nonnegative_alternative_gamma_mixing`
 - `Sigma.canonical_j_selection_gamma_three_formula`
-
-Remaining Lean formalization:
-
-- For arbitrary coordinate probabilities, derive intertwining of every Borel spectral projection from a unitary intertwining only the unbounded multiplication operators and fixing one; the current general preservation theorem assumes the projection intertwining, while the exact Gamma-two/Gamma-three obstruction is separately proved from their unequal first moments.
+- `Sigma.coordinate_recovery_measures_unique`
+- `Sigma.marked_multiplication_unitary_preserves_probability`
+- `Sigma.coordinate_marked_unitary_eq_refl`
+- `Sigma.marked_multiplication_unitary_intertwines_projections`
 
 ### final:F1 — The normalized Todd tower and all its twists
 
@@ -3188,6 +3190,7 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L74)
 Mathematical content formalized in Lean:
 
 - Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.
+- A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.
 - Composition, uniqueness and round trips once native presentation equivalences are given.
 
 Mapped Lean declarations:
@@ -3200,13 +3203,19 @@ Mapped Lean declarations:
 - `Sigma.Closure.presentation_intrinsic_unique`
 - `Sigma.presentationEquivalence_roundtrip`
 - `Sigma.Closure.presentation_transport_composes`
+- `Sigma.Closure.IntrinsicObject`
+- `Sigma.Closure.calibrated_intrinsic_unique`
+- `Sigma.Closure.PresentationData`
+- `Sigma.Closure.availablePresentation`
+- `Sigma.Closure.gammaMarkedCoordinateNode`
+- `Sigma.Closure.available_intrinsic_roundtrips`
+- `Sigma.Closure.available_reconstruction_roundtrip`
 - `Sigma.presentationEquivalence`
 
 Remaining Lean formalization:
 
-- Construct the full typed E_Sigma collection with each actual candidate class and observation.
-- Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.
-- Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure.
+- Extend the typed collection to the remaining differential/group/convex/projective observations, entropy, Poisson, Gumbel/Haar, linked deficit, survival/logistic/Green, size-bias/equilibrium, characteristic-series continuation, tree inverse, marked rational, linked operator mixing and Bernstein-tail presentations.
+- For each remaining presentation instantiate its actual candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration.
 - Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
 
 ### final:global-E — Canonical realization fibres
@@ -3259,6 +3268,7 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L173
 Mathematical content formalized in Lean:
 
 - Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.
+- Independent retained-context expansions for actual vector, random-tree, native stationary-operator, process, matrix-family and arithmetic-label selections. Each non-decoder theorem retains the intrinsic object and an arbitrary common packet of every other selection. The process packet includes its sample space, probability measure and measurable process; the native Gamma subordinator and rT have the same time-one law but opposite independence predicates.
 - Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences.
 
 Mapped Lean declarations:
@@ -3280,6 +3290,14 @@ Mapped Lean declarations:
 - `Sigma.Closure.perturbed_intrinsic_difference_tendsto_atTop`
 - `Sigma.Closure.perturbed_intrinsic_difference_tendsto_zero_right`
 - `Sigma.Closure.perturbed_intrinsic_endpoint_divergence`
+- `Sigma.Closure.vector_packet_no_decoder`
+- `Sigma.Closure.tree_packet_no_decoder`
+- `Sigma.Closure.stationary_packet_no_decoder`
+- `Sigma.Closure.process_packet_deletion`
+- `Sigma.Closure.process_packet_no_decoder`
+- `Sigma.Closure.matrix_packet_deletion`
+- `Sigma.Closure.matrix_packet_no_decoder`
+- `Sigma.Closure.arithmetic_packet_no_decoder`
 - `Sigma.Closure.retained_context_deletion`
 - `Sigma.Closure.no_placement_decoder_without_scale`
 - `Sigma.Closure.no_placement_decoder_without_offset`
@@ -3292,7 +3310,7 @@ Mapped Lean declarations:
 Remaining Lean formalization:
 
 - A nonzero perturbation with exact integral normalization in the relaxed deletion universe.
-- Complete native external packet deletion witnesses and their independent expansion with other packets fixed.
+- Assemble coordinate-relabel deletion and the full conjunction of retained stationary spectral/mixing observations; supply the fixed-base integral bundle/K0 versus rational characteristic witness from F5.
 - Global sufficient decomposition depends on full global-A/B and global-E.
 - Normalized nontrivial intrinsic deletion witness.
 - Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.
@@ -3305,6 +3323,7 @@ Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L246
 Mathematical content formalized in Lean:
 
 - Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.
+- Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid.
 
 Mapped Lean declarations:
 
@@ -3317,10 +3336,16 @@ Mapped Lean declarations:
 - `Sigma.Closure.spatial_radial_dimension_three`
 - `Sigma.Closure.radial_cancellation_does_not_identify_profile`
 - `Sigma.borel_size_does_not_identify_random_tree`
+- `Sigma.Closure.vector_packet_no_decoder`
+- `Sigma.Closure.tree_packet_no_decoder`
+- `Sigma.Closure.stationary_packet_no_decoder`
+- `Sigma.Closure.process_packet_no_decoder`
+- `Sigma.Closure.matrix_packet_no_decoder`
+- `Sigma.Closure.arithmetic_packet_no_decoder`
 
 Remaining Lean formalization:
 
-- Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly.
+- Supply and integrate F5's fixed-base bundle/K0 distinction with equal rational characteristic data; finish the complete typed boundary conjunction including coordinate relabelling and retained stationary data.
 
 ## Labelled equations
 

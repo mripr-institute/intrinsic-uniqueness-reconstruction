@@ -4,8 +4,8 @@
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 72,
-    "partial": 6
+    "complete": 73,
+    "partial": 5
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -2920,7 +2920,7 @@
       "line": 1011,
       "statement_tex": "\\label{final:O5-canonical-versus-identification}\nThe fixed exponent-two recipe $J$ constructs the Gamma$(2,1)$ mixing\nmeasure for every nonnegative self-adjoint operator.  Integer\neigenvalues make that mixing measure uniquely recoverable from the\nrestricted operator identity.  They do not identify the stationary\ncoordinate law of an arbitrary realization, even when the constant\nvector is retained.  To identify that candidate law one must retain\neither its explicit equality to the unknown mixing measure in\n\\eqref{final:O5-unknown}, the local Pearson realization of\nTheorem~\\ref{final:O2}, or equivalent coordinate information.\n",
       "statement_sha256": "b7ea0db0656ec335d6fcbb52c4fe01d3a106c76ff32429294dfcb2a508ace766",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.op_nonnegative_operator_gamma_mixing",
         "Sigma.op_nonnegative_gamma_probability_mixing",
@@ -2945,7 +2945,11 @@
         "Sigma.gamma_shape_unitary_not_coordinate_marked",
         "Sigma.alternative_gamma_laplace",
         "Sigma.op_nonnegative_alternative_gamma_mixing",
-        "Sigma.canonical_j_selection_gamma_three_formula"
+        "Sigma.canonical_j_selection_gamma_three_formula",
+        "Sigma.coordinate_recovery_measures_unique",
+        "Sigma.marked_multiplication_unitary_preserves_probability",
+        "Sigma.coordinate_marked_unitary_eq_refl",
+        "Sigma.marked_multiplication_unitary_intertwines_projections"
       ],
       "proved_components": [
         "Canonical exponent-two Gamma mixing existence for every native nonnegative self-adjoint operator, as genuine operator and strong probability integrals and a native complex measure identity; integer eigenvalues imply uniqueness of that unknown finite complex mixing measure.",
@@ -2954,16 +2958,13 @@
         "Actual operator mixing identity for every positive Gamma shape a and every native nonnegative self-adjoint operator, proved through the compactified resolvent functional calculus including its zero endpoint; the real Gamma density and scalar Laplace transform are also established.",
         "Both identification routes are kernel-checked: an unknown mixing measure explicitly linked to the candidate coordinate probability, and the locally absolutely continuous Pearson representative with the paper's two probe equations.",
         "The maximal coordinate multiplication operator and all actual Borel indicator projections are constructed on weighted L2; their probability recovery formula, domain commutation, and preservation under a projection-intertwining unitary are proved. The specific Gamma-two/Gamma-three unitary is proved unable to intertwine the literal coordinate multipliers while fixing one.",
-        "The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse."
+        "The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse.",
+        "For arbitrary probability measures on the full real line, a unitary intertwining the actual maximal coordinate multiplication operators and fixing the literal constant one preserves the coordinate probability and intertwines every Borel indicator projection. No support, density, moment, or projection-intertwining assumption is added."
       ],
-      "unproved_components": [
-        "For arbitrary coordinate probabilities, derive intertwining of every Borel spectral projection from a unitary intertwining only the unbounded multiplication operators and fixing one; the current general preservation theorem assumes the projection intertwining, while the exact Gamma-two/Gamma-three obstruction is separately proved from their unequal first moments."
-      ],
-      "gaps": [
-        "For arbitrary coordinate probabilities, derive intertwining of every Borel spectral projection from a unitary intertwining only the unbounded multiplication operators and fixing one; the current general preservation theorem assumes the projection intertwining, while the exact Gamma-two/Gamma-three obstruction is separately proved from their unequal first moments."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "The new identification, alternative operator Gamma recipe, canonical-selection failure, and literal marked coordinate constructions compile in the SigmaFormalization integration build. The corollary remains partial solely because the general spectral-projection functoriality for an unbounded multiplication-operator intertwiner has not been derived. The concrete Gamma-two/Gamma-three coordinate-mark obstruction is proved directly. No independent review or axiom audit was run, per the user's instruction to focus on proofs and builds."
+      "notes": "The last residual is proved using bounded coordinate resolvent probes (1+(t-a)^2)^(-1), derived directly from maximal multiplication-domain equations. Hausdorff uniqueness recovers interval probabilities; an integrable-density annihilator proves cyclicity and therefore all Borel projection intertwining. This is a concrete proof of the paper's marked-unitary clause rather than an assumption of spectral-projection functoriality. No new independent audit or full axiom audit is claimed."
     },
     {
       "id": "final:F1",
@@ -4204,26 +4205,32 @@
         "Sigma.Closure.presentation_intrinsic_unique",
         "Sigma.presentationEquivalence_roundtrip",
         "Sigma.Closure.presentation_transport_composes",
+        "Sigma.Closure.IntrinsicObject",
+        "Sigma.Closure.calibrated_intrinsic_unique",
+        "Sigma.Closure.PresentationData",
+        "Sigma.Closure.availablePresentation",
+        "Sigma.Closure.gammaMarkedCoordinateNode",
+        "Sigma.Closure.available_intrinsic_roundtrips",
+        "Sigma.Closure.available_reconstruction_roundtrip",
         "Sigma.presentationEquivalence"
       ],
       "proved_components": [
         "Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.",
+        "A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.",
         "Composition, uniqueness and round trips once native presentation equivalences are given."
       ],
       "unproved_components": [
-        "Construct the full typed E_Sigma collection with each actual candidate class and observation.",
-        "Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.",
-        "Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure.",
+        "Extend the typed collection to the remaining differential/group/convex/projective observations, entropy, Poisson, Gumbel/Haar, linked deficit, survival/logistic/Green, size-bias/equilibrium, characteristic-series continuation, tree inverse, marked rational, linked operator mixing and Bernstein-tail presentations.",
+        "For each remaining presentation instantiate its actual candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration.",
         "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
       ],
       "gaps": [
-        "Construct the full typed E_Sigma collection with each actual candidate class and observation.",
-        "Instantiate each node's encoding and identifying inverse, with both round trips on its stated solution class.",
-        "Supply the native missing local inverses identified by the probability, operator and realization audits before claiming global closure.",
+        "Extend the typed collection to the remaining differential/group/convex/projective observations, entropy, Poisson, Gumbel/Haar, linked deficit, survival/logistic/Green, size-bias/equilibrium, characteristic-series continuation, tree inverse, marked rational, linked operator mixing and Bernstein-tail presentations.",
+        "For each remaining presentation instantiate its actual candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration.",
         "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Generic S≃A inputs assume the required inverse; they cannot certify the complete named closure theorem."
+      "notes": "Thirteen concrete instances now discharge their inverse obligations from actual local declarations; the full enumeration remains partial. No unfinished stochastic R1 theorem is used by these instances or asserted to block the remaining assembly."
     },
     {
       "id": "final:global-E",
@@ -4310,6 +4317,14 @@
         "Sigma.Closure.perturbed_intrinsic_difference_tendsto_atTop",
         "Sigma.Closure.perturbed_intrinsic_difference_tendsto_zero_right",
         "Sigma.Closure.perturbed_intrinsic_endpoint_divergence",
+        "Sigma.Closure.vector_packet_no_decoder",
+        "Sigma.Closure.tree_packet_no_decoder",
+        "Sigma.Closure.stationary_packet_no_decoder",
+        "Sigma.Closure.process_packet_deletion",
+        "Sigma.Closure.process_packet_no_decoder",
+        "Sigma.Closure.matrix_packet_deletion",
+        "Sigma.Closure.matrix_packet_no_decoder",
+        "Sigma.Closure.arithmetic_packet_no_decoder",
         "Sigma.Closure.retained_context_deletion",
         "Sigma.Closure.no_placement_decoder_without_scale",
         "Sigma.Closure.no_placement_decoder_without_offset",
@@ -4321,11 +4336,12 @@
       ],
       "proved_components": [
         "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.",
+        "Independent retained-context expansions for actual vector, random-tree, native stationary-operator, process, matrix-family and arithmetic-label selections. Each non-decoder theorem retains the intrinsic object and an arbitrary common packet of every other selection. The process packet includes its sample space, probability measure and measurable process; the native Gamma subordinator and rT have the same time-one law but opposite independence predicates.",
         "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences."
       ],
       "unproved_components": [
         "A nonzero perturbation with exact integral normalization in the relaxed deletion universe.",
-        "Complete native external packet deletion witnesses and their independent expansion with other packets fixed.",
+        "Assemble coordinate-relabel deletion and the full conjunction of retained stationary spectral/mixing observations; supply the fixed-base integral bundle/K0 versus rational characteristic witness from F5.",
         "Global sufficient decomposition depends on full global-A/B and global-E.",
         "Normalized nontrivial intrinsic deletion witness.",
         "Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.",
@@ -4333,7 +4349,7 @@
       ],
       "gaps": [
         "A nonzero perturbation with exact integral normalization in the relaxed deletion universe.",
-        "Complete native external packet deletion witnesses and their independent expansion with other packets fixed.",
+        "Assemble coordinate-relabel deletion and the full conjunction of retained stationary spectral/mixing observations; supply the fixed-base integral bundle/K0 versus rational characteristic witness from F5.",
         "Global sufficient decomposition depends on full global-A/B and global-E.",
         "Normalized nontrivial intrinsic deletion witness.",
         "Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.",
@@ -4363,16 +4379,23 @@
         "Sigma.Closure.spatial_radial_cancellation",
         "Sigma.Closure.spatial_radial_dimension_three",
         "Sigma.Closure.radial_cancellation_does_not_identify_profile",
-        "Sigma.borel_size_does_not_identify_random_tree"
+        "Sigma.borel_size_does_not_identify_random_tree",
+        "Sigma.Closure.vector_packet_no_decoder",
+        "Sigma.Closure.tree_packet_no_decoder",
+        "Sigma.Closure.stationary_packet_no_decoder",
+        "Sigma.Closure.process_packet_no_decoder",
+        "Sigma.Closure.matrix_packet_no_decoder",
+        "Sigma.Closure.arithmetic_packet_no_decoder"
       ],
       "proved_components": [
-        "Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation."
+        "Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.",
+        "Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid."
       ],
       "unproved_components": [
-        "Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly."
+        "Supply and integrate F5's fixed-base bundle/K0 distinction with equal rational characteristic data; finish the complete typed boundary conjunction including coordinate relabelling and retained stationary data."
       ],
       "gaps": [
-        "Full scalar non-reconstruction list requires the remaining actual stationary/vector/process/matrix/topological/arithmetic witnesses and retained-packet assembly."
+        "Supply and integrate F5's fixed-base bundle/K0 distinction with equal rational characteristic data; finish the complete typed boundary conjunction including coordinate relabelling and retained stationary data."
       ],
       "independent_audit": "audits/formalization/current-core-closure-audit.json",
       "notes": "Spatial rigidity retains dimension>=2 and does not add continuity/measurability hypotheses."

@@ -4,12 +4,12 @@
   "totals_by_named_environment": {
     "total": 19,
     "definition": 0,
-    "complete": 18,
-    "partial": 1,
+    "complete": 19,
+    "partial": 0,
     "missing": 0
   },
   "namespace": "Sigma",
-  "result": "DEFECT LIST",
+  "result": "All recorded residual clauses proved; latest O5 closure and global integration pass lake build SigmaFormalization, with no new independent audit.",
   "passed_labels": [
     "final:O1",
     "final:O1-kernel",
@@ -894,7 +894,7 @@
     },
     {
       "latex_label": "final:O5-canonical-versus-identification",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.op_nonnegative_operator_gamma_mixing",
         "Sigma.op_nonnegative_gamma_probability_mixing",
@@ -919,7 +919,11 @@
         "Sigma.gamma_shape_unitary_not_coordinate_marked",
         "Sigma.alternative_gamma_laplace",
         "Sigma.op_nonnegative_alternative_gamma_mixing",
-        "Sigma.canonical_j_selection_gamma_three_formula"
+        "Sigma.canonical_j_selection_gamma_three_formula",
+        "Sigma.coordinate_recovery_measures_unique",
+        "Sigma.marked_multiplication_unitary_preserves_probability",
+        "Sigma.coordinate_marked_unitary_eq_refl",
+        "Sigma.marked_multiplication_unitary_intertwines_projections"
       ],
       "proved_components": [
         "Canonical exponent-two Gamma mixing existence for every native nonnegative self-adjoint operator, as genuine operator and strong probability integrals and a native complex measure identity; integer eigenvalues imply uniqueness of that unknown finite complex mixing measure.",
@@ -928,12 +932,11 @@
         "Actual operator mixing identity for every positive Gamma shape a and every native nonnegative self-adjoint operator, proved through the compactified resolvent functional calculus including its zero endpoint; the real Gamma density and scalar Laplace transform are also established.",
         "Both identification routes are kernel-checked: an unknown mixing measure explicitly linked to the candidate coordinate probability, and the locally absolutely continuous Pearson representative with the paper's two probe equations.",
         "The maximal coordinate multiplication operator and all actual Borel indicator projections are constructed on weighted L2; their probability recovery formula, domain commutation, and preservation under a projection-intertwining unitary are proved. The specific Gamma-two/Gamma-three unitary is proved unable to intertwine the literal coordinate multipliers while fixing one.",
-        "The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse."
+        "The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse.",
+        "For arbitrary probability measures on the full real line, a unitary intertwining the actual maximal coordinate multiplication operators and fixing the literal constant one preserves the coordinate probability and intertwines every Borel indicator projection. No support, density, moment, or projection-intertwining assumption is added."
       ],
-      "unproved_components": [
-        "For arbitrary coordinate probabilities, derive intertwining of every Borel spectral projection from a unitary intertwining only the unbounded multiplication operators and fixing one; the current general preservation theorem assumes the projection intertwining, while the exact Gamma-two/Gamma-three obstruction is separately proved from their unequal first moments."
-      ],
-      "notes": "The new identification, alternative operator Gamma recipe, canonical-selection failure, and literal marked coordinate constructions compile in the SigmaFormalization integration build. The corollary remains partial solely because the general spectral-projection functoriality for an unbounded multiplication-operator intertwiner has not been derived. The concrete Gamma-two/Gamma-three coordinate-mark obstruction is proved directly. No independent review or axiom audit was run, per the user's instruction to focus on proofs and builds."
+      "unproved_components": [],
+      "notes": "The last residual is proved using bounded coordinate resolvent probes (1+(t-a)^2)^(-1), derived directly from maximal multiplication-domain equations. Hausdorff uniqueness recovers interval probabilities; an integrable-density annihilator proves cyclicity and therefore all Borel projection intertwining. This is a concrete proof of the paper's marked-unitary clause rather than an assumption of spectral-projection functoriality. No new independent audit or full axiom audit is claimed."
     }
   ]
 }
