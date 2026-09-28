@@ -101,18 +101,23 @@
         "Sigma.realProjectiveComplexScalarExtension",
         "Sigma.real_projective_complex_scalar_extension_tmul",
         "Sigma.real_projective_complexification_has_no_nonvanishing_section",
-        "Sigma.real_projective_complex_bundle_not_trivial"
+        "Sigma.real_projective_complex_bundle_not_trivial",
+        "Sigma.real_projective_squared_coordinate_projector",
+        "Sigma.realProjectiveComplexSquareCore",
+        "Sigma.realProjectiveSquareSectionTotal",
+        "Sigma.real_projective_square_section_continuous"
       ],
       "proved_components": [
         "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.",
-        "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator."
+        "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.",
+        "The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section. This does not yet identify it with a native tensor square or establish K0 or Chern-character claims."
       ],
       "unproved_components": [
-        "The stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
+        "Identify the square-transition bundle with the actual native tensor square L tensor L and establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
-      "notes": "The actual complexification and the no-section/nontrivial-bundle component are formalized. The closed-hemisphere angle lift is derived by uniform radial subdivision; no angle-lift hypothesis is assumed. K0 stable distinction, rational Chern character, and the resulting fixed-base nonreconstruction witness remain open, so final:F5 remains partial. Bounded review of commit 9b82c4d by the independent reviewer passed: actual incidence sections and bundle trivializations, with the hemisphere angle lift derived rather than assumed. Primary coverage synchronized with the upstream proof record so regenerating reports retains this progress."
+      "notes": "The actual complexification and no-section/nontrivial-bundle component are formalized. The square-transition coboundary and its continuous nonvanishing native section now compile, but no native tensor-square identification is claimed. K0 stable distinction, rational Chern character, and the fixed-base witness remain open, so final:F5 remains partial. The earlier bounded independent review applies only to the previous incidence and nontriviality results; the new square-transition theorem has not been independently reviewed, per the user's proof-first instruction."
     },
     {
       "latex_label": "final:M1",

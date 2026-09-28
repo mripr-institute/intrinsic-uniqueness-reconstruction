@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 6.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1905 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1920 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2143,6 +2143,10 @@ Mathematical content formalized in Lean:
 - Canonical exponent-two Gamma mixing existence for every native nonnegative self-adjoint operator, as genuine operator and strong probability integrals and a native complex measure identity; integer eigenvalues imply uniqueness of that unknown finite complex mixing measure.
 - Actual Gamma-two and Gamma-three differential closures are unitarily equivalent on their full domains, fix the constant and share all retained spectral, trace, determinant and unique mixing data, while their stationary coordinate probabilities differ.
 - Explicit kernel-checked nonexistence of a spectrum-to-coordinate-probability inverse even on the two native stationary realizations: no map from the actual complex spectrum can recover both Gamma probability measures.
+- Actual operator mixing identity for every positive Gamma shape a and every native nonnegative self-adjoint operator, proved through the compactified resolvent functional calculus including its zero endpoint; the real Gamma density and scalar Laplace transform are also established.
+- Both identification routes are kernel-checked: an unknown mixing measure explicitly linked to the candidate coordinate probability, and the locally absolutely continuous Pearson representative with the paper's two probe equations.
+- The maximal coordinate multiplication operator and all actual Borel indicator projections are constructed on weighted L2; their probability recovery formula, domain commutation, and preservation under a projection-intertwining unitary are proved. The specific Gamma-two/Gamma-three unitary is proved unable to intertwine the literal coordinate multipliers while fixing one.
+- The canonical selector on the actual common integer-spectrum class chooses the Gamma-two native realization; applying it after forgetting the Gamma-three realization gives Gamma-two and is not a left inverse.
 
 Mapped Lean declarations:
 
@@ -2159,12 +2163,21 @@ Mapped Lean declarations:
 - `Sigma.gamma_shape_three_fredholm_determinant`
 - `Sigma.gamma_shape_three_regularized_determinant`
 - `Sigma.stationary_coordinate_no_spectrum_inverse`
+- `Sigma.op_linked_coordinate_probability_unique`
+- `Sigma.op_pearson_coordinate_probability_unique`
+- `Sigma.coordinateMultiplicationOperator`
+- `Sigma.coordinateIndicatorOperator`
+- `Sigma.coordinate_indicator_probability_general`
+- `Sigma.coordinate_indicator_multiplication_commute`
+- `Sigma.marked_projection_unitary_preserves_probability`
+- `Sigma.gamma_shape_unitary_not_coordinate_marked`
+- `Sigma.alternative_gamma_laplace`
+- `Sigma.op_nonnegative_alternative_gamma_mixing`
+- `Sigma.canonical_j_selection_gamma_three_formula`
 
 Remaining Lean formalization:
 
-- Corollary-level identification assembly under explicit mixing/coordinate linkage or the locally AC Pearson realization.
-- Proof-level marked coordinate multiplication operator and its Borel projection recovery formula, including probability preservation under a unitary intertwining the multiplication operator and fixing one.
-- The alternative exponent-a Gamma mixing recipe for every a > 0, and the explicit canonical-selection map with the displayed failure of its left-inverse equation.
+- For arbitrary coordinate probabilities, derive intertwining of every Borel spectral projection from a unitary intertwining only the unbounded multiplication operators and fixing one; the current general preservation theorem assumes the projection intertwining, while the exact Gamma-two/Gamma-three obstruction is separately proved from their unequal first moments.
 
 ### final:F1 — The normalized Todd tower and all its twists
 
@@ -2410,6 +2423,7 @@ Mathematical content formalized in Lean:
 
 - Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.
 - The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.
+- The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section. This does not yet identify it with a native tensor square or establish K0 or Chern-character claims.
 
 Mapped Lean declarations:
 
@@ -2426,10 +2440,14 @@ Mapped Lean declarations:
 - `Sigma.real_projective_complex_scalar_extension_tmul`
 - `Sigma.real_projective_complexification_has_no_nonvanishing_section`
 - `Sigma.real_projective_complex_bundle_not_trivial`
+- `Sigma.real_projective_squared_coordinate_projector`
+- `Sigma.realProjectiveComplexSquareCore`
+- `Sigma.realProjectiveSquareSectionTotal`
+- `Sigma.real_projective_square_section_continuous`
 
 Remaining Lean formalization:
 
-- The stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle
+- Identify the square-transition bundle with the actual native tensor square L tensor L and establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle
 - Its rational Chern character equals one
 - Resulting fixed-base nonreconstruction witness
 
