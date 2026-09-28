@@ -123,5 +123,4 @@ The genuine reconstruction steps proved above contain identifying data in their 
 | `PhaseIV.normalized_formal_log_ode_reconstruction` | P, C, Q |
 | `PhaseIV.formal_unit_quadratic_branch_unique` | P, C, Q |
 
-
 The coordinating audit also searched all four local proof modules and the generated axiom file with `rg` for `sorry|admit|axiom|unsafe`. The only matches were the intended `#print axioms` commands. The analytic zero-set counterexample Z4, the global analytic closure theorem, and the external-context irredundancy theorem are written proofs, not Lean theorems.

@@ -703,7 +703,7 @@
         "Actual strong mixing against the native finite complex Borel measure holds for the Gamma measure, with integrability of every finite Jordan-part orbit. Applying the equation to one nonzero eigenvector at each integer extracts all scalar samples, including zero, and proves exact existence and uniqueness without completeness or multiplicity restrictions."
       ],
       "unproved_components": [],
-      "notes": "WHOLE final:O5 independent AUDIT PASS, preserved in O5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
+      "notes": "WHOLE final:O5 independent AUDIT PASS, preserved in o5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "latex_label": "final:O6",
@@ -800,7 +800,7 @@
         "Both bounded and unbounded strictly increasing Bernstein functions are covered; the unattained limiting endpoint has zero eigenspace, including positive compactified endpoints."
       ],
       "unproved_components": [],
-      "notes": "WHOLE statement AUDIT PASS: O6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: O6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
+      "notes": "WHOLE statement AUDIT PASS: o6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: o6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "latex_label": "final:O5-isospectral-boundary",

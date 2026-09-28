@@ -1,4 +1,4 @@
-Independent audit of the native matrix calculus
+# Independent audit of the native matrix calculus
 
 The calculus components of `final:M2` are proved by the checked module `outputs/lean/SigmaFinalMatrixCalculus.lean`. The full M2 theorem remains partial. This review read the exact statements and proofs against `series-realizations.tex`, checked the underlying definitions in `SigmaFinalRealMatrix.lean`, and compiled an independent wrapper for the manuscript Hessian. No root source was edited.
 

@@ -1,4 +1,4 @@
-**Formal verification audit H — Phase IV, 12 September 2026.**
+# Formal verification audit H — Phase IV, 12 September 2026
 
 The final clean Lean build succeeded with exit status **0**. It rebuilt all four local proof modules from copied source in a newly created directory, then ran `#print axioms` for **all 69 exported theorems**: 16 existing `SigmaAudit` results and 53 new `PhaseIV` results. Every theorem reports exactly `propext`, `Classical.choice`, and `Quot.sound`. The sources contain no `sorry`, `admit`, custom axiom declarations, or `unsafe` declarations. This is a kernel-checked bounded mathematical subset using Lean/mathlib's standard foundations.
 

@@ -1,4 +1,4 @@
-Exact C5 statement and domain audit
+# Exact C5 statement and domain audit
 
 The full `final:C5` statement is proved in the five `SigmaFinalFenchelConverse*` modules, together with the existing finite optimizer results in `SigmaFinalFenchel.lean`. The new statement map records six complete components.
 

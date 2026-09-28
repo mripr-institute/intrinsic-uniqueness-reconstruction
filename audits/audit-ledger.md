@@ -1111,4 +1111,3 @@ Every entry has exactly the requested ten fields. The JSON companion contains th
 9. **Removed input:** No inferred formal certification from a PDF statement.
 10. **Remaining dependency:** Provide actual source/build environment if a custody rerun is desired.
 
-

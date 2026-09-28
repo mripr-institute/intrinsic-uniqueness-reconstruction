@@ -144,11 +144,9 @@ All Phase III sections are mapped to an independent verdict in [the audit ledger
 
 The following appendices reproduce the independently rebuilt proofs. Their generic audit words concern review outcomes; the mathematical statuses are the specified identities, implications, conditional implications and counterexamples. Original source files preserve the blind/unblind review record separately.
 
+## Appendix A. Core and formal-series proofs
 
-
-# Appendix A. Core and formal-series proofs
-
-# Phase IV independent core and scalar-series audit
+## Phase IV independent core and scalar-series audit
 
 The statement-only audit was saved as [core-series-blind.md](phase-iv-audit/core-series-blind.md) before opening Phase III. This audit subsequently read Phase III §§I.1–I.2, II.1–II.2, III.4–III.5, III.7, III.11, IV.1–IV.3, IV.8–IV.9, together with the earlier master E0–E14 clauses in the manuscript, dependency ledger and sixteen-branch audit. It does not modify the manuscript or global report.
 
@@ -158,7 +156,7 @@ The statement-only audit was saved as [core-series-blind.md](phase-iv-audit/core
 
 Throughout, the intrinsic marked real coordinate is `t>0`, `H(t)=log(t)−t+1`, `I=−H`, `p=exp(H−1)=t exp(−t)`. The reciprocal passages require positive p and retain its multiplicative level. Placement is separate: none of these intrinsic nodes recovers an unmarked `(mu,a)`.
 
-## Frozen E0–E14 interface
+### Frozen E0–E14 interface
 
 Every forward implication in this table follows from the displayed intrinsic functions. Every reverse is valid in exactly the category stated. Local audit exports retain the original E IDs as well as the CS IDs below.
 
@@ -182,7 +180,7 @@ Every forward implication in this table follows from the displayed intrinsic fun
 
 These are calibrated complete statements, not interchangeable names for subjects. The old manuscript's global C² convention and explicit E5 injectivity and E6 strict convexity are sufficient but not minimal. Their removal is valid under the exact replacement conditions above.
 
-## CS01–CS02: curvature, recentering, group logarithm and cocycle
+### CS01–CS02: curvature, recentering, group logarithm and cocycle
 
 For curvature, subtract log t and apply twice the fact that a differentiable function with zero derivative on an interval is constant. For Riccati, uniqueness of the first-order equation with initial value q(1)=1 gives q=1/t throughout the connected domain; no intervening pole is admissible. The known solution exists on the whole positive ray. Calibrated exact-flow data give the same result without first assuming an ODE: put t=1 and s=v−1.
 
@@ -200,7 +198,7 @@ and divide by `(1+x)y` as y tends to 0. Consequently `(1+x)h'(x)=h'(0)−x`, and
 
 The cocycle `−xy` satisfies `c(x,y)+c(x star y,z)=c(y,z)+c(x,y star z)` by expansion. Its group quotient and tangent-subtracted recentering presentations add no independent data.
 
-## CS03: Bregman and exact Legendre converse
+### CS03: Bregman and exact Legendre converse
 
 Direct substitution gives `B_I(t,s)=I(t/s)`. For a differentiable candidate Phi, simultaneous scale invariance implies, by differentiating only the first variable,
 
@@ -232,7 +230,7 @@ Alternatively, if F is convex, the same optimizing sequences make its effective 
 
 If neither regularity alternative is imposed, raise I by 1 at a single positive point and leave it unchanged elsewhere. The conjugate stays C because nearby points approximate the removed optimizer. The modified function is neither convex nor lsc. Thus the unrestricted converse is false, but the old requirement to assume both closedness and convexity is unnecessary for this exact target.
 
-## CS04: self-concordance and three distinct automorphism questions
+### CS04: self-concordance and three distinct automorphism questions
 
 `I''=t^(−2)` and `I'''=−2t^(−3)` prove standard self-concordance with equality. For a C³ candidate with positive second derivative, signed equality plus `Phi''(1)=1` gives `((Phi'')^(−1/2))'=1`, hence Phi''=t^(−2); two affine anchors recover I. The unsigned equality also suffices on the entire positive ray: the continuous nonzero third derivative has constant sign. The opposite sign would give `(Phi'')^(−1/2)=2−t`, impossible for all t>0. On (0,2), the different potential `−log(2−t)−(t−1)` shows why that global domain or an orientation mark matters. The inequality alone fails to identify I, as cI for c>=1 shows.
 
@@ -248,7 +246,7 @@ Conjugate by log(1+x) and exp−1 to obtain an additive regular bijection of R, 
 
 The integer n-series is `[n]_star(x)=(1+x)^n−1`: repeated **group addition** for n>=0 and the group inverse for n<0. Phase III's phrase “repeated composition” should be read/replaced this way; ordinary function composition satisfies `[m]_star compose [n]_star=[mn]_star`, not `[m+n]_star`.
 
-## CS05 and CS14: derivative reconstruction, continuation, and exact-zero counterexample
+### CS05 and CS14: derivative reconstruction, continuation, and exact-zero counterexample
 
 On a connected interval r>b, `F''=−(r−b)^(−2)` gives exactly `F=log(r−b)+Ar+B`. Thus all higher derivative identities add nothing once n=2 is supplied, and two affine data remain necessary. A lone n-th derivative identifies only modulo a polynomial of degree at most n−1. The placement-recovery formulas and finite-difference formula in Phase III III.4 are correct inside their declared family; they do not identify arbitrary candidates from a finite jet or discrete samples. A periodic perturbation preserves all integer samples, while a smooth bump away from the observation point preserves its complete jet.
 
@@ -284,7 +282,7 @@ No claim is made that this counterexample preserves a separately supplied expone
 
 For continuation, the complete germ or Taylor sequence identifies an arbitrary global candidate only in a declared uniqueness category, such as real analytic functions on the same connected positive ray. Alternatively the exact recovered expression may be used to **construct** its canonical global representative. Formal equivalence does not select an arbitrary smooth global extension. The bump examples in IV.8 are valid; sufficiently small compactly supported perturbations preserve strict convexity because I'' has a positive minimum on that compact support. Even positivity and probability normalization do not replace the analytic category, as the zero-integral bump example in probability.md demonstrates.
 
-## CS06–CS09: complete scalar-series closure
+### CS06–CS09: complete scalar-series closure
 
 Work over a characteristic-zero field as Phase III specifies; a commutative rational algebra also suffices for these identities. The variable u is marked and `Q(0)=1`. Expressions such as `u/(1−exp(−u))` mean the inverse of the normalized unit `(1−exp(−u))/u`, not inversion of a nonunit series.
 
@@ -326,7 +324,7 @@ The corresponding real formulas extend through u=0 by value 1 and hold for every
 
 Thus y=0 gives Todd and y=1 gives L; y=−1 gives exactly 1+u and discards all higher coefficients. Over a general ring one must require 1+y to be invertible, not merely nonzero. Over Q[y] the inverse belongs to the localization at 1+y. The source uses a field, so its y≠−1 condition is already sufficient. Multiplicative inversion of normalized units is involutive and loses no universal scalar information.
 
-## CS10–CS11: universal Thom correction and topological countermodels
+### CS10–CS11: universal Thom correction and topological countermodels
 
 The scalar Euler-coordinate formula passes: if `z=x/(1+x)`, then `z(x star y)=z(x)+z(y)−z(x)z(y)`. Interpreting x as `[L]−1` and z as `1−[L*]` is an additional map into actual K-theory; the scalar equation alone does not create a bundle or base space.
 
@@ -340,7 +338,7 @@ The converse from the **full universal line series** is immediate inversion. On 
 
 The rational torsion countermodel is valid. On RP², the complexification L of the tautological real line has nonzero c1 in H²(RP²;Z)=Z/2 and `ch(L)=1` rationally. Its K-class differs from the trivial line: any stable trivialization would trivialize its determinant and therefore L itself. One can also see nontriviality without presuming the c1 calculation: a nowhere-zero section of L would give an odd map S²→C\{0}, hence an odd map S²→S¹. Lift its angle to R using simple connectivity of S². The difference of the angles at antipodal points is a continuous odd multiple of pi and hence constant, while swapping the points reverses it, a contradiction. L tensor L is trivial, in agreement with order-two torsion. Thus scalar series and rational characteristic images cannot recover integral bundle/K data even when the base is already fixed.
 
-## CS12–CS13: completion and calibrated projectivity
+### CS12–CS13: completion and calibrated projectivity
 
 For E5, put q=h' and ell=id+h. The typed condition q(D) subset D gives `ell'=1+q>0`; the mean value theorem makes ell strictly increasing and its inverse on its range continuous. From `ell(q)=−ell` obtain `q=ell^(-1)(−ell)`, so q is continuous. The inverse derivative theorem now applies because ell'>0, and q is C¹. Applying the completion equation twice and using injectivity gives q(q(z))=z. Differentiate to get
 
@@ -352,7 +350,7 @@ For E14 use the stated cross-ratio convention `(x1−x3)(x2−x4)/((x1−x4)(x2�
 
 The manuscript's zero-Schwarzian version uses **jet marks**, not the three value marks above: `f=H' in C³`, f' nowhere zero, `Sf=f'''/f'−(3/2)(f''/f')²=0`, `f(1)=0`, `f'(1)=−1`, `f''(1)=2`, and H(1)=0. Set w=f''/f'. Then w'=w²/2 and w(1)=−2, so w=−2/t; integrating successively gives f'=−1/t² and f=1/t−1, then H. This is a valid alternative calibrated node. A zero Schwarzian by itself merely characterizes a fractional-linear family, and does not select Sigma. If three value marks are used instead, the global fractional-linear classification yields the same result; do not silently replace one calibration set by an incomplete subset of the other.
 
-## Formalization practicality and evidence boundary
+### Formalization practicality and evidence boundary
 
 | Exports | Practical Lean scope | What must not be advertised as already checked |
 |---|---|---|
@@ -366,17 +364,15 @@ The manuscript's zero-Schwarzian version uses **jet marks**, not the three value
 
 No new Lean theorem is claimed by this audit file. Its exported statements are written mathematical proofs with explicit dependencies. The reproducible symbolic diagnostics in [core-series-checks.py](phase-iv-audit/core-series-checks.py), recorded in [core-series-checks.json](phase-iv-audit/core-series-checks.json), check the Todd twists through n=6, the T/A/L identities through degree 7, the rational counterexample's exact mass, and its derivative formula through order 12. All pass. They remain finite checks; the universal arguments are the proofs above.
 
+## Appendix B. Probability proofs
 
-
-# Appendix B. Probability proofs
-
-# Phase IV independent probability and transform audit
+## Phase IV independent probability and transform audit
 
 The statement-only derivations were recorded in [probability-blind.md](phase-iv-audit/probability-blind.md) **before** opening the Phase III report. This comparison then read Phase III §§I.3–I.7, II.3, III.3, III.12 and IV.3–IV.6, and checked the older dependency ledger, sixteen-branch audit and manuscript for prior coverage. No global report was edited. All claims below refer to the marked intrinsic functions `I(t)=t−1−log t` and `p(t)=t exp(−t)`, t>0; placement parameters are outside this audit.
 
 Verdict symbols: **⇔** means the exact node identifies the stated target within its candidate class; **⇒** is a valid forward implication; **+H** indicates an essential retained hypothesis or an ambiguous sentence needing qualification; **×** is a refuted converse. “Old,” “strengthened,” and “new” describe novelty within this workspace's sequence of audits, not mathematical priority in the literature.
 
-## Decision table
+### Decision table
 
 | Claim | Verdict after independent derivation | Classification relative to the prior audit |
 |---|---|---|
@@ -396,7 +392,7 @@ Verdict symbols: **⇔** means the exact node identifies the stated target withi
 
 The main Phase III probability uniqueness theorems survive. The material edit is to disambiguate the centered-CGF sentence; the useful additional reduction is Bernstein recovery from an integer tail. The existing drift, coordinate, normalization, density-link and branching qualifications cannot be removed by the presented cross-branch constructions.
 
-## 1. Complete moments: proof and sharp boundary
+### 1. Complete moments: proof and sharp boundary
 
 **Exact statement.** Let μ be a finite positive Borel measure on R with `∫x^n μ(dx)=(n+1)!` for every integer n≥0. Then `μ(dx)=1_(x>0)x exp(−x)dx`.
 
@@ -410,7 +406,7 @@ The support conclusion is substantive: it was an input in the earlier E10. Omitt
 
 The adjacent exponential-moment support result also passes: `∫e^(−ns)ν(ds)=(n+1)^(−2)` for n≥0 forces total mass one and excludes `s≤−ε` by exponential growth. Then `y=e^(−s)` puts the problem on [0,1], and polynomial density identifies the measure with density −log y, hence `ν(ds)=s exp(−s)ds`. This is the correct kernel identification in I.6–I.7; it does not identify arbitrary stationary coordinate densities from spectra.
 
-## 2. Poisson recurrence, CGF and KL: valid scalar reconstruction, location caveat
+### 2. Poisson recurrence, CGF and KL: valid scalar reconstruction, location caveat
 
 Iteration and normalization give `π_n=e^(−1)/n!` from the displayed recurrence. Direct calculation yields
 
@@ -438,7 +434,7 @@ Suggested exact replacement:
 
 If the original sentence intended the uncentered K throughout, this is a clarity repair rather than a failed theorem. A complete centered CGF interpreted as already attached to the fixed variable N−1 also has no defect.
 
-## 3. Gumbel max laws: no hidden regularity needed
+### 3. Gumbel max laws: no hidden regularity needed
 
 **Exact statement.** A CDF F on R with `F(x+log 2)^2=F(x)`, `F(x+log 3)^3=F(x)` for every x and `F(0)=e^(−1)` is `exp(−exp(−x))`.
 
@@ -452,7 +448,7 @@ Dropping the anchor leaves `exp(−c exp(−x))`, c>0. Keeping only the base-2 e
 
 As an oriented differential, dx=−dt/t; the measure substitution uses its absolute Jacobian. Also dt/t is the infinite Haar measure, calibrated by `∫p(t)dt/t=1`; it is not a probability Haar measure. This makes the intended convention in (1.11) explicit. It is the Haar-weighted probability, not the Gamma probability `p(t)dt`, that becomes Gumbel under x=−log t.
 
-## 4. Joint deficit law and involution: the continuous proof is complete
+### 4. Joint deficit law and involution: the continuous proof is complete
 
 **Exact class.** J:(0,∞)→[0,∞) is continuous, J(1)=0, strictly decreasing left of one and strictly increasing right of one, tends to infinity at both endpoints, and `q_J=exp(−1−J)` integrates to one. The supplied law is that of J(T) under **this same** q_J, and the supplied involution pairs its equal-level roots in the same t coordinate.
 
@@ -472,7 +468,7 @@ and divergence for s≥1. Expanding its logarithm yields `κ₁=γ_E` and `κ_n=
 
 The zeta/spectral detour in I.3 constructs a canonical kernel but cannot identify the designated J: the common-displacement examples retain all the cumulants used by that detour. The density link and coordinate involution remain identifying data in this inverse problem.
 
-## 5. Reverse probability transforms and Gamma Lévy data
+### 5. Reverse probability transforms and Gamma Lévy data
 
 **Size bias.** For a nonnegative probability μ of finite positive mean m, the size-biased law is `β(dx)=xμ(dx)/m`. If μ({0})=0 and `c=∫x^(−1)β(dx)<∞`, then `μ(dx)=β(dx)/(cx)` and m=1/c. Gamma(2,1) size bias therefore reverses to Exp(1). Every mixture `rδ₀+(1−r)Exp(1)`, 0≤r<1, has that same size bias, proving the necessity of excluding an atom at zero. III.3 states the correct boundary.
 
@@ -492,7 +488,7 @@ The Gamma tilted density, its mean, variance and cumulants displayed in III.3 ar
 
 The nearby Stieltjes statements also pass: `(1+λ)^(−2)` is completely monotone but cannot be a nonzero Stieltjes function, since λ times it tends to zero whereas a nonzero positive Stieltjes representation forces positive lower limit. The actual probability Stieltjes transform is `1−ze^z E₁(z)`; splitting `t/(t+z)` and then applying Laplace uniqueness twice proves the stated formula and injectivity.
 
-## 6. Bernstein sampling: correct theorem and stronger tail version
+### 6. Bernstein sampling: correct theorem and stronger tail version
 
 **Phase III statement: ⇔.** Every Bernstein function is determined by its values at all integers n≥0. Its representation is
 
@@ -508,7 +504,7 @@ Then `f(n+1)−f(n)=∫y^nρ(dy)`. All n≥0 give all compact-interval moments, 
 
 **Stronger exact theorem, new in this audit.** For any integer N≥1, knowing f(n) for every n≥N already determines f. The increments at n=N,N+1,… are all moments of the finite measure `η(dy)=y^Nρ(dy)`. Compact moment uniqueness determines η. The representation itself implies `ρ({0})=0`; divide η by y^N on (0,1] to recover ρ, then recover d and ν as above. The one value f(N) fixes k. Consequently f(0) and any finite initial set of integer samples are redundant. This directly strengthens the Phase III result without a new candidate hypothesis.
 
-## 7. Rooted/Borel coefficients: precise continuation and branching conclusions
+### 7. Rooted/Borel coefficients: precise continuation and branching conclusions
 
 For the formal solution R=z exp(R), Lagrange inversion yields
 
@@ -524,7 +520,7 @@ The complete rooted coefficients `n^(n−1)` with their EGF convention therefore
 
 Within the iid Galton–Watson class started from one ancestor, let Φ be the offspring PGF. Conditioning on the root offspring and using independent descendant trees gives `B(s)=sΦ(B(s))`. Since B maps (0,1) onto (0,1), and also satisfies `B(s)=s exp(B(s)−1)`, one obtains `Φ(w)=exp(w−1)` for 0<w<1. Analytic coefficient uniqueness recovers the Poisson(1) offspring distribution; the iid construction then fixes the tree law. No tree-shape inference is smuggled in from counts alone.
 
-## Recommended report changes and verification limits
+### Recommended report changes and verification limits
 
 1. Clarify I.5's centered-CGF converse using the replacement above; preserve its valid reconstruction of I.
 2. State the Bernstein converse using a complete integer tail if the strongest proved reduction is desired.
@@ -534,7 +530,7 @@ Within the iid Galton–Watson class started from one ancestor, let Φ be the of
 
 The other main probability proofs need no repair. The conclusions rest on the analytic and measure-theoretic arguments given above and in the prior blind file. No finite numerical sample or symbolic check was used as evidence for a universal uniqueness theorem, and no new formal mechanization is claimed.
 
-## Subsequent independent check: exact derivative-zero sets do not identify Gamma
+### Subsequent independent check: exact derivative-zero sets do not identify Gamma
 
 After completing the blind probability audit and its comparison, the coordinating auditor supplied the candidate family
 
@@ -554,13 +550,11 @@ Indeed the derivative of `(n−t)/(t+k)^(k+n+1)` is `−(k+n)(n+1−t)/(t+k)^(k+
 
 The simplest example is `f_2(t)=4t/(t+2)^3`, which has an algebraic tail and differs from `t e^(−t)`. Consequently the exact-all-zero-sets smooth positive probability converse left **?** in Phase III III.4/IV.3 is **×**. This counterexample retains normalization, positivity, analyticity, endpoint vanishing and the complete zero sets, not merely selected incidences. It does not claim to retain a separately imposed height `f(1)=e^(−1)` or exponential-tail condition. Those were not assumptions of the stated unresolved class.
 
+## Appendix C. Operator and spectral proofs
 
+## Phase IV operator/spectral audit
 
-# Appendix C. Operator and spectral proofs
-
-# Phase IV operator/spectral audit
-
-## Scope and verdict
+### Scope and verdict
 
 The independent derivation was saved in [operator-blind.md](phase-iv-audit/operator-blind.md) before opening Phase III or earlier operator audits. The subsequent comparison used Phase III I.6–I.7, III.1–III.3, IV.4, V.1–V.4, plus `work/audit-v2/operator-derivation.md`, `operator-statements-blind.md`, `operator-blind-review.md`, and `operator-converse-addendum.md`.
 
@@ -570,9 +564,9 @@ The independent derivation was saved in [operator-blind.md](phase-iv-audit/opera
 
 Two smaller precision edits are advisable: explicitly require the relevant finite trace data in the general compact-resolvent inverse theorem; and explicitly distinguish polynomial identities of differential expressions from membership in the compactly supported minimal domain. These qualifications do not affect the canonical Laguerre conclusions.
 
-## 1. Exact intrinsic and local characterizations
+### 1. Exact intrinsic and local characterizations
 
-### 1.1 Full-line weak Stein characterization — PASS
+#### 1.1 Full-line weak Stein characterization — PASS
 
 For a finite positive Borel measure P on R, the hypotheses
 \[
@@ -586,7 +580,7 @@ The distributional equation is `(tP)'=(2-t)P`. On any interval avoiding zero, di
 
 The earlier audit's nonunique kernels `τ=t+Ce^t/t` concern a different inverse problem: P is already fixed and τ is unknown. They do not contradict this theorem, in which τ=t and the drift normalization are fixed while P is unknown. Tests supported only inside (0,∞) would not identify a full-line probability; the full-line test class is essential to the support conclusion.
 
-### 1.2 Two polynomial probes — PASS in the stated category
+#### 1.2 Two polynomial probes — PASS in the stated category
 
 In the fixed coordinate t∈(0,∞), let `Bf=-a(t)f''-b(t)f'` be a conservative local second-order expression. If
 \[
@@ -602,7 +596,7 @@ Both displayed counterfamilies are valid. Outside the local expression category,
 
 Recovering the differential expression does not itself choose an unspecified Hilbert realization. With the normalized zero-current Pearson measure or the explicitly prescribed canonical realization, the invariant density is the Gamma density, and the unique closure below follows. Phase III III.1 retains this qualification correctly.
 
-## 2. Essential self-adjointness and the full spectral theorem — PASS
+### 2. Essential self-adjointness and the full spectral theorem — PASS
 
 Write `w(t)=te^{-t}`, `q(t)=t²e^{-t}`. On `H=L²((0,∞),w dt)`, the symmetric nonnegative minimal operator is
 \[
@@ -628,7 +622,7 @@ e_n=L_n^{(1)}/\sqrt{n+1},\qquad Ae_n=ne_n
 \]
 is a complete orthonormal eigenbasis, and the spectrum is exactly the simple set N_0. The exact domains are `Σn²|c_n|²<∞` for A and `Σn|c_n|²<∞` for its form. This also validates the earlier operator audit's essential-self-adjointness and completion claims.
 
-## 3. Complete traces identify the unitary class — PASS with explicit convergence
+### 3. Complete traces identify the unitary class — PASS with explicit convergence
 
 For the canonical A,
 \[
@@ -644,7 +638,7 @@ Compact resolvent alone does not guarantee either trace hypothesis. For example 
 
 The stronger integer-data assertion also passes: if `Tr(1+B)^(-2)<∞`, let `x_j=(1+λ_j)^(-1)` and `η=Σx_j²δ_{x_j}`. It is a finite measure on [0,1], and its moments are `Z_B(k+2)`. Hausdorff uniqueness identifies η. Every nonzero atom x has mass `m x²`, so it identifies the eigenvalue x^-1−1 and integer multiplicity m. No atom at zero arises from a finite eigenvalue. This proof needs neither interpolation of ζ nor values at noninteger s.
 
-## 4. Finite special values and determinants — PASS
+### 4. Finite special values and determinants — PASS
 
 For any finite modification of the eigenvalues `r_j=1+λ_j>1`, the zeta correction
 \[
@@ -663,7 +657,7 @@ For sufficiently small nonzero ε, b,c remain positive, distinct, greater than o
 
 This concerns the specified finite familiar invariants. It is not a claim that no specially encoded finite datum could ever contain the whole spectrum.
 
-## 5. Kernel, resolvent, and determinant formulas — PASS
+### 5. Kernel, resolvent, and determinant formulas — PASS
 
 Let q=e^-τ with τ>0. Relative to `p(y)dy=ye^{-y}dy`,
 \[
@@ -697,9 +691,9 @@ Finally,
 \]
 Both identities hold as entire functions of z. The apparent square-root choice disappears because its quotient is even. The first is the ordinary Fredholm determinant for a trace-class perturbation; the second is the Hilbert–Schmidt regularization. Their full zero multisets identify the corresponding compact-operator spectra. [NIST DLMF hyperbolic product](https://dlmf.nist.gov/4.36.E1); [NIST DLMF gamma product](https://dlmf.nist.gov/5.8.E2).
 
-## 6. J completion: three different valid statements
+### 6. J completion: three different valid statements
 
-### 6.1 Unknown-measure theorem — intrinsic identification when ν is the subject
+#### 6.1 Unknown-measure theorem — intrinsic identification when ν is the subject
 
 Let B≥0 be self-adjoint and have a nonzero eigenvector for every n∈N_0. For a finite Borel measure ν on [0,∞), the bounded strong operator identity
 \[
@@ -714,7 +708,7 @@ For an initially positive finite measure on the whole real line, if all the disp
 
 Thus, if the candidate intrinsic probability itself is denoted ν in (J), this is an authentic characterization of that candidate. The identity explicitly links the candidate to the observed operator. There is no need to identify an unspecified stationary law first.
 
-### 6.2 Canonical recipe completion — PASS as construction
+#### 6.2 Canonical recipe completion — PASS as construction
 
 The fixed scalar recipe `J(λ)=(1+λ)^-2` has Gamma(2) as a positive Laplace mixing measure for **every** nonnegative self-adjoint B. Integer spectrum proves that the restricted operator equality has no other finite nonnegative-time mixing measure. Therefore the existence assertion in I.7 is genuinely derived, and its Hausdorff uniqueness proof passes.
 
@@ -722,7 +716,7 @@ The exponent-two recipe is nevertheless retained structure. Replacing it by `(1+
 
 I.7's assertion that the output is the canonical mixing kernel, rather than the invariant density of an unspecified realization, is mathematically correct. Its status should be written **canonical completion in the fixed J template**, with that template visible wherever its arrow is reused.
 
-### 6.3 Stationary-coordinate reconstruction — FAIL without linkage
+#### 6.3 Stationary-coordinate reconstruction — FAIL without linkage
 
 For each α>0 the standard Laguerre realization
 \[
@@ -735,7 +729,7 @@ Set `ν_2(ds)=se^{-s}ds`. Both pairs `(A_2,ν_2)` and `(A_3,ν_2)` satisfy (J), 
 
 There is even a unitary carrying 1 to 1 and intertwining A_2 with A_3, obtained by mapping their normalized Laguerre eigenbases mode by mode. It still does not carry the original multiplication coordinate to the new multiplication coordinate. An abstract operator with a distinguished constant vector is therefore insufficient. A fully marked package `(H,A,1,M_t)` does retain the coordinate law via `P(E)=⟨1,1_E(M_t)1⟩`; alternatively the prescribed local differential expression plus the normalized zero-current law suffices.
 
-## 7. Exact SCC correction
+### 7. Exact SCC correction
 
 Let F forget a stationary coordinate realization and retain only its spectrum. Let G_J construct Gamma(2) from that spectrum using the J recipe and then construct the canonical Gamma(2) Laguerre realization. Then
 \[
@@ -750,7 +744,7 @@ There are two consistent graph conventions:
 
 In particular, writing a bare `SPEC` node, an edge labelled “fixed programme J recipe,” and then an ordinary reverse arrow to the source intrinsic object hides the dependence when graph reachability is compressed. Either carry the recipe on the nodes and in the equivalence statement, or tag that edge as construction and exclude it from SCC equivalence inference. Phase III V.4 should be repaired on this point even though the qualifications in I.7 and III.2 already explain the correct mathematics.
 
-## 8. Bernstein integer samples — PASS
+### 8. Bernstein integer samples — PASS
 
 For a Bernstein function with its standard representation
 \[
@@ -765,21 +759,19 @@ on [0,1] has moments `f(n+1)-f(n)`. Its finiteness follows from the Lévy integr
 
 Knowing f(A) on the marked integer eigenspaces supplies exactly these samples, so Phase III III.3 is correct. Knowing a fixed strictly increasing f instead allows inversion of functional calculus to recover A from f(A); this is a different inverse question. Arbitrary smooth scalar functions admit modifications `εsin(2πλ)` invisible on N_0 and lack this uniqueness.
 
-## Audit disposition
+### Audit disposition
 
 No formula replacement is needed in Phase III III.1–III.3 or IV.4 for the audited operator claims. Preserve the existing shifted-zeta definition, endpoint classification, determinant conventions, and stationary/mixing distinction. Make the inverse-trace convergence premises explicit, specify the probe-domain meaning, and revise the compressed graph so its claimed SCCs do not identify arbitrary coordinate realizations through a canonical J selection. The blind derivation, exact countermodels, and arguments above are the verification; no numerical diagnostic is being represented as proof of a universal theorem.
 
+## Appendix D. Realization proofs
 
-
-# Appendix D. Realization proofs
-
-# Phase IV independent audit of matrix, spatial and arithmetic realizations
+## Phase IV independent audit of matrix, spatial and arithmetic realizations
 
 The statement-only proofs were saved in [realizations-blind.md](phase-iv-audit/realizations-blind.md) before opening the corresponding Phase III arguments. The earlier probability assignment had exposed probability sections and incidental search snippets; the blind file explicitly records that limited prior exposure. This comparison then read Phase III II.5, III.6, III.8–III.10 and IV.7–IV.11, together with the older sixteen-branch audit, dependency/audit ledgers and relevant manuscript sections. The Euler-product converse was encountered during comparison and checked separately below; it is not claimed as part of the original blind exercise. No global report was edited.
 
 Symbols: **⇔** exact identifying equivalence in the stated category; **⇒** valid forward construction; **+H** essential retained datum or a statement requiring repair; **×** refuted unqualified converse. Historical labels refer to these workspace audits, not novelty in the mathematical literature.
 
-## Findings and historical classification
+### Findings and historical classification
 
 | Node | Verdict | Old / strengthened / new within this workspace |
 |---|---|---|
@@ -803,7 +795,7 @@ Symbols: **⇔** exact identifying equivalence in the stated category; **⇒** v
 
 The major realization claims pass. Two matrix sentences require small repairs, and the continued-fraction terminal convention should explicitly exempt one-term integer expansions. No unconditional matrix/spatial/arithmetic identification emerges by combining the canonical auxiliary constructions.
 
-## 1. SPD uniqueness and the two indispensable rules
+### 1. SPD uniqueness and the two indispensable rules
 
 **Exact statement.** A family `Φ_n:SPD_n→R` with `Φ_1(t)=I(t)`, orthogonal conjugation invariance and `Φ_(m+n)(X⊕Y)=Φ_m(X)+Φ_n(Y)` is uniquely
 
@@ -817,7 +809,7 @@ The two counterexamples in IV.7 are valid and retain nonnegativity. The function
 
 The spectral perturbation `G_n=Φ_n+εΣ_(i<j)(log λ_i−log λ_j)^2`, ε>0, has the seed and invariance but violates block additivity on distinct scalar blocks. Hence the scalar seed alone, or either one rule, cannot identify a designated matrix lift. Constructing the canonical Φ by spectral calculus or Gaussian KL proves that this particular object satisfies the rules, not that an independently supplied F does.
 
-## 2. Matrix differential geometry: verification and two repairs
+### 2. Matrix differential geometry: verification and two repairs
 
 All matrices in this section are real symmetric positive definite; tangents and dual parameters are symmetric, with the trace pairing. The derivatives and divergence are
 
@@ -849,7 +841,7 @@ The determinant bounds also pass: I≥0 gives `det X≤exp(tr X−n)`, with equa
 
 **Metric-selection boundary.** The Hessian of the uniquely selected Φ fixes the displayed g. Bare affine invariance is weaker: the family `α tr(X⁻¹UX⁻¹V)+β tr(X⁻¹U)tr(X⁻¹V)`, α>0 and β>−α/n, is also congruence invariant. This is explicitly recorded in the primary paper [Thanwerdas–Pennec, formula (3)](https://arxiv.org/pdf/1906.01349). Phase III does not claim uniqueness from invariance alone; compressed summaries should preserve its Hessian/affine-coordinate premise.
 
-## 3. Wishart transform and likelihood: correct model, wording repair
+### 3. Wishart transform and likelihood: correct model, wording repair
 
 For supplied iid `Z_j~N(0,X)`, j=1,…,m with positive integer m and known mean zero, the scatter W=ΣZ_jZ_jᵀ has likelihood
 
@@ -863,7 +855,7 @@ If C=W/m is SPD, the likelihood is maximized at X=C, and the correct signed rela
 
 **Wording repair in the last sentence of the likelihood paragraph.** Replace “the negative log likelihood difference from its maximum” by **“the excess of negative log likelihood above its minimum”**, or “the log-likelihood deficit below its maximum.” The displayed divergence has the correct orientation; only the extremum description is reversed. If C is singular, the SPD likelihood has no attained maximizer and this reference-to-C formula cannot be read with an SPD C.
 
-## 4. Spatial orthogonal additivity: no hidden regularity
+### 4. Spatial orthogonal additivity: no hidden regularity
 
 **Exact theorem.** On a supplied real inner-product space of dimension at least two, a globally nonnegative function r additive over every orthogonal pair is exactly `r(x)=c||x||²`, c≥0.
 
@@ -873,7 +865,7 @@ The essential assumptions have explicit countermodels. On a line, r(x)=x⁴ is n
 
 The theorem classifies an already designated observable satisfying the composition law. The scalar formal group gives a formula for combining scalar values; it does not assert that a chosen spatial map respects orthogonal vector sums. The distinction in III.10 is logically necessary.
 
-## 5. Radial residual and whole-network spatial countermodels
+### 5. Radial residual and whole-network spatial countermodels
 
 For a twice differentiable nonvanishing profile f on x>0 and α=(D−1)/2,
 
@@ -885,7 +877,7 @@ The whole-network models in III.10 and IV.11 are legitimate. Keep every scalar i
 
 The radial OU computation also supports the report's warning: for `t=||z||²/2`, `(1/2)Δ−(1/2)z·∇` acts on f(t) as `t f″+(D/2−t)f′`. Matching the supplied shape-two Laguerre operator selects D=4 for this **particular Gaussian realization**. It does not select a physical spatial dimension or imply D=3. Likewise the pullback of a one-dimensional metric is a tensor of rank at most one; it must not be confused with the full Hessian of a composite function, which includes a second-derivative term from the spatial map.
 
-## 6. Rational trees, words and the real-domain boundary
+### 6. Rational trees, words and the real-domain boundary
 
 The parent formulas in III.8 preserve gcd and strictly decrease numerator plus denominator, giving a unique root path for every positive reduced rational. The matrix freeness proof is correct: the outer L maps every positive input below one, while outer R maps it above one; equal actions force equal outer letters, which can be cancelled. No nonempty word is the identity.
 
@@ -899,7 +891,7 @@ The Farey branches and their ranges in (3.29) are correct. ψ₁(x)=1/(1+x) is d
 
 **Full-domain converse.** Positive rational tree data determine L and R on their marked positive-rational inputs. Three marked pairs fix each map in the Möbius category, including its pole and the extension of L to −1<s<0. That extension is needed in `I(t)=∫_0^(t−1)L(s)ds` for t<1. Connected real-analytic continuation is an alternative. Without either rule, adding a small smooth bump to I in (1/4,1/2) preserves all positive-rational generator data and even strict convexity, yet changes the full function. This verifies the domain repair already made in III.8 and IV.8. A bare tree still has neither the numerical labels nor the coordinate maps.
 
-## 7. Original code: exact collision criterion and a stronger obstruction
+### 7. Original code: exact collision criterion and a stronger obstruction
 
 Subtracting placed Sigma values gives
 
@@ -921,7 +913,7 @@ For every real k>1,
 
 In particular every integer k≥2 distinguishes the two products of the collided representatives. Thus, for this original Sigma code on integers at least two, **injectivity is necessary and sufficient for the representative-defined multiplication to be well defined**, not merely necessary for faithful reconstruction. This sharper conclusion follows from the strictly decreasing rational derivative and applies to every collision curve, beyond the single numerical example used in the report.
 
-## 8. Transported integer structure, unit and alternative code
+### 8. Transported integer structure, unit and alternative code
 
 With injection, n↦e(n) is a bijection onto its image and transports multiplication exactly. The report handles the missing unit correctly: on the original n≥2 carrier, define reflexive divisibility using either equality or a nonunit factor; then adjoin an abstract 1_S before stating all gcd/lcm or divisor-lattice operations. It is not justified to identify 1_S with the real value σ(1) unless injectivity was checked for that enlarged domain.
 
@@ -931,7 +923,7 @@ These operations are intrinsic to the supplied free commutative monoid. Numerica
 
 The alternative code in Phase III is `n↦σ(r_*+n/μ)`. Since `μr_*+μ/γ=1`, its intrinsic t-coordinate is n+1, so it equals `H(n+1)+C_P` for the fixed placement-dependent additive constant C_P. Subtracting that constant gives the statement-only alternative `e₀(n)=H(n+1)`. For n≥1 these codes are strictly decreasing because `H′(t)=1/t−1<0` on t>1. They provide an injective arithmetic model for every placement and include the integer-unit label when indexed from one. They are different codes and do not alter any collision of the original n↦σ(n).
 
-## 9. Euler-product converse: separately verified after comparison
+### 9. Euler-product converse: separately verified after comparison
 
 The numerically labelled spectral identity `Tr(1+A)^(−s)=ζ(s)` and the Euler product `ζ(s)=∏_p(1−p^(−s))^(−1)` hold for Re s>1. Finite geometric expansion, unique factorization and absolute convergence prove the product. This step uses numerical integer multiplication and the marked exponential coordinate p^(−s); an abstract prime permutation does not preserve those numerical weights.
 
@@ -947,7 +939,7 @@ To justify the last limit, dominate after multiplication by q₀^s using the con
 
 Subtract the **entire** contribution `−m₀log(1−q₀^(−s))` and repeat. Removing the entire factor also removes powers that might coincide with another generator; it is crucial for the iterative proof. Local finiteness and convergence ensure that every generator is eventually reached. The empty multiset is detected by Z≡1. Hence the full product uniquely determines the numerical multiset within the stated category. Phase III's proof is correct but compressed; the domination and empty-product details above complete it.
 
-## Recommended edits and proof status
+### Recommended edits and proof status
 
 1. Put the square inside the trace in III.6's metric-positivity sentence.
 2. Replace “negative log likelihood difference from its maximum” with “negative log likelihood excess above its minimum.”
@@ -957,17 +949,15 @@ Subtract the **entire** contribution `−m₀log(1−q₀^(−s))` and repeat. R
 
 All other audited statements and countermodels pass with their explicit domains. The blind file supplies direct proofs rather than finite numerical evidence. No new Lean/Coq certificate or mechanized matrix, metric, arithmetic or spatial theorem is claimed here. The separate probability audit now also contains the independently checked normalized analytic density `4t/(t+2)^3`, which settles the old exact-derivative-zero-set question negatively; that development does not affect these realization verdicts.
 
+## Appendix E. Independent matrix-distance and spatial derivations
 
-
-# Appendix E. Independent matrix-distance and spatial derivations
-
-# Phase IV matrix, spatial and arithmetic audit: blind derivations
+## Phase IV matrix, spatial and arithmetic audit: blind derivations
 
 This file was written from the coordinator's statement-only task before opening the corresponding Phase III proofs. The earlier probability audit exposed probability sections and some search-result snippets from other sections; it did not expose the detailed matrix, spatial or arithmetic proofs. No independence stronger than that is claimed. The intrinsic functions are `I(t)=t−1−log t`, `H=−I`, `p(t)=t exp(−t)` in the marked t>0 coordinate.
 
 Symbols: **** proved as precisely stated; **△** essential qualification; **×** false converse. Historical novelty and comparison are deferred until after this file is written.
 
-## A. Canonical SPD lift
+### A. Canonical SPD lift
 
 **Exact theorem.** For each positive integer n, let Φ_n be a real-valued function on the real symmetric positive-definite n×n matrices. Suppose Φ_1(t)=I(t), `Φ_n(QXQᵀ)=Φ_n(X)` for orthogonal Q, and `Φ_(m+n)(X⊕Y)=Φ_m(X)+Φ_n(Y)`. Then
 
@@ -981,7 +971,7 @@ The two structural rules cannot independently be omitted. `Σ_i I(X_ii)` has the
 
 has the rank-one seed and orthogonal invariance, but violates block additivity on two distinct scalar blocks. For ε>0 both examples are nonnegative. A canonical construction of Φ does not force an arbitrarily designated scalar-calibrated matrix function to satisfy the construction's two rules.
 
-## B. Divergence, metric, distance and convex conjugate
+### B. Divergence, metric, distance and convex conjugate
 
 Differentiation on the vector space of symmetric matrices, paired by trace, gives
 
@@ -1029,7 +1019,7 @@ Stationarity gives `X=(Id−Θ)^(−1)` and direct substitution gives the finite
 
 Distance squared is `Σ_i(log λ_i)²`. At fixed distance r>0, compare relative eigenvalues `(exp r,1)` with `(exp(r/√2),exp(r/√2))`. Their symmetrizations are `2cosh r−2` and `4cosh(r/√2)−4`. The first exceeds the second: their power-series difference has zero quadratic term and strictly positive coefficients at all even orders ≥4. Hence no single function of distance gives symmetrization in rank ≥2. In rank one it is `4sinh²(d/2)`.
 
-## C. Gaussian/Wishart likelihood conventions
+### C. Gaussian/Wishart likelihood conventions
 
 For supplied iid centered nonsingular Gaussian samples `z_1,…,z_m~N(0,X)`, let `S=Σz_jz_jᵀ` and `C=S/m`. The covariance-dependent negative log likelihood is
 
@@ -1041,7 +1031,7 @@ When C is SPD, its unique minimizer is C and
 
 For known zero mean, m≥n makes C SPD almost surely; if m<n, C is singular and the likelihood has no maximizing covariance in the open SPD cone. The scatter S has the Wishart law in the supplied sampling category. The iid hypothesis, Gaussian sampling family, zero-mean convention and sample count m are additional model data, not consequences of a scalar potential. The KL divergence between the two supplied Gaussian covariance laws is `D(X,Y)/2`, and between m independent copies it is m times that value.
 
-## D. Nonnegative orthogonal additivity without continuity
+### D. Nonnegative orthogonal additivity without continuity
 
 **Exact theorem.** Let V be a real inner-product space of dimension at least two, and let f:V→[0,∞) satisfy `f(x+y)=f(x)+f(y)` whenever x⊥y. Then `f(x)=c||x||²` for some c≥0, with no continuity, measurability, radiality or homogeneity premise.
 
@@ -1065,7 +1055,7 @@ If z:V→[0,∞) instead obeys `z(x+y)=z(x)+z(y)+z(x)z(y)` for x⊥y, then `f=lo
 
 Nontriviality gives c>0; a numerical calibration is needed to choose c. This theorem classifies an already supplied spatial observable obeying the stated composition law. It does not derive that law for an arbitrary designated observable from the scalar formal group.
 
-## E. Radial residual and countermodels for dimension selection
+### E. Radial residual and countermodels for dimension selection
 
 For radial functions in Euclidean dimension D, `Δ_D f=f″+(D−1)f′/x`. With `f=x^(−(D−1)/2)u`, direct differentiation gives
 
@@ -1075,7 +1065,7 @@ The inverse-square residual vanishes exactly for D=1 or D=3. If integer D≥2 is
 
 The full intrinsic scalar/probability/operator/formal network can remain fixed while adding an independent designated spatial sort. On R² take r(x)=||x||⁴. For perpendicular unit vectors, r(x+y)=4 while r(x)+r(y)=2, so orthogonal additivity fails even though the observable is positive, radial and smooth. On R² take r(x)=||x||²: orthogonal additivity holds, but the radial residual is `−1/(4x²)`. On R¹ squared norm gives cancellation as well. A canonical R⁴ Gaussian auxiliary realization with `T=||Z||²/2~Gamma(2,1)` can coexist with each example: it is a separate construction, not an identification of the designated spatial sort or its observable.
 
-## F. Calkin–Wilf, nonnegative unimodular words, Stern–Brocot and Farey
+### F. Calkin–Wilf, nonnegative unimodular words, Stern–Brocot and Farey
 
 Use the marked maps `L(x)=x/(1+x)` and `R(x)=1+x`, acting on x>0, with matrices
 
@@ -1097,7 +1087,7 @@ The two Farey inverse branches on [0,1] are `ψ₀(x)=x/(1+x)` and `ψ₁(x)=1/(
 
 The part t<1 requires values at −1<s<0, which the positive rational tree does not directly supply. Connected real-analytic continuation is an alternative extension condition. Without it a smooth bump in I supported in (0,1) retains all data obtained from the positive-rational L action. A bare unlabelled tree cannot select the arithmetic labels, left/right map action, marked coordinate or global extension.
 
-## G. Placed integer code and transported arithmetic
+### G. Placed integer code and transported arithmetic
 
 For the placed code e(n)=σ(n), the difference is
 
@@ -1119,15 +1109,13 @@ Under injectivity, transport through the bijection n↦e(n) is valid and element
 
 The alternative intrinsic code `e₀(n)=H(n+1)`, n≥1, is strictly decreasing because `H′(t)=1/t−1<0` for t>1. It is therefore injective and includes a code for the integer unit. It supplies a valid canonical transported integer model once its indexing convention is chosen, but it is **different from** the original placed code e(n)=σ(n), and does not remove the latter's demonstrated collisions.
 
-## Blind verdict
+### Blind verdict
 
 Every exact construction and qualified uniqueness statement in the statement-only task passes. Essential boundaries are: the two rules for identifying an arbitrary matrix lift; the supplied sampling model and covariance domain; dimension ≥2 and nonnegative orthogonal additivity for an arbitrary spatial observable; a selected radial operator/cancellation criterion for dimension selection; numerical labels and a global extension category for rational-tree recovery; and injectivity plus a unit for faithful transport of full integer arithmetic. Full metric invariance alone is weaker than selecting the displayed Hessian metric. Comparison with the corresponding Phase III proofs has not yet been performed.
 
+## Appendix F. Exact all-order zero-set counterexample
 
-
-# Appendix F. Exact all-order zero-set counterexample
-
-# Exact derivative-zero sets: the probability converse is refuted
+## Exact derivative-zero sets: the probability converse is refuted
 
 **Z4 — status ×; analytic/probabilistic.** On the marked domain \(t>0\), the complete exact zero sets \(Z_n=\{n\}\), \(n\ge1\), do not characterize \(p(t)=te^{-t}\) among smooth positive probability densities. The conclusion still fails when the candidates are required to be real analytic, to vanish at both endpoints, and to have a unique mode at one.
 
@@ -1166,13 +1154,11 @@ The counterexample does not satisfy global log-concavity: \((\log f_k)''=-t^{-2}
 
 The root derived the example directly. Two statement-only independent checks verified its normalization and all-order induction, recorded in the core/series and probability audits. Finite symbolic differentiation is retained only as a diagnostic, not the proof of (Z4.1). This theorem is not claimed to be Lean-formalized.
 
+## Appendix G. Independent global minimality and closure adversary
 
+## Phase IV independent adversarial audit: global closure and minimality
 
-# Appendix G. Independent global minimality and closure adversary
-
-# Phase IV independent adversarial audit: global closure and minimality
-
-## Scope and verdict
+### Scope and verdict
 
 This audit read `sigma-phase-iv-reconstruction-theorem.md` and `sigma-phase-iv-minimal-primitives.md` as proposed statements, before consulting the local core, probability, operator and realization audits for their precise interfaces. It did not infer correctness from an earlier intended architecture or from agreement among reviewers. No outward search or root-report editing was performed.
 
@@ -1180,7 +1166,7 @@ This audit read `sigma-phase-iv-reconstruction-theorem.md` and `sigma-phase-iv-m
 
 The initial verdict concerned the mathematical statements and their composition, because the graph had not yet been generated. The subsequent concrete graph audit in section 7 now verifies the finite SCC and its quotient independently. The local audit files supply the complete local proofs; this global review does not claim a second independent proof of every local theorem or additional Lean coverage.
 
-## 1. A genuine counterexample to the original F1 wording
+### 1. A genuine counterexample to the original F1 wording
 
 In the standard terminology, a unit of `Q[[u]]` has any nonzero constant coefficient. Suppose only
 
@@ -1200,7 +1186,7 @@ Thus `c=2` gives a unit beginning `2+u/4+5u^2/96+...` satisfying every stated to
 
 **Exact repair, now present:** require `Q(0)=1`, or include the degree-zero tower equation. With `q_0=1`, the same recursion is triangular with leading coefficient `n+1`; it proves uniqueness. The local residue proof supplies existence for the Todd series. This repair is also consistent with the actual Lean series theorem, which explicitly assumes constant coefficient one. Calibration cannot be omitted from a compressed registry merely because a linked proof retained it.
 
-## 2. The closure theorem is valid only as a typed identification theorem
+### 2. The closure theorem is valid only as a typed identification theorem
 
 For precision, fix a signature `m` recording the coordinate, domain, admissible category and normalization of a presentation. Write `X_A[m]` for the candidates satisfying that presentation's complete identifying clause, and `X_S[m]` for the corresponding calibrated intrinsic object. The correct interface is
 
@@ -1226,7 +1212,7 @@ Consequently the fixed J inverse identifies its **unknown mixing measure**, exac
 
 For canonical templates, the defensible equivalence is fibrewise: fix `C`, or retain `C` in the output package, and identify objects satisfying the template's exact conditions. It is not an inverse from an evaluated output to a forgotten arbitrary context. In particular, evaluation of a Thom correction on one finite base does not recover the universal series tail or the original integral bundle class. The current universal-line clause and finite-base exclusion preserve this distinction.
 
-## 3. Placement and its two independent parameters pass
+### 3. Placement and its two independent parameters pass
 
 Set `t=mu r+a`. The placed formula simplifies to
 
@@ -1254,7 +1240,7 @@ Changing variables gives mass one for `r>=0`, since `integral_a^infinity t e^(-t
 
 The deletion witnesses for `mu` and `a` pass: holding the other coordinate and all intrinsic data fixed produces different analytic boundaries and derivatives. Thus neither coordinate is determined by the intrinsic component. These are two independently varying scalar coordinates in this declared family, not an assertion about the shortest encoding in an arbitrary language. Injectivity of `n -> sigma_P(n)` is fixed once `P` is fixed, so it cannot be an independently varying root block. No effective decision procedure for completely arbitrary real inputs follows from this observation.
 
-## 4. The relative shape-certificate witness passes
+### 4. The relative shape-certificate witness passes
 
 The intrinsic object is explicitly definable in the fixed foundations. Consequently the phrase “one intrinsic certificate” is a statement about a sufficient and irredundant identifying clause in a declared deletion problem. It is not a lower bound of one free numerical datum or a denial that a fixed formula can be written without receiving an external function input.
 
@@ -1274,7 +1260,7 @@ strictly positive for sufficiently small coefficients. The anchors, unit curvatu
 
 The exclusion of every alternative complete intrinsic certificate is essential. For example, if the remaining input includes a linked normalized Gamma stationary law whose marked restriction is required to equal `exp(-1-J)dt`, then this remaining packet already forces `J=I`. Deleting the separately named certificate would be redundant. The draft explicitly excludes that situation in its certificate-deletion test. This qualification must remain attached to D1; it cannot be replaced by an unrestricted assertion about holding every possible linked external observation fixed.
 
-## 5. External irredundancy passes in the explicit product universe
+### 5. External irredundancy passes in the explicit product universe
 
 The independent-expansion convention is doing real mathematical work. Its simple abstract version is this: let the external selection sets be `Z_j`, and let the target include `tau_j(z_j)`. If `tau_j` takes different values on two admissible elements of `Z_j`, and no retained bridge ties that coordinate to another block, then changing only `z_j` proves that deletion of that block prevents target identification. This is exactly a blockwise product theorem. It is not a claim that all local admissibility predicates are free coordinates.
 
@@ -1293,7 +1279,7 @@ Coordinates, categories and designations are therefore correctly distinguished. 
 
 The conjunction of orthogonal additivity, nonnegativity and dimension at least two identifies `c||x||^2` in the supplied inner-product space. The radial cancellation equation then restricts the already supplied dimension to one or three, and `D>=2` selects three. Neither fact adds a scalar-to-spatial identification arrow.
 
-## 6. The zero-set boundary survives the global audit
+### 6. The zero-set boundary survives the global audit
 
 For `k>1`, the stated density
 
@@ -1305,11 +1291,11 @@ has mass one and is positive and real analytic on the positive ray. Differentiat
 
 This independently checks the all-order induction. Every derivative zero set is exactly `{n}`, with the same signs and simple zeros as `p`, while the tail is algebraic. Thus Z4 is a counterexample to equality of the entire sequence of zero sets, not merely to finitely many observed zeros. It does not refute any complete identifying clause retained in `E_S`.
 
-## Final audit disposition
+### Final audit disposition
 
 The normalized F1 statement, marked intrinsic equivalences, placed reconstruction, fibrewise canonical identification, and relative product-universe minimality survive this adversarial review. The discarded spectral-to-stationary converse remains false, and the fixed J recipe does not repair it. The proof of intrinsic-certificate necessity is relative to deletion of all equivalent identifying clauses; the proof of external necessity is relative to the declared independent expansions and marked targets. The later concrete graph audit below completes the finite-graph verification.
 
-## 7. Follow-up: the concrete generated graph
+### 7. Follow-up: the concrete generated graph
 
 The follow-up read both `work/build_phase_iv_graph.py` and the generated JSON. It inspected every intrinsic clause, every positive edge and its required inputs, and the negative edges against their countermodel categories. It did not accept the generator's `intrinsic_member` flags or asserted check results as a verification of maximality.
 
@@ -1323,7 +1309,7 @@ The independent [checker](phase-iv-audit/global-graph-checks.py), run as `python
 
 The quotient is exactly the independent structural projection. Every surviving quotient edge retains its original source and target and their complete datum signatures; in particular, collapsing intrinsic presentations does not erase whether an outgoing theorem used the density, potential or formal germ. All references and proof-record paths resolve. There are no conditional edges with an empty `required_nodes` list, and no missing context in either direction of a positive identification edge.
 
-### Concrete defects found and their repairs
+#### Concrete defects found and their repairs
 
 1. **The initial JOINT node did not prescribe the observed values.** Every normalized strict-branch potential has its own deficit law and level involution, including the non-Sigma `J_epsilon` from the shape-deletion witness. Merely possessing such a linked pair therefore does not identify Sigma. The node now requires that the candidate's two observations equal the canonical law of `I(T)` under `p` and the canonical I-level involution, and that both observations concern the same `J`. The `INVOL` datum now specifies that canonical involution. This was a substantive identifying-clause repair.
 2. **Context-indexed aliases lost context in their metadata.** `KERNEL` and `LOW2` now retain `OP_CONTEXT`; `MATRIX_GEOM` retains `SPD_CONTEXT`. The full marked kernel/operator equivalence therefore stays in the same operator fibre. The scalar spectral trace remains a deliberate forgetful output.
@@ -1333,7 +1319,7 @@ The quotient is exactly the independent structural projection. Every surviving q
 6. **Derived external conclusions needed their argument identities retained.** Gysin data retain the selected topology and map; the radius conclusion retains its spatial context; the residual and dimensional conclusions retain the same radial-operator context. In particular, the cancellation predicate and dimension lower bound concern the same dimension symbol and supplied operator throughout their join.
 7. **A fibre's related outputs were briefly listed as identifying aliases.** Wishart statistics and evaluated Gysin corrections have only forward construction edges. They are now explicitly classified as related consequences whose reconstruction status is their displayed edge status, not as additional identifying members of the intrinsic fibre. A finite-base Gysin evaluation still cannot recover a universal scalar tail.
 
-### All edge families after repair
+#### All edge families after repair
 
 The 45 direct intrinsic equivalences now have complete normalized clauses, including the corrected F1 constant coefficient and prescribed JOINT observations. Each of the seven main canonical templates uses the source together with its context. Its reverse retains that context. The duplicated context-to-template construction arrows have `S` as a simultaneous input; they do not assert that an isolated context identifies the scalar shape.
 
@@ -1362,7 +1348,7 @@ The independently computed conditional fibres add the following nodes to `E_S`:
 
 These computations preserve simultaneous inputs. They do not treat a required context as automatically supplied merely because some unrelated canonical construction could produce an object of a similar name.
 
-### Exact meaning of graph maximality
+#### Exact meaning of graph maximality
 
 The verified maximality is maximality in the finite **retained identification-edge relation**. It does not say that every mathematically possible inverse omitted from the graph is false. A forward-only canonical output can contain substantial identifying information, and absence of its inverse edge is not itself a countermodel.
 
@@ -1376,7 +1362,7 @@ Iteration yields
 
 Since every probability Laplace transform on the nonnegative ray is continuous at zero with value one, the limit forces `L(lambda)=(1+lambda)^(-2)`. Thus an exact linked residual already determines the Gamma law. This is stronger information than generic self-decomposability. A graph node representing only a canonical residual output, without the candidate-law linkage, must be read accordingly. In either case, limiting graph maximality to retained proof edges is essential; it does not require adding a new phase or asserting an unknown inverse.
 
-### Independent checks of P7 and O7
+#### Independent checks of P7 and O7
 
 The complete entropy clause in the proof-record preamble passes independently. For every admissible density `f`, the two fixed constraints give
 
@@ -1388,7 +1374,7 @@ The complete marked Laguerre-orthogonality clause also passes independently. Mas
 
 **Completed graph disposition:** the concrete identifying SCC, conditional inputs, context preservation and quotient now pass. The stated mathematical boundary remains the boundary of this audited identification architecture, with graph maximality confined to its retained edges and candidate signatures.
 
-## 8. P9: exact linked self-decomposition identifies the candidate law
+### 8. P9: exact linked self-decomposition identifies the candidate law
 
 This theorem was identified during the concrete graph audit, by examining whether a construction-only residual output could support an additional identifying inverse. The proof below is independent of the existing probability audit's forward construction. Its status is **conditional equivalence**: the residual law must be linked to the candidate whose reconstruction is claimed.
 

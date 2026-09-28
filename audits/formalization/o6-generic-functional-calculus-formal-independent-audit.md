@@ -7,7 +7,7 @@ proof in `paper/sections/operators.tex`, lines 919–940. The generic clause is
 checked against `SigmaOpNonnegativeResolvent.lean`, `SigmaOpCFCEigen.lean`,
 `SigmaOpBorelInverse.lean`, and `SigmaOpBernsteinInverse.lean`. The canonical
 clause reuses the bounded PASS record in
-`O6-canonical-inverse-formal-independent-audit.md`.
+`o6-canonical-inverse-formal-independent-audit.md`.
 
 ## Generic operator clause
 
