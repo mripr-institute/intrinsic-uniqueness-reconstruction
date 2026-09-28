@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1946 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1984 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2427,6 +2427,7 @@ Mathematical content formalized in Lean:
 - The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.
 - The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.
 - The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle.
+- For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. An actual stabilized-isomorphism structure and its local determinant chart-change identity are defined. Any continuous nonzero determinant coboundary on the RP2 charts is ruled out by the existing no-section theorem.
 
 Mapped Lean declarations:
 
@@ -2454,10 +2455,16 @@ Mapped Lean declarations:
 - `Sigma.realProjectiveComplexTensorSquareFinOneHomeomorph`
 - `Sigma.real_projective_complex_tensor_square_native_trivialization_fiberwise_linear`
 - `Sigma.real_projective_complex_line_not_isomorphic_tensor_square`
+- `Sigma.line_stabilization_transition_det`
+- `Sigma.line_transition_coboundary_of_stabilized_isomorphism`
+- `Sigma.RealProjectiveStableLineIsomorphism`
+- `Sigma.RealProjectiveLineDeterminantCoboundary`
+- `Sigma.real_projective_line_has_no_determinant_coboundary`
+- `Sigma.stable_line_local_determinant_chart_change`
 
 Remaining Lean formalization:
 
-- Establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle
+- Derive a continuous local determinant coboundary from every actual stabilized bundle isomorphism, then conclude no such isomorphism exists for an arbitrary stabilizing bundle and identify the stable K0 distinction [L] != [1]
 - Its rational Chern character equals one
 - Resulting fixed-base nonreconstruction witness
 
@@ -3199,6 +3206,7 @@ Mathematical content formalized in Lean:
 
 - Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.
 - A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.
+- The typed available-presentation enumeration now includes additional compiled nodes for calibrated differential and flow observations, group log/cocycle, convex and projective scalar observations, Poisson and Gumbel/Haar observations, size bias/equilibrium, logistic hazard, linked operator mixing, Borel/rooted series, Bernstein tail, and marked formal characteristic series. The generic round trips and pairwise reconstruction apply to these instantiated nodes.
 - Composition, uniqueness and round trips once native presentation equivalences are given.
 
 Mapped Lean declarations:
@@ -3216,14 +3224,41 @@ Mapped Lean declarations:
 - `Sigma.Closure.PresentationData`
 - `Sigma.Closure.availablePresentation`
 - `Sigma.Closure.gammaMarkedCoordinateNode`
+- `Sigma.Closure.calibratedCurvatureNode`
+- `Sigma.Closure.calibratedRiccatiNode`
+- `Sigma.Closure.recenteringNode`
+- `Sigma.Closure.exactFlowNode`
+- `Sigma.Closure.groupLogNode`
+- `Sigma.Closure.groupCocycleNode`
+- `Sigma.Closure.symmetricBregmanNode`
+- `Sigma.Closure.scaleBregmanNode`
+- `Sigma.Closure.projectiveCrossRatioNode`
+- `Sigma.Closure.projectiveSchwarzianNode`
+- `Sigma.Closure.exactFenchelNode`
+- `Sigma.Closure.poissonRecurrenceNode`
+- `Sigma.Closure.poissonLocalCGFNode`
+- `Sigma.Closure.centeredPoissonLocalCGFNode`
+- `Sigma.Closure.gumbelMaxNode`
+- `Sigma.Closure.markedHaarDensityNode`
+- `Sigma.Closure.positiveSizeBiasNode`
+- `Sigma.Closure.positiveEquilibriumNode`
+- `Sigma.Closure.logisticHazardNode`
+- `Sigma.Closure.linkedOperatorMixingNode`
+- `Sigma.Closure.borelPGFNode`
+- `Sigma.Closure.borelSeriesNode`
+- `Sigma.Closure.rootedSeriesNode`
+- `Sigma.Closure.bernsteinTailNode`
+- `Sigma.Closure.ahatSeriesNode`
+- `Sigma.Closure.lSeriesNode`
+- `Sigma.Closure.markedChiNode`
 - `Sigma.Closure.available_intrinsic_roundtrips`
 - `Sigma.Closure.available_reconstruction_roundtrip`
 - `Sigma.presentationEquivalence`
 
 Remaining Lean formalization:
 
-- Extend the typed collection to the remaining differential/group/convex/projective observations, entropy, Poisson, Gumbel/Haar, linked deficit, survival/logistic/Green, size-bias/equilibrium, characteristic-series continuation, tree inverse, marked rational, linked operator mixing and Bernstein-tail presentations.
-- For each remaining presentation instantiate its actual candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration.
+- Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, linked deficit, native survival/Green, analytic characteristic-series continuation, tree inverse, and fully marked rational data.
+- For each remaining presentation instantiate its exact candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration. Existing partial-family nodes must not stand for stronger paper clauses.
 - Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
 
 ### final:global-E — Canonical realization fibres
@@ -3306,6 +3341,11 @@ Mapped Lean declarations:
 - `Sigma.Closure.matrix_packet_deletion`
 - `Sigma.Closure.matrix_packet_no_decoder`
 - `Sigma.Closure.arithmetic_packet_no_decoder`
+- `Sigma.Closure.coordinate_marking_no_decoder`
+- `Sigma.Closure.stationary_spectrum_mixing_deletion`
+- `Sigma.Closure.stationary_spectrum_mixing_no_decoder`
+- `Sigma.Closure.ScalarBoundaryWithNativeBundle`
+- `Sigma.Closure.scalar_boundary_with_native_bundle`
 - `Sigma.Closure.retained_context_deletion`
 - `Sigma.Closure.no_placement_decoder_without_scale`
 - `Sigma.Closure.no_placement_decoder_without_offset`
@@ -3332,6 +3372,7 @@ Mathematical content formalized in Lean:
 
 - Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.
 - Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid.
+- A compiled typed conjunction now assembles the available scalar boundary clauses, including continuous coordinate relabelling, both actual Gamma-two/Gamma-three stationary heat-mixing identities with common spectral data but unequal coordinate laws, and the native RP2 line-versus-tensor-square nonisomorphism.
 
 Mapped Lean declarations:
 
@@ -3353,7 +3394,7 @@ Mapped Lean declarations:
 
 Remaining Lean formalization:
 
-- Supply and integrate F5's fixed-base bundle/K0 distinction with equal rational characteristic data; finish the complete typed boundary conjunction including coordinate relabelling and retained stationary data.
+- Supply and integrate F5's fixed-base stable K0 distinction with equal rational characteristic data, then finish the exact full paper boundary conjunction; the existing native-bundle field only records line-versus-tensor-square nonisomorphism.
 
 ## Labelled equations
 

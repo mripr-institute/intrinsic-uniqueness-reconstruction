@@ -218,6 +218,7 @@ import SigmaOpCoordinateProjections
 import SigmaRealProjectiveComplexification
 import SigmaRealProjectiveNoSection
 import SigmaRealProjectiveSquareTransition
+import SigmaRealProjectiveDeterminantCancellation
 import SigmaRealProjectiveSquareNativeBundle
 import SigmaRealProjectiveSquareNativeTensor
 import SigmaRealProjectiveF5Characteristic
@@ -246,6 +247,7 @@ import SigmaProbDeficitCumulantInverse
 import SigmaFareyClosure
 import SigmaClosure
 import SigmaClosurePackets
+import SigmaClosureBoundary
 import SigmaClosurePerturbation
 import SigmaProbNativeHazard
 import SigmaRealTreesTailBoundary

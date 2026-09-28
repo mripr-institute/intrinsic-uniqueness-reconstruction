@@ -112,20 +112,27 @@
         "Sigma.realProjectiveComplexTensorSquareNativeBundle",
         "Sigma.realProjectiveComplexTensorSquareFinOneHomeomorph",
         "Sigma.real_projective_complex_tensor_square_native_trivialization_fiberwise_linear",
-        "Sigma.real_projective_complex_line_not_isomorphic_tensor_square"
+        "Sigma.real_projective_complex_line_not_isomorphic_tensor_square",
+        "Sigma.line_stabilization_transition_det",
+        "Sigma.line_transition_coboundary_of_stabilized_isomorphism",
+        "Sigma.RealProjectiveStableLineIsomorphism",
+        "Sigma.RealProjectiveLineDeterminantCoboundary",
+        "Sigma.real_projective_line_has_no_determinant_coboundary",
+        "Sigma.stable_line_local_determinant_chart_change"
       ],
       "proved_components": [
         "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.",
         "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.",
         "The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.",
-        "The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle."
+        "The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle.",
+        "For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. An actual stabilized-isomorphism structure and its local determinant chart-change identity are defined. Any continuous nonzero determinant coboundary on the RP2 charts is ruled out by the existing no-section theorem."
       ],
       "unproved_components": [
-        "Establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
+        "Derive a continuous local determinant coboundary from every actual stabilized bundle isomorphism, then conclude no such isomorphism exists for an arbitrary stabilizing bundle and identify the stable K0 distinction [L] != [1]",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
-      "notes": "The actual complexification and no-section/nontrivial-bundle component are formalized. The square-transition coboundary and its continuous nonvanishing native section now compile, but no native tensor-square identification is claimed. K0 stable distinction, rational Chern character, and the fixed-base witness remain open, so final:F5 remains partial. The earlier bounded independent review applies only to the previous incidence and nontriviality results; the new square-transition theorem has not been independently reviewed, per the user's proof-first instruction."
+      "notes": "The native tensor-square identification and trivialization compile. The arbitrary-stabilizer determinant work proves matrix cancellation, local chart compatibility, and the topological impossibility of a continuous nonzero determinant coboundary; continuity of the pointwise determinant extracted from an actual stabilized isomorphism is still unproved. The supplied characteristic interface does not by itself derive the RP2 rational Chern character. F5 remains partial; no new independent semantic review is claimed for this progress."
     },
     {
       "latex_label": "final:M1",

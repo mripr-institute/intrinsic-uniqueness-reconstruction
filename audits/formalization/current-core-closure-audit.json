@@ -388,18 +388,46 @@
         "Sigma.Closure.PresentationData",
         "Sigma.Closure.availablePresentation",
         "Sigma.Closure.gammaMarkedCoordinateNode",
+        "Sigma.Closure.calibratedCurvatureNode",
+        "Sigma.Closure.calibratedRiccatiNode",
+        "Sigma.Closure.recenteringNode",
+        "Sigma.Closure.exactFlowNode",
+        "Sigma.Closure.groupLogNode",
+        "Sigma.Closure.groupCocycleNode",
+        "Sigma.Closure.symmetricBregmanNode",
+        "Sigma.Closure.scaleBregmanNode",
+        "Sigma.Closure.projectiveCrossRatioNode",
+        "Sigma.Closure.projectiveSchwarzianNode",
+        "Sigma.Closure.exactFenchelNode",
+        "Sigma.Closure.poissonRecurrenceNode",
+        "Sigma.Closure.poissonLocalCGFNode",
+        "Sigma.Closure.centeredPoissonLocalCGFNode",
+        "Sigma.Closure.gumbelMaxNode",
+        "Sigma.Closure.markedHaarDensityNode",
+        "Sigma.Closure.positiveSizeBiasNode",
+        "Sigma.Closure.positiveEquilibriumNode",
+        "Sigma.Closure.logisticHazardNode",
+        "Sigma.Closure.linkedOperatorMixingNode",
+        "Sigma.Closure.borelPGFNode",
+        "Sigma.Closure.borelSeriesNode",
+        "Sigma.Closure.rootedSeriesNode",
+        "Sigma.Closure.bernsteinTailNode",
+        "Sigma.Closure.ahatSeriesNode",
+        "Sigma.Closure.lSeriesNode",
+        "Sigma.Closure.markedChiNode",
         "Sigma.Closure.available_intrinsic_roundtrips",
         "Sigma.Closure.available_reconstruction_roundtrip"
       ],
       "proved_components": [
         "Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.",
-        "A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked."
+        "A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.",
+        "The typed available-presentation enumeration now includes additional compiled nodes for calibrated differential and flow observations, group log/cocycle, convex and projective scalar observations, Poisson and Gumbel/Haar observations, size bias/equilibrium, logistic hazard, linked operator mixing, Borel/rooted series, Bernstein tail, and marked formal characteristic series. The generic round trips and pairwise reconstruction apply to these instantiated nodes."
       ],
       "unproved_components": [
-        "Extend the typed collection to the remaining differential/group/convex/projective observations, entropy, Poisson, Gumbel/Haar, linked deficit, survival/logistic/Green, size-bias/equilibrium, characteristic-series continuation, tree inverse, marked rational, linked operator mixing and Bernstein-tail presentations.",
-        "For each remaining presentation instantiate its actual candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration."
+        "Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, linked deficit, native survival/Green, analytic characteristic-series continuation, tree inverse, and fully marked rational data.",
+        "For each remaining presentation instantiate its exact candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration. Existing partial-family nodes must not stand for stronger paper clauses."
       ],
-      "notes": "Thirteen concrete instances now discharge their inverse obligations from actual local declarations; the full enumeration remains partial. No unfinished stochastic R1 theorem is used by these instances or asserted to block the remaining assembly."
+      "notes": "The expanded available-presentation module compiles, but the full paper E_Sigma enumeration remains partial. No unfinished stochastic R1 theorem is used by these instances or asserted to block the remaining assembly."
     },
     {
       "latex_label": "final:global-B",
@@ -489,7 +517,12 @@
         "Sigma.Closure.process_packet_no_decoder",
         "Sigma.Closure.matrix_packet_deletion",
         "Sigma.Closure.matrix_packet_no_decoder",
-        "Sigma.Closure.arithmetic_packet_no_decoder"
+        "Sigma.Closure.arithmetic_packet_no_decoder",
+        "Sigma.Closure.coordinate_marking_no_decoder",
+        "Sigma.Closure.stationary_spectrum_mixing_deletion",
+        "Sigma.Closure.stationary_spectrum_mixing_no_decoder",
+        "Sigma.Closure.ScalarBoundaryWithNativeBundle",
+        "Sigma.Closure.scalar_boundary_with_native_bundle"
       ],
       "proved_components": [
         "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.",
@@ -549,12 +582,13 @@
       ],
       "proved_components": [
         "Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.",
-        "Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid."
+        "Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid.",
+        "A compiled typed conjunction now assembles the available scalar boundary clauses, including continuous coordinate relabelling, both actual Gamma-two/Gamma-three stationary heat-mixing identities with common spectral data but unequal coordinate laws, and the native RP2 line-versus-tensor-square nonisomorphism."
       ],
       "unproved_components": [
-        "Supply and integrate F5's fixed-base bundle/K0 distinction with equal rational characteristic data; finish the complete typed boundary conjunction including coordinate relabelling and retained stationary data."
+        "Supply and integrate F5's fixed-base stable K0 distinction with equal rational characteristic data, then finish the exact full paper boundary conjunction; the existing native-bundle field only records line-versus-tensor-square nonisomorphism."
       ],
-      "notes": "Spatial rigidity retains dimension>=2 and does not add continuity/measurability hypotheses."
+      "notes": "Spatial rigidity retains dimension>=2 and does not add continuity/measurability hypotheses. The available boundary conjunction compiles, but F5's stable integral-versus-rational clause remains absent, so global-F remains partial."
     }
   ]
 }

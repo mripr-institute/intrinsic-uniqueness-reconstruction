@@ -2508,6 +2508,8 @@ import Sigma
 #print axioms Sigma.gamma_shape_three_regularized_determinant
 #print axioms Sigma.gamma_shapes_two_three_native_boundary
 #print axioms Sigma.stationary_coordinate_no_spectrum_inverse
+#print axioms Sigma.line_transition_coboundary_of_stabilized_isomorphism
+#print axioms Sigma.real_projective_line_has_no_determinant_coboundary
 #print axioms Sigma.marked_multiplication_unitary_preserves_probability
 #print axioms Sigma.marked_multiplication_unitary_intertwines_projections
 #print axioms Sigma.Closure.available_intrinsic_roundtrips
