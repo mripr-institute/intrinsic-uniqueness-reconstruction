@@ -105,15 +105,23 @@
         "Sigma.real_projective_squared_coordinate_projector",
         "Sigma.realProjectiveComplexSquareCore",
         "Sigma.realProjectiveSquareSectionTotal",
-        "Sigma.real_projective_square_section_continuous"
+        "Sigma.real_projective_square_section_continuous",
+        "Sigma.real_projective_complex_tensor_square_to_incidence_tmul",
+        "Sigma.realProjectiveSquaredCocycleTensorSquareHomeomorph",
+        "Sigma.real_projective_squared_cocycle_tensor_square_fiberwise_linear",
+        "Sigma.realProjectiveComplexTensorSquareNativeBundle",
+        "Sigma.realProjectiveComplexTensorSquareFinOneHomeomorph",
+        "Sigma.real_projective_complex_tensor_square_native_trivialization_fiberwise_linear",
+        "Sigma.real_projective_complex_line_not_isomorphic_tensor_square"
       ],
       "proved_components": [
         "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.",
         "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.",
-        "The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section. This does not yet identify it with a native tensor square or establish K0 or Chern-character claims."
+        "The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.",
+        "The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle."
       ],
       "unproved_components": [
-        "Identify the square-transition bundle with the actual native tensor square L tensor L and establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
+        "Establish the stable complex K0 distinction [L] != [1], including determinant cancellation for an arbitrary stabilizing bundle",
         "Its rational Chern character equals one",
         "Resulting fixed-base nonreconstruction witness"
       ],
