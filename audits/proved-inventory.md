@@ -13,7 +13,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Partially formalized statements: 5.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1989 (including definitions and helpers).
+- Distinct mapped declarations across named items: 1991 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -2427,7 +2427,7 @@ Mathematical content formalized in Lean:
 - The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.
 - The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.
 - The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle.
-- For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. An actual stabilized-isomorphism structure and its local determinant chart-change identity are defined. Any continuous nonzero determinant coboundary on the RP2 charts is ruled out by the existing no-section theorem.
+- For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. Every actual stabilized bundle isomorphism yields a continuous nonzero determinant coboundary on the RP2 charts, contradicting the native no-section theorem. Thus the actual line cannot be stabilized to the trivial line by any native finite-rank complex bundle.
 
 Mapped Lean declarations:
 
@@ -2461,12 +2461,14 @@ Mapped Lean declarations:
 - `Sigma.RealProjectiveLineDeterminantCoboundary`
 - `Sigma.real_projective_line_has_no_determinant_coboundary`
 - `Sigma.stable_line_local_determinant_chart_change`
+- `Sigma.stable_isomorphism_determinant_coboundary`
+- `Sigma.real_projective_complex_line_not_stably_trivial`
 
 Remaining Lean formalization:
 
-- Derive a continuous local determinant coboundary from every actual stabilized bundle isomorphism, then conclude no such isomorphism exists for an arbitrary stabilizing bundle and identify the stable K0 distinction [L] != [1]
-- Its rational Chern character equals one
-- Resulting fixed-base nonreconstruction witness
+- Construct the native complex K0 class relation and identify the proved arbitrary-stabilizer obstruction with the literal class inequality [L] != [1]
+- Derive the RP2 positive-degree rational cohomology calculation and the actual Chern character of L, proving ch(L) = 1 without assuming this cohomological input
+- Assemble the fixed-base nonreconstruction witness with equal actual rational characteristic data and distinct integral bundle/K0 data
 
 ### final:M1 — The unique scalar-block spectral lift
 

@@ -311,6 +311,115 @@ def stableLineLocalMatrix
     Matrix (Fin 1 ⊕ Fin n) (Fin 1 ⊕ Fin n) ℂ :=
   LinearMap.toMatrix' (stableLineLocalEquiv n S I i p hi).toLinearMap
 
+private theorem frame_determinant_eq_local_matrix
+    (I : RealProjectiveStableLineIsomorphism n S) (i : Fin 3)
+    (p : RealProjectivePlane) (hi : p ∈ realProjectiveChart i) :
+    I.frameDeterminant i p hi = (stableLineLocalMatrix n S I i p hi).det := by
+  letI := stableFiberFinite n S p
+  let ep := LinearEquiv.sumArrowLequivProdArrow (Fin 1) (Fin n) ℂ ℂ
+  let b : ((Fin 1 → ℂ) × S p) ≃ₗ[ℂ] ((Fin 1 ⊕ Fin n) → ℂ) :=
+    ((LinearEquiv.refl ℂ (Fin 1 → ℂ)).prod (stabilizerFrame n S p)).trans ep.symm
+  let e : ((Fin 1 → ℂ) × S p) ≃ₗ[ℂ] ((Fin 1 → ℂ) × S p) :=
+    ((realProjectiveLineFrame i p hi).prod (LinearEquiv.refl ℂ (S p))).trans
+      (I.fiberEquiv p)
+  have he : (stableLineLocalEquiv n S I i p hi).toLinearMap =
+      (b.toLinearMap.comp e.toLinearMap).comp b.symm.toLinearMap := by
+    ext v
+    rfl
+  change LinearMap.det e.toLinearMap =
+    (LinearMap.toMatrix' (stableLineLocalEquiv n S I i p hi).toLinearMap).det
+  rw [LinearMap.det_toMatrix', he]
+  exact (LinearMap.det_conj e.toLinearMap b).symm
+
+private def stableLineFixedLocalEquiv
+    (I : RealProjectiveStableLineIsomorphism n S)
+    (eS : Trivialization (Fin n → ℂ) (π (Fin n → ℂ) S))
+    [MemTrivializationAtlas eS]
+    (i : Fin 3) (p : RealProjectivePlane)
+    (hi : p ∈ realProjectiveChart i) (hs : p ∈ eS.baseSet) :
+    ((Fin 1 ⊕ Fin n) → ℂ) ≃ₗ[ℂ] ((Fin 1 ⊕ Fin n) → ℂ) :=
+  let ep := LinearEquiv.sumArrowLequivProdArrow (Fin 1) (Fin n) ℂ ℂ
+  let fs := (eS.continuousLinearEquivAt ℂ p hs).toLinearEquiv
+  let source := (lineChartFrame i p hi).prod fs
+  let target := (LinearEquiv.refl ℂ (Fin 1 → ℂ)).prod fs
+  ((ep.trans source.symm).trans (I.fiberEquiv p)).trans target |>.trans ep.symm
+
+private theorem frame_determinant_eq_fixed_local
+    (I : RealProjectiveStableLineIsomorphism n S)
+    (eS : Trivialization (Fin n → ℂ) (π (Fin n → ℂ) S))
+    [MemTrivializationAtlas eS]
+    (i : Fin 3) (p : RealProjectivePlane)
+    (hi : p ∈ realProjectiveChart i) (hs : p ∈ eS.baseSet) :
+    I.frameDeterminant i p hi =
+      LinearMap.det (stableLineFixedLocalEquiv n S I eS i p hi hs).toLinearMap := by
+  letI := stableFiberFinite n S p
+  let ep := LinearEquiv.sumArrowLequivProdArrow (Fin 1) (Fin n) ℂ ℂ
+  let fs := (eS.continuousLinearEquivAt ℂ p hs).toLinearEquiv
+  let b : ((Fin 1 → ℂ) × S p) ≃ₗ[ℂ] ((Fin 1 ⊕ Fin n) → ℂ) :=
+    ((LinearEquiv.refl ℂ (Fin 1 → ℂ)).prod fs).trans ep.symm
+  let e : ((Fin 1 → ℂ) × S p) ≃ₗ[ℂ] ((Fin 1 → ℂ) × S p) :=
+    ((realProjectiveLineFrame i p hi).prod (LinearEquiv.refl ℂ (S p))).trans
+      (I.fiberEquiv p)
+  have he : (stableLineFixedLocalEquiv n S I eS i p hi hs).toLinearMap =
+      (b.toLinearMap.comp e.toLinearMap).comp b.symm.toLinearMap := by
+    ext v
+    rfl
+  change LinearMap.det e.toLinearMap = _
+  rw [he]
+  exact (LinearMap.det_conj e.toLinearMap b).symm
+
+private theorem stable_fixed_local_equiv_continuous
+    (I : RealProjectiveStableLineIsomorphism n S)
+    (eS : Trivialization (Fin n → ℂ) (π (Fin n → ℂ) S))
+    [MemTrivializationAtlas eS] (i : Fin 3) :
+    Continuous (fun q : {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet} =>
+      (stableLineFixedLocalEquiv n S I eS i q.val q.property.1 q.property.2).toLinearMap.toContinuousLinearMap) := by
+  let ep := LinearEquiv.sumArrowLequivProdArrow (Fin 1) (Fin n) ℂ ℂ
+  let src := (realProjectiveComplexCore.localTriv i).prod eS
+  let tgt := (Bundle.Trivial.trivialization RealProjectivePlane (Fin 1 → ℂ)).prod eS
+  apply (continuous_clm_apply).2
+  intro v
+  have hsrc : Continuous (fun q : {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet} =>
+      (⟨q.val, src.symm q.val (ep v)⟩ :
+        Bundle.TotalSpace ((Fin 1 → ℂ) × (Fin n → ℂ))
+          (realProjectiveComplexCore.Fiber ×ᵇ S))) := by
+    have hf : Continuous (fun q :
+        {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet} =>
+        (q.val, ep v)) := continuous_subtype_val.prod_mk continuous_const
+    have h := src.continuousOn_symm.comp_continuous
+      hf (fun q :
+        {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet} => by
+        change q.val ∈ src.baseSet ∧ True
+        exact ⟨q.property, True.intro⟩)
+    simpa only [Function.comp_def] using h
+  have htgt : Continuous (fun q : {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet} =>
+      tgt (I.totalHomeomorph ⟨q.val, src.symm q.val (ep v)⟩)) := by
+    apply tgt.continuousOn.comp_continuous (I.totalHomeomorph.continuous.comp hsrc)
+    intro q
+    change (I.totalHomeomorph ⟨q.val, src.symm q.val (ep v)⟩).proj ∈ tgt.baseSet
+    rw [I.total_apply]
+    exact ⟨Set.mem_univ _, q.property.2⟩
+  have heval (q : {p : RealProjectivePlane // p ∈ realProjectiveChart i ∩ eS.baseSet}) :
+      (stableLineFixedLocalEquiv n S I eS i q.val q.property.1 q.property.2).toLinearMap v =
+      ep.symm ((tgt (I.totalHomeomorph
+        ⟨q.val, src.symm q.val (ep v)⟩)).2) := by
+    let fs := (eS.continuousLinearEquivAt ℂ q.val q.property.2).toLinearEquiv
+    have hsrcfib : src.symm q.val (ep v) =
+        ((lineChartFrame i q.val q.property.1).prod fs).symm (ep v) := by
+      have hs : q.val ∈ src.baseSet := q.property
+      have hp := (src.mk_symm hs (ep v)).trans
+          (Trivialization.prod_symm_apply
+            (realProjectiveComplexCore.localTriv i) eS q.val (ep v).1 (ep v).2)
+      exact (Bundle.TotalSpace.mk_injective q.val) hp
+    have htgtfib (z : (Fin 1 → ℂ) × S q.val) :
+        (tgt ⟨q.val, z⟩).2 =
+          ((LinearEquiv.refl ℂ (Fin 1 → ℂ)).prod fs) z := rfl
+    rw [I.total_apply, hsrcfib, htgtfib]
+    rfl
+  simpa only [LinearMap.coe_toContinuousLinearMap', heval] using
+    ep.symm.toLinearMap.continuous_of_finiteDimensional.comp
+      (continuous_snd.comp htgt)
+
 theorem stable_line_local_matrix_det_ne_zero
     (I : RealProjectiveStableLineIsomorphism n S) (i : Fin 3)
     (p : RealProjectivePlane) (hi : p ∈ realProjectiveChart i) :
@@ -388,6 +497,70 @@ theorem stable_line_local_determinant_chart_change
   rw [stable_line_local_matrix_chart_change n S I i j p hi hj,
     Matrix.det_mul, line_stabilization_transition_det]
   simp
+
+private def stableFrameDeterminantChart
+    (I : RealProjectiveStableLineIsomorphism n S)
+    (i : Fin 3) (p : RealProjectivePlane) : ℂ := by
+  classical
+  exact if hi : p ∈ realProjectiveChart i then I.frameDeterminant i p hi else 0
+
+private theorem stable_frame_determinant_chart_continuousOn
+    (I : RealProjectiveStableLineIsomorphism n S) (i : Fin 3) :
+    ContinuousOn (stableFrameDeterminantChart n S I i) (realProjectiveChart i) := by
+  classical
+  intro p hp
+  let eS := trivializationAt (Fin n → ℂ) S p
+  let U : Set RealProjectivePlane := realProjectiveChart i ∩ eS.baseSet
+  have hU : IsOpen U := (real_projective_chart_open i).inter eS.open_baseSet
+  have hpU : p ∈ U :=
+    ⟨hp, mem_baseSet_trivializationAt (Fin n → ℂ) S p⟩
+  have hfixed := stable_fixed_local_equiv_continuous n S I eS i
+  have hdet : Continuous (fun q : U =>
+      LinearMap.det
+        (stableLineFixedLocalEquiv n S I eS i q.val q.property.1 q.property.2).toLinearMap) := by
+    simpa only [LinearMap.det_toContinuousLinearMap] using
+      (ContinuousLinearMap.continuous_det.comp hfixed)
+  have hlocal : ContinuousOn (stableFrameDeterminantChart n S I i) U := by
+    apply continuousOn_iff_continuous_restrict.mpr
+    convert hdet using 1
+    funext q
+    change stableFrameDeterminantChart n S I i q.val = _
+    simp only [stableFrameDeterminantChart, dif_pos q.property.1]
+    exact frame_determinant_eq_fixed_local n S I eS i q.val
+      q.property.1 q.property.2
+  exact (hlocal.continuousAt (hU.mem_nhds hpU)).continuousWithinAt
+
+/-- Every actual stable bundle isomorphism produces a continuous nonzero
+determinant coboundary on the native RP² line charts. -/
+def stable_isomorphism_determinant_coboundary
+    (I : RealProjectiveStableLineIsomorphism n S) :
+    RealProjectiveLineDeterminantCoboundary where
+  determinant := stableFrameDeterminantChart n S I
+  continuousOn := stable_frame_determinant_chart_continuousOn n S I
+  nonzero := by
+    intro i p hi
+    simp only [stableFrameDeterminantChart, dif_pos hi]
+    exact I.frameDeterminant_ne_zero i p hi
+  compatibility := by
+    intro i j p hi hj
+    simp only [stableFrameDeterminantChart, dif_pos hi, dif_pos hj]
+    rw [frame_determinant_eq_local_matrix n S I i p hi,
+      frame_determinant_eq_local_matrix n S I j p hj]
+    exact stable_line_local_determinant_chart_change n S I i j p hi hj
+
+/-- The complexified tautological line cannot become trivial after adding
+any native finite-rank complex bundle on the same RP² base. -/
+theorem real_projective_complex_line_not_stably_trivial
+    (n : ℕ) (S : RealProjectivePlane → Type*)
+    [∀ p, TopologicalSpace (S p)]
+    [∀ p, AddCommGroup (S p)] [∀ p, Module ℂ (S p)]
+    [TopologicalSpace (Bundle.TotalSpace (Fin n → ℂ) S)]
+    [FiberBundle (Fin n → ℂ) S]
+    [VectorBundle ℂ (Fin n → ℂ) S] :
+    ¬ Nonempty (RealProjectiveStableLineIsomorphism n S) := by
+  rintro ⟨I⟩
+  exact real_projective_line_has_no_determinant_coboundary
+    ⟨stable_isomorphism_determinant_coboundary n S I⟩
 
 end StableLocalMatrices
 
