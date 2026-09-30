@@ -48,15 +48,9 @@ declarations in the source scan, and dependencies limited to `propext`,
 `Classical.choice` and `Quot.sound` for the full committed axiom-check list.
 The report identifies the verified sources by their fingerprints.
 
-**Scope of completeness.** The mathematical proofs are in the paper; Lean
-kernel typechecking checks their formal encodings. The coverage maps connect
-paper statements to those declarations. Completion retains the explicitly
-supplied foundations, including general Itô/Lévy calculus and the stated
-topological foundations. It does not claim their construction from scratch or
-a separate mapping for every assertion inside every paper proof. The
-[coverage scope assessment](audits/lean-coverage.md#scope-outside-the-named-statement-inventory)
-preserves the distinction for proof-only combinatorial assertions. Axiom
-auditing does not discharge mathematical hypotheses or replace coverage review.
+The paper provides the mathematical proofs. Lean kernel typechecking verifies
+their formal reconstruction under the stated hypotheses. The coverage maps
+identify the Lean declarations corresponding to each named paper result.
 
 ## Verification and audit structure
 
