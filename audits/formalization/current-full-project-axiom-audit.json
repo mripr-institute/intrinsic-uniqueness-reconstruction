@@ -1,0 +1,31 @@
+{
+  "verified_commit": "8869f7084d2534bd63ab99fb27db3c34eaaac145",
+  "completed_at_utc": "2026-09-30T09:57:11.513341+00:00",
+  "command": "python3 Verify.py",
+  "working_directory": "lean",
+  "verifier_exit_status": 0,
+  "source_audit_passed": true,
+  "full_library_build_passed": true,
+  "axiom_scan_command": "lake env lean SigmaAxioms.lean",
+  "axiom_scan_source": "lean/SigmaAxioms.lean",
+  "axiom_scan_source_sha256": "4749c97acc033c1cb05a97b129400f874cb264d1fe590262bd61e016b306d045",
+  "expected_checks": 2537,
+  "reported_checks": 2537,
+  "distinct_declarations": 2537,
+  "missing_reports": [],
+  "unexpected_reports": [],
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "observed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axioms": [],
+  "axiom_output_sha256": "33ca397eb36a1f6ab37e1922523dcf8764ba91988d188840ae19969832c20a78",
+  "lean_toolchain": "leanprover/lean4:v4.14.0",
+  "scope": "Full committed SigmaAxioms declaration list, full library build, and source admission audit. Explicit mathematical hypotheses, including the supplied Ito/Levy foundations for R1, remain theorem parameters and are not eliminated by an axiom-dependency scan."
+}

@@ -108,4 +108,7 @@ used by the completed additive torsion proof above.
 All new modules and the `Sigma` umbrella compile with the pinned toolchain.
 Targeted axiom checks report only `propext`, `Classical.choice`, and
 `Quot.sound`. The repository source audit finds no admissions or project
-axioms. The long full-project axiom scan was not run.
+axioms. The subsequent full `python3 Verify.py` run on commit `8869f70`
+also passed the full library build and all 2537 distinct declarations in
+`SigmaAxioms.lean`, with no missing reports or unexpected axioms. See
+[the full-project axiom audit](current-full-project-axiom-audit.json).

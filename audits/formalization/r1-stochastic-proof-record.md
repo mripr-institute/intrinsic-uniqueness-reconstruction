@@ -104,5 +104,11 @@ All 13 targeted principal-declaration axiom checks report only `propext`,
 `Classical.choice`, and `Quot.sound`. The coverage check resolves all 2057
 mapped declarations through the compiled umbrella, and its completion gate
 passes with 78/78 named statements and 15/15 labelled equations. These
-counts retain the explicit supplied-foundation scope above. The long
-full-project `SigmaAxioms` scan was not run, as requested.
+counts retain the explicit supplied-foundation scope above.
+
+The subsequent full `python3 Verify.py` run on commit `8869f70` passed:
+the source audit, full library build, and all 2537 distinct declarations in
+`SigmaAxioms.lean`. Every requested declaration produced a report, and the
+only observed axioms were `propext`, `Classical.choice`, and `Quot.sound`.
+The result and source hash are recorded in
+[the full-project axiom audit](current-full-project-axiom-audit.json).
