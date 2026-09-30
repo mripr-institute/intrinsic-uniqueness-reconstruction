@@ -2,7 +2,7 @@
 
 Generated from the current independently reviewed maps by `python3 scripts/rebuild_coverage.py --write`.
 
-The paper supplies mathematical proofs of its results. This inventory lists their Lean formalizations. Partial or missing Lean coverage does not mean that a paper result is unproved.
+The paper supplies mathematical proofs; this inventory records their formal encodings and supporting declarations. Declaration counts include definitions and helpers and are not counts of paper theorems. See the [audit guide](README.md) and [coverage scope](lean-coverage.md#scope-outside-the-named-statement-inventory).
 
 ## At a glance
 
@@ -102,7 +102,7 @@ Coverage is relative to the explicit supplied foundations documented in the maps
 
 ### final:C0 — The placed presentation of $\Sigma$
 
-Lean coverage: **definition**. [Paper statement](../paper/sections/core.tex#L8); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **definition**. [Paper statement](../paper/sections/core.tex#L8); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -118,7 +118,7 @@ Mapped Lean declarations:
 
 ### final:C0-placement — Exact placed reconstruction
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L20); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L20); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -147,7 +147,7 @@ Mapped Lean declarations:
 
 ### final:C1 — Curvature, Riccati and exact flow
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L77); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L77); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -168,7 +168,7 @@ Mapped Lean declarations:
 
 ### final:C2 — Recentring transports its own regularity and anchors
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L107); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L107); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -185,7 +185,7 @@ Mapped Lean declarations:
 
 ### final:C3 — Normalized group logarithm and cocycle
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L127); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L127); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -207,7 +207,7 @@ Mapped Lean declarations:
 
 ### final:C3-completion — Typed completion equation
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L154); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L154); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -226,7 +226,7 @@ Mapped Lean declarations:
 
 ### final:C3-automorphisms — Automorphisms, integer series and their calibration
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L184); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L184); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -292,7 +292,7 @@ Mapped Lean declarations:
 
 ### final:C4 — Differentiable Bregman reconstruction
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L214); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L214); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -311,7 +311,7 @@ Mapped Lean declarations:
 
 ### final:C5 — Exact Legendre target with either regularity condition
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L248); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L248); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -328,7 +328,7 @@ Mapped Lean declarations:
 
 ### final:C6 — Self-concordance and the marked Hessian metric
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L282); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L282); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -354,7 +354,7 @@ Mapped Lean declarations:
 
 ### final:C7 — Calibrated projective and Schwarzian data
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L314); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L314); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -376,7 +376,7 @@ Mapped Lean declarations:
 
 ### final:C8 — Derivative, discrete and local-data boundaries
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L341); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L341); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -420,7 +420,7 @@ Mapped Lean declarations:
 
 ### final:Z4 — Exact all-order derivative-zero sets do not identify $\Sigma$
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L385); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/core.tex#L385); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -447,7 +447,7 @@ Mapped Lean declarations:
 
 ### final:P0-uniqueness — Uniqueness principles for the transforms used below
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L17); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L17); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -462,7 +462,7 @@ Mapped Lean declarations:
 
 ### final:P1 — Gamma law and complete transform characterizations
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L47); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L47); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -493,7 +493,7 @@ Mapped Lean declarations:
 
 ### final:P1-samples — Exponential samples also derive support
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L116); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L116); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -506,7 +506,7 @@ Mapped Lean declarations:
 
 ### final:P1-boundaries — Boundaries of moment identification
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L135); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L135); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -524,7 +524,7 @@ Mapped Lean declarations:
 
 ### final:P2 — Marked Poisson recurrence, cumulants and divergences
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L160); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L160); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -555,7 +555,7 @@ Mapped Lean declarations:
 
 ### final:P2-boundaries — The centering mark and KL orientation are essential
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L229); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L229); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -576,7 +576,7 @@ Mapped Lean declarations:
 
 ### final:P3 — Two marked max laws characterize the Gumbel CDF
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L246); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L246); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -596,7 +596,7 @@ Mapped Lean declarations:
 
 ### final:P3-haar — Haar weighting and Gumbel calibration boundaries
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L282); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L282); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -619,7 +619,7 @@ Mapped Lean declarations:
 
 ### final:P4-data — Canonical deficit law and coordinate involution
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L313); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L313); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -648,7 +648,7 @@ Mapped Lean declarations:
 
 ### final:P4-cumulants — Deficit transform, cumulants, and determinacy
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L375); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L375); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -696,7 +696,7 @@ Mapped Lean declarations:
 
 ### final:P4 — The linked deficit law and involution identify the potential
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L440); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L440); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -714,7 +714,7 @@ Mapped Lean declarations:
 
 ### final:P4-boundaries — Neither linked observation alone suffices
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L484); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L484); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -746,7 +746,7 @@ Mapped Lean declarations:
 
 ### final:P5 — Survival, hazard, logistic equation, and causal Green kernel
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L533); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L533); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -812,7 +812,7 @@ Mapped Lean declarations:
 
 ### final:P5-survival-boundaries — Precise survival boundaries and Gamma shift uniqueness
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L599); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L599); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -838,7 +838,7 @@ Mapped Lean declarations:
 
 ### final:P5-stieltjes — Probability Stieltjes transform and its inverse
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L657); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L657); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -860,7 +860,7 @@ Mapped Lean declarations:
 
 ### final:P5-transforms — Reverse size bias, equilibrium, and marked tilting
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L707); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L707); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -894,7 +894,7 @@ Mapped Lean declarations:
 
 ### final:P5-equilibrium-fixed — Equilibrium fixed points
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L784); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L784); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -912,7 +912,7 @@ Mapped Lean declarations:
 
 ### final:P6 — Rooted coefficients, Borel probabilities, and the inverse germ
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L798); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L798); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -944,7 +944,7 @@ Mapped Lean declarations:
 
 ### final:P6-gw — Borel total size identifies a one-ancestor iid GW law
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L872); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L872); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -985,7 +985,7 @@ Mapped Lean declarations:
 
 ### final:P6-boundaries — Tree and continuation boundaries
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L906); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L906); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1024,7 +1024,7 @@ Mapped Lean declarations:
 
 ### final:P7 — The calibrated maximum-entropy characterization
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L942); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L942); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1049,7 +1049,7 @@ Mapped Lean declarations:
 
 ### final:P8 — Unique probability convolution completion
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L977); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L977); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1123,7 +1123,7 @@ Mapped Lean declarations:
 
 ### final:P8-levy — Gamma L\'evy measure, drift, and complete Bernstein structure
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1021); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1021); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1199,7 +1199,7 @@ Mapped Lean declarations:
 
 ### final:P8-samples — Complete integer tails identify the Gamma exponent
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1075); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1075); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1224,7 +1224,7 @@ Mapped Lean declarations:
 
 ### final:P8-selfdecomposition — Explicit Gamma self-decomposition
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1091); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1091); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1263,7 +1263,7 @@ Mapped Lean declarations:
 
 ### final:P9 — One linked residual determines a law on the entire real line
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1134); [independent coverage map](formalization/current-probability-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/probability.tex#L1134); [independent coverage map](maps/probability.json).
 
 Mathematical content formalized in Lean:
 
@@ -1285,7 +1285,7 @@ Mapped Lean declarations:
 
 ### final:O1 — The full-line weak Stein characterization
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L15); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L15); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1308,7 +1308,7 @@ Mapped Lean declarations:
 
 ### final:O1-kernel — The integrable centered Stein kernel
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L54); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L54); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1341,7 +1341,7 @@ Mapped Lean declarations:
 
 ### final:O2 — Two marked probes and the Pearson realization
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L97); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L97); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1383,7 +1383,7 @@ Mapped Lean declarations:
 
 ### final:O2-boundaries — The exact limits of the probe and stationary data
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L132); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L132); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1413,7 +1413,7 @@ Mapped Lean declarations:
 
 ### final:O3 — Essential self-adjointness and the full domain
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L179); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1481,7 +1481,7 @@ Mapped Lean declarations:
 
 ### final:O3-form — The closed form and the conservative semigroup
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L269); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1526,7 +1526,7 @@ Mapped Lean declarations:
 
 ### final:O3-spectrum — The Laguerre basis and the exact integer spectrum
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L321); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L321); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1603,7 +1603,7 @@ Mapped Lean declarations:
 
 ### final:O7 — Complete marked Laguerre orthogonality identifies the law
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L383); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L383); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1624,7 +1624,7 @@ Mapped Lean declarations:
 
 ### final:O4 — Exact trace domains and reconstruction of the unitary class
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L420); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L420); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1655,7 +1655,7 @@ Mapped Lean declarations:
 
 ### final:O4-convergence-boundary — Compact resolvent does not supply finite trace data
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L496); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L496); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1705,7 +1705,7 @@ Mapped Lean declarations:
 
 ### final:O4-heat-kernel — The complete heat kernel relative to the invariant measure
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L515); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L515); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1729,7 +1729,7 @@ Mapped Lean declarations:
 
 ### final:O4-resolvents — Resolvents, their kernels, and the operator inverse
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L583); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L583); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1799,7 +1799,7 @@ Mapped Lean declarations:
 
 ### final:O4-determinants — Zeta and Fredholm determinants with their conventions
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L650); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1864,7 +1864,7 @@ Mapped Lean declarations:
 
 ### final:O4-finite-countermodels — Finite familiar spectral invariants do not determine the spectrum
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L708); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L708); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1893,7 +1893,7 @@ Mapped Lean declarations:
 
 ### final:O5 — Existence and uniqueness of the linked mixing measure
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L773); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L773); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -1957,7 +1957,7 @@ Mapped Lean declarations:
 
 ### final:O6 — A Bernstein function is determined by every integer tail
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L841); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L841); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -2009,7 +2009,7 @@ Mapped Lean declarations:
 
 ### final:O6-functional-calculus — Two different functional-calculus inverse questions
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L919); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -2054,7 +2054,7 @@ Mapped Lean declarations:
 
 ### final:O5-isospectral-boundary — The Gamma shapes two and three retain all spectral and mixing data
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L943); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -2144,7 +2144,7 @@ Mapped Lean declarations:
 
 ### final:O5-canonical-versus-identification — Canonical mixing construction is not unmarked coordinate recovery
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](formalization/current-operator-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/operators.tex#L1011); [independent coverage map](maps/operator.json).
 
 Mathematical content formalized in Lean:
 
@@ -2190,7 +2190,7 @@ Mapped Lean declarations:
 
 ### final:F1 — The normalized Todd tower and all its twists
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L15); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L15); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2216,7 +2216,7 @@ Mapped Lean declarations:
 
 ### final:F2 — Reversible characteristic-series formulas
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L96); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L96); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2251,7 +2251,7 @@ Mapped Lean declarations:
 
 ### final:F3 — Formal, analytic, and global recovery
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L144); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L144); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2369,7 +2369,7 @@ Mapped Lean declarations:
 
 ### final:F4 — The universal Thom correction, conditional on topology
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L178); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L178); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2426,7 +2426,7 @@ Mapped Lean declarations:
 
 ### final:F5 — Rational characteristic data lose integral data
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2491,7 +2491,7 @@ Mapped Lean declarations:
 
 ### final:M1 — The unique scalar-block spectral lift
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L295); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L295); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2523,7 +2523,7 @@ Mapped Lean declarations:
 
 ### final:M2 — Derivatives, divergence, duality, and determinant bounds
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L339); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L339); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2573,7 +2573,7 @@ Mapped Lean declarations:
 
 ### final:M3 — Geodesics, distance, and the symmetrization boundary
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L435); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L435); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2708,7 +2708,7 @@ Mapped Lean declarations:
 
 ### final:M4 — The supplied Gaussian and Wishart sampling model
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L499); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L499); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2758,7 +2758,7 @@ Mapped Lean declarations:
 
 ### final:R1 — The isotropic four-dimensional Gaussian realization
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L573); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L573); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2836,7 +2836,7 @@ Mapped Lean declarations:
 
 ### final:R2 — Nonnegative orthogonal additivity without regularity
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L650); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L650); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2860,7 +2860,7 @@ Mapped Lean declarations:
 
 ### final:R3 — The profile-independent radial residual
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L717); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L717); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2887,7 +2887,7 @@ Mapped Lean declarations:
 
 ### final:R4 — Spatial countermodels retaining the complete intrinsic structure
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L754); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L754); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2913,7 +2913,7 @@ Mapped Lean declarations:
 
 ### final:B1 — Rational trees, Euclidean decoding, and the matrix monoid
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L796); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L796); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -2991,7 +2991,7 @@ Mapped Lean declarations:
 
 ### final:B2 — Marked Farey branches and full-domain scalar recovery
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L889); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L889); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -3028,7 +3028,7 @@ Mapped Lean declarations:
 
 ### final:B3 — Exact collisions and complete labelled arithmetic transport
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L953); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L953); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -3173,7 +3173,7 @@ Mapped Lean declarations:
 
 ### final:B4 — Numerical Euler products and the full multiset inverse
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L1106); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L1106); [independent coverage map](maps/realizations.json).
 
 Mathematical content formalized in Lean:
 
@@ -3217,7 +3217,7 @@ Mapped Lean declarations:
 
 ### final:identification — Identification and a retained context
 
-Lean coverage: **definition**. [Paper statement](../paper/sections/closure.tex#L10); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **definition**. [Paper statement](../paper/sections/closure.tex#L10); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -3232,7 +3232,7 @@ Mapped Lean declarations:
 
 ### final:global-A — Intrinsic uniqueness and reconstruction closure
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L74); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L74); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -3305,7 +3305,7 @@ Mapped Lean declarations:
 
 ### final:global-E — Canonical realization fibres
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L139); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L139); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -3348,7 +3348,7 @@ Mapped Lean declarations:
 
 ### final:global-C — Relative irredundancy and its deletion witnesses
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L173); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L173); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -3417,7 +3417,7 @@ Mapped Lean declarations:
 
 ### final:global-F — Boundary of scalar reconstruction
 
-Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L246); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L246); [independent coverage map](maps/core-closure.json).
 
 Mathematical content formalized in Lean:
 
@@ -3577,7 +3577,3 @@ Parent named statement: **final:B2**. Lean coverage: **complete**.
 Parent named statement: **final:B3**. Lean coverage: **complete**.
 
 - `Sigma.placed_collision_iff`
-
-## Preserved excluded experiment
-
-The pre-existing local `lean/SigmaProbCumulantCalibration.lean` experiment is not imported or credited. It remains preserved as local work; the completed P4 cumulant formalization is mapped to the other verified modules.

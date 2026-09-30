@@ -49,4 +49,4 @@ import SigmaProbEntropyCounterexample
 
 /-! Checked probability development for the final draft. Exact statement coverage,
 including every remaining mathematical obligation, is recorded separately in
-audits/formalization/probability-lean-map.json. -/
+audits/history/formalization/probability-lean-map.json. -/

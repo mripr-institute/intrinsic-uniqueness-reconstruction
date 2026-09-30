@@ -19,7 +19,7 @@
         "Sigma.todd_twist_polynomial_identity",
         "Sigma.formal_twisted_todd_coeff_over_Q_algebra"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F1"
     },
     {
@@ -53,7 +53,7 @@
       ],
       "unproved_components": [],
       "notes": "Bounded complete labelled-equation AUDIT PASS. The left side is the standard binomial expansion using coefficients of native powers of F-1, not the desired multiplicity right side by definition. The membership theorem gives exactly all vectors supported in degrees 1 through n with weighted sum n; empty products handle n=0, and no positivity or integrality restriction is imposed on the scalar exponent. Negative scalars use the paper's formal-binomial convention; no separate native integer-power compatibility beyond natural powers is claimed. Initial review found the section's commutative-Q-algebra scope missing. SigmaToddArbitraryPowerAlgebra now resolves it with only CommRing and Algebra Q assumptions, no domain/field/no-zero-divisors or rational-image restriction on k. Factorial inverses are actual images of rational inverses, and the Todd unit is the previously proved base-changed standard quotient, not a newly assumed series. Native natural-power compatibility and equality with the previous field convention are separately proved.",
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": null
     },
     {
@@ -64,7 +64,7 @@
         "Sigma.formal_todd_to_L",
         "Sigma.formal_L_to_todd"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F2"
     },
     {
@@ -74,7 +74,7 @@
         "Sigma.formal_todd_recovers_exponential",
         "Sigma.formal_L_recovers_exponential"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F2"
     },
     {
@@ -84,7 +84,7 @@
         "Sigma.formal_chi_recovers_todd",
         "Sigma.formal_chi_over_recovers_todd"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F2"
     },
     {
@@ -95,7 +95,7 @@
         "Sigma.NativeThomSplittingContext.correction_exists_unique"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F4"
     },
     {
@@ -106,7 +106,7 @@
         "Sigma.NativeProperSupportedGysin.riemann_roch_of_chern_roots"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:F4"
     },
     {
@@ -116,7 +116,7 @@
         "Sigma.matrixPotential_spectral",
         "Sigma.spd_positive_rank_lift_unique"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:M1"
     },
     {
@@ -125,7 +125,7 @@
       "lean_declarations": [
         "Sigma.matrixPotential_fderiv"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:M2"
     },
     {
@@ -135,7 +135,7 @@
         "Sigma.matrixPotential_second_fderiv",
         "Sigma.matrix_hessian_metric"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:M2"
     },
     {
@@ -144,7 +144,7 @@
       "lean_declarations": [
         "Sigma.matrix_actual_bregman"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:M2"
     },
     {
@@ -157,7 +157,7 @@
         "Sigma.matrix_fenchel_equality_iff"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:M2"
     },
     {
@@ -166,7 +166,7 @@
       "lean_declarations": [
         "Sigma.radial_residual"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:R3"
     },
     {
@@ -176,7 +176,7 @@
         "Sigma.farey_left_integral"
       ],
       "unproved_components": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:B2"
     },
     {
@@ -185,7 +185,7 @@
       "lean_declarations": [
         "Sigma.placed_collision_iff"
       ],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
+      "independent_audit": "audits/maps/realizations.json",
       "parent_statement": "final:B3"
     }
   ],
@@ -214,8 +214,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "PlacedParameters permits a>0; its Admissible subtype and Closure.Placement impose the paper's a<1."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): PlacedParameters permits a>0; its Admissible subtype and Closure.Placement impose the paper's a<1."
     },
     {
       "id": "final:C0-placement",
@@ -256,8 +256,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Actual measure-level theorems were inspected, not inferred from scalar density identity. Some source theorems valid for a>0 are stronger than required."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): Actual measure-level theorems were inspected, not inferred from scalar density identity. Some source theorems valid for a>0 are stronger than required."
     },
     {
       "id": "final:C1",
@@ -288,7 +288,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -316,7 +316,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -349,7 +349,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -379,7 +379,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -456,8 +456,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Independent complete named-proposition AUDIT PASS after fresh comparison of both existing real signatures and the new formal development. Real regularity is only on D, not outside the group; both monotonic directions and signed integer indices are covered. The wild witness supplies actual homomorphism, domain preservation, both inverse identities and inequality to every power map. The initially missing formal component is now resolved over an arbitrary characteristic-zero field, exactly the domain explicitly stated in this core proposition; the later characteristic-series section's Q-algebra extension is not silently substituted here. IsFormalStarEndomorphism contains the full two-variable identity, and the tangent ODE is a proved consequence rather than a hypothesis. Taylor pullback agrees with native substitution of X+Y+XY on monomials and is total-degree local. formalCompose is the locally finite native-power coefficient substitution on zero-constant inner series and agrees with polynomial evaluation. Both compositional inverse directions are proved for every nonzero field scalar; nonzero tangent is derived for arbitrary automorphisms. The converse full formal identity, parameter composition and calibration are all included, not inferred from naming."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): Independent complete named-proposition AUDIT PASS after fresh comparison of both existing real signatures and the new formal development. Real regularity is only on D, not outside the group; both monotonic directions and signed integer indices are covered. The wild witness supplies actual homomorphism, domain preservation, both inverse identities and inequality to every power map. The initially missing formal component is now resolved over an arbitrary characteristic-zero field, exactly the domain explicitly stated in this core proposition; the later characteristic-series section's Q-algebra extension is not silently substituted here. IsFormalStarEndomorphism contains the full two-variable identity, and the tangent ODE is a proved consequence rather than a hypothesis. Taylor pullback agrees with native substitution of X+Y+XY on monomials and is total-degree local. formalCompose is the locally finite native-power coefficient substitution on zero-constant inner series and agrees with polynomial evaluation. Both compositional inverse directions are proved for every nonzero field scalar; nonzero tangent is derived for arbitrary automorphisms. The converse full formal identity, parameter composition and calibration are all included, not inferred from naming."
     },
     {
       "id": "final:C4",
@@ -486,7 +486,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -514,8 +514,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "ExtendedConvex is convexity of the real epigraph, not an assumption of the desired reconstruction."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): ExtendedConvex is convexity of the real epigraph, not an assumption of the desired reconstruction."
     },
     {
       "id": "final:C6",
@@ -551,7 +551,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -584,7 +584,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
+      "independent_audit": "audits/maps/core-closure.json",
       "notes": ""
     },
     {
@@ -639,8 +639,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): Existing derivative hierarchy is already proved despite a stale unproved_components entry. General analytic-germ uniqueness needs no new mathematics: Mathlib/Analysis/Analytic/Uniqueness.lean:226 supplies the exact general theorem."
     },
     {
       "id": "final:Z4",
@@ -677,8 +677,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "The old map's k-family backlog is stale. This status concerns the complete named theorem statement. Extra proof-paragraph observations about non-entireness, log-concavity threshold and placed half-line variants have no explicit exported wrappers; they are not clauses of the theorem statement."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): The old map's k-family backlog is stale. This status concerns the complete named theorem statement. Extra proof-paragraph observations about non-entireness, log-concavity threshold and placed half-line variants have no explicit exported wrappers; they are not clauses of the theorem statement."
     },
     {
       "id": "final:P0-uniqueness",
@@ -703,7 +703,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -749,7 +749,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -773,7 +773,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -802,8 +802,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Milestone-specific independent review returned PASS after the full SigmaFormalization build."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Milestone-specific independent review returned PASS after the full SigmaFormalization build."
     },
     {
       "id": "final:P2",
@@ -849,8 +849,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "The proof-only tilting, variance and Fisher-information claims are also supplied by poisson_exponential_tilt_law, poisson_general_variance and poisson_natural_fisher_information."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): The proof-only tilting, variance and Fisher-information claims are also supplied by poisson_exponential_tilt_law, poisson_general_variance and poisson_natural_fisher_information."
     },
     {
       "id": "final:P2-boundaries",
@@ -881,7 +881,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -912,7 +912,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -946,7 +946,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -989,7 +989,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -1052,8 +1052,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Completed by the actual MGF/CGF germ derivative identity, which calibrates the explicit cumulant recurrence, and by a direct centered-integral variance theorem. Bounded milestone audit PASS."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Completed by the actual MGF/CGF germ derivative identity, which calibrates the explicit cumulant recurrence, and by a direct centered-integral variance theorem. Bounded milestone audit PASS."
     },
     {
       "id": "final:P4",
@@ -1081,8 +1081,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Bounded milestone audit PASS."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Bounded milestone audit PASS."
     },
     {
       "id": "final:P4-boundaries",
@@ -1124,8 +1124,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Whole named-statement independent adversarial AUDIT PASS. Each of the three deletion boundaries has a witness in the exact paper category. Infinite unweighted level measures are handled using finite sublevel masses, not a finite-total-mass assumption. The same-involution construction uses an explicit balanced level weight instead of the paper proof's implicit-function construction; compact perturbation support and h'(0)=1 are not premises of the named candidate class."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Whole named-statement independent adversarial AUDIT PASS. Each of the three deletion boundaries has a witness in the exact paper category. Infinite unweighted level measures are handled using finite sublevel masses, not a finite-total-mass assumption. The same-involution construction uses an explicit balanced level weight instead of the paper proof's implicit-function construction; compact perturbation support and h'(0)=1 are not premises of the named candidate class."
     },
     {
       "id": "final:P5",
@@ -1202,8 +1202,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "All clauses in final:P5 are formalized. The distributional causal Green-kernel clause has its separate targeted PASS record at p5-distributional-green-formal-independent-audit.md. The actual process uses the standard iid-Exp(1) interarrival construction, not merely a separately postulated exponential pair. A fresh adversarial audit of the complete remaining process clause is recorded at p5-poisson-process-formal-independent-audit.md."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): All clauses in final:P5 are formalized. The distributional causal Green-kernel clause has its separate targeted PASS record at audits/history/formalization/p5-distributional-green-formal-independent-audit.md. The actual process uses the standard iid-Exp(1) interarrival construction, not merely a separately postulated exponential pair. A fresh adversarial audit of the complete remaining process clause is recorded at audits/history/formalization/p5-poisson-process-formal-independent-audit.md."
     },
     {
       "id": "final:P5-survival-boundaries",
@@ -1240,8 +1240,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Fresh whole named-statement independent adversarial AUDIT PASS. The singular function is constructed, not assumed: injective ternary coding and native Standard-Borel transport produce an atomless Cantor-supported probability; recursive measure bounds prove Cantor nullity; local constancy off its closed support proves the CDF derivative is zero almost everywhere. The hazard boundary concerns the paper's bare a.e. survival derivative formulation, not an assertion that the singular law has a global Lebesgue density. The atom-at-zero anchor witness likewise concerns the local-survival formulation rather than retaining global absolute continuity of the source measure."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Fresh whole named-statement independent adversarial AUDIT PASS. The singular function is constructed, not assumed: injective ternary coding and native Standard-Borel transport produce an atomless Cantor-supported probability; recursive measure bounds prove Cantor nullity; local constancy off its closed support proves the CDF derivative is zero almost everywhere. The hazard boundary concerns the paper's bare a.e. survival derivative formulation, not an assertion that the singular law has a global Lebesgue density. The atom-at-zero anchor witness likewise concerns the local-survival formulation rather than retaining global absolute continuity of the source measure."
     },
     {
       "id": "final:P5-stieltjes",
@@ -1274,7 +1274,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -1319,7 +1319,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -1348,7 +1348,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -1394,8 +1394,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Initial follow-up adversarial review found that the iterated PMF construction lacked transfer from arbitrary supplied independent variables. This defect is now resolved by independent_nat_sum_measure, independent_nat_sum_law, borel_independent_finset_law and borel_independent_sum_probabilities. Independent re-review checked the product-measure identity, native IndepFun/iIndepFun hypotheses, arbitrary probability space, finite-family induction and actual event probability conclusion. Bounded named-statement P6 AUDIT PASS. This does not establish the separate P6-gw Galton-Watson construction or P6-boundaries claims. The proof-only labelled-tree and ordered/unordered forest combinatorial counts remain separately unmapped."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Initial follow-up adversarial review found that the iterated PMF construction lacked transfer from arbitrary supplied independent variables. This defect is now resolved by independent_nat_sum_measure, independent_nat_sum_law, borel_independent_finset_law and borel_independent_sum_probabilities. Independent re-review checked the product-measure identity, native IndepFun/iIndepFun hypotheses, arbitrary probability space, finite-family induction and actual event probability conclusion. Bounded named-statement P6 AUDIT PASS. This does not establish the separate P6-gw Galton-Watson construction or P6-boundaries claims. The proof-only labelled-tree and ordered/unordered forest combinatorial counts remain separately unmapped."
     },
     {
       "id": "final:P6-gw",
@@ -1446,8 +1446,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27, with independent cross-review of the source-independence, conditioning and extinction modules by missing_countermodels. All new modules elaborate and targeted transitive axiom checks use only propext, Classical.choice and Quot.sound. The final theorem uses the actual total-size pushforward on extended nonnegative reals, so infinity cannot be hidden by natural-size conversion. See p6-gw-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27, with independent cross-review of the source-independence, conditioning and extinction modules by missing_countermodels. All new modules elaborate and targeted transitive axiom checks use only propext, Classical.choice and Quot.sound. The final theorem uses the actual total-size pushforward on extended nonnegative reals, so infinity cannot be hidden by natural-size conversion. See audits/history/formalization/p6-gw-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P6-boundaries",
@@ -1496,8 +1496,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Fresh whole named-statement adversarial AUDIT PASS. Every nonidentification assertion has a genuine mathematical witness. The criticality-alone statement has no nondegeneracy, extinction or finite-total-progeny premise, so the actual deterministic critical iid tree is an exact witness. It does not formalize the paper proof's stronger finite-extinct binary-0/2 example or its separate forest-marginal nonindependence prose; neither is inferred from this construction."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Fresh whole named-statement adversarial AUDIT PASS. Every nonidentification assertion has a genuine mathematical witness. The criticality-alone statement has no nondegeneracy, extinction or finite-total-progeny premise, so the actual deterministic critical iid tree is an exact witness. It does not formalize the paper proof's stronger finite-extinct binary-0/2 example or its separate forest-marginal nonindependence prose; neither is inferred from this construction."
     },
     {
       "id": "final:P7",
@@ -1532,8 +1532,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Initial follow-up adversarial review found that calibrated_gamma_finite_entropy assumed f log f integrability instead of deriving it. This defect is now closed by entropy_integrable_of_divergence_ne_top, finite_extended_entropy_formula and calibrated_gamma_finite_extended_entropy: the only new premise is finite extended entropy, precisely the paper's premise. Independent re-review inspected the actual proofs, including nonnegative-defect integrability, the entropy-defect identity and reconstruction of f log f from already integrable terms. Bounded P7 AUDIT PASS; no claim of complete coverage for the remaining paper."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Initial follow-up adversarial review found that calibrated_gamma_finite_entropy assumed f log f integrability instead of deriving it. This defect is now closed by entropy_integrable_of_divergence_ne_top, finite_extended_entropy_formula and calibrated_gamma_finite_extended_entropy: the only new premise is finite extended entropy, precisely the paper's premise. Independent re-review inspected the actual proofs, including nonnegative-defect integrability, the entropy-defect identity and reconstruction of f log f from already integrable terms. Bounded P7 AUDIT PASS; no claim of complete coverage for the remaining paper."
     },
     {
       "id": "final:P8",
@@ -1618,8 +1618,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier scalar semigroup, weak-continuity, arbitrary-time conditional FDD uniqueness and correlated-boundary audits are retained. The remaining global construction is now unconditional: native_gamma_process_exists has no realization premises. Every new component has an independent cross-review; source elaboration and targeted transitive axioms are clean apart from harmless style warnings. Explicit Haar-Beta dyadic construction replaces the generic extension theorem proof route and supplies the actual real-time process and shared almost-sure path regularity. See p8-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier scalar semigroup, weak-continuity, arbitrary-time conditional FDD uniqueness and correlated-boundary audits are retained. The remaining global construction is now unconditional: native_gamma_process_exists has no realization premises. Every new component has an independent cross-review; source elaboration and targeted transitive axioms are clean apart from harmless style warnings. Explicit Haar-Beta dyadic construction replaces the generic extension theorem proof route and supplies the actual real-time process and shared almost-sure path regularity. See audits/history/formalization/p8-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P8-levy",
@@ -1707,8 +1707,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier exact Levy integrals, complete-Bernstein/Stieltjes structure, killing exclusion, drift tests and conditional process bridges remain covered. P8 now supplies an unconditional actual process and the new drifted realization theorem supplies every nonnegative drift with the usual increasing right-continuous paths. The final source files independently elaborate cleanly; targeted transitive axioms use only propext, Classical.choice and Quot.sound. See p8-levy-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. Earlier exact Levy integrals, complete-Bernstein/Stieltjes structure, killing exclusion, drift tests and conditional process bridges remain covered. P8 now supplies an unconditional actual process and the new drifted realization theorem supplies every nonnegative drift with the usual increasing right-continuous paths. The final source files independently elaborate cleanly; targeted transitive axioms use only propext, Classical.choice and Quot.sound. See audits/history/formalization/p8-levy-complete-2026-09-27-review.md."
     },
     {
       "id": "final:P8-samples",
@@ -1743,8 +1743,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Separate realizations auditor returned bounded AUDIT PASS after checking SigmaProbCompletionSamples against P8-samples and the O6 representation category. Neither endpoint values nor equality of representation data are added as hypotheses. This does not certify O6's separate actual operator and smooth nonidentification clauses."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Separate realizations auditor returned bounded AUDIT PASS after checking SigmaProbCompletionSamples against P8-samples and the O6 representation category. Neither endpoint values nor equality of representation data are added as hypotheses. This does not certify O6's separate actual operator and smooth nonidentification clauses."
     },
     {
       "id": "final:P8-selfdecomposition",
@@ -1795,8 +1795,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
-      "notes": "Milestone bounded independent audit PASS for all previously unproved P8-selfdecomposition components; full SigmaFormalization build PASS."
+      "independent_audit": "audits/maps/probability.json",
+      "notes": "Cumulative review history (not a current task list): Milestone bounded independent audit PASS for all previously unproved P8-selfdecomposition components; full SigmaFormalization build PASS."
     },
     {
       "id": "final:P9",
@@ -1828,7 +1828,7 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-probability-audit.json",
+      "independent_audit": "audits/maps/probability.json",
       "notes": ""
     },
     {
@@ -1863,8 +1863,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "AUDIT PASS for this named statement. The formal proof uses a cutoff moment bootstrap rather than the paper's distributional half-line argument; its theorem has the same hypotheses and conclusions. Positive support means concentration on (0,infinity), not topological support excluding zero."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): AUDIT PASS for this named statement. The formal proof uses a cutoff moment bootstrap rather than the paper's distributional half-line argument; its theorem has the same hypotheses and conclusions. Positive support means concentration on (0,infinity), not topological support excluding zero."
     },
     {
       "id": "final:O1-kernel",
@@ -1908,8 +1908,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "AUDIT PASS. HasFiniteIntegral plus the stated measurability is genuine finite Lebesgue expectation; it is not the vacuous assertion that Lean's totalized integral is real. For the centered integral =2 selector, nonintegrability would force the totalized integral to zero, so integrability is derived. Local weak tests correctly represent distributions on the open positive ray."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): AUDIT PASS. HasFiniteIntegral plus the stated measurability is genuine finite Lebesgue expectation; it is not the vacuous assertion that Lean's totalized integral is real. For the centered integral =2 selector, nonintegrability would force the totalized integral to zero, so integrability is derived. Local weak tests correctly represent distributions on the open positive ray."
     },
     {
       "id": "final:O2",
@@ -1962,8 +1962,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Whole-O2 AUDIT PASS. Local absolute continuity uses the standard L1 a.e.-derivative plus integral-representation characterization on every compact positive interval, independent of Pearson and normalization; no unavailable native AC predicate equivalence is claimed. Continuity and the everywhere Pearson derivative are derived, not assumed. Positivity is not required by the uniqueness proof, which is stronger than the paper; canonical positivity is supplied separately. Nonzero mass derives integrability, and the actual positive-supported measure is proved equal. The initial raw-flux differentiability caution is resolved by HasLocalACPearsonFlux: arbitrary a.e. coefficient representatives may have discontinuous raw aw, but an independent locally AC representative F with F=aw a.e. is used instead. After coefficient recovery, continuity upgrades F=tw from a.e. to pointwise, allowing legitimate derivative transport. This is an expression/weight theorem only, not a claim about the separate unbounded Hilbert operator or its domain."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Whole-O2 AUDIT PASS. Local absolute continuity uses the standard L1 a.e.-derivative plus integral-representation characterization on every compact positive interval, independent of Pearson and normalization; no unavailable native AC predicate equivalence is claimed. Continuity and the everywhere Pearson derivative are derived, not assumed. Positivity is not required by the uniqueness proof, which is stronger than the paper; canonical positivity is supplied separately. Nonzero mass derives integrability, and the actual positive-supported measure is proved equal. The initial raw-flux differentiability caution is resolved by HasLocalACPearsonFlux: arbitrary a.e. coefficient representatives may have discontinuous raw aw, but an independent locally AC representative F with F=aw a.e. is used instead. After coefficient recovery, continuity upgrades F=tw from a.e. to pointwise, allowing legitimate derivative transport. This is an expression/weight theorem only, not a claim about the separate unbounded Hilbert operator or its domain."
     },
     {
       "id": "final:O2-boundaries",
@@ -2003,8 +2003,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Whole-statement independent adversarial AUDIT PASS. The named proposition does not prescribe the particular witnesses in its paper proof: smooth positive rational coefficient witnesses, swapping modes three and four, and reversible Gamma-refresh kernels establish its three exact nonidentification assertions. Native self-adjointness is equality with the actual partial-map adjoint on the maximal spectral domain, transported through the proved weighted Laguerre Hilbert basis. The refresh witness has actual probability kernels, zero-time identity, composition law, invariance and joint-measure detailed balance. Review required strengthening distinctness from an off-ray state to every positive state; the packaged theorem now includes that conclusion. No identification of the separate compact-test minimal differential operator is assumed or claimed."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Whole-statement independent adversarial AUDIT PASS. The named proposition does not prescribe the particular witnesses in its paper proof: smooth positive rational coefficient witnesses, swapping modes three and four, and reversible Gamma-refresh kernels establish its three exact nonidentification assertions. Native self-adjointness is equality with the actual partial-map adjoint on the maximal spectral domain, transported through the proved weighted Laguerre Hilbert basis. The refresh witness has actual probability kernels, zero-time identity, composition law, invariance and joint-measure detailed balance. Review required strengthening distinctness from an off-ray state to every positive state; the packaged theorem now includes that conclusion. No identification of the separate compact-test minimal differential operator is assumed or claimed."
     },
     {
       "id": "final:O3",
@@ -2084,8 +2084,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent paper_coverage_review COMPLETE PASS on 2026-09-27 for the entire named theorem, including exact minimal operator, density/nonnegativity/symmetry, native deficiency indices and unique self-adjoint graph closure/adjoint, exact maximal domain and image, both automatic zero-flux limits, both endpoint Weyl classifications, and an intrinsic no-finite-boundary-value domain witness. Fixed-parameter Weyl classification follows the explicit paper characterization; no general Weyl-alternative theorem is claimed. Independent elaboration and targeted transitive axioms passed with only standard axioms. See o3-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent paper_coverage_review COMPLETE PASS on 2026-09-27 for the entire named theorem, including exact minimal operator, density/nonnegativity/symmetry, native deficiency indices and unique self-adjoint graph closure/adjoint, exact maximal domain and image, both automatic zero-flux limits, both endpoint Weyl classifications, and an intrinsic no-finite-boundary-value domain witness. Fixed-parameter Weyl classification follows the explicit paper characterization; no general Weyl-alternative theorem is claimed. Independent elaboration and targeted transitive axioms passed with only standard axioms. See audits/history/formalization/o3-complete-2026-09-27-review.md."
     },
     {
       "id": "final:O3-form",
@@ -2141,8 +2141,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent paper_coverage_review COMPLETE PASS on 2026-09-26 for the entire proposition: exact AC finite-energy domain with no endpoint traces, arbitrary-representative mixed form, and positivity/one/probability preservation for all nonnegative semigroup times. Actual canonical graph closure and square-root identification are proved. Source elaboration and targeted transitive axiom checks use only standard axioms. See o3-form-complete-2026-09-26-review.md."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent paper_coverage_review COMPLETE PASS on 2026-09-26 for the entire proposition: exact AC finite-energy domain with no endpoint traces, arbitrary-representative mixed form, and positivity/one/probability preservation for all nonnegative semigroup times. Actual canonical graph closure and square-root identification are proved. Source elaboration and targeted transitive axiom checks use only standard axioms. See audits/history/formalization/o3-form-complete-2026-09-26-review.md."
     },
     {
       "id": "final:O3-spectrum",
@@ -2231,8 +2231,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Fresh whole-statement independent adversarial AUDIT PASS. All clauses, including the general literal derivative-energy identity and derived local absolute continuity, hold for the actual canonical differential closure. The separate O3 maximal-domain/endpoint and O3-form reverse-domain/Markov statements are not promoted."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Fresh whole-statement independent adversarial AUDIT PASS. All clauses, including the general literal derivative-energy identity and derived local absolute continuity, hold for the actual canonical differential closure. The separate O3 maximal-domain/endpoint and O3-form reverse-domain/Markov statements are not promoted."
     },
     {
       "id": "final:O7",
@@ -2263,8 +2263,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate operator-basis realization. The Rodrigues identity is now independently covered under O3-spectrum."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): AUDIT PASS. The finite-sum polynomials exactly match the paper's specified normalization; O7 does not require the separate operator-basis realization. The Rodrigues identity is now independently covered under O3-spectrum."
     },
     {
       "id": "final:O4",
@@ -2307,8 +2307,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial AUDIT PASS for the complete parent O4 statement. The heat and zeta results use actual bounded spectral multipliers and native trace-class criteria. The integer-trace inverse uses powers of genuine resolvents, extracts multiplicities through an actual finite weighted measure, and returns a full-domain unitary. The separately labelled heat-kernel, resolvent-kernel/digamma, determinant, and finite-countermodel clauses remain separate obligations and are not included in this completion."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent adversarial AUDIT PASS for the complete parent O4 statement. The heat and zeta results use actual bounded spectral multipliers and native trace-class criteria. The integer-trace inverse uses powers of genuine resolvents, extracts multiplicities through an actual finite weighted measure, and returns a full-domain unitary. The separately labelled heat-kernel, resolvent-kernel/digamma, determinant, and finite-countermodel clauses remain separate obligations and are not included in this completion."
     },
     {
       "id": "final:O4-convergence-boundary",
@@ -2368,8 +2368,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial AUDIT PASS. The paper's proposition is existential; Lean uses the alternative explicit eigenvalues sqrt(log(n+3)) rather than log log(n+e^e). The native operator, its full domain, self-adjointness, nonnegativity, compact resolvent, and actual heat/zeta multiplier trace-class failures are proved. The separate O4 heat-kernel and resolvent statements are now complete; determinants and finite-invariant countermodels remain incomplete."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent adversarial AUDIT PASS. The paper's proposition is existential; Lean uses the alternative explicit eigenvalues sqrt(log(n+3)) rather than log log(n+e^e). The native operator, its full domain, self-adjointness, nonnegativity, compact resolvent, and actual heat/zeta multiplier trace-class failures are proved. The separate O4 heat-kernel and resolvent statements are now complete; determinants and finite-invariant countermodels remain incomplete."
     },
     {
       "id": "final:O4-heat-kernel",
@@ -2405,8 +2405,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent adversarial AUDIT PASS for the complete heat-kernel statement. The Bessel expression is the actual Gamma-relative integral kernel on every weighted-L2 input, equals the Laguerre series at every positive pair, and represents the same weighted product-L2 sum. Local uniform convergence, positivity, symmetry, row mass, large-time limit, and all-real-test-function Lebesgue density identity are proved."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent adversarial AUDIT PASS for the complete heat-kernel statement. The Bessel expression is the actual Gamma-relative integral kernel on every weighted-L2 input, equals the Laguerre series at every positive pair, and represents the same weighted product-L2 sum. Local uniform convergence, positivity, symmetry, row mass, large-time limit, and all-real-test-function Lebesgue density identity are proved."
     },
     {
       "id": "final:O4-resolvents",
@@ -2487,8 +2487,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent full named-statement COMPLETE PASS by paper_coverage_review on 2026-09-26. Every kernel, ideal, trace, generator/domain reconstruction, and marked heat inverse clause was checked against the paper. Temporary vector-integrability premises are discharged in both final kernel-action theorems. All positive Hurwitz shifts include the necessary finite correction to Mathlib conventions. The native operators are linked to the differential closure. Independent elaboration and targeted transitive axiom checks passed with only propext, Classical.choice, and Quot.sound. Full project build passed; the repository-wide axiom print audit was still running when this record was committed. See o4-resolvents-2026-09-26-review.md."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent full named-statement COMPLETE PASS by paper_coverage_review on 2026-09-26. Every kernel, ideal, trace, generator/domain reconstruction, and marked heat inverse clause was checked against the paper. Temporary vector-integrability premises are discharged in both final kernel-action theorems. All positive Hurwitz shifts include the necessary finite correction to Mathlib conventions. The native operators are linked to the differential closure. Independent elaboration and targeted transitive axiom checks passed with only propext, Classical.choice, and Quot.sound. Full project build passed; the repository-wide axiom print audit was still running when this record was committed. See audits/history/formalization/o4-resolvents-2026-09-26-review.md."
     },
     {
       "id": "final:O4-determinants",
@@ -2566,8 +2566,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent whole-statement COMPLETE PASS by missing_countermodels on 2026-09-27, following the earlier canonical-formula and zeta-clause reviews. All native determinant category, convergence, basis independence, exact multiplicity and competing-operator reconstruction residuals are now closed. All 12 new modules elaborate; eight principal transitive axiom checks use only propext, Classical.choice, and Quot.sound. The all-positive-shift Lerch identity and normalization are derived, and the prime determinant removes exactly the zero mode. See o4-determinants-complete-2026-09-27-review.md; earlier bounded reviews are o4-determinants-2026-09-26-review.md and o4-zeta-determinant-2026-09-26-review.md."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent whole-statement COMPLETE PASS by missing_countermodels on 2026-09-27, following the earlier canonical-formula and zeta-clause reviews. All native determinant category, convergence, basis independence, exact multiplicity and competing-operator reconstruction residuals are now closed. All 12 new modules elaborate; eight principal transitive axiom checks use only propext, Classical.choice, and Quot.sound. The all-positive-shift Lerch identity and normalization are derived, and the prime determinant removes exactly the zero mode. See audits/history/formalization/o4-determinants-complete-2026-09-27-review.md; earlier bounded reviews are audits/history/formalization/o4-determinants-2026-09-26-review.md and audits/history/formalization/o4-zeta-determinant-2026-09-26-review.md."
     },
     {
       "id": "final:O4-finite-countermodels",
@@ -2606,8 +2606,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. All three source files elaborated; targeted transitive axiom checks use only propext, Classical.choice, and Quot.sound. The geometric-index Vandermonde proof replaces the general exponential-zero-count argument. Proof-only small examples and general level-manifold dimension are not claimed. See o4-finite-countermodels-2026-09-27-review.md."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Independent whole-statement COMPLETE PASS by paper_coverage_review on 2026-09-27. All three source files elaborated; targeted transitive axiom checks use only propext, Classical.choice, and Quot.sound. The geometric-index Vandermonde proof replaces the general exponential-zero-count argument. Proof-only small examples and general level-manifold dimension are not claimed. See audits/history/formalization/o4-finite-countermodels-2026-09-27-review.md."
     },
     {
       "id": "final:O5",
@@ -2684,8 +2684,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "WHOLE final:O5 independent AUDIT PASS, preserved in o5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): WHOLE final:O5 independent AUDIT PASS, preserved in audits/history/formalization/o5-generic-strong-mixing-formal-independent-audit.md from the reviewer verdict before session cutoff. All previously conditional operator inputs are now constructed from native self-adjointness and nonnegativity. Full integration build, source_audit and eight selected final transitive axiom checks PASS. Existing full-line positive-measure clauses are retained; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "id": "final:O6",
@@ -2748,8 +2748,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "Full named-statement independent adversarial AUDIT PASS after the actual differential-closure and canonical-calculus bridges. The prior model-linkage defect is resolved by exact unitary representation of A and actual weighted-L2 multiplier domains/actions, not by reusing a separate sequence model without identification. The general arbitrary-operator inverse proposition O6-functional-calculus is not promoted."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): Full named-statement independent adversarial AUDIT PASS after the actual differential-closure and canonical-calculus bridges. The prior model-linkage defect is resolved by exact unitary representation of A and actual weighted-L2 multiplier domains/actions, not by reusing a separate sequence model without identification. The general arbitrary-operator inverse proposition O6-functional-calculus is not promoted."
     },
     {
       "id": "final:O6-functional-calculus",
@@ -2804,8 +2804,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "WHOLE statement AUDIT PASS: o6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: o6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): WHOLE statement AUDIT PASS: audits/history/formalization/o6-generic-functional-calculus-formal-independent-audit.md; canonical clause prior PASS: audits/history/formalization/o6-canonical-inverse-formal-independent-audit.md. Generic bounded-resolvent CFC constructs the full native operator. Exact Bernstein wrappers derive regularity from HasBernsteinRepresentation. Integration build, source_audit and selected final transitive axiom checks PASS; full Verify.py and full SigmaAxioms.lean were not repeated."
     },
     {
       "id": "final:O5-isospectral-boundary",
@@ -2905,8 +2905,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "The final native boundary assembly and both shared mixing bridges are kernel-checked, and the complete SigmaFormalization integration build passes. Small generic inverse-uniqueness and equation-transport lemmas avoid kernel timeouts in the integral bridges; the native closure assembly is compiled separately from determinant imports. No additional independent review or full axiom audit was run, as explicitly requested by the user. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): The final native boundary assembly and both shared mixing bridges are kernel-checked, and the complete SigmaFormalization integration build passes. Small generic inverse-uniqueness and equation-transport lemmas avoid kernel timeouts in the integral bridges; the native closure assembly is compiled separately from determinant imports. No additional independent review or full axiom audit was run, as explicitly requested by the user. Earlier standalone components retain their independent audit evidence. The inverse-flux primitive uses the natural unit-flux normalization, differing from the paper's displayed primitive by the irrelevant constant factor two."
     },
     {
       "id": "final:O5-canonical-versus-identification",
@@ -2962,8 +2962,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-operator-audit.json",
-      "notes": "The last residual is proved using bounded coordinate resolvent probes (1+(t-a)^2)^(-1), derived directly from maximal multiplication-domain equations. Hausdorff uniqueness recovers interval probabilities; an integrable-density annihilator proves cyclicity and therefore all Borel projection intertwining. This is a concrete proof of the paper's marked-unitary clause rather than an assumption of spectral-projection functoriality. No new independent audit or full axiom audit is claimed."
+      "independent_audit": "audits/maps/operator.json",
+      "notes": "Cumulative review history (not a current task list): The last residual is proved using bounded coordinate resolvent probes (1+(t-a)^2)^(-1), derived directly from maximal multiplication-domain equations. Hausdorff uniqueness recovers interval probabilities; an integrable-density annihilator proves cyclicity and therefore all Borel projection intertwining. This is a concrete proof of the paper's marked-unitary clause rather than an assumption of spectral-projection functoriality. No new independent audit or full axiom audit is claimed."
     },
     {
       "id": "final:F1",
@@ -3000,8 +3000,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "The separate displayed equation final:todd-arbitrary-power is outside the F1 theorem statement and is not covered by these twist theorems; see labelled_equations."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): The separate displayed equation final:todd-arbitrary-power is outside the F1 theorem statement and is not covered by these twist theorems; see labelled_equations."
     },
     {
       "id": "final:F2",
@@ -3049,8 +3049,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Inspected quotient definitions and base-change constructions: these are not arbitrary series renamed as the desired functions."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Inspected quotient definitions and base-change constructions: these are not arbitrary series renamed as the desired functions."
     },
     {
       "id": "final:F3",
@@ -3178,8 +3178,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded formal, full-real analytic, smooth-boundary and complex-pole AUDIT PASS. The initial finite-jet witness was insufficient for germ equality; the compact smooth bump now supplies actual germ equality, all jets and an unequal global value, with strict convexity derived for a nonzero scale. Formal substitution is the actual locally finite coefficient operation, both inverse compositions equal X, and uniqueness holds over arbitrary rational algebras without a domain assumption. The logarithm and H germ have proved convergent sums on |z|<1. Real quotient analyticity at zero follows from the native shifted analytic series; the positive Ahat square root equals twice cosh. Reciprocal Todd/Ahat/L representatives are analytic everywhere real, while reciprocal chi is correctly restricted to its nonzero domain. Recovery denominators are proved nonzero. Independent analytic representatives agree on the same preconnected domain. Complex poles have native MeromorphicAt order minus one; denominator-zero classifications and regularity elsewhere establish the exact lattices and nearest poles. The characteristic-formal coefficient bridge is now independently audited: HasRealFormalGerm is literally native HasFPowerSeriesAt with ofScalars of the prescribed coefficients. Actual analytic product, rescaling, reciprocal and dslope operations are proved coefficientwise; the Todd denominator identity and formal unit uniqueness identify the already-existing Todd series, then existing formal transformations identify Ahat/L/chi and all reciprocals. No equality is inferred from naming similarity. The Taylor-disc obligation is now resolved by native HasFPowerSeriesAt germs with exact radii 2pi, 2pi and pi. Upper bounds analytically continue the genuine denominator-product identity inside any hypothetically larger disk and contradict a nonzero numerator at a true pole; lower bounds use actual analyticity on the full disk and uniqueness of native coefficients. The complex functions restrict exactly to the same real representatives, with actual convergent sums on the real portions of each disk. Explicit real points outside the disks establish the claimed obstruction. A fresh final review against the entire F3 statement and proof found all initially recorded components resolved: whole-F3 AUDIT PASS."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded formal, full-real analytic, smooth-boundary and complex-pole AUDIT PASS. The initial finite-jet witness was insufficient for germ equality; the compact smooth bump now supplies actual germ equality, all jets and an unequal global value, with strict convexity derived for a nonzero scale. Formal substitution is the actual locally finite coefficient operation, both inverse compositions equal X, and uniqueness holds over arbitrary rational algebras without a domain assumption. The logarithm and H germ have proved convergent sums on |z|<1. Real quotient analyticity at zero follows from the native shifted analytic series; the positive Ahat square root equals twice cosh. Reciprocal Todd/Ahat/L representatives are analytic everywhere real, while reciprocal chi is correctly restricted to its nonzero domain. Recovery denominators are proved nonzero. Independent analytic representatives agree on the same preconnected domain. Complex poles have native MeromorphicAt order minus one; denominator-zero classifications and regularity elsewhere establish the exact lattices and nearest poles. The characteristic-formal coefficient bridge is now independently audited: HasRealFormalGerm is literally native HasFPowerSeriesAt with ofScalars of the prescribed coefficients. Actual analytic product, rescaling, reciprocal and dslope operations are proved coefficientwise; the Todd denominator identity and formal unit uniqueness identify the already-existing Todd series, then existing formal transformations identify Ahat/L/chi and all reciprocals. No equality is inferred from naming similarity. The Taylor-disc obligation is now resolved by native HasFPowerSeriesAt germs with exact radii 2pi, 2pi and pi. Upper bounds analytically continue the genuine denominator-product identity inside any hypothetically larger disk and contradict a nonzero numerator at a true pole; lower bounds use actual analyticity on the full disk and uniqueness of native coefficients. The complex functions restrict exactly to the same real representatives, with actual convergent sums on the real portions of each disk. Explicit real points outside the disks establish the claimed obstruction. A fresh final review against the entire F3 statement and proof found all initially recorded components resolved: whole-F3 AUDIT PASS."
     },
     {
       "id": "final:F4",
@@ -3248,8 +3248,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "2026-09-27 native supplied-theory development and independent review. Actual projective quotient topology and tautological incidence bundles, native zero-section and classifying maps, all-stage inverse-limit identification, actual Whitney decomposition, injective descent, quotient collapse and proper-map geometry are retained. The paper explicitly supplies the K/cohomological, orientation, splitting and collapse/Gysin foundations; no correction, Todd comparison or RR conclusion is inserted as a foundational field. Whole-F4 independent AUDIT PASS, including supported endpoints. See f4-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-27 native supplied-theory development and independent review. Actual projective quotient topology and tautological incidence bundles, native zero-section and classifying maps, all-stage inverse-limit identification, actual Whitney decomposition, injective descent, quotient collapse and proper-map geometry are retained. The paper explicitly supplies the K/cohomological, orientation, splitting and collapse/Gysin foundations; no correction, Todd comparison or RR conclusion is inserted as a foundational field. Whole-F4 independent AUDIT PASS, including supported endpoints. See audits/history/formalization/f4-complete-2026-09-27-review.md."
     },
     {
       "id": "final:F5",
@@ -3324,8 +3324,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "2026-09-30 whole F5 closure by the stronger native additive order-two argument. Ordinary cohomology and the general Chern character retain the supplied elementary-foundation status stated in the paper, as in F4; only universal additivity and trivial-line normalization are used. The specific integral obstruction, actual two-copy trivialization, native K0 relation and rational-characteristic equality are derived. No RP2-specific cohomology hypothesis remains. See f5-native-k0-rational-proof-record.md."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-30 whole F5 closure by the stronger native additive order-two argument. Ordinary cohomology and the general Chern character retain the supplied elementary-foundation status stated in the paper, as in F4; only universal additivity and trivial-line normalization are used. The specific integral obstruction, actual two-copy trivialization, native K0 relation and rational-characteristic equality are derived. No RP2-specific cohomology hypothesis remains. See audits/history/formalization/f5-native-k0-rational-proof-record.md."
     },
     {
       "id": "final:M1",
@@ -3368,8 +3368,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded M1 AUDIT PASS after independent inspection of the new families. The positive-rank uniqueness theorem needs recursion only on diagonal blocks, a weaker assumption than the paper. The new basis-dependent family adds the sum of squared off-diagonal entries to the canonical potential, and the rank-shift family adds zero in rank one and one otherwise. These are alternative genuine witnesses to the named necessity claims; the paper proof's particular diagonal-potential and logarithmic-eigenvalue-variance examples remain distinct proof-level claims. An independent Lean stdin check verified that X.PosDef and Q transpose times Q equals identity imply the rotated matrix is SPD using positive_definite_congruence, so the invariance witness stays inside the required cone. Identity scalar blocks in the recursion witness are SPD. No regularity or extra positivity assumptions were introduced."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded M1 AUDIT PASS after independent inspection of the new families. The positive-rank uniqueness theorem needs recursion only on diagonal blocks, a weaker assumption than the paper. The new basis-dependent family adds the sum of squared off-diagonal entries to the canonical potential, and the rank-shift family adds zero in rank one and one otherwise. These are alternative genuine witnesses to the named necessity claims; the paper proof's particular diagonal-potential and logarithmic-eigenvalue-variance examples remain distinct proof-level claims. An independent Lean stdin check verified that X.PosDef and Q transpose times Q equals identity imply the rotated matrix is SPD using positive_definite_congruence, so the invariance witness stays inside the required cone. Identity scalar blocks in the recursion witness are SPD. No regularity or extra positivity assumptions were introduced."
     },
     {
       "id": "final:M2",
@@ -3433,8 +3433,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. The initially unmapped adjacent dual-Bregman claim is now independently audited: matrixDualPotential is the exact finite conjugate formula, its actual Frechet derivative is proved, and matrix_bregman_legendre_duality uses Theta_Y first and Theta_X second, with SPD dual complements derived from the primal hypotheses. Adjacent substantive prose claims remain separately unmapped: marked gradient/Hessian reconstruction converses and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded named-statement M2 AUDIT PASS. The conjugate is a literal EReal supremum of trace pairing minus the infinity-extended native matrix potential. Its ambient supremum includes all matrices, but nonsymmetric/non-SPD matrices contribute negative infinity, so this agrees with the paper's symmetric-space conjugate; the final formula explicitly requires a symmetric dual matrix. Positive rank in the AM bound is exactly the Nonempty finite index assumption, and positivity of the equality-case scalar is proved by the trace lemma. Strict concavity uses actual matrix divergence positivity on the convex SPD cone. The initially unmapped adjacent dual-Bregman claim is now independently audited: matrixDualPotential is the exact finite conjugate formula, its actual Frechet derivative is proved, and matrix_bregman_legendre_duality uses Theta_Y first and Theta_X second, with SPD dual complements derived from the primal hypotheses. Adjacent substantive prose claims remain separately unmapped: marked gradient/Hessian reconstruction converses and alternative invariant metrics with the alpha/beta positivity criterion. Their omission is not hidden by this approval of the named theorem statement."
     },
     {
       "id": "final:M3",
@@ -3579,8 +3579,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded native spectral/path-component AUDIT PASS. The relative matrix has the exact paper orientation and actual positive eigenvalues. The spectral logarithm's native exponential identity is proved; paths use genuine SPD square roots and NormedSpace.exp under explicit Frobenius norm instances. Speed uses actual native derivatives and length is an interval integral. Initial rank-one review found that the C1 admissible class omitted corners and one-sided endpoints. SigmaMatrixPiecewiseRankOne resolves this: finite strict partitions, continuous original SPD paths, continuous segment velocities and derivative identities only on segment interiors; endpoint/corner values are removed only almost everywhere in the actual speed integral. Segment FTC, telescoping and the attaining exponential path prove the full piecewise-C1 infimum formula, not a distance defined by the answer. RankOneUnique proves genuine C1 uniqueness, and PiecewiseRankOneUnique extends it to the full piecewise-C1 class by clipping arbitrary subintervals, handling zero-length pieces and requiring constant speed only almost everywhere. No division by distance occurs, so coincident endpoints are included. SigmaMatrixRankOneGeodesic now identifies that interpolation exactly with the native spectral square-root/exponential/logarithm curve for every real parameter. Its native piecewise-C1 admissibility, constant speed, global minimizing length, logarithm-norm distance and uniqueness on the full closed interval follow with no distinct-endpoint premise. Thus the entire rank-one variational/path identification and symmetrization clauses are covered. The native ODE is supplemented by the actual metric-geodesic distance identity and global minimizing/uniqueness theorems. The higher-rank deletion boundary is now proved independently of the missing general distance formula. Native metric Cauchy-Schwarz and derived tangent symmetry give lower bounds for every piecewise-C1 path, with integrability derived and corners ignored only almost everywhere. The actual path-length infima to diag(exp(sqrt(rank)),1,...) and exp(1) times identity both equal sqrt(rank), using explicit attaining paths. Strict sinh superlinearity proves different actual symmetrized divergences in every rank>=2; the theorem explicitly excludes ranks zero and one. This is an alternative exact witness to the named boundary rather than a claim that the paper proof's particular two-coordinate example or its power-series comparison was separately formalized. Full M3 AUDIT PASS: audits/formalization/m3-global-distance-formal-independent-audit.md. SigmaMatrixExpFrechet and ExpSpectral identify the actual exponential derivative and construct its inverse; LogCalculus derives the actual SPD logarithm regularity by the inverse function theorem. LogPath and PiecewiseContraction give every subinterval bound, and clamp extensions preserve the original path class. M3Distance proves the all-path infimum formula and attainment; M3Unique proves all-rank a.e. constant-speed minimizer uniqueness including coincident endpoints; M3Geodesic proves the actual metric-geodesic identity. Full integration build, source_audit and selected final transitive axioms PASS; this does not claim a new full Verify.py or full SigmaAxioms.lean run."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded native spectral/path-component AUDIT PASS. The relative matrix has the exact paper orientation and actual positive eigenvalues. The spectral logarithm's native exponential identity is proved; paths use genuine SPD square roots and NormedSpace.exp under explicit Frobenius norm instances. Speed uses actual native derivatives and length is an interval integral. Initial rank-one review found that the C1 admissible class omitted corners and one-sided endpoints. SigmaMatrixPiecewiseRankOne resolves this: finite strict partitions, continuous original SPD paths, continuous segment velocities and derivative identities only on segment interiors; endpoint/corner values are removed only almost everywhere in the actual speed integral. Segment FTC, telescoping and the attaining exponential path prove the full piecewise-C1 infimum formula, not a distance defined by the answer. RankOneUnique proves genuine C1 uniqueness, and PiecewiseRankOneUnique extends it to the full piecewise-C1 class by clipping arbitrary subintervals, handling zero-length pieces and requiring constant speed only almost everywhere. No division by distance occurs, so coincident endpoints are included. SigmaMatrixRankOneGeodesic now identifies that interpolation exactly with the native spectral square-root/exponential/logarithm curve for every real parameter. Its native piecewise-C1 admissibility, constant speed, global minimizing length, logarithm-norm distance and uniqueness on the full closed interval follow with no distinct-endpoint premise. Thus the entire rank-one variational/path identification and symmetrization clauses are covered. The native ODE is supplemented by the actual metric-geodesic distance identity and global minimizing/uniqueness theorems. The higher-rank deletion boundary is now proved independently of the missing general distance formula. Native metric Cauchy-Schwarz and derived tangent symmetry give lower bounds for every piecewise-C1 path, with integrability derived and corners ignored only almost everywhere. The actual path-length infima to diag(exp(sqrt(rank)),1,...) and exp(1) times identity both equal sqrt(rank), using explicit attaining paths. Strict sinh superlinearity proves different actual symmetrized divergences in every rank>=2; the theorem explicitly excludes ranks zero and one. This is an alternative exact witness to the named boundary rather than a claim that the paper proof's particular two-coordinate example or its power-series comparison was separately formalized. Full M3 AUDIT PASS: audits/history/formalization/m3-global-distance-formal-independent-audit.md. SigmaMatrixExpFrechet and ExpSpectral identify the actual exponential derivative and construct its inverse; LogCalculus derives the actual SPD logarithm regularity by the inverse function theorem. LogPath and PiecewiseContraction give every subinterval bound, and clamp extensions preserve the original path class. M3Distance proves the all-path infimum formula and attainment; M3Unique proves all-rank a.e. constant-speed minimizer uniqueness including coincident endpoints; M3Geodesic proves the actual metric-geodesic identity. Full integration build, source_audit and selected final transitive axioms PASS; this does not claim a new full Verify.py or full SigmaAxioms.lean run."
     },
     {
       "id": "final:M4",
@@ -3640,8 +3640,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Fresh whole-statement independent adversarial AUDIT PASS. Existing local Gaussian/Wishart proofs were reused; the true final additions are actual common-conditional-kernel sufficiency and the derived almost-sure full-rank threshold. The named theorem is covered in all supplied finite dimensions, with its positive sample-count condition preserved. Neither scalar Gaussian entropy nor a deterministic likelihood objective is substituted for the multivariate probabilistic assertions."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Fresh whole-statement independent adversarial AUDIT PASS. Existing local Gaussian/Wishart proofs were reused; the true final additions are actual common-conditional-kernel sufficiency and the derived almost-sure full-rank threshold. The named theorem is covered in all supplied finite dimensions, with its positive sample-count condition preserved. Neither scalar Gaussian entropy nor a deterministic likelihood objective is substituted for the multivariate probabilistic assertions."
     },
     {
       "id": "final:R1",
@@ -3729,8 +3729,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem. 2026-09-27 geometric R1 bounded AUDIT PASS: independent cross-review of Gaussian density/pushforward, native polar uniform inverse, quaternion isotropy uniqueness and direction-energy independence. Conditional Brownian/OU prerequisites are credited only as prerequisites: IsRadialBrownian records standard Gaussian independent increments, zero and continuous paths, and does not assume the OU or radial SDE conclusion. R1 remains partial solely for the stochastic-calculus clause. The geometric inverse needed by global E is complete. 2026-09-30 completion update (implementing-agent review): the preceding partial-status remarks describe the historical audit. Completion now uses the expressly selected supplied-foundation reading of the paper: BrownianItoLevyCalculus exposes general C2 Ito, bounded-integrand martingale and square-compensator, stochastic substitution, and Levy characterization as hypotheses on native objects. Its continuous-integrand law also identifies the supplied integral with probability limits of native left-point sums. No field assumes the OU energy formula, normalization result, or dimension-four SDE. Those conclusions are derived in SigmaRadialOUStochastic. General stochastic-calculus construction and Brownian existence are not claimed; the paper starts with a specified OU process and expressly retains those foundations. The independent Brownian moment/quadratic-variation/self-integral results are proved without the supplied calculus. See r1-stochastic-proof-record.md for the precise scope and validation; this update does not claim a new independent external review."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem. 2026-09-27 geometric R1 bounded AUDIT PASS: independent cross-review of Gaussian density/pushforward, native polar uniform inverse, quaternion isotropy uniqueness and direction-energy independence. Conditional Brownian/OU prerequisites are credited only as prerequisites: IsRadialBrownian records standard Gaussian independent increments, zero and continuous paths, and does not assume the OU or radial SDE conclusion. R1 remains partial solely for the stochastic-calculus clause. The geometric inverse needed by global E is complete. 2026-09-30 completion update (implementing-agent review): the preceding partial-status remarks describe the historical audit. Completion now uses the expressly selected supplied-foundation reading of the paper: BrownianItoLevyCalculus exposes general C2 Ito, bounded-integrand martingale and square-compensator, stochastic substitution, and Levy characterization as hypotheses on native objects. Its continuous-integrand law also identifies the supplied integral with probability limits of native left-point sums. No field assumes the OU energy formula, normalization result, or dimension-four SDE. Those conclusions are derived in SigmaRadialOUStochastic. General stochastic-calculus construction and Brownian existence are not claimed; the paper starts with a specified OU process and expressly retains those foundations. The independent Brownian moment/quadratic-variation/self-integral results are proved without the supplied calculus. See audits/history/formalization/r1-stochastic-proof-record.md for the precise scope and validation; this update does not claim a new independent external review."
     },
     {
       "id": "final:R2",
@@ -3764,8 +3764,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Independent cross-section re-audit confirms no hidden finite-dimensionality/continuity/measurability assumption. The added quadratic_scale_calibration_nonzero theorem calibrates at every nonzero vector, closing the earlier unit-vector-only mapping mismatch. The final adjacent prose example z=exp(linear)-1 with z>-1 is not separately packaged, though its underlying linear witness is proved."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Independent cross-section re-audit confirms no hidden finite-dimensionality/continuity/measurability assumption. The added quadratic_scale_calibration_nonzero theorem calibrates at every nonzero vector, closing the earlier unit-vector-only mapping mismatch. The final adjacent prose example z=exp(linear)-1 with z>-1 is not separately packaged, though its underlying linear witness is proved."
     },
     {
       "id": "final:R3",
@@ -3803,8 +3803,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded complete R3 AUDIT PASS. Initially only the one-variable expressions were proved; radial_euclidean_laplacian now derives the radial expression from euclideanLaplacian, defined as the finite sum of actual second derivatives along orthonormal coordinate lines, not as the desired radial formula. The proof derives each directional second derivative from the actual norm derivative and uses the orthonormal-basis Parseval identity. Basis cardinal is the integer Euclidean dimension; every positive dimension and positive radius is covered, while the excluded origin matches the paper's x>0. Only ordinary differentiability on the positive ray and differentiability of the first derivative at the evaluated radius are required, not continuity of the second derivative. The existing conjugation identity requires no nonvanishing hypothesis. The constant-profile witness is an alternative to the paper proof's Gaussian-profile example and establishes the named nonidentification claim."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded complete R3 AUDIT PASS. Initially only the one-variable expressions were proved; radial_euclidean_laplacian now derives the radial expression from euclideanLaplacian, defined as the finite sum of actual second derivatives along orthonormal coordinate lines, not as the desired radial formula. The proof derives each directional second derivative from the actual norm derivative and uses the orthonormal-basis Parseval identity. Basis cardinal is the integer Euclidean dimension; every positive dimension and positive radius is covered, while the excluded origin matches the paper's x>0. Only ordinary differentiability on the positive ray and differentiability of the first derivative at the evaluated radius are required, not continuity of the second derivative. The existing conjugation identity requires no nonvanishing hypothesis. The constant-profile witness is an alternative to the paper proof's Gaussian-profile example and establishes the named nonidentification claim."
     },
     {
       "id": "final:R4",
@@ -3840,8 +3840,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded final:R4 milestone audit PASS. CompleteIntrinsicContextAt explicitly records all five retained families named by the proposition. The three product extensions preserve the identical retained packet and its complete proof while adjoining the paper's concrete spatial observables. The adjacent unlabelled tensor-comparison paragraph is outside Proposition final:R4."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded final:R4 milestone audit PASS. CompleteIntrinsicContextAt explicitly records all five retained families named by the proposition. The three product extensions preserve the identical retained packet and its complete proof while adjoining the paper's concrete spatial observables. The adjacent unlabelled tensor-comparison paragraph is outside Proposition final:R4."
     },
     {
       "id": "final:B1",
@@ -3929,8 +3929,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded matrix/Stern-Brocot AUDIT PASS. The initial head-outermost versus chronological convention defect is now resolved by chronologicalCwValue, its append-step equations, and the actual reversal identity. Matrix products, determinants and entries are native, not scalar stand-ins. Exists-unique covers arbitrary nonnegative integer matrices including zero entries and the identity; append compatibility and injectivity establish free generation. The upper first column has denominator zero exactly when represented by WithTop.top; the lower second column has positive denominator, and initial endpoints are literally infinity and zero with root mediant one. The remaining Euclidean/continued-fraction category is not yet promoted. Whole-B1 final AUDIT PASS after SigmaRationalEuclidean. Its inductive continued-fraction category is proved equivalent to the explicit first/internal/terminal digit conditions, including positive singleton and root [1]. Existence uses genuine terminating integer division; uniqueness uses the integer part and reciprocal tail. NormalOrientedRuns requires positive lengths and adjacent orientation changes intrinsically, and both inverse maps hold on every such list. Actual rationalSubtraction formulas, word-prefix subtraction, maximal quotient runs and both terminal corrections establish the Euclidean meaning of the run encoding. The old cwValue head-outermost convention is the subtraction-to-root order; reversing gives the separately audited chronological root path, without changing any edge labels. All initially recorded B1 residuals are now resolved."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded matrix/Stern-Brocot AUDIT PASS. The initial head-outermost versus chronological convention defect is now resolved by chronologicalCwValue, its append-step equations, and the actual reversal identity. Matrix products, determinants and entries are native, not scalar stand-ins. Exists-unique covers arbitrary nonnegative integer matrices including zero entries and the identity; append compatibility and injectivity establish free generation. The upper first column has denominator zero exactly when represented by WithTop.top; the lower second column has positive denominator, and initial endpoints are literally infinity and zero with root mediant one. The remaining Euclidean/continued-fraction category is not yet promoted. Whole-B1 final AUDIT PASS after SigmaRationalEuclidean. Its inductive continued-fraction category is proved equivalent to the explicit first/internal/terminal digit conditions, including positive singleton and root [1]. Existence uses genuine terminating integer division; uniqueness uses the integer part and reciprocal tail. NormalOrientedRuns requires positive lengths and adjacent orientation changes intrinsically, and both inverse maps hold on every such list. Actual rationalSubtraction formulas, word-prefix subtraction, maximal quotient runs and both terminal corrections establish the Euclidean meaning of the run encoding. The old cwValue head-outermost convention is the subtraction-to-root order; reversing gives the separately audited chronological root path, without changing any edge labels. All initially recorded B1 residuals are now resolved."
     },
     {
       "id": "final:B2",
@@ -3978,8 +3978,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded complete B2 AUDIT PASS after independent comparison of every named clause. The initial missing extension and boundary components are now resolved. The inverse identities apply at x=1, while branch surjectivity gives the full closed images; hence the shared endpoint is retained. The Mobius wrappers derive nonzero denominators at 1,2,3 from the supplied values rather than imposing new hypotheses, and identify both formulas globally (in particular on the required domain). The analytic theorem uses the actual connected interval and rational density, not analyticity as a substitute for equality data. The unordered-interval FTC handles negative integration direction and the zero-length endpoint. The smooth witness gives actual derivative agreement for every s>=0, identified with the generator by potential_hasDerivAt, but a different strictly convex potential at 3/8. Distinct injective positive labelings on the same List Bool tree supply a genuine unlabelled-marking ambiguity. No claim that the abstract tree determines a numerical coordinate was added."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded complete B2 AUDIT PASS after independent comparison of every named clause. The initial missing extension and boundary components are now resolved. The inverse identities apply at x=1, while branch surjectivity gives the full closed images; hence the shared endpoint is retained. The Mobius wrappers derive nonzero denominators at 1,2,3 from the supplied values rather than imposing new hypotheses, and identify both formulas globally (in particular on the required domain). The analytic theorem uses the actual connected interval and rational density, not analyticity as a substitute for equality data. The unordered-interval FTC handles negative integration direction and the zero-length endpoint. The smooth witness gives actual derivative agreement for every s>=0, identified with the generator by potential_hasDerivAt, but a different strictly convex potential at 3/8. Distinct injective positive labelings on the same List Bool tree supply a genuine unlabelled-marking ambiguity. No claim that the abstract tree determines a numerical coordinate was added."
     },
     {
       "id": "final:B3",
@@ -4135,8 +4135,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Bounded carrier/transport/sampling and initial inventory AUDIT PASS. IntegerCodeIndex enforces n>=2, necessity uses every possible collision and multiplier two, and WithOne supplies a distinct abstract unit. labelledImageEquiv constructs the inventory's E from exactly the paper's injectivity premise; its generic monoid equivalence is therefore not an added mathematical hypothesis. labelled_image_encode preserves original labels. The factorization maps are actual inverses, and valuation maxima, divisibility, gcd/lcm and divisor submultiset order are proved rather than assumed as structures. ArithmeticDivisors now proves actual irreducibility, finite factor counts, finite divisor enumeration with membership iff native divisibility, and its exact valuation-product cardinality for every element including the unit. ArithmeticDivisorBox now supplies the full finite Cartesian exponent box: Fin(v+1) at each finite-support prime, an explicit inverse summing replicated primes, exact valuation coordinates, and native divisibility iff componentwise order. Both inverse identities are proved, and the empty-support unit case is included. The arbitrary prime permutation and explicit nonadditive two/three swap establish the numerical-label/addition boundary. ArithmeticBoundaries now proves the totient's actual factorization and residue-count formulas, including the unit and representatives 1 through n; prime permutation changes totient. Its genuine label-preserving equivalences of injective linear/square codes and differently shifted placed codes establish distinct analytic-shape and real-embedding witnesses. Original-image divisibility and unit-required gcd are also proved. An explicit placed-family collision at the newly added index one is still needed: abstract WithOne separation alone does not demonstrate that failure of extended numerical injectivity can occur while the original code remains injective. Shifted sampling does not redefine original sampling or remove its collisions. The remaining inventory and deletion obligations are retained explicitly. ArithmeticConvolution independently passes the actual finite-divisor and arbitrary-CommRing audit, including the unit and both inversion directions; its zero extension merely supplies Mathlib's arithmetic-function representation and preserves every positive label. ArithmeticUnitBoundary resolves the previously recorded numeric-unit defect: mu=log(3/2)>1/3>0, gamma=1, c=0 gives a strictly decreasing code on [2,infinity), but exactly equal values at one and two. Only multiplicative-function parametrization remains open. Final whole-B3 AUDIT PASS after rereading the named statement and full inventory. ArithmeticMultiplicative resolves the last recorded residual over every commutative coefficient ring (indeed CommMonoidWithZero): arbitrary prime-power values, existence, uniqueness, exact finite factor product, genuine gcd-one coprimality, and the field-valued zero/nonzero distinction. Positive exponents avoid prescribing conflicting values at the common unit, whose empty-product value is derived. The original carrier remains n>=2 with a separately adjoined unit; the alternative H(n+1) on positive indices is exactly the existing H(n+2) theorem on natural indices by reindexing. Collision positivity assumptions follow from the paper's positive parameters, and no extra mathematical premise remains. Historical residual notes above describe resolved audit findings, not current gaps."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Bounded carrier/transport/sampling and initial inventory AUDIT PASS. IntegerCodeIndex enforces n>=2, necessity uses every possible collision and multiplier two, and WithOne supplies a distinct abstract unit. labelledImageEquiv constructs the inventory's E from exactly the paper's injectivity premise; its generic monoid equivalence is therefore not an added mathematical hypothesis. labelled_image_encode preserves original labels. The factorization maps are actual inverses, and valuation maxima, divisibility, gcd/lcm and divisor submultiset order are proved rather than assumed as structures. ArithmeticDivisors now proves actual irreducibility, finite factor counts, finite divisor enumeration with membership iff native divisibility, and its exact valuation-product cardinality for every element including the unit. ArithmeticDivisorBox now supplies the full finite Cartesian exponent box: Fin(v+1) at each finite-support prime, an explicit inverse summing replicated primes, exact valuation coordinates, and native divisibility iff componentwise order. Both inverse identities are proved, and the empty-support unit case is included. The arbitrary prime permutation and explicit nonadditive two/three swap establish the numerical-label/addition boundary. ArithmeticBoundaries now proves the totient's actual factorization and residue-count formulas, including the unit and representatives 1 through n; prime permutation changes totient. Its genuine label-preserving equivalences of injective linear/square codes and differently shifted placed codes establish distinct analytic-shape and real-embedding witnesses. Original-image divisibility and unit-required gcd are also proved. An explicit placed-family collision at the newly added index one is still needed: abstract WithOne separation alone does not demonstrate that failure of extended numerical injectivity can occur while the original code remains injective. Shifted sampling does not redefine original sampling or remove its collisions. The remaining inventory and deletion obligations are retained explicitly. ArithmeticConvolution independently passes the actual finite-divisor and arbitrary-CommRing audit, including the unit and both inversion directions; its zero extension merely supplies Mathlib's arithmetic-function representation and preserves every positive label. ArithmeticUnitBoundary resolves the previously recorded numeric-unit defect: mu=log(3/2)>1/3>0, gamma=1, c=0 gives a strictly decreasing code on [2,infinity), but exactly equal values at one and two. Only multiplicative-function parametrization remains open. Final whole-B3 AUDIT PASS after rereading the named statement and full inventory. ArithmeticMultiplicative resolves the last recorded residual over every commutative coefficient ring (indeed CommMonoidWithZero): arbitrary prime-power values, existence, uniqueness, exact finite factor product, genuine gcd-one coprimality, and the field-valued zero/nonzero distinction. Positive exponents avoid prescribing conflicting values at the common unit, whose empty-product value is derived. The original carrier remains n>=2 with a separately adjoined unit; the alternative H(n+1) on positive indices is exactly the existing H(n+2) theorem on natural indices by reindexing. Collision positivity assumptions follow from the paper's positive parameters, and no extra mathematical premise remains. Historical residual notes above describe resolved audit findings, not current gaps."
     },
     {
       "id": "final:B4",
@@ -4190,8 +4190,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Fresh whole named-statement independent adversarial AUDIT PASS. Trace-class uses the standard nuclear characterization by actual operator-norm convergent rank-one series, not summability of a selected eigenvalue list by definition. Absolute diagonal summability, representation independence and basis independence are proved. Native self-adjointness plus complete eigenbasis derives, rather than assumes, the full maximal domain; this identifies the pure-point functional calculus exactly. Preserved local Euler recovery/erasure/uniqueness proofs were reused, integrated and freshly audited, not duplicated."
+      "independent_audit": "audits/maps/realizations.json",
+      "notes": "Cumulative review history (not a current task list): Fresh whole named-statement independent adversarial AUDIT PASS. Trace-class uses the standard nuclear characterization by actual operator-norm convergent rank-one series, not summability of a selected eigenvalue list by definition. Absolute diagonal summability, representation independence and basis independence are proved. Native self-adjointness plus complete eigenbasis derives, rather than assumes, the full maximal domain; this identifies the pure-point functional calculus exactly. Preserved local Euler recovery/erasure/uniqueness proofs were reused, integrated and freshly audited, not duplicated."
     },
     {
       "id": "final:identification",
@@ -4216,8 +4216,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "Actual candidate, observation, observed-value and inverse records are now instantiated for every E_Sigma family in SigmaClosureCompletePresentations; see global-a-b-proof-record.md."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): Actual candidate, observation, observed-value and inverse records are now instantiated for every E_Sigma family in SigmaClosureCompletePresentations; see audits/history/formalization/global-a-b-proof-record.md."
     },
     {
       "id": "final:global-A",
@@ -4301,8 +4301,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "2026-09-30 complete enumeration and whole-statement review by /root/global_a. Review corrected the nonnegative Laplace observation domain and positive-ray-only P6 analytic inverse domain; explicit KL slices, complete characteristic-series observations and native Bernstein representation recovery are included. See global-a-b-proof-record.md. Global A/B are aliases of one named theorem; no stochastic R1 result is required."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-30 complete enumeration and whole-statement review by /root/global_a. Review corrected the nonnegative Laplace observation domain and positive-ray-only P6 analytic inverse domain; explicit KL slices, complete characteristic-series observations and native Bernstein representation recovery are included. See audits/history/formalization/global-a-b-proof-record.md. Global A/B are aliases of one named theorem; no stochastic R1 result is required."
     },
     {
       "id": "final:global-E",
@@ -4355,8 +4355,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "2026-09-27 WHOLE global-E independent AUDIT PASS by /root/missing_countermodels. All six exact native candidate contexts, canonical existence/uniqueness and reverse observations are covered. The universal Thom context supplies the paper foundations and primitive geometry; correction and reverse-identification conclusions are derived. No context defines a candidate by equality to a recipe. The exact E statement does not require R1 stochastic calculus or F4 proper-map Riemann--Roch. See global-e-complete-2026-09-27-review.md."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-27 WHOLE global-E independent AUDIT PASS by /root/missing_countermodels. All six exact native candidate contexts, canonical existence/uniqueness and reverse observations are covered. The universal Thom context supplies the paper foundations and primitive geometry; correction and reverse-identification conclusions are derived. No context defines a candidate by equality to a recipe. The exact E statement does not require R1 stochastic calculus or F4 proper-map Riemann--Roch. See audits/history/formalization/global-e-complete-2026-09-27-review.md."
     },
     {
       "id": "final:global-C",
@@ -4436,8 +4436,8 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See global-c-d-boundary-proof-record.md and f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See audits/history/formalization/global-c-d-boundary-proof-record.md and audits/history/formalization/f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
     },
     {
       "id": "final:global-F",
@@ -4487,8 +4487,23 @@
       ],
       "unproved_components": [],
       "gaps": [],
-      "independent_audit": "audits/formalization/current-core-closure-audit.json",
-      "notes": "2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See global-c-d-boundary-proof-record.md and f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
+      "independent_audit": "audits/maps/core-closure.json",
+      "notes": "Cumulative review history (not a current task list): 2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See audits/history/formalization/global-c-d-boundary-proof-record.md and audits/history/formalization/f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
+    }
+  ],
+  "supplementary_records": [
+    {
+      "latex_label": "final:P-formalization-scope",
+      "status": "partial",
+      "lean_declarations": [],
+      "proved_components": [
+        "All named probability mathematical statements are covered by reviewed native Lean declarations, including the global Gamma process and all nonnegative drift realizations."
+      ],
+      "unproved_components": [
+        "The broader claim of coverage for every statement in the probability development remains qualified by separately unmapped proof-only labelled-tree and ordered/unordered forest combinatorial counts."
+      ],
+      "notes": "Cumulative review history (not a current task list): This metamathematical scope remark is excluded from named mathematical totals. Independent 2026-09-27 review confirms all named probability statements complete, but recommends retaining the qualification on the broader original prose. No line-by-line reproduction of paper proofs is claimed; alternative valid Lean proofs are accepted. Additional combinatorial claims inside the P6 proof remain separately unmapped.",
+      "source_map": "audits/maps/probability.json"
     }
   ]
 }
