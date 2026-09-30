@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the paper identified in preferred-citation when using this
+  work or its Lean formal reconstruction.
+type: software
+title: Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations
+authors:
+  - family-names: Albert
+    given-names: Alex
+    orcid: https://orcid.org/0009-0005-6981-2087
+    affiliation: Mathematical Research Institute of Physical Reality (MRIPR)
+    city: Pécs
+    country: HU
+repository-code: https://github.com/mripr-institute/intrinsic-uniqueness-reconstruction
+url: https://github.com/mripr-institute/intrinsic-uniqueness-reconstruction
+license: Apache-2.0
+license-url: https://github.com/mripr-institute/intrinsic-uniqueness-reconstruction/blob/main/LICENSE.md
+preferred-citation:
+  # Zenodo's BibTeX export classifies the paper as @misc (CFF: generic).
+  # https://zenodo.org/records/22775358/export/bibtex
+  type: generic
+  title: Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations
+  authors:
+    - family-names: Albert
+      given-names: Alex
+      orcid: https://orcid.org/0009-0005-6981-2087
+      affiliation: Mathematical Research Institute of Physical Reality (MRIPR)
+      city: Pécs
+      country: HU
+  date-published: "2026-09-15"
+  year: 2026
+  month: 9
+  version: "1.0"
+  publisher:
+    name: Zenodo
+  doi: 10.5281/zenodo.22775358
+  url: https://doi.org/10.5281/zenodo.22775358
+  license: CC-BY-4.0

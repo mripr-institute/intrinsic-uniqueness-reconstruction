@@ -5,7 +5,7 @@ and verification evidence are maintained together in this repository.
 
 ## Paper
 
-**Alex Albert** — Mathematical Research Institute of Physical Reality (MRIPR),
+**[Alex Albert](https://orcid.org/0009-0005-6981-2087)** — Mathematical Research Institute of Physical Reality (MRIPR),
 Pécs, Hungary.
 
 - [Paper PDF](paper/intrinsic-uniqueness-reconstruction.pdf)
@@ -139,11 +139,37 @@ diagnostics and manuscript build commands.
 
 ## Citation and archive
 
-Alex Albert. *Intrinsic Uniqueness and Reconstruction Across Mathematical
-Presentations*. Mathematical Research Institute of Physical Reality (MRIPR).
+Please cite the paper when using this work or its formal reconstruction:
+
+Albert, Alex. (2026). *Intrinsic Uniqueness and Reconstruction Across Mathematical
+Presentations* (Version 1.0). Zenodo.
 [DOI: 10.5281/zenodo.22775358](https://doi.org/10.5281/zenodo.22775358).
+
+Published 15 September 2026. [CITATION.cff](CITATION.cff) supplies the paper as
+the preferred citation for GitHub's **Cite this repository** feature.
+The following BibTeX follows the [Zenodo export](https://zenodo.org/records/22775358/export/bibtex):
+
+```bibtex
+@misc{albert_2026_22775358,
+  author    = {Albert, Alex},
+  title     = {Intrinsic Uniqueness and Reconstruction Across Mathematical Presentations},
+  month     = sep,
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {1.0},
+  doi       = {10.5281/zenodo.22775358},
+  url       = {https://doi.org/10.5281/zenodo.22775358}
+}
+```
 
 ## License
 
-This repository does not currently include a license file. No additional
-license grant is stated here; dependencies retain their own licenses.
+Lean and Python source code is licensed under the
+[Apache License 2.0](LICENSE-APACHE).
+
+The manuscript, original scholarly documentation, and audit reports and data
+are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0).
+
+Copyright © 2026 Alex Albert, Mathematical Research Institute of Physical
+Reality (MRIPR). See [licensing and attribution](LICENSE.md) for scope.
+Third-party dependencies retain their respective licenses.
