@@ -171,5 +171,5 @@ The manuscript, original scholarly documentation, and audit reports and data
 are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0).
 
 Copyright © 2026 Alex Albert, Mathematical Research Institute of Physical
-Reality (MRIPR). See [licensing and attribution](LICENSE.md) for scope.
+Reality (MRIPR). See [licensing and attribution](LICENSING.md) for scope.
 Third-party dependencies retain their respective licenses.
