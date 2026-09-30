@@ -83,9 +83,9 @@ theorem stationary_spectrum_mixing_no_decoder {R : Type*}
     stationary_spectrum_mixing_deletion.1,
     stationary_spectrum_mixing_deletion.2.2.2⟩
 
-/-- The assembled scalar boundary clauses supplied by completed local
-theorems, with one calibrated intrinsic object and retained context. Stable
-K₀ and rational-characteristic clauses await their native fixed-base proof. -/
+/-- The original native-bundle boundary assembly. The extension
+CompleteScalarBoundary in SigmaClosureCompleteBoundary adds the normalized
+intrinsic deletion and the native integral-versus-rational K⁰ witness. -/
 structure ScalarBoundaryWithNativeBundle (s : IntrinsicObject) (R : Type*) (r : R) : Prop where
   placementScale :
     ¬ ∃ decode : (IntrinsicObject × R) × ℝ → ScalarFunction,

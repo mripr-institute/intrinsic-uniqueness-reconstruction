@@ -1,5 +1,32 @@
 import Sigma
 
+#print axioms Sigma.FiniteComplexBundle.kClass_eq_iff
+#print axioms Sigma.real_projective_complex_k0_class_ne_one
+#print axioms Sigma.real_projective_transition_complex_log_exp
+#print axioms Sigma.real_projective_complex_log_chern_coboundary
+#print axioms Sigma.real_projective_rational_first_chern_zero
+#print axioms Sigma.real_projective_rational_cech_h2_zero
+#print axioms Sigma.real_projective_native_k0_cech_characteristic_witness
+#print axioms Sigma.real_projective_scalar_cech_data_no_k0_decoder
+#print axioms Sigma.real_projective_k0_double_eq
+#print axioms Sigma.real_projective_reduced_k0_two_torsion
+#print axioms Sigma.real_projective_rational_additive_characteristic_eq
+#print axioms Sigma.real_projective_normalized_rational_characteristic_one
+#print axioms Sigma.real_projective_fixed_base_integral_rational_witness
+#print axioms Sigma.real_projective_scalar_rational_data_no_k0_decoder
+#print axioms Sigma.real_projective_integral_line_characteristic_ne
+#print axioms Sigma.real_projective_integral_characteristic_no_decoder
+#print axioms Sigma.Closure.global_reconstruction_closure
+#print axioms Sigma.Closure.complete_presentation_unique
+#print axioms Sigma.Closure.complete_intrinsic_roundtrips
+#print axioms Sigma.Closure.complete_reconstruction_roundtrip
+#print axioms Sigma.Closure.normalized_perturbation_parameters
+#print axioms Sigma.Closure.normalized_intrinsic_deletion_witness
+#print axioms Sigma.Closure.sufficient_decomposition_roundtrips
+#print axioms Sigma.Closure.intrinsic_packet_no_decoder
+#print axioms Sigma.Closure.complete_scalar_boundary
+#print axioms Sigma.Closure.global_relative_irredundancy
+
 #print axioms Sigma.matrix_exp_differential_apply
 #print axioms Sigma.matrix_spd_log_path_spectral_hasDerivAt
 #print axioms Sigma.matrix_piecewise_length_ge_spd_log_norm

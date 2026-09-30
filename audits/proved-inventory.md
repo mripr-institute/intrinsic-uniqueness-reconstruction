@@ -9,11 +9,11 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 73/78.
-- Partially formalized statements: 5.
+- Fully formalized named statements: 77/78.
+- Partially formalized statements: 1.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 1991 (including definitions and helpers).
+- Distinct mapped declarations across named items: 2026 (including definitions and helpers).
 
 ## Statements fully formalized in Lean
 
@@ -78,6 +78,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:F2** — Reversible characteristic-series formulas
 - **final:F3** — Formal, analytic, and global recovery
 - **final:F4** — The universal Thom correction, conditional on topology
+- **final:F5** — Rational characteristic data lose integral data
 - **final:M1** — The unique scalar-block spectral lift
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
 - **final:M3** — Geodesics, distance, and the symmetrization boundary
@@ -89,7 +90,10 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:B2** — Marked Farey branches and full-domain scalar recovery
 - **final:B3** — Exact collisions and complete labelled arithmetic transport
 - **final:B4** — Numerical Euler products and the full multiset inverse
+- **final:global-A** — Intrinsic uniqueness and reconstruction closure
 - **final:global-E** — Canonical realization fibres
+- **final:global-C** — Relative irredundancy and its deletion witnesses
+- **final:global-F** — Boundary of scalar reconstruction
 
 ## Exact formalized components and declaration mappings
 
@@ -2419,7 +2423,7 @@ Mapped Lean declarations:
 
 ### final:F5 — Rational characteristic data lose integral data
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L251); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2428,6 +2432,11 @@ Mathematical content formalized in Lean:
 - The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.
 - The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle.
 - For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. Every actual stabilized bundle isomorphism yields a continuous nonzero determinant coboundary on the RP2 charts, contradicting the native no-section theorem. Thus the actual line cannot be stabilized to the trivial line by any native finite-rank complex bundle.
+- The native Whitney-sum monoid and its actual Grothendieck group are constructed. Equality supplies a native common stabilizer; model-coordinate transport and the determinant obstruction give the literal K0 inequality.
+- An explicit continuous fiberwise complex-linear quaternionic trivialization proves L direct-sum L is isomorphic to the direct sum of two trivial lines. The reduced native K0 class is nonzero and has additive order two.
+- Every additive characteristic from native K0 to any rational module agrees on L and the trivial line. The ordinary Chern character therefore equals one using only its defining additivity and trivial-line normalization in the supplied rational cohomology ring; no RP2 cohomological vanishing or value of ch(L) is assumed.
+- The fixed-base no-decoder theorem retains an arbitrary full scalar object and every other common packet while rational characteristic data agree and native integral K0 classes differ.
+- A separate actual three-chart Cech calculation constructs continuous logarithms of the genuine transition functions, identifies the integral Chern cocycle, proves its rational exactness and computes vanishing of the chart complex H2 over Q. This is explicitly distinguished from an ordinary-cohomology comparison and is not needed for the additive torsion proof.
 
 Mapped Lean declarations:
 
@@ -2463,12 +2472,19 @@ Mapped Lean declarations:
 - `Sigma.stable_line_local_determinant_chart_change`
 - `Sigma.stable_isomorphism_determinant_coboundary`
 - `Sigma.real_projective_complex_line_not_stably_trivial`
-
-Remaining Lean formalization:
-
-- Construct the native complex K0 class relation and identify the proved arbitrary-stabilizer obstruction with the literal class inequality [L] != [1]
-- Derive the RP2 positive-degree rational cohomology calculation and the actual Chern character of L, proving ch(L) = 1 without assuming this cohomological input
-- Assemble the fixed-base nonreconstruction witness with equal actual rational characteristic data and distinct integral bundle/K0 data
+- `Sigma.FiniteComplexBundle.kClass_eq_iff`
+- `Sigma.real_projective_complex_k0_class_ne_one`
+- `Sigma.real_projective_transition_complex_log_exp`
+- `Sigma.real_projective_complex_log_chern_coboundary`
+- `Sigma.real_projective_rational_first_chern_zero`
+- `Sigma.real_projective_rational_cech_h2_zero`
+- `Sigma.realProjectiveDoubleTrivialization`
+- `Sigma.real_projective_k0_double_eq`
+- `Sigma.real_projective_reduced_k0_two_torsion`
+- `Sigma.real_projective_rational_additive_characteristic_eq`
+- `Sigma.real_projective_normalized_rational_characteristic_one`
+- `Sigma.real_projective_fixed_base_integral_rational_witness`
+- `Sigma.real_projective_scalar_rational_data_no_k0_decoder`
 
 ### final:M1 — The unique scalar-block spectral lift
 
@@ -3202,7 +3218,7 @@ Mapped Lean declarations:
 
 ### final:global-A — Intrinsic uniqueness and reconstruction closure
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L74); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L74); [independent coverage map](formalization/current-core-closure-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -3210,6 +3226,7 @@ Mathematical content formalized in Lean:
 - A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.
 - The typed available-presentation enumeration now includes additional compiled nodes for calibrated differential and flow observations, group log/cocycle, convex and projective scalar observations, Poisson and Gumbel/Haar observations, size bias/equilibrium, logistic hazard, linked operator mixing, Borel/rooted series, Bernstein tail, and marked formal characteristic series. The generic round trips and pairwise reconstruction apply to these instantiated nodes.
 - A linked-deficit node retains the same positive-ray potential candidate, its prescribed involution and actual weighted pushforward law. Four analytic characteristic-series nodes identify full-line real-analytic Todd, A-hat, L and marked chi representatives from their complete formal germs.
+- The complete E_Sigma enumeration instantiates all thirteen presentation families with their actual candidate classes, observations, domains and marks. This includes arbitrary characteristic-zero fields, every Bernstein threshold, native causal functionals, all P5 clauses, connected-domain characteristic series and inverses, positive-ray one-sided tree inverse germs, and marked rational full-domain extensions. Unique reconstruction and both intrinsic and pairwise round trips are proved for the whole enumeration.
 - Composition, uniqueness and round trips once native presentation equivalences are given.
 
 Mapped Lean declarations:
@@ -3261,13 +3278,16 @@ Mapped Lean declarations:
 - `Sigma.Closure.analyticChiNode`
 - `Sigma.Closure.available_intrinsic_roundtrips`
 - `Sigma.Closure.available_reconstruction_roundtrip`
+- `Sigma.Closure.CompletePresentation`
+- `Sigma.Closure.completePresentation`
+- `Sigma.Closure.complete_presentation_unique`
+- `Sigma.Closure.calibrated_intrinsic_analytic`
+- `Sigma.Closure.global_reconstruction_closure`
+- `Sigma.Closure.complete_intrinsic_roundtrips`
+- `Sigma.Closure.complete_reconstruction_roundtrip`
+- `Sigma.Closure.marked_rational_scalar_recovery`
+- `Sigma.Closure.analytic_marked_rational_scalar_recovery`
 - `Sigma.presentationEquivalence`
-
-Remaining Lean formalization:
-
-- Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, native survival/Green, arbitrary connected-domain analytic characteristic-series continuation, tree inverse, and fully marked rational data.
-- For each remaining presentation instantiate its exact candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration. Existing partial-family nodes must not stand for stronger paper clauses.
-- Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained.
 
 ### final:global-E — Canonical realization fibres
 
@@ -3314,12 +3334,15 @@ Mapped Lean declarations:
 
 ### final:global-C — Relative irredundancy and its deletion witnesses
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L173); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L173); [independent coverage map](formalization/current-core-closure-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.
 - Independent retained-context expansions for actual vector, random-tree, native stationary-operator, process, matrix-family and arithmetic-label selections. Each non-decoder theorem retains the intrinsic object and an arbitrary common packet of every other selection. The process packet includes its sample space, probability measure and measurable process; the native Gamma subordinator and rT have the same time-one law but opposite independence predicates.
+- An arbitrarily small nonzero mass-preserving perturbation is constructed from continuity of the actual integral, strict one-sided mass inequalities and the intermediate-value theorem. The resulting intrinsic deletion witness is real analytic and strictly convex on the positive ray, has all three anchors, exact mass one, both endpoint divergences, and differs from I.
+- The completed sufficient-decomposition equivalence applies to every Global A/B certificate, optional exact placement and arbitrary typed selected packets, with both round trips. The complete scalar boundary retains all native external deletion witnesses and adds the normalized intrinsic deletion and actual fixed-base integral K0 versus every rational additive characteristic witness. Positive spatial rigidity and exact radial-cancellation boundaries remain in the conjunction; Global E supplies the six canonical contexts.
+- For integral first Chern classes, the usual supplied general classification of all native rank-one bundles is explicit. The native bundle obstruction derives unequal integral classes and the retained-context no-decoder result without assuming an RP2 class value.
 - Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences.
 
 Mapped Lean declarations:
@@ -3354,6 +3377,21 @@ Mapped Lean declarations:
 - `Sigma.Closure.stationary_spectrum_mixing_no_decoder`
 - `Sigma.Closure.ScalarBoundaryWithNativeBundle`
 - `Sigma.Closure.scalar_boundary_with_native_bundle`
+- `Sigma.Closure.perturbation_weight_integrable`
+- `Sigma.Closure.perturbation_mass_continuous`
+- `Sigma.Closure.normalized_perturbation_parameters`
+- `Sigma.Closure.perturbation_mass_integral`
+- `Sigma.Closure.normalized_intrinsic_deletion_witness`
+- `Sigma.Closure.sufficientDecomposition`
+- `Sigma.Closure.sufficient_decomposition_roundtrips`
+- `Sigma.Closure.intrinsic_packet_no_decoder`
+- `Sigma.Closure.CompleteScalarBoundary`
+- `Sigma.Closure.complete_scalar_boundary`
+- `Sigma.Closure.global_relative_irredundancy`
+- `Sigma.Closure.fixed_context_native_closure`
+- `Sigma.real_projective_scalar_rational_data_no_k0_decoder`
+- `Sigma.real_projective_integral_line_characteristic_ne`
+- `Sigma.real_projective_integral_characteristic_no_decoder`
 - `Sigma.Closure.retained_context_deletion`
 - `Sigma.Closure.no_placement_decoder_without_scale`
 - `Sigma.Closure.no_placement_decoder_without_offset`
@@ -3363,24 +3401,17 @@ Mapped Lean declarations:
 - `Sigma.borel_size_does_not_identify_random_tree`
 - `Sigma.Closure.perturbations_independent`
 
-Remaining Lean formalization:
-
-- A nonzero perturbation with exact integral normalization in the relaxed deletion universe.
-- Assemble coordinate-relabel deletion and the full conjunction of retained stationary spectral/mixing observations; supply the fixed-base integral bundle/K0 versus rational characteristic witness from F5.
-- Global sufficient decomposition depends on full global-A/B and global-E.
-- Normalized nontrivial intrinsic deletion witness.
-- Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.
-- Assembly preserving every other retained packet and changing each named target.
-
 ### final:global-F — Boundary of scalar reconstruction
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/closure.tex#L246); [independent coverage map](formalization/current-core-closure-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/closure.tex#L246); [independent coverage map](formalization/current-core-closure-audit.json).
 
 Mathematical content formalized in Lean:
 
 - Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.
 - Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid.
 - A compiled typed conjunction now assembles the available scalar boundary clauses, including continuous coordinate relabelling, both actual Gamma-two/Gamma-three stationary heat-mixing identities with common spectral data but unequal coordinate laws, and the native RP2 line-versus-tensor-square nonisomorphism.
+- The completed sufficient-decomposition equivalence applies to every Global A/B certificate, optional exact placement and arbitrary typed selected packets, with both round trips. The complete scalar boundary retains all native external deletion witnesses and adds the normalized intrinsic deletion and actual fixed-base integral K0 versus every rational additive characteristic witness. Positive spatial rigidity and exact radial-cancellation boundaries remain in the conjunction; Global E supplies the six canonical contexts.
+- For integral first Chern classes, the usual supplied general classification of all native rank-one bundles is explicit. The native bundle obstruction derives unequal integral classes and the retained-context no-decoder result without assuming an RP2 class value.
 
 Mapped Lean declarations:
 
@@ -3399,10 +3430,16 @@ Mapped Lean declarations:
 - `Sigma.Closure.process_packet_no_decoder`
 - `Sigma.Closure.matrix_packet_no_decoder`
 - `Sigma.Closure.arithmetic_packet_no_decoder`
-
-Remaining Lean formalization:
-
-- Supply and integrate F5's fixed-base stable K0 distinction with equal rational characteristic data, then finish the exact full paper boundary conjunction; the existing native-bundle field only records line-versus-tensor-square nonisomorphism.
+- `Sigma.Closure.sufficientDecomposition`
+- `Sigma.Closure.sufficient_decomposition_roundtrips`
+- `Sigma.Closure.intrinsic_packet_no_decoder`
+- `Sigma.Closure.CompleteScalarBoundary`
+- `Sigma.Closure.complete_scalar_boundary`
+- `Sigma.Closure.global_relative_irredundancy`
+- `Sigma.Closure.fixed_context_native_closure`
+- `Sigma.real_projective_scalar_rational_data_no_k0_decoder`
+- `Sigma.real_projective_integral_line_characteristic_ne`
+- `Sigma.real_projective_integral_characteristic_no_decoder`
 
 ## Labelled equations
 

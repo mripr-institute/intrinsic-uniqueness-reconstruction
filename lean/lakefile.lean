@@ -10,6 +10,17 @@ require mathlib from git
 lean_lib SigmaFormalization where
   roots := #[
     `Sigma,
+    `SigmaNativeComplexKTheory,
+    `SigmaNativeComplexBundleModel,
+    `SigmaRealProjectiveKTheory,
+    `SigmaRealProjectiveCech,
+    `SigmaRealProjectiveCechComputation,
+    `SigmaRealProjectiveRationalWitness,
+    `SigmaRealProjectiveDoubleTriviality,
+    `SigmaRealProjectiveRationalCharacteristic,
+    `SigmaClosureCompletePresentations,
+    `SigmaClosureNormalizedPerturbation,
+    `SigmaClosureCompleteBoundary,
     `SigmaThomNativeGysinSupported,
     `SigmaClosureContexts,
     `SigmaClosureThom,

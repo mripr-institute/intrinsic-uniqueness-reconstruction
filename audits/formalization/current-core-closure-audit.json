@@ -1,12 +1,12 @@
 {
   "scope": "Independent adversarial statement audit of paper/sections/core.tex and closure.tex against current source signatures; read before consulting stale status claims.",
-  "audit_result": "DEFECTS FOUND",
+  "audit_result": "COMPLETE: all named core/closure environments are covered; 2026-09-30 native closure update",
   "counting_note": "20 labels cover 18 named environments: global-A/global-B and global-C/global-D are aliases. Section/equation labels are not named mathematical environments.",
   "totals_by_named_environment": {
     "total": 18,
     "definition": 2,
-    "complete": 13,
-    "partial": 3,
+    "complete": 16,
+    "partial": 0,
     "missing": 0
   },
   "mathematically_false_named_clauses_found": [],
@@ -369,11 +369,11 @@
         "Generic encoding/decoding through equivalences and dependent context recipes represent portions of the definition."
       ],
       "unproved_components": [],
-      "notes": "There is no project structure assembling candidate class, observation, observed value and inverse for all E_Sigma nodes. This matters for global-A/B, not for counting the explanatory definition."
+      "notes": "Actual candidate, observation, observed-value and inverse records are now instantiated for every E_Sigma family in SigmaClosureCompletePresentations; see global-a-b-proof-record.md."
     },
     {
       "latex_label": "final:global-A",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.differential_core_iff",
         "Sigma.differential_core_identifies",
@@ -421,36 +421,51 @@
         "Sigma.Closure.analyticLNode",
         "Sigma.Closure.analyticChiNode",
         "Sigma.Closure.available_intrinsic_roundtrips",
-        "Sigma.Closure.available_reconstruction_roundtrip"
+        "Sigma.Closure.available_reconstruction_roundtrip",
+        "Sigma.Closure.CompletePresentation",
+        "Sigma.Closure.completePresentation",
+        "Sigma.Closure.complete_presentation_unique",
+        "Sigma.Closure.calibrated_intrinsic_analytic",
+        "Sigma.Closure.global_reconstruction_closure",
+        "Sigma.Closure.complete_intrinsic_roundtrips",
+        "Sigma.Closure.complete_reconstruction_roundtrip",
+        "Sigma.Closure.marked_rational_scalar_recovery",
+        "Sigma.Closure.analytic_marked_rational_scalar_recovery"
       ],
       "proved_components": [
         "Exact differential subgraph and intrinsic H/I/p inverses; generic transport and uniqueness for already supplied equivalences.",
         "A native typed calibrated intrinsic object, actual candidate/observation records, and thirteen instantiated identifying nodes: H, I, density, complete Gamma law, characteristic function, moments, integer Laplace samples, imaginary Mellin line, Stieltjes data, full-line Stein, Laguerre observations, fully marked multiplication operator, and normalized Todd tower. Each instance supplies its proved local inverse; both intrinsic round trips and mutual reconstruction are kernel-checked.",
         "The typed available-presentation enumeration now includes additional compiled nodes for calibrated differential and flow observations, group log/cocycle, convex and projective scalar observations, Poisson and Gumbel/Haar observations, size bias/equilibrium, logistic hazard, linked operator mixing, Borel/rooted series, Bernstein tail, and marked formal characteristic series. The generic round trips and pairwise reconstruction apply to these instantiated nodes.",
-        "A linked-deficit node retains the same positive-ray potential candidate, its prescribed involution and actual weighted pushforward law. Four analytic characteristic-series nodes identify full-line real-analytic Todd, A-hat, L and marked chi representatives from their complete formal germs."
+        "A linked-deficit node retains the same positive-ray potential candidate, its prescribed involution and actual weighted pushforward law. Four analytic characteristic-series nodes identify full-line real-analytic Todd, A-hat, L and marked chi representatives from their complete formal germs.",
+        "The complete E_Sigma enumeration instantiates all thirteen presentation families with their actual candidate classes, observations, domains and marks. This includes arbitrary characteristic-zero fields, every Bernstein threshold, native causal functionals, all P5 clauses, connected-domain characteristic series and inverses, positive-ray one-sided tree inverse germs, and marked rational full-domain extensions. Unique reconstruction and both intrinsic and pairwise round trips are proved for the whole enumeration."
       ],
-      "unproved_components": [
-        "Complete the paper-strength typed presentations not yet represented in the enumeration, including group completion, full convex/Hessian and projective observations, entropy and oriented Poisson divergence, native survival/Green, arbitrary connected-domain analytic characteristic-series continuation, tree inverse, and fully marked rational data.",
-        "For each remaining presentation instantiate its exact candidate class, observation, encoding and identifying inverse using its completed local theorem, then assemble the full E_Sigma enumeration. Existing partial-family nodes must not stand for stronger paper clauses."
-      ],
-      "notes": "The expanded available-presentation module compiles, but the full paper E_Sigma enumeration remains partial. No unfinished stochastic R1 theorem is used by these instances or asserted to block the remaining assembly."
+      "unproved_components": [],
+      "notes": "2026-09-30 complete enumeration and whole-statement review by /root/global_a. Review corrected the nonnegative Laplace observation domain and positive-ray-only P6 analytic inverse domain; explicit KL slices, complete characteristic-series observations and native Bernstein representation recovery are included. See global-a-b-proof-record.md. Global A/B are aliases of one named theorem; no stochastic R1 result is required."
     },
     {
       "latex_label": "final:global-B",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.presentationEquivalence",
         "Sigma.presentationEquivalence_roundtrip",
         "Sigma.Closure.presentation_transport_composes",
-        "Sigma.Closure.presentation_intrinsic_unique"
+        "Sigma.Closure.presentation_intrinsic_unique",
+        "Sigma.Closure.CompletePresentation",
+        "Sigma.Closure.completePresentation",
+        "Sigma.Closure.complete_presentation_unique",
+        "Sigma.Closure.calibrated_intrinsic_analytic",
+        "Sigma.Closure.global_reconstruction_closure",
+        "Sigma.Closure.complete_intrinsic_roundtrips",
+        "Sigma.Closure.complete_reconstruction_roundtrip",
+        "Sigma.Closure.marked_rational_scalar_recovery",
+        "Sigma.Closure.analytic_marked_rational_scalar_recovery"
       ],
       "proved_components": [
-        "Composition, uniqueness and round trips once native presentation equivalences are given."
+        "Composition, uniqueness and round trips once native presentation equivalences are given.",
+        "The complete E_Sigma enumeration instantiates all thirteen presentation families with their actual candidate classes, observations, domains and marks. This includes arbitrary characteristic-zero fields, every Bernstein threshold, native causal functionals, all P5 clauses, connected-domain characteristic series and inverses, positive-ray one-sided tree inverse germs, and marked rational full-domain extensions. Unique reconstruction and both intrinsic and pairwise round trips are proved for the whole enumeration."
       ],
-      "unproved_components": [
-        "Instantiate mutual reconstruction through the same calibrated intrinsic object for every E_Sigma node with all candidate classes and marks retained."
-      ],
-      "notes": "Second label of the same theorem as global-A; avoid counting as a separate named statement."
+      "unproved_components": [],
+      "notes": "2026-09-30 complete enumeration and whole-statement review by /root/global_a. Review corrected the nonnegative Laplace observation domain and positive-ray-only P6 analytic inverse domain; explicit KL slices, complete characteristic-series observations and native Bernstein representation recovery are included. See global-a-b-proof-record.md. Global A/B are aliases of one named theorem; no stochastic R1 result is required."
     },
     {
       "latex_label": "final:global-E",
@@ -497,7 +512,7 @@
     },
     {
       "latex_label": "final:global-C",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.Closure.intrinsic_loss_reconstruction",
         "Sigma.Closure.intrinsic_density_reconstruction",
@@ -528,22 +543,36 @@
         "Sigma.Closure.stationary_spectrum_mixing_deletion",
         "Sigma.Closure.stationary_spectrum_mixing_no_decoder",
         "Sigma.Closure.ScalarBoundaryWithNativeBundle",
-        "Sigma.Closure.scalar_boundary_with_native_bundle"
+        "Sigma.Closure.scalar_boundary_with_native_bundle",
+        "Sigma.Closure.perturbation_weight_integrable",
+        "Sigma.Closure.perturbation_mass_continuous",
+        "Sigma.Closure.normalized_perturbation_parameters",
+        "Sigma.Closure.perturbation_mass_integral",
+        "Sigma.Closure.normalized_intrinsic_deletion_witness",
+        "Sigma.Closure.sufficientDecomposition",
+        "Sigma.Closure.sufficient_decomposition_roundtrips",
+        "Sigma.Closure.intrinsic_packet_no_decoder",
+        "Sigma.Closure.CompleteScalarBoundary",
+        "Sigma.Closure.complete_scalar_boundary",
+        "Sigma.Closure.global_relative_irredundancy",
+        "Sigma.Closure.fixed_context_native_closure",
+        "Sigma.real_projective_scalar_rational_data_no_k0_decoder",
+        "Sigma.real_projective_integral_line_characteristic_ne",
+        "Sigma.real_projective_integral_characteristic_no_decoder"
       ],
       "proved_components": [
         "Intrinsic component equivalences and exact admissible placement inverse; both concrete placement deletions; analytic independent perturbations, anchors, unit curvature, uniform strict-convexity neighborhood, and divergence at both endpoints for every perturbation.",
-        "Independent retained-context expansions for actual vector, random-tree, native stationary-operator, process, matrix-family and arithmetic-label selections. Each non-decoder theorem retains the intrinsic object and an arbitrary common packet of every other selection. The process packet includes its sample space, probability measure and measurable process; the native Gamma subordinator and rT have the same time-one law but opposite independence predicates."
+        "Independent retained-context expansions for actual vector, random-tree, native stationary-operator, process, matrix-family and arithmetic-label selections. Each non-decoder theorem retains the intrinsic object and an arbitrary common packet of every other selection. The process packet includes its sample space, probability measure and measurable process; the native Gamma subordinator and rT have the same time-one law but opposite independence predicates.",
+        "An arbitrarily small nonzero mass-preserving perturbation is constructed from continuity of the actual integral, strict one-sided mass inequalities and the intermediate-value theorem. The resulting intrinsic deletion witness is real analytic and strictly convex on the positive ray, has all three anchors, exact mass one, both endpoint divergences, and differs from I.",
+        "The completed sufficient-decomposition equivalence applies to every Global A/B certificate, optional exact placement and arbitrary typed selected packets, with both round trips. The complete scalar boundary retains all native external deletion witnesses and adds the normalized intrinsic deletion and actual fixed-base integral K0 versus every rational additive characteristic witness. Positive spatial rigidity and exact radial-cancellation boundaries remain in the conjunction; Global E supplies the six canonical contexts.",
+        "For integral first Chern classes, the usual supplied general classification of all native rank-one bundles is explicit. The native bundle obstruction derives unequal integral classes and the retained-context no-decoder result without assuming an RP2 class value."
       ],
-      "unproved_components": [
-        "A nonzero perturbation with exact integral normalization in the relaxed deletion universe.",
-        "Assemble coordinate-relabel deletion and the full conjunction of retained stationary spectral/mixing observations; supply the fixed-base integral bundle/K0 versus rational characteristic witness from F5.",
-        "Global sufficient decomposition depends on full global-A/B and global-E."
-      ],
-      "notes": "Second theorem's global-C/global-D labels should count as one named mathematical statement."
+      "unproved_components": [],
+      "notes": "2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See global-c-d-boundary-proof-record.md and f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
     },
     {
       "latex_label": "final:global-D",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.Closure.retained_context_deletion",
         "Sigma.Closure.no_placement_decoder_without_scale",
@@ -554,21 +583,35 @@
         "Sigma.borel_size_does_not_identify_random_tree",
         "Sigma.Closure.perturbations_independent",
         "Sigma.Closure.perturbed_intrinsic_strictConvex_near_zero",
-        "Sigma.Closure.perturbed_intrinsic_endpoint_divergence"
+        "Sigma.Closure.perturbed_intrinsic_endpoint_divergence",
+        "Sigma.Closure.perturbation_weight_integrable",
+        "Sigma.Closure.perturbation_mass_continuous",
+        "Sigma.Closure.normalized_perturbation_parameters",
+        "Sigma.Closure.perturbation_mass_integral",
+        "Sigma.Closure.normalized_intrinsic_deletion_witness",
+        "Sigma.Closure.sufficientDecomposition",
+        "Sigma.Closure.sufficient_decomposition_roundtrips",
+        "Sigma.Closure.intrinsic_packet_no_decoder",
+        "Sigma.Closure.CompleteScalarBoundary",
+        "Sigma.Closure.complete_scalar_boundary",
+        "Sigma.Closure.global_relative_irredundancy",
+        "Sigma.Closure.fixed_context_native_closure",
+        "Sigma.real_projective_scalar_rational_data_no_k0_decoder",
+        "Sigma.real_projective_integral_line_characteristic_ne",
+        "Sigma.real_projective_integral_characteristic_no_decoder"
       ],
       "proved_components": [
-        "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences."
+        "Placement and spatial deletion witnesses, retained-context decoder obstruction, actual path/star Borel-size probability-law witness, analytic perturbation groundwork including both endpoint divergences.",
+        "An arbitrarily small nonzero mass-preserving perturbation is constructed from continuity of the actual integral, strict one-sided mass inequalities and the intermediate-value theorem. The resulting intrinsic deletion witness is real analytic and strictly convex on the positive ray, has all three anchors, exact mass one, both endpoint divergences, and differs from I.",
+        "The completed sufficient-decomposition equivalence applies to every Global A/B certificate, optional exact placement and arbitrary typed selected packets, with both round trips. The complete scalar boundary retains all native external deletion witnesses and adds the normalized intrinsic deletion and actual fixed-base integral K0 versus every rational additive characteristic witness. Positive spatial rigidity and exact radial-cancellation boundaries remain in the conjunction; Global E supplies the six canonical contexts.",
+        "For integral first Chern classes, the usual supplied general classification of all native rank-one bundles is explicit. The native bundle obstruction derives unequal integral classes and the retained-context no-decoder result without assuming an RP2 class value."
       ],
-      "unproved_components": [
-        "Normalized nontrivial intrinsic deletion witness.",
-        "Native coordinate relabelling, Gamma shape-two/three isospectral stationary-law, uniform-angle/fixed-direction vector-law, Gamma-subordinator/time-scaled-variable process, spectral matrix perturbation, RP2 complex-line, and prime-generator permutation witnesses wherever not supplied in their local sections.",
-        "Assembly preserving every other retained packet and changing each named target."
-      ],
-      "notes": "Generic free-product non-decoding is not a substitute for the actual claimed candidate-universe witnesses."
+      "unproved_components": [],
+      "notes": "2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See global-c-d-boundary-proof-record.md and f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
     },
     {
       "latex_label": "final:global-F",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.Closure.no_placement_decoder_without_scale",
         "Sigma.Closure.no_placement_decoder_without_offset",
@@ -584,17 +627,27 @@
         "Sigma.Closure.stationary_packet_no_decoder",
         "Sigma.Closure.process_packet_no_decoder",
         "Sigma.Closure.matrix_packet_no_decoder",
-        "Sigma.Closure.arithmetic_packet_no_decoder"
+        "Sigma.Closure.arithmetic_packet_no_decoder",
+        "Sigma.Closure.sufficientDecomposition",
+        "Sigma.Closure.sufficient_decomposition_roundtrips",
+        "Sigma.Closure.intrinsic_packet_no_decoder",
+        "Sigma.Closure.CompleteScalarBoundary",
+        "Sigma.Closure.complete_scalar_boundary",
+        "Sigma.Closure.global_relative_irredundancy",
+        "Sigma.Closure.fixed_context_native_closure",
+        "Sigma.real_projective_scalar_rational_data_no_k0_decoder",
+        "Sigma.real_projective_integral_line_characteristic_ne",
+        "Sigma.real_projective_integral_characteristic_no_decoder"
       ],
       "proved_components": [
         "Placement, tree-size and spatial non-identification components; nonnegative global orthogonal-additivity rigidity; exact radial differential-expression cancellation iff D=1 or 3 and D>=2 selection; different profile cancellation.",
         "Actual retained-scalar non-decoder theorems for arbitrary vector laws with the same Gamma radius, Borel-size tree laws, native stationary laws with the same spectrum, measurable processes with the same time-one Gamma law, matrix families with the same rank-one seed, and numerical labels on the unchanged positive-integer multiplication monoid.",
-        "A compiled typed conjunction now assembles the available scalar boundary clauses, including continuous coordinate relabelling, both actual Gamma-two/Gamma-three stationary heat-mixing identities with common spectral data but unequal coordinate laws, and the native RP2 line-versus-tensor-square nonisomorphism."
+        "A compiled typed conjunction now assembles the available scalar boundary clauses, including continuous coordinate relabelling, both actual Gamma-two/Gamma-three stationary heat-mixing identities with common spectral data but unequal coordinate laws, and the native RP2 line-versus-tensor-square nonisomorphism.",
+        "The completed sufficient-decomposition equivalence applies to every Global A/B certificate, optional exact placement and arbitrary typed selected packets, with both round trips. The complete scalar boundary retains all native external deletion witnesses and adds the normalized intrinsic deletion and actual fixed-base integral K0 versus every rational additive characteristic witness. Positive spatial rigidity and exact radial-cancellation boundaries remain in the conjunction; Global E supplies the six canonical contexts.",
+        "For integral first Chern classes, the usual supplied general classification of all native rank-one bundles is explicit. The native bundle obstruction derives unequal integral classes and the retained-context no-decoder result without assuming an RP2 class value."
       ],
-      "unproved_components": [
-        "Supply and integrate F5's fixed-base stable K0 distinction with equal rational characteristic data, then finish the exact full paper boundary conjunction; the existing native-bundle field only records line-versus-tensor-square nonisomorphism."
-      ],
-      "notes": "Spatial rigidity retains dimension>=2 and does not add continuity/measurability hypotheses. The available boundary conjunction compiles, but F5's stable integral-versus-rational clause remains absent, so global-F remains partial."
+      "unproved_components": [],
+      "notes": "2026-09-30 complete native assembly in SigmaClosureCompleteBoundary, using the normalized analytic deletion witness, complete Global A/B enumeration, existing Global E and native F5 additive torsion proof. Every other selected packet may be retained as an arbitrary common context. Global C/D are aliases of one theorem; Global F is the resulting scalar boundary. See global-c-d-boundary-proof-record.md and f5-native-k0-rational-proof-record.md. No R1 stochastic-calculus completion is claimed."
     }
   ]
 }

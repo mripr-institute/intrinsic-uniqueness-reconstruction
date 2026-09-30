@@ -2,7 +2,7 @@
   "scope": "Independent adversarial comparison of all 17 named theorem/proposition statements in paper/sections/series-realizations.tex with current repository-owned Lean signatures; 2026-09-19",
   "verdict": "DEFECTS FOUND: exact full-paper coverage is not established",
   "method": "Read the current paper, actual theorem signatures and proof sources, searched all Sigma*.lean modules, and compared older realization and matrix-calculus maps only after source inspection. Existing mathematics is credited independently of stale namespaces and paths. No compilation claim is made by this read-only mathematical audit.",
-  "totals": {"definition": 0, "complete": 15, "partial": 2, "missing": 0},
+  "totals": {"definition": 0, "complete": 16, "partial": 1, "missing": 0},
   "statements": [
     {
       "latex_label": "final:F1",
@@ -87,7 +87,7 @@
     },
     {
       "latex_label": "final:F5",
-      "status": "partial",
+      "status": "complete",
       "lean_declarations": [
         "Sigma.RealProjectivePlane",
         "Sigma.realProjectiveComplexCore",
@@ -120,21 +120,35 @@
         "Sigma.real_projective_line_has_no_determinant_coboundary",
         "Sigma.stable_line_local_determinant_chart_change",
         "Sigma.stable_isomorphism_determinant_coboundary",
-        "Sigma.real_projective_complex_line_not_stably_trivial"
+        "Sigma.real_projective_complex_line_not_stably_trivial",
+        "Sigma.FiniteComplexBundle.kClass_eq_iff",
+        "Sigma.real_projective_complex_k0_class_ne_one",
+        "Sigma.real_projective_transition_complex_log_exp",
+        "Sigma.real_projective_complex_log_chern_coboundary",
+        "Sigma.real_projective_rational_first_chern_zero",
+        "Sigma.real_projective_rational_cech_h2_zero",
+        "Sigma.realProjectiveDoubleTrivialization",
+        "Sigma.real_projective_k0_double_eq",
+        "Sigma.real_projective_reduced_k0_two_torsion",
+        "Sigma.real_projective_rational_additive_characteristic_eq",
+        "Sigma.real_projective_normalized_rational_characteristic_one",
+        "Sigma.real_projective_fixed_base_integral_rational_witness",
+        "Sigma.real_projective_scalar_rational_data_no_k0_decoder"
       ],
       "proved_components": [
         "Actual complexification of the tautological real line on RP2 with native quotient topology, explicit Mathlib complex vector-bundle charts, a projection-preserving incidence total-space homeomorphism, and canonical scalar extension of every real tautological fiber with the literal pure-tensor formula.",
         "The incidence line has no continuous nowhere-zero section and admits no global vector-bundle trivialization. The obstruction is derived by lifting the actual normalized section phase over a closed hemisphere using a radial null-homotopy and a uniform subdivision, then contradicting the odd antipodal phase on the connected equator.",
         "The squared transition functions of the actual projective line form a projector coboundary; the associated native square-transition bundle has a continuous nowhere-zero section.",
         "The actual algebraic tensor-square fibers carry a native rank-one complex vector bundle, identified with the squared-cocycle bundle by a base-preserving homeomorphism linear on every fiber, with the literal pure-tensor coordinate formula. The tensor square has an actual global trivialization. The original line is not isomorphic over the fixed RP2 base to this tensor-square bundle.",
-        "For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. Every actual stabilized bundle isomorphism yields a continuous nonzero determinant coboundary on the RP2 charts, contradicting the native no-section theorem. Thus the actual line cannot be stabilized to the trivial line by any native finite-rank complex bundle."
+        "For an arbitrary-rank native stabilizer, the block-transition determinant cancels algebraically. Every actual stabilized bundle isomorphism yields a continuous nonzero determinant coboundary on the RP2 charts, contradicting the native no-section theorem. Thus the actual line cannot be stabilized to the trivial line by any native finite-rank complex bundle.",
+        "The native Whitney-sum monoid and its actual Grothendieck group are constructed. Equality supplies a native common stabilizer; model-coordinate transport and the determinant obstruction give the literal K0 inequality.",
+        "An explicit continuous fiberwise complex-linear quaternionic trivialization proves L direct-sum L is isomorphic to the direct sum of two trivial lines. The reduced native K0 class is nonzero and has additive order two.",
+        "Every additive characteristic from native K0 to any rational module agrees on L and the trivial line. The ordinary Chern character therefore equals one using only its defining additivity and trivial-line normalization in the supplied rational cohomology ring; no RP2 cohomological vanishing or value of ch(L) is assumed.",
+        "The fixed-base no-decoder theorem retains an arbitrary full scalar object and every other common packet while rational characteristic data agree and native integral K0 classes differ.",
+        "A separate actual three-chart Cech calculation constructs continuous logarithms of the genuine transition functions, identifies the integral Chern cocycle, proves its rational exactness and computes vanishing of the chart complex H2 over Q. This is explicitly distinguished from an ordinary-cohomology comparison and is not needed for the additive torsion proof."
       ],
-      "unproved_components": [
-        "Construct the native complex K0 class relation and identify the proved arbitrary-stabilizer obstruction with the literal class inequality [L] != [1]",
-        "Derive the RP2 positive-degree rational cohomology calculation and the actual Chern character of L, proving ch(L) = 1 without assuming this cohomological input",
-        "Assemble the fixed-base nonreconstruction witness with equal actual rational characteristic data and distinct integral bundle/K0 data"
-      ],
-      "notes": "The native tensor-square identification and trivialization compile. Arbitrary-stabilizer determinant cancellation now includes continuity of the determinant extracted from every actual stabilized isomorphism, proving no such isomorphism exists. The supplied characteristic interface still does not derive the RP2 rational cohomology calculation or the actual Chern character, and no native K0 group is constructed. F5 remains partial; no new independent semantic review is claimed for this progress."
+      "unproved_components": [],
+      "notes": "2026-09-30 whole F5 closure by the stronger native additive order-two argument. Ordinary cohomology and the general Chern character retain the supplied elementary-foundation status stated in the paper, as in F4; only universal additivity and trivial-line normalization are used. The specific integral obstruction, actual two-copy trivialization, native K0 relation and rational-characteristic equality are derived. No RP2-specific cohomology hypothesis remains. See f5-native-k0-rational-proof-record.md."
     },
     {
       "latex_label": "final:M1",

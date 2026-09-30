@@ -1,4 +1,9 @@
 import SigmaCore
+import SigmaRealProjectiveRationalWitness
+import SigmaRealProjectiveRationalCharacteristic
+import SigmaClosureCompletePresentations
+import SigmaClosureNormalizedPerturbation
+import SigmaClosureCompleteBoundary
 import SigmaAffineCurvature
 import SigmaBregman
 import SigmaPlacement

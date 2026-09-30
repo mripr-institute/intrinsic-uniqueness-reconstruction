@@ -23,8 +23,8 @@ theorem rational_square_one_of_square_zero {A : Type*} [CommRing A] [Algebra ℚ
   exact sub_eq_zero.mp hzero
 
 /-- An additive invariant valued in a cancellative monoid detects inequality
-after stabilization by any object. The missing F5 input is the determinant
-invariant on actual complex bundles. -/
+after stabilization by any object. The actual determinant obstruction and
+native K⁰ relation are developed in the later projective modules. -/
 theorem not_stably_equivalent_of_cancellative_invariant
     {M N : Type*} [AddCommMonoid M] [AddCancelCommMonoid N]
     (δ : M →+ N) {a b : M} (hδ : δ a ≠ δ b) :
@@ -34,9 +34,11 @@ theorem not_stably_equivalent_of_cancellative_invariant
   apply add_right_cancel (b := δ e)
   simpa only [map_add] using congrArg δ he
 
-/-- The remaining RP² cohomological inputs are stated explicitly: the K-class
+/-- A conditional algebraic helper with explicit RP² inputs: the K-class
 of the complexified line squares to one, and its rational reduced Chern
-character has square zero. Under those inputs the Chern character is one. -/
+character has square zero. The later SigmaRealProjectiveRationalCharacteristic
+module proves the rational conclusion from native additive two-torsion,
+without either of these RP²-specific assumptions. -/
 theorem real_projective_chern_character_of_square_and_reduced_square_zero
     (T : SuppliedComplexThomTheory)
     (hsquare : (T.bundleClass realProjectiveComplexLine) ^ 2 = 1)
