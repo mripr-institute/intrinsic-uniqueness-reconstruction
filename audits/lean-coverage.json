@@ -1,11 +1,10 @@
 {
-  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. The named count includes definitions. Labelled equations are tracked at equation level; those inside named statements are not additional paper results. Complete Lean coverage is not yet established.",
+  "scope": "All named mathematical environments in the current paper. Equation labels inside statements are retained as component labels. Proof-only assertions and the software-status remark are distinguished in the independent audit artifacts. The paper supplies mathematical proofs; the statuses here measure their Lean formalization only. The named count includes definitions. Labelled equations are tracked at equation level; those inside named statements are not additional paper results. Complete named-statement and labelled-equation coverage is recorded relative to the explicit supplied foundations documented in the maps. In particular, R1 retains general Itô and Lévy foundations; this does not claim their construction from scratch.",
   "count": 80,
   "named_statement_count": 78,
   "totals": {
     "definition": 2,
-    "complete": 77,
-    "partial": 1
+    "complete": 78
   },
   "labelled_equation_totals": {
     "complete": 15
@@ -3655,7 +3654,7 @@
       "line": 573,
       "statement_tex": "\\label{final:R1}\nIf $Z\\sim N(0,E_4)$ and $T=\\|Z\\|^2/2$, then $T$ has density\n$p(t)=te^{-t}$ on $t>0$.  Conversely, if $T$ has this density and\n$\\Omega$ is an independent uniform point of $S^3$, then\n$Z=\\sqrt{2T}\\,\\Omega$ has law $N(0,E_4)$.  Equivalently the radial\nlaw together with orthogonal invariance uniquely identifies this\nGaussian law; the radial law alone does not.\n\nFor the specified Ornstein--Uhlenbeck process in $\\mathbb R^D$,\n\\[\n dZ_s=-\\tfrac12Z_s\\,ds+dB_s,\n\\]\nthe generator on radial-energy functions $F(z)=f(\\|z\\|^2/2)$ is\n\\[\n \\left(\\tfrac12\\Delta-\\tfrac12z\\cdot\\nabla\\right)F\n       =t f''(t)+(D/2-t)f'(t).\n\\]\nThus its radial generator is $tf''+(2-t)f'$ exactly when $D=4$.\nIn dimension four the radial energy satisfies\n\\[\n dT_s=(2-T_s)\\,ds+\\sqrt{2T_s}\\,d\\beta_s\n\\]\nfor a one-dimensional Brownian motion $\\beta$.  These statements\nselect a dimension within this specified Gaussian construction.\n",
       "statement_sha256": "b91cacaccd8eb9ee073c94fa0d70a3eddc95a0526f5b34c311dbb5ae2cf10b19",
-      "lean_status": "partial",
+      "lean_status": "complete",
       "lean_theorems": [
         "Sigma.radial_OU_dimension",
         "Sigma.radial_energy_hasFDerivAt",
@@ -3699,7 +3698,20 @@
         "Sigma.radial_brownian_naturally_adapted",
         "Sigma.radial_ou_driven_paths",
         "Sigma.radial_four_unit_ball_volume",
-        "Sigma.radial_four_surface_area"
+        "Sigma.radial_four_surface_area",
+        "Sigma.gaussian_zero_fourth_moment",
+        "Sigma.gaussian_square_sum_centered_second_moment",
+        "Sigma.radial_brownian_quadratic_sum_error",
+        "Sigma.radial_brownian_quadratic_variation_mean_square",
+        "Sigma.radial_brownian_quadratic_variation_in_probability",
+        "Sigma.radial_brownian_self_integral_limit",
+        "Sigma.radial_brownian_energy_ito",
+        "Sigma.BrownianItoLevyCalculus.unit_integral_brownian",
+        "Sigma.BrownianItoLevyCalculus.normalized_integral_brownian",
+        "Sigma.BrownianItoLevyCalculus.radial_ou_energy_ito",
+        "Sigma.BrownianItoLevyCalculus.radial_ou_integral_substitution",
+        "Sigma.BrownianItoLevyCalculus.radial_ou_stochastic_equation",
+        "Sigma.radial_four_ou_stochastic_equation"
       ],
       "proved_components": [
         "Equality of the scalar drift coefficients D/2-t and 2-t for all t iff D=4",
@@ -3710,18 +3722,15 @@
         "Any orthogonally invariant probability on actual Euclidean R4 with the indicated radial law equals the Gaussian. A native normalized-quaternion Gaussian averaging proof establishes uniqueness without assuming angular independence or a radial vector density.",
         "The actual Gaussian direction and radial energy have the uniform-S3 times Gamma product law and are independent; the chosen direction at the null origin is explicit.",
         "The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event.",
-        "The actual four-dimensional Euclidean unit ball has volume pi^2/2 and the genuine S3 surface measure has mass 2*pi^2, proving the paper polar normalization constant."
+        "The actual four-dimensional Euclidean unit ball has volume pi^2/2 and the genuine S3 surface measure has mass 2*pi^2, proving the paper polar normalization constant.",
+        "Native Gaussian fourth moments and independent squared-increment variances give exact uniform-partition mean-square error 2*D*t^2/n for Brownian quadratic variation, hence convergence in probability. The Brownian self integral is constructed as a probability limit of actual left-point sums and satisfies the quadratic energy identity.",
+        "From the general Ito and Levy foundations explicitly retained by the paper, every progressive unit-vector integrand has a real Brownian stochastic integral: its actual squared-norm time integral is t, so the native martingale and square-compensator laws imply the Gaussian independent-increment Brownian conclusion.",
+        "For any specified continuous progressive OU solution, native Frechet derivatives and the Euclidean Laplacian reduce the universal C2 Ito formula to the radial energy identity. The normalized direction is progressive and unit length everywhere, including at zero. General stochastic substitution and the pointwise sqrt(2*T) reconstruction yield dT=(D/2-T)dt+sqrt(2*T)dBeta, and the exact dimension-four equation, on one common full-measure event."
       ],
-      "unproved_components": [
-        "Brownian existence and stochastic-calculus foundations for the actual radial OU Ito identity: construct the stochastic integral, derive the norm-square Ito formula, and prove the normalized unit-integrand integral is a one-dimensional Brownian motion.",
-        "Complete the actual radial stochastic equation dT=(2-T)ds+sqrt(2T)dBeta; the continuous-path OU integral equation and formal differential generator alone do not establish it."
-      ],
-      "gaps": [
-        "Brownian existence and stochastic-calculus foundations for the actual radial OU Ito identity: construct the stochastic integral, derive the norm-square Ito formula, and prove the normalized unit-integrand integral is a one-dimensional Brownian motion.",
-        "Complete the actual radial stochastic equation dT=(2-T)ds+sqrt(2T)dBeta; the continuous-path OU integral equation and formal differential generator alone do not establish it."
-      ],
+      "unproved_components": [],
+      "gaps": [],
       "independent_audit": "audits/formalization/current-realizations-audit.json",
-      "notes": "Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem. 2026-09-27 geometric R1 bounded AUDIT PASS: independent cross-review of Gaussian density/pushforward, native polar uniform inverse, quaternion isotropy uniqueness and direction-energy independence. Conditional Brownian/OU prerequisites are credited only as prerequisites: IsRadialBrownian records standard Gaussian independent increments, zero and continuous paths, and does not assume the OU or radial SDE conclusion. R1 remains partial solely for the stochastic-calculus clause. The geometric inverse needed by global E is complete."
+      "notes": "Independent bounded calculus AUDIT PASS for the actual differential formulas: the Laplacian is a sum of coordinate second derivatives and the gradient is characterized through the actual Frechet derivative. Initial review found an unnecessary zero-energy differentiability premise for off-origin evaluation. The positive companions now derive eventual differentiability along coordinate curves from x!=0 and DifferentiableOn Ioi0, removing that defect; second differentiability is required only at the evaluated energy. Separate original statements retain the origin case. No multivariate probability law, OU process construction or stochastic differential equation is encoded by these differential identities. Adjacent invariant-density diffusion nonselection also needs its stated operator/test-function theorem. 2026-09-27 geometric R1 bounded AUDIT PASS: independent cross-review of Gaussian density/pushforward, native polar uniform inverse, quaternion isotropy uniqueness and direction-energy independence. Conditional Brownian/OU prerequisites are credited only as prerequisites: IsRadialBrownian records standard Gaussian independent increments, zero and continuous paths, and does not assume the OU or radial SDE conclusion. R1 remains partial solely for the stochastic-calculus clause. The geometric inverse needed by global E is complete. 2026-09-30 completion update (implementing-agent review): the preceding partial-status remarks describe the historical audit. Completion now uses the expressly selected supplied-foundation reading of the paper: BrownianItoLevyCalculus exposes general C2 Ito, bounded-integrand martingale and square-compensator, stochastic substitution, and Levy characterization as hypotheses on native objects. Its continuous-integrand law also identifies the supplied integral with probability limits of native left-point sums. No field assumes the OU energy formula, normalization result, or dimension-four SDE. Those conclusions are derived in SigmaRadialOUStochastic. General stochastic-calculus construction and Brownian existence are not claimed; the paper starts with a specified OU process and expressly retains those foundations. The independent Brownian moment/quadratic-variation/self-integral results are proved without the supplied calculus. See r1-stochastic-proof-record.md for the precise scope and validation; this update does not claim a new independent external review."
     },
     {
       "id": "final:R2",

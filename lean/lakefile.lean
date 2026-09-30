@@ -10,6 +10,12 @@ require mathlib from git
 lean_lib SigmaFormalization where
   roots := #[
     `Sigma,
+    `SigmaRadialBrownianMoments,
+    `SigmaRadialBrownianProduct,
+    `SigmaRadialBrownianQuadraticVariation,
+    `SigmaRadialBrownianSelfIntegral,
+    `SigmaItoLevyFoundations,
+    `SigmaRadialOUStochastic,
     `SigmaNativeComplexKTheory,
     `SigmaNativeComplexBundleModel,
     `SigmaRealProjectiveKTheory,

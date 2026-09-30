@@ -89,6 +89,14 @@ def reconstruct():
         for equation in labelled_equations
     ]
     equation_totals = Counter(item["status"] for item in labelled_equations)
+    incomplete = any(totals[s] or equation_totals[s] for s in ("partial", "missing"))
+    completion_note = (
+        "Complete Lean coverage is not yet established." if incomplete else
+        "Complete named-statement and labelled-equation coverage is recorded "
+        "relative to the explicit supplied foundations documented in the maps. "
+        "In particular, R1 retains general Itô and Lévy foundations; this does "
+        "not claim their construction from scratch."
+    )
     return {
         "scope": "All named mathematical environments in the current paper. "
                  "Equation labels inside statements are retained as component labels. "
@@ -97,7 +105,7 @@ def reconstruct():
                  "the statuses here measure their Lean formalization only. "
                  "The named count includes definitions. Labelled equations are tracked "
                  "at equation level; those inside named statements are not additional "
-                 "paper results. Complete Lean coverage is not yet established.",
+                 "paper results. " + completion_note,
         "count": len(items),
         "named_statement_count": len(items) - totals["definition"],
         "totals": dict(totals),
@@ -181,6 +189,9 @@ def inventory_markdown(ledger):
              f"{equation_totals.get('partial', 0)} partial, {equation_totals.get('missing', 0)} missing).",
              f"- Distinct mapped declarations across named items: {len(names)} "
              "(including definitions and helpers).", "",
+             "Coverage is relative to the explicit supplied foundations documented "
+             "in the maps. R1 retains general Itô and Lévy foundations; their "
+             "construction from scratch is not claimed.", "",
              "## Statements fully formalized in Lean", ""]
     for item in items:
         if item["lean_status"] == "complete":

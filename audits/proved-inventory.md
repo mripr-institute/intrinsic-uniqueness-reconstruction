@@ -9,11 +9,13 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - Named paper items: 80.
 - Definitions: 2.
 - Named statements excluding definitions: 78.
-- Fully formalized named statements: 77/78.
-- Partially formalized statements: 1.
+- Fully formalized named statements: 78/78.
+- Partially formalized statements: 0.
 - Statements awaiting Lean formalization: 0.
 - Labelled equations (equation-level checks, not additional named results): 15 (15 complete, 0 partial, 0 missing).
-- Distinct mapped declarations across named items: 2026 (including definitions and helpers).
+- Distinct mapped declarations across named items: 2039 (including definitions and helpers).
+
+Coverage is relative to the explicit supplied foundations documented in the maps. R1 retains general Itô and Lévy foundations; their construction from scratch is not claimed.
 
 ## Statements fully formalized in Lean
 
@@ -83,6 +85,7 @@ The paper supplies mathematical proofs of its results. This inventory lists thei
 - **final:M2** — Derivatives, divergence, duality, and determinant bounds
 - **final:M3** — Geodesics, distance, and the symmetrization boundary
 - **final:M4** — The supplied Gaussian and Wishart sampling model
+- **final:R1** — The isotropic four-dimensional Gaussian realization
 - **final:R2** — Nonnegative orthogonal additivity without regularity
 - **final:R3** — The profile-independent radial residual
 - **final:R4** — Spatial countermodels retaining the complete intrinsic structure
@@ -2755,7 +2758,7 @@ Mapped Lean declarations:
 
 ### final:R1 — The isotropic four-dimensional Gaussian realization
 
-Lean coverage: **partial**. [Paper statement](../paper/sections/series-realizations.tex#L573); [independent coverage map](formalization/current-realizations-audit.json).
+Lean coverage: **complete**. [Paper statement](../paper/sections/series-realizations.tex#L573); [independent coverage map](formalization/current-realizations-audit.json).
 
 Mathematical content formalized in Lean:
 
@@ -2768,6 +2771,9 @@ Mathematical content formalized in Lean:
 - The actual Gaussian direction and radial energy have the uniform-S3 times Gamma product law and are independent; the chosen direction at the null origin is explicit.
 - The unit-direction integrand is Borel measurable and preserves progressive measurability. A literal Bochner-convolution OU solution is continuous, solves the integral equation and is unique among continuous solutions. Supplied native Brownian processes have the actual finite-partition product Gaussian increment law; the constructed driven OU paths solve the additive-noise integral equation on a common full-measure event.
 - The actual four-dimensional Euclidean unit ball has volume pi^2/2 and the genuine S3 surface measure has mass 2*pi^2, proving the paper polar normalization constant.
+- Native Gaussian fourth moments and independent squared-increment variances give exact uniform-partition mean-square error 2*D*t^2/n for Brownian quadratic variation, hence convergence in probability. The Brownian self integral is constructed as a probability limit of actual left-point sums and satisfies the quadratic energy identity.
+- From the general Ito and Levy foundations explicitly retained by the paper, every progressive unit-vector integrand has a real Brownian stochastic integral: its actual squared-norm time integral is t, so the native martingale and square-compensator laws imply the Gaussian independent-increment Brownian conclusion.
+- For any specified continuous progressive OU solution, native Frechet derivatives and the Euclidean Laplacian reduce the universal C2 Ito formula to the radial energy identity. The normalized direction is progressive and unit length everywhere, including at zero. General stochastic substitution and the pointwise sqrt(2*T) reconstruction yield dT=(D/2-T)dt+sqrt(2*T)dBeta, and the exact dimension-four equation, on one common full-measure event.
 
 Mapped Lean declarations:
 
@@ -2814,11 +2820,19 @@ Mapped Lean declarations:
 - `Sigma.radial_ou_driven_paths`
 - `Sigma.radial_four_unit_ball_volume`
 - `Sigma.radial_four_surface_area`
-
-Remaining Lean formalization:
-
-- Brownian existence and stochastic-calculus foundations for the actual radial OU Ito identity: construct the stochastic integral, derive the norm-square Ito formula, and prove the normalized unit-integrand integral is a one-dimensional Brownian motion.
-- Complete the actual radial stochastic equation dT=(2-T)ds+sqrt(2T)dBeta; the continuous-path OU integral equation and formal differential generator alone do not establish it.
+- `Sigma.gaussian_zero_fourth_moment`
+- `Sigma.gaussian_square_sum_centered_second_moment`
+- `Sigma.radial_brownian_quadratic_sum_error`
+- `Sigma.radial_brownian_quadratic_variation_mean_square`
+- `Sigma.radial_brownian_quadratic_variation_in_probability`
+- `Sigma.radial_brownian_self_integral_limit`
+- `Sigma.radial_brownian_energy_ito`
+- `Sigma.BrownianItoLevyCalculus.unit_integral_brownian`
+- `Sigma.BrownianItoLevyCalculus.normalized_integral_brownian`
+- `Sigma.BrownianItoLevyCalculus.radial_ou_energy_ito`
+- `Sigma.BrownianItoLevyCalculus.radial_ou_integral_substitution`
+- `Sigma.BrownianItoLevyCalculus.radial_ou_stochastic_equation`
+- `Sigma.radial_four_ou_stochastic_equation`
 
 ### final:R2 — Nonnegative orthogonal additivity without regularity
 
